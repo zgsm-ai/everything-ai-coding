@@ -3,7 +3,7 @@ name: coding-hub
 description: >
   Coding 资源一站式搜索与安装。聚合 MCP Servers、Skills、Rules、Prompts 索引，
   支持搜索、分类浏览、项目推荐、一键安装。
-  触发: /coding-hub search <query> | browse [category] | recommend | install <name>
+  触发: /coding-hub search <query> | browse [category] | recommend | install <name> | uninstall <name>
 ---
 
 # Coding Hub
@@ -12,7 +12,7 @@ description: >
 
 ## 数据源
 
-索引 URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo-/main/catalog/index.json`
+索引 URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/catalog/index.json`
 
 每次执行命令时，用 `curl -s` 获取这个 JSON 文件。索引是一个数组，每个条目包含：
 - `id`: 唯一标识
@@ -132,3 +132,51 @@ description: >
 - 如果 curl 获取索引失败，告知用户网络问题并建议重试
 - 如果安装目标文件写入失败，显示权限错误并建议解决方案
 - 如果搜索无结果，建议用户换个关键词或使用 browse 浏览
+
+### uninstall <name>
+
+1. 获取索引，按 `id` 或 `name`（模糊匹配）查找条目
+2. 如果匹配多条，列出让用户选择要卸载的具体资源
+3. 检测安装状态和安装位置：
+
+**MCP (type == "mcp")**:
+- 检查项目级 `.claude/settings.json` 和全局 `~/.claude/settings.json` 中的 `mcpServers` 字段
+- 查找与该资源 `install.config` key 匹配的条目
+- 如果两个层级都存在，列出两个安装位置，让用户选择卸载哪个（项目级/全局/全部）
+
+**Skill (type == "skill")**:
+- 检查 `~/.claude/skills/<id>/` 目录是否存在
+
+**Rule (type == "rule") / Prompt (type == "prompt")**:
+- 检查项目级 `.claude/rules/<id>.md` 和全局 `~/.claude/rules/<id>.md`
+- 如果两个层级都存在，让用户选择卸载哪个（项目级/全局/全部）
+
+4. 如果资源未安装（所有位置都不存在），提示 "{name} is not installed" 并终止
+
+5. 展示卸载预览：
+
+```
+## 卸载确认
+
+- 名称: xxx
+- 类型: MCP Server / Skill / Rule / Prompt
+- 将要删除/修改的文件:
+  - .claude/settings.json (移除 mcpServers.xxx key)
+  - 或 ~/.claude/skills/xxx/ (删除目录)
+  - 或 .claude/rules/xxx.md (删除文件)
+
+确认卸载？(Y/n)
+```
+
+6. 用户确认后执行卸载：
+
+**MCP**: 读取对应 settings.json → 移除 `mcpServers` 中的对应 key → 写回文件
+**Skill**: 删除 `~/.claude/skills/<id>/` 整个目录
+**Rule/Prompt**: 删除对应的 `.md` 文件
+
+7. 卸载完成后报告结果
+
+8. 错误处理：
+- 文件权限不足：报告错误并建议检查目录权限
+- settings.json 格式损坏：报告错误并建议手动检查文件
+- 删除失败：报告具体错误信息
