@@ -10,6 +10,7 @@ openspec/
 # Claude Code local config
 .claude/
 .opencode/
+CLAUDE.md
 
 # OS files
 .DS_Store
