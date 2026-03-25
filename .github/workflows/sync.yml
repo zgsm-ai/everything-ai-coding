@@ -54,7 +54,7 @@ jobs:
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
           LLM_EVAL_LIMIT: ${{ vars.LLM_EVAL_LIMIT || '200' }}
         run: python scripts/sync_skills.py
-        timeout-minutes: 30
+        timeout-minutes: 40
         continue-on-error: true
 
       - name: Sync Prompts

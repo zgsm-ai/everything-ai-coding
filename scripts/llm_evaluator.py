@@ -22,7 +22,7 @@ LLM_API_KEY = os.environ.get("LLM_API_KEY", "")
 LLM_MODEL = os.environ.get("LLM_MODEL", "claude-haiku-4-5-20251001")
 LLM_EVAL_LIMIT = int(os.environ.get("LLM_EVAL_LIMIT", "200"))
 
-BATCH_SIZE = 15  # Skills per LLM call
+BATCH_SIZE = 30  # Skills per LLM call
 MIN_CODING_RELEVANCE = 3
 MIN_QUALITY_SCORE = 3
 TOP_N = 150
@@ -115,7 +115,7 @@ def call_llm(skills_batch: list[dict]) -> list[dict] | None:
             {"role": "user", "content": user_prompt},
         ],
         "temperature": 0.1,
-        "max_tokens": 4096,
+        "max_tokens": 8192,
     }
 
     data = json.dumps(payload).encode()
@@ -244,7 +244,11 @@ def evaluate_skills(candidates: list[dict]) -> list[dict]:
                 c["_score"] = _compute_score(coding_rel, quality, c["stars"])
                 evaluated.append(c)
 
-    # Save updated cache
+        # Incremental save: persist cache after each batch so progress
+        # survives timeouts or crashes (CI kills at 30 min)
+        save_cache(cache)
+
+    # Final save (covers edge cases like early break from limit/failures)
     save_cache(cache)
     logger.info(f"LLM evaluation: {call_count} API calls, {len(evaluated)} skills passed")
 
