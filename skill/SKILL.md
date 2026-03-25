@@ -12,7 +12,7 @@ description: >
 
 ## 数据源
 
-索引 URL: `https://raw.githubusercontent.com/costrict/costrict-skills-repo/main/catalog/index.json`
+索引 URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo-/main/catalog/index.json`
 
 每次执行命令时，用 `curl -s` 获取这个 JSON 文件。索引是一个数组，每个条目包含：
 - `id`: 唯一标识
