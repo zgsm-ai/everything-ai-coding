@@ -11,7 +11,7 @@ permissions:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 75
 
     steps:
       - uses: actions/checkout@v4
@@ -54,7 +54,7 @@ jobs:
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
           LLM_EVAL_LIMIT: ${{ vars.LLM_EVAL_LIMIT || '200' }}
         run: python scripts/sync_skills.py
-        timeout-minutes: 40
+        timeout-minutes: 60
         continue-on-error: true
 
       - name: Sync Prompts

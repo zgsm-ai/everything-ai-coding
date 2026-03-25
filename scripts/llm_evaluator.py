@@ -22,7 +22,7 @@ LLM_API_KEY = os.environ.get("LLM_API_KEY", "")
 LLM_MODEL = os.environ.get("LLM_MODEL", "claude-haiku-4-5-20251001")
 LLM_EVAL_LIMIT = int(os.environ.get("LLM_EVAL_LIMIT", "200"))
 
-BATCH_SIZE = 30  # Skills per LLM call
+BATCH_SIZE = 15  # Skills per LLM call (keep small for slow thinking models)
 MIN_CODING_RELEVANCE = 3
 MIN_QUALITY_SCORE = 3
 TOP_N = 150
