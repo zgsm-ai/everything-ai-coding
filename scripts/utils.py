@@ -213,7 +213,13 @@ def fetch_raw_content(repo: str, path: str, branch: str = "main") -> Optional[st
     try:
         with urlopen(req, timeout=30) as resp:
             return resp.read().decode("utf-8", errors="replace")
-    except (HTTPError, URLError, TimeoutError) as e:
+    except HTTPError as e:
+        if e.code == 404:
+            logger.debug(f"Not found (404): {url}")
+        else:
+            logger.error(f"Failed to fetch {url}: {e}")
+        return None
+    except (URLError, TimeoutError) as e:
         logger.error(f"Failed to fetch {url}: {e}")
         return None
 
