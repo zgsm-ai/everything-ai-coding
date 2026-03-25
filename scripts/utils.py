@@ -192,6 +192,32 @@ def github_api(path: str) -> Optional[dict]:
     return None
 
 
+def get_repo_info(repo_slug: str) -> Optional[dict]:
+    """Get repo metadata (stars, pushed_at, default_branch). Returns None on error."""
+    data = github_api(f"repos/{repo_slug}")
+    if not data:
+        return None
+    return {
+        "stars": data.get("stargazers_count", 0),
+        "pushed_at": data.get("pushed_at", ""),
+        "default_branch": data.get("default_branch", "main"),
+    }
+
+
+def list_repo_files(repo_slug: str, branch: str = "main",
+                    pattern: str = "") -> list[str]:
+    """List files in a repo using Git Tree API (recursive). Optionally filter by pattern.
+    Returns list of file paths. Much faster than cloning.
+    """
+    data = github_api(f"repos/{repo_slug}/git/trees/{branch}?recursive=1")
+    if not data or "tree" not in data:
+        return []
+    paths = [item["path"] for item in data["tree"] if item.get("type") == "blob"]
+    if pattern:
+        paths = [p for p in paths if pattern.lower() in p.lower()]
+    return paths
+
+
 def get_stars(repo_url: str) -> int:
     """Get star count for a GitHub repo URL. Returns 0 on error."""
     match = re.search(r"github\.com/([^/]+/[^/]+?)(?:\.git)?(?:/|$|\?|#)", repo_url)
@@ -204,8 +230,14 @@ def get_stars(repo_url: str) -> int:
     return 0
 
 
-def fetch_raw_content(repo: str, path: str, branch: str = "main") -> Optional[str]:
-    """Fetch raw file content from GitHub."""
+def fetch_raw_content(repo: str, path: str, branch: str = "main",
+                      quiet_404: bool = False) -> Optional[str]:
+    """Fetch raw file content from GitHub.
+
+    Args:
+        quiet_404: If True, log 404 at DEBUG level (for expected probes).
+                   If False (default), log at WARNING level.
+    """
     url = f"https://raw.githubusercontent.com/{repo}/{branch}/{path}"
     req = Request(url)
     if GITHUB_TOKEN:
@@ -215,7 +247,10 @@ def fetch_raw_content(repo: str, path: str, branch: str = "main") -> Optional[st
             return resp.read().decode("utf-8", errors="replace")
     except HTTPError as e:
         if e.code == 404:
-            logger.debug(f"Not found (404): {url}")
+            if quiet_404:
+                logger.debug(f"Not found (404): {url}")
+            else:
+                logger.warning(f"Not found (404): {url}")
         else:
             logger.error(f"Failed to fetch {url}: {e}")
         return None
