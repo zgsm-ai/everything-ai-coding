@@ -10,7 +10,7 @@ from datetime import date
 sys.path.insert(0, os.path.dirname(__file__))
 from utils import (
     fetch_raw_content, github_api, categorize, extract_tags,
-    to_kebab_case, save_index, deduplicate, logger,
+    to_kebab_case, save_index, deduplicate, logger, list_repo_files,
 )
 from skill_registry import discover_skills
 from llm_evaluator import evaluate_skills
@@ -79,8 +79,27 @@ def parse_anthropic_skills() -> list:
 
 
 def parse_ai_agent_skills() -> list:
-    """Parse skillcreatorai/Ai-Agent-Skills (house copy only)."""
-    content = fetch_raw_content("skillcreatorai/Ai-Agent-Skills", "skills.json")
+    """Parse skillcreatorai/Ai-Agent-Skills (house copy only).
+
+    Uses Tree API to discover which skills actually have SKILL.md,
+    avoiding blind 404 probes for catalog-only entries.
+    """
+    REPO = "skillcreatorai/Ai-Agent-Skills"
+
+    # Step 1: Tree API — know exactly which SKILL.md files exist
+    existing_files = list_repo_files(REPO, "main", pattern="SKILL.md")
+    existing_skills = set()
+    for path in existing_files:
+        # e.g. "skills/playwright/SKILL.md" → "playwright"
+        parts = path.split("/")
+        if len(parts) >= 3 and parts[0] == "skills" and parts[-1].upper() == "SKILL.MD":
+            existing_skills.add(parts[1])
+
+    if not existing_skills:
+        logger.warning(f"No SKILL.md files found in {REPO} via Tree API")
+
+    # Step 2: Parse skills.json for metadata (description, workArea, etc.)
+    content = fetch_raw_content(REPO, "skills.json")
     if not content:
         logger.error("Failed to fetch Ai-Agent-Skills skills.json")
         return []
@@ -93,6 +112,7 @@ def parse_ai_agent_skills() -> list:
         return []
 
     entries = []
+    skipped = 0
     for skill in skills_data:
         if not isinstance(skill, dict):
             continue
@@ -100,12 +120,15 @@ def parse_ai_agent_skills() -> list:
         if not skill_name:
             continue
 
-        # Check if house copy exists (has local SKILL.md)
-        skill_md = fetch_raw_content(
-            "skillcreatorai/Ai-Agent-Skills", f"skills/{skill_name}/SKILL.md"
-        )
+        # Skip catalog-only entries (no SKILL.md on disk)
+        if skill_name not in existing_skills:
+            skipped += 1
+            continue
+
+        # Fetch actual SKILL.md content
+        skill_md = fetch_raw_content(REPO, f"skills/{skill_name}/SKILL.md")
         if not skill_md:
-            continue  # Skip catalog-only references
+            continue
 
         work_area = skill.get("workArea", "")
         description = skill.get("description", "")
@@ -141,7 +164,7 @@ def parse_ai_agent_skills() -> list:
             "last_synced": TODAY,
         })
 
-    logger.info(f"Parsed {len(entries)} skills from Ai-Agent-Skills")
+    logger.info(f"Parsed {len(entries)} skills from Ai-Agent-Skills ({skipped} catalog-only skipped)")
     return entries
 
 
