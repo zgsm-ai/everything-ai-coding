@@ -1,0 +1,38 @@
+[
+  {
+    "id": "claude-api-skill",
+    "name": "Claude API",
+    "type": "skill",
+    "description": "Build apps with the Claude API or Anthropic SDK",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/claude-api",
+    "stars": 500,
+    "category": "ai-ml",
+    "tags": ["claude", "anthropic", "api", "llm"],
+    "tech_stack": ["python", "typescript"],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/anthropics/skills.git",
+      "files": ["skills/claude-api/"]
+    },
+    "source": "curated",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "mcp-builder-skill",
+    "name": "MCP Builder",
+    "type": "skill",
+    "description": "Build Model Context Protocol servers and tools",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/mcp-builder",
+    "stars": 500,
+    "category": "tooling",
+    "tags": ["mcp", "server", "protocol"],
+    "tech_stack": ["typescript", "python"],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/anthropics/skills.git",
+      "files": ["skills/mcp-builder/"]
+    },
+    "source": "curated",
+    "last_synced": "2026-03-25"
+  }
+]

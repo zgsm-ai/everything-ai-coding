@@ -1,0 +1,36 @@
+[
+  {
+    "id": "linux-terminal-prompt",
+    "name": "Linux Terminal",
+    "type": "prompt",
+    "description": "Act as a Linux terminal, execute commands and return realistic terminal output",
+    "source_url": "https://github.com/f/prompts.chat",
+    "stars": 143000,
+    "category": "devops",
+    "tags": ["linux", "terminal", "shell", "command-line"],
+    "tech_stack": ["bash"],
+    "install": {
+      "method": "download_file",
+      "files": ["https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"]
+    },
+    "source": "curated",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "fullstack-developer-prompt",
+    "name": "Fullstack Software Developer",
+    "type": "prompt",
+    "description": "Act as a fullstack developer with expertise in both frontend and backend technologies",
+    "source_url": "https://github.com/f/prompts.chat",
+    "stars": 143000,
+    "category": "fullstack",
+    "tags": ["fullstack", "web", "frontend", "backend"],
+    "tech_stack": ["javascript", "typescript", "python"],
+    "install": {
+      "method": "download_file",
+      "files": ["https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"]
+    },
+    "source": "curated",
+    "last_synced": "2026-03-25"
+  }
+]

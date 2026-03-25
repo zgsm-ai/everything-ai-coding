@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "name", "type", "description", "source_url", "stars", "category", "tags", "tech_stack", "install", "source", "last_synced"],
+    "properties": {
+      "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+      "name": { "type": "string" },
+      "type": { "type": "string", "enum": ["mcp", "skill", "rule", "prompt"] },
+      "description": { "type": "string" },
+      "source_url": { "type": "string", "format": "uri" },
+      "stars": { "type": "integer", "minimum": 0 },
+      "category": { "type": "string", "enum": ["frontend", "backend", "fullstack", "mobile", "devops", "database", "testing", "security", "ai-ml", "tooling", "documentation"] },
+      "tags": { "type": "array", "items": { "type": "string" } },
+      "tech_stack": { "type": "array", "items": { "type": "string" } },
+      "install": {
+        "type": "object",
+        "required": ["method"],
+        "properties": {
+          "method": { "type": "string", "enum": ["mcp_config", "git_clone", "download_file"] },
+          "config": { "type": "object" },
+          "target_dir": { "type": "string" },
+          "files": { "type": "array", "items": { "type": "string" } },
+          "repo": { "type": "string" }
+        }
+      },
+      "source": { "type": "string" },
+      "last_synced": { "type": "string", "format": "date" }
+    }
+  }
+}

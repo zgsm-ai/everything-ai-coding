@@ -1,0 +1,23 @@
+# Dependencies & caches
+__pycache__/
+*.pyc
+node_modules/
+
+# OpenSpec internal docs
+openspec/
+.cospec/
+
+# Claude Code local config
+.claude/
+.opencode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Generated indexes (rebuilt by CI)
+catalog/mcp/index.json
+catalog/skills/index.json
+catalog/rules/index.json
+catalog/prompts/index.json
+catalog/index.json

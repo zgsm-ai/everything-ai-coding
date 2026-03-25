@@ -1,0 +1,70 @@
+[
+  {
+    "id": "flutter-dart-cursorrule",
+    "name": "Flutter & Dart Rules",
+    "type": "rule",
+    "description": "Cursor rules for Flutter and Dart development with best practices",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/flutter-dart",
+    "stars": 178,
+    "category": "mobile",
+    "tags": ["flutter", "dart", "mobile"],
+    "tech_stack": ["dart", "flutter"],
+    "install": {
+      "method": "download_file",
+      "files": ["https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/flutter-dart/.cursorrules"]
+    },
+    "source": "curated",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "supabase-cursorrule",
+    "name": "Supabase Rules",
+    "type": "rule",
+    "description": "Cursor rules for Supabase with PostgreSQL and Edge Functions",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/supabase",
+    "stars": 178,
+    "category": "database",
+    "tags": ["supabase", "postgres", "edge-functions"],
+    "tech_stack": ["typescript", "sql"],
+    "install": {
+      "method": "download_file",
+      "files": ["https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/supabase/.cursorrules"]
+    },
+    "source": "curated",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "security-audit-rule",
+    "name": "Security Audit Rules",
+    "type": "rule",
+    "description": "AI-assisted security review rules covering OWASP, input validation, and authentication",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "security",
+    "tags": ["security", "audit", "owasp", "authentication"],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": ["https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/security-review.mdc"]
+    },
+    "source": "curated",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "technical-docs-rule",
+    "name": "Technical Documentation Rules",
+    "type": "rule",
+    "description": "AI rules for generating and maintaining technical documentation",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "documentation",
+    "tags": ["documentation", "technical-writing", "api-docs"],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": ["https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/doc-generation.mdc"]
+    },
+    "source": "curated",
+    "last_synced": "2026-03-25"
+  }
+]

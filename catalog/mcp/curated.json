@@ -1,0 +1,36 @@
+[
+  {
+    "id": "playwright-mcp",
+    "name": "Playwright MCP",
+    "type": "mcp",
+    "description": "Browser automation via Playwright accessibility snapshots for LLMs",
+    "source_url": "https://github.com/microsoft/playwright-mcp",
+    "stars": 8800,
+    "category": "testing",
+    "tags": ["browser", "automation", "e2e", "testing"],
+    "tech_stack": ["typescript"],
+    "install": {
+      "method": "mcp_config",
+      "config": {"command": "npx", "args": ["@playwright/mcp@latest"]}
+    },
+    "source": "curated",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "github-mcp",
+    "name": "GitHub MCP Server",
+    "type": "mcp",
+    "description": "GitHub API integration for repository management, issues, PRs, and code search",
+    "source_url": "https://github.com/github/github-mcp-server",
+    "stars": 5000,
+    "category": "tooling",
+    "tags": ["github", "git", "version-control", "api"],
+    "tech_stack": ["go"],
+    "install": {
+      "method": "mcp_config",
+      "config": {"command": "npx", "args": ["@anthropic/github-mcp-server"]}
+    },
+    "source": "curated",
+    "last_synced": "2026-03-25"
+  }
+]
