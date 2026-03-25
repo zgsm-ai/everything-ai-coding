@@ -24,12 +24,12 @@ description: '更新 coding-hub skill 和子命令到最新版本。用法: /cod
 
    ```bash
    # Skill（全局）
-   curl -sL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/platforms/claude-code/skills/coding-hub/SKILL.md" -o ~/.claude/skills/coding-hub/SKILL.md
+   curl -sfL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/platforms/claude-code/skills/coding-hub/SKILL.md" -o ~/.claude/skills/coding-hub/SKILL.md
 
    # 子命令（项目级）
    mkdir -p .claude/commands/coding-hub/
    for cmd in search browse recommend install update; do
-     curl -sL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/platforms/claude-code/commands/coding-hub/${cmd}.md" -o ".claude/commands/coding-hub/${cmd}.md"
+     curl -sfL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/platforms/claude-code/commands/coding-hub/${cmd}.md" -o ".claude/commands/coding-hub/${cmd}.md"
    done
    ```
 
@@ -52,5 +52,5 @@ description: '更新 coding-hub skill 和子命令到最新版本。用法: /cod
 
 ## 错误处理
 
-- 如果 curl 下载失败（网络问题），提示用户检查网络并重试
+- 如果 curl 下载失败（网络问题或 HTTP 错误如 404/500），提示用户检查网络并重试
 - 如果目标目录不存在（未安装过），提示用户先执行安装
