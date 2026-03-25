@@ -3,13 +3,13 @@
 <div align="center">
 <img src="assets/title-card.jpg" alt="Coding Hub" />
 
-<p><strong>600+ 精选开发资源一站式索引</strong><br/>MCP Servers · Skills · Rules · Prompts</p>
+<p><strong>800+ 精选开发资源一站式索引</strong><br/>MCP Servers · Skills · Rules · Prompts</p>
 
 <p>
   <a href="https://github.com/zgsm-sangfor/costrict-skills-repo/stargazers"><img src="https://img.shields.io/github/stars/zgsm-sangfor/costrict-skills-repo?style=flat-square&color=4A90D9" alt="Stars" /></a>
   <a href="https://github.com/zgsm-sangfor/costrict-skills-repo/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zgsm-sangfor/costrict-skills-repo?style=flat-square" alt="License" /></a>
   <a href="https://github.com/zgsm-sangfor/costrict-skills-repo/commits/main"><img src="https://img.shields.io/github/last-commit/zgsm-sangfor/costrict-skills-repo?style=flat-square" alt="Last Commit" /></a>
-  <img src="https://img.shields.io/badge/resources-696-2ECC71?style=flat-square" alt="Resources" />
+  <img src="https://img.shields.io/badge/resources-870-2ECC71?style=flat-square" alt="Resources" />
 </p>
 
 <p>
@@ -65,7 +65,7 @@ mkdir -p .cospec/coding-hub/commands/ && cp platforms/costrict/commands/coding-h
 | MCP Server | 510 | Model Context Protocol 服务器 |
 | Prompt | 2 | 开发者专用 Prompt |
 | Rule | 182 | 编码规范 / AI 辅助规则 |
-| Skill | 2 | Agent Skill 扩展 |
+| Skill | 176 | Agent Skill 扩展 |
 
 **数据来源**：从 8 个上游源自动聚合，每周通过 GitHub Actions 同步，过滤 star > 10 的 coding 相关资源。
 
