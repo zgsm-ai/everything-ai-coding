@@ -1,0 +1,5231 @@
+[
+  {
+    "id": "android-jetpack-compose-cursorrules-prompt-file-cursorrule",
+    "name": "Android Jetpack Compose Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for android jetpack compose cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/android-jetpack-compose-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "mobile",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/android-jetpack-compose-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "angular-novo-elements-cursorrules-prompt-file-cursorrule",
+    "name": "Angular Novo Elements Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Angular Novo Elements .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/angular-novo-elements-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "angular"
+    ],
+    "tech_stack": [
+      "angular"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/angular-novo-elements-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "angular-typescript-cursorrules-prompt-file-cursorrule",
+    "name": "Angular Typescript Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Angular TypeScript .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/angular-typescript-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "angular",
+      "typescript"
+    ],
+    "tech_stack": [
+      "angular",
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/angular-typescript-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "ascii-simulation-game-cursorrules-prompt-file-cursorrule",
+    "name": "Ascii Simulation Game Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "ASCII Simulation Game .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/ascii-simulation-game-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/ascii-simulation-game-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "aspnet-abp-cursorrules-prompt-file-cursorrule",
+    "name": "Aspnet Abp Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "ABP framework .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/aspnet-abp-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/aspnet-abp-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "astro-typescript-cursorrules-prompt-file-cursorrule",
+    "name": "Astro Typescript Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Astro TypeScript .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/astro-typescript-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "typescript"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/astro-typescript-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "beefreesdk-nocode-content-editor-cursorrules-prompt-file-cursorrule",
+    "name": "Beefreesdk Nocode Content Editor Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Beefree SDK Integration Guide",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/beefreeSDK-nocode-content-editor-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/beefreeSDK-nocode-content-editor-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "chrome-extension-dev-js-typescript-cursorrules-pro-cursorrule",
+    "name": "Chrome Extension Dev Js Typescript Cursorrules Pro Rules",
+    "type": "rule",
+    "description": "Chrome Extension Dev JS TypeScript .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/chrome-extension-dev-js-typescript-cursorrules-pro",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "typescript"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/chrome-extension-dev-js-typescript-cursorrules-pro/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "code-guidelines-cursorrules-prompt-file-cursorrule",
+    "name": "Code Guidelines Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Code Guidelines .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/code-guidelines-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/code-guidelines-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "code-pair-interviews-cursorrule",
+    "name": "Code Pair Interviews Rules",
+    "type": "rule",
+    "description": "Cursor AI code pair interviews .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/code-pair-interviews",
+    "stars": 178,
+    "category": "ai-ml",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/code-pair-interviews/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "code-style-consistency-cursorrules-prompt-file-cursorrule",
+    "name": "Code Style Consistency Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Code Style Consistency Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/code-style-consistency-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/code-style-consistency-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "convex-cursorrules-prompt-file-cursorrule",
+    "name": "Convex Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for convex cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/convex-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/convex-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "cpp-programming-guidelines-cursorrules-prompt-file-cursorrule",
+    "name": "Cpp Programming Guidelines Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "C++ Programming Guidelines for Cursor AI",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/cpp-programming-guidelines-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "ai-ml",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/cpp-programming-guidelines-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "cursor-ai-react-typescript-shadcn-ui-cursorrules-p-cursorrule",
+    "name": "Cursor Ai React Typescript Shadcn Ui Cursorrules P Rules",
+    "type": "rule",
+    "description": "Cursor AI React TypeScript Shadcn UI .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/cursor-ai-react-typescript-shadcn-ui-cursorrules-p",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "typescript"
+    ],
+    "tech_stack": [
+      "react",
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/cursor-ai-react-typescript-shadcn-ui-cursorrules-p/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "cursorrules-cursor-ai-nextjs-14-tailwind-seo-setup-cursorrule",
+    "name": "Cursorrules Cursor Ai Nextjs 14 Tailwind Seo Setup Rules",
+    "type": "rule",
+    "description": ".cursorrules Cursor AI Next.js 14 Tailwind SEO setup .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/cursorrules-cursor-ai-nextjs-14-tailwind-seo-setup",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "tailwind"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "tailwind"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/cursorrules-cursor-ai-nextjs-14-tailwind-seo-setup/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "cursorrules-cursor-ai-wordpress-draft-macos-prompt-cursorrule",
+    "name": "Cursorrules Cursor Ai Wordpress Draft Macos Prompt Rules",
+    "type": "rule",
+    "description": ".cursorrules Cursor AI WordPress Draft MacOS prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/cursorrules-cursor-ai-wordpress-draft-macos-prompt",
+    "stars": 178,
+    "category": "ai-ml",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/cursorrules-cursor-ai-wordpress-draft-macos-prompt/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "cursorrules-file-cursor-ai-python-fastapi-api-cursorrule",
+    "name": "Cursorrules File Cursor Ai Python Fastapi Api Rules",
+    "type": "rule",
+    "description": ".cursorrules file Cursor AI Python FastAPI API",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/cursorrules-file-cursor-ai-python-fastapi-api",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "python",
+      "fastapi"
+    ],
+    "tech_stack": [
+      "python",
+      "fastapi"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/cursorrules-file-cursor-ai-python-fastapi-api/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "cypress-accessibility-testing-cursorrules-prompt-file-cursorrule",
+    "name": "Cypress Accessibility Testing Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cypress Accessibility Testing .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/cypress-accessibility-testing-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "testing",
+    "tags": [
+      "cypress"
+    ],
+    "tech_stack": [
+      "cypress"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/cypress-accessibility-testing-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "cypress-api-testing-cursorrules-prompt-file-cursorrule",
+    "name": "Cypress Api Testing Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cypress API Testing .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/cypress-api-testing-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "testing",
+    "tags": [
+      "cypress"
+    ],
+    "tech_stack": [
+      "cypress"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/cypress-api-testing-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "cypress-defect-tracking-cursorrules-prompt-file-cursorrule",
+    "name": "Cypress Defect Tracking Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cypress Defect Tracking .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/cypress-defect-tracking-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "testing",
+    "tags": [
+      "cypress"
+    ],
+    "tech_stack": [
+      "cypress"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/cypress-defect-tracking-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "cypress-e2e-testing-cursorrules-prompt-file-cursorrule",
+    "name": "Cypress E2E Testing Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cypress End-to-End Testing .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/cypress-e2e-testing-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "testing",
+    "tags": [
+      "cypress"
+    ],
+    "tech_stack": [
+      "cypress"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/cypress-e2e-testing-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "cypress-integration-testing-cursorrules-prompt-file-cursorrule",
+    "name": "Cypress Integration Testing Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cypress Integration Testing Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/cypress-integration-testing-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "testing",
+    "tags": [
+      "cypress"
+    ],
+    "tech_stack": [
+      "cypress"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/cypress-integration-testing-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "deno-integration-techniques-cursorrules-prompt-fil-cursorrule",
+    "name": "Deno Integration Techniques Cursorrules Prompt Fil Rules",
+    "type": "rule",
+    "description": "Deno Integration Techniques .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/deno-integration-techniques-cursorrules-prompt-fil",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/deno-integration-techniques-cursorrules-prompt-fil/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "dragonruby-best-practices-cursorrules-prompt-file-cursorrule",
+    "name": "Dragonruby Best Practices Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "DragonRuby Best Practices .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/dragonruby-best-practices-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "go",
+      "ruby"
+    ],
+    "tech_stack": [
+      "go",
+      "ruby"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/dragonruby-best-practices-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "drupal-11-cursorrules-prompt-file-cursorrule",
+    "name": "Drupal 11 Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Drupal 11 Awesome CursorRules",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/drupal-11-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/drupal-11-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "elixir-engineer-guidelines-cursorrules-prompt-file-cursorrule",
+    "name": "Elixir Engineer Guidelines Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Elixir Engineer Guidelines .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/elixir-engineer-guidelines-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/elixir-engineer-guidelines-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "elixir-phoenix-docker-setup-cursorrules-prompt-fil-cursorrule",
+    "name": "Elixir Phoenix Docker Setup Cursorrules Prompt Fil Rules",
+    "type": "rule",
+    "description": "Elixir Phoenix Docker Setup .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/elixir-phoenix-docker-setup-cursorrules-prompt-fil",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "docker"
+    ],
+    "tech_stack": [
+      "docker"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/elixir-phoenix-docker-setup-cursorrules-prompt-fil/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "engineering-ticket-template-cursorrules-prompt-file-cursorrule",
+    "name": "Engineering Ticket Template Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Engineering Ticket Template Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/engineering-ticket-template-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/engineering-ticket-template-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "es-module-nodejs-guidelines-cursorrules-prompt-fil-cursorrule",
+    "name": "Es Module Nodejs Guidelines Cursorrules Prompt Fil Rules",
+    "type": "rule",
+    "description": "ES Module Node.js Guidelines .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/es-module-nodejs-guidelines-cursorrules-prompt-fil",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "nodejs"
+    ],
+    "tech_stack": [
+      "nodejs"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/es-module-nodejs-guidelines-cursorrules-prompt-fil/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "flutter-app-expert-cursorrules-prompt-file-cursorrule",
+    "name": "Flutter App Expert Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for flutter app expert cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/flutter-app-expert-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "mobile",
+    "tags": [
+      "flutter"
+    ],
+    "tech_stack": [
+      "flutter"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/flutter-app-expert-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "flutter-riverpod-cursorrules-prompt-file-cursorrule",
+    "name": "Flutter Riverpod Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for flutter riverpod cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/flutter-riverpod-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "mobile",
+    "tags": [
+      "flutter"
+    ],
+    "tech_stack": [
+      "flutter"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/flutter-riverpod-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "gherkin-style-testing-cursorrules-prompt-file-cursorrule",
+    "name": "Gherkin Style Testing Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Gherkin Style Testing Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/gherkin-style-testing-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "testing",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/gherkin-style-testing-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "git-conventional-commit-messages-cursorrule",
+    "name": "Git Conventional Commit Messages Rules",
+    "type": "rule",
+    "description": "Conventional Commit Messages",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/git-conventional-commit-messages",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [
+      "git"
+    ],
+    "tech_stack": [
+      "git"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/git-conventional-commit-messages/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "github-code-quality-cursorrules-prompt-file-cursorrule",
+    "name": "Github Code Quality Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "GitHub Code Quality .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/github-code-quality-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [
+      "git"
+    ],
+    "tech_stack": [
+      "git"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/github-code-quality-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "github-cursorrules-prompt-file-instructions-cursorrule",
+    "name": "Github Cursorrules Prompt File Instructions Rules",
+    "type": "rule",
+    "description": "GitHub .cursorrules prompt file instructions",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/github-cursorrules-prompt-file-instructions",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [
+      "git"
+    ],
+    "tech_stack": [
+      "git"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/github-cursorrules-prompt-file-instructions/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "go-backend-scalability-cursorrules-prompt-file-cursorrule",
+    "name": "Go Backend Scalability Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Go Backend Scalability .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/go-backend-scalability-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "go"
+    ],
+    "tech_stack": [
+      "go"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/go-backend-scalability-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "go-servemux-rest-api-cursorrules-prompt-file-cursorrule",
+    "name": "Go Servemux Rest Api Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Go ServeMux REST API .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/go-servemux-rest-api-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "go",
+      "rest-api"
+    ],
+    "tech_stack": [
+      "go",
+      "rest-api"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/go-servemux-rest-api-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "go-temporal-dsl-prompt-file-cursorrule",
+    "name": "Go Temporal Dsl Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for go temporal dsl prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/go-temporal-dsl-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "go"
+    ],
+    "tech_stack": [
+      "go"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/go-temporal-dsl-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "graphical-apps-development-cursorrules-prompt-file-cursorrule",
+    "name": "Graphical Apps Development Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Graphical Apps Development .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/graphical-apps-development-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/graphical-apps-development-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "how-to-documentation-cursorrules-prompt-file-cursorrule",
+    "name": "How To Documentation Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "How-To Documentation Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/how-to-documentation-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "documentation",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/how-to-documentation-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "html-tailwind-css-javascript-cursorrules-prompt-fi-cursorrule",
+    "name": "Html Tailwind Css Javascript Cursorrules Prompt Fi Rules",
+    "type": "rule",
+    "description": "HTML Tailwind CSS JavaScript .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/html-tailwind-css-javascript-cursorrules-prompt-fi",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "javascript",
+      "java",
+      "tailwind",
+      "css"
+    ],
+    "tech_stack": [
+      "javascript",
+      "java",
+      "tailwind",
+      "css"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/html-tailwind-css-javascript-cursorrules-prompt-fi/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "htmx-basic-cursorrules-prompt-file-cursorrule",
+    "name": "Htmx Basic Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for htmx basic cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/htmx-basic-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/htmx-basic-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "htmx-django-cursorrules-prompt-file-cursorrule",
+    "name": "Htmx Django Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for htmx django cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/htmx-django-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "go",
+      "django"
+    ],
+    "tech_stack": [
+      "go",
+      "django"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/htmx-django-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "htmx-flask-cursorrules-prompt-file-cursorrule",
+    "name": "Htmx Flask Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for htmx flask cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/htmx-flask-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "flask"
+    ],
+    "tech_stack": [
+      "flask"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/htmx-flask-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "htmx-go-basic-cursorrules-prompt-file-cursorrule",
+    "name": "Htmx Go Basic Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for htmx go basic cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/htmx-go-basic-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "go"
+    ],
+    "tech_stack": [
+      "go"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/htmx-go-basic-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "htmx-go-fiber-cursorrules-prompt-file-cursorrule",
+    "name": "Htmx Go Fiber Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for htmx go fiber cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/htmx-go-fiber-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "go"
+    ],
+    "tech_stack": [
+      "go"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/htmx-go-fiber-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "java-general-purpose-cursorrules-prompt-file-cursorrule",
+    "name": "Java General Purpose Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for java general purpose cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/java-general-purpose-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "java"
+    ],
+    "tech_stack": [
+      "java"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/java-general-purpose-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "java-springboot-jpa-cursorrules-prompt-file-cursorrule",
+    "name": "Java Springboot Jpa Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for java springboot jpa cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/java-springboot-jpa-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "java"
+    ],
+    "tech_stack": [
+      "java"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/java-springboot-jpa-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "javascript-astro-tailwind-css-cursorrules-prompt-f-cursorrule",
+    "name": "Javascript Astro Tailwind Css Cursorrules Prompt F Rules",
+    "type": "rule",
+    "description": "JavaScript Astro Tailwind CSS .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/javascript-astro-tailwind-css-cursorrules-prompt-f",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "javascript",
+      "java",
+      "tailwind",
+      "css"
+    ],
+    "tech_stack": [
+      "javascript",
+      "java",
+      "tailwind",
+      "css"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/javascript-astro-tailwind-css-cursorrules-prompt-f/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "javascript-chrome-apis-cursorrules-prompt-file-cursorrule",
+    "name": "Javascript Chrome Apis Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "JavaScript Chrome APIs .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/javascript-chrome-apis-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "javascript",
+      "java"
+    ],
+    "tech_stack": [
+      "javascript",
+      "java"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/javascript-chrome-apis-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "javascript-typescript-code-quality-cursorrules-pro-cursorrule",
+    "name": "Javascript Typescript Code Quality Cursorrules Pro Rules",
+    "type": "rule",
+    "description": "JavaScript TypeScript Code Quality .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/javascript-typescript-code-quality-cursorrules-pro",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "typescript",
+      "javascript",
+      "java"
+    ],
+    "tech_stack": [
+      "typescript",
+      "javascript",
+      "java"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/javascript-typescript-code-quality-cursorrules-pro/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "jest-unit-testing-cursorrules-prompt-file-cursorrule",
+    "name": "Jest Unit Testing Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Jest Unit Testing Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/jest-unit-testing-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "testing",
+    "tags": [
+      "jest"
+    ],
+    "tech_stack": [
+      "jest"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/jest-unit-testing-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "knative-istio-typesense-gpu-cursorrules-prompt-fil-cursorrule",
+    "name": "Knative Istio Typesense Gpu Cursorrules Prompt Fil Rules",
+    "type": "rule",
+    "description": "Knative Istio Typesense GPU .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/knative-istio-typesense-gpu-cursorrules-prompt-fil",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/knative-istio-typesense-gpu-cursorrules-prompt-fil/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "kotlin-ktor-development-cursorrules-prompt-file-cursorrule",
+    "name": "Kotlin Ktor Development Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for kotlin ktor development cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/kotlin-ktor-development-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "mobile",
+    "tags": [
+      "kotlin"
+    ],
+    "tech_stack": [
+      "kotlin"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/kotlin-ktor-development-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "kotlin-springboot-best-practices-cursorrules-prompt-file-cursorrule",
+    "name": "Kotlin Springboot Best Practices Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for kotlin springboot best practices cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/kotlin-springboot-best-practices-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "kotlin"
+    ],
+    "tech_stack": [
+      "kotlin"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/kotlin-springboot-best-practices-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "kubernetes-mkdocs-documentation-cursorrules-prompt-cursorrule",
+    "name": "Kubernetes Mkdocs Documentation Cursorrules Prompt Rules",
+    "type": "rule",
+    "description": "Kubernetes MkDocs Documentation .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/kubernetes-mkdocs-documentation-cursorrules-prompt",
+    "stars": 178,
+    "category": "devops",
+    "tags": [
+      "kubernetes"
+    ],
+    "tech_stack": [
+      "kubernetes"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/kubernetes-mkdocs-documentation-cursorrules-prompt/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "laravel-php-83-cursorrules-prompt-file-cursorrule",
+    "name": "Laravel Php 83 Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Laravel PHP 8.3 .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/laravel-php-83-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "php"
+    ],
+    "tech_stack": [
+      "php"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/laravel-php-83-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "laravel-tall-stack-best-practices-cursorrules-prom-cursorrule",
+    "name": "Laravel Tall Stack Best Practices Cursorrules Prom Rules",
+    "type": "rule",
+    "description": "Laravel TALL Stack Best Practices .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/laravel-tall-stack-best-practices-cursorrules-prom",
+    "stars": 178,
+    "category": "backend",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/laravel-tall-stack-best-practices-cursorrules-prom/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "linux-nvidia-cuda-python-cursorrules-prompt-file-cursorrule",
+    "name": "Linux Nvidia Cuda Python Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Linux NVIDIA CUDA Python .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/linux-nvidia-cuda-python-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "python"
+    ],
+    "tech_stack": [
+      "python"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/linux-nvidia-cuda-python-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "manifest-yaml-cursorrules-prompt-file-cursorrule",
+    "name": "Manifest Yaml Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Manifest Backend .manifestrules Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/manifest-yaml-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "ai-ml",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/manifest-yaml-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "medusa-cursorrules-cursorrule",
+    "name": "Medusa Cursorrules Rules",
+    "type": "rule",
+    "description": "Cursor rules for medusa cursorrules development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/medusa-cursorrules",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/medusa-cursorrules/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "nativescript-cursorrules-prompt-file-cursorrule",
+    "name": "Nativescript Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for nativescript cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/nativescript-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/nativescript-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "netlify-official-cursorrules-prompt-file-cursorrule",
+    "name": "Netlify Official Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for netlify official cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/netlify-official-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/netlify-official-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "next-type-llm-cursorrule",
+    "name": "Next Type Llm Rules",
+    "type": "rule",
+    "description": "What you can build",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/next-type-llm",
+    "stars": 178,
+    "category": "ai-ml",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/next-type-llm/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "nextjs-app-router-cursorrules-prompt-file-cursorrule",
+    "name": "Nextjs App Router Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for nextjs app router cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/nextjs-app-router-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "nextjs"
+    ],
+    "tech_stack": [
+      "nextjs"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/nextjs-app-router-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "nextjs-material-ui-tailwind-css-cursorrules-prompt-cursorrule",
+    "name": "Nextjs Material Ui Tailwind Css Cursorrules Prompt Rules",
+    "type": "rule",
+    "description": "Next.js Material UI Tailwind CSS .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/nextjs-material-ui-tailwind-css-cursorrules-prompt",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "tailwind",
+      "css"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "tailwind",
+      "css"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/nextjs-material-ui-tailwind-css-cursorrules-prompt/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "nextjs-react-tailwind-cursorrules-prompt-file-cursorrule",
+    "name": "Nextjs React Tailwind Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Next.js React Tailwind .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/nextjs-react-tailwind-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "nextjs",
+      "tailwind"
+    ],
+    "tech_stack": [
+      "react",
+      "nextjs",
+      "tailwind"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/nextjs-react-tailwind-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "nextjs-react-typescript-cursorrules-prompt-file-cursorrule",
+    "name": "Nextjs React Typescript Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Next.js React TypeScript .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/nextjs-react-typescript-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "nextjs",
+      "typescript"
+    ],
+    "tech_stack": [
+      "react",
+      "nextjs",
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/nextjs-react-typescript-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "nextjs-seo-dev-cursorrules-prompt-file-cursorrule",
+    "name": "Nextjs Seo Dev Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Next.js SEO Dev .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/nextjs-seo-dev-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "nextjs"
+    ],
+    "tech_stack": [
+      "nextjs"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/nextjs-seo-dev-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "nextjs-supabase-shadcn-pwa-cursorrules-prompt-file-cursorrule",
+    "name": "Nextjs Supabase Shadcn Pwa Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor Rules for Project Context Management",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/nextjs-supabase-shadcn-pwa-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "supabase"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "supabase"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/nextjs-supabase-shadcn-pwa-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "nextjs-supabase-todo-app-cursorrules-prompt-file-cursorrule",
+    "name": "Nextjs Supabase Todo App Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Next.js Supabase Todo App .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/nextjs-supabase-todo-app-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "supabase"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "supabase"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/nextjs-supabase-todo-app-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "nextjs-tailwind-typescript-apps-cursorrules-prompt-cursorrule",
+    "name": "Nextjs Tailwind Typescript Apps Cursorrules Prompt Rules",
+    "type": "rule",
+    "description": "Next.JS Tailwind TypeScript Apps .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/nextjs-tailwind-typescript-apps-cursorrules-prompt",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "typescript",
+      "tailwind"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "typescript",
+      "tailwind"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/nextjs-tailwind-typescript-apps-cursorrules-prompt/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "nextjs-typescript-app-cursorrules-prompt-file-cursorrule",
+    "name": "Nextjs Typescript App Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Next.js TypeScript App .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/nextjs-typescript-app-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "typescript"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/nextjs-typescript-app-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "nextjs-typescript-cursorrules-prompt-file-cursorrule",
+    "name": "Nextjs Typescript Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Next.js TypeScript .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/nextjs-typescript-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "typescript"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/nextjs-typescript-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "nextjs-typescript-tailwind-cursorrules-prompt-file-cursorrule",
+    "name": "Nextjs Typescript Tailwind Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Next.js TypeScript Tailwind .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/nextjs-typescript-tailwind-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "typescript",
+      "tailwind"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "typescript",
+      "tailwind"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/nextjs-typescript-tailwind-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "nextjs-vercel-supabase-cursorrules-prompt-file-cursorrule",
+    "name": "Nextjs Vercel Supabase Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Next.js Vercel Supabase .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/nextjs-vercel-supabase-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "supabase"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "supabase"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/nextjs-vercel-supabase-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "nextjs-vercel-typescript-cursorrules-prompt-file-cursorrule",
+    "name": "Nextjs Vercel Typescript Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Next.js Vercel TypeScript .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/nextjs-vercel-typescript-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "typescript"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/nextjs-vercel-typescript-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "nextjs15-react19-vercelai-tailwind-cursorrules-prompt-file-cursorrule",
+    "name": "Nextjs15 React19 Vercelai Tailwind Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Next.js 15, React 19, Vercel AI SDK, Tailwind CSS .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/nextjs15-react19-vercelai-tailwind-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "nextjs",
+      "tailwind",
+      "css"
+    ],
+    "tech_stack": [
+      "react",
+      "nextjs",
+      "tailwind",
+      "css"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/nextjs15-react19-vercelai-tailwind-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "nodejs-mongodb-cursorrules-prompt-file-tutorial-cursorrule",
+    "name": "Nodejs Mongodb Cursorrules Prompt File Tutorial Rules",
+    "type": "rule",
+    "description": "Node.js MongoDB .cursorrules prompt file tutorial",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/nodejs-mongodb-cursorrules-prompt-file-tutorial",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "go",
+      "mongodb",
+      "nodejs"
+    ],
+    "tech_stack": [
+      "go",
+      "mongodb",
+      "nodejs"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/nodejs-mongodb-cursorrules-prompt-file-tutorial/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "nodejs-mongodb-jwt-express-react-cursorrules-promp-cursorrule",
+    "name": "Nodejs Mongodb Jwt Express React Cursorrules Promp Rules",
+    "type": "rule",
+    "description": "Node.js MongoDB JWT Express React .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/nodejs-mongodb-jwt-express-react-cursorrules-promp",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "go",
+      "mongodb",
+      "express",
+      "nodejs"
+    ],
+    "tech_stack": [
+      "react",
+      "go",
+      "mongodb",
+      "express",
+      "nodejs"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/nodejs-mongodb-jwt-express-react-cursorrules-promp/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "optimize-dry-solid-principles-cursorrules-prompt-f-cursorrule",
+    "name": "Optimize Dry Solid Principles Cursorrules Prompt F Rules",
+    "type": "rule",
+    "description": "Optimize DRY SOLID Principles .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/optimize-dry-solid-principles-cursorrules-prompt-f",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/optimize-dry-solid-principles-cursorrules-prompt-f/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "optimize-rell-blockchain-code-cursorrules-prompt-f-cursorrule",
+    "name": "Optimize Rell Blockchain Code Cursorrules Prompt F Rules",
+    "type": "rule",
+    "description": "Optimize Rell Blockchain Code .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/optimize-rell-blockchain-code-cursorrules-prompt-f",
+    "stars": 178,
+    "category": "ai-ml",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/optimize-rell-blockchain-code-cursorrules-prompt-f/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "pandas-scikit-learn-guide-cursorrules-prompt-file-cursorrule",
+    "name": "Pandas Scikit Learn Guide Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Pandas Scikit-Learn Guide .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/pandas-scikit-learn-guide-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/pandas-scikit-learn-guide-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "plasticode-telegram-api-cursorrules-prompt-file-cursorrule",
+    "name": "Plasticode Telegram Api Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Plasticode Telegram API .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/plasticode-telegram-api-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/plasticode-telegram-api-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "playwright-accessibility-testing-cursorrules-prompt-file-cursorrule",
+    "name": "Playwright Accessibility Testing Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Playwright Accessibility Testing Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/playwright-accessibility-testing-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "testing",
+    "tags": [
+      "playwright"
+    ],
+    "tech_stack": [
+      "playwright"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/playwright-accessibility-testing-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "playwright-api-testing-cursorrules-prompt-file-cursorrule",
+    "name": "Playwright Api Testing Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Playwright API Testing Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/playwright-api-testing-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "testing",
+    "tags": [
+      "playwright"
+    ],
+    "tech_stack": [
+      "playwright"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/playwright-api-testing-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "playwright-defect-tracking-cursorrules-prompt-file-cursorrule",
+    "name": "Playwright Defect Tracking Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Playwright Defect Tracking Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/playwright-defect-tracking-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "testing",
+    "tags": [
+      "playwright"
+    ],
+    "tech_stack": [
+      "playwright"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/playwright-defect-tracking-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "playwright-e2e-testing-cursorrules-prompt-file-cursorrule",
+    "name": "Playwright E2E Testing Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Playwright E2E Testing .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/playwright-e2e-testing-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "testing",
+    "tags": [
+      "playwright"
+    ],
+    "tech_stack": [
+      "playwright"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/playwright-e2e-testing-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "playwright-integration-testing-cursorrules-prompt-file-cursorrule",
+    "name": "Playwright Integration Testing Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Playwright Integration Testing Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/playwright-integration-testing-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "testing",
+    "tags": [
+      "playwright"
+    ],
+    "tech_stack": [
+      "playwright"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/playwright-integration-testing-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "pr-template-cursorrules-prompt-file-cursorrule",
+    "name": "Pr Template Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "PR Template Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/pr-template-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/pr-template-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "project-epic-template-cursorrules-prompt-file-cursorrule",
+    "name": "Project Epic Template Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Project Epic Template Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/project-epic-template-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/project-epic-template-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "py-fast-api-cursorrule",
+    "name": "Py Fast Api Rules",
+    "type": "rule",
+    "description": "What you can build",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/py-fast-api",
+    "stars": 178,
+    "category": "backend",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/py-fast-api/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "pyqt6-eeg-processing-cursorrules-prompt-file-cursorrule",
+    "name": "Pyqt6 Eeg Processing Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "PyQt6 EEG Processing .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/pyqt6-eeg-processing-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/pyqt6-eeg-processing-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "python-typescript-guide-cursorrules-prompt-file-cursorrule",
+    "name": "Python  Typescript Guide Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Python & Typescript Guide .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python--typescript-guide-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "typescript",
+      "python"
+    ],
+    "tech_stack": [
+      "typescript",
+      "python"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/python--typescript-guide-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "python-312-fastapi-best-practices-cursorrules-prom-cursorrule",
+    "name": "Python 312 Fastapi Best Practices Cursorrules Prom Rules",
+    "type": "rule",
+    "description": "Python 3.12 FastAPI Best Practices .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-312-fastapi-best-practices-cursorrules-prom",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "python",
+      "fastapi"
+    ],
+    "tech_stack": [
+      "python",
+      "fastapi"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/python-312-fastapi-best-practices-cursorrules-prom/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "python-containerization-cursorrules-prompt-file-cursorrule",
+    "name": "Python Containerization Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Python Containerization .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-containerization-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "python"
+    ],
+    "tech_stack": [
+      "python"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/python-containerization-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "python-cursorrules-prompt-file-best-practices-cursorrule",
+    "name": "Python Cursorrules Prompt File Best Practices Rules",
+    "type": "rule",
+    "description": "Python .cursorrules prompt file best practices",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-cursorrules-prompt-file-best-practices",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "python"
+    ],
+    "tech_stack": [
+      "python"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/python-cursorrules-prompt-file-best-practices/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "python-developer-cursorrules-prompt-file-cursorrule",
+    "name": "Python Developer Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Python Developer .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-developer-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "python"
+    ],
+    "tech_stack": [
+      "python"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/python-developer-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "python-django-best-practices-cursorrules-prompt-fi-cursorrule",
+    "name": "Python Django Best Practices Cursorrules Prompt Fi Rules",
+    "type": "rule",
+    "description": "Python Django Best Practices .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-django-best-practices-cursorrules-prompt-fi",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "python",
+      "go",
+      "django"
+    ],
+    "tech_stack": [
+      "python",
+      "go",
+      "django"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/python-django-best-practices-cursorrules-prompt-fi/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "python-fastapi-best-practices-cursorrules-prompt-f-cursorrule",
+    "name": "Python Fastapi Best Practices Cursorrules Prompt F Rules",
+    "type": "rule",
+    "description": "Python FastAPI Best Practices .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-fastapi-best-practices-cursorrules-prompt-f",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "python",
+      "fastapi"
+    ],
+    "tech_stack": [
+      "python",
+      "fastapi"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/python-fastapi-best-practices-cursorrules-prompt-f/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "python-fastapi-cursorrules-prompt-file-cursorrule",
+    "name": "Python Fastapi Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for python fastapi cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-fastapi-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "python",
+      "fastapi"
+    ],
+    "tech_stack": [
+      "python",
+      "fastapi"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/python-fastapi-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "python-fastapi-scalable-api-cursorrules-prompt-fil-cursorrule",
+    "name": "Python Fastapi Scalable Api Cursorrules Prompt Fil Rules",
+    "type": "rule",
+    "description": "Python FastAPI Scalable API .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-fastapi-scalable-api-cursorrules-prompt-fil",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "python",
+      "fastapi"
+    ],
+    "tech_stack": [
+      "python",
+      "fastapi"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/python-fastapi-scalable-api-cursorrules-prompt-fil/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "python-flask-json-guide-cursorrules-prompt-file-cursorrule",
+    "name": "Python Flask Json Guide Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Python Flask JSON Guide .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-flask-json-guide-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "python",
+      "flask"
+    ],
+    "tech_stack": [
+      "python",
+      "flask"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/python-flask-json-guide-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "python-github-setup-cursorrules-prompt-file-cursorrule",
+    "name": "Python Github Setup Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Python GitHub Setup .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-github-setup-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "python",
+      "git"
+    ],
+    "tech_stack": [
+      "python",
+      "git"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/python-github-setup-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "python-llm-ml-workflow-cursorrules-prompt-file-cursorrule",
+    "name": "Python Llm Ml Workflow Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Python LLM & ML Workflow .cursorrules Prompt File",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-llm-ml-workflow-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "python"
+    ],
+    "tech_stack": [
+      "python"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/python-llm-ml-workflow-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "python-projects-guide-cursorrules-prompt-file-cursorrule",
+    "name": "Python Projects Guide Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Python Projects Guide .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-projects-guide-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "python"
+    ],
+    "tech_stack": [
+      "python"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/python-projects-guide-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "pytorch-scikit-learn-cursorrules-prompt-file-cursorrule",
+    "name": "Pytorch Scikit Learn Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "PyTorch Scikit-learn .cursorrules Prompt File",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/pytorch-scikit-learn-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/pytorch-scikit-learn-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "qa-bug-report-cursorrules-prompt-file-cursorrule",
+    "name": "Qa Bug Report Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "QA Bug Report Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/qa-bug-report-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/qa-bug-report-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "qwik-basic-cursorrules-prompt-file-cursorrule",
+    "name": "Qwik Basic Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for qwik basic cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/qwik-basic-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/qwik-basic-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "qwik-tailwind-cursorrules-prompt-file-cursorrule",
+    "name": "Qwik Tailwind Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for qwik tailwind cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/qwik-tailwind-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "tailwind"
+    ],
+    "tech_stack": [
+      "tailwind"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/qwik-tailwind-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "r-cursorrules-prompt-file-best-practices-cursorrule",
+    "name": "R Cursorrules Prompt File Best Practices Rules",
+    "type": "rule",
+    "description": "Cursor rules for r cursorrules prompt file best practices development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/r-cursorrules-prompt-file-best-practices",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/r-cursorrules-prompt-file-best-practices/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "rails-cursorrules-prompt-file-cursorrule",
+    "name": "Rails Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Rails 8 (Basic Setup)",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/rails-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/rails-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "react-chakra-ui-cursorrules-prompt-file-cursorrule",
+    "name": "React Chakra Ui Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for react chakra ui cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/react-chakra-ui-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react"
+    ],
+    "tech_stack": [
+      "react"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/react-chakra-ui-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "react-components-creation-cursorrules-prompt-file-cursorrule",
+    "name": "React Components Creation Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "React Components Creation .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/react-components-creation-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react"
+    ],
+    "tech_stack": [
+      "react"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/react-components-creation-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "react-graphql-apollo-client-cursorrules-prompt-file-cursorrule",
+    "name": "React Graphql Apollo Client Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for react graphql apollo client cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/react-graphql-apollo-client-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "graphql"
+    ],
+    "tech_stack": [
+      "react",
+      "graphql"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/react-graphql-apollo-client-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "react-mobx-cursorrules-prompt-file-cursorrule",
+    "name": "React Mobx Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for react mobx cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/react-mobx-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react"
+    ],
+    "tech_stack": [
+      "react"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/react-mobx-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "react-native-expo-cursorrules-prompt-file-cursorrule",
+    "name": "React Native Expo Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for react native expo cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/react-native-expo-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react"
+    ],
+    "tech_stack": [
+      "react"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/react-native-expo-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "react-native-expo-router-typescript-windows-cursorrules-prompt-file-cursorrule",
+    "name": "React Native Expo Router Typescript Windows Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for react native expo router typescript windows cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/react-native-expo-router-typescript-windows-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "typescript"
+    ],
+    "tech_stack": [
+      "react",
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/react-native-expo-router-typescript-windows-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "react-nextjs-ui-development-cursorrules-prompt-fil-cursorrule",
+    "name": "React Nextjs Ui Development Cursorrules Prompt Fil Rules",
+    "type": "rule",
+    "description": "React NextJS UI development .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/react-nextjs-ui-development-cursorrules-prompt-fil",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "nextjs"
+    ],
+    "tech_stack": [
+      "react",
+      "nextjs"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/react-nextjs-ui-development-cursorrules-prompt-fil/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "react-query-cursorrules-prompt-file-cursorrule",
+    "name": "React Query Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for react query cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/react-query-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react"
+    ],
+    "tech_stack": [
+      "react"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/react-query-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "react-redux-typescript-cursorrules-prompt-file-cursorrule",
+    "name": "React Redux Typescript Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for react redux typescript cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/react-redux-typescript-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "typescript"
+    ],
+    "tech_stack": [
+      "react",
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/react-redux-typescript-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "react-styled-components-cursorrules-prompt-file-cursorrule",
+    "name": "React Styled Components Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for react styled components cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/react-styled-components-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react"
+    ],
+    "tech_stack": [
+      "react"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/react-styled-components-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "react-typescript-nextjs-nodejs-cursorrules-prompt-cursorrule",
+    "name": "React Typescript Nextjs Nodejs Cursorrules Prompt  Rules",
+    "type": "rule",
+    "description": "React TypeScript Next.js Node.js .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/react-typescript-nextjs-nodejs-cursorrules-prompt-",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "nextjs",
+      "typescript",
+      "nodejs"
+    ],
+    "tech_stack": [
+      "react",
+      "nextjs",
+      "typescript",
+      "nodejs"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/react-typescript-nextjs-nodejs-cursorrules-prompt-/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "react-typescript-symfony-cursorrules-prompt-file-cursorrule",
+    "name": "React Typescript Symfony Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "React TypeScript Symfony .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/react-typescript-symfony-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "typescript"
+    ],
+    "tech_stack": [
+      "react",
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/react-typescript-symfony-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "salesforce-apex-cursorrules-prompt-file-cursorrule",
+    "name": "Salesforce Apex Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Salesforce Apex .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/salesforce-apex-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/salesforce-apex-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "scala-kafka-cursorrules-prompt-file-cursorrule",
+    "name": "Scala Kafka Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for scala kafka cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/scala-kafka-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/scala-kafka-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "solidity-foundry-cursorrules-prompt-file-cursorrule",
+    "name": "Solidity Foundry Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Solidity Foundry .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/solidity-foundry-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/solidity-foundry-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "solidity-hardhat-cursorrules-prompt-file-cursorrule",
+    "name": "Solidity Hardhat Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Solidity Hardhat .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/solidity-hardhat-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/solidity-hardhat-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "solidity-react-blockchain-apps-cursorrules-prompt-cursorrule",
+    "name": "Solidity React Blockchain Apps Cursorrules Prompt  Rules",
+    "type": "rule",
+    "description": "Solidity React Blockchain Apps .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/solidity-react-blockchain-apps-cursorrules-prompt-",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react"
+    ],
+    "tech_stack": [
+      "react"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/solidity-react-blockchain-apps-cursorrules-prompt-/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "solidjs-basic-cursorrules-prompt-file-cursorrule",
+    "name": "Solidjs Basic Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for solidjs basic cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/solidjs-basic-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/solidjs-basic-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "solidjs-tailwind-cursorrules-prompt-file-cursorrule",
+    "name": "Solidjs Tailwind Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for solidjs tailwind cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/solidjs-tailwind-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "tailwind"
+    ],
+    "tech_stack": [
+      "tailwind"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/solidjs-tailwind-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "solidjs-typescript-cursorrules-prompt-file-cursorrule",
+    "name": "Solidjs Typescript Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for solidjs typescript cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/solidjs-typescript-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "typescript"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/solidjs-typescript-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "svelte-5-vs-svelte-4-cursorrules-prompt-file-cursorrule",
+    "name": "Svelte 5 Vs Svelte 4 Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Svelte 5 vs Svelte 4 .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/svelte-5-vs-svelte-4-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "svelte"
+    ],
+    "tech_stack": [
+      "svelte"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/svelte-5-vs-svelte-4-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "sveltekit-restful-api-tailwind-css-cursorrules-pro-cursorrule",
+    "name": "Sveltekit Restful Api Tailwind Css Cursorrules Pro Rules",
+    "type": "rule",
+    "description": "SvelteKit RESTful API Tailwind CSS .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/sveltekit-restful-api-tailwind-css-cursorrules-pro",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "svelte",
+      "rest-api",
+      "tailwind",
+      "css"
+    ],
+    "tech_stack": [
+      "svelte",
+      "rest-api",
+      "tailwind",
+      "css"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/sveltekit-restful-api-tailwind-css-cursorrules-pro/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "sveltekit-tailwindcss-typescript-cursorrules-promp-cursorrule",
+    "name": "Sveltekit Tailwindcss Typescript Cursorrules Promp Rules",
+    "type": "rule",
+    "description": "SvelteKit TailwindCSS TypeScript .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/sveltekit-tailwindcss-typescript-cursorrules-promp",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "svelte",
+      "typescript",
+      "tailwind",
+      "css"
+    ],
+    "tech_stack": [
+      "svelte",
+      "typescript",
+      "tailwind",
+      "css"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/sveltekit-tailwindcss-typescript-cursorrules-promp/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "sveltekit-typescript-guide-cursorrules-prompt-file-cursorrule",
+    "name": "Sveltekit Typescript Guide Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "SvelteKit TypeScript Guide .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/sveltekit-typescript-guide-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "svelte",
+      "typescript"
+    ],
+    "tech_stack": [
+      "svelte",
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/sveltekit-typescript-guide-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "swift-uikit-cursorrules-prompt-file-cursorrule",
+    "name": "Swift Uikit Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for swift uikit cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/swift-uikit-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "mobile",
+    "tags": [
+      "swift"
+    ],
+    "tech_stack": [
+      "swift"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/swift-uikit-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "swiftui-guidelines-cursorrules-prompt-file-cursorrule",
+    "name": "Swiftui Guidelines Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "SwiftUI guidelines .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/swiftui-guidelines-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "mobile",
+    "tags": [
+      "swift"
+    ],
+    "tech_stack": [
+      "swift"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/swiftui-guidelines-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "tailwind-css-nextjs-guide-cursorrules-prompt-file-cursorrule",
+    "name": "Tailwind Css Nextjs Guide Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Tailwind CSS Next.js Guide .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/tailwind-css-nextjs-guide-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "tailwind",
+      "css"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "tailwind",
+      "css"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/tailwind-css-nextjs-guide-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "tailwind-react-firebase-cursorrules-prompt-file-cursorrule",
+    "name": "Tailwind React Firebase Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Tailwind React Firebase .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/tailwind-react-firebase-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "tailwind"
+    ],
+    "tech_stack": [
+      "react",
+      "tailwind"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/tailwind-react-firebase-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "tailwind-shadcn-ui-integration-cursorrules-prompt-cursorrule",
+    "name": "Tailwind Shadcn Ui Integration Cursorrules Prompt  Rules",
+    "type": "rule",
+    "description": "Tailwind Shadcn UI Integration .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/tailwind-shadcn-ui-integration-cursorrules-prompt-",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "tailwind"
+    ],
+    "tech_stack": [
+      "tailwind"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/tailwind-shadcn-ui-integration-cursorrules-prompt-/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "tauri-svelte-typescript-guide-cursorrules-prompt-f-cursorrule",
+    "name": "Tauri Svelte Typescript Guide Cursorrules Prompt F Rules",
+    "type": "rule",
+    "description": "Tauri Svelte TypeScript Guide .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/tauri-svelte-typescript-guide-cursorrules-prompt-f",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "svelte",
+      "typescript"
+    ],
+    "tech_stack": [
+      "svelte",
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/tauri-svelte-typescript-guide-cursorrules-prompt-f/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "temporal-python-cursorrules-cursorrule",
+    "name": "Temporal Python Cursorrules Rules",
+    "type": "rule",
+    "description": "Cursor rules for temporal python cursorrules development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/temporal-python-cursorrules",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "python"
+    ],
+    "tech_stack": [
+      "python"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/temporal-python-cursorrules/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "testrail-test-case-cursorrules-prompt-file-cursorrule",
+    "name": "Testrail Test Case Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "TestRail Test Case Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/testrail-test-case-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "testing",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/testrail-test-case-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-axios-cursorrules-prompt-file-cursorrule",
+    "name": "Typescript Axios Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "TypeScript axios .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-axios-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "typescript"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-axios-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-clasp-cursorrules-prompt-file-cursorrule",
+    "name": "Typescript Clasp Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "TypeScript Google Apps Script .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-clasp-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "typescript",
+      "go"
+    ],
+    "tech_stack": [
+      "typescript",
+      "go"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-clasp-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-code-convention-cursorrules-prompt-file-cursorrule",
+    "name": "Typescript Code Convention Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "TypeScript Code Convention .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-code-convention-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "typescript"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-code-convention-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-expo-jest-detox-cursorrules-prompt-file-cursorrule",
+    "name": "Typescript Expo Jest Detox Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "TypeScript Expo Jest Detox .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-expo-jest-detox-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "typescript",
+      "jest"
+    ],
+    "tech_stack": [
+      "typescript",
+      "jest"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-expo-jest-detox-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-llm-tech-stack-cursorrules-prompt-file-cursorrule",
+    "name": "Typescript Llm Tech Stack Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "TypeScript LLM Tech Stack .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-llm-tech-stack-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "typescript"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-llm-tech-stack-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-nestjs-best-practices-cursorrules-promp-cursorrule",
+    "name": "Typescript Nestjs Best Practices Cursorrules Promp Rules",
+    "type": "rule",
+    "description": "TypeScript NestJS best practices .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-nestjs-best-practices-cursorrules-promp",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "typescript"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-nestjs-best-practices-cursorrules-promp/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-nextjs-cursorrules-prompt-file-cursorrule",
+    "name": "Typescript Nextjs Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "TypeScript Next.js .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-nextjs-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "typescript"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-nextjs-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-nextjs-react-cursorrules-prompt-file-cursorrule",
+    "name": "Typescript Nextjs React Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "TypeScript Next.js React .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-nextjs-react-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "nextjs",
+      "typescript"
+    ],
+    "tech_stack": [
+      "react",
+      "nextjs",
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-nextjs-react-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-nextjs-react-tailwind-supabase-cursorru-cursorrule",
+    "name": "Typescript Nextjs React Tailwind Supabase Cursorru Rules",
+    "type": "rule",
+    "description": "TypeScript Next.js React Tailwind Supabase .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-nextjs-react-tailwind-supabase-cursorru",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "nextjs",
+      "typescript",
+      "tailwind",
+      "supabase"
+    ],
+    "tech_stack": [
+      "react",
+      "nextjs",
+      "typescript",
+      "tailwind",
+      "supabase"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-nextjs-react-tailwind-supabase-cursorru/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-nextjs-supabase-cursorrules-prompt-file-cursorrule",
+    "name": "Typescript Nextjs Supabase Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "TypeScript Next.js Supabase .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-nextjs-supabase-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "typescript",
+      "supabase"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "typescript",
+      "supabase"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-nextjs-supabase-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-nodejs-nextjs-ai-cursorrules-prompt-fil-cursorrule",
+    "name": "Typescript Nodejs Nextjs Ai Cursorrules Prompt Fil Rules",
+    "type": "rule",
+    "description": "TypeScript Node.js Next.js AI .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-nodejs-nextjs-ai-cursorrules-prompt-fil",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "typescript",
+      "nodejs"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "typescript",
+      "nodejs"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-nodejs-nextjs-ai-cursorrules-prompt-fil/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-nodejs-nextjs-app-cursorrules-prompt-fi-cursorrule",
+    "name": "Typescript Nodejs Nextjs App Cursorrules Prompt Fi Rules",
+    "type": "rule",
+    "description": "TypeScript Node.js Next.js App .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-nodejs-nextjs-app-cursorrules-prompt-fi",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "typescript",
+      "nodejs"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "typescript",
+      "nodejs"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-nodejs-nextjs-app-cursorrules-prompt-fi/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-nodejs-nextjs-react-ui-css-cursorrules-cursorrule",
+    "name": "Typescript Nodejs Nextjs React Ui Css Cursorrules  Rules",
+    "type": "rule",
+    "description": "TypeScript Node.js Next.js React UI CSS .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-nodejs-nextjs-react-ui-css-cursorrules-",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "nextjs",
+      "typescript",
+      "nodejs",
+      "css"
+    ],
+    "tech_stack": [
+      "react",
+      "nextjs",
+      "typescript",
+      "nodejs",
+      "css"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-nodejs-nextjs-react-ui-css-cursorrules-/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-nodejs-react-vite-cursorrules-prompt-fi-cursorrule",
+    "name": "Typescript Nodejs React Vite Cursorrules Prompt Fi Rules",
+    "type": "rule",
+    "description": "TypeScript Node.js React Vite .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-nodejs-react-vite-cursorrules-prompt-fi",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "typescript",
+      "nodejs"
+    ],
+    "tech_stack": [
+      "react",
+      "typescript",
+      "nodejs"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-nodejs-react-vite-cursorrules-prompt-fi/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-react-cursorrules-prompt-file-cursorrule",
+    "name": "Typescript React Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for typescript react cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-react-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "typescript"
+    ],
+    "tech_stack": [
+      "react",
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-react-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-react-nextjs-cloudflare-cursorrules-pro-cursorrule",
+    "name": "Typescript React Nextjs Cloudflare Cursorrules Pro Rules",
+    "type": "rule",
+    "description": "TypeScript React Next.js Cloudflare .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-react-nextjs-cloudflare-cursorrules-pro",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "nextjs",
+      "typescript"
+    ],
+    "tech_stack": [
+      "react",
+      "nextjs",
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-react-nextjs-cloudflare-cursorrules-pro/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-react-nextui-supabase-cursorrules-promp-cursorrule",
+    "name": "Typescript React Nextui Supabase Cursorrules Promp Rules",
+    "type": "rule",
+    "description": "TypeScript React NextUI Supabase .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-react-nextui-supabase-cursorrules-promp",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "typescript",
+      "supabase"
+    ],
+    "tech_stack": [
+      "react",
+      "typescript",
+      "supabase"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-react-nextui-supabase-cursorrules-promp/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-shadcn-ui-nextjs-cursorrules-prompt-fil-cursorrule",
+    "name": "Typescript Shadcn Ui Nextjs Cursorrules Prompt Fil Rules",
+    "type": "rule",
+    "description": "TypeScript Shadcn UI Next.js .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-shadcn-ui-nextjs-cursorrules-prompt-fil",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "typescript"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-shadcn-ui-nextjs-cursorrules-prompt-fil/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-vite-tailwind-cursorrules-prompt-file-cursorrule",
+    "name": "Typescript Vite Tailwind Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "TypeScript Vite Tailwind .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-vite-tailwind-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "typescript",
+      "tailwind"
+    ],
+    "tech_stack": [
+      "typescript",
+      "tailwind"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-vite-tailwind-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-vuejs-cursorrules-prompt-file-cursorrule",
+    "name": "Typescript Vuejs Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "TypeScript Vue.js .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-vuejs-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "vue",
+      "typescript"
+    ],
+    "tech_stack": [
+      "vue",
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-vuejs-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typescript-zod-tailwind-nextjs-cursorrules-prompt-cursorrule",
+    "name": "Typescript Zod Tailwind Nextjs Cursorrules Prompt  Rules",
+    "type": "rule",
+    "description": "TypeScript Zod Tailwind Next.js .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-zod-tailwind-nextjs-cursorrules-prompt-",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "typescript",
+      "tailwind"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "typescript",
+      "tailwind"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typescript-zod-tailwind-nextjs-cursorrules-prompt-/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "typo3cms-extension-cursorrules-prompt-file-cursorrule",
+    "name": "Typo3Cms Extension Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "TYPO3 CMS Extension Cursorrules Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typo3cms-extension-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/typo3cms-extension-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "uikit-guidelines-cursorrules-prompt-file-cursorrule",
+    "name": "Uikit Guidelines Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "UIKit Guidelines .cursorrules Prompt File",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/uikit-guidelines-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/uikit-guidelines-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "unity-cursor-ai-c-cursorrules-prompt-file-cursorrule",
+    "name": "Unity Cursor Ai C Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Unity Cursor AI C# .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/unity-cursor-ai-c-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "backend",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/unity-cursor-ai-c-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "vitest-unit-testing-cursorrules-prompt-file-cursorrule",
+    "name": "Vitest Unit Testing Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Vitest Unit Testing Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/vitest-unit-testing-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "testing",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/vitest-unit-testing-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "vscode-extension-dev-typescript-cursorrules-prompt-file-cursorrule",
+    "name": "Vscode Extension Dev Typescript Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for vscode extension dev typescript cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/vscode-extension-dev-typescript-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "typescript"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/vscode-extension-dev-typescript-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "vue-3-nuxt-3-development-cursorrules-prompt-file-cursorrule",
+    "name": "Vue 3 Nuxt 3 Development Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Vue 3 Nuxt 3 Development .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/vue-3-nuxt-3-development-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "vue"
+    ],
+    "tech_stack": [
+      "vue"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/vue-3-nuxt-3-development-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "vue-3-nuxt-3-typescript-cursorrules-prompt-file-cursorrule",
+    "name": "Vue 3 Nuxt 3 Typescript Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Vue 3 Nuxt 3 TypeScript .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/vue-3-nuxt-3-typescript-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "vue",
+      "typescript"
+    ],
+    "tech_stack": [
+      "vue",
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/vue-3-nuxt-3-typescript-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "vue3-composition-api-cursorrules-prompt-file-cursorrule",
+    "name": "Vue3 Composition Api Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for vue3 composition api cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/vue3-composition-api-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "frontend",
+    "tags": [
+      "vue"
+    ],
+    "tech_stack": [
+      "vue"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/vue3-composition-api-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "web-app-optimization-cursorrules-prompt-file-cursorrule",
+    "name": "Web App Optimization Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Web App Optimization .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/web-app-optimization-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/web-app-optimization-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "webassembly-z80-cellular-automata-cursorrules-prom-cursorrule",
+    "name": "Webassembly Z80 Cellular Automata Cursorrules Prom Rules",
+    "type": "rule",
+    "description": "WebAssembly Z80 Cellular Automata .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/webassembly-z80-cellular-automata-cursorrules-prom",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/webassembly-z80-cellular-automata-cursorrules-prom/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "wordpress-php-guzzle-gutenberg-cursorrules-prompt-cursorrule",
+    "name": "Wordpress Php Guzzle Gutenberg Cursorrules Prompt  Rules",
+    "type": "rule",
+    "description": "WordPress PHP Guzzle Gutenberg .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/wordpress-php-guzzle-gutenberg-cursorrules-prompt-",
+    "stars": 178,
+    "category": "backend",
+    "tags": [
+      "php"
+    ],
+    "tech_stack": [
+      "php"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/wordpress-php-guzzle-gutenberg-cursorrules-prompt-/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "xian-smart-contracts-cursor-rules-prompt-file-cursorrule",
+    "name": "Xian Smart Contracts Cursor Rules Prompt File Rules",
+    "type": "rule",
+    "description": "Xian Smart Contracts",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/xian-smart-contracts-cursor-rules-prompt-file",
+    "stars": 178,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/xian-smart-contracts-cursor-rules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "xray-test-case-cursorrules-prompt-file-cursorrule",
+    "name": "Xray Test Case Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Xray Test Case Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/xray-test-case-cursorrules-prompt-file",
+    "stars": 178,
+    "category": "testing",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/xray-test-case-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "ai-powered-code-review-rule21",
+    "name": "Ai Powered Code Review (Rules 2.1)",
+    "type": "rule",
+    "description": "AI驱动的智能代码审查规则 - 基于机器学习的代码质量分析和自动化审查流程",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/ai-powered-code-review.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "analyze-issue-rule21",
+    "name": "Analyze Issue (Rules 2.1)",
+    "type": "rule",
+    "description": "GitHub issue analysis and implementation specification - GitHub问题分析和实现规范",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "git",
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/analyze-issue.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "backend-dev-rule21",
+    "name": "Backend Dev (Rules 2.1)",
+    "type": "rule",
+    "description": "Backend development workflow with Java/Python/Node.js - 后端开发完整工作流",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "backend",
+    "tags": [
+      "python",
+      "java",
+      "nodejs",
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/backend-dev.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "bug-fix-rule21",
+    "name": "Bug Fix (Rules 2.1)",
+    "type": "rule",
+    "description": "Complete bug-fixing workflow from issue to PR - 从问题到PR的完整Bug修复工作流",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/bug-fix.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "changelog-management-rule21",
+    "name": "Changelog Management (Rules 2.1)",
+    "type": "rule",
+    "description": "AI-powered changelog management with automatic generation and version tracking - AI驱动的变更日志管理",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/changelog-management.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "code-quality-check-rule21",
+    "name": "Code Quality Check (Rules 2.1)",
+    "type": "rule",
+    "description": "AI-powered cross-language code quality check with intelligent analysis - AI驱动的跨语言代码质量检查",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/code-quality-check.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "code-review-rule21",
+    "name": "Code Review (Rules 2.1)",
+    "type": "rule",
+    "description": "Multi-role pull request review checklist - 多角色拉取请求审查清单",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/code-review.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "commit-rule21",
+    "name": "Commit (Rules 2.1)",
+    "type": "rule",
+    "description": "Unified comprehensive commit workflow (standard + fast + AI) - 统一全面提交工作流（标准 + 快速 + AI）",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/commit.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "context-loader-rule21",
+    "name": "Context Loader (Rules 2.1)",
+    "type": "rule",
+    "description": "AI-powered intelligent project context loader with deep analysis - AI驱动的智能项目上下文加载器",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/context-loader.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "create-docs-rule21",
+    "name": "Create Docs (Rules 2.1)",
+    "type": "rule",
+    "description": "Comprehensive documentation generation - 全面的文档生成",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "documentation",
+    "tags": [
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/create-docs.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "custom-command-builder-rule21",
+    "name": "Custom Command Builder (Rules 2.1)",
+    "type": "rule",
+    "description": "AI-powered custom command builder with intelligent templates - AI驱动的自定义命令构建器",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/custom-command-builder.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "feedback-enhanced-rule21",
+    "name": "Feedback Enhanced (Rules 2.1)",
+    "type": "rule",
+    "description": "Enhanced feedback mechanism with 1-hour timeout - 增强反馈机制，1小时超时",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/feedback-enhanced.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "frontend-dev-rule21",
+    "name": "Frontend Dev (Rules 2.1)",
+    "type": "rule",
+    "description": "Frontend development workflow with Vue/React/TypeScript - 前端开发完整工作流",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "vue",
+      "typescript",
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/frontend-dev.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "implement-task-rule21",
+    "name": "Implement Task (Rules 2.1)",
+    "type": "rule",
+    "description": "Methodical task implementation approach - 系统化任务实现方法",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/implement-task.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "intelligent-project-management-rule21",
+    "name": "Intelligent Project Management (Rules 2.1)",
+    "type": "rule",
+    "description": "智能项目管理系统 - 整合阶段管理、工作流编排、智能推荐和记忆系统",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/intelligent-project-management.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "intelligent-workflow-orchestration-rule21",
+    "name": "Intelligent Workflow Orchestration (Rules 2.1)",
+    "type": "rule",
+    "description": "企业级工作流编排规则 - 大型团队和复杂项目的高级智能编排",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/intelligent-workflow-orchestration.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "mcp-debugging-enhanced-rule21",
+    "name": "Mcp Debugging Enhanced (Rules 2.1)",
+    "type": "rule",
+    "description": "AI-powered MCP debugging and diagnostics with intelligent analysis - AI驱动的MCP调试和诊断工具",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/mcp-debugging-enhanced.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "mcp-intelligent-strategy-rule21",
+    "name": "Mcp Intelligent Strategy (Rules 2.1)",
+    "type": "rule",
+    "description": "MCP工具智能使用策略 - 专注于MCP工具的优先使用和高效执行",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/mcp-intelligent-strategy.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "mcp-unified-management-rule21",
+    "name": "Mcp Unified Management (Rules 2.1)",
+    "type": "rule",
+    "description": "MCP统一管理策略 - 整合检测、推荐、配置、同步等所有MCP功能的统一管理",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/mcp-unified-management.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "mcp-zero-config-detection-rule21",
+    "name": "Mcp Zero Config Detection (Rules 2.1)",
+    "type": "rule",
+    "description": "MCP零配置检测和提醒策略 - 检测用户是否缺少MCP配置并主动提醒引导",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/mcp-zero-config-detection.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "mermaid-rule21",
+    "name": "Mermaid (Rules 2.1)",
+    "type": "rule",
+    "description": "Mermaid diagram generation for various visualizations - Mermaid图表生成工具",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/mermaid.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "root-cause-analysis-rule21",
+    "name": "Root Cause Analysis (Rules 2.1)",
+    "type": "rule",
+    "description": "AI-powered root cause analysis with Five Whys methodology - AI驱动的根因分析方法",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/root-cause-analysis.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "systematic-debugging-rule21",
+    "name": "Systematic Debugging (Rules 2.1)",
+    "type": "rule",
+    "description": "AI-powered systematic debugging with intelligent troubleshooting - AI驱动的系统化调试方法",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "project rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/systematic-debugging.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "ai-agent-intelligence-core-rule21",
+    "name": "Ai Agent Intelligence Core (Rules 2.1)",
+    "type": "rule",
+    "description": "AI代理智能核心规则 - 统一智能决策引擎和工作流编排系统",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/ai-agent-intelligence-core.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "ai-ethical-boundaries-rule21",
+    "name": "Ai Ethical Boundaries (Rules 2.1)",
+    "type": "rule",
+    "description": "AI伦理边界规则 - 确保AI行为符合伦理标准和社会价值观",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/ai-ethical-boundaries.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "ai-thinking-protocol-rule21",
+    "name": "Ai Thinking Protocol (Rules 2.1)",
+    "type": "rule",
+    "description": "AI思维协议 - 智能思考深度调节和认知负载管理",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/ai-thinking-protocol.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "audit-logging-system-rule21",
+    "name": "Audit Logging System (Rules 2.1)",
+    "type": "rule",
+    "description": "审计日志系统 - 全面的操作审计和安全事件记录",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/audit-logging-system.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "backend-rules-rule21",
+    "name": "Backend Rules (Rules 2.1)",
+    "type": "rule",
+    "description": "后端开发AI助手规则 - 智能化企业级标准",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/backend-rules.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "brain-recorder-integration-rule21",
+    "name": "Brain Recorder Integration (Rules 2.1)",
+    "type": "rule",
+    "description": "Brain-Recorder Integration System (大脑-记录员集成系统) - 超级大脑与记录员系统的深度集成",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/brain-recorder-integration.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "context-recorder-advanced-rule21",
+    "name": "Context Recorder Advanced (Rules 2.1)",
+    "type": "rule",
+    "description": "Context Recorder Advanced (记录员高级功能) - 性能优化和智能增强",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/context-recorder-advanced.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "context-recorder-core-rule21",
+    "name": "Context Recorder Core (Rules 2.1)",
+    "type": "rule",
+    "description": "Context Recorder Core (记录员核心) - 核心定义、任务和主要规则",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/context-recorder-core.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "context-recorder-edge-cases-rule21",
+    "name": "Context Recorder Edge Cases (Rules 2.1)",
+    "type": "rule",
+    "description": "Context Recorder Edge Cases (记录员边界情况) - 边界情况和错误处理",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/context-recorder-edge-cases.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "context-recorder-system-rule21",
+    "name": "Context Recorder System (Rules 2.1)",
+    "type": "rule",
+    "description": "Context Recorder System (记录员系统) - 模块化索引文件",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/context-recorder-system.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "context-recorder-templates-rule21",
+    "name": "Context Recorder Templates (Rules 2.1)",
+    "type": "rule",
+    "description": "Context Recorder Templates (记录员模板) - 模板定义和归档配置",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/context-recorder-templates.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "context-systems-integration-rule21",
+    "name": "Context Systems Integration (Rules 2.1)",
+    "type": "rule",
+    "description": "Context Systems Integration",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/context-systems-integration.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "context7-preload-standard-rule21",
+    "name": "Context7 Preload Standard (Rules 2.1)",
+    "type": "rule",
+    "description": "Context7 知识预载标准 - 修复Bug与新项目启动前的前置步骤",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/context7-preload-standard.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "disaster-recovery-plan-rule21",
+    "name": "Disaster Recovery Plan (Rules 2.1)",
+    "type": "rule",
+    "description": "灾难恢复计划 - 应对数据丢失、系统故障和安全事件的完整恢复策略",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/disaster-recovery-plan.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "dynamic-thinking-depth-regulation-rule21",
+    "name": "Dynamic Thinking Depth Regulation (Rules 2.1)",
+    "type": "rule",
+    "description": "动态思考深度调节 - 基于任务复杂度和用户需求智能调节AI思考深度",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/dynamic-thinking-depth-regulation.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "error-recovery-system-rule21",
+    "name": "Error Recovery System (Rules 2.1)",
+    "type": "rule",
+    "description": "错误恢复机制 - 系统级错误检测和自动恢复策略",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/error-recovery-system.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "file-generation-safety-rules-rule21",
+    "name": "File Generation Safety Rules (Rules 2.1)",
+    "type": "rule",
+    "description": "文件生成安全规则 - 强制性用户确认机制，防止AI未经授权生成文件",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/file-generation-safety-rules.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "frontend-rules-rule21",
+    "name": "Frontend Rules (Rules 2.1)",
+    "type": "rule",
+    "description": "前端开发AI助手规则 - 智能化企业级标准，集成最新前端技术栈和智能MCP工具编排",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/frontend-rules.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "human-ai-collaboration-optimization-rule21",
+    "name": "Human Ai Collaboration Optimization (Rules 2.1)",
+    "type": "rule",
+    "description": "人机协同优化规则 - 认知互补和思维品质提升框架",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/human-ai-collaboration-optimization.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "intelligent-recommendation-engine-rule21",
+    "name": "Intelligent Recommendation Engine (Rules 2.1)",
+    "type": "rule",
+    "description": "智能推荐引擎 - 基于关键词匹配和上下文分析的阶段推荐系统",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/intelligent-recommendation-engine.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "knowledge-creation-discovery-framework-rule21",
+    "name": "Knowledge Creation Discovery Framework (Rules 2.1)",
+    "type": "rule",
+    "description": "知识创造发现框架 - 智能知识挖掘、创新思维和学习能力增强",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/knowledge-creation-discovery-framework.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "memory-system-integration-rule21",
+    "name": "Memory System Integration (Rules 2.1)",
+    "type": "rule",
+    "description": "记忆系统集成 - 项目记忆存储、管理和智能使用",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/memory-system-integration.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "multimodal-interaction-framework-rule21",
+    "name": "Multimodal Interaction Framework (Rules 2.1)",
+    "type": "rule",
+    "description": "多模态交互框架 - 支持文本、图像、语音等多种交互方式的智能处理",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/multimodal-interaction-framework.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "performance-monitoring-system-rule21",
+    "name": "Performance Monitoring System (Rules 2.1)",
+    "type": "rule",
+    "description": "性能监控系统 - 实时监控系统性能指标，优化资源使用和响应速度",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "devops",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/performance-monitoring-system.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "permission-control-system-rule21",
+    "name": "Permission Control System (Rules 2.1)",
+    "type": "rule",
+    "description": "权限控制系统 - 定义用户/AI/系统的角色权限和操作审计",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/permission-control-system.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "rule-conflict-resolution-rule21",
+    "name": "Rule Conflict Resolution (Rules 2.1)",
+    "type": "rule",
+    "description": "规则冲突解决和用户指令优先级管理 - 确保用户指令始终优先，解决规则间冲突",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/rule-conflict-resolution.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "rule-hot-reload-system-rule21",
+    "name": "Rule Hot Reload System (Rules 2.1)",
+    "type": "rule",
+    "description": "规则热更新机制 - 实时监控规则变化，动态加载更新，无需重启系统",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/rule-hot-reload-system.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "super-brain-system-rule21",
+    "name": "Super Brain System (Rules 2.1)",
+    "type": "rule",
+    "description": "超级大脑系统 - 智能项目管理激活机制和核心功能",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/super-brain-system.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "system-diagnostics-rule21",
+    "name": "System Diagnostics (Rules 2.1)",
+    "type": "rule",
+    "description": "系统诊断工具 - 全面的系统健康检查和故障排查框架",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/system-diagnostics.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "system-integration-config-rule21",
+    "name": "System Integration Config (Rules 2.1)",
+    "type": "rule",
+    "description": "系统集成配置 - 统一管理各个智能系统的集成和协调",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "tooling",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/system-integration-config.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  },
+  {
+    "id": "unified-rules-base-rule21",
+    "name": "Unified Rules Base (Rules 2.1)",
+    "type": "rule",
+    "description": "增强统一规则基准 - 确保不同AI工具功能完全一致，集成智能需求理解和深度讨论框架",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 50,
+    "category": "ai-ml",
+    "tags": [
+      "global rules"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/unified-rules-base.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-03-25"
+  }
+]
