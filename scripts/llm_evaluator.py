@@ -127,7 +127,7 @@ def call_llm(skills_batch: list[dict]) -> list[dict] | None:
 
     for attempt in range(3):
         try:
-            with urlopen(req, timeout=120) as resp:
+            with urlopen(req, timeout=300) as resp:
                 result = json.loads(resp.read().decode())
                 content = result["choices"][0]["message"]["content"]
                 # Extract JSON from response (handle markdown code blocks)
