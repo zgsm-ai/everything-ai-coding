@@ -30,7 +30,7 @@ Coding Hub 从 8 个上游源自动聚合、过滤、评估，让你和你的 Ag
 
 ## Quick Start
 
-把这个仓库丢给你的 AI Agent，它会自动阅读 [For Agents](#for-agents) 部分并完成安装。或者手动安装：
+把这个仓库丢给你的 AI Agent，它会自动阅读 [For Agents](#for-agents) 部分，检测当前平台并完成安装。或者手动安装：
 
 ```bash
 # 1. 克隆仓库
@@ -132,7 +132,7 @@ git config --global https.proxy http://127.0.0.1:7890
 ```
 costrict-skills-repo/
 ├── catalog/                  # 资源索引（数据层）
-│   ├── index.json            # 合并后的完整索引（1292 条）
+│   ├── index.json            # 合并后的完整索引（869 条）
 │   ├── schema.json           # 条目 schema 定义
 │   ├── mcp/                  # MCP Server 源数据
 │   ├── skills/               # Skill 源数据
@@ -165,10 +165,23 @@ costrict-skills-repo/
 
 ## For Agents
 
-> **AI Agent 请阅读本节。** 以下内容供 Agent 自动安装 coding-hub skill，无需人工干预。
-> 请根据当前运行平台选择对应的安装方式。
+> **AI Agent 请阅读本节完成自动安装。** 请严格按照以下步骤执行，不要跳过任何一步。
 
-### Claude Code
+### 第 1 步: 检测当前运行平台
+
+在安装前，先检测你当前运行在哪个平台。按以下顺序检查，使用第一个匹配的结果：
+
+1. 检查 `~/.cospec/` 目录是否存在 → **Costrict**
+2. 检查 `~/.opencode/` 目录是否存在 → **Opencode**
+3. 以上都不存在 → **Claude Code**（默认）
+
+> **重要**: Costrict 是 Opencode 的深度分支，用户机器上可能同时存在 `~/.opencode/` 和 `~/.cospec/`，所以 Costrict 必须优先检测。
+
+### 第 2 步: 执行对应平台的安装命令
+
+根据第 1 步的检测结果，**仅执行**对应平台的那一组命令：
+
+**如果是 Claude Code:**
 
 ```bash
 # 安装 skill（全局）
@@ -179,15 +192,9 @@ mkdir -p .claude/commands/coding-hub/
 cp platforms/claude-code/commands/coding-hub/*.md .claude/commands/coding-hub/
 ```
 
-安装后可用命令：
-- `/coding-hub:search <关键词>` — 搜索资源
-- `/coding-hub:browse [分类]` — 浏览分类
-- `/coding-hub:recommend` — 基于当前项目推荐
-- `/coding-hub:install <名称>` — 安装资源
-- `/coding-hub:uninstall <名称>` — 卸载资源
-- `/coding-hub:update` — 更新到最新版本
+安装后命令分隔符为 `:`，例如: `/coding-hub:search`、`/coding-hub:install`
 
-### Opencode
+**如果是 Opencode:**
 
 ```bash
 # 安装 skill（全局）
@@ -199,15 +206,9 @@ mkdir -p .opencode/command/
 cp platforms/opencode/command/*.md .opencode/command/
 ```
 
-安装后可用命令：
-- `/coding-hub-search <关键词>` — 搜索资源
-- `/coding-hub-browse [分类]` — 浏览分类
-- `/coding-hub-recommend` — 基于当前项目推荐
-- `/coding-hub-install <名称>` — 安装资源
-- `/coding-hub-uninstall <名称>` — 卸载资源
-- `/coding-hub-update` — 更新到最新版本
+安装后命令分隔符为 `-`，例如: `/coding-hub-search`、`/coding-hub-install`
 
-### Costrict
+**如果是 Costrict:**
 
 ```bash
 # 安装 skill（全局）
@@ -219,33 +220,34 @@ mkdir -p .cospec/coding-hub/commands/
 cp platforms/costrict/commands/coding-hub/*.md .cospec/coding-hub/commands/
 ```
 
-安装后可用命令：
-- `/coding-hub-search <关键词>` — 搜索资源
-- `/coding-hub-browse [分类]` — 浏览分类
-- `/coding-hub-recommend` — 基于当前项目推荐
-- `/coding-hub-install <名称>` — 安装资源
-- `/coding-hub-uninstall <名称>` — 卸载资源
-- `/coding-hub-update` — 更新到最新版本
+安装后命令分隔符为 `-`，例如: `/coding-hub-search`、`/coding-hub-install`
 
-### 更新
+### 第 3 步: 验证安装
+
+执行搜索命令验证安装是否成功：
 
 ```
-/coding-hub:update              # Claude Code
-/coding-hub-update              # Opencode / Costrict
+# Claude Code
+/coding-hub:search typescript
+
+# Opencode / Costrict
+/coding-hub-search typescript
 ```
 
-更新命令会从 GitHub 拉取最新的 skill 和子命令文件覆盖本地。
+**预期结果**: 返回一个包含搜索结果的 Markdown 表格。如果返回了表格，安装成功。如果提示命令不存在，请检查第 2 步的文件是否正确复制到位。
 
-### 验证
+### 可用命令
 
-安装完成后，运行搜索命令测试：
+安装成功后，以下命令可用（命令分隔符根据平台不同为 `:` 或 `-`）：
 
-```
-/coding-hub:search typescript    # Claude Code
-/coding-hub-search typescript    # Opencode / Costrict
-```
-
-返回搜索结果表格即安装成功。
+| 命令 | 说明 |
+|------|------|
+| `search <关键词> [type:mcp\|skill\|rule\|prompt]` | 搜索资源，可按类型筛选 |
+| `browse [分类] [type:...]` | 浏览分类 |
+| `recommend [type:...]` | 基于当前项目技术栈推荐 |
+| `install <名称>` | 安装资源 |
+| `uninstall <名称>` | 卸载资源 |
+| `update` | 更新到最新版本 |
 
 ### 数据源
 
