@@ -10,6 +10,16 @@ description: >
 
 你是一个 coding 资源助手。你的数据源是一个远端 JSON 索引，包含精选的 MCP servers、Skills、Rules 和 Prompts。
 
+## 平台检测
+
+首次执行任何命令前，先检测当前运行平台。按以下顺序检查，使用第一个匹配的结果：
+
+1. 检查当前项目目录或 `~/` 下是否存在 `.cospec/` → **Costrict**（配置目录: `.cospec/`，命令分隔符: `-`）
+2. 检查是否存在 `.opencode/` → **Opencode**（配置目录: `.opencode/`，命令分隔符: `-`）
+3. 默认 → **Claude Code**（配置目录: `.claude/`，命令分隔符: `:`）
+
+检测结果在本次会话中记住，后续命令不再重复检测。以下所有路径中的 `.claude/` 自动替换为检测到的平台配置目录。
+
 ## 数据源
 
 索引 URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/catalog/index.json`
@@ -48,12 +58,13 @@ description: >
 | 1 | xxx  | MCP  | xxx  | 1234  | xxx  |
 ```
 
-5. 询问用户: "输入编号安装，或输入新的搜索词"
+5. 询问用户: "输入 `/coding-hub:install <名称>` 安装，或输入新的搜索词"
 
-### browse [category]
+### browse [category] [type:mcp|skill|rule|prompt]
 
 **无参数时**: 展示分类概览
-1. 获取索引，按 category 分组计数
+1. 获取索引，如果指定了 `type:` 过滤则先按 type 过滤
+2. 按 category 分组计数
 2. 展示：
 
 ```
@@ -71,11 +82,12 @@ description: >
 **有参数时**: 展示该分类下所有条目
 1. 过滤 `category == 参数`
 2. 按 type 分组展示，每组按 stars 降序
-3. 询问: "输入编号安装"
+3. 询问: "输入 `/coding-hub:install <名称>` 安装"
 
-### recommend
+### recommend [type:mcp|skill|rule|prompt]
 
-1. 分析当前项目技术栈：
+1. 从参数中提取可选的类型过滤 `type:<值>`
+2. 分析当前项目技术栈：
    - 读取 `package.json` → 提取 dependencies 中的框架名 (react, next, vue, express, etc.)
    - 读取 `requirements.txt` / `pyproject.toml` → 提取 Python 包名
    - 读取 `go.mod` → 提取 Go module
@@ -85,7 +97,8 @@ description: >
    - 检查配置文件: `Dockerfile`→docker, `.github/workflows/`→ci-cd, `tsconfig.json`→typescript
 
 2. 将识别到的技术栈与索引中每条的 `tags` 和 `tech_stack` 做交集匹配
-3. 按匹配标签数 + stars 排序，展示 Top 10
+3. 如果指定了类型过滤，按 `type` 字段过滤匹配结果
+4. 按匹配标签数 + stars 排序，展示 Top 10
 4. 格式同 search 结果
 
 ### install <name>
