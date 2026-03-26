@@ -28,7 +28,7 @@ description: '更新 coding-hub skill 和子命令到最新版本。用法: /cod
 
    # 子命令（项目级）
    mkdir -p .claude/commands/coding-hub/
-   for cmd in search browse recommend install update; do
+   for cmd in search browse recommend install uninstall update; do
      curl -sfL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/platforms/claude-code/commands/coding-hub/${cmd}.md" -o ".claude/commands/coding-hub/${cmd}.md"
    done
    ```
@@ -47,6 +47,7 @@ description: '更新 coding-hub skill 和子命令到最新版本。用法: /cod
    - .claude/commands/coding-hub/browse.md
    - .claude/commands/coding-hub/recommend.md
    - .claude/commands/coding-hub/install.md
+   - .claude/commands/coding-hub/uninstall.md
    - .claude/commands/coding-hub/update.md
    ```
 

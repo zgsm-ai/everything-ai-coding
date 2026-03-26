@@ -24,12 +24,12 @@ description: '更新 coding-hub skill 和子命令到最新版本。用法: /cod
 
    ```bash
    # Skill（全局）
-   curl -sL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/platforms/opencode/skills/coding-hub/SKILL.md" -o ~/.opencode/skills/coding-hub/SKILL.md
+   curl -sfL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/platforms/opencode/skills/coding-hub/SKILL.md" -o ~/.opencode/skills/coding-hub/SKILL.md
 
    # 子命令（项目级）
    mkdir -p .opencode/command/
-   for cmd in search browse recommend install update; do
-     curl -sL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/platforms/opencode/command/coding-hub-${cmd}.md" -o ".opencode/command/coding-hub-${cmd}.md"
+   for cmd in search browse recommend install uninstall update; do
+     curl -sfL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/platforms/opencode/command/coding-hub-${cmd}.md" -o ".opencode/command/coding-hub-${cmd}.md"
    done
    ```
 
@@ -47,10 +47,11 @@ description: '更新 coding-hub skill 和子命令到最新版本。用法: /cod
    - .opencode/command/coding-hub-browse.md
    - .opencode/command/coding-hub-recommend.md
    - .opencode/command/coding-hub-install.md
+   - .opencode/command/coding-hub-uninstall.md
    - .opencode/command/coding-hub-update.md
    ```
 
 ## 错误处理
 
-- 如果 curl 下载失败（网络问题），提示用户检查网络并重试
+- 如果 curl 下载失败（`-f` 标志会让 curl 在 HTTP 错误如 404/500 时返回非零退出码），提示用户检查网络并重试
 - 如果目标目录不存在（未安装过），提示用户先执行安装

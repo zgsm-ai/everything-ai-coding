@@ -25,12 +25,12 @@ argument-hint: (no arguments)
 
    ```bash
    # Skill（全局）
-   curl -sL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/platforms/costrict/skills/coding-hub/SKILL.md" -o ~/.cospec/skills/coding-hub/SKILL.md
+   curl -sfL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/platforms/costrict/skills/coding-hub/SKILL.md" -o ~/.cospec/skills/coding-hub/SKILL.md
 
    # 子命令（项目级）
    mkdir -p .cospec/coding-hub/commands/
-   for cmd in search browse recommend install update; do
-     curl -sL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/platforms/costrict/commands/coding-hub/coding-hub-${cmd}.md" -o ".cospec/coding-hub/commands/coding-hub-${cmd}.md"
+   for cmd in search browse recommend install uninstall update; do
+     curl -sfL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/platforms/costrict/commands/coding-hub/coding-hub-${cmd}.md" -o ".cospec/coding-hub/commands/coding-hub-${cmd}.md"
    done
    ```
 
@@ -48,10 +48,11 @@ argument-hint: (no arguments)
    - .cospec/coding-hub/commands/coding-hub-browse.md
    - .cospec/coding-hub/commands/coding-hub-recommend.md
    - .cospec/coding-hub/commands/coding-hub-install.md
+   - .cospec/coding-hub/commands/coding-hub-uninstall.md
    - .cospec/coding-hub/commands/coding-hub-update.md
    ```
 
 ## 错误处理
 
-- 如果 curl 下载失败（网络问题），提示用户检查网络并重试
+- 如果 curl 下载失败（`-f` 标志会让 curl 在 HTTP 错误如 404/500 时返回非零退出码），提示用户检查网络并重试
 - 如果目标目录不存在（未安装过），提示用户先执行安装
