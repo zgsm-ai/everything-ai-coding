@@ -9,7 +9,7 @@
   <a href="https://github.com/zgsm-sangfor/costrict-skills-repo/stargazers"><img src="https://img.shields.io/github/stars/zgsm-sangfor/costrict-skills-repo?style=flat-square&color=4A90D9" alt="Stars" /></a>
   <a href="https://github.com/zgsm-sangfor/costrict-skills-repo/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zgsm-sangfor/costrict-skills-repo?style=flat-square" alt="License" /></a>
   <a href="https://github.com/zgsm-sangfor/costrict-skills-repo/commits/main"><img src="https://img.shields.io/github/last-commit/zgsm-sangfor/costrict-skills-repo?style=flat-square" alt="Last Commit" /></a>
-  <img src="https://img.shields.io/badge/resources-1416-2ECC71?style=flat-square" alt="Resources" />
+  <img src="https://img.shields.io/badge/resources-1418-2ECC71?style=flat-square" alt="Resources" />
 </p>
 
 <p>
@@ -102,7 +102,7 @@ git config --global https.proxy http://127.0.0.1:7890
 | 类型 | 数量 | 说明 |
 |------|------|------|
 | MCP Server | 495 | Model Context Protocol 服务器 |
-| Prompt | 510 | 开发者专用 Prompt |
+| Prompt | 512 | 开发者专用 Prompt |
 | Rule | 236 | 编码规范 / AI 辅助规则 |
 | Skill | 175 | Agent Skill 扩展 |
 
