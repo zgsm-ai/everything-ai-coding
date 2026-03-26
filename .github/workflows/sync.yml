@@ -78,5 +78,6 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "[chore] 每周自动同步上游资源 $(date +%Y-%m-%d)"
+            git pull --rebase
             git push
           fi
