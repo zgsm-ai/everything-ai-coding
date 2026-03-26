@@ -25,7 +25,7 @@ LLM_EVAL_LIMIT = int(os.environ.get("LLM_EVAL_LIMIT", "200"))
 BATCH_SIZE = 15  # Skills per LLM call (keep small for slow thinking models)
 MIN_CODING_RELEVANCE = 3
 MIN_QUALITY_SCORE = 3
-TOP_N = 150
+TOP_N = 300
 
 SYSTEM_PROMPT = """You are a coding skill evaluator. For each skill, assess:
 1. coding_relevance (1-5): How directly related to software development/coding?
@@ -275,6 +275,8 @@ def _top_n(evaluated: list[dict]) -> list[dict]:
     for r in result:
         r.pop("_score", None)
         r.pop("_keyword_match", None)
+        r.pop("_openclaw_slug", None)
+        r.pop("_openclaw_install_path", None)
     return result
 
 
