@@ -1,13 +1,33 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Coding Hub installer — requires explicit platform selection.
-# Usage: curl -fsSL .../install.sh | bash -s -- --platform <platform>
+# Coding Hub installer
+# Usage:
+#   curl -fsSL .../install.sh | bash -s -- --platform <platform>   (explicit)
+#   curl -fsSL .../install.sh | bash                                (auto-detect)
 #
 # Platforms: claude-code, opencode, costrict, vscode-costrict
 
 BASE_URL="https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main"
 COMMANDS="search browse recommend install uninstall update"
+
+# --- Auto-detect platform via process-injected env vars ---
+# These variables are set by each platform's process, NOT by shell profile.
+# Priority: VSCode Costrict > Costrict CLI > Claude Code > Opencode
+
+detect_platform() {
+  if [ "${COSTRICT_CALLER:-}" = "vscode" ]; then
+    echo "vscode-costrict"
+  elif [ "${COSTRICT_RUNNING:-}" = "1" ]; then
+    echo "costrict"
+  elif [ "${CLAUDECODE:-}" = "1" ]; then
+    echo "claude-code"
+  elif [ "${OPENCODE:-}" = "1" ]; then
+    echo "opencode"
+  else
+    echo ""
+  fi
+}
 
 # --- Parse arguments ---
 
@@ -26,22 +46,33 @@ while [[ $# -gt 0 ]]; do
     *)
       echo "Unknown argument: $1" >&2
       echo "" >&2
-      echo "Usage: bash install.sh --platform <platform>" >&2
+      echo "Usage: bash install.sh [--platform <platform>]" >&2
       echo "Platforms: claude-code, opencode, costrict, vscode-costrict" >&2
+      echo "Omit --platform to auto-detect via environment variables." >&2
       exit 1
       ;;
   esac
 done
 
+# Auto-detect if no --platform provided
 if [ -z "$PLATFORM" ]; then
-  echo "ERROR: --platform is required." >&2
-  echo "" >&2
-  echo "Usage:" >&2
-  echo "  curl -fsSL .../install.sh | bash -s -- --platform claude-code" >&2
-  echo "  curl -fsSL .../install.sh | bash -s -- --platform opencode" >&2
-  echo "  curl -fsSL .../install.sh | bash -s -- --platform costrict" >&2
-  echo "  curl -fsSL .../install.sh | bash -s -- --platform vscode-costrict" >&2
-  exit 1
+  PLATFORM=$(detect_platform)
+  if [ -z "$PLATFORM" ]; then
+    echo "ERROR: Could not auto-detect platform." >&2
+    echo "" >&2
+    echo "None of these environment variables were found:" >&2
+    echo "  COSTRICT_CALLER=vscode  → vscode-costrict" >&2
+    echo "  COSTRICT_RUNNING=1      → costrict" >&2
+    echo "  CLAUDECODE=1            → claude-code" >&2
+    echo "  OPENCODE=1              → opencode" >&2
+    echo "" >&2
+    echo "Please specify explicitly:" >&2
+    echo "  curl -fsSL .../install.sh | bash -s -- --platform <platform>" >&2
+    exit 1
+  fi
+  echo "Auto-detected platform: $PLATFORM"
+else
+  echo "Platform: $PLATFORM"
 fi
 
 # --- Download helper ---
@@ -144,7 +175,6 @@ install_vscode_costrict() {
 
 # --- Main ---
 
-echo "Platform: $PLATFORM"
 echo ""
 
 case "$PLATFORM" in

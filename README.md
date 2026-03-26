@@ -58,8 +58,6 @@ curl -fsSL https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/m
 
 或者把这个仓库丢给你的 AI Agent，它会自动阅读 [For Agents](#for-agents) 部分完成安装。
 
-> **注意**: 目前仅 Claude Code 的 Agent 能可靠识别自身平台。其他平台（Opencode / Costrict / VSCode Costrict）建议由用户手动执行上方对应的安装命令。
-
 <details>
 <summary>手动安装（git clone）</summary>
 
@@ -187,26 +185,27 @@ costrict-skills-repo/
 ## For Agents
 
 > **AI Agent 请阅读本节完成自动安装。** 请严格按照以下步骤执行，不要跳过任何一步。
->
-> **适用范围**: 本节的自动安装流程目前仅在 **Claude Code** 中验证可靠（Agent 能正确识别自身平台）。其他平台的 Agent 可能无法准确判断自己的运行环境，建议由用户手动执行 [Quick Start](#quick-start) 中对应平台的安装命令。
-
-### 第 0 步: 识别你的运行平台
-
-安装脚本需要明确指定平台，请先确认你运行在哪个环境中：
-
-| 平台 | 如何判断 |
-|------|----------|
-| **Claude Code** | 你是 Claude，在终端 CLI 中运行，有 `~/.claude/` 目录 |
-| **Opencode** | 你运行在 Opencode 中，项目有 `.opencode/` 目录，skills 在 `~/.opencode/skills/` |
-| **Costrict CLI** | 你运行在 Costrict（Opencode 分支）中，skills 在 `~/.costrict/skills/` |
-| **VSCode Costrict** | 你运行在 VSCode 插件环境中（`VSCODE_PID` 或 `TERM_PROGRAM=vscode`），skills 在 `~/.costrict/skills/` |
-
-> **提示**: 如果不确定，检查你的 skills 加载路径：`~/.claude/skills/` → Claude Code，`~/.opencode/skills/` → Opencode，`~/.costrict/skills/` → Costrict CLI 或 VSCode Costrict。
 
 ### 第 1 步: 一键安装
 
-确认平台后，执行对应命令（将 `<platform>` 替换为: `claude-code`、`opencode`、`costrict`、`vscode-costrict`）：
+安装脚本支持自动检测平台，直接执行即可：
 
+```bash
+curl -fsSL https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/install.sh | bash
+```
+
+脚本通过以下**进程级环境变量**自动识别平台（这些变量由各平台进程启动时注入，不会互相污染）：
+
+| 环境变量 | 平台 |
+|---------|------|
+| `COSTRICT_CALLER=vscode` | VSCode Costrict 插件 |
+| `COSTRICT_RUNNING=1` | Costrict CLI |
+| `CLAUDECODE=1` | Claude Code |
+| `OPENCODE=1` | Opencode |
+
+> **注意**: `COSTRICT_BASE_URL`、`OPENCODE_CMUX_ATTENTION_MODE` 等变量会在所有平台出现（shell profile 泄漏），**不能**用来判断平台。只有上表中的 4 个变量是各平台进程启动时独占注入的。
+
+如果自动检测失败，可以手动指定：
 ```bash
 curl -fsSL https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/install.sh | bash -s -- --platform <platform>
 ```
