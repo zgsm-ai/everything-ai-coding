@@ -20,7 +20,7 @@ metadata:
 
 - MCP 配置（项目级）: `.roo/mcp.json`
 - MCP 配置（全局级）: 通过插件 UI 手动添加（路径不可预测）
-- Skill 安装目录: `~/.costrict/skills/<id>/`
+- Skill 安装目录: `$HOME/.costrict/skills/<id>/`（`~` 不可用，必须用 `$HOME` 展开为绝对路径）
 - Rule/Prompt（项目级）: `.roo/rules/<id>.md`
 - Rule/Prompt（全局级）: 不支持，提示用户手动添加
 
@@ -94,6 +94,13 @@ metadata:
 
 ### install <name>
 
+> **重要**: 安装时必须使用下方定义的目标路径，**忽略** catalog 条目 `install` 字段中的任何路径信息（如 `claude_desktop_config.json`、`settings.json` 等）。那些路径是面向其他平台的，在 VSCode Costrict 环境中不适用。
+
+> **路径处理规则**:
+> - `~` 必须展开为实际主目录路径（用 Bash 执行 `echo $HOME` 获取，或直接使用 `$HOME`）
+> - 写入文件前必须先用 Bash 执行 `mkdir -p <父目录>` 确保目录存在
+> - 禁止将 `~` 作为字面量传给 `write_to_file`，否则会在当前目录创建名为 `~` 的文件夹
+
 1. 获取索引，按 `id` 或 `name`（模糊匹配）查找条目
 2. 如果匹配多条，列出让用户选择
 3. 展示安装预览：
@@ -113,19 +120,23 @@ metadata:
 4. 根据用户确认和类型执行安装：
 
 #### MCP (type == "mcp")
-- 默认写入 `.roo/mcp.json`，用户选 "全局" 则提示: "VSCode Costrict 插件的全局 MCP 配置需通过插件设置界面手动添加，请打开 VSCode 设置搜索 MCP 相关配置项"
+- 目标路径**仅限** `.roo/mcp.json`（项目级），不写入任何其他路径
+- 用户选 "全局" 则提示: "VSCode Costrict 插件的全局 MCP 配置需通过插件设置界面手动添加，请打开 VSCode 设置搜索 MCP 相关配置项"
+- 安装前先执行 `mkdir -p .roo`
 - 读取现有 `.roo/mcp.json`（不存在则创建 `{}`）
-- 将 `install.config` 合并到 `mcpServers` 字段
+- 将 `install.config` 合并到 `mcpServers` 字段（只取 config 的 key-value 结构，忽略 catalog 中的路径信息）
 - 如果 key 已存在，询问是否覆盖
 
 #### Skill (type == "skill")
 - 如果 `install.repo` 存在，执行 sparse checkout 或 clone + 复制
-- 目标: `~/.costrict/skills/<id>/`
+- 目标: `$HOME/.costrict/skills/<id>/`（用 Bash 获取 `$HOME` 值拼接完整绝对路径）
+- 安装前先执行 `mkdir -p $HOME/.costrict/skills/<id>`
 - 如果目录已存在，询问是否覆盖
 
 #### Rule (type == "rule")
 - 下载 `install.files` 中的文件
 - 默认保存到 `.roo/rules/<id>.md`（项目级）
+- 安装前先执行 `mkdir -p .roo/rules`
 - 用户选 "全局" 则提示: "VSCode Costrict 插件不支持全局 Rule，仅支持项目级安装"
 - 如果是 .cursorrules 格式，保持原文本内容
 
@@ -146,7 +157,7 @@ metadata:
 - 查找与该资源 `install.config` key 匹配的条目
 
 #### Skill (type == "skill")
-- 检查 `~/.costrict/skills/<id>/` 目录是否存在
+- 检查 `$HOME/.costrict/skills/<id>/` 目录是否存在
 
 #### Rule (type == "rule") / Prompt (type == "prompt")
 - 检查项目级 `.roo/rules/<id>.md`
@@ -176,8 +187,9 @@ metadata:
    用 Bash 执行以下命令：
 
    ```bash
-   # Skill（全局）
-   curl -sfL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/platforms/vscode-costrict/skills/coding-hub/SKILL.md" -o ~/.costrict/skills/coding-hub/SKILL.md
+   # Skill（全局）— 注意用 $HOME 展开路径
+   mkdir -p $HOME/.costrict/skills/coding-hub
+   curl -sfL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/platforms/vscode-costrict/skills/coding-hub/SKILL.md" -o $HOME/.costrict/skills/coding-hub/SKILL.md
    ```
 
 2. **报告结果**
@@ -187,7 +199,7 @@ metadata:
 
    已从 GitHub 拉取最新版本：
 
-   - ~/.costrict/skills/coding-hub/SKILL.md
+   - $HOME/.costrict/skills/coding-hub/SKILL.md
    ```
 
    > VSCode Costrict 插件无需安装子命令，所有命令逻辑已内置于 SKILL.md。
