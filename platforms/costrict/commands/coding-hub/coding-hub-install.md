@@ -59,9 +59,29 @@ $ARGUMENTS
 ```
 
 #### method == "manual"
-- **不写入 mcpServers**
-- 告知用户该 MCP 需要手动配置，展示 `source_url` 供用户查看安装说明
-- 格式示例：
+索引中没有预置安装配置，需要从项目 README 推断安装方式。按以下步骤执行：
+
+**Step 1: 获取 README**
+- 从 `source_url` 构造 raw URL 并用 curl 获取：
+  - 先试 `https://raw.githubusercontent.com/{owner}/{repo}/main/README.md`
+  - 404 则试 `master` 分支
+- 如果获取失败，跳到 Step 3 兜底
+
+**Step 2: 分析 README 并生成安装配置**
+阅读 README 内容，判断该 MCP Server 的安装方式，构造 `mcpServers` JSON 配置：
+
+- **有现成 `mcpServers` JSON** → 直接提取使用
+- **有 `npx -y <package>` 命令** → 构造 `{"command": "npx", "args": ["-y", "<package>"]}`
+- **有 `uvx <package>` 命令** → 构造 `{"command": "uvx", "args": ["<package>"]}`
+- **有 `pip install` + `python -m` 启动** → 构造 `{"command": "python", "args": ["-m", "<module>"]}`
+- **需要环境变量（API Key 等）** → 加入 `"env"` 字段，值留空或保持占位符
+
+构造完成后：
+- 向用户展示生成的配置，说明推断依据（README 中的哪段内容）
+- 用户确认后，按 `mcp_config` 或 `mcp_config_template` 流程写入
+- 如果有占位符/环境变量，提示用户填写
+
+**Step 3: 兜底（README 无法获取或无法判断安装方式）**
 ```
 该 MCP 需要手动配置，请参考项目文档：
 🔗 https://github.com/xxx/yyy
