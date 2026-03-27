@@ -69,7 +69,27 @@ irm https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/ins
 /coding-hub-search typescript
 ```
 
-或者把这个仓库丢给你的 AI Agent，它会自动阅读 [For Agents](#for-agents) 部分完成安装。
+或者复制以下 prompt 丢给你的 AI Agent：
+
+```
+你是一个自动化安装助手。请访问以下 URL 并阅读其中的 "For Agents" 部分，
+严格按照步骤完成 coding-hub 技能的安装。
+
+不要 clone 整个仓库，只需要读取这个 raw URL 的内容：
+https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/README.md
+
+根据你所在的平台（Claude Code / Opencode / Costrict CLI / VSCode Costrict），
+执行对应的安装命令。安装完成后告诉我结果。
+```
+
+<details>
+<summary>或者直接复制粘贴这条命令安装（无需 Agent）</summary>
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/install.sh | bash
+```
+
+</details>
 
 ---
 
