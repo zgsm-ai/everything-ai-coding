@@ -178,11 +178,10 @@ def select_prompts(items, top_n=15):
 
 # ── 渲染模块 ──────────────────────────────────────────
 
-def render_detailed(items):
+def render_detailed(items, show_stars=True):
     """详细卡片式展示"""
     lines = []
     for i, item in enumerate(items, 1):
-        stars = format_stars(item['stars'])
         date = format_date(item['last_synced'])
         tags = ' '.join(f"`{t}`" for t in item['tags'][:3])
 
@@ -190,7 +189,11 @@ def render_detailed(items):
         lines.append("")
         lines.append(f"> {trunc(item['description'], 120)}")
         lines.append("")
-        lines.append(f"⭐ **{stars}** · 📅 {date}{' · ' + tags if tags else ''}")
+        if show_stars:
+            stars = format_stars(item['stars'])
+            lines.append(f"⭐ **{stars}** · 📅 {date}{' · ' + tags if tags else ''}")
+        else:
+            lines.append(f"📅 {date}{' · ' + tags if tags else ''}")
         lines.append("")
     return '\n'.join(lines)
 
@@ -289,14 +292,14 @@ def generate_featured_section():
     skill_top = skill_all[:3]
     skill_rest = skill_all[3:]
 
-    out.append(render_detailed(skill_top))
+    out.append(render_detailed(skill_top, show_stars=False))
     out.append("")
 
     skill_groups = group_by_tech(skill_rest)
     if skill_rest:
         out.append("**更多按技术栈分类：**")
         out.append("")
-        out.append(render_tech_groups(skill_groups, show_stars=True))
+        out.append(render_tech_groups(skill_groups, show_stars=False))
 
     # ── Rules ──
     out.append("### 📋 Rules")
