@@ -34,6 +34,10 @@ jobs:
           restore-keys: |
             sync-caches-
 
+      - name: Crawl mcp.so (incremental)
+        run: python scripts/crawl_mcp_so.py --mode incremental
+        continue-on-error: true
+
       - name: Sync MCP servers
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
