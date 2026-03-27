@@ -90,7 +90,7 @@ def group_by_tech(items):
 
 def select_mcp_top(items, top_n=5):
     """Top N：严格按 org/repo 去重，确保多样性"""
-    items = sorted(items, key=lambda x: x['stars'], reverse=True)
+    items = sorted(items, key=lambda x: x['stars'] or 0, reverse=True)
     seen = set()
     result = []
     for item in items:
@@ -106,7 +106,7 @@ def select_mcp_top(items, top_n=5):
 
 def select_mcp_rest(items, exclude_ids, top_n=30):
     """其余：允许同 monorepo 不同子项目，但每个 repo 最多 3 个"""
-    items = sorted(items, key=lambda x: x['stars'], reverse=True)
+    items = sorted(items, key=lambda x: x['stars'] or 0, reverse=True)
     repo_count = Counter()
     result = []
     for item in items:
@@ -128,7 +128,7 @@ def select_skills(items, top_n=12):
         'nextlevelbuilder/ui-ux-pro-max-skill': 3,
         'ai-agent-skills': 4, 'davila7/claude-code-templates': 5,
     }
-    items = sorted(items, key=lambda x: (priority.get(x['source'], 99), -x['stars']))
+    items = sorted(items, key=lambda x: (priority.get(x['source'], 99), -(x['stars'] or 0)))
     count = Counter()
     result = []
     for item in items:
