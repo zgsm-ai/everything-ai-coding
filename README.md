@@ -33,6 +33,8 @@ Coding Hub 从 8 个上游源自动聚合、过滤、评估，让你和你的 Ag
 
 一条命令安装，指定你的平台：
 
+**macOS / Linux：**
+
 ```bash
 # Claude Code
 curl -fsSL https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/install.sh | bash -s -- --platform claude-code
@@ -45,6 +47,16 @@ curl -fsSL https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/m
 
 # VSCode Costrict 插件
 curl -fsSL https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/install.sh | bash -s -- --platform vscode-costrict
+```
+
+**Windows (PowerShell)：**
+
+```powershell
+# Claude Code
+irm https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/install.ps1 | iex
+
+# 指定平台（如自动检测失败）
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/install.ps1))) -Platform claude-code
 ```
 
 安装完成后试试：
@@ -515,7 +527,8 @@ Skills 扩展 AI Agent 的专业能力。精选来自 Anthropic 官方、Hugging
 
 ```
 costrict-skills-repo/
-├── install.sh               # 一键安装脚本（curl | bash）
+├── install.sh               # 一键安装脚本（macOS/Linux，curl | bash）
+├── install.ps1              # 一键安装脚本（Windows，irm | iex）
 ├── catalog/                  # 资源索引（数据层）
 │   ├── index.json            # 合并后的完整索引（869 条）
 │   ├── schema.json           # 条目 schema 定义
@@ -551,8 +564,16 @@ costrict-skills-repo/
 
 安装脚本支持自动检测平台，直接执行即可：
 
+**macOS / Linux：**
+
 ```bash
 curl -fsSL https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/install.sh | bash
+```
+
+**Windows (PowerShell)：**
+
+```powershell
+irm https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/install.ps1 | iex
 ```
 
 脚本通过以下**进程级环境变量**自动识别平台（这些变量由各平台进程启动时注入，不会互相污染）：
@@ -567,17 +588,29 @@ curl -fsSL https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/m
 > **注意**: `COSTRICT_BASE_URL`、`OPENCODE_CMUX_ATTENTION_MODE` 等变量会在所有平台出现（shell profile 泄漏），**不能**用来判断平台。只有上表中的 4 个变量是各平台进程启动时独占注入的。
 
 如果自动检测失败，可以手动指定：
+
+**macOS / Linux：**
 ```bash
 curl -fsSL https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/install.sh | bash -s -- --platform <platform>
 ```
 
+**Windows (PowerShell)：**
+```powershell
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/install.ps1))) -Platform <platform>
+```
+
 示例：
 ```bash
-# Claude Code
+# Claude Code (macOS/Linux)
 curl -fsSL https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/install.sh | bash -s -- --platform claude-code
 
 # Opencode（在项目根目录执行）
 curl -fsSL https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/install.sh | bash -s -- --platform opencode
+```
+
+```powershell
+# Claude Code (Windows)
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/zgsm-sangfor/costrict-skills-repo/main/install.ps1))) -Platform claude-code
 ```
 
 <details>
