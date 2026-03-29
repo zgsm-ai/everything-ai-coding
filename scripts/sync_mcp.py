@@ -375,6 +375,76 @@ def _readme_enrich_priority(entry: dict) -> tuple:
     return (source_rank, star_rank, entry.get("name", "").lower())
 
 
+def _backfill_seed_stars(seed: list) -> list:
+    """Backfill stars for seed entries where stars=None (previous API failures).
+
+    - Queries GitHub API for entries with missing stars
+    - Filters out entries with stars < MIN_STARS or deleted repos (404)
+    - Writes updated star values back to the seed file
+    """
+    if not GITHUB_TOKEN:
+        logger.info("No GITHUB_TOKEN; skipping seed star backfill")
+        return seed
+
+    need_backfill = [e for e in seed if e.get("stars") is None]
+    if not need_backfill:
+        logger.info("All seed entries have stars; no backfill needed")
+        return seed
+
+    logger.info(f"Backfilling stars for {len(need_backfill)} seed entries...")
+    updated = 0
+    removed_404 = 0
+    removed_low = 0
+    still_none = 0
+    keep_set = set()  # source_urls to keep
+
+    for i, entry in enumerate(need_backfill):
+        meta = _load_repo_meta(entry.get("source_url", ""))
+        if meta is None:
+            # API failed or 404 — mark for removal
+            removed_404 += 1
+            continue
+        stars = meta.get("stars", 0)
+        if stars < MIN_STARS:
+            removed_low += 1
+            continue
+        entry["stars"] = stars
+        keep_set.add(id(entry))
+        updated += 1
+        if (i + 1) % 200 == 0:
+            logger.info(f"  Backfill progress: {i+1}/{len(need_backfill)}")
+
+    # Build filtered seed: keep entries that had stars already, or passed backfill
+    result = []
+    for entry in seed:
+        if entry.get("stars") is not None and entry["stars"] >= MIN_STARS:
+            result.append(entry)
+        elif id(entry) in keep_set:
+            result.append(entry)
+        # else: filtered out (None stars that failed backfill, or low stars)
+
+    logger.info(
+        f"Seed backfill done: {updated} recovered, "
+        f"{removed_404} deleted/404, {removed_low} below MIN_STARS, "
+        f"{len(seed)} → {len(result)} entries"
+    )
+
+    # Write back to seed file so next run doesn't re-query
+    try:
+        seed_path = os.path.join(CATALOG_DIR, "mcp_so_seed.json")
+        # Convert None stars back to -1 sentinel for seed file format
+        save_data = []
+        for entry in result:
+            save_data.append(entry)
+        with open(seed_path, "w") as f:
+            json.dump(save_data, f, ensure_ascii=False, indent=2)
+        logger.info(f"Updated seed file: {len(save_data)} entries")
+    except IOError as e:
+        logger.error(f"Failed to write seed file: {e}")
+
+    return result
+
+
 def sync():
     # Load three sources
     seed = load_seed()
@@ -382,6 +452,8 @@ def sync():
         logger.info(
             "GITHUB_TOKEN not set; skipping GitHub API enrichment for awesome-list MCP repos"
         )
+    else:
+        seed = _backfill_seed_stars(seed)
     wong2 = parse_awesome_mcp_servers_wong2()
     zh = parse_awesome_mcp_zh()
 
