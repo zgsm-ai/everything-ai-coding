@@ -1,0 +1,219 @@
+name: Curated from Issue
+
+on:
+  issues:
+    types: [opened, labeled]
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  process:
+    if: contains(github.event.issue.labels.*.name, 'recommend')
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Parse Issue body
+        id: parse
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body || '';
+            // GitHub Issue Forms renders as "### Label\n\nValue\n\n"
+            function extractField(label) {
+              const regex = new RegExp(`### ${label}\\s*\\n\\n([^\\n]+)`, 'i');
+              const match = body.match(regex);
+              return match ? match[1].trim() : '';
+            }
+            const url = extractField('GitHub URL');
+            const type = extractField('资源类型 / Resource Type');
+            const category = extractField('分类 / Category');
+            const reason = extractField('推荐理由 / Why recommend this\\?');
+
+            if (!url || !type || !category) {
+              core.setFailed('Missing required fields in issue body');
+              return;
+            }
+
+            // Validate URL format to prevent injection
+            if (!/^https:\/\/github\.com\/[a-zA-Z0-9._-]+\/[a-zA-Z0-9._-]+/.test(url)) {
+              core.setFailed('Invalid GitHub URL format');
+              return;
+            }
+
+            const validTypes = ['mcp', 'skill', 'rule', 'prompt'];
+            if (!validTypes.includes(type)) {
+              core.setFailed(`Invalid type: ${type}`);
+              return;
+            }
+
+            core.setOutput('url', url);
+            core.setOutput('type', type);
+            core.setOutput('category', category);
+            core.setOutput('reason', reason || '');
+
+      - name: Check for duplicates
+        id: dedup
+        env:
+          INPUT_URL: ${{ steps.parse.outputs.url }}
+        run: |
+          # Use validate_curated.py's dedup logic via Python for accurate matching
+          python -c "
+          import sys, json
+          sys.path.insert(0, 'scripts')
+          from utils import normalize_source_url, load_index
+
+          url = '$INPUT_URL'.strip()
+          norm = normalize_source_url(url)
+
+          # Check all curated.json and index.json
+          found = False
+          for path in ['catalog/mcp/curated.json', 'catalog/skills/curated.json',
+                       'catalog/rules/curated.json', 'catalog/prompts/curated.json',
+                       'catalog/index.json']:
+              for entry in load_index(path):
+                  if normalize_source_url(entry.get('source_url', '')) == norm:
+                      found = True
+                      break
+              if found:
+                  break
+
+          print('true' if found else 'false')
+          " > /tmp/dedup_result.txt
+          echo "duplicate=$(cat /tmp/dedup_result.txt)" >> "$GITHUB_OUTPUT"
+
+      - name: Comment and close if duplicate
+        if: steps.dedup.outputs.duplicate == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '该资源已收录或有重复的推荐正在处理中。\nThis resource is already indexed or a duplicate recommendation is in progress.'
+            });
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ['duplicate']
+            });
+
+      - name: Generate curated entry
+        if: steps.dedup.outputs.duplicate == 'false'
+        id: generate
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_URL: ${{ steps.parse.outputs.url }}
+          INPUT_TYPE: ${{ steps.parse.outputs.type }}
+          INPUT_CATEGORY: ${{ steps.parse.outputs.category }}
+        run: |
+          python scripts/generate_curated_entry.py \
+            --url "$INPUT_URL" \
+            --type "$INPUT_TYPE" \
+            --category "$INPUT_CATEGORY" \
+            --output /tmp/entry.json
+
+          # Extract id for branch name
+          ENTRY_ID=$(python -c "import json; print(json.load(open('/tmp/entry.json'))['id'])")
+          echo "entry_id=$ENTRY_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Validate generated entry
+        if: steps.dedup.outputs.duplicate == 'false'
+        run: python scripts/validate_curated.py /tmp/entry.json
+
+      - name: Append to curated.json and create PR
+        if: steps.dedup.outputs.duplicate == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_TYPE: ${{ steps.parse.outputs.type }}
+          ENTRY_ID: ${{ steps.generate.outputs.entry_id }}
+          INPUT_REASON: ${{ steps.parse.outputs.reason }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          BRANCH="curated/${ENTRY_ID}"
+          CURATED_PATH="catalog/${INPUT_TYPE}s/curated.json"
+
+          # For 'mcp' type the dir is 'mcp' not 'mcps'
+          if [ "$INPUT_TYPE" = "mcp" ]; then
+            CURATED_PATH="catalog/mcp/curated.json"
+          fi
+
+          # Create branch
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+
+          # Append entry to curated.json
+          python -c "
+          import json, os
+          curated_path = os.environ['CURATED_PATH']
+          with open('/tmp/entry.json') as f:
+              entry = json.load(f)
+          try:
+              with open(curated_path) as f:
+                  entries = json.load(f)
+          except (FileNotFoundError, json.JSONDecodeError):
+              entries = []
+          entries.append(entry)
+          with open(curated_path, 'w') as f:
+              json.dump(entries, f, indent=2, ensure_ascii=False)
+              f.write('\n')
+          "
+
+          git add "$CURATED_PATH"
+          git commit -m "[curated] Add ${ENTRY_ID}"
+          git push origin "$BRANCH"
+
+          # Build PR body
+          ENTRY_JSON=$(python -m json.tool /tmp/entry.json)
+          REASON="${INPUT_REASON:-无}"
+
+          gh pr create \
+            --title "[curated] Add ${ENTRY_ID}" \
+            --body "$(cat <<EOF
+          ## 自动生成的 Curated 条目
+
+          Closes #${ISSUE_NUMBER}
+
+          ### 生成的条目
+          \`\`\`json
+          ${ENTRY_JSON}
+          \`\`\`
+
+          ### 推荐理由
+          ${REASON}
+
+          > ⚠️ **维护者请检查 \`install\` 字段是否准确**，Bot 生成的安装配置可能需要手动调整。
+          EOF
+          )" \
+            --base main \
+            --head "$BRANCH" \
+            --label "curated"
+
+      - name: Comment on issue if generation failed
+        if: failure() && steps.dedup.outputs.duplicate == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '❌ 条目生成失败，请检查 URL 是否正确。\nEntry generation failed. Please verify the URL is correct and points to a valid GitHub repository.'
+            });
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ['invalid']
+            });

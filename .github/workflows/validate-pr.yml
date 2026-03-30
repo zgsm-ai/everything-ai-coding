@@ -1,0 +1,34 @@
+name: Validate Curated PR
+
+on:
+  pull_request:
+    paths:
+      - 'catalog/**/curated.json'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate curated.json files
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          # Find all changed curated.json files
+          CHANGED=$(git diff --name-only "$BASE_SHA"..HEAD -- 'catalog/**/curated.json')
+          if [ -z "$CHANGED" ]; then
+            echo "No curated.json changes detected"
+            exit 0
+          fi
+          echo "Validating: $CHANGED"
+          python scripts/validate_curated.py $CHANGED --index-path catalog/index.json

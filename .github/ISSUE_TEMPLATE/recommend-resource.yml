@@ -1,0 +1,59 @@
+name: "\U0001F3AF 推荐资源 / Recommend a Resource"
+description: "推荐一个 MCP Server、Skill、Rule 或 Prompt 加入 Coding Hub 索引"
+title: "[recommend] "
+labels: ["recommend"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢推荐！请填写以下信息，Bot 会自动生成条目并创建 PR。
+        Thanks for recommending! Fill in the fields below and a bot will auto-generate the entry.
+
+  - type: input
+    id: url
+    attributes:
+      label: GitHub URL
+      description: "仓库地址 / Repository URL"
+      placeholder: "https://github.com/owner/repo"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: "资源类型 / Resource Type"
+      options:
+        - mcp
+        - skill
+        - rule
+        - prompt
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: "分类 / Category"
+      options:
+        - frontend
+        - backend
+        - fullstack
+        - mobile
+        - devops
+        - database
+        - testing
+        - security
+        - ai-ml
+        - tooling
+        - documentation
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: "推荐理由 / Why recommend this?"
+      description: "可选：简单说明为什么推荐 / Optional: briefly explain why"
+      placeholder: "最好用的 xxx 工具..."
+    validations:
+      required: false
