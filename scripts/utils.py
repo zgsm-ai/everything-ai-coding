@@ -419,14 +419,31 @@ def extract_tags(name: str, description: str = "") -> list:
     return found
 
 
+def normalize_source_url(url: str) -> str:
+    """Normalize a source URL for dedup comparison."""
+    url = url.lower().rstrip("/")
+    if url.endswith(".git"):
+        url = url[:-4]
+    return url
+
+
 def deduplicate(entries: list) -> list:
-    """Deduplicate entries by id. Earlier entries take priority."""
-    seen_ids = {}   # id -> entry
+    """Deduplicate entries by id and source_url. Earlier entries take priority."""
+    seen_ids = {}    # id -> entry
+    seen_urls = {}   # normalized_url -> entry
     result = []
     for entry in entries:
         eid = entry.get("id", "")
         if eid and eid in seen_ids:
             continue
+
+        source_url = entry.get("source_url", "")
+        if source_url:
+            norm = normalize_source_url(source_url)
+            if norm in seen_urls:
+                continue
+            seen_urls[norm] = entry
+
         if eid:
             seen_ids[eid] = entry
         result.append(entry)
