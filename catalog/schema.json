@@ -12,8 +12,22 @@
       "source_url": { "type": "string", "format": "uri" },
       "stars": { "type": ["integer", "null"] },
       "pushed_at": { "type": ["string", "null"], "description": "ISO 8601 timestamp of last repo push" },
+      "added_at": { "type": "string", "format": "date", "description": "Date when an MCP or Skill entry first joined the catalog" },
       "coding_relevance": { "type": ["integer", "null"], "minimum": 1, "maximum": 5, "description": "LLM-scored coding relevance (1-5)" },
       "quality_score": { "type": ["integer", "null"], "minimum": 1, "maximum": 5, "description": "LLM-scored quality (1-5)" },
+      "evaluation": {
+        "type": "object",
+        "properties": {
+          "coding_relevance": { "type": ["integer", "null"], "minimum": 1, "maximum": 5 },
+          "content_quality": { "type": ["integer", "null"], "minimum": 1, "maximum": 5 },
+          "specificity": { "type": ["integer", "null"], "minimum": 1, "maximum": 5 },
+          "source_trust": { "type": ["integer", "null"], "minimum": 1, "maximum": 5 },
+          "confidence": { "type": ["integer", "null"], "minimum": 1, "maximum": 5 },
+          "final_score": { "type": ["integer", "null"], "minimum": 0, "maximum": 100 },
+          "decision": { "type": ["string", "null"] },
+          "reason": { "type": ["string", "null"] }
+        }
+      },
       "category": { "type": "string", "enum": ["frontend", "backend", "fullstack", "mobile", "devops", "database", "testing", "security", "ai-ml", "tooling", "documentation"] },
       "tags": { "type": "array", "items": { "type": "string" } },
       "tech_stack": { "type": "array", "items": { "type": "string" } },
