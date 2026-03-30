@@ -182,8 +182,7 @@ jobs:
           ENTRY_JSON=$(python -m json.tool /tmp/entry.json)
           REASON="${INPUT_REASON:-无}"
 
-          PR_BODY="$(cat <<PREOF
-## 自动生成的 Curated 条目
+          PR_BODY="## 自动生成的 Curated 条目
 
 Closes #${ISSUE_NUMBER}
 
@@ -195,9 +194,7 @@ ${ENTRY_JSON}
 ### 推荐理由
 ${REASON}
 
-> ⚠️ **维护者请检查 \`install\` 字段是否准确**，Bot 生成的安装配置可能需要手动调整。
-PREOF
-)"
+> ⚠️ **维护者请检查 \`install\` 字段是否准确**，Bot 生成的安装配置可能需要手动调整。"
 
           gh api repos/${{ github.repository }}/pulls \
             -f title="[curated] Add ${ENTRY_ID}" \
