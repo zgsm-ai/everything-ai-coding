@@ -212,6 +212,7 @@ def github_api(path: str) -> Optional[dict]:
 # Process-level cache for repo metadata (avoids duplicate API calls within a single sync run)
 _repo_meta_cache = {}
 _repo_readme_cache = {}
+_repo_languages_cache = {}
 
 
 def get_repo_meta(repo_url: str) -> Optional[dict]:
@@ -250,6 +251,31 @@ def get_repo_meta(repo_url: str) -> Optional[dict]:
 
     _repo_meta_cache[repo_slug] = result
     return result
+
+
+def get_repo_languages(repo_url: str) -> list[str]:
+    """Get programming languages for a GitHub repo. Returns list of language names.
+
+    Calls GET /repos/{owner}/{repo}/languages. Returns [] for non-GitHub URLs,
+    API errors, or repos with no detected languages. Uses in-memory cache.
+    """
+    match = re.search(r"github\.com/([^/]+/[^/]+?)(?:\.git)?(?:/|$|\?|#)", repo_url)
+    if not match:
+        return []
+
+    repo_slug = match.group(1).lower()
+
+    if repo_slug in _repo_languages_cache:
+        return _repo_languages_cache[repo_slug]
+
+    data = github_api(f"repos/{repo_slug}/languages")
+    if not data:
+        _repo_languages_cache[repo_slug] = []
+        return []
+
+    languages = list(data.keys())
+    _repo_languages_cache[repo_slug] = languages
+    return languages
 
 
 def get_repo_info(repo_slug: str) -> Optional[dict]:
@@ -417,6 +443,18 @@ def extract_tags(name: str, description: str = "") -> list:
         if keyword in text and tag not in found:
             found.append(tag)
     return found
+
+
+def merge_topics_into_tags(tags: list[str], topics: list[str]) -> list[str]:
+    """Merge GitHub repo topics into existing tags, deduplicated and lowercased."""
+    seen = set()
+    result = []
+    for t in tags + [t.lower() for t in topics]:
+        t_lower = t.lower().strip()
+        if t_lower and t_lower not in seen:
+            seen.add(t_lower)
+            result.append(t_lower)
+    return result
 
 
 def normalize_source_url(url: str) -> str:
