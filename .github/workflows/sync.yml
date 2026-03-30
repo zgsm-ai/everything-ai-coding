@@ -68,6 +68,21 @@ jobs:
         run: python scripts/sync_prompts.py
         continue-on-error: true
 
+      - name: Verify sync produced data
+        run: |
+          fail=0
+          for type_dir in mcp skills rules prompts; do
+            f="catalog/${type_dir}/index.json"
+            if [ ! -s "$f" ]; then
+              echo "WARNING: $f is empty or missing"
+              fail=$((fail + 1))
+            fi
+          done
+          if [ "$fail" -ge 4 ]; then
+            echo "ERROR: All sync sources failed, aborting merge"
+            exit 1
+          fi
+
       - name: Merge indexes
         run: python scripts/merge_index.py
 
