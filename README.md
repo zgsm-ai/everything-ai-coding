@@ -435,8 +435,6 @@ done
 - 提供准确的 `source_url`、`description`、`tags`
 - 遵循 `catalog/schema.json` 定义的数据格式
 
-感谢 [LINUX DO](https://linux.do) 社区的支持。
-
 ---
 
 ## Disclaimer
