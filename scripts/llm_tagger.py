@@ -82,7 +82,7 @@ def _call_llm_batch(entries: list[dict], reference_vocab: list[str]) -> dict[str
     """Call LLM API with a batch. Returns {id: [tags]} or {}."""
     base_url = os.environ.get("LLM_BASE_URL", "")
     api_key = os.environ.get("LLM_API_KEY", "")
-    model = os.environ.get("LLM_MODEL", "claude-haiku-4-5-20251001")
+    model = os.environ.get("LLM_MODEL", "deepseek-chat")
 
     if not base_url or not api_key:
         return {}
