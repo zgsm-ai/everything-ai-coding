@@ -141,11 +141,11 @@ jobs:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
         run: |
           BRANCH="curated/${ENTRY_ID}"
-          CURATED_PATH="catalog/${INPUT_TYPE}s/curated.json"
+          export CURATED_PATH="catalog/${INPUT_TYPE}s/curated.json"
 
           # For 'mcp' type the dir is 'mcp' not 'mcps'
           if [ "$INPUT_TYPE" = "mcp" ]; then
-            CURATED_PATH="catalog/mcp/curated.json"
+            export CURATED_PATH="catalog/mcp/curated.json"
           fi
 
           # Create branch
