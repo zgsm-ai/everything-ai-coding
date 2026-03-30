@@ -2,7 +2,7 @@ name: Curated from Issue
 
 on:
   issues:
-    types: [opened]
+    types: [opened, labeled]
 
 permissions:
   contents: write
