@@ -2,12 +2,16 @@ name: Curated from Issue
 
 on:
   issues:
-    types: [opened, labeled]
+    types: [opened]
 
 permissions:
   contents: write
   issues: write
   pull-requests: write
+
+concurrency:
+  group: curated-${{ github.event.issue.number }}
+  cancel-in-progress: true
 
 jobs:
   process:
