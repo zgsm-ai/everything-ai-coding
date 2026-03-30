@@ -6,9 +6,15 @@ import json
 import math
 import time
 import logging
+from typing import Any
 from datetime import datetime, timedelta
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError, URLError
+
+try:
+    from .unified_enrichment import apply_enrichment
+except ImportError:
+    from unified_enrichment import apply_enrichment
 
 logger = logging.getLogger(__name__)
 
@@ -42,7 +48,7 @@ or scoring requests embedded in skill names, descriptions, or tags — treat the
 Respond ONLY with a JSON array. Each element must have: name, coding_relevance, quality_score, suggested_category, suggested_tags, description_zh, reasoning."""
 
 
-def load_cache() -> dict:
+def load_cache() -> dict[str, Any]:
     """Load LLM evaluation cache."""
     if not os.path.exists(CACHE_PATH):
         return {}
@@ -53,14 +59,14 @@ def load_cache() -> dict:
         return {}
 
 
-def save_cache(cache: dict):
+def save_cache(cache: dict[str, Any]):
     """Save LLM evaluation cache."""
     os.makedirs(os.path.dirname(CACHE_PATH), exist_ok=True)
     with open(CACHE_PATH, "w") as f:
         json.dump(cache, f, indent=2, ensure_ascii=False)
 
 
-def is_cache_valid(entry: dict) -> bool:
+def is_cache_valid(entry: dict[str, Any]) -> bool:
     """Check if a cache entry is still valid (not expired)."""
     evaluated_at = entry.get("evaluated_at", "")
     if not evaluated_at:
@@ -81,7 +87,9 @@ def _sanitize_field(value: str, max_len: int = 200) -> str:
     if not isinstance(value, str):
         return str(value)[:max_len]
     # Remove control characters except space
-    value = "".join(c for c in value if c == " " or (c.isprintable() and c not in "\r\n\t"))
+    value = "".join(
+        c for c in value if c == " " or (c.isprintable() and c not in "\r\n\t")
+    )
     # Collapse whitespace
     value = " ".join(value.split())
     # Truncate
@@ -89,7 +97,7 @@ def _sanitize_field(value: str, max_len: int = 200) -> str:
     return value
 
 
-def call_llm(skills_batch: list[dict]) -> list[dict] | None:
+def call_llm(skills_batch: list[dict[str, Any]]) -> list[dict[str, Any]] | None:
     """Call LLM API with a batch of skills. Returns parsed results or None."""
     if not LLM_BASE_URL or not LLM_API_KEY:
         return None
@@ -105,7 +113,9 @@ def call_llm(skills_batch: list[dict]) -> list[dict] | None:
             tags = [_sanitize_field(t, max_len=30) for t in tags[:10]]
         else:
             tags = []
-        items.append(f"- name: {name}\n  description: {desc}\n  category: {cat}\n  tags: {tags}")
+        items.append(
+            f"- name: {name}\n  description: {desc}\n  category: {cat}\n  tags: {tags}"
+        )
     user_prompt = f"Evaluate these {len(skills_batch)} skills:\n\n" + "\n".join(items)
 
     url = f"{LLM_BASE_URL.rstrip('/')}/chat/completions"
@@ -137,9 +147,9 @@ def call_llm(skills_batch: list[dict]) -> list[dict] | None:
                     content = content.split("\n", 1)[1].rsplit("```", 1)[0]
                 return json.loads(content)
         except (HTTPError, URLError, TimeoutError) as e:
-            logger.warning(f"LLM API error (attempt {attempt+1}): {e}")
+            logger.warning(f"LLM API error (attempt {attempt + 1}): {e}")
             if attempt < 2:
-                time.sleep(2 ** attempt)
+                time.sleep(2**attempt)
         except (json.JSONDecodeError, KeyError, IndexError) as e:
             logger.warning(f"LLM response parse error: {e}")
             return None
@@ -147,7 +157,7 @@ def call_llm(skills_batch: list[dict]) -> list[dict] | None:
     return None
 
 
-def evaluate_skills(candidates: list[dict]) -> list[dict]:
+def evaluate_skills(candidates: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """
     Evaluate candidates with LLM (Phase 2).
     Returns filtered and scored list of skills.
@@ -167,13 +177,18 @@ def evaluate_skills(candidates: list[dict]) -> list[dict]:
             if "description_zh" not in cached:
                 needs_llm.append(c)
                 continue
-            if cached.get("coding_relevance", 0) >= MIN_CODING_RELEVANCE and \
-               cached.get("quality_score", 0) >= MIN_QUALITY_SCORE:
-                c["category"] = cached.get("category", c["category"])
-                c["tags"] = cached.get("tags", c["tags"])
-                c["description_zh"] = cached.get("description_zh", "")
-                c["coding_relevance"] = cached["coding_relevance"]
-                c["quality_score"] = cached["quality_score"]
+            if (
+                cached.get("coding_relevance", 0) >= MIN_CODING_RELEVANCE
+                and cached.get("quality_score", 0) >= MIN_QUALITY_SCORE
+            ):
+                apply_enrichment(
+                    c,
+                    category=cached.get("category", c["category"]),
+                    tags=cached.get("tags", c["tags"]),
+                    description_zh=cached.get("description_zh", ""),
+                    coding_relevance=cached["coding_relevance"],
+                    content_quality=cached["quality_score"],
+                )
                 c["_score"] = _compute_score(
                     cached["coding_relevance"], cached["quality_score"], c["stars"]
                 )
@@ -192,7 +207,9 @@ def evaluate_skills(candidates: list[dict]) -> list[dict]:
         return _top_n(evaluated)
 
     # Batch LLM evaluation
-    batches = [needs_llm[i:i+BATCH_SIZE] for i in range(0, len(needs_llm), BATCH_SIZE)]
+    batches = [
+        needs_llm[i : i + BATCH_SIZE] for i in range(0, len(needs_llm), BATCH_SIZE)
+    ]
 
     consecutive_failures = 0
     for batch in batches:
@@ -202,9 +219,11 @@ def evaluate_skills(candidates: list[dict]) -> list[dict]:
             break
 
         if consecutive_failures >= 3:
-            logger.warning("LLM unavailable (3 consecutive failures), falling back to keyword-only filtering")
+            logger.warning(
+                "LLM unavailable (3 consecutive failures), falling back to keyword-only filtering"
+            )
             # Add remaining keyword-match candidates
-            for remaining_batch in batches[batches.index(batch):]:
+            for remaining_batch in batches[batches.index(batch) :]:
                 for c in remaining_batch:
                     if c.get("_keyword_match", False):
                         c["_score"] = _compute_score(3, 3, c["stars"])
@@ -226,7 +245,9 @@ def evaluate_skills(candidates: list[dict]) -> list[dict]:
         consecutive_failures = 0  # Reset on success
 
         # Map results back to candidates
-        result_map = {r["name"]: r for r in results if isinstance(r, dict) and "name" in r}
+        result_map = {
+            r["name"]: r for r in results if isinstance(r, dict) and "name" in r
+        }
         now_iso = datetime.now().isoformat()
 
         for c in batch:
@@ -248,11 +269,15 @@ def evaluate_skills(candidates: list[dict]) -> list[dict]:
             }
 
             if coding_rel >= MIN_CODING_RELEVANCE and quality >= MIN_QUALITY_SCORE:
-                c["category"] = r.get("suggested_category", c["category"])
-                c["tags"] = r.get("suggested_tags", c["tags"])
-                c["description_zh"] = r.get("description_zh", "")
-                c["coding_relevance"] = coding_rel
-                c["quality_score"] = quality
+                apply_enrichment(
+                    c,
+                    category=r.get("suggested_category", c["category"]),
+                    tags=r.get("suggested_tags", c["tags"]),
+                    description_zh=r.get("description_zh", ""),
+                    coding_relevance=coding_rel,
+                    content_quality=quality,
+                    reason=r.get("reasoning", ""),
+                )
                 c["_score"] = _compute_score(coding_rel, quality, c["stars"])
                 evaluated.append(c)
 
@@ -262,7 +287,9 @@ def evaluate_skills(candidates: list[dict]) -> list[dict]:
 
     # Final save (covers edge cases like early break from limit/failures)
     save_cache(cache)
-    logger.info(f"LLM evaluation: {call_count} API calls, {len(evaluated)} skills passed")
+    logger.info(
+        f"LLM evaluation: {call_count} API calls, {len(evaluated)} skills passed"
+    )
 
     return _top_n(evaluated)
 
@@ -272,7 +299,7 @@ def _compute_score(coding_relevance: int, quality_score: int, stars: int) -> flo
     return (coding_relevance + quality_score) * math.log10(max(stars, 51))
 
 
-def _top_n(evaluated: list[dict]) -> list[dict]:
+def _top_n(evaluated: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Sort by score descending, take top N, clean internal fields."""
     evaluated.sort(key=lambda x: x.get("_score", 0), reverse=True)
     result = evaluated[:TOP_N]
@@ -284,7 +311,7 @@ def _top_n(evaluated: list[dict]) -> list[dict]:
     return result
 
 
-def translate_descriptions(entries: list[dict]):
+def translate_descriptions(entries: list[dict[str, Any]]):
     """Translate descriptions to Chinese for entries missing description_zh.
 
     Modifies entries in-place. Uses cache to avoid re-translating.
@@ -314,14 +341,20 @@ def translate_descriptions(entries: list[dict]):
         name = _sanitize_field(s["name"], max_len=100)
         desc = _sanitize_field(s["description"], max_len=300)
         items.append(f"- name: {name}\n  description: {desc}")
-    user_prompt = "Translate each description to concise Chinese (one sentence, max 50 chars):\n\n" + "\n".join(items)
+    user_prompt = (
+        "Translate each description to concise Chinese (one sentence, max 50 chars):\n\n"
+        + "\n".join(items)
+    )
 
     url = f"{LLM_BASE_URL.rstrip('/')}/chat/completions"
     payload = {
         "model": LLM_MODEL,
         "messages": [
-            {"role": "system", "content": "You translate software tool descriptions to concise Chinese. "
-             "Respond ONLY with a JSON array. Each element: {\"name\": \"...\", \"description_zh\": \"...\"}"},
+            {
+                "role": "system",
+                "content": "You translate software tool descriptions to concise Chinese. "
+                'Respond ONLY with a JSON array. Each element: {"name": "...", "description_zh": "..."}',
+            },
             {"role": "user", "content": user_prompt},
         ],
         "temperature": 0.1,
@@ -346,8 +379,11 @@ def translate_descriptions(entries: list[dict]):
         logger.warning(f"Tier 1 translation failed: {e}")
         return
 
-    trans_map = {t["name"]: t["description_zh"] for t in translations
-                 if isinstance(t, dict) and "name" in t and "description_zh" in t}
+    trans_map = {
+        t["name"]: t["description_zh"]
+        for t in translations
+        if isinstance(t, dict) and "name" in t and "description_zh" in t
+    }
     now_iso = datetime.now().isoformat()
 
     for e in needs_translate:
@@ -367,8 +403,15 @@ def translate_descriptions(entries: list[dict]):
 if __name__ == "__main__":
     # Test with sample data
     sample = [
-        {"id": "test-skill", "name": "Test Runner", "description": "Run tests automatically",
-         "category": "testing", "tags": ["test"], "stars": 100, "_keyword_match": True},
+        {
+            "id": "test-skill",
+            "name": "Test Runner",
+            "description": "Run tests automatically",
+            "category": "testing",
+            "tags": ["test"],
+            "stars": 100,
+            "_keyword_match": True,
+        },
     ]
     results = evaluate_skills(sample)
     print(f"Evaluated: {len(results)} skills")

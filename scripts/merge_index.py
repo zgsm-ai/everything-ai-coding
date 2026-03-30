@@ -1,17 +1,64 @@
 #!/usr/bin/env python3
 """Merge all type-specific indexes and curated files into catalog/index.json."""
 
+import json
 import os
 import sys
+from typing import Any
+from datetime import date, datetime, timezone
 
 sys.path.insert(0, os.path.dirname(__file__))
-from utils import load_index, save_index, deduplicate, categorize, extract_tags, get_repo_languages, logger
-from llm_tagger import llm_tag_entries
-from llm_translator import llm_translate_entries
-from health_scorer import compute_health
+try:
+    from .utils import (
+        load_index,
+        save_index,
+        deduplicate,
+        categorize,
+        extract_tags,
+        get_repo_languages,
+        logger,
+    )
+    from .llm_tagger import llm_tag_entries
+    from .llm_translator import llm_translate_entries
+    from .health_scorer import compute_health
+    from .catalog_lifecycle import (
+        overlay_added_at,
+        build_incremental_recrawl_candidates,
+        backfill_missing_added_at,
+    )
+    from .unified_enrichment import ensure_evaluation
+except ImportError:
+    from utils import (
+        load_index,
+        save_index,
+        deduplicate,
+        categorize,
+        extract_tags,
+        get_repo_languages,
+        logger,
+    )
+    from llm_tagger import llm_tag_entries
+    from llm_translator import llm_translate_entries
+    from health_scorer import compute_health
+    from catalog_lifecycle import (
+        overlay_added_at,
+        build_incremental_recrawl_candidates,
+        backfill_missing_added_at,
+    )
+    from unified_enrichment import ensure_evaluation
 
 CATALOG_DIR = os.path.join(os.path.dirname(__file__), "..", "catalog")
 TYPES = ["mcp", "skills", "rules", "prompts"]
+TODAY = date.today().isoformat()
+
+
+def _load_queue_state(queue_state_path: str) -> dict[str, Any]:
+    try:
+        with open(queue_state_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            return data if isinstance(data, dict) else {}
+    except (FileNotFoundError, json.JSONDecodeError, IOError):
+        return {}
 
 
 def merge():
@@ -30,7 +77,9 @@ def merge():
         curated_path = os.path.join(type_dir, "curated.json")
         curated = load_index(curated_path)
         if curated:
-            logger.info(f"Loaded {len(curated)} entries from {resource_type}/curated.json")
+            logger.info(
+                f"Loaded {len(curated)} entries from {resource_type}/curated.json"
+            )
             all_entries.extend(curated)
 
     # Deduplicate by source_url + id (earlier entries take priority: Tier 1 > Tier 2 > Tier 3)
@@ -51,14 +100,25 @@ def merge():
         post = post_dedup_counts.get(t, 0)
         drop_pct = (1 - post / pre) * 100 if pre > 0 else 0
         if drop_pct > 50:
-            logger.warning(f"Dedup integrity: type={t} dropped {drop_pct:.0f}% ({pre} → {post})")
+            logger.warning(
+                f"Dedup integrity: type={t} dropped {drop_pct:.0f}% ({pre} → {post})"
+            )
         else:
             logger.info(f"Dedup stats: type={t} {pre} → {post} (-{drop_pct:.0f}%)")
 
     # Fix invalid categories (e.g. "other" not in schema enum)
     VALID_CATEGORIES = {
-        "frontend", "backend", "fullstack", "mobile", "devops",
-        "database", "testing", "security", "ai-ml", "tooling", "documentation",
+        "frontend",
+        "backend",
+        "fullstack",
+        "mobile",
+        "devops",
+        "database",
+        "testing",
+        "security",
+        "ai-ml",
+        "tooling",
+        "documentation",
     }
     fixed_cats = 0
     for entry in deduped:
@@ -114,7 +174,32 @@ def merge():
 
     # Compute health scores
     for entry in deduped:
+        ensure_evaluation(entry)
         entry["health"] = compute_health(entry)
+
+    existing_output = load_index(os.path.join(CATALOG_DIR, "index.json"))
+    existing_output = backfill_missing_added_at(existing_output, today=TODAY)
+    prior_entries = deduped + existing_output
+    deduped = overlay_added_at(deduped, prior_entries, today=TODAY)
+
+    maintenance_dir = os.path.join(CATALOG_DIR, "maintenance")
+    queue_path = os.path.join(maintenance_dir, "incremental_recrawl_candidates.json")
+    queue_state_path = os.path.join(maintenance_dir, "incremental_recrawl_state.json")
+    queue_state = _load_queue_state(queue_state_path)
+    candidates, queue_state = build_incremental_recrawl_candidates(
+        deduped,
+        queue_state,
+        now=datetime.combine(
+            date.fromisoformat(TODAY), datetime.min.time(), tzinfo=timezone.utc
+        ),
+        threshold_days=365,
+        cooldown_days=30,
+        max_candidates=500,
+    )
+    save_index(candidates, queue_path)
+    os.makedirs(os.path.dirname(queue_state_path), exist_ok=True)
+    with open(queue_state_path, "w", encoding="utf-8") as f:
+        json.dump(queue_state, f, indent=2, ensure_ascii=False)
 
     # Sort by health.score descending, ties broken by stars descending (nulls last)
     deduped.sort(

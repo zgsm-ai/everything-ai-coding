@@ -3,9 +3,12 @@
 
 import math
 from datetime import datetime, timezone
+from typing import Any
 
 
-def compute_health(entry: dict, *, now: datetime | None = None) -> dict:
+def compute_health(
+    entry: dict[str, Any], *, now: datetime | None = None
+) -> dict[str, Any]:
     """Compute health score and signals for a catalog entry.
 
     Returns dict with:
@@ -21,10 +24,10 @@ def compute_health(entry: dict, *, now: datetime | None = None) -> dict:
 
     # Weighted linear formula
     score = (
-        0.30 * popularity +
-        0.25 * freshness_result["score"] +
-        0.25 * quality +
-        0.20 * installability
+        0.30 * popularity
+        + 0.25 * freshness_result["score"]
+        + 0.25 * quality
+        + 0.20 * installability
     )
 
     return {
@@ -48,7 +51,9 @@ def _compute_popularity(stars: int | None) -> int:
     return min(100, int(round(score)))
 
 
-def _compute_freshness(pushed_at: str | None, *, now: datetime | None = None) -> dict:
+def _compute_freshness(
+    pushed_at: str | None, *, now: datetime | None = None
+) -> dict[str, Any]:
     """Compute freshness score and label from pushed_at timestamp.
 
     Spec:
@@ -84,7 +89,7 @@ def _compute_freshness(pushed_at: str | None, *, now: datetime | None = None) ->
         return {"score": 0, "label": "abandoned"}
 
 
-def _compute_quality(entry: dict) -> int:
+def _compute_quality(entry: dict[str, Any]) -> int:
     """Compute quality score from LLM scores or heuristics.
 
     Spec:
@@ -94,6 +99,11 @@ def _compute_quality(entry: dict) -> int:
     """
     coding_rel = entry.get("coding_relevance")
     quality_score = entry.get("quality_score")
+    evaluation = entry.get("evaluation") or {}
+    if coding_rel is None:
+        coding_rel = evaluation.get("coding_relevance")
+    if quality_score is None:
+        quality_score = evaluation.get("content_quality")
 
     if coding_rel is not None and quality_score is not None:
         return int((coding_rel + quality_score) / 10 * 100)
@@ -132,12 +142,13 @@ def _compute_quality(entry: dict) -> int:
     return min(100, score)
 
 
-def _compute_installability(install: dict) -> int:
+def _compute_installability(install: dict[str, Any]) -> int:
     """Map install method to 0-100 score."""
     if not install or "method" not in install:
         return 0
 
-    method = install.get("method")
+    method_value = install.get("method")
+    method = str(method_value) if method_value is not None else ""
     mapping = {
         "mcp_config": 100,
         "mcp_config_template": 80,

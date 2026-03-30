@@ -6,17 +6,31 @@ import json
 import os
 import re
 import sys
+from typing import Any
 
 sys.path.insert(0, os.path.dirname(__file__))
 from utils import normalize_source_url
 
 VALID_TYPES = ["mcp", "skill", "rule", "prompt"]
 VALID_CATEGORIES = [
-    "frontend", "backend", "fullstack", "mobile", "devops",
-    "database", "testing", "security", "ai-ml", "tooling", "documentation",
+    "frontend",
+    "backend",
+    "fullstack",
+    "mobile",
+    "devops",
+    "database",
+    "testing",
+    "security",
+    "ai-ml",
+    "tooling",
+    "documentation",
 ]
 VALID_INSTALL_METHODS = [
-    "mcp_config", "mcp_config_template", "manual", "git_clone", "download_file",
+    "mcp_config",
+    "mcp_config_template",
+    "manual",
+    "git_clone",
+    "download_file",
 ]
 ID_PATTERN = re.compile(r"^[a-z0-9-]+$")
 
@@ -24,7 +38,9 @@ ID_PATTERN = re.compile(r"^[a-z0-9-]+$")
 normalize_url = normalize_source_url
 
 
-def validate_entries(entries: list, index_entries: list = None) -> tuple:
+def validate_entries(
+    entries: list[dict[str, Any]], index_entries: list[dict[str, Any]] | None = None
+) -> tuple[list[str], list[str]]:
     """Validate a list of curated entries.
 
     Returns (errors: list[str], warnings: list[str]).
@@ -34,17 +50,30 @@ def validate_entries(entries: list, index_entries: list = None) -> tuple:
     index_entries = index_entries or []
 
     required_fields = [
-        "id", "name", "type", "description", "source_url",
-        "stars", "category", "tags", "tech_stack", "install",
-        "source", "last_synced",
+        "id",
+        "name",
+        "type",
+        "description",
+        "source_url",
+        "stars",
+        "category",
+        "tags",
+        "tech_stack",
+        "install",
+        "source",
+        "last_synced",
     ]
 
-    seen_ids = {}
-    seen_urls = {}
+    seen_ids: dict[str, bool] = {}
+    seen_urls: dict[str, str] = {}
 
     # Build index lookups
     index_ids = {e.get("id") for e in index_entries if e.get("id")}
-    index_urls = {normalize_url(e.get("source_url", "")) for e in index_entries if e.get("source_url")}
+    index_urls = {
+        normalize_url(e.get("source_url", ""))
+        for e in index_entries
+        if e.get("source_url")
+    }
 
     for i, entry in enumerate(entries):
         eid = entry.get("id", f"<entry {i}>")
@@ -53,6 +82,10 @@ def validate_entries(entries: list, index_entries: list = None) -> tuple:
         for field in required_fields:
             if field not in entry:
                 errors.append(f'ERROR: entry "{eid}" missing required field: {field}')
+
+        entry_type = entry.get("type")
+        if entry_type in {"mcp", "skill"} and "added_at" not in entry:
+            errors.append(f'ERROR: entry "{eid}" missing required field: added_at')
 
         # id format
         if "id" in entry and not ID_PATTERN.match(entry["id"]):
@@ -64,23 +97,36 @@ def validate_entries(entries: list, index_entries: list = None) -> tuple:
 
         # category enum
         if "category" in entry and entry["category"] not in VALID_CATEGORIES:
-            errors.append(f'ERROR: entry "{eid}" has invalid category: {entry["category"]}')
+            errors.append(
+                f'ERROR: entry "{eid}" has invalid category: {entry["category"]}'
+            )
 
         # install.method enum
         if "install" in entry and isinstance(entry["install"], dict):
             method = entry["install"].get("method")
             if method and method not in VALID_INSTALL_METHODS:
-                errors.append(f'ERROR: entry "{eid}" has invalid install.method: {method}')
+                errors.append(
+                    f'ERROR: entry "{eid}" has invalid install.method: {method}'
+                )
 
         # stars type
         if "stars" in entry:
             stars = entry["stars"]
             if stars is not None and not isinstance(stars, int):
-                errors.append(f'ERROR: entry "{eid}" has invalid stars type (must be integer or null)')
+                errors.append(
+                    f'ERROR: entry "{eid}" has invalid stars type (must be integer or null)'
+                )
 
         # source must be "curated"
         if "source" in entry and entry["source"] != "curated":
-            errors.append(f'ERROR: entry "{eid}" has invalid source: {entry["source"]} (must be "curated")')
+            errors.append(
+                f'ERROR: entry "{eid}" has invalid source: {entry["source"]} (must be "curated")'
+            )
+
+        if "evaluation" in entry and not isinstance(entry["evaluation"], dict):
+            errors.append(
+                f'ERROR: entry "{eid}" has invalid evaluation type (must be object)'
+            )
 
         # id dedup within curated
         if "id" in entry and entry["id"]:
@@ -93,7 +139,7 @@ def validate_entries(entries: list, index_entries: list = None) -> tuple:
         if "id" in entry and entry["id"] in index_ids:
             warnings.append(
                 f'WARNING: id "{entry["id"]}" already exists in index.json '
-                f'(will be deduplicated at merge)'
+                f"(will be deduplicated at merge)"
             )
 
         # source_url dedup within curated (warn, not error — same repo may have multiple resources)
@@ -102,7 +148,7 @@ def validate_entries(entries: list, index_entries: list = None) -> tuple:
             if norm in seen_urls:
                 warnings.append(
                     f'WARNING: duplicate source_url for entries "{seen_urls[norm]}" and "{eid}" '
-                    f'(same repo, different resources?)'
+                    f"(same repo, different resources?)"
                 )
             else:
                 seen_urls[norm] = eid
@@ -120,8 +166,12 @@ def validate_entries(entries: list, index_entries: list = None) -> tuple:
 
 def main():
     parser = argparse.ArgumentParser(description="Validate curated.json files")
-    parser.add_argument("paths", nargs="+", help="Paths to curated.json files to validate")
-    parser.add_argument("--index-path", help="Path to index.json for cross-file dedup checks")
+    parser.add_argument(
+        "paths", nargs="+", help="Paths to curated.json files to validate"
+    )
+    parser.add_argument(
+        "--index-path", help="Path to index.json for cross-file dedup checks"
+    )
     args = parser.parse_args()
 
     index_entries = []
