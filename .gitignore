@@ -3,6 +3,9 @@ __pycache__/
 *.pyc
 node_modules/
 
+# Internal docs (planning, strategies — not shipped)
+docs/
+
 # OpenSpec internal docs
 openspec/
 .cospec/
