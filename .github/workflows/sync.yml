@@ -31,6 +31,7 @@ jobs:
             catalog/skills/.llm_cache.json
             catalog/.llm_tag_cache.json
             catalog/.llm_translate_cache.json
+            catalog/maintenance/incremental_recrawl_state.json
             scripts/fallback_skill_repos.json
           key: sync-caches-${{ github.run_number }}
           restore-keys: |

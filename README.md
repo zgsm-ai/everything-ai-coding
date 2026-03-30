@@ -211,6 +211,13 @@ https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/README.m
 - 🔄 自动去重和合并
 - 📈 动态更新 star 数和活跃度
 
+### 🔁 生命周期与增量维护
+
+- `mcp` / `skill` 条目会记录 `added_at`，表示首次进入 catalog 的日期
+- `catalog/index.json` 保留顶层兼容字段，同时新增 `evaluation` 子对象承载统一评分与收录原因
+- `catalog/maintenance/incremental_recrawl_candidates.json` 保存达到阈值的增量复抓候选，`incremental_recrawl_state.json` 保存去重/冷却状态
+- 现有 `catalog/mcp/crawl_state.json` 与 `catalog/skills/.repo_cache.json` 继续负责各自来源的增量同步，不直接替代 catalog 生命周期治理
+
 
 ## Platforms
 
@@ -251,10 +258,11 @@ costrict-coding-hub/
 ├── catalog/                  # 资源索引（数据层）
 │   ├── index.json            # 合并后的完整索引（3000+ 条）
 │   ├── schema.json           # 条目 schema 定义
-│   ├── mcp/                  # MCP Server 源数据
-│   ├── skills/               # Skill 源数据
+│   ├── mcp/                  # MCP Server 源数据（含 added_at 生命周期字段）
+│   ├── skills/               # Skill 源数据（含 added_at 生命周期字段）
 │   ├── rules/                # Rule 源数据
-│   └── prompts/              # Prompt 源数据
+│   ├── prompts/              # Prompt 源数据
+│   └── maintenance/          # 增量复抓候选与状态
 │
 ├── platforms/                # 各平台 Skill + 子命令
 │   ├── claude-code/          # Claude Code 格式
@@ -267,8 +275,10 @@ costrict-coding-hub/
 │   ├── sync_skills.py        # 从上游同步 Skills
 │   ├── sync_rules.py         # 从上游同步 Rules
 │   ├── sync_prompts.py       # 从上游同步 Prompts
-│   ├── merge_index.py        # 合并生成 index.json
-│   └── llm_evaluator.py      # LLM 质量评估
+│   ├── merge_index.py        # 合并生成 index.json 与 maintenance 队列
+│   ├── llm_evaluator.py      # LLM 质量评估
+│   ├── unified_enrichment.py # 统一富化输出合同
+│   └── catalog_lifecycle.py  # 生命周期字段与增量复抓辅助逻辑
 │
 └── openspec/                 # 变更管理（OpenSpec）
 ```
