@@ -7,11 +7,23 @@
     "source_url": "https://github.com/microsoft/playwright-mcp",
     "stars": 8800,
     "category": "testing",
-    "tags": ["browser", "automation", "e2e", "testing"],
-    "tech_stack": ["typescript"],
+    "tags": [
+      "browser",
+      "automation",
+      "e2e",
+      "testing"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
     "install": {
       "method": "mcp_config",
-      "config": {"command": "npx", "args": ["@playwright/mcp@latest"]}
+      "config": {
+        "command": "npx",
+        "args": [
+          "@playwright/mcp@latest"
+        ]
+      }
     },
     "source": "curated",
     "last_synced": "2026-03-25"
@@ -24,13 +36,54 @@
     "source_url": "https://github.com/github/github-mcp-server",
     "stars": 5000,
     "category": "tooling",
-    "tags": ["github", "git", "version-control", "api"],
-    "tech_stack": ["go"],
+    "tags": [
+      "github",
+      "git",
+      "version-control",
+      "api"
+    ],
+    "tech_stack": [
+      "go"
+    ],
     "install": {
       "method": "mcp_config",
-      "config": {"command": "npx", "args": ["@anthropic/github-mcp-server"]}
+      "config": {
+        "command": "npx",
+        "args": [
+          "@anthropic/github-mcp-server"
+        ]
+      }
     },
     "source": "curated",
     "last_synced": "2026-03-25"
+  },
+  {
+    "id": "anthropic-cookbook",
+    "name": "claude-cookbooks",
+    "type": "mcp",
+    "description": "A collection of notebooks/recipes showcasing some fun and effective ways of using Claude.",
+    "source_url": "https://github.com/anthropics/anthropic-cookbook",
+    "stars": 36650,
+    "category": "ai-ml",
+    "tags": [],
+    "tech_stack": [
+      "jupyter notebook",
+      "python",
+      "shell",
+      "makefile",
+      "dockerfile"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "npx",
+        "args": [
+          "@anthropics/anthropic-cookbook"
+        ]
+      }
+    },
+    "source": "curated",
+    "last_synced": "2026-03-30",
+    "pushed_at": "2026-03-27T20:04:07Z"
   }
 ]
