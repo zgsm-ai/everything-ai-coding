@@ -7,6 +7,7 @@ import sys
 sys.path.insert(0, os.path.dirname(__file__))
 from utils import load_index, save_index, deduplicate, categorize, extract_tags, get_repo_languages, logger
 from llm_tagger import llm_tag_entries
+from llm_translator import llm_translate_entries
 from health_scorer import compute_health
 
 CATALOG_DIR = os.path.join(os.path.dirname(__file__), "..", "catalog")
@@ -98,6 +99,18 @@ def merge():
                 enriched_ts += 1
     if enriched_ts:
         logger.info(f"Languages API enriched tech_stack for {enriched_ts} entries")
+
+    # LLM translation for entries missing description_zh
+    translate_results = llm_translate_entries(deduped)
+    if translate_results:
+        enriched_zh = 0
+        for entry in deduped:
+            eid = entry["id"]
+            if eid in translate_results and not entry.get("description_zh"):
+                entry["description_zh"] = translate_results[eid]
+                enriched_zh += 1
+        if enriched_zh:
+            logger.info(f"LLM enriched description_zh for {enriched_zh} entries")
 
     # Compute health scores
     for entry in deduped:
