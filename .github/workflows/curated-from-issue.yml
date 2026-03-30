@@ -178,31 +178,39 @@ jobs:
           git commit -m "[curated] Add ${ENTRY_ID}"
           git push origin "$BRANCH"
 
-          # Build PR body
+          # Build PR body and create PR via REST API
           ENTRY_JSON=$(python -m json.tool /tmp/entry.json)
           REASON="${INPUT_REASON:-无}"
 
-          gh pr create \
-            --title "[curated] Add ${ENTRY_ID}" \
-            --body "$(cat <<EOF
-          ## 自动生成的 Curated 条目
+          PR_BODY="$(cat <<PREOF
+## 自动生成的 Curated 条目
 
-          Closes #${ISSUE_NUMBER}
+Closes #${ISSUE_NUMBER}
 
-          ### 生成的条目
-          \`\`\`json
-          ${ENTRY_JSON}
-          \`\`\`
+### 生成的条目
+\`\`\`json
+${ENTRY_JSON}
+\`\`\`
 
-          ### 推荐理由
-          ${REASON}
+### 推荐理由
+${REASON}
 
-          > ⚠️ **维护者请检查 \`install\` 字段是否准确**，Bot 生成的安装配置可能需要手动调整。
-          EOF
-          )" \
-            --base main \
-            --head "$BRANCH" \
-            --label "curated"
+> ⚠️ **维护者请检查 \`install\` 字段是否准确**，Bot 生成的安装配置可能需要手动调整。
+PREOF
+)"
+
+          gh api repos/${{ github.repository }}/pulls \
+            -f title="[curated] Add ${ENTRY_ID}" \
+            -f body="$PR_BODY" \
+            -f head="$BRANCH" \
+            -f base="main" \
+            --silent
+
+          # Add curated label to the PR
+          PR_NUMBER=$(gh api "repos/${{ github.repository }}/pulls?head=${{ github.repository_owner }}:${BRANCH}&state=open" --jq '.[0].number')
+          if [ -n "$PR_NUMBER" ]; then
+            gh api "repos/${{ github.repository }}/issues/${PR_NUMBER}/labels" -f "labels[]=curated" --silent || true
+          fi
 
       - name: Comment on issue if generation failed
         if: failure() && steps.dedup.outputs.duplicate == 'false'
