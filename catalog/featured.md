@@ -1,6 +1,6 @@
 ## ⭐ 精选推荐
 
-> 从 2405+ 资源中按使用场景精选。安装后用 `/coding-hub:search` 搜索完整索引，或 `/coding-hub:recommend` 获取项目级推荐。
+> 从 3037+ 资源中按使用场景精选。安装后用 `/coding-hub:search` 搜索完整索引，或 `/coding-hub:recommend` 获取项目级推荐。
 
 ### 🌐 浏览器 & 自动化
 
@@ -12,7 +12,6 @@
 - 🎯 **[llm-application-dev](https://github.com/skillcreatorai/Ai-Agent-Skills/tree/main/skills/llm-application-dev)** — Building applications with Large Language Models - prompt… `社区精选`
 - 📋 **[Cypress E2E Testing Cursorrules Prompt File Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/cypress-e2e-testing-cursorrules-prompt-file)** — Cypress End-to-End Testing .cursorrules prompt file `CursorRules`
 - 📋 **[Playwright Accessibility Testing Cursorrules Prompt File Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/playwright-accessibility-testing-cursorrules-prompt-file)** — Playwright Accessibility Testing Prompt `CursorRules`
-- 💡 **[AI Engineer](https://github.com/f/prompts.chat)** — --- name: ai-engineer description: "Use this agent when implementing… `prompts.chat`
 
 ### 🐙 Git & 协作
 
@@ -21,9 +20,9 @@
 - 🔌 **[idosal/git-mcp](https://github.com/idosal/git-mcp)** — 通用远程 MCP 服务器，用于连接任何 GitHub 仓库或项目以获取文档。 ⭐ 7.8k
 - 🔌 **[Chart](https://github.com/antvis/mcp-server-chart)** — 🤖 A Model Context Protocol server for generating visual charts using… ⭐ 3.9k
 - 🎯 **[changelog-generator](https://github.com/skillcreatorai/Ai-Agent-Skills/tree/main/skills/changelog-generator)** — Automatically creates user-facing changelogs from git commits by… `社区精选`
-- 📋 **[Analyze Issue (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules)** — GitHub issue analysis and implementation specification - GitHub问题分析和实现… `Rules 2.1`
+- 🎯 **[address-github-comments](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/address-github-comments)** — Use when you need to address review or issue comments on an open… `antigravity-skills`
 - 📋 **[Python Github Setup Cursorrules Prompt File Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-github-setup-cursorrules-prompt-file)** — Python GitHub Setup .cursorrules prompt file `CursorRules`
-- 💡 **[Claude Code Skill (Slash Command): push-and-pull-request.md](https://github.com/f/prompts.chat)** — --- allowed-tools: Bash(git add:*), Bash(git status:*), Bash(git… `prompts.chat`
+- 📋 **[Git Conventional Commit Messages Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/git-conventional-commit-messages)** — Conventional Commit Messages `CursorRules`
 
 ### 🚀 DevOps & 安全
 
@@ -33,9 +32,8 @@
 - 🔌 **[sooperset/mcp-atlassian](https://github.com/sooperset/mcp-atlassian)** — Atlassian 产品 (Confluence 和 Jira) 的 MCP 服务器。支持 Cloud/Server/DC。提供全面的工具用… ⭐ 4.8k
 - 🎯 **[doc-coauthoring](https://github.com/anthropics/skills/tree/main/skills/doc-coauthoring)** — Guide users through a structured workflow for co-authoring… `Anthropic 官方`
 - 🎯 **[ask-questions-if-underspecified](https://github.com/skillcreatorai/Ai-Agent-Skills/tree/main/skills/ask-questions-if-underspecified)** — Clarify requirements before implementing. Do not use automatically,… `社区精选`
-- 📋 **[Security Audit Rules](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules)** — AI-assisted security review rules covering OWASP, input validation,… `精选`
-- 📋 **[Audit Logging System (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules)** — 审计日志系统 - 全面的操作审计和安全事件记录 `Rules 2.1`
-- 💡 **[模拟 Linux 终端](https://github.com/langgptai/wonderful-prompts)** — 我想让你充当 Linux 终端。我将输入命令，您将回复终端应显示的内容。我希望您只在一个唯一的代码块内回复终端输出，而不是其他任何内容。不要… `wonderful-prompts`
+- 📋 **[Typescript React Nextjs Cloudflare Cursorrules Pro Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-react-nextjs-cloudflare-cursorrules-pro)** — TypeScript React Next.js Cloudflare .cursorrules prompt file `CursorRules`
+- 📋 **[Elixir Phoenix Docker Setup Cursorrules Prompt Fil Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/elixir-phoenix-docker-setup-cursorrules-prompt-fil)** — Elixir Phoenix Docker Setup .cursorrules prompt file `CursorRules`
 
 ### 📚 文档 & 知识
 
@@ -45,9 +43,8 @@
 - 🔌 **[Markdownify MCP Server](https://github.com/zcaceres/markdownify-mcp)** — A Model Context Protocol server for converting almost anything to… ⭐ 2.5k
 - 🎯 **[slack-gif-creator](https://github.com/anthropics/skills/tree/main/skills/slack-gif-creator)** — Knowledge and utilities for creating animated GIFs optimized for… `Anthropic 官方`
 - 🎯 **[theme-factory](https://github.com/anthropics/skills/tree/main/skills/theme-factory)** — Toolkit for styling artifacts with a theme. These artifacts can be… `Anthropic 官方`
-- 📋 **[Technical Documentation Rules](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules)** — AI rules for generating and maintaining technical documentation `精选`
-- 📋 **[Create Docs (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules)** — Comprehensive documentation generation - 全面的文档生成 `Rules 2.1`
-- 💡 **["Explain It Like I Built It"  Technical Documentation for Non-Technical Founders](https://github.com/f/prompts.chat)** — You are a senior technical writer who specializes in making complex… `prompts.chat`
+- 📋 **[Dragonruby Best Practices Cursorrules Prompt File Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/dragonruby-best-practices-cursorrules-prompt-file)** — DragonRuby Best Practices .cursorrules prompt file `CursorRules`
+- 📋 **[How To Documentation Cursorrules Prompt File Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/how-to-documentation-cursorrules-prompt-file)** — How-To Documentation Prompt `CursorRules`
 
 ### 🎨 前端 & 设计
 
@@ -57,9 +54,8 @@
 - 🔌 **[21st.dev Magic AI Agent](https://github.com/21st-dev/magic-mcp)** — It's like v0 but in your Cursor/WindSurf/Cline. 21st dev Magic MCP… ⭐ 4.6k
 - 🎯 **[brand-guidelines](https://github.com/anthropics/skills/tree/main/skills/brand-guidelines)** — Applies Anthropic's official brand colors and typography to any sort… `Anthropic 官方`
 - 🎯 **[canvas-design](https://github.com/anthropics/skills/tree/main/skills/canvas-design)** — Create beautiful visual art in .png and .pdf documents using design… `Anthropic 官方`
-- 📋 **[Frontend Dev (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules)** — Frontend development workflow with Vue/React/TypeScript - 前端开发完整工作流 `Rules 2.1`
-- 📋 **[Custom Command Builder (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules)** — AI-powered custom command builder with intelligent templates - AI驱动的自定… `Rules 2.1`
-- 💡 **[Fullstack Software Developer](https://github.com/f/prompts.chat)** — Act as a fullstack developer with expertise in both frontend and… `精选`
+- 📋 **[Nodejs Mongodb Jwt Express React Cursorrules Promp Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/nodejs-mongodb-jwt-express-react-cursorrules-promp)** — Node.js MongoDB JWT Express React .cursorrules prompt file `CursorRules`
+- 📋 **[Typescript Nextjs React Tailwind Supabase Cursorru Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/typescript-nextjs-react-tailwind-supabase-cursorru)** — TypeScript Next.js React Tailwind Supabase .cursorrules prompt file `CursorRules`
 
 ### ⚙️ 后端 & 数据库
 
@@ -67,20 +63,21 @@
 - 🔌 **[PipedreamHQ/pipedream](https://github.com/PipedreamHQ/pipedream/tree/master/modelcontextprotocol)** — Pipedream 官方集成，一站式连接 2500+ API，集成 8000+ 工具，并管理用户服务器。 ⭐ 11.2k
 - 🔌 **[Supabase MCP Servers](https://github.com/supabase-community/mcp-supabase)** — A collection of MCP servers that connect LLMs to Supabase ⭐ 2.6k
 - 🔌 **[Supabase MCP Server](https://github.com/supabase-community/supabase-mcp)** — Connect Supabase to your AI assistants ⭐ 2.6k
+- 🎯 **[alpha-vantage](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/alpha-vantage)** — Access 20+ years of global financial data: equities, options, forex,… `antigravity-skills`
+- 🎯 **[analytics-product](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/analytics-product)** — Analytics de produto — PostHog, Mixpanel, eventos, funnels, cohorts,… `antigravity-skills`
 - 📋 **[Supabase Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/supabase)** — Cursor rules for Supabase with PostgreSQL and Edge Functions `精选`
-- 📋 **[Backend Dev (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules)** — Backend development workflow with Java/Python/Node.js - 后端开发完整工作流 `Rules 2.1`
-- 💡 **[编写函数(Python 为例)](https://github.com/langgptai/wonderful-prompts)** — 使用 ChatGPT 编写 Python 函数计算三角形面积。给出 （1）函数描述；（2）函数定义；（3）函数输出。搭建如示例的代码框架，让… `wonderful-prompts`
+- 📋 **[Nodejs Mongodb Cursorrules Prompt File Tutorial Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/nodejs-mongodb-cursorrules-prompt-file-tutorial)** — Node.js MongoDB .cursorrules prompt file tutorial `CursorRules`
 
 ### 🤖 AI & MCP 开发
 
 - 🔌 **[Homebrew](https://github.com/Homebrew/brew/blob/HEAD/Library/Homebrew/mcp_server.rb)** — An MCP server for the Homebrew package manager. ⭐ 47.2k
+- 🔌 **[claude-cookbooks](https://github.com/anthropics/anthropic-cookbook)** — A collection of notebooks/recipes showcasing some fun and effective… ⭐ 36.6k
 - 🔌 **[FastMCP v2 🚀](https://github.com/jlowin/fastmcp)** — 🚀 The fast, Pythonic way to build MCP servers and clients ⭐ 24.0k
 - 🔌 **[Mastra/mcp](https://github.com/mastra-ai/mastra/tree/main/packages/mcp)** — Client implementation for Mastra, providing seamless integration with… ⭐ 22.4k
-- 🔌 **[oraios/serena](https://github.com/oraios/serena)** — 功能齐全的编码代理，依赖于使用语言服务器的符号化代码操作。 ⭐ 22.2k
 - 🎯 **[algorithmic-art](https://github.com/anthropics/skills/tree/main/skills/algorithmic-art)** — Creating algorithmic art using p5.js with seeded randomness and… `Anthropic 官方`
 - 🎯 **[claude-api](https://github.com/anthropics/skills/tree/main/skills/claude-api)** — Build apps with the Claude API or Anthropic SDK. TRIGGER when: code… `Anthropic 官方`
 - 📋 **[Ai Powered Code Review (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules)** — AI驱动的智能代码审查规则 - 基于机器学习的代码质量分析和自动化审查流程 `Rules 2.1`
-- 📋 **[Bug Fix (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules)** — Complete bug-fixing workflow from issue to PR - 从问题到PR的完整Bug修复工作流 `Rules 2.1`
-- 💡 **[混淆代码翻译](https://github.com/langgptai/wonderful-prompts)** — 分析这段代码是什么编程语言，功能是什么？然后翻译整段代码，把所有变量和函数都重命名，使其成为更加清晰易懂的代码 `wonderful-prompts`
+- 📋 **[Ai Agent Intelligence Core (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules)** — AI代理智能核心规则 - 统一智能决策引擎和工作流编排系统 `Rules 2.1`
+- 💡 **[资深编程专家 CAN](https://github.com/langgptai/wonderful-prompts)** — 实测 GPT-4 才可以有比较好的效果，完整的对话：  [示例——CAN 完整对话](examples/gpt4_CAN_coder.md)… `wonderful-prompts`
 
 > 图例：🔌 MCP Server · 🎯 Skill · 📋 Rule · 💡 Prompt
