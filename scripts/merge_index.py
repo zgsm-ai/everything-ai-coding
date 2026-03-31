@@ -15,7 +15,6 @@ try:
         deduplicate,
         categorize,
         extract_tags,
-        get_repo_languages,
         logger,
     )
     from .llm_tagger import llm_tag_entries
@@ -34,7 +33,6 @@ except ImportError:
         deduplicate,
         categorize,
         extract_tags,
-        get_repo_languages,
         logger,
     )
     from llm_tagger import llm_tag_entries
@@ -149,16 +147,9 @@ def merge():
         if enriched_tags:
             logger.info(f"LLM enriched tags for {enriched_tags} entries")
 
-    # Languages API enrichment for entries with empty tech_stack
-    enriched_ts = 0
-    for entry in deduped:
-        if not entry.get("tech_stack") and entry.get("source_url", ""):
-            langs = get_repo_languages(entry["source_url"])
-            if langs:
-                entry["tech_stack"] = langs
-                enriched_ts += 1
-    if enriched_ts:
-        logger.info(f"Languages API enriched tech_stack for {enriched_ts} entries")
+    # Languages API enrichment disabled in merge stage to avoid GitHub API rate limit.
+    # tech_stack is enriched incrementally during sync (sync_mcp.py, sync_skills.py)
+    # and via LLM tag enrichment above.
 
     # LLM translation for entries missing description_zh
     translate_results = llm_translate_entries(deduped)
