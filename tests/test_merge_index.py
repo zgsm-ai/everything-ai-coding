@@ -42,10 +42,8 @@ def _make_entry(
 class TestMergeIndex(unittest.TestCase):
     def setUp(self):
         self.tmpdir = tempfile.mkdtemp()
-        # Create type subdirectories
         for t in merge_index.TYPES:
             os.makedirs(os.path.join(self.tmpdir, t), exist_ok=True)
-        # Patch CATALOG_DIR
         self._orig_catalog_dir = merge_index.CATALOG_DIR
         merge_index.CATALOG_DIR = self.tmpdir
 
@@ -71,7 +69,11 @@ class TestMergeIndex(unittest.TestCase):
             [_make_entry("b", type="skill", source_url="https://github.com/t/b")],
         )
 
-        merge_index.merge()
+        with unittest.mock.patch("merge_index.enrich_entries") as mock_enrich, \
+             unittest.mock.patch("merge_index.apply_governance") as mock_gov:
+            mock_enrich.side_effect = lambda x: x
+            mock_gov.side_effect = lambda x: x
+            merge_index.merge()
         result = self._read_output()
 
         self.assertEqual(len(result), 2)
@@ -93,7 +95,11 @@ class TestMergeIndex(unittest.TestCase):
             filename="curated.json",
         )
 
-        merge_index.merge()
+        with unittest.mock.patch("merge_index.enrich_entries") as mock_enrich, \
+             unittest.mock.patch("merge_index.apply_governance") as mock_gov:
+            mock_enrich.side_effect = lambda x: x
+            mock_gov.side_effect = lambda x: x
+            merge_index.merge()
         result = self._read_output()
 
         dup_entries = [r for r in result if r["id"] == "dup"]
@@ -101,11 +107,22 @@ class TestMergeIndex(unittest.TestCase):
         self.assertEqual(dup_entries[0]["name"], "First")
 
     def test_health_score_present(self):
-        self._write_index(
-            "mcp", [_make_entry("h1", source_url="https://github.com/t/h1")]
-        )
+        entry = _make_entry("h1", source_url="https://github.com/t/h1")
+        entry["stars"] = 1000
+        entry["install"]["method"] = "mcp_config"
+        entry["description"] = "A" * 100
+        entry["evaluation"] = {
+            "coding_relevance": 5,
+            "content_quality": 5,
+            "specificity": 5,
+            "source_trust": 5,
+            "confidence": 5,
+        }
+        self._write_index("mcp", [entry])
 
-        merge_index.merge()
+        with unittest.mock.patch("merge_index.enrich_entries") as mock_enrich:
+            mock_enrich.side_effect = lambda x: x
+            merge_index.merge()
         result = self._read_output()
 
         self.assertIn("health", result[0])
@@ -131,31 +148,41 @@ class TestMergeIndex(unittest.TestCase):
                 f,
             )
 
-        merge_index.merge()
+        with unittest.mock.patch("merge_index.enrich_entries") as mock_enrich, \
+             unittest.mock.patch("merge_index.apply_governance") as mock_gov:
+            mock_enrich.side_effect = lambda x: x
+            mock_gov.side_effect = lambda x: x
+            merge_index.merge()
         result = self._read_output()
 
         self.assertEqual(result[0]["added_at"], "2024-01-15")
 
     def test_sorted_by_health_desc(self):
+        low_entry = _make_entry(
+            "low",
+            stars=0,
+            pushed_at=None,
+            source_url="https://github.com/t/low",
+        )
+        high_entry = _make_entry(
+            "high",
+            stars=5000,
+            pushed_at="2026-03-29T00:00:00Z",
+            source_url="https://github.com/t/high",
+        )
+        low_entry["description"] = "low"
+        high_entry["description"] = "A" * 100
+        high_entry["install"]["method"] = "mcp_config"
         self._write_index(
             "mcp",
-            [
-                _make_entry(
-                    "low",
-                    stars=0,
-                    pushed_at=None,
-                    source_url="https://github.com/t/low",
-                ),
-                _make_entry(
-                    "high",
-                    stars=5000,
-                    pushed_at="2026-03-29T00:00:00Z",
-                    source_url="https://github.com/t/high",
-                ),
-            ],
+            [low_entry, high_entry],
         )
 
-        merge_index.merge()
+        with unittest.mock.patch("merge_index.enrich_entries") as mock_enrich, \
+             unittest.mock.patch("merge_index.apply_governance") as mock_gov:
+            mock_enrich.side_effect = lambda x: x
+            mock_gov.side_effect = lambda x: x
+            merge_index.merge()
         result = self._read_output()
 
         self.assertEqual(result[0]["id"], "high")
@@ -171,69 +198,41 @@ class TestMergeIndex(unittest.TestCase):
         )
         self._write_index("mcp", [entry])
 
-        merge_index.merge()
+        with unittest.mock.patch("merge_index.enrich_entries") as mock_enrich, \
+             unittest.mock.patch("merge_index.apply_governance") as mock_gov:
+            mock_enrich.side_effect = lambda x: x
+            mock_gov.side_effect = lambda x: x
+            merge_index.merge()
         result = self._read_output()
 
         self.assertNotEqual(result[0]["category"], "other")
 
     def test_empty_type_dir_no_crash(self):
-        # Only mcp has data, others are empty dirs
         self._write_index(
             "mcp", [_make_entry("only", source_url="https://github.com/t/only")]
         )
 
-        merge_index.merge()
+        with unittest.mock.patch("merge_index.enrich_entries") as mock_enrich, \
+             unittest.mock.patch("merge_index.apply_governance") as mock_gov:
+            mock_enrich.side_effect = lambda x: x
+            mock_gov.side_effect = lambda x: x
+            merge_index.merge()
         result = self._read_output()
 
         self.assertEqual(len(result), 1)
 
-    @unittest.mock.patch("merge_index.llm_translate_entries")
-    @unittest.mock.patch("merge_index.llm_tag_entries")
-    def test_enrichment_llm_tags(self, mock_llm, mock_translate):
-        """Entry with empty tags gets LLM-enriched tags."""
-        mock_llm.return_value = {"empty-tags": ["python", "cli"]}
-        mock_translate.return_value = {}
-        entry = _make_entry("empty-tags", source_url="https://github.com/t/empty-tags")
-        entry["tags"] = []
+    @unittest.mock.patch("merge_index.enrich_entries")
+    def test_enrichment_called(self, mock_enrich):
+        """enrich_entries is called during merge."""
+        entry = _make_entry("e1", source_url="https://github.com/t/e1")
         self._write_index("mcp", [entry])
 
-        merge_index.merge()
-        result = self._read_output()
+        mock_enrich.side_effect = lambda x: x
+        with unittest.mock.patch("merge_index.apply_governance") as mock_gov:
+            mock_gov.side_effect = lambda x: x
+            merge_index.merge()
 
-        self.assertEqual(result[0]["tags"], ["python", "cli"])
-
-    @unittest.mock.patch("merge_index.llm_translate_entries")
-    @unittest.mock.patch("merge_index.llm_tag_entries")
-    def test_enrichment_no_overwrite(self, mock_llm, mock_translate):
-        """Already-populated entries are not overwritten."""
-        mock_llm.return_value = {"has-data": ["new-tag"]}
-        mock_translate.return_value = {"has-data": "新标签"}
-        entry = _make_entry("has-data", source_url="https://github.com/t/has-data")
-        entry["tags"] = ["react", "typescript"]
-        entry["tech_stack"] = ["TypeScript"]
-        entry["description_zh"] = "已有中文描述"
-        self._write_index("mcp", [entry])
-
-        merge_index.merge()
-        result = self._read_output()
-
-        self.assertEqual(result[0]["tags"], ["react", "typescript"])
-        self.assertEqual(result[0]["tech_stack"], ["TypeScript"])
-        self.assertEqual(result[0]["description_zh"], "已有中文描述")
-
-    @unittest.mock.patch("merge_index.llm_translate_entries")
-    @unittest.mock.patch("merge_index.llm_tag_entries")
-    def test_enrichment_translation(self, mock_llm, mock_translate):
-        """Entry without description_zh gets LLM-translated."""
-        mock_llm.return_value = {}
-        mock_translate.return_value = {"no-zh": "测试MCP服务器"}
-        entry = _make_entry("no-zh", source_url="https://github.com/t/no-zh")
-        self._write_index("mcp", [entry])
-
-        merge_index.merge()
-        result = self._read_output()
-
-        self.assertEqual(result[0]["description_zh"], "测试MCP服务器")
+        mock_enrich.assert_called_once()
 
     @unittest.mock.patch.dict(os.environ, {}, clear=True)
     def test_enrichment_no_credentials_no_crash(self):
@@ -244,23 +243,45 @@ class TestMergeIndex(unittest.TestCase):
         entry = _make_entry("nocred", source_url="https://github.com/t/nocred")
         self._write_index("mcp", [entry])
 
-        merge_index.merge()
+        with unittest.mock.patch("merge_index.enrich_entries") as mock_enrich, \
+             unittest.mock.patch("merge_index.apply_governance") as mock_gov:
+            mock_enrich.side_effect = lambda x: x
+            mock_gov.side_effect = lambda x: x
+            merge_index.merge()
         result = self._read_output()
 
         self.assertEqual(len(result), 1)
 
-    @unittest.mock.patch("merge_index.llm_translate_entries")
-    @unittest.mock.patch("merge_index.llm_tag_entries")
-    def test_dedup_integrity_warning_on_catastrophic_drop(
-        self, mock_llm, mock_translate
-    ):
-        """When a type loses >50% of entries during dedup, a warning is logged."""
-        mock_llm.return_value = {}
-        mock_translate.return_value = {}
-        # This scenario shouldn't happen anymore with the fix, but the warning
-        # mechanism should still work if triggered by other means.
-        # We test by checking that the merge function logs per-type counts.
-        # Write 3 MCP entries with unique URLs (no dedup loss)
+    def test_evaluation_and_governance_applied(self):
+        """Entries get evaluation and governance after merge."""
+        entry = _make_entry("gov1", source_url="https://github.com/t/gov1")
+        # Give it enough score heuristic points to pass the threshold of 40
+        # stars gives popularity score. install method gives installability.
+        # desc gives some quality.
+        entry["stars"] = 1000
+        entry["install"]["method"] = "mcp_config"
+        entry["description"] = "A" * 100
+
+        # We need an evaluation object since the threshold checks the final_score calculated from signals
+        entry["evaluation"] = {
+            "coding_relevance": 5,
+            "content_quality": 5,
+            "specificity": 5,
+            "source_trust": 5,
+            "confidence": 5,
+        }
+        self._write_index("mcp", [entry])
+
+        with unittest.mock.patch("merge_index.enrich_entries") as mock_enrich:
+            mock_enrich.side_effect = lambda x: x
+            merge_index.merge()
+        result = self._read_output()
+
+        self.assertIn("evaluation", result[0])
+        self.assertIn("health", result[0])
+
+    def test_dedup_integrity_stats_logged(self):
+        """Merge logs per-type dedup stats."""
         self._write_index(
             "mcp",
             [
@@ -271,9 +292,12 @@ class TestMergeIndex(unittest.TestCase):
         )
 
         with self.assertLogs("utils", level="INFO") as cm:
-            merge_index.merge()
+            with unittest.mock.patch("merge_index.enrich_entries") as mock_enrich, \
+                 unittest.mock.patch("merge_index.apply_governance") as mock_gov:
+                mock_enrich.side_effect = lambda x: x
+                mock_gov.side_effect = lambda x: x
+                merge_index.merge()
 
-        # Should see per-type dedup stats in logs
         log_text = "\n".join(cm.output)
         self.assertIn("Dedup", log_text)
 

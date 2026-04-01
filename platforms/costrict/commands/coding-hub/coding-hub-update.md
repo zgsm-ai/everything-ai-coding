@@ -1,9 +1,11 @@
 ---
-description: '更新 coding-hub skill 和子命令到最新版本。用法: /coding-hub-update'
-argument-hint: (no arguments)
+description: '更新 coding-hub skill 和子命令到最新版本。用法: /coding-hub-update <name>'
+argument-hint: <name>
 ---
 
 # Coding Hub - Update
+
+$ARGUMENTS
 
 从 GitHub 拉取最新版本的 coding-hub skill 和子命令，覆盖本地安装。
 

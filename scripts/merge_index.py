@@ -17,15 +17,13 @@ try:
         extract_tags,
         logger,
     )
-    from .llm_tagger import llm_tag_entries
-    from .llm_translator import llm_translate_entries
-    from .health_scorer import compute_health
+    from .enrichment_orchestrator import enrich_entries
+    from .scoring_governor import apply_governance
     from .catalog_lifecycle import (
         overlay_added_at,
         build_incremental_recrawl_candidates,
         backfill_missing_added_at,
     )
-    from .unified_enrichment import ensure_evaluation
 except ImportError:
     from utils import (
         load_index,
@@ -35,15 +33,13 @@ except ImportError:
         extract_tags,
         logger,
     )
-    from llm_tagger import llm_tag_entries
-    from llm_translator import llm_translate_entries
-    from health_scorer import compute_health
+    from enrichment_orchestrator import enrich_entries
+    from scoring_governor import apply_governance
     from catalog_lifecycle import (
         overlay_added_at,
         build_incremental_recrawl_candidates,
         backfill_missing_added_at,
     )
-    from unified_enrichment import ensure_evaluation
 
 CATALOG_DIR = os.path.join(os.path.dirname(__file__), "..", "catalog")
 TYPES = ["mcp", "skills", "rules", "prompts"]
@@ -81,7 +77,6 @@ def merge():
             all_entries.extend(curated)
 
     # Deduplicate by source_url + id (earlier entries take priority: Tier 1 > Tier 2 > Tier 3)
-    # Count pre-dedup entries by type for integrity check
     pre_dedup_counts = {}
     for entry in all_entries:
         t = entry.get("type", "unknown")
@@ -89,7 +84,6 @@ def merge():
 
     deduped = deduplicate(all_entries)
 
-    # Post-dedup integrity check: warn if any type lost >50%
     post_dedup_counts = {}
     for entry in deduped:
         t = entry.get("type", "unknown")
@@ -104,7 +98,7 @@ def merge():
         else:
             logger.info(f"Dedup stats: type={t} {pre} → {post} (-{drop_pct:.0f}%)")
 
-    # Fix invalid categories (e.g. "other" not in schema enum)
+    # Fix invalid categories
     VALID_CATEGORIES = {
         "frontend",
         "backend",
@@ -129,46 +123,37 @@ def merge():
     if fixed_cats:
         logger.info(f"Fixed {fixed_cats} entries with invalid category")
 
-    # --- Enrichment: LLM tags + Languages API tech_stack ---
-    # Collect existing tag frequency for LLM reference vocabulary
-    all_existing_tags = []
-    for entry in deduped:
-        all_existing_tags.extend(entry.get("tags") or [])
-
-    # LLM tag enrichment for entries with <2 tags
-    tag_results = llm_tag_entries(deduped, existing_tag_freq=all_existing_tags)
-    if tag_results:
-        enriched_tags = 0
-        for entry in deduped:
-            eid = entry["id"]
-            if eid in tag_results and len(entry.get("tags") or []) < 2:
-                entry["tags"] = tag_results[eid]
-                enriched_tags += 1
-        if enriched_tags:
-            logger.info(f"LLM enriched tags for {enriched_tags} entries")
-
-    # Languages API enrichment disabled in merge stage to avoid GitHub API rate limit.
-    # tech_stack is enriched incrementally during sync (sync_mcp.py, sync_skills.py)
-    # and via LLM tag enrichment above.
-
-    # LLM translation for entries missing description_zh
-    translate_results = llm_translate_entries(deduped)
-    if translate_results:
-        enriched_zh = 0
-        for entry in deduped:
-            eid = entry["id"]
-            if eid in translate_results and not entry.get("description_zh"):
-                entry["description_zh"] = translate_results[eid]
-                enriched_zh += 1
-        if enriched_zh:
-            logger.info(f"LLM enriched description_zh for {enriched_zh} entries")
-
-    # Compute health scores
-    for entry in deduped:
-        ensure_evaluation(entry)
-        entry["health"] = compute_health(entry)
-
+    # --- Overlay prior evaluation from existing output ---
+    # Per-type source indexes don't carry evaluation data. Store the full
+    # prior evaluation under _prior_evaluation so populate_signals() can
+    # use it as a fallback when cache/LLM are unavailable, preventing
+    # unchanged entries from losing their scores. Only overlay timestamps
+    # into evaluation{} to avoid blocking enrich_quality() re-evaluation.
     existing_output = load_index(os.path.join(CATALOG_DIR, "index.json"))
+    _TIMESTAMP_KEYS = ("evaluated_at", "evaluator")
+    _SCORE_KEYS = ("coding_relevance", "content_quality", "specificity")
+    existing_eval_map = {}
+    for entry in existing_output:
+        eid = entry.get("id")
+        ev = entry.get("evaluation")
+        if eid and ev and (ev.get("evaluated_at") or any(ev.get(k) for k in _SCORE_KEYS)):
+            existing_eval_map[eid] = ev
+    for entry in deduped:
+        eid = entry.get("id")
+        if eid and eid in existing_eval_map and not entry.get("evaluation"):
+            prior_ev = existing_eval_map[eid]
+            entry["_prior_evaluation"] = dict(prior_ev)
+            entry["evaluation"] = {k: prior_ev[k] for k in _TIMESTAMP_KEYS if k in prior_ev}
+
+    # --- Layer 2: Enrichment (tags, translation, LLM evaluation, signals) ---
+    enrich_entries(deduped)
+    logger.info(f"Enrichment complete for {len(deduped)} entries")
+
+    # --- Layer 3: Scoring & Governance (final_score, decision, health, reject filter) ---
+    deduped = apply_governance(deduped)
+    logger.info(f"Governance complete: {len(deduped)} entries after filtering")
+
+    # --- Lifecycle ---
     existing_output = backfill_missing_added_at(existing_output, today=TODAY)
     prior_entries = deduped + existing_output
     deduped = overlay_added_at(deduped, prior_entries, today=TODAY)

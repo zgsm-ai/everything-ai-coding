@@ -11,7 +11,7 @@ permissions:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 75
+    timeout-minutes: 120
 
     steps:
       - uses: actions/checkout@v4
@@ -29,6 +29,7 @@ jobs:
           path: |
             catalog/skills/.repo_cache.json
             catalog/skills/.llm_cache.json
+            catalog/.llm_eval_cache.json
             catalog/.llm_tag_cache.json
             catalog/.llm_translate_cache.json
             catalog/maintenance/incremental_recrawl_state.json
@@ -57,12 +58,8 @@ jobs:
       - name: Sync Skills
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
-          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-          LLM_MODEL: ${{ secrets.LLM_MODEL }}
-          LLM_EVAL_LIMIT: ${{ vars.LLM_EVAL_LIMIT || '200' }}
         run: python scripts/sync_skills.py
-        timeout-minutes: 60
+        timeout-minutes: 30
         continue-on-error: true
 
       - name: Sync Prompts
@@ -92,6 +89,7 @@ jobs:
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
+          EVAL_DRY_RUN: ${{ vars.EVAL_DRY_RUN || 'true' }}
         run: python scripts/merge_index.py
 
       - name: Update README counts

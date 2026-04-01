@@ -90,16 +90,22 @@ def _compute_freshness(
 
 
 def _compute_quality(entry: dict[str, Any]) -> int:
-    """Compute quality score from LLM scores or heuristics.
+    """Compute quality score from evaluation.final_score or heuristics.
 
-    Spec:
-    - LLM scores: (coding_relevance + quality_score) / 10 * 100
-    - MCP/skill without LLM: heuristic from install completeness + description
-    - Rule/prompt without LLM: 0 (until LLM evaluation is extended)
+    Priority:
+    1. evaluation.final_score (set by scoring_governor Layer 3)
+    2. LLM scores: (coding_relevance + quality_score) / 10 * 100
+    3. MCP/skill heuristic from install completeness + description
+    4. Rule/prompt without evaluation → 0
     """
+    evaluation = entry.get("evaluation") or {}
+
+    # Prefer final_score from Layer 3 governance
+    final_score = evaluation.get("final_score")
+    if final_score is not None:
+        return int(final_score)
     coding_rel = entry.get("coding_relevance")
     quality_score = entry.get("quality_score")
-    evaluation = entry.get("evaluation") or {}
     if coding_rel is None:
         coding_rel = evaluation.get("coding_relevance")
     if quality_score is None:

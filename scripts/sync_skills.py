@@ -5,6 +5,7 @@ import os
 import re
 import sys
 import json
+import math
 from typing import Any
 from datetime import date
 
@@ -29,7 +30,6 @@ try:
         has_coding_keyword,
         parse_skill_content,
     )
-    from .llm_evaluator import evaluate_skills, translate_descriptions
     from .catalog_lifecycle import overlay_added_at, backfill_missing_added_at
 except ImportError:
     from utils import (
@@ -51,7 +51,6 @@ except ImportError:
         has_coding_keyword,
         parse_skill_content,
     )
-    from llm_evaluator import evaluate_skills, translate_descriptions
     from catalog_lifecycle import overlay_added_at, backfill_missing_added_at
 
 CATALOG_DIR = os.path.join(os.path.dirname(__file__), "..", "catalog", "skills")
@@ -602,6 +601,32 @@ def _needs_openclaw_description_refresh(description: str) -> bool:
     return len(desc) < 80
 
 
+TOP_N = 300
+
+
+def deterministic_tier2_filter(candidates: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Filter Tier 2 candidates using deterministic signals (no LLM).
+
+    Score = log10(stars) * 10 + (50 if keyword_match else 0)
+    Returns top 300 by score.
+    """
+    for c in candidates:
+        stars = max(c.get("stars", 0) or 0, 1)
+        keyword_bonus = 50 if c.get("_keyword_match", False) else 0
+        c["_score"] = math.log10(stars) * 10 + keyword_bonus
+
+    candidates.sort(key=lambda x: x.get("_score", 0), reverse=True)
+    result = candidates[:TOP_N]
+
+    for r in result:
+        r.pop("_score", None)
+        r.pop("_keyword_match", None)
+        r.pop("_openclaw_slug", None)
+        r.pop("_openclaw_install_path", None)
+
+    return result
+
+
 def sync():
     # === Tier 1: Full inclusion, no filtering ===
     tier1_entries = []
@@ -610,10 +635,7 @@ def sync():
     tier1_entries.extend(parse_antigravity_skills())
     logger.info(f"Tier 1 total: {len(tier1_entries)} skills")
 
-    # Translate Tier 1 descriptions to Chinese
-    translate_descriptions(tier1_entries)
-
-    # === Tier 2: Registry discovery + OpenClaw + two-phase filtering ===
+    # === Tier 2: Registry discovery + OpenClaw + deterministic filtering ===
     tier2_entries = []
 
     # Registry candidates
@@ -636,13 +658,13 @@ def sync():
 
     try:
         if candidates:
-            tier2_entries = evaluate_skills(candidates)
+            tier2_entries = deterministic_tier2_filter(candidates)
             logger.info(
-                f"Tier 2 total: {len(tier2_entries)} skills (after LLM evaluation)"
+                f"Tier 2 total: {len(tier2_entries)} skills (after deterministic filtering)"
             )
     except Exception as e:
-        logger.error(f"Tier 2 evaluation failed: {e}")
-        logger.info("Tier 2 evaluation skipped, continuing with Tier 1 only")
+        logger.error(f"Tier 2 filtering failed: {e}")
+        logger.info("Tier 2 filtering skipped, continuing with Tier 1 only")
 
     # === Merge: Tier 1 takes priority ===
     all_entries = tier1_entries + tier2_entries

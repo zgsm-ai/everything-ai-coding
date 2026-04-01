@@ -3,7 +3,7 @@ name: coding-hub
 description: >
   Coding 资源一站式搜索与安装。聚合 MCP Servers、Skills、Rules、Prompts 索引，
   支持搜索、分类浏览、项目推荐、一键安装。
-  触发: /coding-hub search <query> | browse [category] | recommend | install <name> | uninstall <name> | update
+  触发: /coding-hub:search <query> | /coding-hub:browse [category] | /coding-hub:recommend | /coding-hub:install <name> | /coding-hub:uninstall <name> | /coding-hub:update <name>
 ---
 
 # Coding Hub
@@ -202,3 +202,9 @@ Python 命令跨平台探测: `$(command -v python3 || command -v python)`
 - 文件权限不足：报告错误并建议检查目录权限
 - settings.json 格式损坏：报告错误并建议手动检查文件
 - 删除失败：报告具体错误信息
+
+### update <name>
+
+1. 从 GitHub 拉取最新版本的资源文件覆盖本地安装。
+2. 支持 update 自身 (update coding-hub) 或 update 其他已安装资源
+3. 显示更新进度和结果

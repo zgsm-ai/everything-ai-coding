@@ -115,9 +115,8 @@ class SyncSkillsLifecycleTests(unittest.TestCase):
     def tearDown(self):
         sync_skills.CATALOG_DIR = self.orig_catalog_dir
 
-    @patch("sync_skills.evaluate_skills", return_value=[])
+    @patch("sync_skills.deterministic_tier2_filter", return_value=[])
     @patch("sync_skills.discover_skills", return_value=[])
-    @patch("sync_skills.translate_descriptions")
     @patch("sync_skills.parse_openclaw_skills", return_value=[])
     @patch("sync_skills.parse_antigravity_skills", return_value=[])
     @patch("sync_skills.parse_ai_agent_skills", return_value=[])
@@ -128,9 +127,8 @@ class SyncSkillsLifecycleTests(unittest.TestCase):
         mock_ai_agent,
         mock_antigravity,
         mock_openclaw,
-        mock_translate,
         mock_discover,
-        mock_evaluate,
+        mock_tier2,
     ):
         mock_anthropic.return_value = [
             {

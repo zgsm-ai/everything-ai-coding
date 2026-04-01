@@ -24,8 +24,10 @@
           "source_trust": { "type": ["integer", "null"], "minimum": 1, "maximum": 5 },
           "confidence": { "type": ["integer", "null"], "minimum": 1, "maximum": 5 },
           "final_score": { "type": ["integer", "null"], "minimum": 0, "maximum": 100 },
-          "decision": { "type": ["string", "null"] },
-          "reason": { "type": ["string", "null"] }
+          "decision": { "type": ["string", "null"], "enum": ["accept", "review", "reject", null] },
+          "reason": { "type": ["string", "null"] },
+          "evaluated_at": { "type": ["string", "null"], "description": "ISO 8601 timestamp of evaluation" },
+          "evaluator": { "type": ["string", "null"], "description": "LLM model name or 'heuristic'" }
         }
       },
       "category": { "type": "string", "enum": ["frontend", "backend", "fullstack", "mobile", "devops", "database", "testing", "security", "ai-ml", "tooling", "documentation"] },
