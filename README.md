@@ -185,12 +185,12 @@ https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/README.m
 | Rule | 236 | 编码规范 / AI 辅助规则 |
 | Skill | 1518 | Agent Skill 扩展 |
 
-**数据来源**：从 9 个上游源自动聚合，每周通过 GitHub Actions 同步，过滤 star > 10 的 coding 相关资源。
+**数据来源**：从 14 个上游源自动聚合，每周通过 GitHub Actions 同步并部署到 GitHub Pages CDN，过滤 star > 10 的 coding 相关资源。
 
 | 上游 | 来源 |
 |------|------|
 | MCP | [awesome-mcp-servers](https://github.com/wong2/awesome-mcp-servers) · [Awesome-MCP-ZH](https://github.com/yzfly/Awesome-MCP-ZH) · [mcp.so](https://mcp.so) |
-| Skills | [anthropics/skills](https://github.com/anthropics/skills) · [Ai-Agent-Skills](https://github.com/skillcreatorai/Ai-Agent-Skills) · [antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills) |
+| Skills | [anthropics/skills](https://github.com/anthropics/skills) · [Ai-Agent-Skills](https://github.com/skillcreatorai/Ai-Agent-Skills) · [antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills) · [davila7/claude-code-templates](https://github.com/davila7/claude-code-templates) |
 | Rules | [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules) · [rules-2.1-optimized](https://github.com/Mr-chen-05/rules-2.1-optimized) |
 | Prompts | [prompts.chat](https://github.com/f/prompts.chat) · [wonderful-prompts](https://github.com/langgptai/wonderful-prompts) |
 
@@ -216,6 +216,7 @@ https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/README.m
 - 🤖 每周自动同步（GitHub Actions）
 - 🔄 自动去重和合并
 - 📈 动态更新 star 数和活跃度
+- 🌐 GitHub Pages CDN 加速分发（单条 API ~1KB，搜索索引 ~2MB）
 
 ### 🔁 生命周期与增量维护
 
@@ -229,7 +230,7 @@ https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/README.m
 
 支持四个 AI Coding 平台，命令格式略有差异：
 
-| | Costrict | Opencode | Claude Code | VSCode Costrict (Roo Code) |
+| | Claude Code | Costrict | Opencode | VSCode Costrict (Roo Code) |
 |---|---|---|---|---|
 | 搜索 | `/coding-hub:search <kw> [type:mcp]` | `/coding-hub-search <kw> [type:mcp]` | `/coding-hub-search <kw> [type:mcp]` | `/coding-hub-search <kw> [type:mcp]` |
 | 浏览 | `/coding-hub:browse [cat]` | `/coding-hub-browse [cat]` | `/coding-hub-browse [cat]` | `/coding-hub-browse [cat]` |
@@ -241,11 +242,11 @@ https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/README.m
 <details>
 <summary>平台路径差异</summary>
 
-| | Costrict | VSCode Costrict | Claude Code | Opencode |
+| | Claude Code | Costrict | VSCode Costrict | Opencode |
 |---|---|---|---|---|
-| Skill 路径（全局） | `~/.costrict/skills/coding-hub/` | `~/.costrict/skills/coding-hub/` | `~/.claude/skills/coding-hub/` | `~/.opencode/skills/coding-hub/` |
-| Commands 路径 | `.costrict/coding-hub/commands/`（项目级） | `~/.roo/commands/`（全局） | 同上（全局） | `.opencode/command/`（项目级） |
-| 命令分隔符 | `-` | `-` | `:` | `-` |
+| Skill 路径（全局） | `~/.claude/skills/coding-hub/` | `~/.costrict/skills/coding-hub/` | `~/.costrict/skills/coding-hub/` | `~/.opencode/skills/coding-hub/` |
+| Commands 路径 | 同上（全局） | `.costrict/coding-hub/commands/`（项目级） | `~/.roo/commands/`（全局） | `.opencode/command/`（项目级） |
+| 命令分隔符 | `:` | `-` | `-` | `-` |
 
 - **Costrict CLI** 的命令文件需要安装到每个项目目录，在项目根目录运行 `install.sh` 即可
 - **VSCode Costrict 插件 (Roo Code)** 支持 Roo Code 原生 slash commands，命令文件安装到 `~/.roo/commands/`，通过 `/coding-hub-update` 自动下载
@@ -262,7 +263,8 @@ costrict-coding-hub/
 ├── install.sh               # 一键安装脚本（macOS/Linux，curl | bash）
 ├── install.ps1              # 一键安装脚本（Windows，irm | iex）
 ├── catalog/                  # 资源索引（数据层）
-│   ├── index.json            # 合并后的完整索引（3000+ 条）
+│   ├── index.json            # 合并后的完整索引（3900+ 条）
+│   ├── search-index.json     # 轻量搜索索引（仅搜索字段，~2MB）
 │   ├── schema.json           # 条目 schema 定义
 │   ├── mcp/                  # MCP Server 源数据（含 added_at 生命周期字段）
 │   ├── skills/               # Skill 源数据（含 added_at 生命周期字段）
@@ -270,21 +272,40 @@ costrict-coding-hub/
 │   ├── prompts/              # Prompt 源数据
 │   └── maintenance/          # 增量复抓候选与状态
 │
+├── docs/api/                 # GitHub Pages 静态 API（CI 生成，不提交）
+│   └── v1/                   # API v1
+│       ├── search-index.json # 搜索索引副本
+│       ├── {type}/index.json # 各类型轻量索引
+│       └── {type}/{id}.json  # 单条完整数据（~1-2KB）
+│
 ├── platforms/                # 各平台 Skill + 子命令
-│   ├── claude-code/          # Claude Code 格式
+│   ├── claude-code/          # Claude Code 格式（命令分隔符 `:`）
 │   ├── opencode/             # Opencode 格式
 │   ├── costrict/             # Costrict 格式
 │   └── vscode-costrict/      # VSCode Costrict 插件格式
 │
-├── scripts/                  # 数据同步脚本
+├── scripts/                  # 数据同步与生成脚本
 │   ├── sync_mcp.py           # 从上游同步 MCP
 │   ├── sync_skills.py        # 从上游同步 Skills
 │   ├── sync_rules.py         # 从上游同步 Rules
 │   ├── sync_prompts.py       # 从上游同步 Prompts
-│   ├── merge_index.py        # 合并生成 index.json 与 maintenance 队列
-│   ├── llm_evaluator.py      # LLM 质量评估
-│   ├── unified_enrichment.py # 统一富化输出合同
-│   └── catalog_lifecycle.py  # 生命周期字段与增量复抓辅助逻辑
+│   ├── crawl_mcp_so.py       # 增量抓取 mcp.so
+│   ├── merge_index.py        # 合并生成 index.json（去重→富化→评分→生命周期）
+│   ├── generate_pages.py     # 生成 GitHub Pages 静态 API（按条目拆分）
+│   ├── update_readme.py      # 自动更新 README 统计数字
+│   ├── enrichment_orchestrator.py  # 富化调度
+│   ├── unified_enrichment.py       # Layer 2: source_trust, confidence
+│   ├── llm_evaluator.py            # LLM 质量评估
+│   ├── scoring_governor.py         # 评分治理: final_score 加权
+│   ├── health_scorer.py            # 健康评分四维信号
+│   ├── catalog_lifecycle.py        # 生命周期字段与增量复抓
+│   └── utils.py                    # 公共工具函数
+│
+├── .github/workflows/        # CI/CD
+│   ├── sync.yml              # 每周自动同步上游资源
+│   ├── deploy-pages.yml      # 同步后自动部署 GitHub Pages 静态 API
+│   ├── test.yml              # PR 测试
+│   └── validate-pr.yml       # PR 校验
 │
 └── openspec/                 # 变更管理（OpenSpec）
 ```
@@ -430,7 +451,14 @@ done
 
 ### 数据源
 
-索引 URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/index.json`
+搜索/浏览/推荐使用轻量搜索索引（~2MB），安装使用单条 API（~1KB），均通过 GitHub Pages CDN 分发：
+
+| 用途 | URL |
+|------|-----|
+| 搜索索引 | `https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/search-index.json` |
+| 单条 API | `https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/{type}/{id}.json` |
+| 类型索引 | `https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/{type}/index.json` |
+| 全量索引（fallback） | `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/index.json` |
 
 索引是 JSON 数组，每个条目包含 `id`, `name`, `type`(mcp/skill/rule/prompt), `description`, `source_url`, `stars`, `category`, `tags`, `tech_stack`, `install`。
 

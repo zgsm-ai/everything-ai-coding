@@ -22,9 +22,17 @@ description: >
 
 ## 数据源
 
-索引 URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/index.json`
+### 搜索/浏览/推荐用轻量搜索索引（~2MB）
 
-每次执行命令时，用 `curl -s` 获取这个 JSON 文件。索引是一个数组，每个条目包含：
+搜索索引 URL: `https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/search-index.json`
+Fallback URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/search-index.json`
+
+### 安装用单条 API（~1-2KB）
+
+单条 API: `https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/{type}/{id}.json`
+全量索引 (fallback): `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/index.json`
+
+搜索索引是一个数组，每个条目包含：
 - `id`: 唯一标识
 - `name`: 显示名称
 - `type`: mcp | skill | rule | prompt
@@ -34,10 +42,11 @@ description: >
 - `category`: 分类 (frontend/backend/fullstack/mobile/devops/database/testing/security/ai-ml/tooling/documentation)
 - `tags`: 标签数组
 - `tech_stack`: 技术栈数组
-- `install`: 安装信息
+
+单条 API 返回完整条目数据，额外包含 `install` 安装信息。
 
 **重要：数据预过滤策略**
-索引文件较大（5000+ 条目），禁止将全量 JSON 读入上下文。
+索引文件有 3900+ 条目，禁止将全量 JSON 读入上下文。
 执行 search/browse/recommend 时，必须用 Bash 调用 python 脚本在 shell 侧完成过滤，
 只将过滤后的 top N 结果（纯文本）送入上下文进行格式化展示。
 Python 命令跨平台探测: `$(command -v python3 || command -v python)`
@@ -109,9 +118,11 @@ Python 命令跨平台探测: `$(command -v python3 || command -v python)`
 
 ### install <name>
 
-1. 获取索引，按 `id` 或 `name`（模糊匹配）查找条目
+1. 先用搜索索引按 `id` 或 `name`（模糊匹配）定位条目，获取 `type` 和 `id`
 2. 如果匹配多条，列出让用户选择
-3. 展示安装预览：
+3. 用单条 API 获取完整数据: `curl -sf "https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/{type}/{id}.json"`
+   - 如果失败，fallback 到全量索引: `curl -sf "https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/index.json"` 并从中筛选
+4. 展示安装预览：
 
 ```
 ## 安装确认
