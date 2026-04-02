@@ -1,6 +1,6 @@
 ## ⭐ 精选推荐
 
-> 从 3906+ 资源中按使用场景精选。安装后用 `/coding-hub:search` 搜索完整索引，或 `/coding-hub:recommend` 获取项目级推荐。
+> 从 3907+ 资源中按使用场景精选。安装后用 `/coding-hub:search` 搜索完整索引，或 `/coding-hub:recommend` 获取项目级推荐。
 
 ### 🌐 浏览器 & 自动化
 

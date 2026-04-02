@@ -22315,5 +22315,32 @@
       "translation"
     ],
     "cached_at": "2026-04-02T01:34:08.309092"
+  },
+  "prompt-generator-prompt": {
+    "tags": [
+      "ai",
+      "llm",
+      "prompt-engineering",
+      "automation"
+    ],
+    "cached_at": "2026-04-02T06:56:22.784386"
+  },
+  "code-review-assistant-prompt": {
+    "tags": [
+      "ai",
+      "code-review",
+      "automation",
+      "for-devs"
+    ],
+    "cached_at": "2026-04-02T06:56:22.784386"
+  },
+  "the-technical-co-founder-building-real-products-together-prompt": {
+    "tags": [
+      "ai",
+      "product-development",
+      "automation",
+      "for-devs"
+    ],
+    "cached_at": "2026-04-02T06:56:22.784386"
   }
 }

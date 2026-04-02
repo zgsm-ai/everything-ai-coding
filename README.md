@@ -9,7 +9,7 @@
   <a href="https://github.com/zgsm-sangfor/costrict-coding-hub/stargazers"><img src="https://img.shields.io/github/stars/zgsm-sangfor/costrict-coding-hub?style=flat-square&color=4A90D9" alt="Stars" /></a>
   <a href="https://github.com/zgsm-sangfor/costrict-coding-hub/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zgsm-sangfor/costrict-coding-hub?style=flat-square" alt="License" /></a>
   <a href="https://github.com/zgsm-sangfor/costrict-coding-hub/commits/main"><img src="https://img.shields.io/github/last-commit/zgsm-sangfor/costrict-coding-hub?style=flat-square" alt="Last Commit" /></a>
-  <img src="https://img.shields.io/badge/resources-3906-2ECC71?style=flat-square" alt="Resources" />
+  <img src="https://img.shields.io/badge/resources-3907-2ECC71?style=flat-square" alt="Resources" />
 </p>
 
 <p>
@@ -87,7 +87,7 @@ https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/README.m
 
 ## ⭐ 精选推荐
 
-> 从 3906+ 资源中按使用场景精选。安装后用 `/coding-hub:search` 搜索完整索引，或 `/coding-hub:recommend` 获取项目级推荐。
+> 从 3907+ 资源中按使用场景精选。安装后用 `/coding-hub:search` 搜索完整索引，或 `/coding-hub:recommend` 获取项目级推荐。
 
 ### 🌐 浏览器 & 自动化
 
@@ -181,7 +181,7 @@ https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/README.m
 | 类型 | 数量 | 说明 |
 |------|------|------|
 | MCP Server | 1629 | Model Context Protocol 服务器 |
-| Prompt | 523 | 开发者专用 Prompt |
+| Prompt | 524 | 开发者专用 Prompt |
 | Rule | 236 | 编码规范 / AI 辅助规则 |
 | Skill | 1518 | Agent Skill 扩展 |
 

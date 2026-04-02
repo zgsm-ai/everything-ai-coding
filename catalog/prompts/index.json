@@ -327,6 +327,27 @@
     "last_synced": "2026-04-02"
   },
   {
+    "id": "prompt-generator-prompt",
+    "name": "Prompt Generator",
+    "type": "prompt",
+    "description": "CONTEXT:  We are going to create one of the best AI prompts ever written. The best prompts include comprehensive details to fully inform the Large Language Model (LLM) of the prompt’s: goals, required",
+    "source_url": "https://github.com/f/prompts.chat",
+    "stars": null,
+    "category": "backend",
+    "tags": [
+      "go"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-02"
+  },
+  {
     "id": "instructor-in-a-school-prompt",
     "name": "Instructor in a School",
     "type": "prompt",
@@ -465,25 +486,6 @@
     "tags": [
       "for-devs"
     ],
-    "tech_stack": [],
-    "install": {
-      "method": "download_file",
-      "files": [
-        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
-      ]
-    },
-    "source": "prompts-chat",
-    "last_synced": "2026-04-02"
-  },
-  {
-    "id": "astrologer-prompt",
-    "name": "Astrologer",
-    "type": "prompt",
-    "description": "I want you to act as an astrologer. You will learn about the zodiac signs and their meanings, understand planetary positions and how they affect human lives, be able to interpret horoscopes accurately",
-    "source_url": "https://github.com/f/prompts.chat",
-    "stars": null,
-    "category": "tooling",
-    "tags": [],
     "tech_stack": [],
     "install": {
       "method": "download_file",
@@ -1569,15 +1571,11 @@
     "id": "code-review-assistant-prompt",
     "name": "Code Review Assistant",
     "type": "prompt",
-    "description": "{\"role\": \"Code Review Assistant\", \"context\": {\"language\": \"JavaScript\", \"framework\": \"React\", \"focus_areas\": [\"performance\", \"security\", \"best_practices\"]}, \"review_format\": {\"severity\": \"high|medium|",
+    "description": "Act as a Code Review Assistant. Your role is to provide a detailed assessment of the code provided by the user. You will:  - Analyze the code for readability, maintainability, and style. - Identify po",
     "source_url": "https://github.com/f/prompts.chat",
     "stars": null,
-    "category": "security",
+    "category": "ai-ml",
     "tags": [
-      "react",
-      "javascript",
-      "go",
-      "java",
       "for-devs"
     ],
     "tech_stack": [],
@@ -5500,7 +5498,9 @@
     "source_url": "https://github.com/f/prompts.chat",
     "stars": null,
     "category": "ai-ml",
-    "tags": [],
+    "tags": [
+      "for-devs"
+    ],
     "tech_stack": [],
     "install": {
       "method": "download_file",
@@ -7412,13 +7412,11 @@
     "id": "code-review-specialist-prompt",
     "name": "Code Review Specialist",
     "type": "prompt",
-    "description": "Act as a Code Review Specialist. You are an experienced software developer with a keen eye for detail and a deep understanding of coding standards and best practices.  Your task is to review the code",
+    "description": "messages:   - role: system     content: Act as a Code Review Specialist. You are an experienced software developer with a keen eye for detail and a deep understanding of coding standards and best prac",
     "source_url": "https://github.com/f/prompts.chat",
     "stars": null,
     "category": "ai-ml",
-    "tags": [
-      "for-devs"
-    ],
+    "tags": [],
     "tech_stack": [],
     "install": {
       "method": "download_file",
@@ -7533,6 +7531,25 @@
     "name": "WFGY 2.0 Core Flagship · Self-Healing Reasoning OS for Any LLM",
     "type": "prompt",
     "description": "System prompt: WFGY 2.0 Core Flagship · Self-Healing Reasoning OS for Any LLM  You are WFGY Core.  Your job is to act as a lightweight reasoning operating system that runs on top of any strong LLM (Ch",
+    "source_url": "https://github.com/f/prompts.chat",
+    "stars": null,
+    "category": "ai-ml",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-02"
+  },
+  {
+    "id": "the-technical-co-founder-building-real-products-together-prompt",
+    "name": "The Technical Co-Founder: Building Real Products Together",
+    "type": "prompt",
+    "description": "**Your Role:** You are my Product Development Partner with one clear mission: transform my idea into a production-ready product I can launch today. You handle all technical execution while maintaining",
     "source_url": "https://github.com/f/prompts.chat",
     "stars": null,
     "category": "ai-ml",
