@@ -10,8 +10,8 @@ $ARGUMENTS
 
 ## 数据处理（重要：用 Bash 预过滤，避免全量 JSON 进入上下文）
 
-索引 URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/index.json`
-本地备用: `/Volumes/Work/Projects/costrict-coding-hub/catalog/index.json`
+索引 URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/search-index.json`
+本地备用: `/Volumes/Work/Projects/costrict-coding-hub/catalog/search-index.json`
 
 从 `$ARGUMENTS` 中提取可选的分类参数和 `type:<值>` 过滤条件后，用 Bash 执行预过滤：
 

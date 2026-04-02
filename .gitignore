@@ -19,6 +19,10 @@ CLAUDE.md
 .DS_Store
 Thumbs.db
 
+# CI-generated but COMMITTED (slash commands fetch via raw GitHub URL):
+#   catalog/index.json
+#   catalog/search-index.json
+
 # Sync caches (rebuilt by CI)
 catalog/skills/.repo_cache.json
 catalog/skills/.llm_cache.json

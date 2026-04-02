@@ -10,7 +10,7 @@ $ARGUMENTS
 
 ## 数据处理（重要：用 Bash 预过滤，避免全量 JSON 进入上下文）
 
-索引 URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/index.json`
+索引 URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/search-index.json`
 
 ## 执行流程
 

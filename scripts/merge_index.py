@@ -189,6 +189,30 @@ def merge():
     output_path = os.path.join(CATALOG_DIR, "index.json")
     save_index(deduped, output_path)
 
+    # Generate lightweight search index (subset of fields for search/browse/recommend)
+    SEARCH_INDEX_FIELDS = (
+        "id", "name", "type", "category", "tags", "tech_stack",
+        "stars", "description", "description_zh", "source_url",
+    )
+    search_entries = []
+    for entry in deduped:
+        se = {k: entry.get(k) for k in SEARCH_INDEX_FIELDS}
+        install_obj = entry.get("install")
+        se["install_method"] = install_obj.get("method") if isinstance(install_obj, dict) else None
+        search_entries.append(se)
+
+    search_index_path = os.path.join(CATALOG_DIR, "search-index.json")
+    with open(search_index_path, "w", encoding="utf-8") as f:
+        json.dump(search_entries, f, ensure_ascii=False, separators=(",", ":"))
+
+    full_size = os.path.getsize(output_path)
+    search_size = os.path.getsize(search_index_path)
+    ratio = search_size / full_size * 100 if full_size else 0
+    logger.info(
+        f"Search index: {len(search_entries)} entries, "
+        f"{search_size / 1024:.0f} KB ({ratio:.1f}% of full index)"
+    )
+
     # Print summary by type and category
     by_type = {}
     by_category = {}
