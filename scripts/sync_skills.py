@@ -288,7 +288,7 @@ def parse_vasilyu_skills() -> list[dict[str, Any]]:
         if path.startswith(SKILL_PREFIX) and path.endswith("/SKILL.md"):
             remainder = path[len(SKILL_PREFIX):]
             parts = remainder.split("/")
-            if len(parts) == 2 and parts[1].upper() == "SKILL.MD":
+            if len(parts) == 2:
                 skill_dirs[parts[0]] = path
 
     if not skill_dirs:
@@ -733,10 +733,7 @@ def sync():
     tier1_entries.extend(parse_anthropic_skills())
     tier1_entries.extend(parse_ai_agent_skills())
     tier1_entries.extend(parse_antigravity_skills())
-    try:
-        tier1_entries.extend(parse_vasilyu_skills())
-    except Exception as e:
-        logger.error(f"Vasilyu skills sync failed: {e}")
+    tier1_entries.extend(parse_vasilyu_skills())
     logger.info(f"Tier 1 total: {len(tier1_entries)} skills")
 
     # === Tier 2: Registry discovery + OpenClaw + deterministic filtering ===
