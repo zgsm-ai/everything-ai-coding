@@ -13,7 +13,7 @@ $ARGUMENTS
 索引 URL: `https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/search-index.json`
 Fallback URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/search-index.json`
 
-从 `$ARGUMENTS` 中提取可选的分类参数和 `type:<值>` 过滤条件后，用 Bash 执行预过滤：
+从 `$ARGUMENTS` 中提取可选的分类参数和 `type:<值>` 过滤条件后，用 Bash 执行预过滤。**注意：browse 用于探索，不等于推荐；除非额外说明高置信依据，否则不要把分类列表直接表述为“推荐”。**
 
 1. 下载索引到临时文件: `curl -sf --compressed <索引 URL> -o "$TMPDIR/coding-hub-index.json"` 如果失败则尝试 Fallback URL
 2. 用 python 脚本处理（跨平台：macOS/Linux 用 python3，Windows 用 python，探测命令 `$(command -v python3 || command -v python)`）
@@ -43,7 +43,7 @@ for cat, cnt in sorted(counts.items(), key=lambda x: -x[1]):
 |------|------|------|
 | ... | ... | （根据分类名补充中文描述） |
 
-提示: "输入 `/coding-hub-browse <分类名>` 查看详情"
+提示: "输入 `/coding-hub-browse <分类名>` 查看详情；如果你想要带验证的建议，请改用 `/coding-hub-search` 或 `/coding-hub-recommend`"
 
 ### 有参数时：展示该分类下条目
 
@@ -65,10 +65,10 @@ for x in items:
 " "${CATEGORY}" "${TYPE_FILTER}"
 ```
 
-将 TSV 输出格式化为表格：
+将 TSV 输出格式化为表格；如果该分类下存在明显头部且高置信的条目，可在表格前补充最多 3 条“优先查看”，并简要说明依据（如官方来源、stars 显著更高、安装方式明确）。
 
 | 名称 | 类型 | Stars | 描述 |
 |------|------|-------|------|
 | ... | ... | ... | ... |
 
-提示: "输入 `/coding-hub-install <名称>` 安装"
+提示: "输入 `/coding-hub-install <名称>` 安装；如果你需要经过验证的推荐，请回到 `/coding-hub-search` 或 `/coding-hub-recommend`"

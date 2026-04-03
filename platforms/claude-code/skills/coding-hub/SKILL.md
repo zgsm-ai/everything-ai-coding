@@ -60,10 +60,14 @@ Python 命令跨平台探测: `$(command -v python3 || command -v python)`
 1. 用 `curl -s` 获取索引 JSON
 2. 从参数中提取可选的类型过滤 `type:<值>`，剩余部分作为搜索关键词
    - 示例: `search typescript type:mcp` — 只搜索 MCP 类型
-3. 如果指定了类型过滤，先按 `type` 字段过滤索引
-4. 在 `name`、`description`、`tags` 中搜索关键词（不区分大小写）
-5. 结果按匹配度（匹配字段数量）+ stars 降序排列
-6. 展示前 10 条结果，格式：
+3. 为 search 生成“原始关键词 + 压缩关键词 + 轻量备选同义词”三层检索词，但只用于 discovery，不用于 install
+4. 如果指定了类型过滤，先按 `type` 字段过滤索引
+5. 在 `name`、`description`、`tags`、`tech_stack` 中搜索关键词（不区分大小写）
+6. 先按匹配度排序，再按 stars 排序，形成 shortlist
+7. 用 shortlist 的前 3-5 个候选去单条 API 拉取详情，检查 `source`、`evaluation`、`health`、`install` 等字段
+8. 只有通过验证门的候选才能进入“优先候选 / 推荐”区；搜索命中本身不等于推荐
+9. 宽意图（如部署 / 上线 / 发版）优先保留直接执行型结果，不要在首屏过早混入 changelog / release note 这类 adjacent intent
+10. 结果展示为“优先候选 + 其他匹配结果”两层结构，优先候选必须附带推荐理由、信任依据和安装下一步
 
 ```
 ## 搜索结果: "<query>"
@@ -92,12 +96,12 @@ Python 命令跨平台探测: `$(command -v python3 || command -v python)`
 ...
 ```
 
-3. 询问: "输入分类名查看详情"
+3. 询问: "输入分类名查看详情；如果需要经过验证的建议，请改用 search 或 recommend"
 
 **有参数时**: 展示该分类下所有条目
 1. 过滤 `category == 参数`
 2. 按 type 分组展示，每组按 stars 降序
-3. 询问: "输入 `/coding-hub:install <名称>` 安装"
+3. 询问: "输入 `/coding-hub:install <名称>` 安装；browse 默认是探索，不直接等于推荐"
 
 ### recommend [type:mcp|skill|rule|prompt]
 
@@ -111,10 +115,15 @@ Python 命令跨平台探测: `$(command -v python3 || command -v python)`
    - 检查文件后缀: `.tsx`→react, `.vue`→vue, `.py`→python, `.go`→go, `.rs`→rust, `.swift`→swift, `.kt`→kotlin
    - 检查配置文件: `Dockerfile`→docker, `.github/workflows/`→ci-cd, `tsconfig.json`→typescript
 
-2. 将识别到的技术栈与索引中每条的 `tags` 和 `tech_stack` 做交集匹配
-3. 如果指定了类型过滤，按 `type` 字段过滤匹配结果
-4. 按匹配标签数 + stars 排序，展示 Top 10
-4. 格式同 search 结果
+2. 基于识别到的技术栈生成轻量推荐关键词（如 `react performance`、`docker ci-cd`）
+3. 将识别到的技术栈与索引中每条的 `tags` 和 `tech_stack` 做交集匹配，并补充推荐关键词匹配
+4. 如果指定了类型过滤，按 `type` 字段过滤匹配结果
+5. 先按匹配标签数排序，再按 stars 排序形成 shortlist
+6. 用 shortlist 的前 3-5 个候选去单条 API 拉取详情，检查项目适配度、来源可信度、质量信号和安装可行性
+7. 如果用户未显式要求 `type:mcp`，优先保留更直接服务于当前项目实现/约束/流程的 `skill/rule/prompt`；不要让官方 MCP 工具因为安装信号强就压过更贴合项目工作的资源
+8. 如果当前场景命中稀疏（尤其是 `type:mcp`），优先返回“少量强匹配 + 明确覆盖缺口”，不要用条件型或弱相关条目补齐列表
+9. 只有通过验证门的候选才能进入“优先推荐”区；其余结果只能作为“其他匹配结果”展示
+10. 优先推荐必须同时说明“为什么适合当前项目”与“为什么值得信任”，并给出安装下一步
 
 ### install <name>
 
