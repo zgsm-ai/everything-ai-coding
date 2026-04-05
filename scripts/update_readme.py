@@ -1,87 +1,154 @@
 #!/usr/bin/env python3
-"""Update README.md resource counts and featured section from catalog/index.json."""
+
+from __future__ import annotations
 
 import json
 import math
-import os
 import re
 import subprocess
+import sys
+from dataclasses import dataclass
+from pathlib import Path
+from typing import TypeAlias
 
-ROOT = os.path.join(os.path.dirname(__file__), "..")
-INDEX_PATH = os.path.join(ROOT, "catalog", "index.json")
-README_PATH = os.path.join(ROOT, "README.md")
-FEATURED_PATH = os.path.join(ROOT, "catalog", "featured.md")
+CatalogEntry: TypeAlias = dict[str, object]
+
+ROOT = Path(__file__).resolve().parent.parent
+INDEX_PATH = ROOT / "catalog" / "index.json"
+FEATURED_SCRIPT_PATH = ROOT / "scripts" / "generate_featured.py"
+FEATURED_SECTION_MARKER = "README_FEATURED_SECTION"
+RESOURCE_BADGE_PATTERN = re.compile(r"resources-\d+-2ECC71")
+
+COUNT_MARKERS: dict[str, str] = {
+    "approx": "README_APPROX_COUNT",
+    "mcp": "README_COUNT_MCP",
+    "prompt": "README_COUNT_PROMPT",
+    "rule": "README_COUNT_RULE",
+    "skill": "README_COUNT_SKILL",
+}
 
 
-def main():
-    # 1. 生成精选内容
-    print("Generating featured content...")
-    subprocess.run(["python3", os.path.join(ROOT, "scripts", "generate_featured.py")], check=True)
+@dataclass(frozen=True)
+class ReadmeSpec:
+    path: Path
+    featured_path: Path
 
-    with open(INDEX_PATH, "r", encoding="utf-8") as f:
-        entries = json.load(f)
 
+README_SPECS: tuple[ReadmeSpec, ...] = (
+    ReadmeSpec(path=ROOT / "README.md", featured_path=ROOT / "catalog" / "featured.md"),
+    ReadmeSpec(
+        path=ROOT / "README.zh-CN.md",
+        featured_path=ROOT / "catalog" / "featured.zh-CN.md",
+    ),
+)
+
+
+def load_entries(index_path: Path = INDEX_PATH) -> list[CatalogEntry]:
+    with open(index_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    if not isinstance(data, list):
+        return []
+
+    entries: list[CatalogEntry] = []
+    for raw_entry in data:
+        if not isinstance(raw_entry, dict):
+            continue
+        entry: CatalogEntry = {}
+        for key, value in raw_entry.items():
+            if isinstance(key, str):
+                entry[key] = value
+        entries.append(entry)
+    return entries
+
+
+def compute_stats(entries: list[CatalogEntry]) -> dict[str, int]:
     total = len(entries)
-    by_type = {}
-    for e in entries:
-        t = e.get("type", "unknown")
-        by_type[t] = by_type.get(t, 0) + 1
-
-    # Round down to nearest 100 for the "N+ 精选" text
     approx = math.floor(total / 100) * 100
+    by_type: dict[str, int] = {"mcp": 0, "prompt": 0, "rule": 0, "skill": 0}
 
-    with open(README_PATH, "r", encoding="utf-8") as f:
-        content = f.read()
+    for entry in entries:
+        entry_type_value = entry.get("type")
+        if isinstance(entry_type_value, str) and entry_type_value in by_type:
+            by_type[entry_type_value] += 1
 
+    return {"total": total, "approx": approx, **by_type}
+
+
+def _replace_between_markers(content: str, marker_name: str, replacement: str) -> str:
+    start = f"<!-- {marker_name}:START -->"
+    end = f"<!-- {marker_name}:END -->"
+    pattern = re.compile(rf"({re.escape(start)})(.*?)({re.escape(end)})", re.DOTALL)
+
+    if not pattern.search(content):
+        raise ValueError(f"Marker pair not found: {marker_name}")
+
+    return pattern.sub(
+        lambda match: f"{match.group(1)}{replacement}{match.group(3)}", content, count=1
+    )
+
+
+def replace_featured_section(content: str, featured_content: str) -> str:
+    start = f"<!-- {FEATURED_SECTION_MARKER}:START -->"
+    end = f"<!-- {FEATURED_SECTION_MARKER}:END -->"
+    pattern = re.compile(rf"({re.escape(start)}\n)(.*?)(\n{re.escape(end)})", re.DOTALL)
+
+    if not pattern.search(content):
+        raise ValueError("Featured section markers not found")
+
+    cleaned = featured_content.rstrip()
+    return pattern.sub(
+        lambda match: f"{match.group(1)}{cleaned}{match.group(3)}", content, count=1
+    )
+
+
+def update_single_readme(readme_spec: ReadmeSpec, stats: dict[str, int]) -> bool:
+    content = readme_spec.path.read_text(encoding="utf-8")
     original = content
 
-    # 1. Update header: "1200+ 精选开发资源一站式索引"
-    content = re.sub(
-        r"\d+\+\s*精选开发资源一站式索引",
-        f"{approx}+ 精选开发资源一站式索引",
-        content,
+    content = _replace_between_markers(
+        content, COUNT_MARKERS["approx"], str(stats["approx"])
     )
+    for key in ("mcp", "prompt", "rule", "skill"):
+        content = _replace_between_markers(content, COUNT_MARKERS[key], str(stats[key]))
 
-    # 2. Update badge: resources-1292-2ECC71
-    content = re.sub(
-        r"resources-\d+-2ECC71",
-        f"resources-{total}-2ECC71",
-        content,
-    )
-
-    # 3. Update Features table rows
-    type_map = {
-        "mcp": "MCP Server",
-        "prompt": "Prompt",
-        "rule": "Rule",
-        "skill": "Skill",
-    }
-    for key, label in type_map.items():
-        count = by_type.get(key, 0)
-        content = re.sub(
-            rf"\| {re.escape(label)} \| \d+ \|",
-            f"| {label} | {count} |",
-            content,
-        )
-
-    # 4. Update featured section
-    with open(FEATURED_PATH, "r", encoding="utf-8") as f:
-        featured_content = f.read()
-
-    # Replace featured section: from "## ⭐ 精选推荐" to the next "## " heading
-    pattern = r"(## ⭐ 精选推荐\n.*?)(\n## (?!⭐))"
-    if re.search(pattern, content, re.DOTALL):
-        content = re.sub(pattern, featured_content.rstrip() + "\n\n\\2", content, flags=re.DOTALL)
-        print("Featured section updated")
+    content = RESOURCE_BADGE_PATTERN.sub(f"resources-{stats['total']}-2ECC71", content)
+    featured_content = readme_spec.featured_path.read_text(encoding="utf-8")
+    content = replace_featured_section(content, featured_content)
 
     if content != original:
-        with open(README_PATH, "w", encoding="utf-8") as f:
-            f.write(content)
-        print(f"README updated: total={total}, mcp={by_type.get('mcp',0)}, "
-              f"prompt={by_type.get('prompt',0)}, rule={by_type.get('rule',0)}, "
-              f"skill={by_type.get('skill',0)}")
+        _ = readme_spec.path.write_text(content, encoding="utf-8")
+        return True
+    return False
+
+
+def update_readmes(
+    index_path: Path = INDEX_PATH, readme_specs: tuple[ReadmeSpec, ...] = README_SPECS
+) -> list[Path]:
+    stats = compute_stats(load_entries(index_path=index_path))
+    updated_paths: list[Path] = []
+
+    for readme_spec in readme_specs:
+        if update_single_readme(readme_spec, stats):
+            updated_paths.append(readme_spec.path)
+
+    return updated_paths
+
+
+def generate_featured_sections() -> None:
+    _ = subprocess.run([sys.executable, str(FEATURED_SCRIPT_PATH)], check=True)
+
+
+def main() -> None:
+    print("Generating localized featured sections...")
+    generate_featured_sections()
+    updated_paths = update_readmes()
+
+    if updated_paths:
+        print("README files updated:")
+        for path in updated_paths:
+            print(f"- {path.relative_to(ROOT)}")
     else:
-        print("README already up to date")
+        print("README files already up to date")
 
 
 if __name__ == "__main__":
