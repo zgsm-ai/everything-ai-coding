@@ -64,7 +64,8 @@ class TestCommandFilesHavePrefilter(unittest.TestCase):
         for platform, cfg in PLATFORMS.items():
             path = f"{cfg['cmd_dir']}/{cfg['cmd_names']['search']}"
             content = self._read(path)
-            self.assertIn("预过滤", content, f"{platform} search: missing 预过滤 instruction")
+            has_prefilter = "预过滤" in content or "pre-filter" in content.lower()
+            self.assertTrue(has_prefilter, f"{platform} search: missing pre-filter instruction")
             self.assertIn("python", content.lower(), f"{platform} search: missing python reference")
             # Should NOT tell LLM to process full JSON in context
             self.assertNotIn("获取 JSON", content, f"{platform} search: still has '获取 JSON' (full in-context pattern)")
@@ -73,7 +74,8 @@ class TestCommandFilesHavePrefilter(unittest.TestCase):
         for platform, cfg in PLATFORMS.items():
             path = f"{cfg['cmd_dir']}/{cfg['cmd_names']['browse']}"
             content = self._read(path)
-            self.assertIn("预过滤", content, f"{platform} browse: missing 预过滤 instruction")
+            has_prefilter = "预过滤" in content or "pre-filter" in content.lower()
+            self.assertTrue(has_prefilter, f"{platform} browse: missing pre-filter instruction")
             self.assertIn("python", content.lower(), f"{platform} browse: missing python reference")
             self.assertNotIn("获取 JSON", content, f"{platform} browse: still has '获取 JSON'")
 
@@ -81,14 +83,16 @@ class TestCommandFilesHavePrefilter(unittest.TestCase):
         for platform, cfg in PLATFORMS.items():
             path = f"{cfg['cmd_dir']}/{cfg['cmd_names']['recommend']}"
             content = self._read(path)
-            self.assertIn("预过滤", content, f"{platform} recommend: missing 预过滤 instruction")
+            has_prefilter = "预过滤" in content or "pre-filter" in content.lower()
+            self.assertTrue(has_prefilter, f"{platform} recommend: missing pre-filter instruction")
             self.assertIn("python", content.lower(), f"{platform} recommend: missing python reference")
             self.assertNotIn("获取 JSON", content, f"{platform} recommend: still has '获取 JSON'")
 
     def test_skill_files_have_prefilter_strategy(self):
         for platform, cfg in PLATFORMS.items():
             content = self._read(cfg["skill"])
-            self.assertIn("预过滤", content, f"{platform} SKILL.md: missing 预过滤 strategy")
+            has_prefilter = "预过滤" in content or "pre-filter" in content.lower()
+            self.assertTrue(has_prefilter, f"{platform} SKILL.md: missing pre-filter strategy")
 
     def test_commands_have_python_compat_hint(self):
         """Commands should mention python3/python cross-platform compatibility."""

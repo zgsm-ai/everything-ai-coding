@@ -29,21 +29,22 @@ Base URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/ma
 1. **Detect current platform**
 
    Check in order, use the first match:
-   - Check if `~/.claude/skills/coding-hub/SKILL.md` exists → Claude Code
-   - If none match, default to Claude Code
+   - Check if `$HOME/.costrict/skills/coding-hub/SKILL.md` exists → VSCode Costrict
+   - If none match, default to VSCode Costrict
 
 2. **Download latest files**
 
    Run the following Bash commands to download from GitHub and overwrite local files:
 
    ```bash
-   # Skill (global)
-   curl -sfL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/platforms/claude-code/skills/coding-hub/SKILL.md" -o ~/.claude/skills/coding-hub/SKILL.md
+   # Skill (global) — use $HOME to expand path
+   mkdir -p $HOME/.costrict/skills/coding-hub
+   curl -sfL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/platforms/vscode-costrict/skills/coding-hub/SKILL.md" -o $HOME/.costrict/skills/coding-hub/SKILL.md
 
-   # Sub-commands (project-level)
-   mkdir -p .claude/commands/coding-hub/
+   # Sub-commands (global) — install to $HOME/.roo/commands/
+   mkdir -p $HOME/.roo/commands
    for cmd in search browse recommend install uninstall update; do
-     curl -sfL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/platforms/claude-code/commands/coding-hub/${cmd}.md" -o ".claude/commands/coding-hub/${cmd}.md"
+     curl -sfL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/platforms/vscode-costrict/commands/coding-hub/coding-hub-${cmd}.md" -o "$HOME/.roo/commands/coding-hub-${cmd}.md"
    done
    ```
 
@@ -56,13 +57,13 @@ Base URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/ma
      Section: "Update Complete"
      Message: "Pulled latest version from GitHub:"
      File list:
-       - ~/.claude/skills/coding-hub/SKILL.md
-       - .claude/commands/coding-hub/search.md
-       - .claude/commands/coding-hub/browse.md
-       - .claude/commands/coding-hub/recommend.md
-       - .claude/commands/coding-hub/install.md
-       - .claude/commands/coding-hub/uninstall.md
-       - .claude/commands/coding-hub/update.md
+       - $HOME/.costrict/skills/coding-hub/SKILL.md
+       - $HOME/.roo/commands/coding-hub-search.md
+       - $HOME/.roo/commands/coding-hub-browse.md
+       - $HOME/.roo/commands/coding-hub-recommend.md
+       - $HOME/.roo/commands/coding-hub-install.md
+       - $HOME/.roo/commands/coding-hub-uninstall.md
+       - $HOME/.roo/commands/coding-hub-update.md
    ```
 
 ## Error Handling

@@ -171,7 +171,21 @@ Parse user input and match the following command patterns:
 
 1. Pull latest version of resource files from GitHub to overwrite local installation
 2. Supports updating itself (update coding-hub) or other installed resources
-3. Show update progress and result
+3. Update script for self-update:
+
+   ```bash
+   # Skill (global) — use $HOME to expand path
+   mkdir -p $HOME/.costrict/skills/coding-hub
+   curl -sfL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/platforms/vscode-costrict/skills/coding-hub/SKILL.md" -o $HOME/.costrict/skills/coding-hub/SKILL.md
+
+   # Sub-commands (global) — install to $HOME/.roo/commands/
+   mkdir -p $HOME/.roo/commands
+   for cmd in search browse recommend install uninstall update; do
+     curl -sfL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/platforms/vscode-costrict/commands/coding-hub/coding-hub-${cmd}.md" -o "$HOME/.roo/commands/coding-hub-${cmd}.md"
+   done
+   ```
+
+4. Show update progress and result
 
 ## Error Handling
 
