@@ -1,5 +1,5 @@
 ---
-description: '浏览 coding 资源分类。用法: /coding-hub:browse [category] [type:mcp|skill|rule|prompt]'
+description: 'Browse coding resource categories. Usage: /coding-hub:browse [category] [type:mcp|skill|rule|prompt]'
 ---
 
 # Coding Hub - Browse
@@ -8,20 +8,36 @@ $ARGUMENTS
 
 ---
 
-## 数据处理（重要：用 Bash 预过滤，避免全量 JSON 进入上下文）
+## Language Detection
 
-索引 URL: `https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/search-index.json`
+Determine the output language using the following priority chain (first match wins):
+
+1. **Explicit parameter**: if `$ARGUMENTS` contains `lang:zh` or `lang:en`, use that (strip it from arguments)
+2. **Conversation signal**: if the user's recent messages are clearly in one language, follow that
+3. **System locale fallback**: run `echo $LANG` in Bash — if the value starts with `zh` (e.g. `zh_CN.UTF-8`), use Chinese; otherwise use English
+
+Once determined, apply consistently:
+- **All output** (section titles, table headers, labels, helper text) MUST be in the detected language.
+- For the Description column in tables: use `description_zh` for Chinese, `description` for English.
+- Command references (e.g. `/coding-hub:install <name>`) stay as-is regardless of language.
+
+## Data Sources
+
+Search index URL: `https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/search-index.json`
 Fallback URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/search-index.json`
-本地备用: `/Volumes/Work/Projects/costrict-coding-hub/catalog/search-index.json`
+Local fallback: `/Volumes/Work/Projects/costrict-coding-hub/catalog/search-index.json`
 
-从 `$ARGUMENTS` 中提取可选的分类参数和 `type:<值>` 过滤条件后，用 Bash 执行预过滤。**注意：browse 用于探索，不等于推荐；除非额外说明高置信依据，否则不要把分类列表直接表述为“推荐”。**
+Extract optional category argument and `type:<value>` filter from $ARGUMENTS, then run Bash pre-filtering. **Note: browse is for exploration, not recommendation — do not label category listings as "recommended" unless high-confidence basis is provided.**
 
-1. 下载索引到临时文件: `curl -sf --compressed <索引 URL> -o "$TMPDIR/coding-hub-index.json"`，如果失败则尝试 Fallback URL，仍失败则用 Read 读取本地备用路径并保存到同一临时文件
-2. 用 python 脚本处理（跨平台：macOS/Linux 用 python3，Windows 用 python，探测命令 `$(command -v python3 || command -v python)`）
+## Execution Flow
 
-### 无参数时：分类概览
+1. Download index to temp file: `curl -sf --compressed <index URL> -o "$TMPDIR/coding-hub-index.json"`, on failure try Fallback URL, then use Read to load local fallback and save to the same temp file
 
-用 Bash 执行以下 python 脚本（内联 `-c`）：
+2. Pre-filter with Python (cross-platform: use `$(command -v python3 || command -v python)`)
+
+### No arguments: Category Overview
+
+Run the following inline Python script via Bash:
 
 ```bash
 PY=$(command -v python3 || command -v python)
@@ -38,17 +54,17 @@ for cat, cnt in sorted(counts.items(), key=lambda x: -x[1]):
 " "${TYPE_FILTER}"
 ```
 
-将 TSV 输出格式化为表格：
+Format TSV output as a table:
 
-| 分类 | 数量 | 描述 |
-|------|------|------|
-| ... | ... | （根据分类名补充中文描述） |
+| Category | Count | Description |
+|----------|-------|-------------|
+| ... | ... | (add brief description based on category name, in user's language) |
 
-提示: "输入 `/coding-hub:browse <分类名>` 查看详情；如果你想要带验证的建议，请改用 `/coding-hub:search` 或 `/coding-hub:recommend`"
+Footer: suggest using `/coding-hub:browse <category>` for details; for verified recommendations, use `/coding-hub:search` or `/coding-hub:recommend`
 
-### 有参数时：展示该分类下条目
+### With arguments: Show entries in that category
 
-用 Bash 执行以下 python 脚本（内联 `-c`）：
+Run the following inline Python script via Bash:
 
 ```bash
 PY=$(command -v python3 || command -v python)
@@ -62,14 +78,13 @@ if type_filter:
     items = [x for x in items if x.get('type') == type_filter]
 items.sort(key=lambda x: -(x.get('stars') or 0))
 for x in items:
-    print(f\"{x.get('name','')}\t{x.get('type','')}\t{x.get('stars') or 0}\t{x.get('description','')}\")
+    print(f\"{x.get('name','')}\t{x.get('type','')}\t{x.get('stars') or 0}\t{x.get('description','')}\t{x.get('description_zh','')}\")
 " "${CATEGORY}" "${TYPE_FILTER}"
 ```
 
-将 TSV 输出格式化为表格；如果该分类下存在明显头部且高置信的条目，可在表格前补充最多 3 条“优先查看”，并简要说明依据（如官方来源、stars 显著更高、安装方式明确）。
+Format TSV output as a table. If the category has obvious top entries with high confidence, prepend up to 3 "worth checking first" items with brief rationale (e.g. official source, significantly higher stars, clear install method).
 
-| 名称 | 类型 | Stars | 描述 |
-|------|------|-------|------|
-| ... | ... | ... | ... |
+Output table columns: Name | Type | Stars | Description
+(Use `description_zh` for Chinese users, `description` for others — both are provided in the TSV as the last two columns)
 
-提示: "输入 `/coding-hub:install <名称>` 安装；如果你需要经过验证的推荐，请回到 `/coding-hub:search` 或 `/coding-hub:recommend`"
+Footer: suggest `/coding-hub:install <name>` to install; for verified recommendations, use `/coding-hub:search` or `/coding-hub:recommend`

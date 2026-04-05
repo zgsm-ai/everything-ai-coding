@@ -1,59 +1,71 @@
 ---
-description: '更新 coding-hub skill 和子命令到最新版本。用法: /coding-hub-update <name>'
+description: 'Update coding-hub skill and sub-commands to latest version. Usage: /coding-hub-update'
+argument-hint: resource name
 ---
 
 # Coding Hub - Update
 
 $ARGUMENTS
 
-从 GitHub 拉取最新版本的 coding-hub skill 和子命令，覆盖本地安装。
+## Language Detection
 
-## 源地址
+Determine the output language using the following priority chain (first match wins):
 
-基础 URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main`
+1. **Explicit parameter**: if `$ARGUMENTS` contains `lang:zh` or `lang:en`, use that (strip it from arguments)
+2. **Conversation signal**: if the user's recent messages are clearly in one language, follow that
+3. **System locale fallback**: run `echo $LANG` in Bash — if the value starts with `zh` (e.g. `zh_CN.UTF-8`), use Chinese; otherwise use English
 
-## 执行流程
+Once determined, apply consistently:
+- **All output** (status messages, file lists, error messages) MUST be in the detected language.
 
-1. **检测当前平台**
+Pull the latest version of coding-hub skill and sub-commands from GitHub, overwriting the local installation.
 
-   按以下顺序检测，使用第一个匹配的平台：
-   - 检查 `~/.opencode/skills/coding-hub/SKILL.md` 是否存在 → Opencode
-   - 如果都不存在，默认使用 Opencode
+## Source
 
-2. **下载最新文件**
+Base URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main`
 
-   用 Bash 执行以下命令，从 GitHub 下载文件并覆盖本地：
+## Execution Flow
+
+1. **Detect current platform**
+
+   Check in order, use the first match:
+   - Check if `~/.claude/skills/coding-hub/SKILL.md` exists → Claude Code
+   - If none match, default to Claude Code
+
+2. **Download latest files**
+
+   Run the following Bash commands to download from GitHub and overwrite local files:
 
    ```bash
-   # Skill（全局）
-   curl -sfL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/platforms/opencode/skills/coding-hub/SKILL.md" -o ~/.opencode/skills/coding-hub/SKILL.md
+   # Skill (global)
+   curl -sfL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/platforms/claude-code/skills/coding-hub/SKILL.md" -o ~/.claude/skills/coding-hub/SKILL.md
 
-   # 子命令（项目级）
-   mkdir -p .opencode/command/
+   # Sub-commands (project-level)
+   mkdir -p .claude/commands/coding-hub/
    for cmd in search browse recommend install uninstall update; do
-     curl -sfL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/platforms/opencode/command/coding-hub-${cmd}.md" -o ".opencode/command/coding-hub-${cmd}.md"
+     curl -sfL "https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/platforms/claude-code/commands/coding-hub/${cmd}.md" -o ".claude/commands/coding-hub/${cmd}.md"
    done
    ```
 
-3. **报告结果**
+3. **Report result** (in user's language)
 
-   展示更新了哪些文件：
+   Show which files were updated:
 
    ```
-   ## 更新完成
-
-   已从 GitHub 拉取最新版本：
-
-   - ~/.opencode/skills/coding-hub/SKILL.md
-   - .opencode/command/coding-hub-search.md
-   - .opencode/command/coding-hub-browse.md
-   - .opencode/command/coding-hub-recommend.md
-   - .opencode/command/coding-hub-install.md
-   - .opencode/command/coding-hub-uninstall.md
-   - .opencode/command/coding-hub-update.md
+   Structure:
+     Section: "Update Complete"
+     Message: "Pulled latest version from GitHub:"
+     File list:
+       - ~/.claude/skills/coding-hub/SKILL.md
+       - .claude/commands/coding-hub/search.md
+       - .claude/commands/coding-hub/browse.md
+       - .claude/commands/coding-hub/recommend.md
+       - .claude/commands/coding-hub/install.md
+       - .claude/commands/coding-hub/uninstall.md
+       - .claude/commands/coding-hub/update.md
    ```
 
-## 错误处理
+## Error Handling
 
-- 如果 curl 下载失败（`-f` 标志会让 curl 在 HTTP 错误如 404/500 时返回非零退出码），提示用户检查网络并重试
-- 如果目标目录不存在（未安装过），提示用户先执行安装
+- If curl download fails (network issue or HTTP error like 404/500): prompt user to check network and retry
+- If target directory does not exist (never installed before): prompt user to install first

@@ -1,5 +1,5 @@
 ---
-description: '卸载已安装的 coding 资源。用法: /coding-hub-uninstall <name>'
+description: 'Uninstall an installed coding resource. Usage: /coding-hub-uninstall <name>'
 argument-hint: resource name
 ---
 
@@ -9,46 +9,59 @@ $ARGUMENTS
 
 ---
 
-## 数据源
+## Language Detection
 
-索引 URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/index.json`
+Determine the output language using the following priority chain (first match wins):
 
-用 Bash 执行: `curl -s <URL>` 获取 JSON。
+1. **Explicit parameter**: if `$ARGUMENTS` contains `lang:zh` or `lang:en`, use that (strip it from arguments)
+2. **Conversation signal**: if the user's recent messages are clearly in one language, follow that
+3. **System locale fallback**: run `echo $LANG` in Bash — if the value starts with `zh` (e.g. `zh_CN.UTF-8`), use Chinese; otherwise use English
 
-## 执行流程
+Once determined, apply consistently:
+- **All output** (confirmation dialogs, status messages, error messages) MUST be in the detected language.
+- Command references and file paths stay as-is regardless of language.
 
-1. 从 `$ARGUMENTS` 中提取资源名
-2. 获取索引，按 `id` 或 `name`（模糊匹配）查找条目
-3. 如果匹配多条，列出让用户选择要卸载的具体资源
-4. 检测安装状态和安装位置：
+## Data Sources
+
+Index URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/index.json`
+
+
+## Execution Flow
+
+1. Extract resource name from `$ARGUMENTS`
+2. Fetch index, look up by `id` or `name` (fuzzy match)
+3. If multiple matches, list them and let user choose which to uninstall
+4. Detect install status and location:
 
 ### MCP (type == "mcp")
-- 检查项目级 `.roo/mcp.json` 中的 `mcpServers` 字段
-- 查找与该资源 `install.config` key 匹配的条目
+- Check project-level `.claude/settings.json` and global `~/.claude/settings.json` for `mcpServers` field
+- Find entries matching the resource's `install.config` key
+- If found in both levels, let user choose which to uninstall (project / global / all)
 
 ### Skill (type == "skill")
-- 检查 `$HOME/.costrict/skills/<id>/` 目录是否存在
+- Check if `~/.claude/skills/<id>/` directory exists
 
 ### Rule (type == "rule") / Prompt (type == "prompt")
-- 检查项目级 `.roo/rules/<id>.md`
+- Check project-level `.claude/rules/<id>.md` and global `~/.claude/rules/<id>.md`
+- If found in both levels, let user choose which to uninstall (project / global / all)
 
-5. 如果资源未安装（所有位置都不存在），提示 "{name} 未安装" 并终止
+5. If resource is not installed (not found in any location), inform user and stop
 
-6. 展示卸载预览：
+6. Show uninstall preview (in user's language):
 
 ```
-## 卸载确认
+Structure:
+  Section: "Uninstall Confirmation"
+  - Name: xxx
+  - Type: MCP Server
+  - Location: .claude/settings.json (project-level)
 
-- 名称: xxx
-- 类型: MCP Server
-- 安装位置: .roo/mcp.json (项目级)
-
-确认卸载？(Y/n)
+  Prompt: "Confirm uninstall? (Y/n)"
 ```
 
-7. 根据用户确认执行卸载，完成后显示结果
+7. Execute uninstall on user confirmation, show result
 
-## 错误处理
+## Error Handling
 
-- 如果 curl 获取索引失败，告知用户网络问题并建议重试
-- 如果找不到资源，建议使用 `/coding-hub-search` 搜索
+- If curl fails to fetch index: inform user of network issue and suggest retry
+- If resource not found: suggest using `/coding-hub-search` to search

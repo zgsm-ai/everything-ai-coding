@@ -1,5 +1,5 @@
 ---
-description: '基于当前项目技术栈推荐 coding 资源。用法: /coding-hub:recommend [type:mcp|skill|rule|prompt]'
+description: 'Recommend coding resources based on current project stack. Usage: /coding-hub:recommend [type:mcp|skill|rule|prompt]'
 ---
 
 # Coding Hub - Recommend
@@ -8,79 +8,93 @@ $ARGUMENTS
 
 ---
 
-## 数据处理（重要：用 Bash 预过滤，避免全量 JSON 进入上下文）
+## Language Detection
 
-索引 URL: `https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/search-index.json`
+Determine the output language using the following priority chain (first match wins):
+
+1. **Explicit parameter**: if `$ARGUMENTS` contains `lang:zh` or `lang:en`, use that (strip it from arguments)
+2. **Conversation signal**: if the user's recent messages are clearly in one language, follow that
+3. **System locale fallback**: run `echo $LANG` in Bash — if the value starts with `zh` (e.g. `zh_CN.UTF-8`), use Chinese; otherwise use English
+
+Once determined, apply consistently:
+- **All output** (section titles, table headers, labels, helper text) MUST be in the detected language.
+- For the Description column in tables: use `description_zh` for Chinese, `description` for English.
+- For candidate detail text (why-it-fits, basis): generate in the detected language.
+- Command references (e.g. `/coding-hub:install <name>`) stay as-is regardless of language.
+
+## Data Sources
+
+Search index URL: `https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/search-index.json`
 Fallback URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/search-index.json`
-本地备用: `/Volumes/Work/Projects/costrict-coding-hub/catalog/search-index.json`
-单条 API: `https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/{type}/{id}.json`
-全量索引 fallback: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/index.json`
+Local fallback: `/Volumes/Work/Projects/costrict-coding-hub/catalog/search-index.json`
+Per-entry API: `https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/{type}/{id}.json`
+Full index fallback: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/index.json`
 
-## 执行流程
+## Execution Flow
 
-1. 从 `$ARGUMENTS` 中提取可选的类型过滤参数
-   - 支持 `type:mcp`、`type:skill`、`type:rule`、`type:prompt` 过滤
-   - 示例: `/coding-hub:recommend type:mcp` — 只推荐 MCP 类型
-   - 如果参数中包含 `type:<值>`，提取为过滤条件
-2. 分析当前项目技术栈：
-   - 读取 `package.json` → 提取 dependencies 中的框架名 (react, next, vue, express, etc.)
-   - 读取 `requirements.txt` / `pyproject.toml` → 提取 Python 包名
-   - 读取 `go.mod` → 提取 Go module
-   - 读取 `Cargo.toml` → 提取 Rust crate
-   - 读取 `Gemfile` → 提取 Ruby gem
-   - 检查文件后缀: `.tsx`→react, `.vue`→vue, `.py`→python, `.go`→go, `.rs`→rust, `.swift`→swift, `.kt`→kotlin
-   - 检查配置文件: `Dockerfile`→docker, `.github/workflows/`→ci-cd, `tsconfig.json`→typescript
-3. 基于识别到的技术栈生成轻量推荐关键词：
-   - 保留检测到的技术栈标签
-   - 将“框架 + 任务”压缩成更适合索引匹配的短词，如 `react performance`、`fastapi docs`、`docker ci-cd`
-   - 如果用户额外给了上下文（如只要 skill / 只要 mcp），保留该约束，不要被改写覆盖
-   - **默认偏好规则**：如果用户没有显式指定 `type:mcp`，优先考虑更直接服务于当前项目实现/约束/流程的 `skill`、`rule`、`prompt`；只有当某个 MCP 明显就是该场景的核心工作流工具时，才把它放进优先候选
-4. 下载索引到临时文件: `curl -sf --compressed <索引 URL> -o "$TMPDIR/coding-hub-index.json"`，如果失败则尝试 Fallback URL，仍失败则用本地备用路径
-5. 用 python 脚本预过滤（跨平台：macOS/Linux 用 python3，Windows 用 python，探测命令 `$(command -v python3 || command -v python)`）:
-   - 读取 JSON 文件
-   - 将检测到的项目 tags 与每条的 `tags` + `tech_stack` 做交集匹配，并补充轻量推荐关键词匹配
-   - 如果指定了 type 过滤，先按 type 字段过滤
-   - 先按匹配标签数排序，再按 stars 排序
-   - 输出 top 15，每行格式: `id\tname\ttype\tmatched_tags\tstars\tinstall_method\tsource_url\tdescription`（TSV 纯文本）
-6. 从 shortlist 中选出前 3-5 个候选，用单条 API 获取详情做候选验证：
-   - 优先读取 `source`、`evaluation`、`health`、`install`、`source_url`
-   - 结合当前项目栈判断“是否真的适合当前项目”，而不仅是标签碰巧命中
-7. **候选验证门（必须执行）**
-   - **禁止**把所有匹配结果都称为“推荐”
-   - 只有同时满足下面这条简化规则时，才可进入“优先候选”区：**项目匹配明确 + 至少 1 个可信信号 + 至少 1 个可执行信号**
-   - 可信信号示例：官方/精选、知名来源、较明显的质量/健康信号
-   - 可执行信号示例：安装方式明确、单条 API 提供了完整安装信息
-   - 如果做不到这条规则，就输出“项目匹配结果”或“值得先看”的候选，而不是强行称为推荐
-   - **类型偏置校正**：在没有 `type:mcp` 约束时，不要因为 MCP 条目有更强的官方/安装信号，就自动压过更贴合项目实现的 skill/prompt/rule
-   - **稀疏命中规则（尤其是 `type:mcp`）**：如果当前栈没有明显的专项候选，优先返回“2 个强匹配 + 明确说明覆盖较薄”，不要用条件性很强或场景依赖项（如仅在 MySQL / 自建 MCP 服务时才成立的条目）去把列表凑满
-8. 将结果格式化为“优先候选 + 其他匹配结果”两层输出，并遵守以下约束：
-   - `优先候选` 默认只给 2-3 个，除非结果非常接近且难以区分
-   - `其他匹配结果` 默认只给 2-4 个补充项，不要展开成长列表
-   - **不要**在主回答里直接暴露原始评分字段或内部排序字段，只翻译成用户能理解的短依据
-   - **不要**在每个条目下重复安装命令，把安装动作收敛到最后的“默认安装建议”
+1. Extract optional type filter from `$ARGUMENTS`
+   - Supports `type:mcp`, `type:skill`, `type:rule`, `type:prompt` filters
+   - Example: `/coding-hub:recommend type:mcp` — recommend MCP type only
+   - If `type:<value>` is present, extract it as a filter
+2. Analyze current project tech stack:
+   - Read `package.json` → extract framework names from dependencies (react, next, vue, express, etc.)
+   - Read `requirements.txt` / `pyproject.toml` → extract Python packages
+   - Read `go.mod` → extract Go modules
+   - Read `Cargo.toml` → extract Rust crates
+   - Read `Gemfile` → extract Ruby gems
+   - Check file extensions: `.tsx`→react, `.vue`→vue, `.py`→python, `.go`→go, `.rs`→rust, `.swift`→swift, `.kt`→kotlin
+   - Check config files: `Dockerfile`→docker, `.github/workflows/`→ci-cd, `tsconfig.json`→typescript
+3. Generate lightweight recommendation keywords from detected stack:
+   - Retain detected tech stack tags
+   - Compress "framework + task" into index-friendly short terms, e.g. `react performance`, `fastapi docs`, `docker ci-cd`
+   - If user provided extra context (e.g. skill-only or mcp-only), preserve that constraint — do not overwrite with rewrites
+   - **Default preference rule**: unless user explicitly specifies `type:mcp`, prioritize `skill`, `rule`, `prompt` that directly serve project implementation/constraints/workflow; only include MCP entries when one is clearly the core workflow tool for the scenario
+4. Download index to temp file: `curl -sf --compressed <index URL> -o "$TMPDIR/coding-hub-index.json"`, on failure try Fallback URL, then local fallback
+5. Pre-filter with Python (cross-platform: use `$(command -v python3 || command -v python)`):
+   - Load JSON file
+   - Match detected project tags against each entry's `tags` + `tech_stack`, supplement with lightweight recommendation keyword matching
+   - If type filter specified, filter by `type` field first
+   - Sort by matched tag count, then by stars
+   - Output top 15, each line: `id\tname\ttype\tmatched_tags\tstars\tinstall_method\tsource_url\tdescription\tdescription_zh` (TSV plain text)
+6. From shortlist, select top 3-5 candidates and fetch per-entry API for verification:
+   - Prefer `source`, `evaluation`, `health`, `install`, `source_url`
+   - Combine with current project stack to judge "does this truly fit the current project" — not just coincidental tag matches
+7. **Candidate Verification Gate (mandatory)**
+   - NEVER label all matches as "recommendations"
+   - A candidate enters the "Top Candidates" section ONLY when it satisfies: **clear project match + ≥1 trust signal + ≥1 actionable signal**
+   - Trust signal examples: official/curated source, well-known origin, notable quality/health signals
+   - Actionable signal examples: install method is defined, per-entry API provides complete install info
+   - If the gate is not met, output "project matches" or "worth checking" — never force the label "recommendation"
+   - **Type bias correction**: without `type:mcp` constraint, do not let MCP entries dominate over more project-relevant skill/prompt/rule just because MCP has stronger official/install signals
+   - **Sparse hit rule (especially `type:mcp`)**: if the current stack has no obvious specialized candidates, prefer "2 strong matches + explicit thin-coverage note" over padding the list with edge-case entries
+8. Format results as "Top Candidates + Other Matches" two-tier output, with these constraints:
+   - Top Candidates: default 2-3 items, unless results are very close and hard to distinguish
+   - Other Matches: default 2-4 supplementary items, do not expand into a long list
+   - NEVER expose raw scoring fields or internal sort fields in the main response — translate into brief user-understandable rationale
+   - NEVER repeat install commands under each entry — consolidate install actions into a final "suggested install" section
 
-## 输出格式
+## Output Structure
+
+Output the following structure in the user's conversation language. The labels below are structural identifiers — translate them naturally.
 
 ```
-## 项目推荐
+Section: "Project Recommendations"
 
-检测到技术栈: Python, FastAPI, Docker, PostgreSQL
+Line: "Detected stack: {stack list}"
+Line: "Recommendation keywords: {keywords}"
 
-推荐关键词：fastapi backend, docker ci-cd
+Section: "Top Candidates"
+  (Only show gate-verified candidates. If none pass: "No high-confidence candidates yet")
+  Per item:
+    - Name (Type)
+    - Why it fits the current project: direct relationship with project stack or default scenario
+    - Why worth checking: brief rationale (official source / clear install / best stack fit)
 
-### 优先候选（仅展示通过候选验证门的候选；如果没有则写“暂无高置信候选”）
-
-1. <名称>（<类型>）
-   - 为什么适合当前项目：<与项目技术栈或当前默认场景的直接关系>
-   - 为什么值得先看：<官方来源 / 安装明确 / 更贴合当前栈等简短依据>
-
-### 其他匹配结果
-
-| # | 名称 | 类型 | 匹配标签 | Stars | 安装方式 | 描述 |
-|---|------|------|----------|-------|----------|------|
-| 1 | xxx  | MCP  | python, fastapi | 1234 | mcp_config | xxx |
+Section: "Other Matches" (table)
+  Columns: # | Name | Type | Matched Tags | Stars | Install Method | Description
+  (Use description_zh for Chinese users, description for others)
 ```
 
-9. 提示：
-   - 如果存在优先候选：在最后给出 1-2 个默认安装建议，例如“如果你只先装一个，先试 `/coding-hub:install <名称>`”
-   - 如果没有高置信候选："我找到了若干与项目相关的候选，但暂时没有足够高置信的优先候选。你可以继续限定类型/场景，或先查看候选详情"
+9. Footer prompt:
+   - If top candidates exist: suggest installing the top one, e.g. "To get started, try `/coding-hub:install <name>`"
+   - If no high-confidence candidates: explain that matches were found but none pass the confidence gate, suggest refining type/scenario or browsing candidates

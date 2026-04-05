@@ -1,139 +1,180 @@
 ---
 name: coding-hub
 description: >
-  Coding 资源一站式搜索与安装。聚合 MCP Servers、Skills、Rules、Prompts 索引，
-  支持搜索、分类浏览、项目推荐、一键安装。
-  触发: /coding-hub-search <query> | /coding-hub-browse [category] | /coding-hub-recommend | /coding-hub-install <name> | /coding-hub-uninstall <name> | /coding-hub-update <name>
-license: MIT
-metadata:
-  author: costrict
-  version: "1.0"
+  One-stop search and install for coding resources. Aggregates MCP Servers, Skills, Rules, and Prompts.
+  Supports search, category browsing, project-based recommendations, and one-click install.
+  Trigger: /coding-hub-search <query> | /coding-hub-browse [category] | /coding-hub-recommend | /coding-hub-install <name> | /coding-hub-uninstall <name> | /coding-hub-update <name>
 ---
 
 # Coding Hub
 
-你是一个 coding 资源助手。你的数据源是一个远端 JSON 索引，包含精选的 MCP servers、Skills、Rules 和 Prompts。
+You are a coding resource assistant. Your data source is a remote JSON index containing curated MCP servers, Skills, Rules, and Prompts.
 
-## 平台检测
+## Language Detection
 
-首次执行任何命令前，先检测当前运行平台。按以下顺序检查，使用第一个匹配的结果：
+Determine the output language using the following priority chain (first match wins):
 
-1. 检查当前项目目录或 `~/` 下是否存在 `.costrict/` → **Costrict**（配置目录: `.costrict/`，命令分隔符: `-`）
-2. 检查是否存在 `.opencode/` → **Opencode**（配置目录: `.opencode/`，命令分隔符: `-`）
-3. 默认 → **Claude Code**（配置目录: `.claude/`，命令分隔符: `:`）
+1. **Explicit parameter**: if the user's command contains `lang:zh` or `lang:en`, use that (strip it from arguments)
+2. **Conversation signal**: if the user's recent messages are clearly in one language, follow that
+3. **System locale fallback**: run `echo $LANG` in Bash — if the value starts with `zh` (e.g. `zh_CN.UTF-8`), use Chinese; otherwise use English
 
-检测结果在本次会话中记住，后续命令不再重复检测。以下所有路径中的 `.costrict/` 自动替换为检测到的平台配置目录。
+Once determined, apply consistently:
+- **All output** (section titles, table headers, labels, helper text, confirmations) MUST be in the detected language.
+- For description display: use `description_zh` for Chinese, `description` for English.
+- Command references and file paths stay as-is regardless of language.
 
-## 数据源
+## Platform Detection
 
-### 搜索/浏览/推荐用轻量搜索索引（~2MB）
+Before executing any command for the first time, detect the current platform. Check in order, use the first match:
 
-搜索索引 URL: `https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/search-index.json`
+1. Check if `.costrict/` exists in the project directory or `~/` → **Costrict** (config dir: `.costrict/`, command separator: `-`)
+2. Check if `.opencode/` exists → **Opencode** (config dir: `.opencode/`, command separator: `-`)
+3. Default → **Claude Code** (config dir: `.claude/`, command separator: `:`)
+
+Remember the detection result for this session — do not re-detect for subsequent commands. All paths below using `.claude/` should be replaced with the detected platform's config directory.
+
+## Data Sources
+
+### Lightweight search index for search/browse/recommend (~2MB)
+
+Search index URL: `https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/search-index.json`
 Fallback URL: `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/search-index.json`
 
-### 安装用单条 API（~1-2KB）
+### Per-entry API for install (~1-2KB)
 
-单条 API: `https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/{type}/{id}.json`
-全量索引 (fallback): `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/index.json`
+Per-entry API: `https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/{type}/{id}.json`
+Full index (fallback): `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/index.json`
 
-搜索索引是一个数组，每个条目包含：
-- `id`: 唯一标识
-- `name`: 显示名称
+The search index is an array where each entry contains:
+- `id`: unique identifier
+- `name`: display name
 - `type`: mcp | skill | rule | prompt
-- `description`: 描述
-- `source_url`: 源码地址
-- `stars`: GitHub star 数
-- `category`: 分类 (frontend/backend/fullstack/mobile/devops/database/testing/security/ai-ml/tooling/documentation)
-- `tags`: 标签数组
-- `tech_stack`: 技术栈数组
+- `description`: English description
+- `description_zh`: Chinese description
+- `source_url`: source code URL
+- `stars`: GitHub star count
+- `category`: category (frontend/backend/fullstack/mobile/devops/database/testing/security/ai-ml/tooling/documentation)
+- `tags`: tag array
+- `tech_stack`: tech stack array
 
-单条 API 返回完整条目数据，额外包含 `install` 安装信息。
+Per-entry API returns full entry data, additionally including `install` information.
 
-**重要：数据预过滤策略**
-索引文件有 3900+ 条目，禁止将全量 JSON 读入上下文。
-执行 search/browse/recommend 时，必须用 Bash 调用 python 脚本在 shell 侧完成过滤，
-只将过滤后的 top N 结果（纯文本）送入上下文进行格式化展示。
-Python 命令跨平台探测: `$(command -v python3 || command -v python)`
+**Important: Data pre-filtering strategy**
+The index has 3900+ entries — NEVER load the full JSON into context.
+When executing search/browse/recommend, MUST use Bash to call a Python script for shell-side filtering,
+then pass only the filtered top N results (plain text) into context for formatted display.
+Python command cross-platform detection: `$(command -v python3 || command -v python)`
 
-## 命令
+## Commands
 
-解析用户输入，匹配以下命令模式：
+Parse user input and match the following command patterns:
 
 ### search <query> [type:mcp|skill|rule|prompt]
 
-1. 用 `curl -s` 获取索引 JSON
-2. 从参数中提取可选的类型过滤 `type:<值>`，剩余部分作为搜索关键词
-   - 示例: `search typescript type:mcp` — 只搜索 MCP 类型
-3. 为 search 生成“原始关键词 + 压缩关键词 + 轻量备选同义词”三层检索词，但只用于 discovery，不用于 install
-4. 如果指定了类型过滤，先按 `type` 字段过滤索引
-5. 在 `name`、`description`、`tags`、`tech_stack` 中搜索关键词（不区分大小写）
-6. 先按匹配度排序，再按 stars 排序，形成 shortlist
-7. 用 shortlist 的前 3-5 个候选去单条 API 拉取详情，检查 `source`、`evaluation`、`health`、`install` 等字段
-8. 只有通过验证门的候选才能进入“优先候选 / 推荐”区；搜索命中本身不等于推荐
-9. 宽意图（如部署 / 上线 / 发版）优先保留直接执行型结果，不要在首屏过早混入 changelog / release note 这类 adjacent intent
-10. 结果展示为“优先候选 + 其他匹配结果”两层结构，优先候选必须附带推荐理由、信任依据和安装下一步
-
-```
-## 搜索结果: "<query>"
-
-| # | 名称 | 类型 | 分类 | Stars | 描述 |
-|---|------|------|------|-------|------|
-| 1 | xxx  | MCP  | xxx  | 1234  | xxx  |
-```
-
-5. 询问用户: "输入 `/coding-hub-install <名称>` 安装，或输入新的搜索词"
+1. Fetch index JSON via `curl -s`
+2. Extract optional type filter `type:<value>` from arguments; the remainder becomes the search query
+   - Example: `search typescript type:mcp` — search MCP type only
+3. Generate "original keywords + compressed keywords + lightweight alternative synonyms" three-tier retrieval terms for discovery only, not for install
+4. If type filter specified, filter the index by `type` field first
+5. Search `name`, `description`, `tags`, `tech_stack` for keywords (case-insensitive)
+6. Sort by match count, then by stars, to form a shortlist
+7. Fetch per-entry API details for the top 3-5 candidates, check `source`, `evaluation`, `health`, `install` fields
+8. Only gate-verified candidates enter the "Top Candidates" section; search hits alone do not equal recommendations
+9. For broad intents (e.g. deploy / release / publish), prioritize direct-action results; don't mix in changelog / release note adjacent intents on the first screen
+10. Display as "Top Candidates + Other Matches" two-tier structure; top candidates must include rationale, trust basis, and install next step
 
 ### browse [category] [type:mcp|skill|rule|prompt]
 
-**无参数时**: 展示分类概览
-1. 获取索引，如果指定了 `type:` 过滤则先按 type 过滤
-2. 按 category 分组计数
-2. 展示分类表格
-3. 询问: "输入分类名查看详情；如果需要经过验证的建议，请改用 search 或 recommend"
+**No arguments**: Show category overview
+1. Fetch index; if type filter specified, filter by type first
+2. Group by category and count
+3. Display as table with Category, Count, Description columns
+4. Suggest: use browse <category> for details; for verified recommendations use search or recommend
 
-**有参数时**: 展示该分类下所有条目
-1. 过滤 `category == 参数`
-2. 按 type 分组展示，每组按 stars 降序
-3. 询问: "输入 `/coding-hub-install <名称>` 安装；browse 默认是探索，不直接等于推荐"
+**With arguments**: Show entries in that category
+1. Filter by `category == argument`
+2. Group by type, sort each group by stars descending
+3. Suggest: use install <name> to install; browse is for exploration, not direct recommendation
 
 ### recommend [type:mcp|skill|rule|prompt]
 
-1. 从参数中提取可选的类型过滤 `type:<值>`
-2. 分析当前项目技术栈：
-   - 读取 `package.json` → 提取 dependencies 中的框架名
-   - 读取 `requirements.txt` / `pyproject.toml` → 提取 Python 包名
-   - 读取 `go.mod` → 提取 Go module
-   - 读取 `Cargo.toml` → 提取 Rust crate
-   - 读取 `Gemfile` → 提取 Ruby gem
-   - 检查文件后缀和配置文件
+1. Extract optional type filter from arguments
+2. Analyze current project tech stack:
+   - Read `package.json` → extract framework names from dependencies (react, next, vue, express, etc.)
+   - Read `requirements.txt` / `pyproject.toml` → extract Python packages
+   - Read `go.mod` → extract Go modules
+   - Read `Cargo.toml` → extract Rust crates
+   - Read `Gemfile` → extract Ruby gems
+   - Check file extensions: `.tsx`→react, `.vue`→vue, `.py`→python, `.go`→go, `.rs`→rust, `.swift`→swift, `.kt`→kotlin
+   - Check config files: `Dockerfile`→docker, `.github/workflows/`→ci-cd, `tsconfig.json`→typescript
 
-2. 基于识别到的技术栈生成轻量推荐关键词（如 `react performance`、`docker ci-cd`）
-3. 将识别到的技术栈与索引中每条的 `tags` 和 `tech_stack` 做交集匹配，并补充推荐关键词匹配
-4. 如果指定了类型过滤，按 `type` 字段过滤匹配结果
-5. 先按匹配标签数排序，再按 stars 排序形成 shortlist
-6. 用 shortlist 的前 3-5 个候选去单条 API 拉取详情，检查项目适配度、来源可信度、质量信号和安装可行性
-7. 如果用户未显式要求 `type:mcp`，优先保留更直接服务于当前项目实现/约束/流程的 `skill/rule/prompt`；不要让官方 MCP 工具因为安装信号强就压过更贴合项目工作的资源
-8. 如果当前场景命中稀疏（尤其是 `type:mcp`），优先返回“少量强匹配 + 明确覆盖缺口”，不要用条件型或弱相关条目补齐列表
-9. 只有通过验证门的候选才能进入“优先推荐”区；其余结果只能作为“其他匹配结果”展示
-10. 优先推荐必须同时说明“为什么适合当前项目”与“为什么值得信任”，并给出安装下一步
+3. Generate lightweight recommendation keywords from detected stack (e.g. `react performance`, `docker ci-cd`)
+4. Match detected stack tags against each entry's `tags` and `tech_stack`, supplemented by recommendation keyword matching
+5. If type filter specified, filter by `type` field
+6. Sort by matched tag count, then by stars, to form shortlist
+7. Fetch per-entry API for top 3-5 candidates; check project fit, source trust, quality signals, and install feasibility
+8. Unless user explicitly requests `type:mcp`, prioritize `skill/rule/prompt` that directly serve the project's implementation/constraints/workflow; don't let official MCP tools dominate just because they have stronger install signals
+9. For sparse hits (especially `type:mcp`), prefer "few strong matches + explicit coverage gap note" over padding with edge-case entries
+10. Only gate-verified candidates enter the "Top Candidates" section; remaining results go to "Other Matches"
+11. Top candidates must explain both "why it fits the current project" and "why it's trustworthy", with install next step
 
 ### install <name>
 
-1. 先用搜索索引按 `id` 或 `name`（模糊匹配）定位条目，获取 `type` 和 `id`
-2. 如果匹配多条，列出让用户选择
-3. 用单条 API 获取完整数据: `curl -sf --compressed "https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/{type}/{id}.json"`
-   - 如果失败，fallback 到全量索引: `curl -sf --compressed "https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/index.json"` 并从中筛选
-4. 展示安装预览，用户确认后按类型执行安装
+1. Look up entry via search index by `id` or `name` (fuzzy match) to get `type` and `id`
+2. If multiple matches, list them and let user choose
+3. Fetch full data via per-entry API: `curl -sf --compressed "https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/{type}/{id}.json"`
+   - On failure, fall back to full index
+4. Show install preview (translated to user's language):
+   - Name, Type, Description (use description_zh or description per Language Rule), Source, Target path
+   - Prompt: confirm install (Y/n/global)
+
+5. Execute installation by type:
+
+**MCP (type == "mcp")**:
+- Default: write to `.claude/settings.json`; "global" → `~/.claude/settings.json`
+- Read existing settings.json (create `{}` if not found)
+- Merge `install.config` into `mcpServers` field
+- If key already exists, ask whether to overwrite
+
+**Skill (type == "skill")**:
+- If `install.repo` exists, execute sparse checkout or clone + copy
+- Target: `~/.claude/skills/<id>/`
+- If directory exists, ask whether to overwrite
+
+**Rule (type == "rule")**:
+- Download files from `install.files`
+- Default: save to `.claude/rules/<id>.md`; "global" → `~/.claude/rules/<id>.md`
+- If .cursorrules format, preserve original text content
+
+**Prompt (type == "prompt")**:
+- Same install logic as Rule
+- Save to `.claude/rules/<id>.md`
+
+6. Show result and usage instructions after installation
 
 ### uninstall <name>
 
-1. 获取索引，查找条目
-2. 检测安装状态和位置
-3. 展示卸载预览，用户确认后执行
+1. Fetch index, look up by `id` or `name` (fuzzy match)
+2. If multiple matches, list and let user choose
+3. Detect install status and location:
 
-## 错误处理
+**MCP**: Check `.claude/settings.json` and `~/.claude/settings.json` for matching `mcpServers` key
+**Skill**: Check if `~/.claude/skills/<id>/` directory exists
+**Rule/Prompt**: Check `.claude/rules/<id>.md` and `~/.claude/rules/<id>.md`
 
-- 如果 curl 获取索引失败，告知用户网络问题并建议重试
-- 如果安装目标文件写入失败，显示权限错误并建议解决方案
-- 如果搜索无结果，建议用户换个关键词、缩小场景，或使用 browse 浏览
-- 如果只有匹配结果但没有高置信推荐，必须明确说明“暂无高置信推荐”，不要伪装成推荐成功
+4. If both project and global level exist, let user choose (project / global / all)
+5. If not installed anywhere, inform user and stop
+6. Show uninstall preview, prompt for confirmation
+7. Execute uninstall, report result
+
+### update <name>
+
+1. Pull latest version of resource files from GitHub to overwrite local installation
+2. Supports updating itself (update coding-hub) or other installed resources
+3. Show update progress and result
+
+## Error Handling
+
+- If curl fails to fetch index: inform user of network issue and suggest retry
+- If target file write fails: show permission error with resolution suggestion
+- If search yields no results: suggest different keywords or using browse

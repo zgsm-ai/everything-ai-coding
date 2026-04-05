@@ -1,5 +1,6 @@
 ---
-description: '安装指定 coding 资源。用法: /coding-hub-install <name>'
+description: 'Install a coding resource. Usage: /coding-hub-install <name>'
+argument-hint: resource name
 ---
 
 # Coding Hub - Install
@@ -8,108 +9,117 @@ $ARGUMENTS
 
 ---
 
-## 数据源
+## Language Detection
 
-单条 API: `https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/{type}/{id}.json`
-全量索引 (fallback): `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/index.json`
+Determine the output language using the following priority chain (first match wins):
 
-## 执行流程
+1. **Explicit parameter**: if `$ARGUMENTS` contains `lang:zh` or `lang:en`, use that (strip it from arguments)
+2. **Conversation signal**: if the user's recent messages are clearly in one language, follow that
+3. **System locale fallback**: run `echo $LANG` in Bash — if the value starts with `zh` (e.g. `zh_CN.UTF-8`), use Chinese; otherwise use English
 
-1. 从 `$ARGUMENTS` 中提取资源名
-2. 先尝试按 ID 从单条 API 获取（需先用搜索索引确定 type 和 id）：
-   - 用 `curl -sf --compressed https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/search-index.json` 下载搜索索引
-   - 用 Python 在 name/id 中模糊匹配，确定条目的 `type` 和 `id`
-   - 如果匹配到唯一条目，用 `curl -sf --compressed https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/{type}/{id}.json` 获取完整数据
-   - 如果匹配多条，列出让用户选择后再获取单条
-3. 如果 Pages API 不可用，fallback 到全量索引：`curl -s <全量索引 URL>` 获取 JSON
-3. 如果匹配多条，列出让用户选择
-4. 展示安装预览：
+Once determined, apply consistently:
+- **All output** (confirmation dialogs, status messages, error messages) MUST be in the detected language.
+- Command references and file paths stay as-is regardless of language.
+
+## Data Sources
+
+Per-entry API: `https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/{type}/{id}.json`
+Full index (fallback): `https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/catalog/index.json`
+
+## Execution Flow
+
+1. Extract resource name from `$ARGUMENTS`
+2. Look up entry by ID via per-entry API (requires determining type and id from search index first):
+   - Download search index: `curl -sf --compressed https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/search-index.json`
+   - Fuzzy match on name/id with Python to determine the entry's `type` and `id`
+   - If exactly one match found, fetch full data: `curl -sf --compressed https://zgsm-sangfor.github.io/costrict-coding-hub/api/v1/{type}/{id}.json`
+   - If multiple matches, list them and let the user choose, then fetch the selected one
+4. Show install preview (in user's language):
 
 ```
-## 安装确认
+Structure:
+  Section: "Install Confirmation"
+  - Name: xxx
+  - Type: MCP Server
+  - Description: (use description_zh or description per Language Rule)
+  - Source: xxx
+  - Target: .claude/settings.json (project-level)
 
-- 名称: xxx
-- 类型: MCP Server
-- 描述: xxx
-- 来源: xxx
-- 目标: .opencode/settings.json (项目级)
-
-确认安装？(Y/n/全局)
+  Prompt: "Confirm install? (Y/n/global)"
 ```
 
-5. 根据用户确认和类型执行安装：
+5. Execute installation based on user confirmation and resource type:
 
 ### MCP (type == "mcp")
-- 默认写入 `.opencode/settings.json`，用户选 "全局" 则写入 `~/.opencode/settings.json`
-- 读取现有 settings.json（不存在则创建 `{}`）
-- 根据 `install.method` 分三种情况处理：
+- Default: write to `.claude/settings.json`; if user chooses "global", write to `~/.claude/settings.json`
+- Read existing settings.json (create `{}` if not found)
+- Handle by `install.method`:
 
 #### method == "mcp_config"
-- 将 `install.config` 直接合并到 `mcpServers` 字段
-- 如果 key 已存在，询问是否覆盖
+- Merge `install.config` directly into the `mcpServers` field
+- If key already exists, ask whether to overwrite
 
 #### method == "mcp_config_template"
-- 将 `install.config` 写入 `mcpServers` 字段
-- **安装后提示用户需要替换占位符**，展示 `install.placeholder_hints` 中的每个占位符及说明
-- 格式示例：
+- Write `install.config` into `mcpServers` field
+- **After installation, prompt user about placeholders** — show each placeholder and hint from `install.placeholder_hints`
+- Format (in user's language):
 ```
-⚠️ 该 MCP 需要配置以下参数才能正常使用：
-
-- FIGMA_API_KEY: Set your FIGMA_API_KEY
-- PATH_TO_API_DOT_JSON: Replace with actual path to api dot json
-
-请编辑配置文件替换以上占位符。
+Structure:
+  Warning: "This MCP requires configuring the following parameters:"
+  Per placeholder:
+    - KEY_NAME: hint text
+  Instruction: "Please edit the config file to replace these placeholders."
 ```
 
 #### method == "manual"
-索引中没有预置安装配置，需要从项目 README 推断安装方式。按以下步骤执行：
+No pre-built install config in the index — infer install method from project README. Steps:
 
-**Step 1: 获取 README**
-- 从 `source_url` 构造 raw URL 并用 curl 获取：
-  - 先试 `https://raw.githubusercontent.com/{owner}/{repo}/main/README.md`
-  - 404 则试 `master` 分支
-- 如果获取失败，跳到 Step 3 兜底
+**Step 1: Fetch README**
+- Construct raw URL from `source_url`:
+  - Try `https://raw.githubusercontent.com/{owner}/{repo}/main/README.md`
+  - If 404, try `master` branch
+- If fetch fails, go to Step 3 fallback
 
-**Step 2: 分析 README 并生成安装配置**
-阅读 README 内容，判断该 MCP Server 的安装方式，构造 `mcpServers` JSON 配置：
+**Step 2: Analyze README and generate install config**
+Read README content, determine the MCP Server's install method, construct `mcpServers` JSON config:
 
-- **有现成 `mcpServers` JSON** → 直接提取使用
-- **有 `npx -y <package>` 命令** → 构造 `{"command": "npx", "args": ["-y", "<package>"]}`
-- **有 `uvx <package>` 命令** → 构造 `{"command": "uvx", "args": ["<package>"]}`
-- **有 `pip install` + `python -m` 启动** → 构造 `{"command": "python", "args": ["-m", "<module>"]}`
-- **需要环境变量（API Key 等）** → 加入 `"env"` 字段，值留空或保持占位符
+- **Has existing `mcpServers` JSON** → extract and use directly
+- **Has `npx -y <package>` command** → construct `{"command": "npx", "args": ["-y", "<package>"]}`
+- **Has `uvx <package>` command** → construct `{"command": "uvx", "args": ["<package>"]}`
+- **Has `pip install` + `python -m` startup** → construct `{"command": "python", "args": ["-m", "<module>"]}`
+- **Requires env vars (API keys etc.)** → add `"env"` field with empty values or placeholders
 
-构造完成后：
-- 向用户展示生成的配置，说明推断依据（README 中的哪段内容）
-- 用户确认后，按 `mcp_config` 或 `mcp_config_template` 流程写入
-- 如果有占位符/环境变量，提示用户填写
+After construction:
+- Show the generated config to user, explain the inference basis (which part of README)
+- On user confirmation, write using `mcp_config` or `mcp_config_template` flow
+- If placeholders/env vars present, prompt user to fill them
 
-**Step 3: 兜底（README 无法获取或无法判断安装方式）**
+**Step 3: Fallback (README unavailable or cannot determine install method)**
 ```
-该 MCP 需要手动配置，请参考项目文档：
-🔗 https://github.com/xxx/yyy
-
-请按照 README 中的说明配置 mcpServers。
+Structure:
+  Message: "This MCP requires manual configuration. Please refer to the project docs:"
+  Link: source_url
+  Instruction: "Follow the README instructions to configure mcpServers."
 ```
 
 ### Skill (type == "skill")
-- 如果 `install.repo` 存在，执行 sparse checkout 或 clone + 复制
-- 目标: `~/.opencode/skills/<id>/`
-- 如果目录已存在，询问是否覆盖
+- If `install.repo` exists, execute sparse checkout or clone + copy
+- Target: `~/.claude/skills/<id>/`
+- If directory already exists, ask whether to overwrite
 
 ### Rule (type == "rule")
-- 下载 `install.files` 中的文件
-- 默认保存到 `.opencode/rules/<id>.md`，用户选 "全局" 则保存到 `~/.opencode/rules/<id>.md`
-- 如果是 .cursorrules 格式，保持原文本内容
+- Download files from `install.files`
+- Default: save to `.claude/rules/<id>.md`; if user chooses "global", save to `~/.claude/rules/<id>.md`
+- If .cursorrules format, preserve original text content
 
 ### Prompt (type == "prompt")
-- 同 Rule 的安装逻辑
-- 保存到 `.opencode/rules/<id>.md`
+- Same install logic as Rule
+- Save to `.claude/rules/<id>.md`
 
-6. 安装完成后显示结果和使用说明
+6. After installation, show result and usage instructions (in user's language)
 
-## 错误处理
+## Error Handling
 
-- 如果 curl 获取索引失败，告知用户网络问题并建议重试
-- 如果安装目标文件写入失败，显示权限错误
-- 如果找不到资源，建议使用 `/coding-hub-search` 搜索
+- If curl fails to fetch index: inform user of network issue and suggest retry
+- If writing to target file fails: show permission error
+- If resource not found: suggest using `/coding-hub-search` to search
