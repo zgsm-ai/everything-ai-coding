@@ -9,14 +9,14 @@ from typing import Any
 sys.path.insert(0, os.path.dirname(__file__))
 try:
     from .llm_tagger import llm_tag_entries
-    from .llm_translator import llm_translate_entries
+    from .llm_translator import llm_translate_entries, llm_translate_to_english
     from .llm_evaluator import enrich_quality
     from .unified_enrichment import populate_signals
     from .llm_techstack_tagger import tag_techstack
     from .llm_search_enricher import enrich_search_terms
 except ImportError:
     from llm_tagger import llm_tag_entries
-    from llm_translator import llm_translate_entries
+    from llm_translator import llm_translate_entries, llm_translate_to_english
     from llm_evaluator import enrich_quality
     from unified_enrichment import populate_signals
     from llm_techstack_tagger import tag_techstack
@@ -53,6 +53,16 @@ def enrich_entries(entries: list[dict[str, Any]]) -> None:
             eid = entry["id"]
             if eid in techstack_results and not entry.get("tech_stack"):
                 entry["tech_stack"] = techstack_results[eid]
+
+    # Step 1.5: Ensure description is English (translate Chinese → English)
+    en_results = llm_translate_to_english(entries)
+    if en_results:
+        for entry in entries:
+            eid = entry["id"]
+            if eid in en_results:
+                if not entry.get("description_zh"):
+                    entry["description_zh"] = entry.get("description", "")
+                entry["description"] = en_results[eid]
 
     # Step 2: Translation enrichment (only for entries missing description_zh)
     translate_results = llm_translate_entries(entries)

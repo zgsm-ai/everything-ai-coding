@@ -29,6 +29,7 @@ catalog/skills/.llm_cache.json
 catalog/.llm_eval_cache.json
 .llm_tag_cache.json
 .llm_translate_cache.json
+.llm_en_translate_cache.json
 incremental_recrawl_state.json
 scripts/fallback_skill_repos.json
 
