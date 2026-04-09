@@ -75,12 +75,7 @@ After installation, try a search command:
 /coding-hub-search typescript
 ```
 
-<details>
-<summary><strong>Demo</strong></summary>
-
 <video src="https://github.com/user-attachments/assets/e58f0b08-73c0-4fba-ac95-138c8087a917" controls width="100%"></video>
-
-</details>
 
 You can also hand the installation off to another agent with this prompt:
 

@@ -75,6 +75,8 @@ irm https://raw.githubusercontent.com/zgsm-sangfor/costrict-coding-hub/main/inst
 /coding-hub-search typescript
 ```
 
+<video src="https://github.com/user-attachments/assets/552d5405-48c9-4d26-9fb0-34a2715efa24" controls width="100%"></video>
+
 也可以把下面的提示词直接交给另一个 AI Agent：
 
 ```text
