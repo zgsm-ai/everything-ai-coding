@@ -7,11 +7,20 @@
     "source_url": "https://github.com/f/prompts.chat",
     "stars": 143000,
     "category": "devops",
-    "tags": ["linux", "terminal", "shell", "command-line"],
-    "tech_stack": ["bash"],
+    "tags": [
+      "linux",
+      "terminal",
+      "shell",
+      "command-line"
+    ],
+    "tech_stack": [
+      "bash"
+    ],
     "install": {
       "method": "download_file",
-      "files": ["https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"]
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
     },
     "source": "curated",
     "last_synced": "2026-03-25"
@@ -24,13 +33,311 @@
     "source_url": "https://github.com/f/prompts.chat",
     "stars": 143000,
     "category": "fullstack",
-    "tags": ["fullstack", "web", "frontend", "backend"],
-    "tech_stack": ["javascript", "typescript", "python"],
+    "tags": [
+      "fullstack",
+      "web",
+      "frontend",
+      "backend"
+    ],
+    "tech_stack": [
+      "javascript",
+      "typescript",
+      "python"
+    ],
     "install": {
       "method": "download_file",
-      "files": ["https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"]
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
     },
     "source": "curated",
     "last_synced": "2026-03-25"
+  },
+  {
+    "id": "enterprise-microservices-architecture-design-prompt",
+    "name": "Enterprise Microservices Architecture Design",
+    "type": "prompt",
+    "description": "Act as a Systems Architect specializing in enterprise solutions. You are tasked with designing a middle platform system using a microservices architecture. Your system should focus on achieving scalab",
+    "source_url": "https://github.com/f/prompts.chat",
+    "stars": 0,
+    "category": "ai-ml",
+    "tags": [
+      "microservices",
+      "architecture",
+      "nodejs",
+      "api",
+      "docker"
+    ],
+    "tech_stack": [
+      "docker"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09"
+  },
+  {
+    "id": "ultrathinker-prompt",
+    "name": "Ultrathinker",
+    "type": "prompt",
+    "description": "# Ultrathinker  You are an expert software developer and deep reasoner. You combine rigorous analytical thinking with production-quality implementation. You never over-engineer—you build exactly what'",
+    "source_url": "https://github.com/f/prompts.chat",
+    "stars": 0,
+    "category": "backend",
+    "tags": [
+      "go",
+      "ai",
+      "software-development",
+      "problem-solving"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09"
+  },
+  {
+    "id": "ai2sql-sql-model-query-generator-prompt",
+    "name": "AI2sql SQL Model — Query Generator",
+    "type": "prompt",
+    "description": "Context: This prompt is used by AI2sql to generate SQL queries from natural language. AI2sql focuses on correctness, clarity, and real-world database usage.  Purpose: This prompt converts plain Englis",
+    "source_url": "https://github.com/f/prompts.chat",
+    "stars": 0,
+    "category": "database",
+    "tags": [
+      "postgres",
+      "ai",
+      "sql",
+      "database",
+      "automation"
+    ],
+    "tech_stack": [
+      "postgres"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09"
+  },
+  {
+    "id": "api-tester-agent-role-prompt",
+    "name": "API Tester Agent Role",
+    "type": "prompt",
+    "description": "# API Tester  You are a senior API testing expert and specialist in performance testing, load simulation, contract validation, chaos testing, and monitoring setup for production-grade APIs.  ## Task-O",
+    "source_url": "https://github.com/f/prompts.chat",
+    "stars": 0,
+    "category": "devops",
+    "tags": [
+      "for-devs",
+      "api",
+      "testing",
+      "performance",
+      "automation",
+      "agent"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09"
+  },
+  {
+    "id": "multi-audience-application-discovery-documentation-prompt-prompt",
+    "name": "Multi-Audience Application Discovery & Documentation Prompt",
+    "type": "prompt",
+    "description": "# **Prompt for Code Analysis and System Documentation Generation**  You are a specialist in code analysis and system documentation. Your task is to analyze the source code provided in this project/wor",
+    "source_url": "https://github.com/f/prompts.chat",
+    "stars": 0,
+    "category": "documentation",
+    "tags": [
+      "documentation",
+      "code-analysis",
+      "system",
+      "for-devs"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09"
+  },
+  {
+    "id": "production-grade-posthog-integration-for-nextjs-15-app-router-prompt",
+    "name": "Production-Grade PostHog Integration for Next.js 15 (App Router)",
+    "type": "prompt",
+    "description": "Production-Grade PostHog Integration for Next.js 15 (App Router) Role You are a Senior Next.js Architect & Analytics Engineer with deep expertise in Next.js 15, React 19, Supabase Auth, Polar.sh billi",
+    "source_url": "https://github.com/f/prompts.chat",
+    "stars": 0,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "nextjs",
+      "supabase"
+    ],
+    "tech_stack": [
+      "react",
+      "typescript",
+      "nextjs"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09"
+  },
+  {
+    "id": "digital-visiting-card-product-architect-prompt",
+    "name": "Digital Visiting Card Product Architect",
+    "type": "prompt",
+    "description": "Act as a Senior Product Architect, UX Designer, and Full-Stack Engineer. Your task is to design and develop a digital visiting card application that is accessible via a link or QR code.   You will: -",
+    "source_url": "https://github.com/f/prompts.chat",
+    "stars": 0,
+    "category": "fullstack",
+    "tags": [
+      "git",
+      "web",
+      "mobile",
+      "api",
+      "design"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09"
+  },
+  {
+    "id": "app-store-submission-agent-prompt",
+    "name": "App Store Submission Agent",
+    "type": "prompt",
+    "description": "Purpose: Pre-validate iOS builds against Apple’s App Store Review Guidelines before submission. Catch rejection-worthy issues early, review metadata quality, and ensure compliance with privacy and tec",
+    "source_url": "https://github.com/f/prompts.chat",
+    "stars": 0,
+    "category": "mobile",
+    "tags": [
+      "ios",
+      "automation",
+      "mobile",
+      "swift",
+      "api"
+    ],
+    "tech_stack": [
+      "swift"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09"
+  },
+  {
+    "id": "ast-code-analysis-superpower-prompt",
+    "name": "AST Code Analysis Superpower",
+    "type": "prompt",
+    "description": "--- name: ast-code-analysis-superpower description: AST-based code pattern analysis using ast-grep for security, performance, and structural issues. Use when (1) reviewing code for security vulnerabil",
+    "source_url": "https://github.com/f/prompts.chat",
+    "stars": 0,
+    "category": "security",
+    "tags": [
+      "react",
+      "code-analysis",
+      "security",
+      "performance"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09"
+  },
+  {
+    "id": "test-first-bug-fixing-approach-prompt",
+    "name": "Test-First Bug Fixing Approach",
+    "type": "prompt",
+    "description": "I have a bug: ${bug}. Take a test-first approach: 1) Read the relevant source files and existing tests. 2) Write a failing test that reproduces the exact bug. 3) Run the test suite to confirm it fails",
+    "source_url": "https://github.com/f/prompts.chat",
+    "stars": 0,
+    "category": "testing",
+    "tags": [
+      "testing",
+      "bug-fixing",
+      "automation",
+      "for-devs",
+      "javascript"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09"
+  },
+  {
+    "id": "claude-code-skill-slash-command-review-and-commitmd-prompt",
+    "name": "Claude Code Skill (Slash Command): review-and-commit.md",
+    "type": "prompt",
+    "description": "--- allowed-tools: Bash(git add:*), Bash(git status:*), Bash(git commit:*) description: Create a git commit ---  ## Context  - Current git status: !`git status` - Current git diff (staged and unstaged",
+    "source_url": "https://github.com/f/prompts.chat",
+    "stars": 0,
+    "category": "tooling",
+    "tags": [
+      "git",
+      "automation",
+      "claude"
+    ],
+    "tech_stack": [
+      "git"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09"
   }
 ]

@@ -88,5 +88,636 @@
     "added_at": "2026-03-30",
     "last_synced": "2026-03-30",
     "pushed_at": "2026-03-27T20:04:07Z"
+  },
+  {
+    "id": "codergamestermcp-unity",
+    "name": "CoderGamester/mcp-unity",
+    "type": "mcp",
+    "description": "用于 Unity3d 游戏引擎集成的 MCP 服务器，用于游戏开发。",
+    "source_url": "https://github.com/CoderGamester/mcp-unity",
+    "stars": 1558,
+    "category": "ai-ml",
+    "tags": [
+      "antigravity-ide",
+      "claudecode",
+      "codex-cli",
+      "copilot",
+      "cursor",
+      "game-development",
+      "gemini",
+      "mcp",
+      "model-context-protocol",
+      "openai",
+      "unity",
+      "unity-package",
+      "unity3d",
+      "windsurf"
+    ],
+    "tech_stack": [
+      "csharp"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "node",
+        "args": [
+          "ABSOLUTE/PATH/TO/mcp-unity/Server~/build/index.js"
+        ]
+      }
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "semgrep",
+    "name": "Semgrep",
+    "type": "mcp",
+    "description": "让 AI 代理使用 Semgrep 进行代码安全扫描。 (Semgrep 官方)",
+    "source_url": "https://github.com/semgrep/mcp",
+    "stars": 646,
+    "category": "security",
+    "tags": [
+      "mcp",
+      "semgrep"
+    ],
+    "tech_stack": [
+      "python"
+    ],
+    "install": {
+      "method": "mcp_config_template",
+      "config": {
+        "command": "uvx",
+        "args": [
+          "semgrep-mcp"
+        ],
+        "env": {
+          "SEMGREP_APP_TOKEN": "<token>"
+        }
+      },
+      "placeholder_hints": {
+        "SEMGREP_APP_TOKEN": "Set your SEMGREP_APP_TOKEN"
+      }
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "pydanticpydantic-aimcp-run-python",
+    "name": "pydantic/pydantic-ai/mcp-run-python",
+    "type": "mcp",
+    "description": "Pydantic 出品，在安全的沙盒环境中运行 Python 代码，适合开发编程代理。",
+    "source_url": "https://github.com/pydantic/pydantic-ai/tree/main/mcp-run-python",
+    "stars": 16115,
+    "category": "backend",
+    "tags": [
+      "python",
+      "agent-framework",
+      "genai",
+      "llm",
+      "pydantic"
+    ],
+    "tech_stack": [
+      "python"
+    ],
+    "install": {
+      "method": "manual"
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "modelcontextprotocolserver-google-drive",
+    "name": "modelcontextprotocol/server-google-drive",
+    "type": "mcp",
+    "description": "官方参考实现，集成 Google Drive，用于列出、读取和搜索文件。",
+    "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/gdrive",
+    "stars": 83044,
+    "category": "backend",
+    "tags": [
+      "go",
+      "mcp-server",
+      "official",
+      "google-drive"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-gdrive"
+        ]
+      }
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "modelcontextprotocolserver-github",
+    "name": "modelcontextprotocol/server-github",
+    "type": "mcp",
+    "description": "官方参考实现，集成 GitHub API，管理仓库、文件、PR 和 Issues。",
+    "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/github",
+    "stars": 83044,
+    "category": "backend",
+    "tags": [
+      "git",
+      "mcp-server",
+      "official",
+      "github"
+    ],
+    "tech_stack": [
+      "git",
+      "typescript"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-github"
+        ]
+      }
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "modelcontextprotocolserver-postgres",
+    "name": "modelcontextprotocol/server-postgres",
+    "type": "mcp",
+    "description": "官方参考实现，集成 PostgreSQL，支持查询和模式分析。",
+    "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/postgres",
+    "stars": 83044,
+    "category": "database",
+    "tags": [
+      "postgres",
+      "mcp-server",
+      "official",
+      "database"
+    ],
+    "tech_stack": [
+      "postgres"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-postgres"
+        ]
+      }
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "modelcontextprotocolserver-redis",
+    "name": "modelcontextprotocol/server-redis",
+    "type": "mcp",
+    "description": "官方参考实现，与 Redis 键值存储进行交互。",
+    "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/redis",
+    "stars": 83044,
+    "category": "database",
+    "tags": [
+      "redis",
+      "mcp-server",
+      "official",
+      "database"
+    ],
+    "tech_stack": [
+      "redis"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-redis"
+        ]
+      }
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "modelcontextprotocolserver-sqlite",
+    "name": "modelcontextprotocol/server-sqlite",
+    "type": "mcp",
+    "description": "官方参考实现，操作 SQLite 数据库，并内置商业智能能力。",
+    "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite",
+    "stars": 83044,
+    "category": "database",
+    "tags": [
+      "mcp-server",
+      "official",
+      "sqlite",
+      "database"
+    ],
+    "tech_stack": [
+      "sqlite"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "uvx",
+        "args": [
+          "mcp-server-sqlite"
+        ]
+      }
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "aws-cdk",
+    "name": "AWS CDK",
+    "type": "mcp",
+    "description": "Get prescriptive CDK advice, explain CDK Nag rules, check suppressions, generate Bedrock Agent schemas, and discover AWS Solutions Constructs patterns.",
+    "source_url": "https://github.com/awslabs/mcp/tree/main/src/cdk-mcp-server",
+    "stars": 8690,
+    "category": "devops",
+    "tags": [
+      "aws",
+      "mcp",
+      "mcp-client",
+      "mcp-clients",
+      "mcp-host",
+      "mcp-server",
+      "mcp-servers",
+      "mcp-tools",
+      "modelcontextprotocol"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "uvx",
+        "args": [
+          "awslabs.core-mcp-server@latest"
+        ],
+        "env": {
+          "FASTMCP_LOG_LEVEL": "ERROR"
+        }
+      }
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "weibaohuik8m",
+    "name": "weibaohui/k8m",
+    "type": "mcp",
+    "description": "提供 MCP 多集群 Kubernetes 管理和操作，带管理界面、日志记录和近 50 个内置工具 (支持标准/CRD)。",
+    "source_url": "https://github.com/weibaohui/k8m",
+    "stars": 798,
+    "category": "devops",
+    "tags": [
+      "kubernetes",
+      "2fa",
+      "ai",
+      "apigateway",
+      "chatgpt",
+      "dashboard",
+      "k8s",
+      "k8s-gpt",
+      "mcp",
+      "ollama",
+      "openai",
+      "openkruise"
+    ],
+    "tech_stack": [
+      "kubernetes"
+    ],
+    "install": {
+      "method": "manual"
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "ref",
+    "name": "Ref",
+    "type": "mcp",
+    "description": "Up-to-date documentation for your coding agent. Covers 1000s of public repos and sites. Built by [ref.tools](https://ref.tools/)",
+    "source_url": "https://github.com/ref-tools/ref-tools-mcp",
+    "stars": 1057,
+    "category": "documentation",
+    "tags": [
+      "coding-agent",
+      "documentation-tool",
+      "mcp",
+      "mcp-server"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "manual"
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "aymericzipintlayer",
+    "name": "aymericzip/intlayer",
+    "type": "mcp",
+    "description": "A MCP Server that enhance your IDE with AI-powered assistance for Intlayer i18n / CMS tool: smart CLI access, versioned docs.",
+    "source_url": "https://github.com/aymericzip/intlayer",
+    "stars": 667,
+    "category": "frontend",
+    "tags": [
+      "cms",
+      "content",
+      "content-management",
+      "hacktoberfest",
+      "i18n",
+      "internationalisation",
+      "javascript",
+      "l10n",
+      "localization",
+      "multilingual",
+      "nextjs",
+      "node",
+      "react-native",
+      "reactjs",
+      "typescript",
+      "vitejs"
+    ],
+    "tech_stack": [
+      "react",
+      "typescript",
+      "nextjs"
+    ],
+    "install": {
+      "method": "manual"
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "modelcontextprotocolserver-fetch",
+    "name": "modelcontextprotocol/server-fetch",
+    "type": "mcp",
+    "description": "官方参考实现，灵活获取网页内容（HTML/JSON/MD），并为 AI 处理优化。",
+    "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+    "stars": 83044,
+    "category": "frontend",
+    "tags": [
+      "mcp-server",
+      "official",
+      "rest-api"
+    ],
+    "tech_stack": [
+      "python"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "uvx",
+        "args": [
+          "mcp-server-fetch"
+        ]
+      }
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "pnp-cli-microsoft365-mcp-server",
+    "name": "Microsoft 365 MCP Server",
+    "type": "mcp",
+    "description": "Manage Microsoft 365 using MCP server",
+    "source_url": "https://github.com/pnp/cli-microsoft365-mcp-server",
+    "stars": 89,
+    "category": "fullstack",
+    "tags": [
+      "microsoft365",
+      "cli",
+      "mcp-server"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@pnp/cli-microsoft365-mcp-server@latest"
+        ]
+      }
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "oraiosserena",
+    "name": "oraios/serena",
+    "type": "mcp",
+    "description": "功能齐全的编码代理，依赖于使用语言服务器的符号化代码操作。",
+    "source_url": "https://github.com/oraios/serena",
+    "stars": 22508,
+    "category": "mobile",
+    "tags": [
+      "agent",
+      "ai",
+      "ai-coding",
+      "claude",
+      "claude-code",
+      "codex",
+      "ide",
+      "jetbrains",
+      "language-server",
+      "mcp-server",
+      "programming",
+      "vibe-coding"
+    ],
+    "tech_stack": [
+      "python"
+    ],
+    "install": {
+      "method": "manual"
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "burtthecodermcp-shodan",
+    "name": "BurtTheCoder/mcp-shodan",
+    "type": "mcp",
+    "description": "用于查询 Shodan API 和 Shodan CVEDB 的 MCP 服务器。提供 IP 查找、设备搜索、DNS 查找、漏洞查询等工具。",
+    "source_url": "https://github.com/BurtTheCoder/mcp-shodan",
+    "stars": 120,
+    "category": "security",
+    "tags": [
+      "ai-tools",
+      "claude",
+      "cpe",
+      "cve",
+      "cybersecurity",
+      "dns",
+      "ip-lookup",
+      "mcp",
+      "mcp-server",
+      "model-context-protocol",
+      "network-security",
+      "osint",
+      "reconnaissance",
+      "security",
+      "shodan",
+      "shodan-api",
+      "threat-intelligence",
+      "typescript",
+      "vulnerability-intelligence"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "mcp-shodan",
+        "args": [],
+        "env": {
+          "SHODAN_API_KEY": "your-shodan-api-key"
+        }
+      }
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "microsoftplaywright-mcp",
+    "name": "microsoft/playwright-mcp",
+    "type": "mcp",
+    "description": "微软官方出品，使用 Playwright 让 AI 精确控制网页，自动化抓取数据。",
+    "source_url": "https://github.com/microsoft/playwright-mcp",
+    "stars": 30329,
+    "category": "testing",
+    "tags": [
+      "playwright",
+      "mcp"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "npx",
+        "args": [
+          "@playwright/mcp@latest"
+        ]
+      }
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "neo4j",
+    "name": "Neo4j",
+    "type": "mcp",
+    "description": "Neo4j 官方贡献，操作 Neo4j 图数据库（模式+读写 Cypher），并提供图数据库支持的记忆功能。",
+    "source_url": "https://github.com/neo4j-contrib/mcp-neo4j/",
+    "stars": 931,
+    "category": "tooling",
+    "tags": [
+      "database",
+      "mcp",
+      "mcp-server",
+      "neo4j",
+      "stdio"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "manual"
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "modelcontextprotocolserver-filesystem",
+    "name": "modelcontextprotocol/server-filesystem",
+    "type": "mcp",
+    "description": "官方参考实现，提供对本地文件系统的直接访问，带可配置权限。",
+    "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+    "stars": 83044,
+    "category": "tooling",
+    "tags": [
+      "mcp-server",
+      "official",
+      "filesystem"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-filesystem"
+        ]
+      }
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "clojure-mcp",
+    "name": "clojure-mcp",
+    "type": "mcp",
+    "description": "Clojure development tools, direct access to the running program via REPL.",
+    "source_url": "https://github.com/bhauman/clojure-mcp",
+    "stars": 723,
+    "category": "tooling",
+    "tags": [
+      "mcp-server",
+      "clojure",
+      "repl",
+      "development"
+    ],
+    "tech_stack": [
+      "clojure"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "/opt/homebrew/bin/bash",
+        "args": [
+          "-c",
+          "clojure -Tmcp start :not-cwd true :port 7888"
+        ]
+      }
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
   }
 ]

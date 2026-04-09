@@ -7,12 +7,22 @@
     "source_url": "https://github.com/anthropics/skills/tree/main/skills/claude-api",
     "stars": 500,
     "category": "ai-ml",
-    "tags": ["claude", "anthropic", "api", "llm"],
-    "tech_stack": ["python", "typescript"],
+    "tags": [
+      "claude",
+      "anthropic",
+      "api",
+      "llm"
+    ],
+    "tech_stack": [
+      "python",
+      "typescript"
+    ],
     "install": {
       "method": "git_clone",
       "repo": "https://github.com/anthropics/skills.git",
-      "files": ["skills/claude-api/"]
+      "files": [
+        "skills/claude-api/"
+      ]
     },
     "source": "curated",
     "added_at": "2026-03-25",
@@ -26,15 +36,379 @@
     "source_url": "https://github.com/anthropics/skills/tree/main/skills/mcp-builder",
     "stars": 500,
     "category": "tooling",
-    "tags": ["mcp", "server", "protocol"],
-    "tech_stack": ["typescript", "python"],
+    "tags": [
+      "mcp",
+      "server",
+      "protocol"
+    ],
+    "tech_stack": [
+      "typescript",
+      "python"
+    ],
     "install": {
       "method": "git_clone",
       "repo": "https://github.com/anthropics/skills.git",
-      "files": ["skills/mcp-builder/"]
+      "files": [
+        "skills/mcp-builder/"
+      ]
     },
     "source": "curated",
     "added_at": "2026-03-25",
     "last_synced": "2026-03-25"
+  },
+  {
+    "id": "agentic-actions-auditor-agskill",
+    "name": "agentic-actions-auditor",
+    "type": "skill",
+    "description": "Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations  including Claude Code Action,  Gemini CLI, OpenAI Codex, and GitHub AI  Inference.  Detects attack vectors where attacker-controlled  input reaches. AI agents running in CI/CD pipelines.\n",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agentic-actions-auditor",
+    "stars": 30914,
+    "category": "ai-ml",
+    "tags": [
+      "openai",
+      "git"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/sickn33/antigravity-awesome-skills.git",
+      "files": [
+        "skills/agentic-actions-auditor/"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "bullmq-specialist-agskill",
+    "name": "bullmq-specialist",
+    "type": "skill",
+    "description": "BullMQ expert for Redis-backed job queues, background processing, and reliable async execution in Node.js/TypeScript applications. Use when: bullmq, bull queue, redis queue, background job, job queue.",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/bullmq-specialist",
+    "stars": 30914,
+    "category": "backend",
+    "tags": [
+      "typescript",
+      "redis",
+      "nodejs"
+    ],
+    "tech_stack": [
+      "redis"
+    ],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/sickn33/antigravity-awesome-skills.git",
+      "files": [
+        "skills/bullmq-specialist/"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "junta-leiloeiros-agskill",
+    "name": "junta-leiloeiros",
+    "type": "skill",
+    "description": "Coleta e consulta dados de leiloeiros oficiais de todas as 27 Juntas Comerciais do Brasil. Scraper multi-UF, banco SQLite, API FastAPI e exportacao CSV/JSON.",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/junta-leiloeiros",
+    "stars": 30914,
+    "category": "backend",
+    "tags": [
+      "fastapi",
+      "python",
+      "sqlite",
+      "scraping"
+    ],
+    "tech_stack": [
+      "sqlite"
+    ],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/sickn33/antigravity-awesome-skills.git",
+      "files": [
+        "skills/junta-leiloeiros/"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "drizzle-orm-expert-agskill",
+    "name": "drizzle-orm-expert",
+    "type": "skill",
+    "description": "Expert in Drizzle ORM for TypeScript — schema design, relational queries, migrations, and serverless database integration. Use when building type-safe database layers with Drizzle.",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/drizzle-orm-expert",
+    "stars": 30914,
+    "category": "database",
+    "tags": [
+      "typescript",
+      "drizzle",
+      "orm",
+      "database"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/sickn33/antigravity-awesome-skills.git",
+      "files": [
+        "skills/drizzle-orm-expert/"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "kubernetes-architect-agskill",
+    "name": "kubernetes-architect",
+    "type": "skill",
+    "description": "Expert Kubernetes architect specializing in cloud-native infrastructure, advanced GitOps workflows (ArgoCD/Flux), and enterprise container orchestration.",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/kubernetes-architect",
+    "stars": 30914,
+    "category": "devops",
+    "tags": [
+      "go",
+      "kubernetes",
+      "git"
+    ],
+    "tech_stack": [
+      "kubernetes"
+    ],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/sickn33/antigravity-awesome-skills.git",
+      "files": [
+        "skills/kubernetes-architect/"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "graphql-skill",
+    "name": "graphql",
+    "type": "skill",
+    "description": "GraphQL gives clients exactly the data they need - no more, no less. One endpoint, typed schema, introspection. But the flexibility that makes it powerful also makes it dangerous. Without proper controls, clients can craft queries that bring down your server.  This skill covers schema design, resolvers, DataLoader for N+1 prevention, federation for microservices, and client integration with Apollo/urql. Key insight: GraphQL is a contract. The schema is the API documentation. Design it carefully.",
+    "source_url": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/development/graphql",
+    "stars": 24193,
+    "category": "documentation",
+    "tags": [
+      "graphql",
+      "api",
+      "backend"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "git_clone",
+      "repo": "davila7/claude-code-templates",
+      "branch": "main",
+      "path": "cli-tool/components/skills/development/graphql"
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "godot-gdscript-patterns-agskill",
+    "name": "godot-gdscript-patterns",
+    "type": "skill",
+    "description": "Master Godot 4 GDScript patterns including signals, scenes, state machines, and optimization. Use when building Godot games, implementing game systems, or learning GDScript best practices.",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/godot-gdscript-patterns",
+    "stars": 30914,
+    "category": "frontend",
+    "tags": [
+      "go",
+      "godot",
+      "game-dev",
+      "gdscript"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/sickn33/antigravity-awesome-skills.git",
+      "files": [
+        "skills/godot-gdscript-patterns/"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "monorepo-architect-skill",
+    "name": "monorepo-architect",
+    "type": "skill",
+    "description": "Expert in monorepo architecture, build systems, and dependency management at scale. Masters Nx, Turborepo, Bazel, and Lerna for efficient multi-project development. Use PROACTIVELY for monorepo setup,",
+    "source_url": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/development/monorepo-architect",
+    "stars": 24193,
+    "category": "fullstack",
+    "tags": [
+      "monorepo",
+      "nx",
+      "turborepo",
+      "build-systems",
+      "javascript"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "git_clone",
+      "repo": "davila7/claude-code-templates",
+      "branch": "main",
+      "path": "cli-tool/components/skills/development/monorepo-architect"
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "expo-tailwind-setup-agskill",
+    "name": "expo-tailwind-setup",
+    "type": "skill",
+    "description": "Set up Tailwind CSS v4 in Expo with react-native-css and NativeWind v5 for universal styling",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/expo-tailwind-setup",
+    "stars": 30914,
+    "category": "mobile",
+    "tags": [
+      "react",
+      "tailwind",
+      "css"
+    ],
+    "tech_stack": [
+      "react-native",
+      "react",
+      "typescript"
+    ],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/sickn33/antigravity-awesome-skills.git",
+      "files": [
+        "skills/expo-tailwind-setup/"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "gha-security-review-agskill",
+    "name": "gha-security-review",
+    "type": "skill",
+    "description": "Find exploitable vulnerabilities in GitHub Actions workflows. Every finding MUST include a concrete exploitation scenario — if you can't build the attack, don't report it.",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gha-security-review",
+    "stars": 30914,
+    "category": "security",
+    "tags": [
+      "git",
+      "security",
+      "github",
+      "ci-cd"
+    ],
+    "tech_stack": [
+      "git"
+    ],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/sickn33/antigravity-awesome-skills.git",
+      "files": [
+        "skills/gha-security-review/"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "webapp-testing-skill",
+    "name": "webapp-testing",
+    "type": "skill",
+    "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/webapp-testing",
+    "stars": 0,
+    "category": "testing",
+    "tags": [
+      "playwright",
+      "anthropic",
+      "official"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/anthropics/skills.git",
+      "files": [
+        "skills/webapp-testing/"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "acceptance-orchestrator-agskill",
+    "name": "acceptance-orchestrator",
+    "type": "skill",
+    "description": "Use when a coding task should be driven end-to-end from issue intake through implementation, review, deployment, and acceptance verification with minimal human re-intervention.",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/acceptance-orchestrator",
+    "stars": 30914,
+    "category": "tooling",
+    "tags": [
+      "ci-cd",
+      "automation",
+      "devops",
+      "deployment",
+      "testing"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/sickn33/antigravity-awesome-skills.git",
+      "files": [
+        "skills/acceptance-orchestrator/"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
+  },
+  {
+    "id": "airflow-dag-patterns-agskill",
+    "name": "airflow-dag-patterns",
+    "type": "skill",
+    "description": "Build production Apache Airflow DAGs with best practices for operators, sensors, testing, and deployment. Use when creating data pipelines, orchestrating workflows, or scheduling batch jobs.",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/airflow-dag-patterns",
+    "stars": 30914,
+    "category": "tooling",
+    "tags": [
+      "airflow",
+      "automation",
+      "python",
+      "devops"
+    ],
+    "tech_stack": [
+      "python"
+    ],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/sickn33/antigravity-awesome-skills.git",
+      "files": [
+        "skills/airflow-dag-patterns/"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09",
+    "added_at": "2026-04-09"
   }
 ]

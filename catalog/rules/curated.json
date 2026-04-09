@@ -7,11 +7,20 @@
     "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/flutter-dart",
     "stars": 178,
     "category": "mobile",
-    "tags": ["flutter", "dart", "mobile"],
-    "tech_stack": ["dart", "flutter"],
+    "tags": [
+      "flutter",
+      "dart",
+      "mobile"
+    ],
+    "tech_stack": [
+      "dart",
+      "flutter"
+    ],
     "install": {
       "method": "download_file",
-      "files": ["https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/flutter-dart/.cursorrules"]
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/flutter-dart/.cursorrules"
+      ]
     },
     "source": "curated",
     "last_synced": "2026-03-25"
@@ -24,11 +33,20 @@
     "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/supabase",
     "stars": 178,
     "category": "database",
-    "tags": ["supabase", "postgres", "edge-functions"],
-    "tech_stack": ["typescript", "sql"],
+    "tags": [
+      "supabase",
+      "postgres",
+      "edge-functions"
+    ],
+    "tech_stack": [
+      "typescript",
+      "sql"
+    ],
     "install": {
       "method": "download_file",
-      "files": ["https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/supabase/.cursorrules"]
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/supabase/.cursorrules"
+      ]
     },
     "source": "curated",
     "last_synced": "2026-03-25"
@@ -41,11 +59,18 @@
     "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
     "stars": 50,
     "category": "security",
-    "tags": ["security", "audit", "owasp", "authentication"],
+    "tags": [
+      "security",
+      "audit",
+      "owasp",
+      "authentication"
+    ],
     "tech_stack": [],
     "install": {
       "method": "download_file",
-      "files": ["https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/security-review.mdc"]
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/security-review.mdc"
+      ]
     },
     "source": "curated",
     "last_synced": "2026-03-25"
@@ -58,13 +83,171 @@
     "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
     "stars": 50,
     "category": "documentation",
-    "tags": ["documentation", "technical-writing", "api-docs"],
+    "tags": [
+      "documentation",
+      "technical-writing",
+      "api-docs"
+    ],
     "tech_stack": [],
     "install": {
       "method": "download_file",
-      "files": ["https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/doc-generation.mdc"]
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/doc-generation.mdc"
+      ]
     },
     "source": "curated",
     "last_synced": "2026-03-25"
+  },
+  {
+    "id": "permission-control-system-rule21",
+    "name": "Permission Control System (Rules 2.1)",
+    "type": "rule",
+    "description": "权限控制系统 - 定义用户/AI/系统的角色权限和操作审计",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 0,
+    "category": "ai-ml",
+    "tags": [
+      "global rules",
+      "global-rules",
+      "security",
+      "system"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/permission-control-system.mdc"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09"
+  },
+  {
+    "id": "python-312-fastapi-best-practices-cursorrules-prom-cursorrule",
+    "name": "Python 312 Fastapi Best Practices Cursorrules Prom Rules",
+    "type": "rule",
+    "description": "Python 3.12 FastAPI Best Practices .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-312-fastapi-best-practices-cursorrules-prom",
+    "stars": 0,
+    "category": "backend",
+    "tags": [
+      "python",
+      "fastapi"
+    ],
+    "tech_stack": [
+      "python",
+      "fastapi"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/python-312-fastapi-best-practices-cursorrules-prom/.cursorrules"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09"
+  },
+  {
+    "id": "performance-monitoring-system-rule21",
+    "name": "Performance Monitoring System (Rules 2.1)",
+    "type": "rule",
+    "description": "性能监控系统 - 实时监控系统性能指标，优化资源使用和响应速度",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 0,
+    "category": "devops",
+    "tags": [
+      "global rules",
+      "global-rules",
+      "system",
+      "automation"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/performance-monitoring-system.mdc"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09"
+  },
+  {
+    "id": "frontend-dev-rule21",
+    "name": "Frontend Dev (Rules 2.1)",
+    "type": "rule",
+    "description": "Frontend development workflow with Vue/React/TypeScript - 前端开发完整工作流",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 0,
+    "category": "frontend",
+    "tags": [
+      "react",
+      "vue",
+      "typescript",
+      "project rules"
+    ],
+    "tech_stack": [
+      "react",
+      "typescript",
+      "nextjs"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/frontend-dev.mdc"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09"
+  },
+  {
+    "id": "playwright-accessibility-testing-cursorrules-prompt-file-cursorrule",
+    "name": "Playwright Accessibility Testing Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Playwright Accessibility Testing Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/playwright-accessibility-testing-cursorrules-prompt-file",
+    "stars": 0,
+    "category": "testing",
+    "tags": [
+      "playwright",
+      "testing",
+      "accessibility"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/playwright-accessibility-testing-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09"
+  },
+  {
+    "id": "disaster-recovery-plan-rule21",
+    "name": "Disaster Recovery Plan (Rules 2.1)",
+    "type": "rule",
+    "description": "灾难恢复计划 - 应对数据丢失、系统故障和安全事件的完整恢复策略",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": 0,
+    "category": "tooling",
+    "tags": [
+      "global rules",
+      "global-rules",
+      "system",
+      "automation"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/disaster-recovery-plan.mdc"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-04-09"
   }
 ]
