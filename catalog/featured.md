@@ -1,13 +1,13 @@
 ## ⭐ Featured Picks
 
-> Curated by use case from 4004+ resources. After installation, use `/coding-hub:search` to explore the full index or `/coding-hub:recommend` for project-aware suggestions.
+> Curated by use case from 4025+ resources. After installation, use `/coding-hub:search` to explore the full index or `/coding-hub:recommend` for project-aware suggestions.
 
 ### 🌐 Browser & Automation
 
-- 🔌 **[microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp)** — Using Playwright for browser automation and data scraping is directly… ⭐ 30.3k
-- 🔌 **[ScrapeGraphAI](https://github.com/ScrapeGraphAI/Scrapegraph-ai)** — AI-powered web scraping library that creates scraping pipelines using… ⭐ 23.2k
+- 🔌 **[microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp)** — Using Playwright for browser automation and data scraping is directly… ⭐ 30.5k
+- 🔌 **[ScrapeGraphAI](https://github.com/ScrapeGraphAI/Scrapegraph-ai)** — AI-powered web scraping library that creates scraping pipelines using… ⭐ 23.3k
 - 🔌 **[Skyvern](https://github.com/Skyvern-AI/skyvern/tree/main/integrations/mcp)** — MCP Server to let Claude / your AI control the browser ⭐ 21.1k
-- 🔌 **[Agent Reach](https://github.com/Panniantong/Agent-Reach)** — Tool for connecting AI agents to multiple platforms (social media,… ⭐ 15.3k
+- 🔌 **[Agent Reach](https://github.com/Panniantong/Agent-Reach)** — Tool for connecting AI agents to multiple platforms (social media,… ⭐ 16.5k
 - 🎯 **[webapp-testing](https://github.com/anthropics/skills/tree/main/skills/webapp-testing)** — Toolkit for interacting with and testing local web applications using… `Anthropic official`
 - 🎯 **[audit-library-health](https://github.com/skillcreatorai/Ai-Agent-Skills/tree/main/skills/audit-library-health)** — Use when checking the overall health of a skills library. Run doctor,… `Community curated`
 - 📋 **[Ai Powered Code Review (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules)** — Core dev tool for code quality with a clear description of AI-driven… `Rules 2.1`
@@ -16,7 +16,7 @@
 
 ### 🐙 Git & Collaboration
 
-- 🔌 **[github/github-mcp-server](https://github.com/github/github-mcp-server)** — Core dev tool for deep GitHub API integration to automate workflows,… ⭐ 28.6k
+- 🔌 **[github/github-mcp-server](https://github.com/github/github-mcp-server)** — Core dev tool for deep GitHub API integration to automate workflows,… ⭐ 28.7k
 - 🔌 **[idosal/git-mcp](https://github.com/idosal/git-mcp)** — Directly aids coding by connecting to GitHub repositories for… ⭐ 7.9k
 - 🔌 **[Chart](https://github.com/antvis/mcp-server-chart)** — 🤖 A Model Context Protocol server for generating visual charts using… ⭐ 3.9k
 - 🔌 **[julien040/anyquery](https://github.com/julien040/anyquery)** — Querying 40+ applications and databases via SQL is a core data access… ⭐ 1.7k
@@ -40,9 +40,9 @@
 
 ### 📚 Documentation & Knowledge
 
-- 🔌 **[microsoft/markitdown](https://github.com/microsoft/markitdown/tree/main/packages/markitdown-mcp)** — File format conversion to Markdown directly aids code documentation… ⭐ 93.4k
-- 🔌 **[Context 7](https://github.com/upstash/context7-mcp)** — Context7 MCP - Up-to-date Docs For Any Cursor Prompt ⭐ 51.7k
-- 🔌 **[Mastra/mcp-docs-server](https://github.com/mastra-ai/mastra/tree/main/packages/mcp-docs-server)** — Provides AI assistants with direct access to Mastra.ai's complete… ⭐ 22.7k
+- 🔌 **[microsoft/markitdown](https://github.com/microsoft/markitdown/tree/main/packages/markitdown-mcp)** — File format conversion to Markdown directly aids code documentation… ⭐ 94.4k
+- 🔌 **[Context 7](https://github.com/upstash/context7-mcp)** — Context7 MCP - Up-to-date Docs For Any Cursor Prompt ⭐ 52.1k
+- 🔌 **[Mastra/mcp-docs-server](https://github.com/mastra-ai/mastra/tree/main/packages/mcp-docs-server)** — Provides AI assistants with direct access to Mastra.ai's complete… ⭐ 22.8k
 - 🔌 **[cognee-mcp](https://github.com/topoteretes/cognee/tree/main/cognee-mcp)** — GraphRAG memory server with custom ingestion directly supports AI… ⭐ 15.0k
 - 🎯 **[slack-gif-creator](https://github.com/anthropics/skills/tree/main/skills/slack-gif-creator)** — Knowledge and utilities for creating animated GIFs optimized for… `Anthropic official`
 - 🎯 **[theme-factory](https://github.com/anthropics/skills/tree/main/skills/theme-factory)** — Toolkit for styling artifacts with a theme. These artifacts can be… `Anthropic official`
@@ -52,7 +52,7 @@
 
 ### 🎨 Frontend & Design
 
-- 🔌 **[mediar-ai/screenpipe](https://github.com/mediar-ai/screenpipe)** — Tangentially related to coding via screen capture and AI agent… ⭐ 18.0k
+- 🔌 **[mediar-ai/screenpipe](https://github.com/mediar-ai/screenpipe)** — Tangentially related to coding via screen capture and AI agent… ⭐ 18.1k
 - 🔌 **[Framelink Figma MCP Server](https://github.com/GLips/Figma-Context-MCP)** — MCP server to provide Figma layout information to AI coding agents… ⭐ 14.0k
 - 🔌 **[Inbox Zero](https://github.com/elie222/inbox-zero/tree/main/apps/mcp-server)** — Gmail-based personal email assistant is a general productivity tool… ⭐ 10.4k
 - 🔌 **[Lingo.dev](https://github.com/lingodotdev/lingo.dev/blob/main/mcp.md)** — Make your AI agent speak every language on the planet, using… ⭐ 5.4k
@@ -64,8 +64,8 @@
 
 ### ⚙️ Backend & Databases
 
-- 🔌 **[pydantic/pydantic-ai/mcp-run-python](https://github.com/pydantic/pydantic-ai/tree/main/mcp-run-python)** — Running Python code in a secure sandbox is a core tool for developing… ⭐ 16.1k
-- 🔌 **[googleapis/genai-toolbox](https://github.com/googleapis/genai-toolbox)** — Core dev tool as an official Google MCP server providing simple,… ⭐ 13.9k
+- 🔌 **[pydantic/pydantic-ai/mcp-run-python](https://github.com/pydantic/pydantic-ai/tree/main/mcp-run-python)** — Running Python code in a secure sandbox is a core tool for developing… ⭐ 16.2k
+- 🔌 **[googleapis/genai-toolbox](https://github.com/googleapis/genai-toolbox)** — Core dev tool as an official Google MCP server providing simple,… ⭐ 14.0k
 - 🔌 **[InstantDB](https://github.com/instantdb/instant/tree/main/client/packages/mcp)** — Create, manage, and update applications on InstantDB, the modern… ⭐ 9.8k
 - 🔌 **[Supabase MCP Servers](https://github.com/supabase-community/mcp-supabase)** — A collection of MCP servers that connect LLMs to Supabase ⭐ 2.6k
 - 🎯 **[PocketBase Hooks](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/pocketbase/pb-hooks)** — Server-side JavaScript hooks for PocketBase (pb_hooks). Use when… `davila7/claude-code-templates`
@@ -76,12 +76,12 @@
 
 ### 🤖 AI & MCP Development
 
-- 🔌 **[modelcontextprotocol/server-filesystem](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem)** — Official filesystem access implementation is a core development tool… ⭐ 83.0k
+- 🔌 **[modelcontextprotocol/server-filesystem](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem)** — Official filesystem access implementation is a core development tool… ⭐ 83.3k
 - 🔌 **[Homebrew](https://github.com/Homebrew/brew/blob/HEAD/Library/Homebrew/mcp_server.rb)** — An MCP server for the Homebrew package manager. ⭐ 47.2k
 - 🔌 **[claude-cookbooks](https://github.com/anthropics/anthropic-cookbook)** — A collection of notebooks/recipes showcasing some fun and effective… ⭐ 36.6k
 - 🔌 **[FastMCP v2 🚀](https://github.com/jlowin/fastmcp)** — 🚀 The fast, Pythonic way to build MCP servers and clients ⭐ 24.0k
 - 🎯 **[algorithmic-art](https://github.com/anthropics/skills/tree/main/skills/algorithmic-art)** — Creating algorithmic art using p5.js with seeded randomness and… `Anthropic official`
-- 🎯 **[claude-api](https://github.com/anthropics/skills/tree/main/skills/claude-api)** — Build apps with the Claude API or Anthropic SDK. TRIGGER when: code… `Anthropic official`
+- 🎯 **[claude-api](https://github.com/anthropics/skills/tree/main/skills/claude-api)** — Anthropic skill: claude-api `Anthropic official`
 - 📋 **[Super Brain System (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules)** — The 'super brain' metaphor for project management is not a recognized… `Rules 2.1`
 - 📋 **[Ai Ethical Boundaries (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules)** — Ethical standards are not directly related to software development… `Rules 2.1`
 - 💡 **[混淆代码翻译](https://github.com/langgptai/wonderful-prompts)** — The prompt directly aids coding by analyzing, translating, and… `wonderful-prompts`

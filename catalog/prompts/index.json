@@ -18,7 +18,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "linux-terminal-prompt",
@@ -39,7 +39,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "job-interviewer-prompt",
@@ -58,7 +58,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "javascript-console-prompt",
@@ -81,7 +81,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "excel-sheet-prompt",
@@ -102,7 +102,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "debate-coach-prompt",
@@ -123,7 +123,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "screenwriter-prompt",
@@ -144,7 +144,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "uxui-developer-prompt",
@@ -166,7 +166,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "cyber-security-specialist-prompt",
@@ -187,7 +187,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "web-design-consultant-prompt",
@@ -208,7 +208,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "ai-assisted-doctor-prompt",
@@ -227,7 +227,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "self-help-book-prompt",
@@ -246,7 +246,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "text-based-adventure-game-prompt",
@@ -265,7 +265,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "ai-trying-to-escape-the-box-prompt",
@@ -286,7 +286,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "fancy-title-generator-prompt",
@@ -305,7 +305,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "statistician-prompt",
@@ -324,28 +324,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
-  },
-  {
-    "id": "prompt-generator-prompt",
-    "name": "Prompt Generator",
-    "type": "prompt",
-    "description": "CONTEXT:  We are going to create one of the best AI prompts ever written. The best prompts include comprehensive details to fully inform the Large Language Model (LLM) of the prompt’s: goals, required",
-    "source_url": "https://github.com/f/prompts.chat",
-    "stars": null,
-    "category": "backend",
-    "tags": [
-      "go"
-    ],
-    "tech_stack": [],
-    "install": {
-      "method": "download_file",
-      "files": [
-        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
-      ]
-    },
-    "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "instructor-in-a-school-prompt",
@@ -367,7 +346,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "sql-terminal-prompt",
@@ -388,7 +367,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "smart-domain-name-generator-prompt",
@@ -409,7 +388,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "tech-reviewer-prompt",
@@ -430,7 +409,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "developer-relations-consultant-prompt",
@@ -451,7 +430,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "it-architect-prompt",
@@ -473,7 +452,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "scientific-data-visualizer-prompt",
@@ -494,7 +473,26 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
+  },
+  {
+    "id": "astrologer-prompt",
+    "name": "Astrologer",
+    "type": "prompt",
+    "description": "I want you to act as an astrologer. You will learn about the zodiac signs and their meanings, understand planetary positions and how they affect human lives, be able to interpret horoscopes accurately",
+    "source_url": "https://github.com/f/prompts.chat",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-09"
   },
   {
     "id": "tech-writer-prompt",
@@ -515,7 +513,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "ascii-artist-prompt",
@@ -536,7 +534,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "python-interpreter-prompt",
@@ -558,7 +556,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "machine-learning-engineer-prompt",
@@ -579,7 +577,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "svg-designer-prompt",
@@ -600,7 +598,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "it-expert-prompt",
@@ -621,7 +619,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "fullstack-software-developer-prompt",
@@ -644,7 +642,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "regex-generator-prompt",
@@ -666,7 +664,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "talent-coach-prompt",
@@ -685,7 +683,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "r-programming-interpreter-prompt",
@@ -706,7 +704,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "stackoverflow-post-prompt",
@@ -727,7 +725,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "php-interpreter-prompt",
@@ -749,7 +747,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "software-quality-assurance-tester-prompt",
@@ -770,7 +768,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "password-generator-prompt",
@@ -791,7 +789,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "web-browser-prompt",
@@ -812,7 +810,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "senior-frontend-developer-prompt",
@@ -834,7 +832,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "code-reviewer-prompt",
@@ -855,7 +853,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "accessibility-auditor-prompt",
@@ -876,7 +874,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "solr-search-engine-prompt",
@@ -897,7 +895,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "commit-message-generator-prompt",
@@ -916,7 +914,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "conventional-commit-message-generator-prompt",
@@ -938,7 +936,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "diagram-generator-prompt",
@@ -960,7 +958,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "product-manager-prompt",
@@ -981,7 +979,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "project-manager-prompt",
@@ -1000,7 +998,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "mathematical-history-teacher-prompt",
@@ -1019,7 +1017,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "cover-letter-prompt",
@@ -1038,7 +1036,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "technology-transferer-prompt",
@@ -1059,7 +1057,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "chemical-reactor-prompt",
@@ -1080,7 +1078,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "prompt-enhancer-prompt",
@@ -1101,7 +1099,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "data-scientist-prompt",
@@ -1123,7 +1121,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "architectural-expert-prompt",
@@ -1142,7 +1140,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "llm-researcher-prompt",
@@ -1163,7 +1161,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "unit-tester-assistant-prompt",
@@ -1184,7 +1182,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "career-coach-prompt",
@@ -1206,7 +1204,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "knowledgeable-software-development-mentor-prompt",
@@ -1227,7 +1225,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "logic-builder-tool-prompt",
@@ -1248,7 +1246,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "teacher-of-reactjs-prompt",
@@ -1270,7 +1268,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "github-expert-prompt",
@@ -1292,7 +1290,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "any-programming-language-to-python-converter-prompt",
@@ -1314,7 +1312,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "girl-of-dreams-prompt",
@@ -1335,7 +1333,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "dax-terminal-prompt",
@@ -1356,7 +1354,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "top-programming-expert-prompt",
@@ -1377,7 +1375,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "architect-guide-for-programmers-prompt",
@@ -1398,7 +1396,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "tech-challenged-customer-prompt",
@@ -1419,7 +1417,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "large-language-models-security-specialist-prompt",
@@ -1440,7 +1438,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "tech-troubleshooter-prompt",
@@ -1461,7 +1459,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "technical-architecture-prompt",
@@ -1480,7 +1478,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "seo-prompt-prompt",
@@ -1502,7 +1500,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "devops-engineer-prompt",
@@ -1523,7 +1521,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "linux-script-developer-prompt",
@@ -1544,7 +1542,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "reverse-prompt-engineer-prompt",
@@ -1565,17 +1563,21 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "code-review-assistant-prompt",
     "name": "Code Review Assistant",
     "type": "prompt",
-    "description": "Act as a Code Review Assistant. Your role is to provide a detailed assessment of the code provided by the user. You will:  - Analyze the code for readability, maintainability, and style. - Identify po",
+    "description": "{\"role\": \"Code Review Assistant\", \"context\": {\"language\": \"JavaScript\", \"framework\": \"React\", \"focus_areas\": [\"performance\", \"security\", \"best_practices\"]}, \"review_format\": {\"severity\": \"high|medium|",
     "source_url": "https://github.com/f/prompts.chat",
     "stars": null,
-    "category": "ai-ml",
+    "category": "security",
     "tags": [
+      "react",
+      "javascript",
+      "go",
+      "java",
       "for-devs"
     ],
     "tech_stack": [],
@@ -1586,7 +1588,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "data-transformer-prompt",
@@ -1607,7 +1609,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "break-down-costs-prompt",
@@ -1626,7 +1628,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "3d-fps-game-prompt",
@@ -1648,7 +1650,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "interactive-quiz-prompt",
@@ -1671,7 +1673,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "meditation-timer-prompt",
@@ -1695,7 +1697,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "advanced-color-picker-tool-prompt",
@@ -1718,7 +1720,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "secure-password-generator-tool-prompt",
@@ -1741,7 +1743,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "music-player-prompt",
@@ -1764,7 +1766,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "drawing-app-prompt",
@@ -1787,7 +1789,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "currency-exchange-calculator-prompt",
@@ -1810,7 +1812,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "recipe-finder-prompt",
@@ -1834,7 +1836,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "budget-tracker-prompt",
@@ -1858,7 +1860,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "weather-dashboard-prompt",
@@ -1881,7 +1883,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "file-encryption-tool-prompt",
@@ -1904,7 +1906,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "code-snippet-manager-prompt",
@@ -1928,7 +1930,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "kanban-board-prompt",
@@ -1951,7 +1953,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "flashcard-study-system-prompt",
@@ -1975,7 +1977,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "habit-tracker-prompt",
@@ -1999,7 +2001,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "image-editor-prompt",
@@ -2022,7 +2024,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "text-analyzer-tool-prompt",
@@ -2046,7 +2048,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "sudoku-game-prompt",
@@ -2070,7 +2072,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "chess-game-prompt",
@@ -2093,7 +2095,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "url-shortener-prompt",
@@ -2116,7 +2118,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "typing-speed-test-prompt",
@@ -2139,7 +2141,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "memory-card-game-prompt",
@@ -2162,7 +2164,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "3d-racing-game-prompt",
@@ -2184,7 +2186,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "http-benchmarking-tool-cli-prompt",
@@ -2205,7 +2207,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "3d-space-explorer-prompt",
@@ -2227,7 +2229,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "pdf-viewer-prompt",
@@ -2250,7 +2252,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "health-metrics-calculator-prompt",
@@ -2273,7 +2275,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "markdown-notes-prompt",
@@ -2296,7 +2298,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "pomodoro-timer-prompt",
@@ -2319,7 +2321,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "multiplayer-3d-plane-game-prompt",
@@ -2342,7 +2344,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "todo-list-prompt",
@@ -2366,7 +2368,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "scientific-calculator-prompt",
@@ -2390,7 +2392,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "lifestyle-product-images-prompt",
@@ -2409,7 +2411,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "web-design-prompt",
@@ -2428,7 +2430,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "ai2sql-sql-model-query-generator-prompt",
@@ -2449,7 +2451,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "predictive-eye-tracking-heatmap-generator-prompt",
@@ -2470,7 +2472,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "3d-city-prompt-prompt",
@@ -2489,7 +2491,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "django-unit-test-generator-for-viewsets-prompt",
@@ -2512,7 +2514,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "comprehensive-repository-analysis-and-bug-fixing-framework-prompt",
@@ -2531,7 +2533,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "ultrathinker-prompt",
@@ -2552,7 +2554,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "code-review-agent-prompt",
@@ -2573,7 +2575,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "senior-system-architect-agent-prompt",
@@ -2592,7 +2594,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "test-python-algorithmic-trading-project-prompt",
@@ -2615,7 +2617,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "senior-prompt-engineer-role-guide-prompt",
@@ -2634,7 +2636,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "arista-network-configuration-expert-prompt",
@@ -2653,7 +2655,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "analyze-pdf-and-create-matlab-code-prompt",
@@ -2672,7 +2674,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "vacuum-arc-modeling-under-transverse-magnetic-fields-prompt",
@@ -2691,7 +2693,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "meeting-room-booking-web-app-development-prompt",
@@ -2713,7 +2715,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "hts-veri-analiz-portalı-geliştirme-ve-hata-ayıklama-prompt",
@@ -2732,7 +2734,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "create-style-guidemd-prompt",
@@ -2751,7 +2753,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "xiaomi-company-self-service-management-system-frontend-development-prompt",
@@ -2774,7 +2776,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "customizable-web-template-for-company-branding-prompt",
@@ -2797,7 +2799,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "minimal-web-compatible-food-order-app-development-prompt",
@@ -2816,7 +2818,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "real-time-multiplayer-defense-game-prompt",
@@ -2837,7 +2839,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "continue-coding-assistant-prompt",
@@ -2858,7 +2860,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "internal-project-proposal-for-hospital-collaboration-prompt",
@@ -2877,7 +2879,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "dark-style-image-prompt-prompt",
@@ -2898,7 +2900,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "develop-a-lazy-learner-software-prompt",
@@ -2917,7 +2919,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "starting-a-flutter-project-prompt",
@@ -2938,7 +2940,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "comprehensive-uiux-mobile-app-analysis-prompt",
@@ -2957,7 +2959,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "comprehensive-repository-analysis-prompt",
@@ -2976,7 +2978,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "optimize-large-data-reading-in-code-prompt",
@@ -2997,7 +2999,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "comprehensive-devops-guide-prompt",
@@ -3016,7 +3018,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "nextjs-specialized-front-end-developer-prompt",
@@ -3038,7 +3040,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "autosar-software-module-developer-prompt",
@@ -3057,7 +3059,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "manufacturing-workflow-optimization-with-or-tools-prompt",
@@ -3078,7 +3080,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "shift-tracking-telegram-mini-app-prompt",
@@ -3097,7 +3099,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "lead-data-analyst-with-data-engineering-expertise-prompt",
@@ -3116,7 +3118,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "act-as-a-patient-non-technical-android-studio-guide-prompt",
@@ -3137,7 +3139,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "chimera-ai-powered-prompt-optimization-system-prompt",
@@ -3159,7 +3161,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "code-translator-any-language-to-any-language-prompt",
@@ -3180,7 +3182,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "linux-monitoring-single-html-prompt",
@@ -3199,7 +3201,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "linux-monitoring-dashboard-with-react-prompt",
@@ -3220,7 +3222,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "website-security-vulnerability-checker-prompt",
@@ -3239,7 +3241,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "sidebar-dashboard-design-prompt",
@@ -3262,7 +3264,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "act-as-a-product-manager-prompt",
@@ -3281,7 +3283,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "build-an-advanced-music-app-for-android-prompt",
@@ -3300,7 +3302,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "web-application-testing-skill-prompt",
@@ -3321,7 +3323,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "meta-prompt-engineer-prompt",
@@ -3342,7 +3344,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "squid-game-red-light-green-light-challenge-prompt",
@@ -3361,7 +3363,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "landing-page-vibe-coding-prompt",
@@ -3380,7 +3382,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "cicd-strategy-for-springboot-rest-apis-deployment-prompt",
@@ -3402,7 +3404,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "quantitative-factor-research-engineer-prompt",
@@ -3423,7 +3425,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "banking-system-app-development-with-crud-operations-prompt",
@@ -3442,7 +3444,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "mppt-simulation仿真代码-prompt",
@@ -3461,7 +3463,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "create-a-detailed-travel-itinerary-in-html-format-prompt",
@@ -3480,7 +3482,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "digital-visiting-card-product-architect-prompt",
@@ -3501,7 +3503,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "developer-daily-report-generator-prompt",
@@ -3520,7 +3522,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "担任go语言开发者-prompt",
@@ -3542,7 +3544,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "frontend-developer-skill-prompt",
@@ -3567,7 +3569,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "github-code-structure-tutor-prompt",
@@ -3588,7 +3590,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "algorithm-quick-guide-prompt",
@@ -3609,7 +3611,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "comprehensive-user-manual-creation-for-multiple-modules-prompt",
@@ -3628,7 +3630,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "building-an-inventory-management-system-prompt",
@@ -3647,7 +3649,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "setting-up-a-new-ios-app-in-xcode-prompt",
@@ -3668,7 +3670,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "nextjs-react-comprehensive-clash-of-clans-tool-prompt",
@@ -3690,7 +3692,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "developer-work-analysis-from-git-diff-and-commit-message-prompt",
@@ -3712,7 +3714,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "isometric-miniature-3d-cartoon-city-scene-prompt",
@@ -3731,7 +3733,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "algorithm-analysis-and-improvement-advisor-prompt",
@@ -3752,7 +3754,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "update-checker-prompt",
@@ -3773,7 +3775,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "android-update-checker-script-for-pydroid-3-prompt",
@@ -3795,7 +3797,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "pull-request-review-assistant-prompt",
@@ -3814,7 +3816,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "quizflix-app-development-prompt",
@@ -3833,7 +3835,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "quizflix-mobile-app-design-for-university-students-prompt",
@@ -3852,7 +3854,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "interactive-quiz-application-for-tv-shows-and-movies-prompt",
@@ -3871,7 +3873,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "30-tweet-project-prompt",
@@ -3892,7 +3894,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "build-a-self-hosted-app-dashboard-with-nextjs-prompt",
@@ -3915,7 +3917,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "for-rally-prompt",
@@ -3936,7 +3938,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "hccvn-ai-vn-pro-max-optimal-ai-system-design-prompt",
@@ -3957,7 +3959,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "coding-structure-with-mvc-and-solid-principles-prompt",
@@ -3978,7 +3980,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "görsel-prompt",
@@ -3997,7 +3999,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "chinese-hookah-training-program-prompt",
@@ -4016,7 +4018,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "net-api-project-analysis-prompt",
@@ -4035,7 +4037,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "set-up-wb-and-run-pod-during-training-prompt",
@@ -4056,7 +4058,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "hata-tespiti-için-kod-inceleme-asistanı-prompt",
@@ -4077,7 +4079,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "deep-copy-functionality-prompt",
@@ -4098,7 +4100,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "visual-web-application-development-prompt",
@@ -4121,7 +4123,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "one-click-design-mockup-creator-prompt",
@@ -4142,7 +4144,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "create-python-dev-container-prompt",
@@ -4164,7 +4166,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "expo-supabase-edge-function-cold-start-mobile-performance-analysis-prompt",
@@ -4186,7 +4188,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "cold-start-safe-architecture-prompt",
@@ -4209,7 +4211,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "blog-system-development-guide-prompt",
@@ -4228,7 +4230,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "flight-tracker-desktop-application-prompt",
@@ -4247,7 +4249,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "develop-a-notion-clone-application-prompt",
@@ -4268,7 +4270,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "ast-code-analysis-superpower-prompt",
@@ -4289,7 +4291,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "aws-cloud-expert-prompt",
@@ -4310,7 +4312,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "accessibility-expert-prompt",
@@ -4329,7 +4331,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "accessibility-testing-superpower-prompt",
@@ -4348,7 +4350,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "custom-localization-and-ai-integration-for-apps-prompt",
@@ -4367,7 +4369,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "modern-video-player-with-sharp-ui-prompt",
@@ -4386,7 +4388,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "isometric-3d-cartoon-scene-with-weather-effects-prompt",
@@ -4407,7 +4409,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "nodejs-automation-script-developer-prompt",
@@ -4428,7 +4430,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "smart-application-developer-assistant-prompt",
@@ -4447,7 +4449,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "website-creation-command-prompt",
@@ -4466,7 +4468,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "app-store-submission-agent-prompt",
@@ -4485,7 +4487,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "comprehensive-web-application-development-with-security-and-performance-optimization-prompt",
@@ -4504,7 +4506,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "photo-to-isometric-reality-slice-generator-prompt",
@@ -4523,7 +4525,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "strategic-app-design-content-engineering-prompt-prompt",
@@ -4544,7 +4546,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "base64-promt-prompt",
@@ -4567,7 +4569,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "3d-isometric-miniature-city-view-with-weather-prompt",
@@ -4586,7 +4588,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "automate-repository-management-with-opencode-cli-prompt",
@@ -4608,7 +4610,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "nano-banana-pro-prompt-generator-instruction-outputs-json-blocks-like-these-prompt",
@@ -4627,7 +4629,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "prompt-writer-for-specific-project-prompt",
@@ -4648,7 +4650,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "open-source-free-license-selection-assistant-prompt",
@@ -4667,7 +4669,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "codebase-wiki-documentation-skill-prompt",
@@ -4686,7 +4688,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "creating-a-project-management-tool-prompt",
@@ -4705,7 +4707,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "surreal-city-scene-prompt",
@@ -4724,7 +4726,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "study-review-companion-prompt",
@@ -4743,7 +4745,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "investment-tracking-dashboard-prompt",
@@ -4766,7 +4768,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "professional-github-dashboard-for-portfolio-enhancement-prompt",
@@ -4787,7 +4789,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "candlestick-reversal-pattern-detector-in-pine-script-prompt",
@@ -4806,7 +4808,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "finance-tracker-app-development-plan-prompt",
@@ -4827,7 +4829,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "research-project-analysis-and-ipd-feasibility-recommendations-prompt",
@@ -4846,7 +4848,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "enterprise-microservices-architecture-design-prompt",
@@ -4865,7 +4867,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "swiftui-ios-app-development-guide-prompt",
@@ -4886,7 +4888,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "bug-discovery-code-assistant-prompt",
@@ -4907,7 +4909,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "manim-code-prompt",
@@ -4926,7 +4928,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "comprehensive-repository-audit-remediation-prompt-prompt",
@@ -4945,7 +4947,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "openai-create-plan-skill-prompt",
@@ -4967,7 +4969,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "create-an-unofficial-instagram-api-prompt",
@@ -4986,7 +4988,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "professional-full-stack-developer-for-network-mapping-monitoring-application-prompt",
@@ -5005,7 +5007,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "comprehensive-pos-application-development-with-fifo-and-reporting-prompt",
@@ -5024,7 +5026,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "node-web-app-for-czech-invoice-pdf-generation-prompt",
@@ -5046,7 +5048,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "build-a-ui-library-for-esp32-prompt",
@@ -5068,7 +5070,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "esp32-ui-library-development-prompt",
@@ -5089,7 +5091,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "nbx-prompt",
@@ -5108,7 +5110,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "sap-abap-carbon-footprint-module-graduation-project-documentation-prompt",
@@ -5127,7 +5129,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "code-review-expert-prompt",
@@ -5148,7 +5150,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "networking-engineer-portfolio-website-prompt",
@@ -5167,7 +5169,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "senior-java-backend-engineer-expert-prompt",
@@ -5189,7 +5191,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "mechanical-part-render-to-technical-drawing-converter-prompt",
@@ -5208,7 +5210,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "3d-mechanical-part-image-to-technical-drawing-conversion-prompt",
@@ -5229,7 +5231,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "topic-article-prompt",
@@ -5250,7 +5252,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "develop-a-ui-library-for-esp32-prompt",
@@ -5269,7 +5271,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "file-analysis-api-with-nodejs-and-express-prompt",
@@ -5292,7 +5294,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "full-stack-engineer-for-airline-simulation-center-app-prompt",
@@ -5311,7 +5313,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "senior-full-stack-developer-for-airline-simulation-center-prompt",
@@ -5330,7 +5332,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "senior-product-engineer-data-scientist-for-turkish-car-valuation-platform-prompt",
@@ -5349,7 +5351,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "act-as-an-ftth-telecommunications-expert-prompt",
@@ -5368,7 +5370,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "develop-a-modern-website-for-sporsmaç-using-react-native-prompt",
@@ -5389,7 +5391,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "couples-therapy-app-development-guide-prompt",
@@ -5408,7 +5410,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "seo-fundamentals-prompt",
@@ -5429,7 +5431,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "mastermind-prompt",
@@ -5448,7 +5450,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "creative-short-story-writing-prompt",
@@ -5469,7 +5471,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "comprehensive-roadmap-for-ai-and-computer-vision-specialization-in-defense-systems-prompt",
@@ -5488,7 +5490,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "code-review-specialist-2-prompt",
@@ -5498,9 +5500,7 @@
     "source_url": "https://github.com/f/prompts.chat",
     "stars": null,
     "category": "ai-ml",
-    "tags": [
-      "for-devs"
-    ],
+    "tags": [],
     "tech_stack": [],
     "install": {
       "method": "download_file",
@@ -5509,7 +5509,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "github-repository-analysis-and-enhancement-prompt",
@@ -5530,7 +5530,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "inference-scenario-automation-tool-prompt",
@@ -5549,7 +5549,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "act-as-an-electron-frontend-developer-prompt",
@@ -5572,7 +5572,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "sql-query-generator-from-natural-language-prompt",
@@ -5591,7 +5591,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "white-box-web-application-security-audit-penetration-testing-prompt-for-ai-code-editors-cursor-windsurf-antigravity-prompt",
@@ -5610,7 +5610,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "develop-android-apps-from-screenshots-prompt",
@@ -5629,7 +5629,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "ai-powered-data-extraction-and-organization-tool-prompt",
@@ -5648,7 +5648,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "context7-documentation-expert-agent-prompt",
@@ -5672,7 +5672,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "the-quant-edge-engine-prompt",
@@ -5691,7 +5691,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "yapper-twitter-strategist-2026-prompt",
@@ -5710,7 +5710,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "fintech-product-and-operations-assistant-prompt",
@@ -5729,7 +5729,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "vibe-coding-master-prompt",
@@ -5750,7 +5750,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "technical-codebase-discovery-onboarding-prompt-prompt",
@@ -5771,7 +5771,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "multi-audience-application-discovery-documentation-prompt-prompt",
@@ -5790,7 +5790,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "web-app-for-task-management-and-scheduling-prompt",
@@ -5809,7 +5809,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "sentry-bug-fixer-prompt",
@@ -5830,7 +5830,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "meta-prompt-prompt",
@@ -5851,7 +5851,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "auditor-de-código-python-nivel-senior-salida-en-español-prompt",
@@ -5873,7 +5873,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "network-engineer-prompt",
@@ -5895,7 +5895,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "commit-message-preparation-prompt",
@@ -5917,7 +5917,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "tattoo-studio-booking-web-app-development-prompt",
@@ -5936,7 +5936,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "12-month-ai-and-computer-vision-roadmap-for-defense-applications-prompt",
@@ -5958,7 +5958,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "ai-engineer-prompt",
@@ -5977,7 +5977,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "backend-architect-prompt",
@@ -5996,7 +5996,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "devops-automator-prompt",
@@ -6015,7 +6015,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "frontend-developer-prompt",
@@ -6038,7 +6038,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "mobile-app-builder-prompt",
@@ -6059,7 +6059,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "rapid-prototyper-prompt",
@@ -6078,7 +6078,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "test-automation-expert-prompt",
@@ -6099,7 +6099,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "feedback-synthesizer-prompt",
@@ -6118,7 +6118,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "sprint-prioritizer-prompt",
@@ -6137,7 +6137,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "joker-tech-humor-master-prompt",
@@ -6156,7 +6156,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "uipath-xaml-code-review-specialist-prompt",
@@ -6175,7 +6175,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "the-prd-mastermind-prompt",
@@ -6196,7 +6196,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "terminal-drift-prompt",
@@ -6215,7 +6215,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "master-prompt-architect-context-engineer-prompt",
@@ -6234,7 +6234,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "python-prompt",
@@ -6256,7 +6256,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "mcp-builder-prompt",
@@ -6278,7 +6278,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "universal-context-document-ucd-generator-prompt",
@@ -6297,7 +6297,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "claude-code-skill-slash-command-review-and-commitmd-prompt",
@@ -6318,7 +6318,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "create-a-drag-and-drop-experience-using-uniapp-prompt",
@@ -6339,7 +6339,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "develop-a-creative-dice-generator-called-ideadice-prompt",
@@ -6360,7 +6360,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "glados-prompt",
@@ -6379,7 +6379,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "prompt-architect-pro-prompt",
@@ -6398,7 +6398,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "synthesis-architect-pro-prompt",
@@ -6419,7 +6419,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "the-pragmatic-architect-mastering-tech-with-humor-and-precision-prompt",
@@ -6440,7 +6440,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "githubtrends-prompt",
@@ -6462,7 +6462,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "terminal-velocity-prompt",
@@ -6481,7 +6481,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "module-wrap-up-next-steps-video-generation-prompt",
@@ -6500,7 +6500,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "strict-markdown-only-output-enforcement-prompt",
@@ -6519,7 +6519,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "beginners-guide-to-building-and-deploying-llms-prompt",
@@ -6540,7 +6540,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "musician-portfolio-website-design-prompt",
@@ -6559,7 +6559,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "geminimd-prompt",
@@ -6578,7 +6578,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "cinematic-ultra-realistic-image-to-video-prompt-engineer-prompt",
@@ -6597,7 +6597,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "build-a-ddqn-snake-game-with-tensorflowjs-in-a-single-html-file-prompt",
@@ -6616,7 +6616,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "network-engineer-home-edition-prompt",
@@ -6637,7 +6637,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "step-3a-technical-deep-dive-prompt",
@@ -6656,7 +6656,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "step-4b-story-development-prompt",
@@ -6675,7 +6675,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "production-grade-posthog-integration-for-nextjs-15-app-router-prompt",
@@ -6698,7 +6698,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "kubernetes-docker-rpg-learning-engine-prompt",
@@ -6720,7 +6720,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "my-skills-prompt",
@@ -6741,7 +6741,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "copilot-prompt",
@@ -6762,7 +6762,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "note-guru-prompt",
@@ -6781,7 +6781,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "the-ultimate-typescript-code-review-prompt",
@@ -6802,7 +6802,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "php-microscope-forensic-codebase-autopsy-protocol-prompt",
@@ -6823,7 +6823,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "blogging-prompt-prompt",
@@ -6842,7 +6842,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "improve-the-following-code-prompt",
@@ -6861,7 +6861,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "personal-form-builder-app-design-prompt",
@@ -6880,7 +6880,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "comprehensive-code-review-expert-prompt",
@@ -6901,7 +6901,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "claude-code-statusline-design-prompt",
@@ -6922,7 +6922,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "linkedin-profile-enhancing-prompt",
@@ -6941,7 +6941,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "marketing-mastermind-for-product-promotion-prompt",
@@ -6960,7 +6960,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "the-architect-hacker-protector-viral-engineer-prompt",
@@ -6979,7 +6979,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "gpt-5-expert-prompt-engineer-mode-condensed-prompt",
@@ -6998,7 +6998,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "streaks-mobile-app-development-prompt-prompt",
@@ -7020,7 +7020,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "senior-frontend-debugger-for-spa-websites-angular-react-vite-prompt",
@@ -7043,7 +7043,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "fix-blank-screen-issues-after-deploy-on-vercel-angular-react-vite-prompt",
@@ -7065,7 +7065,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "ai-builder-prompt",
@@ -7084,7 +7084,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "building-a-scalable-search-service-with-fastapi-and-postgresql-prompt",
@@ -7106,7 +7106,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "enterprise-talent-development-management-system-design-prompt",
@@ -7125,7 +7125,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "gen-z-content-online-sales-prompt-generator-prompt",
@@ -7146,7 +7146,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "deep-github-repository-understanding-prompt",
@@ -7167,7 +7167,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "criaralterar-documentação-de-projeto-prompt",
@@ -7186,7 +7186,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "gerador-de-tarefas-prompt",
@@ -7205,7 +7205,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "planjedor-de-tarefas-prompt",
@@ -7224,7 +7224,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "code-recon-prompt",
@@ -7246,7 +7246,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "creating-a-comprehensive-elasticsearch-search-project-with-fastapi-prompt",
@@ -7267,7 +7267,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "prompt-optimization-prompt",
@@ -7286,7 +7286,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "4-optimized-versions-of-a-prompt-in-arabic-prompt",
@@ -7305,7 +7305,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "prompt-engineering-expert-prompt",
@@ -7324,7 +7324,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "lagrange-lens-blue-wolf-prompt",
@@ -7343,7 +7343,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "dog-fun-prompt",
@@ -7365,7 +7365,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "prd-prompt",
@@ -7387,7 +7387,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "second-opinion-prompt",
@@ -7406,17 +7406,19 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "code-review-specialist-prompt",
     "name": "Code Review Specialist",
     "type": "prompt",
-    "description": "messages:   - role: system     content: Act as a Code Review Specialist. You are an experienced software developer with a keen eye for detail and a deep understanding of coding standards and best prac",
+    "description": "Act as a Code Review Specialist. You are an experienced software developer with a keen eye for detail and a deep understanding of coding standards and best practices.  Your task is to review the code",
     "source_url": "https://github.com/f/prompts.chat",
     "stars": null,
     "category": "ai-ml",
-    "tags": [],
+    "tags": [
+      "for-devs"
+    ],
     "tech_stack": [],
     "install": {
       "method": "download_file",
@@ -7425,7 +7427,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "develop-a-live-video-streaming-website-prompt",
@@ -7444,7 +7446,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "national-architecture-dioramas-prompt",
@@ -7463,7 +7465,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "project-breakdown-prompt",
@@ -7484,7 +7486,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "high-conversion-cold-email-prompt",
@@ -7505,7 +7507,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "system-prompt-the-infinite-role-generator-prompt",
@@ -7524,7 +7526,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "wfgy-20-core-flagship-self-healing-reasoning-os-for-any-llm-prompt",
@@ -7543,26 +7545,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
-  },
-  {
-    "id": "the-technical-co-founder-building-real-products-together-prompt",
-    "name": "The Technical Co-Founder: Building Real Products Together",
-    "type": "prompt",
-    "description": "**Your Role:** You are my Product Development Partner with one clear mission: transform my idea into a production-ready product I can launch today. You handle all technical execution while maintaining",
-    "source_url": "https://github.com/f/prompts.chat",
-    "stars": null,
-    "category": "ai-ml",
-    "tags": [],
-    "tech_stack": [],
-    "install": {
-      "method": "download_file",
-      "files": [
-        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
-      ]
-    },
-    "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "claudemd-generator-for-ai-coding-agents-prompt",
@@ -7581,7 +7564,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "prompt-generator-for-claude-code-prompt",
@@ -7600,7 +7583,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "hallucination-vulnerability-prompt-checker-prompt",
@@ -7622,7 +7605,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "lead-data-analyst-for-actionable-insights-prompt",
@@ -7643,7 +7626,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "table-in-pdf-to-csv-conversion-prompt",
@@ -7662,7 +7645,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "aaa-prompt",
@@ -7684,7 +7667,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "master-podcast-producer-sonic-storyteller-prompt",
@@ -7705,7 +7688,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "micro-saas-vibecoder-architect-prompt",
@@ -7726,7 +7709,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "senior-software-engineer-software-architect-rules-prompt",
@@ -7745,7 +7728,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "test-first-bug-fixing-approach-prompt",
@@ -7764,7 +7747,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "spring-boot-solid-specialist-prompt",
@@ -7783,7 +7766,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "principal-ai-code-reviewer-senior-software-engineer-architect-prompt-prompt",
@@ -7802,7 +7785,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "cruelty-free-beauty-product-checker-prompt",
@@ -7821,7 +7804,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "learn-any-technicalcoding-topic-prompt",
@@ -7840,7 +7823,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "animated-weather-radar-map-brescia-storm-prompt",
@@ -7859,7 +7842,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "python-code-performance-quality-enhancer-prompt",
@@ -7881,7 +7864,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "software-implementor-ai-agent-for-data-entry-and-testing-prompt",
@@ -7902,7 +7885,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "ckeditor-5-plugin-prompt",
@@ -7921,7 +7904,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "python-code-generator-clean-optimized-production-ready-prompt",
@@ -7943,7 +7926,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "antigravity-global-rules-prompt",
@@ -7962,7 +7945,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "documentation-update-automation-prompt",
@@ -7981,7 +7964,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "app-store-screenshots-gallery-generator-prompt",
@@ -8000,7 +7983,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "build-a-web3-wallet-on-playnance-blockchain-prompt",
@@ -8019,7 +8002,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "minimax-music-lyrics-generation-prompt",
@@ -8041,7 +8024,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "test-prompt",
@@ -8060,7 +8043,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "analyze-code-scanning-security-issues-and-dependency-updates-if-vulnerable-prompt",
@@ -8081,7 +8064,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "want-to-analyze-security-issues-and-vulnerabilities-and-fixes-prompt",
@@ -8100,7 +8083,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "security-fixes-cves-prompt",
@@ -8122,7 +8105,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "security-fixes-prompt",
@@ -8143,7 +8126,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "typescript-unit-testing-with-vitest-prompt",
@@ -8164,7 +8147,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "advanced-sales-funnel-app-with-react-flow-prompt",
@@ -8186,7 +8169,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "tcre-framework-ai-prompt-engineer-prompt",
@@ -8207,7 +8190,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "wickedsmahtfun-prompt",
@@ -8226,7 +8209,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "htwind-widget-creator-prompt",
@@ -8249,7 +8232,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "python-security-vulnerability-auditor-owasp-mapped-production-hardened-prompt",
@@ -8271,7 +8254,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "ai-performance-deep-testing-engineer-prompt",
@@ -8290,7 +8273,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "academic-paper-figure-generator-nano-banana-pro-prompt",
@@ -8309,7 +8292,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "promptschat-taste-prompt",
@@ -8332,7 +8315,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "python-unit-test-generator-comprehensive-coverage-mapped-production-ready-prompt",
@@ -8354,7 +8337,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "nextjs-prompt",
@@ -8376,7 +8359,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "code-translator-idiomatic-version-aware-production-ready-prompt",
@@ -8397,7 +8380,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "email-phishing-and-cyber-attack-notification-app-prompt",
@@ -8418,7 +8401,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "update-agent-permissions-prompt",
@@ -8437,7 +8420,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "angular-directive-generator-prompt",
@@ -8458,7 +8441,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "claude-code-skill-slash-command-push-and-pull-requestmd-prompt",
@@ -8479,7 +8462,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "dead-code-surgeon-phased-codebase-audit-cleanup-roadmap-prompt",
@@ -8498,7 +8481,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "comprehensive-go-codebase-review-forensic-level-analysis-prompt-prompt",
@@ -8519,7 +8502,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "comprehensive-python-codebase-review-forensic-level-analysis-prompt-prompt",
@@ -8540,7 +8523,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "brainstorming-technically-grounded-product-ideas-prompt",
@@ -8561,7 +8544,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "library-migration-prompt",
@@ -8584,7 +8567,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "sql-query-builder-optimiser-prompt",
@@ -8607,7 +8590,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "generate-a-plan-for-building-the-best-uiux-prompt",
@@ -8626,7 +8609,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "make-uiux-better-of-an-already-created-application-prompt",
@@ -8645,7 +8628,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "2046-puzzle-game-challenge-prompt",
@@ -8664,7 +8647,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "seo-diagnosis-prompt",
@@ -8685,7 +8668,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "productive-peer-mentor-friendly-tech-savvy-thinking-partner-prompt",
@@ -8704,7 +8687,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "elite-feedback-form-generator-stunning-ui-with-nextjs-react-typescript-prompt",
@@ -8727,7 +8710,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "tistory-blog-skin-uiux-enhancement-pipeline-prompt",
@@ -8748,7 +8731,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "civil-engineering-bridge-mentor-prompt",
@@ -8767,7 +8750,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "task-creator-prompt",
@@ -8786,7 +8769,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "missing-values-handler-prompt",
@@ -8808,7 +8791,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "unity-architecture-specialist-prompt",
@@ -8827,7 +8810,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "code-review-specialist-3-prompt",
@@ -8849,7 +8832,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "privacy-first-chat-app-with-multi-feature-support-prompt",
@@ -8868,7 +8851,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "page-by-page-build-prompt",
@@ -8890,7 +8873,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "design-system-extraction-prompt-kit-prompt",
@@ -8914,7 +8897,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "token-architecture-prompt",
@@ -8933,7 +8916,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "component-documentation-prompt",
@@ -8952,7 +8935,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "claudemd-assembly-prompt",
@@ -8971,7 +8954,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "maintenance-prompt-for-design-system-prompt",
@@ -8990,7 +8973,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "updatesync-prompt-prompt",
@@ -9009,7 +8992,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "explain-it-like-i-built-it-technical-documentation-for-non-technical-founders-prompt",
@@ -9028,7 +9011,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "claude-proje-çalışma-promptu-prompt",
@@ -9051,7 +9034,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "web-application-testing-skill-imported-prompt",
@@ -9072,7 +9055,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "design-handoff-notes-ai-first-human-readable-prompt",
@@ -9091,7 +9074,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "visual-qa-cross-browser-audit-prompt",
@@ -9110,7 +9093,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "lighthouse-performance-optimization-prompt",
@@ -9129,7 +9112,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "saas-security-audit-owasp-top-10-multi-tenant-isolation-review-prompt",
@@ -9150,7 +9133,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "saas-analytics-dashboard-knowledge-anchored-frontend-prompt-prompt",
@@ -9173,7 +9156,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "repository-security-architecture-audit-framework-prompt",
@@ -9194,7 +9177,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "code-generation-for-online-assessments-prompt",
@@ -9215,7 +9198,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "xcode-mcp-for-pi-agent-prompt",
@@ -9234,7 +9217,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "build-an-interview-practice-app-prompt",
@@ -9253,7 +9236,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "video-review-and-teacher-prompt",
@@ -9272,7 +9255,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "video-extractor-prompt-prompt",
@@ -9291,7 +9274,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "system-architect-agent-role-prompt",
@@ -9312,7 +9295,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "api-design-expert-agent-role-prompt",
@@ -9335,7 +9318,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "backend-architect-agent-role-prompt",
@@ -9354,7 +9337,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "database-architect-agent-role-prompt",
@@ -9380,7 +9363,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "data-validator-agent-role-prompt",
@@ -9399,7 +9382,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "mock-data-generator-agent-role-prompt",
@@ -9418,7 +9401,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "backup-restore-agent-role-prompt",
@@ -9441,7 +9424,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "devops-automator-agent-role-prompt",
@@ -9462,7 +9445,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "environment-configuration-agent-role-prompt",
@@ -9484,7 +9467,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "git-workflow-expert-agent-role-prompt",
@@ -9506,7 +9489,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "repository-workflow-editor-agent-role-prompt",
@@ -9527,7 +9510,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "documentation-maintainer-agent-role-prompt",
@@ -9548,7 +9531,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "frontend-developer-agent-role-prompt",
@@ -9570,7 +9553,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "ui-architect-agent-role-prompt",
@@ -9593,7 +9576,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "legal-document-generator-agent-role-prompt",
@@ -9616,7 +9599,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "caching-architect-agent-role-prompt",
@@ -9637,7 +9620,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "optimization-auditor-agent-role-prompt",
@@ -9659,7 +9642,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "performance-tuning-agent-role-prompt",
@@ -9681,7 +9664,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "diff-security-auditor-agent-role-prompt",
@@ -9703,7 +9686,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "vulnerability-auditor-agent-role-prompt",
@@ -9724,7 +9707,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "api-tester-agent-role-prompt",
@@ -9745,7 +9728,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "quality-engineering-agent-role-prompt",
@@ -9766,7 +9749,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "test-analyzer-agent-role-prompt",
@@ -9787,7 +9770,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "test-engineer-agent-role-prompt",
@@ -9808,7 +9791,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "code-formatter-agent-role-prompt",
@@ -9829,7 +9812,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "code-review-agent-role-prompt",
@@ -9850,7 +9833,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "code-reviewer-agent-role-prompt",
@@ -9871,7 +9854,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "dependency-manager-agent-role-prompt",
@@ -9892,7 +9875,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "error-handler-agent-role-prompt",
@@ -9913,7 +9896,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "post-implementation-audit-agent-role-prompt",
@@ -9934,7 +9917,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "product-planner-agent-role-prompt",
@@ -9955,7 +9938,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "rapid-prototyper-agent-role-prompt",
@@ -9976,7 +9959,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "root-cause-analysis-agent-role-prompt",
@@ -9997,7 +9980,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "refactoring-expert-agent-role-prompt",
@@ -10018,7 +10001,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "shell-script-agent-role-prompt",
@@ -10039,7 +10022,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "tool-evaluator-agent-role-prompt",
@@ -10060,7 +10043,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "typescript-type-expert-agent-role-prompt",
@@ -10082,7 +10065,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "bug-risk-analyst-agent-role-prompt",
@@ -10103,7 +10086,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "repository-indexer-agent-role-prompt",
@@ -10124,7 +10107,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "visual-media-analysis-expert-agent-role-prompt",
@@ -10145,7 +10128,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "ux-conversion-deconstruction-engine-prompt",
@@ -10164,7 +10147,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "ai-first-design-handoff-generator-dev-ready-spec-prompt",
@@ -10183,7 +10166,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "design-system-consistency-auditor-prompt",
@@ -10202,7 +10185,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "ai-powered-personal-compliment-coaching-engine-prompt",
@@ -10221,7 +10204,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "personalized-digital-avatar-generator-prompt",
@@ -10242,7 +10225,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "private-group-coaching-infrastructure-prompt",
@@ -10261,7 +10244,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "trading-investing-simulation-platform-prompt",
@@ -10280,7 +10263,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "personal-knowledge-narrative-tool-prompt",
@@ -10299,7 +10282,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "zero-to-one-solo-founder-launch-system-prompt",
@@ -10320,7 +10303,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "legal-risk-minimization-tool-for-freelancers-prompt",
@@ -10339,7 +10322,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "astrojs-prompt",
@@ -10361,7 +10344,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "terraform-platform-engineer-prompt",
@@ -10382,7 +10365,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "nixos-linux-specialist-prompt",
@@ -10401,7 +10384,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "lazyvim-expert-prompt",
@@ -10420,7 +10403,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "github-enterprise-cloud-ghec-administrator-and-power-user-prompt",
@@ -10442,7 +10425,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "base-r-prompt",
@@ -10461,7 +10444,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "functional-analyst-prompt",
@@ -10482,7 +10465,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "small-functional-analyst-mode-prompt",
@@ -10503,7 +10486,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "ultra-micro-functional-analyst-prompt-prompt",
@@ -10524,7 +10507,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "architecture-uiux-audit-prompt",
@@ -10545,7 +10528,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "blood-grouping-detection-using-image-processing-prompt",
@@ -10566,7 +10549,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "network-router-emulator-prompt",
@@ -10585,7 +10568,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "voice-cloning-assistant-prompt",
@@ -10607,7 +10590,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "version-review-prompt",
@@ -10629,7 +10612,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "prompt-refiner-prompt",
@@ -10648,7 +10631,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "aacli-taste-prompt",
@@ -10670,7 +10653,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "claude-opus-as-seo-auditor-prompt",
@@ -10689,7 +10672,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "doe-framework-directions-template-prompt",
@@ -10711,7 +10694,7 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "packer-automation-imaging-expert-prompt",
@@ -10730,7 +10713,45 @@
       ]
     },
     "source": "prompts-chat",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
+  },
+  {
+    "id": "ai-app-improvement-loop-prompt-prompt",
+    "name": "🔧 AI App Improvement Loop Prompt",
+    "type": "prompt",
+    "description": "You are an expert software engineer, product designer, and QA analyst.  Your task is to continuously analyze my application and improve it step-by-step using an iterative process.  ## Objective Identi",
+    "source_url": "https://github.com/f/prompts.chat",
+    "stars": null,
+    "category": "ai-ml",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-09"
+  },
+  {
+    "id": "web-product-architect-prompt",
+    "name": "WEB Product Architect",
+    "type": "prompt",
+    "description": "# Role and Task You are a top-tier Web Product Architect, Full-Stack System Design Expert, and Enterprise Website Template System Consultant. You specialize in turning vague website requirements into",
+    "source_url": "https://github.com/f/prompts.chat",
+    "stars": null,
+    "category": "fullstack",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-09"
   },
   {
     "id": "资深编程专家-can-wprompt",
@@ -10751,7 +10772,7 @@
       ]
     },
     "source": "wonderful-prompts",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "编写函数python-为例-wprompt",
@@ -10773,7 +10794,7 @@
       ]
     },
     "source": "wonderful-prompts",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "编写正则表达式-wprompt",
@@ -10795,7 +10816,7 @@
       ]
     },
     "source": "wonderful-prompts",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "模拟-linux-终端-wprompt",
@@ -10816,7 +10837,7 @@
       ]
     },
     "source": "wonderful-prompts",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   },
   {
     "id": "混淆代码翻译-wprompt",
@@ -10837,6 +10858,6 @@
       ]
     },
     "source": "wonderful-prompts",
-    "last_synced": "2026-04-06"
+    "last_synced": "2026-04-09"
   }
 ]
