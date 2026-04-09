@@ -288,6 +288,16 @@ def merge():
         se = {k: entry.get(k) for k in SEARCH_INDEX_FIELDS}
         install_obj = entry.get("install")
         se["install_method"] = install_obj.get("method") if isinstance(install_obj, dict) else None
+        # Build search_text: merged field for semantic keyword matching
+        parts = [
+            entry.get("name", ""),
+            entry.get("description", ""),
+            entry.get("description_zh", ""),
+            " ".join(entry.get("tags") or []),
+            " ".join(entry.get("tech_stack") or []),
+            " ".join(entry.get("search_terms") or []),
+        ]
+        se["search_text"] = " ".join(p for p in parts if p)
         search_entries.append(se)
 
     search_index_path = os.path.join(CATALOG_DIR, "search-index.json")

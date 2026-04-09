@@ -7,6 +7,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   sync:
@@ -33,6 +35,7 @@ jobs:
             catalog/.llm_tag_cache.json
             catalog/.llm_techstack_cache.json
             catalog/.llm_translate_cache.json
+            catalog/.llm_search_cache.json
             catalog/maintenance/incremental_recrawl_state.json
             scripts/fallback_skill_repos.json
           key: sync-caches-${{ github.run_number }}
@@ -108,3 +111,38 @@ jobs:
             git pull --rebase
             git push
           fi
+
+      - name: Build frontend data
+        run: python scripts/build_frontend_data.py
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: frontend/pnpm-lock.yaml
+
+      - name: Build frontend
+        run: |
+          cd frontend
+          pnpm install --frozen-lockfile
+          pnpm build
+
+      - name: Deploy to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: frontend/dist
+
+  deploy:
+    needs: sync
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

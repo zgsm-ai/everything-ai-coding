@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Enrichment orchestrator - unified Layer 2 enrichment entry point."""
 
+import logging
 import sys
 import os
 from typing import Any
@@ -12,12 +13,16 @@ try:
     from .llm_evaluator import enrich_quality
     from .unified_enrichment import populate_signals
     from .llm_techstack_tagger import tag_techstack
+    from .llm_search_enricher import enrich_search_terms
 except ImportError:
     from llm_tagger import llm_tag_entries
     from llm_translator import llm_translate_entries
     from llm_evaluator import enrich_quality
     from unified_enrichment import populate_signals
     from llm_techstack_tagger import tag_techstack
+    from llm_search_enricher import enrich_search_terms
+
+logger = logging.getLogger(__name__)
 
 
 def enrich_entries(entries: list[dict[str, Any]]) -> None:
@@ -71,3 +76,21 @@ def enrich_entries(entries: list[dict[str, Any]]) -> None:
         populate_signals(entry)
         entry.pop("_llm_eval", None)  # Clean up temp field
         entry.pop("_prior_evaluation", None)  # Clean up fallback field
+
+    # Step 5: Search term enrichment (generates search_terms for semantic recall)
+    try:
+        search_results = enrich_search_terms(entries)
+        if search_results:
+            for entry in entries:
+                eid = entry["id"]
+                if eid in search_results:
+                    entry["search_terms"] = search_results[eid]
+            # Ensure all entries have search_terms (empty array as default)
+            for entry in entries:
+                if "search_terms" not in entry:
+                    entry["search_terms"] = []
+    except Exception as e:
+        logger.warning(f"Search term enrichment failed, skipping: {e}")
+        for entry in entries:
+            if "search_terms" not in entry:
+                entry["search_terms"] = []

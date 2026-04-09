@@ -48,21 +48,27 @@ Extract the search query and optional type filter from $ARGUMENTS, then run Bash
    - If curl fails, try Fallback URL: `curl -sf --compressed <Fallback URL> -o "$TMPDIR/coding-hub-index.json"`
 4. Pre-filter with Python (cross-platform: use `$(command -v python3 || command -v python)`):
    - Load JSON file
-   - Search `name`, `description`, `tags`, `tech_stack` for original + rewritten keywords (case-insensitive)
+   - If entries have a `search_text` field, match all keywords against `search_text` (case-insensitive)
+   - Otherwise fall back to matching against `name`, `description`, `tags`, `tech_stack` separately (backward compatible)
    - If type filter specified, filter by `type` field first
-   - Sort by number of matched fields, then by stars
-   - Output top 15, each line: `id\tname\ttype\tcategory\tstars\tinstall_method\tsource_url\tdescription\tdescription_zh` (TSV plain text)
-5. From pre-filtered results, select top 3-5 most likely candidates and fetch per-entry API for verification:
+   - Score each entry: count how many distinct keywords matched, use `stars` as tiebreaker
+   - Output top 30 candidates, each line: `id\tname\ttype\tcategory\tstars\tdescription\tdescription_zh` (TSV plain text)
+5. **Semantic reranking**: From the 30 candidates, YOU (Claude) read all entries' name + description and judge their relevance to the user's ORIGINAL query intent. Pick the top 5 most semantically relevant candidates. Consider:
+   - Direct functional match (tool does exactly what user asked)
+   - Closely related tools (solves the same problem from a different angle)
+   - Do NOT simply pick by stars or score — prioritize semantic fit
+   - If none of the 30 are relevant, say so honestly
+6. For the top 5 semantically selected candidates, fetch per-entry API for verification:
    - Prefer `https://.../api/v1/{type}/{id}.json`
    - If per-entry API fails, fall back to full index and filter by `id`
    - Extract `source`, `evaluation`, `health`, `install`, `source_url`, `tags` fields — only pull a small number of directly usable signals
-6. **Candidate Verification Gate (mandatory)**
+7. **Candidate Verification Gate (mandatory)**
    - NEVER label results as "recommendations" based solely on search hits or stars
    - A result enters the "Top Candidates" section ONLY when it satisfies: **≥1 trust signal + ≥1 actionable signal**
    - Trust signal examples: official/well-known source, curated, notably higher quality/health signals
    - Actionable signal examples: `install.method` is defined, per-entry API provides usable install info
    - If the gate is not met, label results as "matches" or "worth checking" — never as "verified recommendation" or overpromise
-7. Format results as "Top Candidates + Other Matches" two-tier output (not a flat single table)
+8. Format results as "Top Candidates + Other Matches" two-tier output (not a flat single table)
    - For broad-intent queries, top candidates should focus on one primary direction; avoid mixing too many adjacent categories on the first screen
 
 ## Output Structure
@@ -87,6 +93,6 @@ Section: "Other Matches" (table)
   (Use description_zh for Chinese users, description for others)
 ```
 
-8. Footer prompt:
+9. Footer prompt:
    - If top candidates exist: suggest installing or refining search
    - If no high-confidence candidates: suggest refining keywords or trying a specific candidate directly
