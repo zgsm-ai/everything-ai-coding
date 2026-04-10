@@ -35,6 +35,7 @@ jobs:
             catalog/.llm_tag_cache.json
             catalog/.llm_techstack_cache.json
             catalog/.llm_translate_cache.json
+            catalog/.llm_en_translate_cache.json
             catalog/.llm_search_cache.json
             catalog/maintenance/incremental_recrawl_state.json
             scripts/fallback_skill_repos.json
@@ -95,6 +96,7 @@ jobs:
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
           EVAL_DRY_RUN: ${{ vars.EVAL_DRY_RUN || 'true' }}
         run: python scripts/merge_index.py
+        continue-on-error: true
 
       - name: Update bilingual README files
         run: python scripts/update_readme.py

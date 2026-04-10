@@ -16,6 +16,8 @@ CATALOG_DIR = os.path.join(os.path.dirname(__file__), "..", "catalog")
 OLD_CACHE_PATH = os.path.join(CATALOG_DIR, "skills", ".llm_cache.json")
 CACHE_PATH = os.path.join(CATALOG_DIR, ".llm_eval_cache.json")
 CACHE_EXPIRY_DAYS = 30
+EVAL_DRY_RUN = os.environ.get("EVAL_DRY_RUN", "").lower() in ("true", "1", "yes")
+NEW_ENTRY_DAYS = 7  # In dry-run mode, only evaluate entries added within this window
 
 LLM_BASE_URL = os.environ.get("LLM_BASE_URL", "")
 LLM_API_KEY = os.environ.get("LLM_API_KEY", "")
@@ -299,6 +301,9 @@ def enrich_quality(entries: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
     needs_eval = []
     results = {}
 
+    now = datetime.now()
+    new_entry_cutoff = now - timedelta(days=NEW_ENTRY_DAYS)
+
     for entry in entries:
         entry_id = entry.get("id")
         entry_type = entry.get("type")
@@ -315,6 +320,23 @@ def enrich_quality(entries: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
             results[entry_id] = cache[cache_key]
             continue
 
+        # Dry-run mode: only evaluate new entries, use expired cache for the rest
+        if EVAL_DRY_RUN:
+            # Use expired cache if available
+            if cache_key in cache:
+                results[entry_id] = cache[cache_key]
+                continue
+            # No cache at all — check added_at to decide
+            added_at = entry.get("added_at", "")
+            if added_at:
+                try:
+                    entry_date = datetime.fromisoformat(added_at)
+                    if entry_date < new_entry_cutoff:
+                        continue  # Old entry with no cache, skip in dry-run
+                except ValueError:
+                    pass
+            # No added_at (rules/prompts) or new entry → fall through to needs_eval
+
         needs_eval.append(entry)
 
     if not llm_available:
@@ -323,6 +345,10 @@ def enrich_quality(entries: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
     if not needs_eval:
         logger.info("All entries already evaluated")
         return results
+
+    if EVAL_DRY_RUN:
+        skipped = len(entries) - len(needs_eval) - len(results)
+        logger.info(f"EVAL_DRY_RUN: {len(results)} from cache, {len(needs_eval)} new entries to evaluate, {skipped} skipped")
 
     logger.info(f"Evaluating {len(needs_eval)} entries with LLM")
 
@@ -340,8 +366,10 @@ def enrich_quality(entries: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
             type_entries[i : i + BATCH_SIZE]
             for i in range(0, len(type_entries), BATCH_SIZE)
         ]
+        total_batches = len(batches)
 
-        for batch in batches:
+        for batch_idx, batch in enumerate(batches):
+            logger.info(f"Evaluating {resource_type} batch {batch_idx+1}/{total_batches} ({len(batch)} entries)")
             llm_results = _call_llm(batch, resource_type)
             if not llm_results:
                 # LLM call failed — fall back to expired cache entries so
