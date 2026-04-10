@@ -222,7 +222,7 @@ export default function About() {
             target="_blank" rel="noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-xl glass text-gray-700 dark:text-gray-200 text-sm font-medium no-underline hover:opacity-80 transition-opacity"
           >
-            <img src="/costrict_logo.png" alt="Costrict" className="w-4 h-4 rounded-sm" />
+            <img src="./costrict_logo.png" alt="Costrict" className="w-4 h-4 rounded-sm" />
             Powered by Costrict
           </a>
         </div>
