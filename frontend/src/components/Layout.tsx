@@ -56,7 +56,7 @@ export default function Layout() {
             aria-label="Costrict"
             title="Costrict"
           >
-            <img src="/costrict-logo.webp" alt="Costrict" className="w-5 h-5 rounded-sm" />
+            <img src="/costrict_logo.png" alt="Costrict" className="w-5 h-5 rounded-sm" />
           </a>
           <a
             href="https://github.com/zgsm-sangfor/costrict-coding-hub"
