@@ -193,20 +193,38 @@ def enrich_search_terms(entries: list[dict]) -> dict[str, list[str]]:
     # Batch LLM calls
     batches = [uncached[i:i+BATCH_SIZE] for i in range(0, len(uncached), BATCH_SIZE)]
     now_iso = datetime.now().isoformat()
+    logger.info(
+        "Search enricher: "
+        f"{len(result)} cached, {len(uncached)} uncached, {len(batches)} batches pending"
+    )
+
+    processed = len(result)
 
     for batch_idx, batch in enumerate(batches):
+        logger.info(
+            "Search enricher: starting batch "
+            f"{batch_idx+1}/{len(batches)} ({len(batch)} entries)"
+        )
         raw = _call_llm_batch(batch)
         if not raw:
             logger.warning(f"Search enricher: batch {batch_idx+1}/{len(batches)} failed, skipping")
             continue
+        batch_hits = 0
         for e in batch:
             eid = e["id"]
             if eid in raw and isinstance(raw[eid], list):
                 terms = _postprocess_terms(raw[eid])
                 result[eid] = terms
                 cache[eid] = {"terms": terms, "cached_at": now_iso}
+                batch_hits += 1
 
         _save_cache(cache)
+        processed += len(batch)
+        logger.info(
+            "Search enricher: completed batch "
+            f"{batch_idx+1}/{len(batches)} with {batch_hits} results "
+            f"({processed}/{len(entries)} entries processed)"
+        )
 
     cached_count = len(entries) - len(uncached)
     new_count = len(result) - cached_count

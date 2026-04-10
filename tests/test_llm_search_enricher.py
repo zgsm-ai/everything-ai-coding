@@ -1,6 +1,7 @@
 """Tests for llm_search_enricher.py — LLM batch search term generation."""
 
 import json
+import logging
 import os
 import sys
 import tempfile
@@ -148,3 +149,25 @@ class TestEnrichSearchTerms:
         call_args = mock_llm.call_args[0][0]
         assert len(call_args) == 1
         assert call_args[0]["id"] == "entry-new"
+
+    @patch.dict(os.environ, {"LLM_BASE_URL": "http://llm.test/v1", "LLM_API_KEY": "key123"})
+    @patch("llm_search_enricher._call_llm_batch")
+    def test_logs_batch_progress(self, mock_llm, caplog):
+        """Emit cached/uncached and batch progress logs for long-running runs."""
+        entries = [self._make_entry(f"entry-{i}") for i in range(3)]
+        mock_llm.side_effect = [
+            {"entry-0": ["term-0"], "entry-1": ["term-1"]},
+            {"entry-2": ["term-2"]},
+        ]
+
+        with patch.object(llm_search_enricher, "BATCH_SIZE", 2):
+            with caplog.at_level(logging.INFO):
+                result = llm_search_enricher.enrich_search_terms(entries)
+
+        assert len(result) == 3
+        messages = [record.getMessage() for record in caplog.records]
+        assert "Search enricher: 0 cached, 3 uncached, 2 batches pending" in messages
+        assert "Search enricher: starting batch 1/2 (2 entries)" in messages
+        assert "Search enricher: completed batch 1/2 with 2 results (2/3 entries processed)" in messages
+        assert "Search enricher: starting batch 2/2 (1 entries)" in messages
+        assert "Search enricher: completed batch 2/2 with 1 results (3/3 entries processed)" in messages
