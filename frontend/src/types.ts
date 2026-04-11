@@ -83,4 +83,5 @@ export interface SearchIndexItem {
   final_score: number
   decision: string
   install_method?: string
+  search_text?: string
 }

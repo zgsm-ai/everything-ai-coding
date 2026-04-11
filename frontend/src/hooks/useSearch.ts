@@ -17,13 +17,23 @@ export function useSearch(query: string) {
 
     setSearching(true)
     const resp = await fetch('./api/search-index.json')
-    const items: SearchIndexItem[] = await resp.json()
+    const rawItems: SearchIndexItem[] = await resp.json()
+    const items = rawItems.map(item => ({
+      ...item,
+      search_text: item.search_text ?? [
+        item.name,
+        item.description,
+        item.description_zh,
+        item.tags.join(' '),
+        item.tech_stack.join(' '),
+      ].filter(Boolean).join(' '),
+    }))
 
     const ms = new MiniSearch<SearchIndexItem>({
-      fields: ['name', 'description', 'description_zh'],
+      fields: ['name', 'description', 'description_zh', 'search_text'],
       storeFields: ['id'],
       searchOptions: {
-        boost: { name: 3, description: 1, description_zh: 1 },
+        boost: { name: 3, description: 1, description_zh: 1, search_text: 0.8 },
         prefix: true,
         fuzzy: 0.2,
       },
