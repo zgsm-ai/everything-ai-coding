@@ -96,6 +96,9 @@ jobs:
         run: python scripts/merge_index.py
         continue-on-error: true
 
+      - name: Generate catalog sub-directory READMEs
+        run: python scripts/generate_catalog_readme.py
+
       - name: Update bilingual README files
         run: python scripts/update_readme.py
 

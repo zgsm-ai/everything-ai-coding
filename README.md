@@ -1,6 +1,6 @@
 <div align="center">
 <img src="assets/logo.png" alt="Everything AI Coding logo" width="600" />
-<p><strong><!-- README_APPROX_COUNT:START -->4000<!-- README_APPROX_COUNT:END -->+ curated developer resources in one index</strong><br/>MCP Servers · Skills · Rules · Prompts</p>
+<p><strong><!-- README_APPROX_COUNT:START -->4000<!-- README_APPROX_COUNT:END -->+ curated AI coding resources — browse, evaluate, install</strong><br/>MCP Servers · Skills · Rules · Prompts</p>
 
 <p>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/stargazers"><img src="https://img.shields.io/github/stars/zgsm-ai/everything-ai-coding?style=flat-square&color=4A90D9" alt="Stars" /></a>
@@ -15,11 +15,10 @@
 </p>
 
 <p>
-  <a href="#quick-start">Quick Start</a> ·
+  <a href="#knowledge-base">Knowledge Base</a> ·
   <a href="https://zgsm-ai.github.io/everything-ai-coding/">Browse Catalog</a> ·
-  <a href="#catalog-overview">Catalog Overview</a> ·
-  <a href="#platforms">Platforms</a> ·
-  <a href="#for-agents">For Agents</a> ·
+  <a href="#data-sources--quality">Data Sources</a> ·
+  <a href="#coding-hub">Coding Hub</a> ·
   <a href="#contributing">Contributing</a>
 </p>
 <img src="assets/title-card.jpg" alt="Everything AI Coding title card" width="900" />
@@ -30,12 +29,135 @@
 
 AI coding agents are improving fast, but the ecosystem around them is still fragmented. Finding a reliable MCP server, reusable skill, practical rule set, or prompt collection usually means searching across multiple repositories and formats.
 
-Everything AI Coding turns that scattered discovery process into a single searchable catalog. It continuously syncs from curated upstream sources, deduplicates entries, enriches metadata, scores quality signals, and packages the results so humans and agents can **search and install resources with one command**.
+Everything AI Coding is a **curated knowledge base** that continuously collects, deduplicates, enriches, and scores resources from 9+ upstream sources. Every entry includes quality signals — source trust, coding relevance, content quality, freshness, and community popularity — so you can evaluate before you install. Browse right here on GitHub, explore interactively with the [web catalog](https://zgsm-ai.github.io/everything-ai-coding/), or search and install with one command using the [Coding Hub](#coding-hub) tool.
 
-<a id="quick-start"></a>
-## Quick Start
+<a id="knowledge-base"></a>
+## 📚 Knowledge Base
 
-Install Everything AI Coding for your platform with one command:
+### [🔌 MCP Servers](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->1627<!-- README_COUNT_MCP:END --> entries
+
+Model Context Protocol servers that connect AI agents to external tools, databases, and services.
+
+| Name | ⭐ Stars | Score | Description |
+|------|----------|-------|-------------|
+| [server-filesystem](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) | 83.6k | 93 | Official reference — local filesystem access |
+| [playwright-mcp](https://github.com/microsoft/playwright-mcp) | 30.5k | 82 | Browser automation and testing by Microsoft |
+| [github-mcp-server](https://github.com/github/github-mcp-server) | 28.7k | 88 | Deep GitHub API integration for workflows |
+| [pydantic-ai/mcp-run-python](https://github.com/pydantic/pydantic-ai/tree/main/mcp-run-python) | 16.3k | 97 | Run Python in a secure sandbox |
+| [FastAPI-MCP](https://github.com/tadata-org/fastapi_mcp) | 11.7k | 82 | Expose FastAPI endpoints as MCP tools |
+
+[Browse all MCP servers →](./catalog/mcp/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/)
+
+---
+
+### [🎯 Skills](./catalog/skills/) — <!-- README_COUNT_SKILL:START -->1645<!-- README_COUNT_SKILL:END --> entries
+
+Reusable agent capabilities and workflows for AI coding assistants.
+
+| Name | Source | Score | Description |
+|------|--------|-------|-------------|
+| [claude-api](https://github.com/anthropics/skills/tree/main/skills/claude-api) | Anthropic Official | 96 | Build and debug Claude API / Anthropic SDK apps |
+| [mcp-builder](https://github.com/anthropics/skills/tree/main/skills/mcp-builder) | Anthropic Official | 96 | Guide for creating high-quality MCP servers |
+| [webapp-testing](https://github.com/anthropics/skills/tree/main/skills/webapp-testing) | Anthropic Official | 96 | Test local web apps with Playwright |
+| [acceptance-orchestrator](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/acceptance-orchestrator) | Antigravity Skills | 92 | End-to-end from requirements to deploy verification |
+| [agentic-actions-auditor](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agentic-actions-auditor) | Antigravity Skills | 92 | Audit GitHub Actions for AI agent security |
+
+[Browse all skills →](./catalog/skills/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/)
+
+---
+
+### [📋 Rules](./catalog/rules/) — <!-- README_COUNT_RULE:START -->236<!-- README_COUNT_RULE:END --> entries
+
+Coding conventions and AI behavior guidelines for consistent development.
+
+| Name | Source | Score | Category |
+|------|--------|-------|----------|
+| [Security Audit Rules](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | Curated | 94 | security |
+| [Flutter & Dart Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/flutter-dart) | CursorRules | 90 | mobile |
+| [Supabase Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/supabase) | CursorRules | 90 | database |
+| [Disaster Recovery Plan](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Rules 2.1 | 88 | tooling |
+| [Performance Monitoring System](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Rules 2.1 | 88 | devops |
+
+[Browse all rules →](./catalog/rules/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/)
+
+---
+
+### [💡 Prompts](./catalog/prompts/) — <!-- README_COUNT_PROMPT:START -->532<!-- README_COUNT_PROMPT:END --> entries
+
+Developer-focused prompt templates for common coding tasks.
+
+| Name | Source | Score | Category |
+|------|--------|-------|----------|
+| [Linux Script Developer](https://github.com/f/prompts.chat) | prompts.chat | 91 | documentation |
+| [AI2sql SQL Model — Query Generator](https://github.com/f/prompts.chat) | prompts.chat | 91 | database |
+| [Django Unit Test Generator](https://github.com/f/prompts.chat) | prompts.chat | 91 | backend |
+| [Repository Analysis & Bug Fixing](https://github.com/f/prompts.chat) | prompts.chat | 91 | security |
+| [Ultrathinker](https://github.com/f/prompts.chat) | prompts.chat | 91 | backend |
+
+[Browse all prompts →](./catalog/prompts/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/)
+
+---
+
+<a id="data-sources--quality"></a>
+## Data Sources & Quality
+
+Everything AI Coding aggregates data from multiple upstream sources, then enriches, scores, and republishes the cleaned catalog.
+
+| Type | Sources |
+|------|---------|
+| MCP | [awesome-mcp-servers](https://github.com/wong2/awesome-mcp-servers) · [Awesome-MCP-ZH](https://github.com/yzfly/Awesome-MCP-ZH) · [mcp.so](https://mcp.so) |
+| Skills | Tier 1: [anthropics/skills](https://github.com/anthropics/skills) · [Ai-Agent-Skills](https://github.com/skillcreatorai/Ai-Agent-Skills) · [antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills) · [ai-agents-public](https://github.com/vasilyu1983/ai-agents-public)<br/>Tier 2: [awesome-repo-configs](https://github.com/Chat2AnyLLM/awesome-repo-configs) · [awesome-openclaw-skills](https://github.com/VoltAgent/awesome-openclaw-skills) · [openclaw/skills](https://github.com/openclaw/skills)<br/>Tier 3: `catalog/skills/curated.json` |
+| Rules | [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules) · [rules-2.1-optimized](https://github.com/Mr-chen-05/rules-2.1-optimized) |
+| Prompts | [prompts.chat](https://github.com/f/prompts.chat) · [wonderful-prompts](https://github.com/langgptai/wonderful-prompts) |
+
+### Quality scoring
+
+Every entry is scored on a 0-100 composite scale:
+
+- **Coding relevance** (1-5) — How directly useful for development
+- **Content quality** (1-5) — Documentation, maintenance, completeness
+- **Source trust** (1-5) — Upstream reputation (e.g., Anthropic Official = 5, mcp.so = 2)
+- **Community signals** — GitHub stars, freshness (🟢 Active / 🟡 Stale / 🔴 Abandoned), installability
+
+Each sub-directory README shows the Top 100 entries ranked by this composite score.
+
+### Pipeline
+
+1. **Sync** — `scripts/sync_*.py` pull from upstream sources weekly
+2. **Merge** — `scripts/merge_index.py` deduplicates, enriches metadata, applies governance
+3. **Evaluate** — LLM + heuristic scoring for relevance, quality, and specificity
+4. **Publish** — GitHub Actions refresh the catalog, generate README tables, and update the web catalog
+
+<details>
+<summary>Repository structure</summary>
+
+```text
+everything-ai-coding/
+├── install.sh / install.ps1      # One-command installers
+├── catalog/                      # Generated catalog data
+│   ├── index.json                # Full merged index (4000+ entries)
+│   ├── search-index.json         # Lightweight search index
+│   ├── mcp/                      # MCP servers — index + README
+│   ├── skills/                   # Skills — index + README
+│   ├── rules/                    # Rules — index + README
+│   └── prompts/                  # Prompts — index + README
+├── platforms/                    # Per-platform skill + command definitions
+├── scripts/                      # Sync, merge, scoring, and generation scripts
+└── .github/workflows/            # CI automation
+```
+
+</details>
+
+---
+
+<a id="coding-hub"></a>
+## 🛠 Coding Hub — Search & Install
+
+Everything AI Coding also ships as a CLI tool that lets you search, browse, and install resources directly from your AI coding agent.
+
+### Quick Start
+
+Install for your platform with one command:
 
 **macOS / Linux**
 
@@ -87,61 +209,7 @@ https://raw.githubusercontent.com/zgsm-ai/everything-ai-coding/main/README.md
 After installation, report which platform path was used and whether verification succeeded.
 ```
 
-<div align="center">
-<h3><a href="https://zgsm-ai.github.io/everything-ai-coding/">Browse the full catalog →</a></h3>
-<p>Search, filter, and explore all 4000+ resources with the interactive web catalog.</p>
-</div>
-
-<a id="catalog-overview"></a>
-## Catalog Overview
-
-| Type | Count | Description |
-|------|------:|-------------|
-| MCP Server | <!-- README_COUNT_MCP:START -->1627<!-- README_COUNT_MCP:END --> | Model Context Protocol servers |
-| Prompt | <!-- README_COUNT_PROMPT:START -->532<!-- README_COUNT_PROMPT:END --> | Developer-focused prompts |
-| Rule | <!-- README_COUNT_RULE:START -->236<!-- README_COUNT_RULE:END --> | Coding rules and AI workflow conventions |
-| Skill | <!-- README_COUNT_SKILL:START -->1645<!-- README_COUNT_SKILL:END --> | Reusable agent skills |
-
-### Data sources
-
-Everything AI Coding aggregates data from multiple upstream sources, then republishes the cleaned catalog through GitHub Pages and raw GitHub endpoints.
-
-| Type | Sources |
-|------|---------|
-| MCP | [awesome-mcp-servers](https://github.com/wong2/awesome-mcp-servers) · [Awesome-MCP-ZH](https://github.com/yzfly/Awesome-MCP-ZH) · [mcp.so](https://mcp.so) |
-| Skills | Tier 1: [anthropics/skills](https://github.com/anthropics/skills) · [Ai-Agent-Skills](https://github.com/skillcreatorai/Ai-Agent-Skills) · [antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills) · [ai-agents-public](https://github.com/vasilyu1983/ai-agents-public)<br/>Tier 2: [awesome-repo-configs / skill_repos.json](https://github.com/Chat2AnyLLM/awesome-repo-configs) · [awesome-openclaw-skills](https://github.com/VoltAgent/awesome-openclaw-skills) · [openclaw/skills](https://github.com/openclaw/skills)<br/>Tier 3: `catalog/skills/curated.json` |
-| Rules | [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules) · [rules-2.1-optimized](https://github.com/Mr-chen-05/rules-2.1-optimized) |
-| Prompts | [prompts.chat](https://github.com/f/prompts.chat) · [wonderful-prompts](https://github.com/langgptai/wonderful-prompts) |
-
-### Pipeline at a glance
-
-1. **Sync** — `scripts/sync_*.py` pull MCPs, skills, rules, and prompts from upstream sources.
-2. **Merge** — `scripts/merge_index.py` deduplicates entries, enriches metadata, applies governance, and writes the merged catalog.
-3. **Evaluate** — scoring combines source trust, relevance, content quality, freshness, and installability signals.
-4. **Publish** — GitHub Actions refresh the catalog weekly, generate lightweight API files, and update both README languages.
-
-<details>
-<summary>Repository structure</summary>
-
-```text
-everything-ai-coding/
-├── install.sh                    # One-command installer for macOS/Linux
-├── install.ps1                   # One-command installer for Windows
-├── catalog/                      # Generated catalog data
-│   ├── index.json                # Full merged index
-│   ├── search-index.json         # Lightweight search index
-│   ├── mcp/ skills/ rules/ prompts/
-│   └── maintenance/              # Incremental recrawl state
-├── docs/api/                     # Generated static API for GitHub Pages
-├── platforms/                    # Per-platform skill + command definitions
-├── scripts/                      # Sync, merge, scoring, and publishing scripts
-├── .github/workflows/            # CI automation
-```
-
-</details>
-
-<a id="platforms"></a>
-## Platforms
+### Platforms
 
 Everything AI Coding supports four AI coding platforms. The resource catalog is shared, while command names and installation paths vary slightly by platform.
 
@@ -171,11 +239,11 @@ Everything AI Coding supports four AI coding platforms. The resource catalog is 
 </details>
 
 <a id="for-agents"></a>
-## For Agents
+### For Agents
 
 > If you are an AI agent installing Everything AI Coding automatically, follow this section exactly.
 
-### Step 1: Run the installer
+#### Step 1: Run the installer
 
 The install scripts auto-detect the host platform when possible.
 
@@ -279,7 +347,7 @@ done
 
 </details>
 
-### Step 2: Verify the installation
+#### Step 2: Verify the installation
 
 Run a search command to confirm that the commands are available:
 
@@ -296,7 +364,7 @@ Send this in the chat: "Search typescript with everything-ai-coding"
 
 Expected result: a Markdown table of matching resources. If the command is missing, the installation did not land in the correct platform path.
 
-### Available commands
+#### Available commands
 
 | Command | Description |
 |---------|-------------|
@@ -307,7 +375,7 @@ Expected result: a Markdown table of matching resources. If the command is missi
 | `uninstall <name>` | Uninstall a resource |
 | `update` | Pull the latest Everything AI Coding files |
 
-### Data endpoints
+#### Data endpoints
 
 Search, browse, and recommend operate on a lightweight search index. Installation fetches a per-entry API document.
 
