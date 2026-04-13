@@ -10,39 +10,39 @@
 
 | # | Name | Description | Source | Status | Score | Updated | Category |
 |---|------|-------------|--------|--------|-------|---------|----------|
-| 1 | [Security Audit Rules](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | AI-assisted security review rules covering OWASP, input validation, and authenti... | Curated | — | 94 | — | security |
-| 2 | [Flutter & Dart Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/flutter-dart) | Cursor rules for Flutter and Dart development with best practices | Curated | — | 90 | — | mobile |
-| 3 | [Supabase Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/supabase) | Cursor rules for Supabase with PostgreSQL and Edge Functions | Curated | — | 90 | — | database |
-| 4 | [Disaster Recovery Plan (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | 灾难恢复计划 - 应对数据丢失、系统故障和安全事件的完整恢复策略 | Rules 2.1 | 🟡 Stale | 88 | 2025-11-07 | tooling |
-| 5 | [Performance Monitoring System (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | 性能监控系统 - 实时监控系统性能指标，优化资源使用和响应速度 | Rules 2.1 | 🟡 Stale | 88 | 2025-11-07 | devops |
-| 6 | [Rule Hot Reload System (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | 规则热更新机制 - 实时监控规则变化，动态加载更新，无需重启系统 | Rules 2.1 | 🟡 Stale | 88 | 2025-11-07 | tooling |
-| 7 | [System Diagnostics (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | 系统诊断工具 - 全面的系统健康检查和故障排查框架 | Rules 2.1 | 🟡 Stale | 88 | 2025-11-07 | tooling |
+| 1 | [Security Audit Rules](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | AI-assisted security review rules covering OWASP, input validation, and authenti... | Curated | 🟡 Stale | 94 | 2025-11-07 | security |
+| 2 | [Flutter & Dart Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/flutter-dart) | Cursor rules for Flutter and Dart development with best practices | Curated | 🟡 Stale | 90 | 2025-10-24 | mobile |
+| 3 | [Supabase Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/supabase) | Cursor rules for Supabase with PostgreSQL and Edge Functions | Curated | 🟡 Stale | 90 | 2025-10-24 | database |
+| 4 | [Disaster Recovery Plan (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Disaster Recovery Plan - complete recovery strategy for data loss, system failur... | Rules 2.1 | 🟡 Stale | 88 | 2025-11-07 | tooling |
+| 5 | [Performance Monitoring System (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Performance Monitoring System - real-time monitoring of system performance metri... | Rules 2.1 | 🟡 Stale | 88 | 2025-11-07 | devops |
+| 6 | [Rule Hot Reload System (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Rule Hot Reload System - monitors rule changes in real-time and dynamically load... | Rules 2.1 | 🟡 Stale | 88 | 2025-11-07 | tooling |
+| 7 | [System Diagnostics (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | System Diagnostics - comprehensive system health checks and troubleshooting fram... | Rules 2.1 | 🟡 Stale | 88 | 2025-11-07 | tooling |
 | 8 | [Python 312 Fastapi Best Practices Cursorrules Prom Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-312-fastapi-best-practices-cursorrules-prom) | Python 3.12 FastAPI Best Practices .cursorrules prompt file | CursorRules | 🟡 Stale | 84 | 2025-10-24 | backend |
 | 9 | [Python Django Best Practices Cursorrules Prompt Fi Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-django-best-practices-cursorrules-prompt-fi) | Python Django Best Practices .cursorrules prompt file | CursorRules | 🟡 Stale | 84 | 2025-10-24 | backend |
 | 10 | [Python Fastapi Best Practices Cursorrules Prompt F Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-fastapi-best-practices-cursorrules-prompt-f) | Python FastAPI Best Practices .cursorrules prompt file | CursorRules | 🟡 Stale | 84 | 2025-10-24 | backend |
 | 11 | [Python Fastapi Scalable Api Cursorrules Prompt Fil Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-fastapi-scalable-api-cursorrules-prompt-fil) | Python FastAPI Scalable API .cursorrules prompt file | CursorRules | 🟡 Stale | 84 | 2025-10-24 | backend |
 | 12 | [Python Llm Ml Workflow Cursorrules Prompt File Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-llm-ml-workflow-cursorrules-prompt-file) | Python LLM & ML Workflow .cursorrules Prompt File | CursorRules | 🟡 Stale | 84 | 2025-10-24 | backend |
-| 13 | [Ai Powered Code Review (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | AI驱动的智能代码审查规则 - 基于机器学习的代码质量分析和自动化审查流程 | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | ai-ml |
+| 13 | [Ai Powered Code Review (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | AI-driven intelligent code review rules for machine learning-based code quality ... | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | ai-ml |
 | 14 | [Analyze Issue (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | GitHub issue analysis and implementation specification - GitHub问题分析和实现规范 | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | tooling |
 | 15 | [Backend Dev (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | Backend development workflow with Java/Python/Node.js - 后端开发完整工作流 | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | backend |
-| 16 | [Bug Fix (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | Complete bug-fixing workflow from issue to PR - 从问题到PR的完整Bug修复工作流 | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | tooling |
+| 16 | [Bug Fix (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | Complete bug-fixing workflow from issue to PR. | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | tooling |
 | 17 | [Changelog Management (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | AI-powered changelog management with automatic generation and version tracking -... | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | ai-ml |
 | 18 | [Code Quality Check (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | AI-powered cross-language code quality check with intelligent analysis - AI驱动的跨语... | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | ai-ml |
-| 19 | [Commit (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | Unified comprehensive commit workflow (standard + fast + AI) - 统一全面提交工作流（标准 + 快速... | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | ai-ml |
-| 20 | [Context Loader (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | AI-powered intelligent project context loader with deep analysis - AI驱动的智能项目上下文加... | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | ai-ml |
+| 19 | [Commit (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | Unified comprehensive commit workflow (standard + fast + AI). | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | ai-ml |
+| 20 | [Context Loader (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | AI-powered intelligent project context loader with deep analysis. | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | ai-ml |
 | 21 | [Frontend Dev (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | Frontend development workflow with Vue/React/TypeScript - 前端开发完整工作流 | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | frontend |
 | 22 | [Mcp Debugging Enhanced (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | AI-powered MCP debugging and diagnostics with intelligent analysis - AI驱动的MCP调试和... | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | ai-ml |
-| 23 | [Mcp Intelligent Strategy (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | MCP工具智能使用策略 - 专注于MCP工具的优先使用和高效执行 | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | tooling |
-| 24 | [Mcp Unified Management (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | MCP统一管理策略 - 整合检测、推荐、配置、同步等所有MCP功能的统一管理 | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | tooling |
-| 25 | [Mcp Zero Config Detection (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | MCP零配置检测和提醒策略 - 检测用户是否缺少MCP配置并主动提醒引导 | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | tooling |
+| 23 | [Mcp Intelligent Strategy (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | MCP tool intelligent usage strategy focusing on prioritized use and efficient ex... | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | tooling |
+| 24 | [Mcp Unified Management (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | MCP unified management strategy integrating detection, recommendation, configura... | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | tooling |
+| 25 | [Mcp Zero Config Detection (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | MCP zero-config detection and reminder strategy for detecting missing user MCP c... | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | tooling |
 | 26 | [Root Cause Analysis (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | AI-powered root cause analysis with Five Whys methodology - AI驱动的根因分析方法 | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | ai-ml |
 | 27 | [Systematic Debugging (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | AI-powered systematic debugging with intelligent troubleshooting - AI驱动的系统化调试方法 | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | ai-ml |
-| 28 | [Audit Logging System (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | 审计日志系统 - 全面的操作审计和安全事件记录 | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | tooling |
-| 29 | [Backend Rules (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | 后端开发AI助手规则 - 智能化企业级标准 | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | ai-ml |
-| 30 | [Error Recovery System (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | 错误恢复机制 - 系统级错误检测和自动恢复策略 | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | tooling |
-| 31 | [Frontend Rules (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | 前端开发AI助手规则 - 智能化企业级标准，集成最新前端技术栈和智能MCP工具编排 | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | ai-ml |
-| 32 | [Permission Control System (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | 权限控制系统 - 定义用户/AI/系统的角色权限和操作审计 | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | ai-ml |
-| 33 | [Rule Conflict Resolution (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | 规则冲突解决和用户指令优先级管理 - 确保用户指令始终优先，解决规则间冲突 | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | tooling |
+| 28 | [Audit Logging System (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Audit logging system for comprehensive operation auditing and security event rec... | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | tooling |
+| 29 | [Backend Rules (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Backend development AI assistant rules for intelligent enterprise-grade standard... | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | ai-ml |
+| 30 | [Error Recovery System (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Error Recovery System - system-level error detection and automatic recovery stra... | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | tooling |
+| 31 | [Frontend Rules (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Frontend Rules - intelligent enterprise standards integrating the latest fronten... | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | ai-ml |
+| 32 | [Permission Control System (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Permission Control System - defines role permissions and operation audits for us... | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | ai-ml |
+| 33 | [Rule Conflict Resolution (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Rule Conflict Resolution and User Command Priority Management - ensures user com... | Rules 2.1 | 🟡 Stale | 81 | 2025-11-07 | tooling |
 | 34 | [Cpp Programming Guidelines Cursorrules Prompt File Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/cpp-programming-guidelines-cursorrules-prompt-file) | C++ Programming Guidelines for Cursor AI | CursorRules | 🟡 Stale | 77 | 2025-10-24 | ai-ml |
 | 35 | [Optimize Dry Solid Principles Cursorrules Prompt F Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/optimize-dry-solid-principles-cursorrules-prompt-f) | Optimize DRY SOLID Principles .cursorrules prompt file | CursorRules | 🟡 Stale | 77 | 2025-10-24 | tooling |
 | 36 | [Optimize Rell Blockchain Code Cursorrules Prompt F Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/optimize-rell-blockchain-code-cursorrules-prompt-f) | Optimize Rell Blockchain Code .cursorrules prompt file | CursorRules | 🟡 Stale | 77 | 2025-10-24 | ai-ml |
@@ -74,16 +74,16 @@
 | 62 | [React Native Expo Router Typescript Windows Cursorrules Prompt File Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/react-native-expo-router-typescript-windows-cursorrules-prompt-file) | Cursor rules for react native expo router typescript windows cursorrules prompt ... | CursorRules | 🟡 Stale | 77 | 2025-10-24 | frontend |
 | 63 | [React Nextjs Ui Development Cursorrules Prompt Fil Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/react-nextjs-ui-development-cursorrules-prompt-fil) | React NextJS UI development .cursorrules prompt file | CursorRules | 🟡 Stale | 77 | 2025-10-24 | frontend |
 | 64 | [React Query Cursorrules Prompt File Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/react-query-cursorrules-prompt-file) | Cursor rules for react query cursorrules prompt file development | CursorRules | 🟡 Stale | 77 | 2025-10-24 | frontend |
-| 65 | [Code Review (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | Multi-role pull request review checklist - 多角色拉取请求审查清单 | Rules 2.1 | 🟡 Stale | 74 | 2025-11-07 | tooling |
+| 65 | [Code Review (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | Multi-role pull request review checklist. | Rules 2.1 | 🟡 Stale | 74 | 2025-11-07 | tooling |
 | 66 | [Custom Command Builder (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | AI-powered custom command builder with intelligent templates - AI驱动的自定义命令构建器 | Rules 2.1 | 🟡 Stale | 74 | 2025-11-07 | ai-ml |
-| 67 | [Implement Task (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | Methodical task implementation approach - 系统化任务实现方法 | Rules 2.1 | 🟡 Stale | 74 | 2025-11-07 | tooling |
-| 68 | [Context Recorder Edge Cases (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Context Recorder Edge Cases (记录员边界情况) - 边界情况和错误处理 | Rules 2.1 | 🟡 Stale | 74 | 2025-11-07 | tooling |
-| 69 | [Context Recorder Templates (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Context Recorder Templates (记录员模板) - 模板定义和归档配置 | Rules 2.1 | 🟡 Stale | 74 | 2025-11-07 | tooling |
-| 70 | [Context7 Preload Standard (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Context7 知识预载标准 - 修复Bug与新项目启动前的前置步骤 | Rules 2.1 | 🟡 Stale | 74 | 2025-11-07 | tooling |
-| 71 | [File Generation Safety Rules (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | 文件生成安全规则 - 强制性用户确认机制，防止AI未经授权生成文件 | Rules 2.1 | 🟡 Stale | 74 | 2025-11-07 | ai-ml |
-| 72 | [System Integration Config (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | 系统集成配置 - 统一管理各个智能系统的集成和协调 | Rules 2.1 | 🟡 Stale | 74 | 2025-11-07 | tooling |
-| 73 | [Unified Rules Base (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | 增强统一规则基准 - 确保不同AI工具功能完全一致，集成智能需求理解和深度讨论框架 | Rules 2.1 | 🟡 Stale | 74 | 2025-11-07 | ai-ml |
-| 74 | [Technical Documentation Rules](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | AI rules for generating and maintaining technical documentation | Curated | — | 73 | — | documentation |
+| 67 | [Implement Task (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | Methodical task implementation approach. | Rules 2.1 | 🟡 Stale | 74 | 2025-11-07 | tooling |
+| 68 | [Context Recorder Edge Cases (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Context Recorder Edge Cases - boundary scenarios and error handling. | Rules 2.1 | 🟡 Stale | 74 | 2025-11-07 | tooling |
+| 69 | [Context Recorder Templates (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Context Recorder Templates - template definitions and archival configurations. | Rules 2.1 | 🟡 Stale | 74 | 2025-11-07 | tooling |
+| 70 | [Context7 Preload Standard (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Context7 Preload Standard - bug fixes and pre-launch steps for new projects. | Rules 2.1 | 🟡 Stale | 74 | 2025-11-07 | tooling |
+| 71 | [File Generation Safety Rules (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | File Generation Safety Rules - mandatory user confirmation to prevent unauthoriz... | Rules 2.1 | 🟡 Stale | 74 | 2025-11-07 | ai-ml |
+| 72 | [System Integration Config (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | System Integration Config - unified management for integration and coordination ... | Rules 2.1 | 🟡 Stale | 74 | 2025-11-07 | tooling |
+| 73 | [Unified Rules Base (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Enhanced Unified Rules Base - ensures consistent functionality across AI tools, ... | Rules 2.1 | 🟡 Stale | 74 | 2025-11-07 | ai-ml |
+| 74 | [Technical Documentation Rules](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | AI rules for generating and maintaining technical documentation | Curated | 🟡 Stale | 73 | 2025-11-07 | documentation |
 | 75 | [Android Jetpack Compose Cursorrules Prompt File Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/android-jetpack-compose-cursorrules-prompt-file) | Cursor rules for android jetpack compose cursorrules prompt file development | CursorRules | 🟡 Stale | 70 | 2025-10-24 | mobile |
 | 76 | [Angular Novo Elements Cursorrules Prompt File Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/angular-novo-elements-cursorrules-prompt-file) | Angular Novo Elements .cursorrules prompt file | CursorRules | 🟡 Stale | 70 | 2025-10-24 | frontend |
 | 77 | [Angular Typescript Cursorrules Prompt File Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/angular-typescript-cursorrules-prompt-file) | Angular TypeScript .cursorrules prompt file | CursorRules | 🟡 Stale | 70 | 2025-10-24 | frontend |
@@ -121,8 +121,8 @@ AI-assisted security review rules covering OWASP, input validation, and authenti
 **Download**:
 - [security-review.mdc](https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/security-review.mdc)
 
-📊 Score: 94 · 🏥 Health: 42 · 🏷️ Tags: `security`, `audit`, `owasp`
-📅 Last active: — · 📦 Source: Curated
+📊 Score: 94 · 🏥 Health: 62 · 🏷️ Tags: `security`, `audit`, `owasp`
+📅 Last active: 2025-11-07 · 📦 Source: Curated
 
 </details>
 
@@ -134,8 +134,8 @@ Cursor rules for Flutter and Dart development with best practices
 **Download**:
 - [.cursorrules](https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/flutter-dart/.cursorrules)
 
-📊 Score: 90 · 🏥 Health: 44 · 🏷️ Tags: `flutter`, `dart`, `mobile`
-📅 Last active: — · 📦 Source: Curated
+📊 Score: 90 · 🏥 Health: 64 · 🏷️ Tags: `flutter`, `dart`, `mobile`
+📅 Last active: 2025-10-24 · 📦 Source: Curated
 
 </details>
 
@@ -147,15 +147,15 @@ Cursor rules for Supabase with PostgreSQL and Edge Functions
 **Download**:
 - [.cursorrules](https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/supabase/.cursorrules)
 
-📊 Score: 90 · 🏥 Health: 44 · 🏷️ Tags: `supabase`, `postgres`, `edge-functions`
-📅 Last active: — · 📦 Source: Curated
+📊 Score: 90 · 🏥 Health: 64 · 🏷️ Tags: `supabase`, `postgres`, `edge-functions`
+📅 Last active: 2025-10-24 · 📦 Source: Curated
 
 </details>
 
 <details>
-<summary>⭐ <strong>Disaster Recovery Plan (Rules 2.1)</strong> — 灾难恢复计划 - 应对数据丢失、系统故障和安全事件的完整恢复策略</summary>
+<summary>⭐ <strong>Disaster Recovery Plan (Rules 2.1)</strong> — Disaster Recovery Plan - complete recovery strategy for data...</summary>
 
-灾难恢复计划 - 应对数据丢失、系统故障和安全事件的完整恢复策略
+Disaster Recovery Plan - complete recovery strategy for data loss, system failures, and security incidents.
 
 **Download**:
 - [disaster-recovery-plan.mdc](https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/disaster-recovery-plan.mdc)
@@ -166,9 +166,9 @@ Cursor rules for Supabase with PostgreSQL and Edge Functions
 </details>
 
 <details>
-<summary>⭐ <strong>Performance Monitoring System (Rules 2.1)</strong> — 性能监控系统 - 实时监控系统性能指标，优化资源使用和响应速度</summary>
+<summary>⭐ <strong>Performance Monitoring System (Rules 2.1)</strong> — Performance Monitoring System - real-time monitoring of syst...</summary>
 
-性能监控系统 - 实时监控系统性能指标，优化资源使用和响应速度
+Performance Monitoring System - real-time monitoring of system performance metrics to optimize resource usage and response speed.
 
 **Download**:
 - [performance-monitoring-system.mdc](https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/performance-monitoring-system.mdc)
@@ -179,27 +179,27 @@ Cursor rules for Supabase with PostgreSQL and Edge Functions
 </details>
 
 <details>
-<summary>⭐ <strong>Rule Hot Reload System (Rules 2.1)</strong> — 规则热更新机制 - 实时监控规则变化，动态加载更新，无需重启系统</summary>
+<summary>⭐ <strong>Rule Hot Reload System (Rules 2.1)</strong> — Rule Hot Reload System - monitors rule changes in real-time ...</summary>
 
-规则热更新机制 - 实时监控规则变化，动态加载更新，无需重启系统
+Rule Hot Reload System - monitors rule changes in real-time and dynamically loads updates without system restart.
 
 **Download**:
 - [rule-hot-reload-system.mdc](https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/rule-hot-reload-system.mdc)
 
-📊 Score: 88 · 🏥 Health: 51 · 🏷️ Tags: `global rules`
+📊 Score: 88 · 🏥 Health: 51 · 🏷️ Tags: `global rules`, `global-rules`, `system`
 📅 Last active: 2025-11-07 · 📦 Source: Rules 2.1
 
 </details>
 
 <details>
-<summary>⭐ <strong>System Diagnostics (Rules 2.1)</strong> — 系统诊断工具 - 全面的系统健康检查和故障排查框架</summary>
+<summary>⭐ <strong>System Diagnostics (Rules 2.1)</strong> — System Diagnostics - comprehensive system health checks and ...</summary>
 
-系统诊断工具 - 全面的系统健康检查和故障排查框架
+System Diagnostics - comprehensive system health checks and troubleshooting framework.
 
 **Download**:
 - [system-diagnostics.mdc](https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/system-diagnostics.mdc)
 
-📊 Score: 88 · 🏥 Health: 51 · 🏷️ Tags: `global rules`
+📊 Score: 88 · 🏥 Health: 51 · 🏷️ Tags: `global rules`, `global-rules`, `system`
 📅 Last active: 2025-11-07 · 📦 Source: Rules 2.1
 
 </details>
