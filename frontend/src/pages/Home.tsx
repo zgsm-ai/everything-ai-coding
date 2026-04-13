@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router'
 import { useI18n } from '../hooks/useI18n'
 import ResourceCard from '../components/ResourceCard'
 import CardSkeleton from '../components/CardSkeleton'
+import HeroWordmark from '../components/HeroWordmark'
 import type { Stats, FeaturedSection, CatalogItem } from '../types'
 
 const TYPE_ICONS: Record<string, string> = {
@@ -127,9 +128,10 @@ export default function Home() {
     <div className="space-y-16">
       {/* Hero */}
       <section className="text-center pt-12 pb-4">
-        <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 dark:text-white tracking-tight mb-4">
-          {t('hero.title')}
-        </h1>
+        <div className="mb-3">
+          <span className="sr-only">{t('hero.title')}</span>
+          <HeroWordmark />
+        </div>
         <p className="text-xl sm:text-2xl text-gray-500 dark:text-gray-400 mb-8 h-9">
           <span>{typed}</span>
           <span className="inline-block w-[2px] h-[1em] bg-apple-blue ml-0.5 align-middle animate-[blink_1s_step-end_infinite]" />

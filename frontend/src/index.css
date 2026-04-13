@@ -56,6 +56,10 @@ body {
 
 .dark .bg-orb { opacity: 0.25; }
 
+.hero-wordmark {
+  position: relative;
+}
+
 .bg-orb-purple {
   width: 600px;
   height: 600px;
