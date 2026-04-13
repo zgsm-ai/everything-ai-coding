@@ -174,9 +174,10 @@ def parse_antigravity_skills() -> list[dict[str, Any]]:
     """
     REPO = "sickn33/antigravity-awesome-skills"
 
-    # Fetch repo stars (single API call)
+    # Fetch repo metadata (single API call)
     repo_info = github_api(f"repos/{REPO}")
     stars = repo_info.get("stargazers_count", 0) if repo_info else 0
+    pushed_at = repo_info.get("pushed_at") if repo_info else None
 
     # Fetch the structured index
     content = fetch_raw_content(REPO, "skills_index.json")
@@ -251,6 +252,7 @@ def parse_antigravity_skills() -> list[dict[str, Any]]:
                 "description": description,
                 "source_url": f"https://github.com/{REPO}/tree/main/{skill_path}",
                 "stars": stars,
+                "pushed_at": pushed_at,
                 "category": category,
                 "tags": tags,
                 "tech_stack": [],
@@ -295,9 +297,10 @@ def parse_vasilyu_skills() -> list[dict[str, Any]]:
         logger.warning(f"No SKILL.md files found in {REPO} under {SKILL_PREFIX}")
         return []
 
-    # Fetch repo stars (single API call)
+    # Fetch repo metadata (single API call)
     repo_info = github_api(f"repos/{REPO}")
     stars = repo_info.get("stargazers_count", 0) if repo_info else 0
+    pushed_at = repo_info.get("pushed_at") if repo_info else None
 
     entries = []
     fetch_failures = 0
@@ -337,6 +340,7 @@ def parse_vasilyu_skills() -> list[dict[str, Any]]:
                 "description": description,
                 "source_url": f"https://github.com/{REPO}/tree/main/{SKILL_PREFIX}{skill_dir_name}",
                 "stars": stars,
+                "pushed_at": pushed_at,
                 "category": category,
                 "tags": tags,
                 "tech_stack": [],
@@ -363,6 +367,10 @@ def parse_anthropic_skills() -> list[dict[str, Any]]:
     if not data:
         logger.error("Failed to fetch anthropics/skills directory")
         return []
+
+    # Fetch repo-level pushed_at
+    repo_info = github_api("repos/anthropics/skills")
+    pushed_at = repo_info.get("pushed_at") if repo_info else None
 
     entries = []
     for item in data:
@@ -401,6 +409,7 @@ def parse_anthropic_skills() -> list[dict[str, Any]]:
                 "description": description,
                 "source_url": f"https://github.com/anthropics/skills/tree/main/skills/{skill_name}",
                 "stars": None,
+                "pushed_at": pushed_at,
                 "category": category,
                 "tags": tags + ["anthropic", "official"],
                 "tech_stack": [],
@@ -437,6 +446,10 @@ def parse_ai_agent_skills() -> list[dict[str, Any]]:
 
     if not existing_skills:
         logger.warning(f"No SKILL.md files found in {REPO} via Tree API")
+
+    # Fetch repo-level pushed_at
+    repo_info = github_api(f"repos/{REPO}")
+    pushed_at = repo_info.get("pushed_at") if repo_info else None
 
     # Step 2: Parse skills.json for metadata (description, workArea, etc.)
     content = fetch_raw_content(REPO, "skills.json")
@@ -499,6 +512,7 @@ def parse_ai_agent_skills() -> list[dict[str, Any]]:
                 "description": description,
                 "source_url": f"https://github.com/skillcreatorai/Ai-Agent-Skills/tree/main/skills/{skill_name}",
                 "stars": None,
+                "pushed_at": pushed_at,
                 "category": category,
                 "tags": tags,
                 "tech_stack": [],

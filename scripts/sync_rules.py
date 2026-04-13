@@ -20,11 +20,16 @@ TODAY = date.today().isoformat()
 
 def parse_awesome_cursorrules() -> list:
     """Parse PatrickJS/awesome-cursorrules by listing the rules/ directory."""
+    REPO = "PatrickJS/awesome-cursorrules"
     # Get directory listing via GitHub API
-    data = github_api("repos/PatrickJS/awesome-cursorrules/contents/rules")
+    data = github_api(f"repos/{REPO}/contents/rules")
     if not data:
         logger.error("Failed to fetch awesome-cursorrules rules/ directory")
         return []
+
+    # Fetch repo-level pushed_at
+    repo_info = github_api(f"repos/{REPO}")
+    pushed_at = repo_info.get("pushed_at") if repo_info else None
 
     entries = []
     for item in data:
@@ -61,6 +66,7 @@ def parse_awesome_cursorrules() -> list:
             "description": description,
             "source_url": rule_url,
             "stars": None,
+            "pushed_at": pushed_at,
             "category": category,
             "tags": tags,
             "tech_stack": [],
@@ -78,6 +84,10 @@ def parse_awesome_cursorrules() -> list:
 
 def parse_rules_optimized() -> list:
     """Parse Mr-chen-05/rules-2.1-optimized .mdc files."""
+    REPO = "Mr-chen-05/rules-2.1-optimized"
+    repo_info = github_api(f"repos/{REPO}")
+    pushed_at = repo_info.get("pushed_at") if repo_info else None
+
     entries = []
 
     for subdir in ["project-rules", "global-rules"]:
@@ -122,6 +132,7 @@ def parse_rules_optimized() -> list:
                 "description": description,
                 "source_url": f"https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/{subdir}",
                 "stars": None,
+                "pushed_at": pushed_at,
                 "category": category,
                 "tags": tags + [subdir.replace("-", " ")],
                 "tech_stack": [],

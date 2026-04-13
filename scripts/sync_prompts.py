@@ -10,7 +10,7 @@ from datetime import date
 
 sys.path.insert(0, os.path.dirname(__file__))
 from utils import (
-    fetch_raw_content, categorize, extract_tags, is_coding_related,
+    fetch_raw_content, github_api, categorize, extract_tags, is_coding_related,
     to_kebab_case, save_index, logger,
 )
 
@@ -20,10 +20,15 @@ TODAY = date.today().isoformat()
 
 def parse_prompts_chat() -> list:
     """Parse f/prompts.chat prompts.csv - coding-related entries."""
-    content = fetch_raw_content("f/prompts.chat", "prompts.csv")
+    REPO = "f/prompts.chat"
+    content = fetch_raw_content(REPO, "prompts.csv")
     if not content:
         logger.error("Failed to fetch prompts.chat prompts.csv")
         return []
+
+    # Fetch repo-level pushed_at
+    repo_info = github_api(f"repos/{REPO}")
+    pushed_at = repo_info.get("pushed_at") if repo_info else None
 
     entries = []
     csv.field_size_limit(500000)  # Some prompts are very large
@@ -55,6 +60,7 @@ def parse_prompts_chat() -> list:
             "description": prompt_text[:200].replace("\n", " ").strip(),
             "source_url": "https://github.com/f/prompts.chat",
             "stars": None,
+            "pushed_at": pushed_at,
             "category": category,
             "tags": tags + (["for-devs"] if for_devs else []),
             "tech_stack": [],
@@ -72,10 +78,15 @@ def parse_prompts_chat() -> list:
 
 def parse_wonderful_prompts() -> list:
     """Parse langgptai/wonderful-prompts - programming section only."""
-    content = fetch_raw_content("langgptai/wonderful-prompts", "README.md")
+    REPO = "langgptai/wonderful-prompts"
+    content = fetch_raw_content(REPO, "README.md")
     if not content:
         logger.error("Failed to fetch wonderful-prompts README")
         return []
+
+    # Fetch repo-level pushed_at
+    repo_info = github_api(f"repos/{REPO}")
+    pushed_at = repo_info.get("pushed_at") if repo_info else None
 
     entries = []
     in_programming_section = False
@@ -90,7 +101,7 @@ def parse_wonderful_prompts() -> list:
         elif re.match(r"^##\s+", line) and in_programming_section:
             # Save last entry before leaving section
             if current_name and current_content:
-                _add_wonderful_entry(entries, current_name, current_content)
+                _add_wonderful_entry(entries, current_name, current_content, pushed_at)
             in_programming_section = False
             current_name = ""
             current_content = []
@@ -104,7 +115,7 @@ def parse_wonderful_prompts() -> list:
         if heading_match:
             # Save previous entry
             if current_name and current_content:
-                _add_wonderful_entry(entries, current_name, current_content)
+                _add_wonderful_entry(entries, current_name, current_content, pushed_at)
             current_name = heading_match.group(1).strip()
             current_content = []
         elif current_name:
@@ -118,7 +129,7 @@ def parse_wonderful_prompts() -> list:
     return entries
 
 
-def _add_wonderful_entry(entries: list, name: str, content_lines: list):
+def _add_wonderful_entry(entries: list, name: str, content_lines: list, pushed_at: str | None = None):
     content = "\n".join(content_lines).strip()
     description = content[:200].replace("\n", " ").strip() if content else name
 
@@ -132,6 +143,7 @@ def _add_wonderful_entry(entries: list, name: str, content_lines: list):
         "description": description,
         "source_url": "https://github.com/langgptai/wonderful-prompts",
         "stars": None,
+        "pushed_at": pushed_at,
         "category": category,
         "tags": tags + ["chinese"],
         "tech_stack": [],

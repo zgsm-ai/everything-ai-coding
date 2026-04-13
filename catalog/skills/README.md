@@ -199,7 +199,7 @@ git clone https://github.com/sickn33/antigravity-awesome-skills.git
 ```
 Files: `skills/ai-native-cli/`
 
-📊 Score: 92 · 🏥 Health: 62 · 🏷️ Tags: `ai`, `cli`, `automation`
+📊 Score: 92 · 🏥 Health: 62 · 🏷️ Tags: `ai`
 📅 Last active: — · 📦 Source: Antigravity Skills
 
 </details>
@@ -229,7 +229,7 @@ git clone https://github.com/sickn33/antigravity-awesome-skills.git
 ```
 Files: `skills/bats-testing-patterns/`
 
-📊 Score: 92 · 🏥 Health: 62 · 🏷️ Tags: `bash`, `testing`, `bats`
+📊 Score: 92 · 🏥 Health: 62 · 🏷️ Tags: —
 📅 Last active: — · 📦 Source: Antigravity Skills
 
 </details>
@@ -244,7 +244,7 @@ git clone https://github.com/sickn33/antigravity-awesome-skills.git
 ```
 Files: `skills/bazel-build-optimization/`
 
-📊 Score: 92 · 🏥 Health: 62 · 🏷️ Tags: `automation`, `devops`, `build-tool`
+📊 Score: 92 · 🏥 Health: 62 · 🏷️ Tags: —
 📅 Last active: — · 📦 Source: Antigravity Skills
 
 </details>
