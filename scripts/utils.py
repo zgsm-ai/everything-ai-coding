@@ -15,6 +15,95 @@ logger = logging.getLogger(__name__)
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 _github_api_disabled_until = 0.0
 
+# --- GitHub proxy support ---
+GITHUB_PROXY = os.environ.get("GITHUB_PROXY", "").strip()
+GITHUB_PROXY_AUTH = os.environ.get("GITHUB_PROXY_AUTH", "").strip()
+
+_PROBE_URL = "https://raw.githubusercontent.com/zgsm-ai/everything-ai-coding/main/catalog/search-index.json"
+
+_use_proxy = False
+_proxy_url = ""
+
+
+def _probe_github_reachable(timeout: int = 3) -> bool:
+    """HEAD-style probe to check if GitHub is directly reachable (3s timeout)."""
+    try:
+        req = Request(_PROBE_URL, method="HEAD")
+        if GITHUB_TOKEN:
+            req.add_header("Authorization", f"token {GITHUB_TOKEN}")
+        urlopen(req, timeout=timeout)
+        return True
+    except Exception:
+        return False
+
+
+def _init_proxy() -> None:
+    """Detect whether to use the GitHub proxy and set global flags."""
+    global _use_proxy, _proxy_url
+
+    if not GITHUB_PROXY:
+        # No proxy configured → direct access, no probe needed
+        return
+
+    # Handle "always:<proxy-url>" shorthand
+    if GITHUB_PROXY.startswith("always:"):
+        _proxy_url = GITHUB_PROXY[len("always:"):].rstrip("/")
+        _use_proxy = True
+        logger.info("Using proxy %s (always mode)", _proxy_url)
+        return
+
+    proxy_url_candidate = GITHUB_PROXY.rstrip("/")
+
+    # Probe GitHub directly
+    if _probe_github_reachable():
+        logger.info("GitHub direct access OK")
+        return
+
+    # GitHub unreachable — verify proxy is alive before committing
+    try:
+        proxy_origin = proxy_url_candidate
+        if GITHUB_PROXY_AUTH:
+            proxy_origin = proxy_origin.replace("://", f"://{GITHUB_PROXY_AUTH}@", 1)
+        probe_via_proxy = f"{proxy_origin}/{_PROBE_URL}"
+        req = Request(probe_via_proxy, method="HEAD")
+        urlopen(req, timeout=3)
+    except Exception:
+        logger.warning("Proxy %s also unreachable, falling back to direct", proxy_url_candidate)
+        return
+
+    _proxy_url = proxy_url_candidate
+    _use_proxy = True
+    logger.info("Using proxy %s", _proxy_url)
+
+
+_PROXY_DOMAINS = ("raw.githubusercontent.com", "github.com")
+
+
+def _proxy_rewrite_url(url: str) -> str:
+    """Rewrite a GitHub URL through the proxy if _use_proxy is True.
+
+    Only rewrites URLs targeting GitHub domains (raw.githubusercontent.com,
+    github.com, api.github.com). Non-GitHub URLs are returned unchanged.
+    Embeds proxy auth credentials in the URL if GITHUB_PROXY_AUTH is set,
+    keeping the Authorization header free for GITHUB_TOKEN.
+    """
+    if not _use_proxy or not _proxy_url:
+        return url
+    if not any(f"://{domain}/" in url or url.endswith(f"://{domain}") for domain in _PROXY_DOMAINS):
+        return url
+    if GITHUB_PROXY_AUTH:
+        return _proxy_url.replace("://", f"://{GITHUB_PROXY_AUTH}@", 1) + f"/{url}"
+    return f"{_proxy_url}/{url}"
+
+
+def _safe_log_url(url: str) -> str:
+    """Strip embedded credentials from URL for safe logging."""
+    # Matches https://user:pass@host/... → https://***@host/...
+    return re.sub(r"://[^@]+@", "://***@", url)
+
+
+_init_proxy()
+
 CATEGORY_MAP = {
     # MCP categories (awesome-mcp-servers)
     "browser automation": "testing",
@@ -167,6 +256,7 @@ def github_api(path: str) -> Optional[dict]:
         return None
 
     url = f"https://api.github.com/{path.lstrip('/')}"
+    url = _proxy_rewrite_url(url)
     headers = {
         "Accept": "application/vnd.github.v3+json",
         "User-Agent": "everything-ai-coding-sync",
@@ -200,7 +290,7 @@ def github_api(path: str) -> Optional[dict]:
                 logger.warning(f"GitHub API temporary error {e.code}, retrying in {wait}s...")
                 time.sleep(wait)
                 continue
-            logger.error(f"GitHub API error {e.code}: {url}")
+            logger.error(f"GitHub API error {e.code}: {_safe_log_url(url)}")
             return None
         except (URLError, TimeoutError) as e:
             logger.error(f"Network error (attempt {attempt+1}): {e}")
@@ -328,9 +418,11 @@ def fetch_raw_content(repo: str, path: str, branch: str = "main",
                    If False (default), log at WARNING level.
     """
     url = f"https://raw.githubusercontent.com/{repo}/{branch}/{path}"
-    req = Request(url, headers={"User-Agent": "everything-ai-coding-sync"})
+    url = _proxy_rewrite_url(url)
+    headers = {"User-Agent": "everything-ai-coding-sync"}
     if GITHUB_TOKEN:
-        req.add_header("Authorization", f"token {GITHUB_TOKEN}")
+        headers["Authorization"] = f"token {GITHUB_TOKEN}"
+    req = Request(url, headers=headers)
 
     for attempt in range(3):
         try:
@@ -339,19 +431,19 @@ def fetch_raw_content(repo: str, path: str, branch: str = "main",
         except HTTPError as e:
             if e.code == 404:
                 if quiet_404:
-                    logger.debug(f"Not found (404): {url}")
+                    logger.debug(f"Not found (404): {_safe_log_url(url)}")
                 else:
-                    logger.warning(f"Not found (404): {url}")
+                    logger.warning(f"Not found (404): {_safe_log_url(url)}")
                 return None
             if e.code in (429, 500, 502, 503, 504) and attempt < 2:
                 wait = _retry_delay_seconds(e.headers, min(2 ** attempt, 30))
-                logger.warning(f"Fetch failed {e.code} for {url}, retrying in {wait}s...")
+                logger.warning(f"Fetch failed {e.code} for {_safe_log_url(url)}, retrying in {wait}s...")
                 time.sleep(wait)
                 continue
-            logger.error(f"Failed to fetch {url}: {e}")
+            logger.error(f"Failed to fetch {_safe_log_url(url)}: {e}")
             return None
         except (URLError, TimeoutError) as e:
-            logger.error(f"Failed to fetch {url}: {e}")
+            logger.error(f"Failed to fetch {_safe_log_url(url)}: {e}")
             if attempt < 2:
                 time.sleep(2 ** attempt)
                 continue

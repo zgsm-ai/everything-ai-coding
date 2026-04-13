@@ -23,8 +23,9 @@ Once determined, apply consistently:
 
 ## Data Sources
 
-Index URL: `https://raw.githubusercontent.com/zgsm-ai/everything-ai-coding/main/catalog/index.json`
+**Note**: Apply GitHub Network Detection rules (see SKILL.md) to all GitHub URLs below. If `[network-config]` specifies a proxy, rewrite URLs accordingly.
 
+Index URL: `https://raw.githubusercontent.com/zgsm-ai/everything-ai-coding/main/catalog/index.json`
 
 ## Execution Flow
 

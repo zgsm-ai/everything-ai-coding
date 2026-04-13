@@ -11,10 +11,12 @@ export interface CatalogItem {
   tags: string[]
   tech_stack: string[]
   install?: {
-    method: 'mcp_config' | 'git_clone' | 'manual' | 'download_file'
+    method: 'mcp_config' | 'mcp_config_template' | 'git_clone' | 'manual' | 'download_file'
     config?: Record<string, unknown>
     repo?: string
     files?: string[]
+    branch?: string
+    path?: string
   }
   source: string
   last_synced: string

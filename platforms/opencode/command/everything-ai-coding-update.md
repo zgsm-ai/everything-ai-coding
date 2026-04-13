@@ -22,6 +22,8 @@ Pull the latest version of everything-ai-coding skill and sub-commands from GitH
 
 ## Source
 
+**Note**: Apply GitHub Network Detection rules (see SKILL.md) to all GitHub URLs below. If `[network-config]` specifies a proxy, rewrite URLs accordingly.
+
 Base URL: `https://raw.githubusercontent.com/zgsm-ai/everything-ai-coding/main`
 
 ## Execution Flow
@@ -64,6 +66,8 @@ Base URL: `https://raw.githubusercontent.com/zgsm-ai/everything-ai-coding/main`
        - .claude/commands/everything-ai-coding/uninstall.md
        - .claude/commands/everything-ai-coding/update.md
    ```
+
+4. **Reset network detection**: After SKILL.md is re-downloaded, delete the `[network-config]` marker at the end of the old file if it was preserved, so a fresh network probe runs on the next session.
 
 ## Error Handling
 

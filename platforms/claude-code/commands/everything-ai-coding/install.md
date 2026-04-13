@@ -22,6 +22,8 @@ Once determined, apply consistently:
 
 ## Data Sources
 
+**Note**: Apply GitHub Network Detection rules (see SKILL.md) to all GitHub URLs below. If `[network-config]` specifies a proxy, rewrite URLs accordingly.
+
 Per-entry API: `https://zgsm-ai.github.io/everything-ai-coding/api/v1/{type}/{id}.json`
 Full index (fallback): `https://raw.githubusercontent.com/zgsm-ai/everything-ai-coding/main/catalog/index.json`
 Local fallback: `/Volumes/Work/Projects/everything-ai-coding/catalog/index.json`
@@ -74,6 +76,7 @@ When the installed MCP config contains `env` fields (API keys, tokens, connectio
 
 1. **Detect unconfigured env vars** — any env value that is empty, contains `<`, `YOUR_`, or placeholder-like patterns
 2. **Fetch the project README for setup guidance**:
+   - **Note**: Apply GitHub Network Detection rules (see SKILL.md) to `source_url` before fetching.
    - Use WebFetch on the entry's `source_url` with prompt: "Extract: 1) What API keys or environment variables are needed 2) How to obtain them (signup URL, steps) 3) Example configuration. Be concise, bullet points only."
    - If `source_url` is a GitHub monorepo subpath and fetch fails, try the repo root URL instead
 3. **Present actionable guidance** to the user (in detected language):
@@ -91,7 +94,7 @@ Structure:
 No pre-built install config in the index — infer install method from project README. Steps:
 
 **Step 1: Fetch README**
-- Construct raw URL from `source_url`:
+- Construct raw URL from `source_url` (**Note**: Apply GitHub Network Detection rules from SKILL.md to these URLs):
   - Try `https://raw.githubusercontent.com/{owner}/{repo}/main/README.md`
   - If 404, try `master` branch
 - If fetch fails, go to Step 3 fallback

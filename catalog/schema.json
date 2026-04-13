@@ -46,7 +46,9 @@
           },
           "target_dir": { "type": "string" },
           "files": { "type": "array", "items": { "type": "string" } },
-          "repo": { "type": "string" }
+          "repo": { "type": "string" },
+          "branch": { "type": "string", "description": "Optional branch name for git_clone skill installs that extract a skill from a specific branch" },
+          "path": { "type": "string", "description": "Optional repository path for git_clone skill installs that extract a single skill directory" }
         }
       },
       "health": {

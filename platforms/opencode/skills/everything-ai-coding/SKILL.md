@@ -189,6 +189,60 @@ Warn that skills are global (`~/.claude/skills/`) — customization affects all 
 2. Supports updating itself (update everything-ai-coding) or other installed resources
 3. Show update progress and result
 
+## GitHub Network Detection
+
+### When to probe
+
+At the start of a session, before the first network request, check whether a `[network-config]` block already exists at the very end of this SKILL.md file. If it exists, parse it and use the stored values — do NOT probe again. If it does not exist, run the probe below.
+
+### How to probe
+
+```bash
+curl -sf --max-time 3 https://raw.githubusercontent.com/zgsm-ai/everything-ai-coding/main/catalog/search-index.json -o /dev/null
+```
+
+- **Exit 0** (reachable): set `github_proxy: none`
+- **Non-zero** (unreachable): set `github_proxy: https://hub.dbinfun.net`
+
+### What to write
+
+Append the following HTML comment block to the very end of this SKILL.md file (after all other content):
+
+```
+<!-- [network-config]
+detected: <YYYY-MM-DD>
+github_proxy: <proxy-url-or-none>
+proxy_auth: <user:pass-or-none>
+-->
+```
+
+Fields:
+- `detected` — date the probe ran (e.g. `2026-04-13`)
+- `github_proxy` — either `none` (direct access) or a proxy base URL (e.g. `https://hub.dbinfun.net`)
+- `proxy_auth` — either `none` or `user:pass` credentials for the proxy
+
+Set `proxy_auth: none` by default. Users may edit it manually if their proxy requires authentication.
+
+### URL rewriting rules
+
+When `github_proxy` is a URL (not `none`), rewrite ALL URLs whose host is `raw.githubusercontent.com` or `github.com`. Do NOT rewrite other hosts (e.g. `zgsm-ai.github.io`, `api.github.com`).
+
+**Rewrite format** — path-prefix: `https://<proxy>/https://<original-url>`
+
+Example: if `github_proxy: https://hub.dbinfun.net`, then:
+- `https://raw.githubusercontent.com/foo/bar/main/file.json` → `https://hub.dbinfun.net/https://raw.githubusercontent.com/foo/bar/main/file.json`
+
+Apply to these three scenarios:
+
+1. **curl commands**: replace the URL directly.
+   - If `proxy_auth` is not `none`, add `-u <proxy_auth>` to the curl invocation.
+
+2. **git clone commands**: replace the URL directly.
+   - If `proxy_auth` is not `none`, embed credentials in the URL: `https://<user:pass>@<proxy>/https://github.com/...`
+
+3. **WebFetch tool calls**: replace the URL directly.
+   - If `proxy_auth` is not `none`, prepend credentials to the proxy host: `https://<user:pass>@<proxy>/https://<original-url>`
+
 ## Error Handling
 
 - If curl fails to fetch index: inform user of network issue and suggest retry

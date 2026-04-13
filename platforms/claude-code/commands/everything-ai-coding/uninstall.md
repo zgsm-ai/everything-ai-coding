@@ -22,6 +22,8 @@ Once determined, apply consistently:
 
 ## Data Sources
 
+**Note**: Apply GitHub Network Detection rules (see SKILL.md) to all GitHub URLs below. If `[network-config]` specifies a proxy, rewrite URLs accordingly.
+
 Index URL: `https://raw.githubusercontent.com/zgsm-ai/everything-ai-coding/main/catalog/index.json`
 Local fallback: `/Volumes/Work/Projects/everything-ai-coding/catalog/index.json`
 
