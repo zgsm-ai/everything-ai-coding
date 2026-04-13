@@ -16,6 +16,7 @@ try:
         categorize,
         extract_tags,
         normalize_source_url,
+        get_repo_meta,
         logger,
     )
     from .enrichment_orchestrator import enrich_entries
@@ -33,6 +34,7 @@ except ImportError:
         categorize,
         extract_tags,
         normalize_source_url,
+        get_repo_meta,
         logger,
     )
     from enrichment_orchestrator import enrich_entries
@@ -178,6 +180,18 @@ def merge():
 
     # Overlay supplementary fields (tech_stack, tags) from curated.json files
     deduped = overlay_curated_fields(deduped)
+
+    # --- Backfill pushed_at from GitHub API for entries missing it ---
+    missing_pushed_at = [e for e in deduped if not e.get("pushed_at") and e.get("source_url", "").startswith("https://github.com/")]
+    if missing_pushed_at:
+        logger.info(f"Backfilling pushed_at for {len(missing_pushed_at)} entries via GitHub API")
+        filled = 0
+        for entry in missing_pushed_at:
+            meta = get_repo_meta(entry["source_url"])
+            if meta and meta.get("pushed_at"):
+                entry["pushed_at"] = meta["pushed_at"]
+                filled += 1
+        logger.info(f"Backfilled pushed_at for {filled}/{len(missing_pushed_at)} entries")
 
     # Fix invalid categories
     VALID_CATEGORIES = {
