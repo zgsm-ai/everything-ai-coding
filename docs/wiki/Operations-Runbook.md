@@ -1,12 +1,14 @@
 # Operations Runbook
 
-维护动作主要围绕三条主线：同步目录、校验人工入口、发布站点。排障时先确定问题落在哪条主线，再看对应产物。
+维护动作主要围绕三类工作：同步目录、校验人工入口、发布站点。发布站点在实现上又拆成“触发 workflow”和“复用 workflow”两层。排障时先确定问题落在哪一层，再看对应产物。
 
 ## 工作流
 
-当前主干里最核心的自动化工作流有三条：
+当前主干里和维护直接相关的 workflow 文件有五个：
 
 - `sync.yml`
+- `deploy-pages.yml`
+- `deploy-frontend.yml`
 - `publish-site.yml`
 - `validate-pr.yml`
 
@@ -15,7 +17,9 @@
 | 工作流 | 负责什么 | 不负责什么 |
 | --- | --- | --- |
 | `sync.yml` | 同步上游、合并目录、更新 README、自动提交目录变化 | 发布站点、解释所有同步失败原因 |
-| `publish-site.yml` | 构建前端、生成静态 API、部署 GitHub Pages | 重新同步目录、修复目录数据 |
+| `deploy-pages.yml` | 在 `Weekly Sync` 成功后或手动触发站点发布 | 自己完成构建细节、重新同步目录 |
+| `deploy-frontend.yml` | 在前端/目录/发布脚本相关路径变更后触发站点发布 | 自己完成构建细节、重新同步目录 |
+| `publish-site.yml` | 作为复用 workflow 构建前端、生成静态 API、部署 GitHub Pages | 重新同步目录、决定何时触发发布 |
 | `validate-pr.yml` | 校验 `catalog/**/curated.json` 的结构约束 | 覆盖全仓逻辑、验证前端或脚本行为 |
 
 ## `sync.yml`
@@ -38,16 +42,24 @@
 
 看到成功，不等于所有上游都成功；看到 warning，也不等于本次产物完全不可用。
 
+## `deploy-pages.yml`
+
+这条流程在 `Weekly Sync` 成功后触发，也支持手动触发。它只负责把“同步完成”转换成一次站点发布调用，本身不做构建。
+
+## `deploy-frontend.yml`
+
+这条流程在 `main` 分支的前端、目录和发布脚本相关路径变更后触发，也支持手动触发。它只负责把“相关代码变更”转换成一次站点发布调用。
+
 ## `publish-site.yml`
 
-站点发布链路消费的是仓库当前状态，不是实时重新拉取上游。
+站点发布链路消费的是仓库当前状态，不是实时重新拉取上游。需要注意的是，这条 workflow 本身只接受 `workflow_call`；真正的触发入口是前面的 `deploy-pages.yml` 和 `deploy-frontend.yml`。
 
 当前流程会：
 
 1. 生成 featured 数据。
-2. 生成前端消费数据。
+2. 生成 `frontend/public/api/*` 前端消费数据。
 3. 构建 `frontend/`。
-4. 生成静态 API 页面。
+4. 生成 `frontend/dist/api/v1/*` 静态 API 页面。
 5. 部署 GitHub Pages。
 
 因此，“站点没更新”不一定是同步问题，也可能是构建、API 生成或部署问题。
