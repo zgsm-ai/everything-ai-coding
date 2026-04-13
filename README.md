@@ -136,7 +136,6 @@ everything-ai-coding/
 ├── platforms/                    # Per-platform skill + command definitions
 ├── scripts/                      # Sync, merge, scoring, and publishing scripts
 ├── .github/workflows/            # CI automation
-└── openspec/                     # Change-management artifacts
 ```
 
 </details>
@@ -333,6 +332,8 @@ Contributions are welcome. Open a PR against the appropriate directory under `ca
 - is relevant to coding or AI-assisted development,
 - has an accurate `source_url`, `description`, and tags,
 - follows `catalog/schema.json`.
+
+If you need maintainers' context instead of quick-start instructions, see the repository wiki in [`docs/wiki/`](./docs/wiki/README.md).
 
 ## Disclaimer
 

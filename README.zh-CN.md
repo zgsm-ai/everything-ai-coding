@@ -136,7 +136,6 @@ everything-ai-coding/
 ├── platforms/                    # 各平台 skill 与命令定义
 ├── scripts/                      # 同步、合并、评分、发布脚本
 ├── .github/workflows/            # CI 自动化
-└── openspec/                     # 变更管理产物
 ```
 
 </details>
@@ -333,6 +332,8 @@ done
 - 资源与编程或 AI 辅助开发相关，
 - `source_url`、`description`、tags 等字段准确，
 - 数据格式符合 `catalog/schema.json`。
+
+如果你需要的是维护视角的上下文，而不是快速安装说明，可以继续看仓库内 wiki：[`docs/wiki/`](./docs/wiki/README.md)。
 
 ## 免责声明
 

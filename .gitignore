@@ -4,7 +4,10 @@ __pycache__/
 node_modules/
 
 # Internal docs (planning, strategies — not shipped)
-docs/
+docs/*
+!docs/wiki/
+!docs/wiki/**
+.archive/
 
 # OpenSpec internal docs
 openspec/
