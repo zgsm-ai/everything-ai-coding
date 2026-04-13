@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router'
 import { useI18n } from '../hooks/useI18n'
 import RadarChart from '../components/RadarChart'
 import type { CatalogItem } from '../types'
+import { buildInstallGuidance } from '../lib/installGuidance'
 
 export default function Detail() {
   const { id } = useParams<{ id: string }>()
@@ -46,6 +47,7 @@ export default function Detail() {
   }
 
   const desc = lang === 'zh' && item.description_zh ? item.description_zh : item.description
+  const installGuidance = item.install ? buildInstallGuidance(item, lang) : null
   const TYPE_COLORS: Record<string, string> = {
     mcp: 'bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300',
     skill: 'bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300',
@@ -189,7 +191,7 @@ export default function Detail() {
       {item.install && (
         <div className="glass rounded-2xl p-6">
           <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-4">{t('detail.install')}</h3>
-          {item.install.method === 'mcp_config' && item.install.config && (
+          {installGuidance?.kind === 'mcp_config' && item.install.config && (
             <div className="relative">
               <pre className="bg-gray-900 text-gray-100 rounded-xl p-4 text-xs overflow-x-auto">
                 {JSON.stringify(item.install.config, null, 2)}
@@ -202,20 +204,38 @@ export default function Detail() {
               </button>
             </div>
           )}
-          {item.install.method === 'git_clone' && item.install.repo && (
+          {installGuidance?.kind === 'skill_extract' && (
+            <div className="space-y-3">
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                {t('detail.install.skillExtract')}
+              </p>
+              {installGuidance.sourceUrl && (
+                <p className="text-xs text-gray-500 dark:text-gray-400 break-all">
+                  {t('detail.install.sourcePathLabel')}:{' '}
+                  <a href={installGuidance.sourceUrl} target="_blank" rel="noreferrer" className="text-apple-blue hover:underline">
+                    {installGuidance.sourceUrl}
+                  </a>
+                </p>
+              )}
+              <p className="text-xs text-gray-400 dark:text-gray-500">
+                {t('detail.install.skillExtractHint')}
+              </p>
+            </div>
+          )}
+          {installGuidance?.kind === 'git_clone' && item.install.repo && (
             <div className="relative">
               <pre className="bg-gray-900 text-gray-100 rounded-xl p-4 text-xs overflow-x-auto">
-                git clone {item.install.repo}
+                {installGuidance.copyText}
               </pre>
               <button
-                onClick={() => handleCopy(`git clone ${item.install!.repo}`)}
+                onClick={() => handleCopy(installGuidance.copyText)}
                 className="absolute top-2 right-2 px-2 py-1 rounded-lg bg-white/10 text-white text-xs hover:bg-white/20 border-none cursor-pointer"
               >
                 {copied ? t('detail.install.copied') : t('detail.install.copy')}
               </button>
             </div>
           )}
-          {item.install.method === 'manual' && item.source_url && (
+          {installGuidance?.kind === 'manual' && item.source_url && (
             <p className="text-sm text-gray-600 dark:text-gray-300">
               {t('detail.install.manual')}:{' '}
               <a href={item.source_url} target="_blank" rel="noreferrer" className="text-apple-blue hover:underline">
@@ -223,25 +243,21 @@ export default function Detail() {
               </a>
             </p>
           )}
-          {item.install.method === 'download_file' && item.install.files && item.install.files.length > 0 && (() => {
-            const targetDir = item.type === 'rule' || item.type === 'prompt' ? '.claude/rules' : '.'
-            const targetFile = `${targetDir}/${item.id}.md`
-            const fileUrl = item.install!.files![0]
-            const cmd = `curl -sL "${fileUrl}" -o ${targetFile}`
+          {installGuidance?.kind === 'download_file' && item.install.files && item.install.files.length > 0 && (() => {
             return (
               <div>
                 <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
                   {lang === 'zh' ? '下载到项目规则目录：' : 'Download to project rules directory:'}
                 </p>
                 <p className="text-xs text-gray-400 dark:text-gray-500 mb-3">
-                  {lang === 'zh' ? '目标路径' : 'Target'}: <code className="bg-gray-100 dark:bg-gray-700 px-1.5 py-0.5 rounded">{targetFile}</code>
+                  {lang === 'zh' ? '目标路径' : 'Target'}: <code className="bg-gray-100 dark:bg-gray-700 px-1.5 py-0.5 rounded">{installGuidance.targetFile}</code>
                 </p>
                 <div className="relative">
                   <pre className="bg-gray-900 text-gray-100 rounded-xl p-4 text-xs overflow-x-auto whitespace-pre-wrap break-all">
-                    {cmd}
+                    {installGuidance.copyText}
                   </pre>
                   <button
-                    onClick={() => handleCopy(cmd)}
+                    onClick={() => handleCopy(installGuidance.copyText)}
                     className="absolute top-2 right-2 px-2 py-1 rounded-lg bg-white/10 text-white text-xs hover:bg-white/20 border-none cursor-pointer"
                   >
                     {copied ? t('detail.install.copied') : t('detail.install.copy')}
