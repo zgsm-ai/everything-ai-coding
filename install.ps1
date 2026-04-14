@@ -7,18 +7,27 @@
       irm https://raw.githubusercontent.com/zgsm-ai/everything-ai-coding/main/install.ps1 | iex
       # Or with explicit platform:
       & ([scriptblock]::Create((irm https://raw.githubusercontent.com/zgsm-ai/everything-ai-coding/main/install.ps1))) -Platform claude-code
+      # Fork usage:
+      & ([scriptblock]::Create((irm https://raw.githubusercontent.com/.../install.ps1))) -Platform claude-code -Repo myorg/my-fork
 .PARAMETER Platform
     Target platform: claude-code, opencode, costrict, vscode-costrict
     If omitted, auto-detects via environment variables.
+.PARAMETER Repo
+    GitHub owner/repo. Defaults to zgsm-ai/everything-ai-coding.
+    For forks, specify your own repo to rewrite all data URLs.
 #>
 param(
     [ValidateSet("claude-code", "opencode", "costrict", "vscode-costrict")]
-    [string]$Platform
+    [string]$Platform,
+    [string]$Repo = "zgsm-ai/everything-ai-coding"
 )
 
 $ErrorActionPreference = "Stop"
 
-$BaseUrl = "https://raw.githubusercontent.com/zgsm-ai/everything-ai-coding/main"
+$DefaultRepo = "zgsm-ai/everything-ai-coding"
+$BaseUrl = "https://raw.githubusercontent.com/$Repo/main"
+$RepoOwner = $Repo.Split("/")[0]
+$RepoName = $Repo.Split("/")[1]
 $Commands = @("search", "browse", "recommend", "install", "uninstall", "update")
 
 # --- Auto-detect platform ---
@@ -53,6 +62,10 @@ Please specify explicitly:
     Write-Host "Platform: $Platform"
 }
 
+if ($Repo -ne $DefaultRepo) {
+    Write-Host "Using fork: $Repo"
+}
+
 # --- Download helper ---
 
 function Download-File {
@@ -69,6 +82,18 @@ function Download-File {
     }
 }
 
+# --- Rewrite repo references for forks ---
+
+function Rewrite-RepoUrls {
+    param([string]$FilePath)
+    if ($Repo -eq $DefaultRepo) { return }
+    $content = Get-Content -Path $FilePath -Raw -Encoding UTF8
+    $content = $content -replace "raw\.githubusercontent\.com/zgsm-ai/everything-ai-coding", "raw.githubusercontent.com/$Repo"
+    $content = $content -replace "zgsm-ai\.github\.io/everything-ai-coding", "$RepoOwner.github.io/$RepoName"
+    $content = $content -replace "github\.com/zgsm-ai/everything-ai-coding", "github.com/$Repo"
+    Set-Content -Path $FilePath -Value $content -Encoding UTF8 -NoNewline
+}
+
 # --- Install per platform ---
 
 function Install-ClaudeCode {
@@ -77,8 +102,10 @@ function Install-ClaudeCode {
 
     Write-Host "Downloading skill + commands..."
     Download-File "$BaseUrl/platforms/claude-code/skills/everything-ai-coding/SKILL.md" "$skillDir/SKILL.md"
+    Rewrite-RepoUrls "$skillDir/SKILL.md"
     foreach ($cmd in $Commands) {
         Download-File "$BaseUrl/platforms/claude-code/commands/everything-ai-coding/$cmd.md" "$skillDir/$cmd.md"
+        Rewrite-RepoUrls "$skillDir/$cmd.md"
     }
 
     Write-Host ""
@@ -97,10 +124,12 @@ function Install-Opencode {
 
     Write-Host "Downloading skill..."
     Download-File "$BaseUrl/platforms/opencode/skills/everything-ai-coding/SKILL.md" "$skillDir/SKILL.md"
+    Rewrite-RepoUrls "$skillDir/SKILL.md"
 
     Write-Host "Downloading commands to project dir..."
     foreach ($cmd in $Commands) {
         Download-File "$BaseUrl/platforms/opencode/command/everything-ai-coding-$cmd.md" "$cmdDir/everything-ai-coding-$cmd.md"
+        Rewrite-RepoUrls "$cmdDir/everything-ai-coding-$cmd.md"
     }
 
     Write-Host ""
@@ -123,10 +152,12 @@ function Install-Costrict {
 
     Write-Host "Downloading skill..."
     Download-File "$BaseUrl/platforms/costrict/skills/everything-ai-coding/SKILL.md" "$skillDir/SKILL.md"
+    Rewrite-RepoUrls "$skillDir/SKILL.md"
 
     Write-Host "Downloading commands to project dir..."
     foreach ($cmd in $Commands) {
         Download-File "$BaseUrl/platforms/costrict/commands/everything-ai-coding/everything-ai-coding-$cmd.md" "$cmdDir/everything-ai-coding-$cmd.md"
+        Rewrite-RepoUrls "$cmdDir/everything-ai-coding-$cmd.md"
     }
 
     Write-Host ""
@@ -149,10 +180,12 @@ function Install-VscodeCostrict {
 
     Write-Host "Downloading skill..."
     Download-File "$BaseUrl/platforms/vscode-costrict/skills/everything-ai-coding/SKILL.md" "$skillDir/SKILL.md"
+    Rewrite-RepoUrls "$skillDir/SKILL.md"
 
     Write-Host "Downloading commands (global)..."
     foreach ($cmd in $Commands) {
         Download-File "$BaseUrl/platforms/vscode-costrict/commands/everything-ai-coding/everything-ai-coding-$cmd.md" "$cmdDir/everything-ai-coding-$cmd.md"
+        Rewrite-RepoUrls "$cmdDir/everything-ai-coding-$cmd.md"
     }
 
     Write-Host ""

@@ -8,7 +8,8 @@ set -euo pipefail
 #
 # Platforms: claude-code, opencode, costrict, vscode-costrict
 
-BASE_URL="https://raw.githubusercontent.com/zgsm-ai/everything-ai-coding/main"
+DEFAULT_REPO="zgsm-ai/everything-ai-coding"
+REPO="$DEFAULT_REPO"
 COMMANDS="search browse recommend install uninstall update"
 
 # --- Auto-detect platform via process-injected env vars ---
@@ -39,6 +40,10 @@ while [[ $# -gt 0 ]]; do
       PLATFORM="$2"
       shift 2
       ;;
+    --repo|-r)
+      REPO="$2"
+      shift 2
+      ;;
     claude-code|opencode|costrict|vscode-costrict)
       PLATFORM="$1"
       shift
@@ -46,13 +51,19 @@ while [[ $# -gt 0 ]]; do
     *)
       echo "Unknown argument: $1" >&2
       echo "" >&2
-      echo "Usage: bash install.sh [--platform <platform>]" >&2
+      echo "Usage: bash install.sh [--platform <platform>] [--repo <owner/repo>]" >&2
       echo "Platforms: claude-code, opencode, costrict, vscode-costrict" >&2
       echo "Omit --platform to auto-detect via environment variables." >&2
+      echo "Omit --repo to use the default ($DEFAULT_REPO)." >&2
       exit 1
       ;;
   esac
 done
+
+# Derive URLs from repo
+BASE_URL="https://raw.githubusercontent.com/${REPO}/main"
+REPO_OWNER="${REPO%%/*}"
+REPO_NAME="${REPO##*/}"
 
 # Auto-detect if no --platform provided
 if [ -z "$PLATFORM" ]; then
@@ -103,6 +114,22 @@ download() {
   fi
 }
 
+# --- Rewrite repo references for forks ---
+
+rewrite_repo_urls() {
+  local file="$1"
+  if [ "$REPO" = "$DEFAULT_REPO" ]; then
+    return  # No rewriting needed for the default repo
+  fi
+  # Replace raw.githubusercontent.com paths
+  sed -i.bak "s|raw\.githubusercontent\.com/zgsm-ai/everything-ai-coding|raw.githubusercontent.com/${REPO}|g" "$file"
+  # Replace GitHub Pages URL: zgsm-ai.github.io/everything-ai-coding → owner.github.io/repo
+  sed -i.bak "s|zgsm-ai\.github\.io/everything-ai-coding|${REPO_OWNER}.github.io/${REPO_NAME}|g" "$file"
+  # Replace github.com repo references
+  sed -i.bak "s|github\.com/zgsm-ai/everything-ai-coding|github.com/${REPO}|g" "$file"
+  rm -f "${file}.bak"
+}
+
 # --- Install per platform ---
 # SKILL.md → global skills dir (always available)
 # Commands → project-level dir (CWD) for opencode/costrict (they only load commands from project dir)
@@ -115,10 +142,12 @@ install_claude_code() {
 
   echo "Downloading skill..."
   download "$BASE_URL/platforms/claude-code/skills/everything-ai-coding/SKILL.md" "$skill_dir/SKILL.md"
+  rewrite_repo_urls "$skill_dir/SKILL.md"
 
   echo "Downloading commands..."
   for cmd in $COMMANDS; do
     download "$BASE_URL/platforms/claude-code/commands/everything-ai-coding/${cmd}.md" "$cmd_dir/${cmd}.md"
+    rewrite_repo_urls "$cmd_dir/${cmd}.md"
   done
 
   echo ""
@@ -137,10 +166,12 @@ install_opencode() {
 
   echo "Downloading skill..."
   download "$BASE_URL/platforms/opencode/skills/everything-ai-coding/SKILL.md" "$skill_dir/SKILL.md"
+  rewrite_repo_urls "$skill_dir/SKILL.md"
 
   echo "Downloading commands to project dir..."
   for cmd in $COMMANDS; do
     download "$BASE_URL/platforms/opencode/command/everything-ai-coding-${cmd}.md" "$cmd_dir/everything-ai-coding-${cmd}.md"
+    rewrite_repo_urls "$cmd_dir/everything-ai-coding-${cmd}.md"
   done
 
   echo ""
@@ -162,10 +193,12 @@ install_costrict() {
 
   echo "Downloading skill..."
   download "$BASE_URL/platforms/costrict/skills/everything-ai-coding/SKILL.md" "$skill_dir/SKILL.md"
+  rewrite_repo_urls "$skill_dir/SKILL.md"
 
   echo "Downloading commands to project dir..."
   for cmd in $COMMANDS; do
     download "$BASE_URL/platforms/costrict/commands/everything-ai-coding/everything-ai-coding-${cmd}.md" "$cmd_dir/everything-ai-coding-${cmd}.md"
+    rewrite_repo_urls "$cmd_dir/everything-ai-coding-${cmd}.md"
   done
 
   echo ""
@@ -189,10 +222,12 @@ install_vscode_costrict() {
 
   echo "Downloading skill..."
   download "$BASE_URL/platforms/vscode-costrict/skills/everything-ai-coding/SKILL.md" "$skill_dir/SKILL.md"
+  rewrite_repo_urls "$skill_dir/SKILL.md"
 
   echo "Downloading commands (global)..."
   for cmd in $COMMANDS; do
     download "$BASE_URL/platforms/vscode-costrict/commands/everything-ai-coding/everything-ai-coding-${cmd}.md" "$cmd_dir/everything-ai-coding-${cmd}.md"
+    rewrite_repo_urls "$cmd_dir/everything-ai-coding-${cmd}.md"
   done
 
   echo ""
