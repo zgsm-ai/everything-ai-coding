@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 INDEX_PATH = ROOT / "catalog" / "index.json"
-GITHUB_PAGES_URL = "https://zgsm-ai.github.io/everything-ai-coding/"
+GITHUB_PAGES_BASE = "https://zgsm-ai.github.io/everything-ai-coding/"
 MAIN_README_REL = "../../README.md"
 
 RESOURCE_TYPES = ("mcp", "skills", "rules", "prompts")
@@ -275,118 +275,69 @@ def _has_enough_dates(entries: list[dict], threshold: float = 0.3) -> bool:
     return (with_date / len(entries)) >= threshold
 
 
-def render_mcp_table(entries: list[dict], zh: bool = False) -> str:
+def _render_table(entries: list[dict], zh: bool, has_stars: bool = False) -> str:
+    """Unified table renderer for all types.
+
+    All types get: #, Name, Description, Source/Stars, Status, Score, Updated (if data), Category, Tags.
+    MCP uses Stars instead of Source.
+    """
     show_updated = _has_enough_dates(entries)
-    if zh:
-        header = "| # | 名称 | 描述 | ⭐ Stars | 状态 | 评分 |"
-        sep = "|---|------|------|----------|------|------|"
+
+    # Build header
+    if has_stars:
+        if zh:
+            cols = ["#", "名称", "描述", "⭐ Stars", "状态", "评分"]
+        else:
+            cols = ["#", "Name", "Description", "⭐ Stars", "Status", "Score"]
     else:
-        header = "| # | Name | Description | ⭐ Stars | Status | Score |"
-        sep = "|---|------|-------------|----------|--------|-------|"
+        if zh:
+            cols = ["#", "名称", "描述", "来源", "状态", "评分"]
+        else:
+            cols = ["#", "Name", "Description", "Source", "Status", "Score"]
+
     if show_updated:
-        header += " 最近更新 |" if zh else " Updated |"
-        sep += "----------|" if zh else "---------|"
-    header += " 安装方式 |\n" if zh else " Install |\n"
-    sep += "----------|\n" if zh else "--------|\n"
+        cols.append("最近更新" if zh else "Updated")
+    cols.append("分类" if zh else "Category")
+    cols.append("标签" if zh else "Tags")
+
+    header = "| " + " | ".join(cols) + " |\n"
+    sep = "|" + "|".join("---" for _ in cols) + "|\n"
 
     rows = []
     for i, e in enumerate(entries, 1):
         desc = truncate(e.get("description_zh") if zh else e.get("description"))
-        row = (
-            f"| {i} | {entry_link(e)} | {desc} | {format_stars(e.get('stars'))} "
-            f"| {freshness_badge_zh(e) if zh else freshness_badge(e)} | {e.get('final_score', '—')} |"
-        )
+        status = freshness_badge_zh(e) if zh else freshness_badge(e)
+        cat = e.get("category", "—") or "—"
+
+        if has_stars:
+            src_or_stars = format_stars(e.get("stars"))
+        else:
+            src_or_stars = source_label(e, zh)
+
+        parts = [str(i), entry_link(e), desc, src_or_stars, status, str(e.get("final_score", "—"))]
         if show_updated:
-            row += f" {last_active(e)} |"
-        row += f" {install_summary(e)} |"
-        rows.append(row)
+            parts.append(last_active(e))
+        parts.append(cat)
+        parts.append(tags_str(e))
+
+        rows.append("| " + " | ".join(parts) + " |")
     return header + sep + "\n".join(rows)
+
+
+def render_mcp_table(entries: list[dict], zh: bool = False) -> str:
+    return _render_table(entries, zh, has_stars=True)
 
 
 def render_skill_table(entries: list[dict], zh: bool = False) -> str:
-    show_updated = _has_enough_dates(entries)
-    if zh:
-        header = "| # | 名称 | 描述 | 来源 | 状态 | 评分 |"
-        sep = "|---|------|------|------|------|------|"
-    else:
-        header = "| # | Name | Description | Source | Status | Score |"
-        sep = "|---|------|-------------|--------|--------|-------|"
-    if show_updated:
-        header += " 最近更新 |" if zh else " Updated |"
-        sep += "----------|" if zh else "---------|"
-    header += " 安装方式 |\n" if zh else " Install |\n"
-    sep += "----------|\n" if zh else "--------|\n"
-
-    rows = []
-    for i, e in enumerate(entries, 1):
-        desc = truncate(e.get("description_zh") if zh else e.get("description"))
-        row = (
-            f"| {i} | {entry_link(e)} | {desc} | {source_label(e, zh)} "
-            f"| {freshness_badge_zh(e) if zh else freshness_badge(e)} | {e.get('final_score', '—')} |"
-        )
-        if show_updated:
-            row += f" {last_active(e)} |"
-        row += f" {install_summary(e)} |"
-        rows.append(row)
-    return header + sep + "\n".join(rows)
+    return _render_table(entries, zh, has_stars=False)
 
 
 def render_rule_table(entries: list[dict], zh: bool = False) -> str:
-    show_updated = _has_enough_dates(entries)
-    if zh:
-        header = "| # | 名称 | 描述 | 来源 | 状态 | 评分 |"
-        sep = "|---|------|------|------|------|------|"
-    else:
-        header = "| # | Name | Description | Source | Status | Score |"
-        sep = "|---|------|-------------|--------|--------|-------|"
-    if show_updated:
-        header += " 最近更新 |" if zh else " Updated |"
-        sep += "----------|" if zh else "---------|"
-    header += " 分类 |\n" if zh else " Category |\n"
-    sep += "------|\n" if zh else "----------|\n"
-
-    rows = []
-    for i, e in enumerate(entries, 1):
-        desc = truncate(e.get("description_zh") if zh else e.get("description"))
-        cat = e.get("category", "—") or "—"
-        row = (
-            f"| {i} | {entry_link(e)} | {desc} | {source_label(e, zh)} "
-            f"| {freshness_badge_zh(e) if zh else freshness_badge(e)} | {e.get('final_score', '—')} |"
-        )
-        if show_updated:
-            row += f" {last_active(e)} |"
-        row += f" {cat} |"
-        rows.append(row)
-    return header + sep + "\n".join(rows)
+    return _render_table(entries, zh, has_stars=False)
 
 
 def render_prompt_table(entries: list[dict], zh: bool = False) -> str:
-    show_updated = _has_enough_dates(entries)
-    if zh:
-        header = "| # | 名称 | 描述 | 来源 | 评分 |"
-        sep = "|---|------|------|------|------|"
-    else:
-        header = "| # | Name | Description | Source | Score |"
-        sep = "|---|------|-------------|--------|-------|"
-    if show_updated:
-        header += " 最近更新 |" if zh else " Updated |"
-        sep += "----------|" if zh else "---------|"
-    header += " 分类 | 标签 |\n" if zh else " Category | Tags |\n"
-    sep += "------|------|\n" if zh else "----------|------|\n"
-
-    rows = []
-    for i, e in enumerate(entries, 1):
-        desc = truncate(e.get("description_zh") if zh else e.get("description"))
-        cat = e.get("category", "—") or "—"
-        row = (
-            f"| {i} | {entry_link(e)} | {desc} | {source_label(e, zh)} "
-            f"| {e.get('final_score', '—')} |"
-        )
-        if show_updated:
-            row += f" {last_active(e)} |"
-        row += f" {cat} | {tags_str(e)} |"
-        rows.append(row)
-    return header + sep + "\n".join(rows)
+    return _render_table(entries, zh, has_stars=False)
 
 
 TABLE_RENDERERS = {
@@ -445,7 +396,7 @@ def generate_readme(type_key: str, entries: list[dict], zh: bool = False) -> str
     desc = meta["desc_zh"] if zh else meta["desc_en"]
     emoji = meta["emoji"]
     total = len([e for e in load_entries() if e.get("type") == type_key])
-    dir_name = meta["dir"]
+    browse_url = f"{GITHUB_PAGES_BASE}#/browse?type={type_key}"
 
     # Language toggle
     if zh:
@@ -483,7 +434,7 @@ def generate_readme(type_key: str, entries: list[dict], zh: bool = False) -> str
 
 > {total} {desc}
 >
-> [{back_text} →]({MAIN_README_REL}) · [{browse_text} →]({GITHUB_PAGES_URL})
+> [{back_text} →]({MAIN_README_REL}) · [{browse_text} →]({browse_url})
 
 {lang_toggle}
 

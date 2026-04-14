@@ -46,7 +46,7 @@ Model Context Protocol servers that connect AI agents to external tools, databas
 | [pydantic-ai/mcp-run-python](https://github.com/pydantic/pydantic-ai/tree/main/mcp-run-python) | 16.3k | 97 | Run Python in a secure sandbox |
 | [FastAPI-MCP](https://github.com/tadata-org/fastapi_mcp) | 11.7k | 82 | Expose FastAPI endpoints as MCP tools |
 
-[Browse all MCP servers →](./catalog/mcp/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/)
+[Browse all MCP servers →](./catalog/mcp/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=mcp)
 
 ---
 
@@ -62,7 +62,7 @@ Reusable agent capabilities and workflows for AI coding assistants.
 | [acceptance-orchestrator](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/acceptance-orchestrator) | Antigravity Skills | 92 | End-to-end from requirements to deploy verification |
 | [agentic-actions-auditor](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agentic-actions-auditor) | Antigravity Skills | 92 | Audit GitHub Actions for AI agent security |
 
-[Browse all skills →](./catalog/skills/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/)
+[Browse all skills →](./catalog/skills/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
 ---
 
@@ -78,7 +78,7 @@ Coding conventions and AI behavior guidelines for consistent development.
 | [Disaster Recovery Plan](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Rules 2.1 | 88 | tooling |
 | [Performance Monitoring System](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Rules 2.1 | 88 | devops |
 
-[Browse all rules →](./catalog/rules/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/)
+[Browse all rules →](./catalog/rules/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=rule)
 
 ---
 
@@ -94,7 +94,7 @@ Developer-focused prompt templates for common coding tasks.
 | [Repository Analysis & Bug Fixing](https://github.com/f/prompts.chat) | prompts.chat | 91 | security |
 | [Ultrathinker](https://github.com/f/prompts.chat) | prompts.chat | 91 | backend |
 
-[Browse all prompts →](./catalog/prompts/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/)
+[Browse all prompts →](./catalog/prompts/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=prompt)
 
 ---
 

@@ -46,7 +46,7 @@ Everything AI Coding 是一个**持续更新的知识库**，从 9+ 个上游源
 | [pydantic-ai/mcp-run-python](https://github.com/pydantic/pydantic-ai/tree/main/mcp-run-python) | 16.3k | 97 | 在安全沙箱中运行 Python |
 | [FastAPI-MCP](https://github.com/tadata-org/fastapi_mcp) | 11.7k | 82 | 将 FastAPI 端点暴露为 MCP 工具 |
 
-[浏览全部 MCP 服务器 →](./catalog/mcp/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/)
+[浏览全部 MCP 服务器 →](./catalog/mcp/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=mcp)
 
 ---
 
@@ -62,7 +62,7 @@ AI 编程助手的可复用能力和工作流。
 | [acceptance-orchestrator](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/acceptance-orchestrator) | Antigravity Skills | 92 | 端到端驱动：从需求到部署验证 |
 | [agentic-actions-auditor](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agentic-actions-auditor) | Antigravity Skills | 92 | 审计 GitHub Actions 中的 AI Agent 安全 |
 
-[浏览全部 Skills →](./catalog/skills/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/)
+[浏览全部 Skills →](./catalog/skills/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
 ---
 
@@ -78,7 +78,7 @@ AI 编程助手的可复用能力和工作流。
 | [Disaster Recovery Plan](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Rules 2.1 | 88 | tooling |
 | [Performance Monitoring System](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Rules 2.1 | 88 | devops |
 
-[浏览全部 Rules →](./catalog/rules/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/)
+[浏览全部 Rules →](./catalog/rules/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=rule)
 
 ---
 
@@ -94,7 +94,7 @@ AI 编程助手的可复用能力和工作流。
 | [Repository Analysis & Bug Fixing](https://github.com/f/prompts.chat) | prompts.chat | 91 | security |
 | [Ultrathinker](https://github.com/f/prompts.chat) | prompts.chat | 91 | backend |
 
-[浏览全部 Prompts →](./catalog/prompts/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/)
+[浏览全部 Prompts →](./catalog/prompts/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=prompt)
 
 ---
 
