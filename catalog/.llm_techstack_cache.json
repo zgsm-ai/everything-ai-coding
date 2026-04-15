@@ -21284,5 +21284,89 @@
       "go"
     ],
     "cached_at": "2026-04-13T06:20:25.200263"
+  },
+  "axiom-agskill": {
+    "tech_stack": [
+      "python",
+      "fastapi",
+      "openai",
+      "langchain"
+    ],
+    "content_hash": "bb873c96da90",
+    "cached_at": "2026-04-15T08:07:11.143152"
+  },
+  "helium-mcp-agskill": {
+    "tech_stack": [
+      "nodejs",
+      "typescript",
+      "openai",
+      "langchain"
+    ],
+    "content_hash": "33a18245bbf2",
+    "cached_at": "2026-04-15T08:07:11.143152"
+  },
+  "indexing-issue-auditor-agskill": {
+    "tech_stack": [
+      "python",
+      "nodejs"
+    ],
+    "content_hash": "b2b9b7928b87",
+    "cached_at": "2026-04-15T08:07:11.143152"
+  },
+  "linkedin-profile-optimizer-agskill": {
+    "tech_stack": [],
+    "content_hash": "c6a0bfd19ae3",
+    "cached_at": "2026-04-15T08:07:11.143152"
+  },
+  "mmx-cli-agskill": {
+    "tech_stack": [
+      "python",
+      "nodejs",
+      "openai"
+    ],
+    "content_hash": "2b0383275c04",
+    "cached_at": "2026-04-15T08:07:11.143152"
+  },
+  "zipai-optimizer-agskill": {
+    "tech_stack": [
+      "python",
+      "openai",
+      "langchain"
+    ],
+    "content_hash": "287bb6cfb0ca",
+    "cached_at": "2026-04-15T08:07:11.143152"
+  },
+  "swarmvault-skill": {
+    "tech_stack": [
+      "nodejs",
+      "typescript",
+      "mongodb"
+    ],
+    "content_hash": "d9bc3b7a00cd",
+    "cached_at": "2026-04-15T08:07:11.143152"
+  },
+  "web-typography-prompt": {
+    "tech_stack": [
+      "react",
+      "nextjs",
+      "tailwind"
+    ],
+    "content_hash": "ffa1fade2fdd",
+    "cached_at": "2026-04-15T08:07:11.143152"
+  },
+  "karpathy-guidelines-prompt": {
+    "tech_stack": [],
+    "content_hash": "e2aa1d04357a",
+    "cached_at": "2026-04-15T08:07:11.143152"
+  },
+  "x-twitter-scraper-prompt": {
+    "tech_stack": [
+      "python",
+      "fastapi",
+      "postgres",
+      "redis"
+    ],
+    "content_hash": "d069abdaa23b",
+    "cached_at": "2026-04-15T08:07:11.143152"
   }
 }

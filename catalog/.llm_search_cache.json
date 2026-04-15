@@ -50308,5 +50308,145 @@
       "CSS linting规则开发"
     ],
     "cached_at": "2026-04-13T06:21:29.394881"
+  },
+  "axiom-agskill": {
+    "terms": [
+      "assumption analysis tool",
+      "逻辑前提验证",
+      "hidden assumption detection",
+      "fact convention belief classification",
+      "推理漏洞检查",
+      "fragility impact ranking",
+      "bilingual reasoning assistant",
+      "第一性原理分析"
+    ],
+    "content_hash": "bb873c96da90",
+    "cached_at": "2026-04-15T09:41:07.800356"
+  },
+  "helium-mcp-agskill": {
+    "terms": [
+      "news research API",
+      "媒体偏见分析工具",
+      "balanced perspective analysis",
+      "stock options data API",
+      "semantic meme search",
+      "新闻数据源聚合",
+      "MCP server for research",
+      "multi-source news analysis"
+    ],
+    "content_hash": "33a18245bbf2",
+    "cached_at": "2026-04-15T09:41:07.800356"
+  },
+  "indexing-issue-auditor-agskill": {
+    "terms": [
+      "technical SEO audit",
+      "网站架构检查工具",
+      "crawl budget optimization",
+      "indexing error detection",
+      "SEO扫描工具",
+      "site structure analysis",
+      "搜索引擎爬虫问题",
+      "technical SEO scanner"
+    ],
+    "content_hash": "b2b9b7928b87",
+    "cached_at": "2026-04-15T09:41:07.800356"
+  },
+  "linkedin-profile-optimizer-agskill": {
+    "terms": [
+      "LinkedIn SEO optimization",
+      "领英个人资料优化",
+      "profile authority building",
+      "career positioning tool",
+      "LinkedIn audit tool",
+      "professional profile enhancement",
+      "领英SEO工具",
+      "top 1% profile optimization"
+    ],
+    "content_hash": "c6a0bfd19ae3",
+    "cached_at": "2026-04-15T09:41:07.800356"
+  },
+  "mmx-cli-agskill": {
+    "terms": [
+      "MiniMax CLI tool",
+      "多模态AI生成工具",
+      "text image video generation",
+      "terminal AI media creation",
+      "MiniMax API management",
+      "命令行AI内容生成",
+      "multimodal generation CLI",
+      "AI platform terminal client"
+    ],
+    "content_hash": "2b0383275c04",
+    "cached_at": "2026-04-15T09:41:07.800356"
+  },
+  "zipai-optimizer-agskill": {
+    "terms": [
+      "token optimization tool",
+      "上下文窗口优化",
+      "AI输出过滤工具",
+      "surgical output generation",
+      "VCS-aware optimization",
+      "智能令牌过滤",
+      "ambiguity handling AI",
+      "token efficiency tool"
+    ],
+    "content_hash": "287bb6cfb0ca",
+    "cached_at": "2026-04-15T09:41:07.800356"
+  },
+  "swarmvault-skill": {
+    "terms": [
+      "local knowledge vault",
+      "本地优先知识管理",
+      "markdown graph search",
+      "MCP artifacts storage",
+      "durable note taking",
+      "知识库本地存储",
+      "workflow data vault",
+      "offline knowledge base"
+    ],
+    "content_hash": "d9bc3b7a00cd",
+    "cached_at": "2026-04-15T09:41:07.800356"
+  },
+  "web-typography-prompt": {
+    "terms": [
+      "CSS typography generator",
+      "网页排版CSS工具",
+      "responsive typography CSS",
+      "font loading optimization",
+      "web typography best practices",
+      "Butterick typography implementation",
+      "production typography code",
+      "响应式字体排版"
+    ],
+    "content_hash": "ffa1fade2fdd",
+    "cached_at": "2026-04-15T09:41:07.800356"
+  },
+  "karpathy-guidelines-prompt": {
+    "terms": [
+      "LLM coding guidelines",
+      "AI编程最佳实践",
+      "reduce coding mistakes",
+      "surgical code changes",
+      "code review guidelines",
+      "避免过度复杂代码",
+      "LLM behavior patterns",
+      "编程错误预防指南"
+    ],
+    "content_hash": "e2aa1d04357a",
+    "cached_at": "2026-04-15T09:41:07.800356"
+  },
+  "x-twitter-scraper-prompt": {
+    "terms": [
+      "Twitter API scraper",
+      "X数据提取工具",
+      "REST API endpoints",
+      "social media data extraction",
+      "Twitter data platform",
+      "X scraping API",
+      "HMAC webhooks implementation",
+      "社交媒体数据采集"
+    ],
+    "content_hash": "d069abdaa23b",
+    "cached_at": "2026-04-15T09:41:07.800356"
   }
 }

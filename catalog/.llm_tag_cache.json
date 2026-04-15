@@ -23695,5 +23695,106 @@
       "claude"
     ],
     "cached_at": "2026-04-13T06:20:15.726423"
+  },
+  "axiom-agskill": {
+    "tags": [
+      "ai",
+      "analysis",
+      "reasoning",
+      "bilingual"
+    ],
+    "content_hash": "bb873c96da90",
+    "cached_at": "2026-04-15T08:07:01.605434"
+  },
+  "helium-mcp-agskill": {
+    "tags": [
+      "mcp",
+      "mcp-server",
+      "news",
+      "research",
+      "data-analysis"
+    ],
+    "content_hash": "33a18245bbf2",
+    "cached_at": "2026-04-15T08:07:01.605434"
+  },
+  "indexing-issue-auditor-agskill": {
+    "tags": [
+      "seo",
+      "audit",
+      "automation",
+      "web"
+    ],
+    "content_hash": "b2b9b7928b87",
+    "cached_at": "2026-04-15T08:07:01.605434"
+  },
+  "linkedin-profile-optimizer-agskill": {
+    "tags": [
+      "seo",
+      "optimization",
+      "profile",
+      "career"
+    ],
+    "content_hash": "c6a0bfd19ae3",
+    "cached_at": "2026-04-15T08:07:01.605434"
+  },
+  "mmx-cli-agskill": {
+    "tags": [
+      "cli",
+      "ai",
+      "media-generation",
+      "multimodal"
+    ],
+    "content_hash": "2b0383275c04",
+    "cached_at": "2026-04-15T08:07:01.605434"
+  },
+  "zipai-optimizer-agskill": {
+    "tags": [
+      "ai",
+      "optimization",
+      "token",
+      "context"
+    ],
+    "content_hash": "287bb6cfb0ca",
+    "cached_at": "2026-04-15T08:07:01.605434"
+  },
+  "swarmvault-skill": {
+    "tags": [
+      "knowledge-management",
+      "local-first",
+      "mcp",
+      "markdown"
+    ],
+    "content_hash": "d9bc3b7a00cd",
+    "cached_at": "2026-04-15T08:07:01.605434"
+  },
+  "web-typography-prompt": {
+    "tags": [
+      "css",
+      "web",
+      "typography",
+      "frontend"
+    ],
+    "content_hash": "ffa1fade2fdd",
+    "cached_at": "2026-04-15T08:07:01.605434"
+  },
+  "karpathy-guidelines-prompt": {
+    "tags": [
+      "llm",
+      "coding",
+      "guidelines",
+      "best-practices"
+    ],
+    "content_hash": "e2aa1d04357a",
+    "cached_at": "2026-04-15T08:07:01.605434"
+  },
+  "x-twitter-scraper-prompt": {
+    "tags": [
+      "api",
+      "scraping",
+      "twitter",
+      "data-extraction"
+    ],
+    "content_hash": "d069abdaa23b",
+    "cached_at": "2026-04-15T08:07:01.605434"
   }
 }

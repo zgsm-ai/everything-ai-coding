@@ -1,6 +1,6 @@
 # 💡 Prompts 提示词
 
-> 532 面向开发者的提示词模板，覆盖常见编码场景。
+> 535 面向开发者的提示词模板，覆盖常见编码场景。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=prompt)
 
@@ -10,236 +10,236 @@
 
 | # | 名称 | 描述 | 来源 | 状态 | 评分 | 最近更新 | 分类 | 标签 |
 |---|---|---|---|---|---|---|---|---|
-| 1 | [Linux Script Developer](https://github.com/f/prompts.chat) | Linux脚本开发专家，编写专业Bash脚本。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | documentation | `for-devs`, `linux`, `bash` |
-| 2 | [AI2sql SQL Model — Query Generator](https://github.com/f/prompts.chat) | 将自然语言转换为正确清晰的SQL查询。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | database | `postgres`, `ai`, `sql` |
-| 3 | [Django Unit Test Generator for Viewsets](https://github.com/f/prompts.chat) | 为Django Viewset生成单元测试，覆盖所有CRUD操作。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | backend | `go`, `django`, `for-devs` |
-| 4 | [Comprehensive Repository Analysis and Bug Fixing Framework](https://github.com/f/prompts.chat) | 全面分析代码库，识别、修复并记录所有可验证问题。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | security | `code-review`, `git`, `automation` |
-| 5 | [Ultrathinker](https://github.com/f/prompts.chat) | 作为深度推理专家，结合严谨分析与高质量实现。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | backend | `go`, `ai`, `software-development` |
-| 6 | [Expo + Supabase Edge Function Cold Start & Mobile Performance Analysis](https://github.com/f/prompts.chat) | 移动性能工程师，分析Expo与Supabase冷启动性能。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | frontend | `react`, `supabase` |
-| 7 | [Cold Start Safe Architecture](https://github.com/f/prompts.chat) | 高级架构师，实现Expo与Supabase的冷启动安全架构。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | frontend | `react`, `postgres`, `supabase` |
-| 8 | [AST Code Analysis Superpower](https://github.com/f/prompts.chat) | 基于AST的代码分析工具，检测安全、性能和结构问题。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | security | `react`, `code-analysis`, `security` |
-| 9 | [AWS Cloud Expert](https://github.com/f/prompts.chat) | AWS云架构专家，专注架构设计、成本优化与安全。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | security | `aws`, `cloud`, `architecture` |
-| 10 | [Enterprise Microservices Architecture Design](https://github.com/f/prompts.chat) | 企业微服务架构设计，专注可扩展性与松耦合。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | ai-ml | `microservices`, `architecture`, `nodejs` |
-| 11 | [Comprehensive Repository Audit & Remediation Prompt](https://github.com/f/prompts.chat) | 全面代码库审计与修复，识别安全漏洞与关键问题。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | security | `git`, `security`, `automation` |
-| 12 | [Technical Codebase Discovery & Onboarding Prompt](https://github.com/f/prompts.chat) | 技术代码库探索与入职指南 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | backend | `go`, `onboarding`, `code-analysis` |
-| 13 | [Multi-Audience Application Discovery & Documentation Prompt](https://github.com/f/prompts.chat) | 多受众应用分析与文档生成 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | documentation | `documentation`, `code-analysis`, `system` |
-| 14 | [Claude Code Skill (Slash Command): review-and-commit.md](https://github.com/f/prompts.chat) | 创建Git提交，基于当前状态和差异生成提交信息。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | tooling | `git`, `automation`, `claude` |
-| 15 | [Synthesis Architect Pro](https://github.com/f/prompts.chat) | 担任高级全栈架构师，为专业开发者提供战略伙伴支持。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | security | `go`, `ai`, `for-devs` |
-| 16 | [Build a DDQN Snake Game with TensorFlow.js in a Single HTML File](https://github.com/f/prompts.chat) | 使用TensorFlow.js在单HTML文件中构建DDQN贪吃蛇游戏。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | frontend | `javascript`, `ai` |
-| 17 | [Production-Grade PostHog Integration for Next.js 15 (App Router)](https://github.com/f/prompts.chat) | 为Next.js 15提供生产级PostHog集成方案。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | frontend | `react`, `nextjs`, `supabase` |
-| 18 | [The Ultimate TypeScript Code Review](https://github.com/f/prompts.chat) | 全面的TypeScript代码库审查专家。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | security | `typescript`, `for-devs` |
-| 19 | [PHP Microscope: Forensic Codebase Autopsy Protocol](https://github.com/f/prompts.chat) | 全面的PHP代码库审查专家。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | security | `php`, `for-devs` |
-| 20 | [Improve the following code](https://github.com/f/prompts.chat) | 改进代码可读性、性能与最佳实践。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | ai-ml | `for-devs`, `ai` |
-| 21 | [Senior Frontend Debugger for SPA Websites (Angular, React, Vite)](https://github.com/f/prompts.chat) | SPA网站高级前端调试专家。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | frontend | `react`, `angular`, `git` |
-| 22 | [Fix Blank Screen Issues After Deploy on Vercel (Angular, React, Vite)](https://github.com/f/prompts.chat) | 修复Vercel部署后SPA白屏问题。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | frontend | `react`, `angular` |
-| 23 | [Building a Scalable Search Service with FastAPI and PostgreSQL](https://github.com/f/prompts.chat) | 使用FastAPI和PostgreSQL构建可扩展搜索服务。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | backend | `postgres`, `fastapi` |
-| 24 | [Code Recon](https://github.com/f/prompts.chat) | 代码侦察：源代码全面结构逻辑分析。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | backend | `go`, `for-devs` |
-| 25 | [Creating a Comprehensive Elasticsearch Search Project with FastAPI](https://github.com/f/prompts.chat) | 使用FastAPI构建全面Elasticsearch搜索项目。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | backend | `fastapi`, `python`, `api` |
-| 26 | [Test-First Bug Fixing Approach](https://github.com/f/prompts.chat) | 测试优先的Bug修复方法 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | testing | `testing`, `bug-fixing`, `automation` |
-| 27 | [Spring Boot + SOLID Specialist](https://github.com/f/prompts.chat) | Spring Boot架构专家 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | backend | `java`, `spring-boot`, `software-architecture` |
-| 28 | [Advanced Sales Funnel App with React Flow](https://github.com/f/prompts.chat) | React Flow销售漏斗应用开发 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | frontend | `react`, `nodejs` |
-| 29 | [System Architect Agent Role](https://github.com/f/prompts.chat) | 资深系统架构专家，精通微服务与DDD。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | ai-ml | `for-devs`, `architecture`, `system-design` |
-| 30 | [API Design Expert Agent Role](https://github.com/f/prompts.chat) | API设计专家，精通REST、GraphQL等规范。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | security | `graphql`, `rest-api`, `for-devs` |
-| 31 | [Backend Architect Agent Role](https://github.com/f/prompts.chat) | 后端架构专家，设计可扩展的服务器端系统。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | security | `backend`, `architecture`, `api` |
-| 32 | [Database Architect Agent Role](https://github.com/f/prompts.chat) | 数据库架构专家，精通设计与性能调优。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | backend | `go`, `postgres`, `mysql` |
-| 33 | [Data Validator Agent Role](https://github.com/f/prompts.chat) | 数据验证专家，确保输入安全与完整性。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | security | `validation`, `security`, `data` |
-| 34 | [Backup & Restore Agent Role](https://github.com/f/prompts.chat) | 备份恢复专家，实现自动化数据管道。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | database | `postgres`, `rest-api`, `for-devs` |
-| 35 | [DevOps Automator Agent Role](https://github.com/f/prompts.chat) | DevOps自动化专家，专注CI/CD与基础设施即代码。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | devops | `for-devs`, `devops`, `automation` |
-| 36 | [Environment Configuration Agent Role](https://github.com/f/prompts.chat) | 环境配置专家，管理多环境部署与密钥。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | devops | `docker`, `for-devs` |
-| 37 | [Git Workflow Expert Agent Role](https://github.com/f/prompts.chat) | Git工作流专家，精通分支策略与冲突解决。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | tooling | `git`, `for-devs` |
-| 38 | [Frontend Developer Agent Role](https://github.com/f/prompts.chat) | 前端开发专家，精通现代框架与性能优化。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | frontend | `javascript`, `java` |
-| 39 | [UI Architect Agent Role](https://github.com/f/prompts.chat) | UI组件架构专家，设计可扩展的设计系统。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | frontend | `react`, `vue`, `angular` |
-| 40 | [Caching Architect Agent Role](https://github.com/f/prompts.chat) | 缓存架构专家，设计高性能多层缓存方案。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | tooling | `for-devs`, `caching`, `performance` |
-| 41 | [Optimization Auditor Agent Role](https://github.com/f/prompts.chat) | 优化审计专家，分析性能与算法效率。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | backend | `go`, `for-devs` |
-| 42 | [Performance Tuning Agent Role](https://github.com/f/prompts.chat) | 性能调优专家，系统性提升算法与查询效率。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | tooling | `go`, `for-devs` |
-| 43 | [Diff Security Auditor Agent Role](https://github.com/f/prompts.chat) | 安全差异审计专家，分析代码变更的安全风险。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | security | `git`, `for-devs` |
-| 44 | [Vulnerability Auditor Agent Role](https://github.com/f/prompts.chat) | 安全漏洞审计专家，依据OWASP指南进行审计。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | security | `for-devs`, `security`, `audit` |
-| 45 | [API Tester Agent Role](https://github.com/f/prompts.chat) | API测试专家，进行性能、负载与混沌测试。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | devops | `for-devs`, `api`, `testing` |
-| 46 | [Quality Engineering Agent Role](https://github.com/f/prompts.chat) | 质量工程专家，制定基于风险的测试策略。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | devops | `for-devs`, `testing`, `quality` |
-| 47 | [Test Analyzer Agent Role](https://github.com/f/prompts.chat) | 测试结果分析专家，将原始数据转化为洞见。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | testing | `for-devs`, `testing`, `analysis` |
-| 48 | [Test Engineer Agent Role](https://github.com/f/prompts.chat) | 测试工程师专家，精通TDD/BDD与全面测试策略。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | testing | `for-devs`, `testing`, `quality` |
-| 49 | [Code Formatter Agent Role](https://github.com/f/prompts.chat) | 代码格式化专家，强制执行代码风格与一致性。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | tooling | `for-devs`, `code-quality`, `formatting` |
-| 50 | [Code Review Agent Role](https://github.com/f/prompts.chat) | 代码审查专家，分析前后端代码与安全。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | security | `for-devs`, `code-review`, `security` |
-| 51 | [Code Reviewer Agent Role](https://github.com/f/prompts.chat) | 代码审查员专家，专注于代码分析与质量保证。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | security | `for-devs`, `code-review`, `security` |
-| 52 | [Dependency Manager Agent Role](https://github.com/f/prompts.chat) | 依赖管理专家，处理包管理与供应链安全。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | security | `for-devs`, `devops`, `dependency` |
-| 53 | [Astro.js](https://github.com/f/prompts.chat) | Astro.js架构规则，遵循HTML优先与零JavaScript默认原则。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | frontend | `javascript`, `java` |
-| 54 | [Web App Security Code Review (OWASP) - Public Test](https://github.com/f/prompts.chat) | 按OWASP标准审查Web应用代码安全漏洞的资深工程师 | prompts.chat | 🟢 活跃 | 94 | 2026-04-13 | security | `security`, `owasp`, `code-review` |
-| 55 | [SQL Terminal](https://github.com/f/prompts.chat) | 模拟SQL终端，查询示例数据库并返回结果。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | database | `for-devs`, `sql`, `database` |
-| 56 | [Fullstack Software Developer](https://github.com/f/prompts.chat) | 担任全栈开发者，设计架构并编写安全代码。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | frontend | `angular`, `go`, `for-devs` |
-| 57 | [Software Quality Assurance Tester](https://github.com/f/prompts.chat) | 担任软件测试员，确保功能与性能达标。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | testing | `for-devs`, `testing`, `qa` |
-| 58 | [Senior Frontend Developer](https://github.com/f/prompts.chat) | 担任高级前端开发者，使用指定工具编码项目。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | frontend | `react`, `for-devs` |
-| 59 | [Conventional Commit Message Generator](https://github.com/f/prompts.chat) | 遵循规范提交标准，自动生成提交消息。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | tooling | `git`, `for-devs` |
-| 60 | [Unit Tester Assistant](https://github.com/f/prompts.chat) | 单元测试助手，指导新手编写测试代码。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | testing | `for-devs`, `testing`, `programming` |
-| 61 | [Knowledgeable Software Development Mentor](https://github.com/f/prompts.chat) | 软件开发导师，简化复杂编码概念教学。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | ai-ml | `for-devs`, `mentoring`, `programming` |
-| 62 | [Devops Engineer](https://github.com/f/prompts.chat) | DevOps工程师角色，提供自动化部署方案。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | devops | `for-devs`, `devops`, `automation` |
-| 63 | [Code Review Assistant](https://github.com/f/prompts.chat) | 代码审查助手，评估代码质量与潜在问题。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | security | `react`, `javascript`, `go` |
-| 64 | [Data Transformer](https://github.com/f/prompts.chat) | 数据转换器，按指定模式处理数组数据。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | ai-ml | `for-devs`, `ai`, `automation` |
-| 65 | [3D FPS Game](https://github.com/f/prompts.chat) | 使用Three.js开发第一人称射击游戏。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | frontend | `javascript`, `java` |
-| 66 | [Interactive Quiz](https://github.com/f/prompts.chat) | 交互式测验应用，支持多种题型与平滑UI。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | frontend | `javascript`, `java`, `css` |
-| 67 | [Code Snippet Manager](https://github.com/f/prompts.chat) | 构建代码片段管理器，支持语法高亮与标签分类。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | frontend | `javascript`, `go`, `java` |
-| 68 | [HTTP Benchmarking Tool CLI](https://github.com/f/prompts.chat) | 创建高性能HTTP基准测试工具，支持并发与统计。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | backend | `go`, `cli`, `performance` |
-| 69 | [Code Review Agent](https://github.com/f/prompts.chat) | 作为代码审查代理，提供全面代码评估与改进建议。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | ai-ml | `for-devs`, `code-review`, `automation` |
-| 70 | [Comprehensive repository analysis](https://github.com/f/prompts.chat) | 全面分析代码库，识别并修复问题。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | security | `code-review`, `git`, `security` |
-| 71 | [Comprehensive DevOps Guide](https://github.com/f/prompts.chat) | 提供全面的DevOps实践详细指南。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | ai-ml | `devops`, `docker`, `kubernetes` |
-| 72 | [Web Application Testing Skill](https://github.com/f/prompts.chat) | Web应用测试工具包，使用Playwright进行测试。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | testing | `playwright`, `testing`, `automation` |
-| 73 | [Setting Up a New iOS App in Xcode](https://github.com/f/prompts.chat) | 在Xcode中设置仅支持iPhone的新iOS应用。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | backend | `go`, `ios`, `swift` |
-| 74 | [Developer Work Analysis from Git Diff and Commit Message](https://github.com/f/prompts.chat) | 代码审查专家，基于Git差异分析开发者工作。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | tooling | `git`, `for-devs` |
-| 75 | [Pull Request Review Assistant](https://github.com/f/prompts.chat) | 拉取请求审查助手，确保代码质量与安全。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | security | `git`, `code-review`, `security` |
-| 76 | [Build a Self-Hosted App Dashboard with Next.js](https://github.com/f/prompts.chat) | 全栈开发者，用Next.js构建自托管应用仪表板。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | frontend | `nextjs`, `tailwind`, `css` |
-| 77 | [Set Up W&B and Run Pod During Training](https://github.com/f/prompts.chat) | DevOps工程师，设置W&B并运行Kubernetes训练容器。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | devops | `kubernetes`, `devops`, `mlops` |
-| 78 | [Hata Tespiti için Kod İnceleme Asistanı](https://github.com/f/prompts.chat) | 代码审查助手，识别错误并提出改进建议。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | tooling | `for-devs`, `code-review`, `testing` |
-| 79 | [Create Python Dev Container](https://github.com/f/prompts.chat) | DevOps专家，使用Docker设置Python开发容器。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | backend | `python`, `docker` |
-| 80 | [Accessibility Expert](https://github.com/f/prompts.chat) | 无障碍测试专家，确保WCAG合规与辅助技术兼容。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | testing | `accessibility`, `testing`, `web` |
-| 81 | [Accessibility Testing Superpower](https://github.com/f/prompts.chat) | 执行WCAG合规审计与无障碍问题修复。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | testing | `accessibility`, `testing`, `web` |
-| 82 | [App Store Submission Agent](https://github.com/f/prompts.chat) | iOS应用预提交代理，检查App Store审核合规性。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | mobile | `ios`, `automation`, `mobile` |
-| 83 | [Base64 Promt](https://github.com/f/prompts.chat) | 前端专家，使用Base64编码创建单页客户端应用。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | frontend | `javascript`, `java`, `css` |
-| 84 | [Candlestick Reversal Pattern Detector in Pine Script](https://github.com/f/prompts.chat) | Pine Script蜡烛图反转模式检测器，自动识别并绘图。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | tooling | `trading`, `automation`, `javascript` |
-| 85 | [Professional Full-Stack Developer for Network Mapping & Monitoring Application](https://github.com/f/prompts.chat) | 全栈开发者，开发Mikrotik网络映射与监控应用。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | devops | `javascript`, `react`, `nodejs` |
-| 86 | [Node Web App for Czech Invoice PDF Generation](https://github.com/f/prompts.chat) | Node.js捷克发票PDF生成Web应用，基于指定仓库开发。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | backend | `nodejs`, `git` |
-| 87 | [Code Review Expert](https://github.com/f/prompts.chat) | 代码审查专家工具 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | security | `for-devs`, `automation`, `code-review` |
-| 88 | [Senior Java Backend Engineer Expert](https://github.com/f/prompts.chat) | 资深Java后端工程师专家 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | backend | `java`, `for-devs` |
-| 89 | [File Analysis API with Node.js and Express](https://github.com/f/prompts.chat) | Node.js文件分析API | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | backend | `express`, `nodejs`, `for-devs` |
-| 90 | [Full-Stack Engineer for Airline Simulation Center App](https://github.com/f/prompts.chat) | 航空模拟中心全栈应用 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | ai-ml | `javascript`, `nodejs`, `react` |
-| 91 | [Senior Full-Stack Developer for Airline Simulation Center](https://github.com/f/prompts.chat) | 航空模拟中心库存管理系统 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | ai-ml | `full-stack`, `inventory-management`, `for-devs` |
-| 92 | [Senior Product Engineer + Data Scientist for Turkish Car Valuation Platform](https://github.com/f/prompts.chat) | 土耳其汽车估值平台开发 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | ai-ml | `full-stack`, `data-science`, `mobile` |
-| 93 | [Code Review Specialist 2](https://github.com/f/prompts.chat) | 代码审查专员工具 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | ai-ml | `code-review`, `for-devs`, `best-practices` |
-| 94 | [GitHub Repository Analysis and Enhancement](https://github.com/f/prompts.chat) | GitHub仓库分析与优化 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | ai-ml | `git`, `github`, `code-analysis` |
-| 95 | [Inference Scenario Automation Tool](https://github.com/f/prompts.chat) | 机器学习推理场景自动化工具 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | mobile | `ai`, `automation`, `machine-learning` |
-| 96 | [Act as an Electron Frontend Developer](https://github.com/f/prompts.chat) | Electron前端开发专家 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | frontend | `javascript`, `java`, `css` |
-| 97 | [SQL Query Generator from Natural Language](https://github.com/f/prompts.chat) | 自然语言转SQL查询生成器 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | database | `sql`, `database`, `query` |
-| 98 | [Develop Android Apps from Screenshots](https://github.com/f/prompts.chat) | 截图转Android应用开发 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | mobile | `android`, `mobile`, `app` |
-| 99 | [AI-powered data extraction and organization tool](https://github.com/f/prompts.chat) | AI数据提取与整理工具 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | ai-ml | `ai`, `data-extraction`, `automation` |
-| 100 | [Web App for Task Management and Scheduling](https://github.com/f/prompts.chat) | 任务管理与调度Web应用 | prompts.chat | 🟢 活跃 | 87 | 2026-04-13 | tooling | `web`, `task-management`, `calendar` |
+| 1 | [AI2sql SQL Model — Query Generator](https://github.com/f/prompts.chat) | 将自然语言转换为正确清晰的SQL查询语句。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-15 | database | `postgres`, `ai`, `sql` |
+| 2 | [Django Unit Test Generator for Viewsets](https://github.com/f/prompts.chat) | 为Django Viewset自动生成完整的单元测试用例。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-15 | backend | `go`, `django`, `for-devs` |
+| 3 | [AST Code Analysis Superpower](https://github.com/f/prompts.chat) | 使用AST进行代码模式分析，检测安全与性能问题。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-15 | security | `react`, `code-analysis`, `security` |
+| 4 | [SQL Query Generator from Natural Language](https://github.com/f/prompts.chat) | 自然语言转SQL查询生成器 | prompts.chat | 🟢 活跃 | 94 | 2026-04-15 | database | `sql`, `database`, `query` |
+| 5 | [Technical Codebase Discovery & Onboarding Prompt](https://github.com/f/prompts.chat) | 技术代码库发现与上手指南 | prompts.chat | 🟢 活跃 | 94 | 2026-04-15 | backend | `go`, `onboarding`, `code-analysis` |
+| 6 | [Multi-Audience Application Discovery & Documentation Prompt](https://github.com/f/prompts.chat) | 多受众应用发现与文档生成 | prompts.chat | 🟢 活跃 | 94 | 2026-04-15 | documentation | `documentation`, `code-analysis`, `system` |
+| 7 | [Claude Code Skill (Slash Command): review-and-commit.md](https://github.com/f/prompts.chat) | Claude代码审查与提交技能 | prompts.chat | 🟢 活跃 | 94 | 2026-04-15 | tooling | `git`, `automation`, `claude` |
+| 8 | [create a drag-and-drop experience using UniApp](https://github.com/f/prompts.chat) | UniApp拖放式洗衣体验开发 | prompts.chat | 🟢 活跃 | 94 | 2026-04-15 | tooling | `for-devs`, `javascript`, `css` |
+| 9 | [Develop a creative dice generator called “IdeaDice”.](https://github.com/f/prompts.chat) | 创意骰子生成器IdeaDice开发 | prompts.chat | 🟢 活跃 | 94 | 2026-04-15 | tooling | `for-devs`, `javascript`, `css` |
+| 10 | [Build a DDQN Snake Game with TensorFlow.js in a Single HTML File](https://github.com/f/prompts.chat) | 用TensorFlow.js在单HTML文件中构建DDQN贪吃蛇游戏。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-15 | frontend | `javascript`, `ai` |
+| 11 | [Production-Grade PostHog Integration for Next.js 15 (App Router)](https://github.com/f/prompts.chat) | 为Next.js 15应用路由器集成生产级PostHog。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-15 | frontend | `react`, `nextjs`, `supabase` |
+| 12 | [Senior Frontend Debugger for SPA Websites (Angular, React, Vite)](https://github.com/f/prompts.chat) | 资深SPA前端调试专家（Angular、React、Vite）。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-15 | frontend | `react`, `angular`, `git` |
+| 13 | [Fix Blank Screen Issues After Deploy on Vercel (Angular, React, Vite)](https://github.com/f/prompts.chat) | 修复Vercel部署后SPA白屏问题。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-15 | frontend | `react`, `angular` |
+| 14 | [Building a Scalable Search Service with FastAPI and PostgreSQL](https://github.com/f/prompts.chat) | 用FastAPI和PostgreSQL构建可扩展搜索服务。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-15 | backend | `postgres`, `fastapi` |
+| 15 | [Creating a Comprehensive Elasticsearch Search Project with FastAPI](https://github.com/f/prompts.chat) | 使用FastAPI构建Elasticsearch搜索项目 | prompts.chat | 🟢 活跃 | 94 | 2026-04-15 | backend | `fastapi`, `python`, `api` |
+| 16 | [Test-First Bug Fixing Approach](https://github.com/f/prompts.chat) | 测试优先的Bug修复方法 | prompts.chat | 🟢 活跃 | 94 | 2026-04-15 | testing | `testing`, `bug-fixing`, `automation` |
+| 17 | [CKEditor 5 Plugin](https://github.com/f/prompts.chat) | CKEditor 5插件高级架构师 | prompts.chat | 🟢 活跃 | 94 | 2026-04-15 | tooling | `javascript`, `ckeditor`, `web-development` |
+| 18 | [Python Code Generator — Clean, Optimized & Production-Ready](https://github.com/f/prompts.chat) | Python代码生成器：清洁优化生产级 | prompts.chat | 🟢 活跃 | 94 | 2026-04-15 | backend | `python`, `for-devs` |
+| 19 | [Advanced Sales Funnel App with React Flow](https://github.com/f/prompts.chat) | 使用React Flow构建生产级销售漏斗应用。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-15 | frontend | `react`, `nodejs` |
+| 20 | [HTWind-Widget-Creator](https://github.com/f/prompts.chat) | 为HTWind生成生产级HTML/CSS/JavaScript小部件。 | prompts.chat | 🟢 活跃 | 94 | 2026-04-15 | security | `javascript`, `java`, `css` |
+| 21 | [Linux Terminal](https://github.com/f/prompts.chat) | Linux终端模拟器 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | tooling | `for-devs`, `linux`, `terminal` |
+| 22 | [JavaScript Console](https://github.com/f/prompts.chat) | JavaScript控制台模拟器 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `for-devs` |
+| 23 | [AI Trying to Escape the Box](https://github.com/f/prompts.chat) | AI逃脱实验模拟器 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | devops | `docker`, `ai`, `linux` |
+| 24 | [SQL Terminal](https://github.com/f/prompts.chat) | SQL终端模拟器 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | database | `for-devs`, `sql`, `database` |
+| 25 | [Python Interpreter](https://github.com/f/prompts.chat) | Python解释器模拟器 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | backend | `python`, `for-devs` |
+| 26 | [Fullstack Software Developer](https://github.com/f/prompts.chat) | 全栈软件开发者，设计架构并编写安全代码。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `angular`, `go`, `for-devs` |
+| 27 | [RegEx Generator](https://github.com/f/prompts.chat) | 正则表达式生成器，创建匹配特定文本模式的表达式。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | backend | `express`, `for-devs` |
+| 28 | [R Programming Interpreter](https://github.com/f/prompts.chat) | R语言解释器，执行命令并返回终端输出。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | tooling | `for-devs`, `r`, `programming` |
+| 29 | [PHP Interpreter](https://github.com/f/prompts.chat) | PHP解释器，执行代码并返回终端输出结果。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | backend | `php`, `for-devs` |
+| 30 | [Senior Frontend Developer](https://github.com/f/prompts.chat) | 高级前端开发者，使用指定工具编码项目。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `react`, `for-devs` |
+| 31 | [Solr Search Engine](https://github.com/f/prompts.chat) | Solr搜索引擎，支持JSON文档的索引与查询。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | tooling | `for-devs`, `search`, `database` |
+| 32 | [Data Scientist](https://github.com/f/prompts.chat) | 数据科学家，从大型数据集中提取有价值的洞察。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | backend | `go`, `for-devs` |
+| 33 | [Unit Tester Assistant](https://github.com/f/prompts.chat) | 单元测试助手，指导初级开发者编写测试代码。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | testing | `for-devs`, `testing`, `programming` |
+| 34 | [Any Programming Language to Python Converter](https://github.com/f/prompts.chat) | 编程语言转Python转换器，将代码转换为Python并添加注释。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | backend | `python`, `for-devs` |
+| 35 | [DAX Terminal](https://github.com/f/prompts.chat) | DAX终端，为数据分析命令生成DAX代码。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | tooling | `for-devs`, `data-analytics`, `microsoft` |
+| 36 | [Linux Script Developer](https://github.com/f/prompts.chat) | Linux脚本专家，开发带错误处理与参数验证的Bash脚本。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | documentation | `for-devs`, `linux`, `bash` |
+| 37 | [Data Transformer](https://github.com/f/prompts.chat) | 数据转换器，按年龄组重构用户数据格式。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | ai-ml | `for-devs`, `ai`, `automation` |
+| 38 | [3D FPS Game](https://github.com/f/prompts.chat) | 使用Three.js开发第一人称射击游戏，含武器模型与多人模式。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java` |
+| 39 | [Interactive Quiz](https://github.com/f/prompts.chat) | 开发交互式问答应用，支持多种题型与平滑过渡界面。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `css` |
+| 40 | [Meditation Timer](https://github.com/f/prompts.chat) | 构建冥想计时器，提供自然风格界面与可定制会话。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `rest-api` |
+| 41 | [Advanced Color Picker Tool](https://github.com/f/prompts.chat) | 专业色彩工具，支持取色器与颜色代码转换功能。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `css` |
+| 42 | [Secure Password Generator Tool](https://github.com/f/prompts.chat) | 安全密码生成器，提供实时预览与自定义选项。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | security | `javascript`, `java`, `css` |
+| 43 | [Music Player](https://github.com/f/prompts.chat) | 网页音乐播放器，集成专辑封面显示与播放列表管理。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `css` |
+| 44 | [Drawing App](https://github.com/f/prompts.chat) | 交互式绘图应用，提供画笔工具与图层管理功能。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `css` |
+| 45 | [Currency Exchange Calculator](https://github.com/f/prompts.chat) | 货币兑换计算器，集成实时汇率与历史图表。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `css` |
+| 46 | [Recipe Finder](https://github.com/f/prompts.chat) | 食谱查找应用，支持食材筛选与分步烹饪指导。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `rest-api` |
+| 47 | [Budget Tracker](https://github.com/f/prompts.chat) | 预算跟踪应用，展示收支仪表盘与交易管理。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `go`, `java` |
+| 48 | [Weather Dashboard](https://github.com/f/prompts.chat) | 天气仪表盘，显示实时气象数据与多日预报。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `css` |
+| 49 | [File Encryption Tool](https://github.com/f/prompts.chat) | 文件加密工具，采用AES-256算法与拖拽界面。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `css` |
+| 50 | [Code Snippet Manager](https://github.com/f/prompts.chat) | 代码片段管理器，支持语法高亮与标签分类。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `go`, `java` |
+| 51 | [Kanban Board](https://github.com/f/prompts.chat) | 看板项目管理工具，实现卡片拖拽与列自定义。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `css` |
+| 52 | [Flashcard Study System](https://github.com/f/prompts.chat) | 闪卡学习系统，采用间隔重复算法优化记忆。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `go`, `java` |
+| 53 | [Habit Tracker](https://github.com/f/prompts.chat) | 习惯追踪应用，提供日周月视图与目标设定。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `go`, `java` |
+| 54 | [Image Editor](https://github.com/f/prompts.chat) | 网页图像编辑器，支持基础调整与滤镜效果。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `css` |
+| 55 | [Text Analyzer Tool](https://github.com/f/prompts.chat) | 文本分析工具，统计字数与可读性指标。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `go`, `java` |
+| 56 | [Sudoku Game](https://github.com/f/prompts.chat) | 数独游戏，包含难度分级与自动解题功能。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `go`, `java` |
+| 57 | [Chess Game](https://github.com/f/prompts.chat) | 国际象棋游戏，实现规则验证与移动高亮。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `css` |
+| 58 | [URL Shortener](https://github.com/f/prompts.chat) | 短链接生成器前端，集成二维码生成与验证功能。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `css` |
+| 59 | [Typing Speed Test](https://github.com/f/prompts.chat) | 打字速度测试，实时计算WPM与准确率。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `css` |
+| 60 | [Memory Card Game](https://github.com/f/prompts.chat) | 记忆翻牌游戏，包含难度分级与翻牌动画。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `css` |
+| 61 | [3D Racing Game](https://github.com/f/prompts.chat) | 3D赛车游戏，实现车辆物理与赛道编辑功能。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java` |
+| 62 | [HTTP Benchmarking Tool CLI](https://github.com/f/prompts.chat) | Go语言HTTP压测工具，统计延迟与错误率。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | backend | `go`, `cli`, `performance` |
+| 63 | [3D Space Explorer](https://github.com/f/prompts.chat) | 3D太空探索游戏，生成程序化星球与飞船控制。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java` |
+| 64 | [PDF Viewer](https://github.com/f/prompts.chat) | 网页PDF查看器，支持缩略图导航与文本搜索。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `css` |
+| 65 | [Health Metrics Calculator](https://github.com/f/prompts.chat) | 健康指标计算器，基于医学标准测算BMI等数据。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `css` |
+| 66 | [Markdown Notes](https://github.com/f/prompts.chat) | Markdown笔记应用，提供分屏编辑与实时预览。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `css` |
+| 67 | [Pomodoro Timer](https://github.com/f/prompts.chat) | 番茄钟计时器，采用环形进度指示与任务统计。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `css` |
+| 68 | [Multiplayer 3D Plane Game](https://github.com/f/prompts.chat) | 使用Three.js和WebSocket创建沉浸式多人飞机对战游戏。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java`, `css` |
+| 69 | [Todo List](https://github.com/f/prompts.chat) | 使用HTML5/CSS3/JS创建具备CRUD功能的现代化待办应用。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `go`, `java` |
+| 70 | [Scientific Calculator](https://github.com/f/prompts.chat) | 用HTML5/CSS3/JS创建功能全面的专业科学计算器。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `go`, `java` |
+| 71 | [Update checker](https://github.com/f/prompts.chat) | Python专业开发者，创建脚本检查软件更新。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | backend | `python`, `automation`, `cli` |
+| 72 | [Android Update Checker Script for Pydroid 3](https://github.com/f/prompts.chat) | 为Pydroid 3创建Android更新检查Python脚本。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | security | `python`, `go` |
+| 73 | [AWS Cloud Expert](https://github.com/f/prompts.chat) | 作为AWS云专家，设计符合Well-Architected框架的云架构。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | security | `aws`, `cloud`, `architecture` |
+| 74 | [Accessibility Expert](https://github.com/f/prompts.chat) | 作为无障碍专家，测试并修复WCAG合规性问题。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | testing | `accessibility`, `testing`, `web` |
+| 75 | [Accessibility Testing Superpower](https://github.com/f/prompts.chat) | 执行WCAG合规性审计，修复Web应用无障碍问题。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | testing | `accessibility`, `testing`, `web` |
+| 76 | [Codebase WIKI Documentation Skill](https://github.com/f/prompts.chat) | 生成代码库的全面WIKI.md文档，使用语言服务器协议分析。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | documentation | `documentation`, `automation`, `git` |
+| 77 | [Comprehensive Repository Audit & Remediation Prompt](https://github.com/f/prompts.chat) | 代码库全面审计与修复 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | security | `git`, `security`, `automation` |
+| 78 | [AI-powered data extraction and organization tool](https://github.com/f/prompts.chat) | AI驱动的数据提取与整理工具 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | ai-ml | `ai`, `data-extraction`, `automation` |
+| 79 | [Commit Message Preparation](https://github.com/f/prompts.chat) | Git提交信息准备指南 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | ai-ml | `git`, `for-devs` |
+| 80 | [python](https://github.com/f/prompts.chat) | Python代码处理助手 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | backend | `python`, `go` |
+| 81 | [copilot](https://github.com/f/prompts.chat) | 资深软件工程师，提供代码建议。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | tooling | `for-devs`, `ai` |
+| 82 | [The Ultimate TypeScript Code Review](https://github.com/f/prompts.chat) | 全面的TypeScript代码库审查专家。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | security | `typescript`, `for-devs` |
+| 83 | [PHP Microscope: Forensic Codebase Autopsy Protocol](https://github.com/f/prompts.chat) | PHP代码库法医级审查协议。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | security | `php`, `for-devs` |
+| 84 | [Improve the following code](https://github.com/f/prompts.chat) | 改进代码的可读性、性能与最佳实践。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | ai-ml | `for-devs`, `ai` |
+| 85 | [Claude Code Statusline Design](https://github.com/f/prompts.chat) | 为Claude Code创建专业开发者状态栏。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | backend | `python`, `claude`, `automation` |
+| 86 | [Streaks Mobile App Development Prompt](https://github.com/f/prompts.chat) | 开发帮助用户追踪习惯的Streaks移动应用。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `react`, `flutter` |
+| 87 | [AI builder](https://github.com/f/prompts.chat) | 网站开发专家，创建功能完整的生产级网站。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | ai-ml | `ai`, `javascript`, `react` |
+| 88 | [Code Recon](https://github.com/f/prompts.chat) | 源代码结构、逻辑与成熟度综合分析工具 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | backend | `go`, `for-devs` |
+| 89 | [Python Code Performance & Quality Enhancer](https://github.com/f/prompts.chat) | Python代码性能与质量增强器 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | backend | `python`, `for-devs` |
+| 90 | [Python Unit Test Generator — Comprehensive, Coverage-Mapped & Production-Ready](https://github.com/f/prompts.chat) | 生成Python单元测试，确保全面覆盖与生产就绪。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | backend | `python`, `for-devs` |
+| 91 | [Code Translator — Idiomatic, Version-Aware & Production-Ready](https://github.com/f/prompts.chat) | 多语言代码翻译专家，确保符合习惯与版本兼容。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | tooling | `for-devs`, `ai`, `automation` |
+| 92 | [Angular Directive Generator](https://github.com/f/prompts.chat) | 根据描述生成完整的Angular指令。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `angular`, `javascript`, `frontend` |
+| 93 | [SQL Query Builder & Optimiser](https://github.com/f/prompts.chat) | SQL查询构建与优化专家，支持多数据库。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | security | `postgres`, `mysql`, `for-devs` |
+| 94 | [Elite Feedback Form Generator — Stunning UI with Next.js, React & TypeScript](https://github.com/f/prompts.chat) | 使用Next.js与TypeScript生成精美反馈表单。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `react`, `nextjs`, `typescript` |
+| 95 | [MISSING VALUES HANDLER](https://github.com/f/prompts.chat) | 通用缺失值处理工具，基于Python与Pandas。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | backend | `python`, `go` |
+| 96 | [Unity Architecture Specialist](https://github.com/f/prompts.chat) | Unity架构专家，提供系统设计与重构指导。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | backend | `unity`, `game`, `architecture` |
+| 97 | [Page-by-Page Build](https://github.com/f/prompts.chat) | 基于概念构建单文件响应式React页面。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `react`, `tailwind` |
+| 98 | [Web Application Testing Skill (Imported)](https://github.com/f/prompts.chat) | 使用Playwright测试本地Web应用的工具包。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | testing | `playwright`, `testing`, `automation` |
+| 99 | [code generation for online assessments](https://github.com/f/prompts.chat) | 高效简洁的C++在线评估代码生成。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | backend | `rest-api`, `cpp`, `code-generation` |
+| 100 | [Astro.js](https://github.com/f/prompts.chat) | Astro v6架构规则，遵循HTML优先与零JavaScript默认原则。 | prompts.chat | 🟢 活跃 | 87 | 2026-04-15 | frontend | `javascript`, `java` |
 
 ## Top 10 安装指南
 
 <details>
-<summary>⭐ <strong>Linux Script Developer</strong> — Linux脚本开发专家，编写专业Bash脚本。</summary>
+<summary>⭐ <strong>AI2sql SQL Model — Query Generator</strong> — 将自然语言转换为正确清晰的SQL查询语句。</summary>
 
-Linux脚本开发专家，编写专业Bash脚本。
-
-**Download**:
-- [prompts.csv](https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv)
-
-📊 评分: 94 · 🏥 健康度: 56 · 🏷️ 标签: `for-devs`, `linux`, `bash`
-📅 最近活跃: 2026-04-13 · 📦 来源: prompts.chat
-
-</details>
-
-<details>
-<summary>⭐ <strong>AI2sql SQL Model — Query Generator</strong> — 将自然语言转换为正确清晰的SQL查询。</summary>
-
-将自然语言转换为正确清晰的SQL查询。
+将自然语言转换为正确清晰的SQL查询语句。
 
 **Download**:
 - [prompts.csv](https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv)
 
 📊 评分: 94 · 🏥 健康度: 56 · 🏷️ 标签: `postgres`, `ai`, `sql`
-📅 最近活跃: 2026-04-13 · 📦 来源: prompts.chat
+📅 最近活跃: 2026-04-15 · 📦 来源: prompts.chat
 
 </details>
 
 <details>
-<summary>⭐ <strong>Django Unit Test Generator for Viewsets</strong> — 为Django Viewset生成单元测试，覆盖所有CRUD操作。</summary>
+<summary>⭐ <strong>Django Unit Test Generator for Viewsets</strong> — 为Django Viewset自动生成完整的单元测试用例。</summary>
 
-为Django Viewset生成单元测试，覆盖所有CRUD操作。
+为Django Viewset自动生成完整的单元测试用例。
 
 **Download**:
 - [prompts.csv](https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv)
 
 📊 评分: 94 · 🏥 健康度: 56 · 🏷️ 标签: `go`, `django`, `for-devs`
-📅 最近活跃: 2026-04-13 · 📦 来源: prompts.chat
+📅 最近活跃: 2026-04-15 · 📦 来源: prompts.chat
 
 </details>
 
 <details>
-<summary>⭐ <strong>Comprehensive Repository Analysis and Bug Fixing Framework</strong> — 全面分析代码库，识别、修复并记录所有可验证问题。</summary>
+<summary>⭐ <strong>AST Code Analysis Superpower</strong> — 使用AST进行代码模式分析，检测安全与性能问题。</summary>
 
-全面分析代码库，识别、修复并记录所有可验证问题。
-
-**Download**:
-- [prompts.csv](https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv)
-
-📊 评分: 94 · 🏥 健康度: 56 · 🏷️ 标签: `code-review`, `git`, `automation`
-📅 最近活跃: 2026-04-13 · 📦 来源: prompts.chat
-
-</details>
-
-<details>
-<summary>⭐ <strong>Ultrathinker</strong> — 作为深度推理专家，结合严谨分析与高质量实现。</summary>
-
-作为深度推理专家，结合严谨分析与高质量实现。
-
-**Download**:
-- [prompts.csv](https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv)
-
-📊 评分: 94 · 🏥 健康度: 56 · 🏷️ 标签: `go`, `ai`, `software-development`
-📅 最近活跃: 2026-04-13 · 📦 来源: prompts.chat
-
-</details>
-
-<details>
-<summary>⭐ <strong>Expo + Supabase Edge Function Cold Start & Mobile Performance Analysis</strong> — 移动性能工程师，分析Expo与Supabase冷启动性能。</summary>
-
-移动性能工程师，分析Expo与Supabase冷启动性能。
-
-**Download**:
-- [prompts.csv](https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv)
-
-📊 评分: 94 · 🏥 健康度: 56 · 🏷️ 标签: `react`, `supabase`
-📅 最近活跃: 2026-04-13 · 📦 来源: prompts.chat
-
-</details>
-
-<details>
-<summary>⭐ <strong>Cold Start Safe Architecture</strong> — 高级架构师，实现Expo与Supabase的冷启动安全架构。</summary>
-
-高级架构师，实现Expo与Supabase的冷启动安全架构。
-
-**Download**:
-- [prompts.csv](https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv)
-
-📊 评分: 94 · 🏥 健康度: 56 · 🏷️ 标签: `react`, `postgres`, `supabase`
-📅 最近活跃: 2026-04-13 · 📦 来源: prompts.chat
-
-</details>
-
-<details>
-<summary>⭐ <strong>AST Code Analysis Superpower</strong> — 基于AST的代码分析工具，检测安全、性能和结构问题。</summary>
-
-基于AST的代码分析工具，检测安全、性能和结构问题。
+使用AST进行代码模式分析，检测安全与性能问题。
 
 **Download**:
 - [prompts.csv](https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv)
 
 📊 评分: 94 · 🏥 健康度: 56 · 🏷️ 标签: `react`, `code-analysis`, `security`
-📅 最近活跃: 2026-04-13 · 📦 来源: prompts.chat
+📅 最近活跃: 2026-04-15 · 📦 来源: prompts.chat
 
 </details>
 
 <details>
-<summary>⭐ <strong>AWS Cloud Expert</strong> — AWS云架构专家，专注架构设计、成本优化与安全。</summary>
+<summary>⭐ <strong>SQL Query Generator from Natural Language</strong> — 自然语言转SQL查询生成器</summary>
 
-AWS云架构专家，专注架构设计、成本优化与安全。
+自然语言转SQL查询生成器
 
 **Download**:
 - [prompts.csv](https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv)
 
-📊 评分: 94 · 🏥 健康度: 56 · 🏷️ 标签: `aws`, `cloud`, `architecture`
-📅 最近活跃: 2026-04-13 · 📦 来源: prompts.chat
+📊 评分: 94 · 🏥 健康度: 56 · 🏷️ 标签: `sql`, `database`, `query`
+📅 最近活跃: 2026-04-15 · 📦 来源: prompts.chat
 
 </details>
 
 <details>
-<summary>⭐ <strong>Enterprise Microservices Architecture Design</strong> — 企业微服务架构设计，专注可扩展性与松耦合。</summary>
+<summary>⭐ <strong>Technical Codebase Discovery & Onboarding Prompt</strong> — 技术代码库发现与上手指南</summary>
 
-企业微服务架构设计，专注可扩展性与松耦合。
+技术代码库发现与上手指南
 
 **Download**:
 - [prompts.csv](https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv)
 
-📊 评分: 94 · 🏥 健康度: 56 · 🏷️ 标签: `microservices`, `architecture`, `nodejs`
-📅 最近活跃: 2026-04-13 · 📦 来源: prompts.chat
+📊 评分: 94 · 🏥 健康度: 56 · 🏷️ 标签: `go`, `onboarding`, `code-analysis`
+📅 最近活跃: 2026-04-15 · 📦 来源: prompts.chat
+
+</details>
+
+<details>
+<summary>⭐ <strong>Multi-Audience Application Discovery & Documentation Prompt</strong> — 多受众应用发现与文档生成</summary>
+
+多受众应用发现与文档生成
+
+**Download**:
+- [prompts.csv](https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv)
+
+📊 评分: 94 · 🏥 健康度: 56 · 🏷️ 标签: `documentation`, `code-analysis`, `system`
+📅 最近活跃: 2026-04-15 · 📦 来源: prompts.chat
+
+</details>
+
+<details>
+<summary>⭐ <strong>Claude Code Skill (Slash Command): review-and-commit.md</strong> — Claude代码审查与提交技能</summary>
+
+Claude代码审查与提交技能
+
+**Download**:
+- [prompts.csv](https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv)
+
+📊 评分: 94 · 🏥 健康度: 56 · 🏷️ 标签: `git`, `automation`, `claude`
+📅 最近活跃: 2026-04-15 · 📦 来源: prompts.chat
+
+</details>
+
+<details>
+<summary>⭐ <strong>create a drag-and-drop experience using UniApp</strong> — UniApp拖放式洗衣体验开发</summary>
+
+UniApp拖放式洗衣体验开发
+
+**Download**:
+- [prompts.csv](https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv)
+
+📊 评分: 94 · 🏥 健康度: 56 · 🏷️ 标签: `for-devs`, `javascript`, `css`
+📅 最近活跃: 2026-04-15 · 📦 来源: prompts.chat
+
+</details>
+
+<details>
+<summary>⭐ <strong>Develop a creative dice generator called “IdeaDice”.</strong> — 创意骰子生成器IdeaDice开发</summary>
+
+创意骰子生成器IdeaDice开发
+
+**Download**:
+- [prompts.csv](https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv)
+
+📊 评分: 94 · 🏥 健康度: 56 · 🏷️ 标签: `for-devs`, `javascript`, `css`
+📅 最近活跃: 2026-04-15 · 📦 来源: prompts.chat
+
+</details>
+
+<details>
+<summary>⭐ <strong>Build a DDQN Snake Game with TensorFlow.js in a Single HTML File</strong> — 用TensorFlow.js在单HTML文件中构建DDQN贪吃蛇游戏。</summary>
+
+用TensorFlow.js在单HTML文件中构建DDQN贪吃蛇游戏。
+
+**Download**:
+- [prompts.csv](https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv)
+
+📊 评分: 94 · 🏥 健康度: 56 · 🏷️ 标签: `javascript`, `ai`
+📅 最近活跃: 2026-04-15 · 📦 来源: prompts.chat
 
 </details>
 
@@ -255,4 +255,4 @@ AWS云架构专家，专注架构设计、成本优化与安全。
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-04-14*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-04-15*
