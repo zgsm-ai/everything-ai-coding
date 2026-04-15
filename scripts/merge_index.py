@@ -181,18 +181,6 @@ def merge():
     # Overlay supplementary fields (tech_stack, tags) from curated.json files
     deduped = overlay_curated_fields(deduped)
 
-    # --- Backfill pushed_at from GitHub API for entries missing it ---
-    missing_pushed_at = [e for e in deduped if not e.get("pushed_at") and e.get("source_url", "").startswith("https://github.com/")]
-    if missing_pushed_at:
-        logger.info(f"Backfilling pushed_at for {len(missing_pushed_at)} entries via GitHub API")
-        filled = 0
-        for entry in missing_pushed_at:
-            meta = get_repo_meta(entry["source_url"])
-            if meta and meta.get("pushed_at"):
-                entry["pushed_at"] = meta["pushed_at"]
-                filled += 1
-        logger.info(f"Backfilled pushed_at for {filled}/{len(missing_pushed_at)} entries")
-
     # Fix invalid categories
     VALID_CATEGORIES = {
         "frontend",
@@ -239,6 +227,33 @@ def merge():
             prior_ev = existing_eval_map[eid]
             entry["_prior_evaluation"] = dict(prior_ev)
             entry["evaluation"] = {k: prior_ev[k] for k in _TIMESTAMP_KEYS if k in prior_ev}
+
+    # --- Backfill pushed_at: overlay from prior output, API only for new entries ---
+    existing_pushed_at = {}
+    for entry in existing_output:
+        eid = entry.get("id")
+        pa = entry.get("pushed_at")
+        if eid and pa:
+            existing_pushed_at[eid] = pa
+    overlayed = 0
+    for entry in deduped:
+        if not entry.get("pushed_at"):
+            pa = existing_pushed_at.get(entry.get("id"))
+            if pa:
+                entry["pushed_at"] = pa
+                overlayed += 1
+    still_missing = [e for e in deduped if not e.get("pushed_at") and e.get("source_url", "").startswith("https://github.com/")]
+    if still_missing:
+        logger.info(f"Backfilling pushed_at for {len(still_missing)} new entries via GitHub API (overlayed {overlayed} from prior output)")
+        filled = 0
+        for entry in still_missing:
+            meta = get_repo_meta(entry["source_url"])
+            if meta and meta.get("pushed_at"):
+                entry["pushed_at"] = meta["pushed_at"]
+                filled += 1
+        logger.info(f"Backfilled pushed_at for {filled}/{len(still_missing)} entries")
+    elif overlayed:
+        logger.info(f"Overlayed pushed_at for {overlayed} entries from prior output, 0 new API calls")
 
     # --- Layer 2: Enrichment (tags, translation, LLM evaluation, signals) ---
     enrich_entries(deduped)
