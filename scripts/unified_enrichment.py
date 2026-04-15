@@ -2,6 +2,7 @@
 """Unified enrichment - Layer 2 signal population."""
 
 from __future__ import annotations
+import re
 from typing import Any
 from datetime import datetime
 
@@ -127,11 +128,27 @@ def _heuristic_specificity(entry: dict[str, Any]) -> int:
 
 
 def _heuristic_coding_relevance(entry: dict[str, Any]) -> int:
-    """Deterministic coding_relevance (1-5) from metadata when LLM is unavailable."""
+    """Deterministic coding_relevance (1-5) from metadata when LLM is unavailable.
+
+    Caps:
+    - Non-dev tools (Slack/Discord/email etc.) → max 2
+    - Dev keyword bonus → max 4 (score 5 requires "operates on code itself",
+      which heuristic cannot verify)
+    """
     score = 2  # base: assume minimally relevant
     desc = (entry.get("description") or "").lower()
+    name = (entry.get("name") or "").lower()
     tags = entry.get("tags") or []
     tag_str = " ".join(tags).lower()
+    combined = f"{desc} {name} {tag_str}"
+
+    # Non-dev tool keywords → primary audience is not developers, cap at 2
+    # Use word boundary matching to avoid false positives on substrings
+    # (e.g., "note" inside "notebook", "chat" inside "chatops")
+    non_dev_keywords = {"slack", "discord", "email", "calendar",
+                        "social", "marketing", "seo"}
+    if any(re.search(rf"\b{kw}\b", combined) for kw in non_dev_keywords):
+        return min(2, score)
 
     coding_keywords = {"api", "sdk", "cli", "server", "client", "database", "git",
                        "code", "debug", "test", "lint", "build", "deploy", "docker"}
@@ -145,7 +162,9 @@ def _heuristic_coding_relevance(entry: dict[str, Any]) -> int:
     if stars > 100:
         score += 1
 
-    return min(5, score)
+    # Cap at 4: score 5 requires evidence of operating on code itself,
+    # which heuristic cannot verify
+    return min(4, score)
 
 
 def _heuristic_content_quality(entry: dict[str, Any]) -> int:

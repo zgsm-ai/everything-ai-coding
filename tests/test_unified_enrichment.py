@@ -123,8 +123,36 @@ class HeuristicBackfillTests(unittest.TestCase):
     def test_heuristic_coding_relevance_with_keywords(self):
         entry = {"description": "A CLI tool for API testing and debugging", "tags": ["cli"], "stars": 200}
         score = unified_enrichment._heuristic_coding_relevance(entry)
-        # "cli", "api", "test", "debug" = 4 keywords → +2, stars > 100 → +1, base=2 → 5
-        self.assertEqual(score, 5)
+        # "cli", "api", "test", "debug" = 4 keywords → +2, stars > 100 → +1, base=2 → 5 → capped to 4
+        self.assertEqual(score, 4)
+
+    def test_heuristic_coding_relevance_non_dev_capped(self):
+        """Non-dev tools (Slack/Discord/email) are capped at 2."""
+        entry = {"description": "Slack integration for API notifications", "tags": ["slack"], "stars": 500}
+        score = unified_enrichment._heuristic_coding_relevance(entry)
+        self.assertLessEqual(score, 2)
+
+    def test_heuristic_coding_relevance_discord_capped(self):
+        entry = {"description": "Discord bot for build alerts", "tags": ["discord"], "stars": 300}
+        score = unified_enrichment._heuristic_coding_relevance(entry)
+        self.assertLessEqual(score, 2)
+
+    def test_heuristic_coding_relevance_email_capped(self):
+        entry = {"description": "Email sending server with API", "tags": ["email"], "stars": 100}
+        score = unified_enrichment._heuristic_coding_relevance(entry)
+        self.assertLessEqual(score, 2)
+
+    def test_heuristic_coding_relevance_name_triggers_non_dev(self):
+        """Non-dev keyword in name also triggers the cap."""
+        entry = {"name": "slack-mcp-server", "description": "Server for messaging", "tags": [], "stars": 200}
+        score = unified_enrichment._heuristic_coding_relevance(entry)
+        self.assertLessEqual(score, 2)
+
+    def test_heuristic_coding_relevance_never_exceeds_4(self):
+        """Even with many dev keywords and high stars, heuristic cannot exceed 4."""
+        entry = {"description": "CLI SDK for API server client database git code debug test lint build deploy docker", "tags": ["cli", "sdk"], "stars": 10000}
+        score = unified_enrichment._heuristic_coding_relevance(entry)
+        self.assertLessEqual(score, 4)
 
     def test_heuristic_coding_relevance_baseline(self):
         entry = {"description": "some tool", "tags": [], "stars": 0}
