@@ -262,7 +262,7 @@ class FetchContentTests(unittest.TestCase):
 
     @patch("deep_reviewer._fetch_url")
     def test_content_truncated_to_limit(self, mock_fetch_url):
-        long_content = "x" * 5000
+        long_content = "x" * 10000
         # _fetch_url already truncates to CONTENT_TRUNCATE internally
         mock_fetch_url.return_value = long_content[:deep_reviewer.CONTENT_TRUNCATE]
         entry = _make_entry("mcp", source_url="https://github.com/owner/repo")
