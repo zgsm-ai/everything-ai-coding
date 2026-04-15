@@ -255,7 +255,7 @@ class TestMergeIndex(unittest.TestCase):
     def test_evaluation_and_governance_applied(self):
         """Entries get evaluation and governance after merge."""
         entry = _make_entry("gov1", source_url="https://github.com/t/gov1")
-        # Give it enough score heuristic points to pass the threshold of 40
+        # Give it enough score heuristic points to pass the threshold of 50
         # stars gives popularity score. install method gives installability.
         # desc gives some quality.
         entry["stars"] = 1000

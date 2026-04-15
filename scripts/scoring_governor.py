@@ -49,10 +49,10 @@ TYPE_WEIGHTS = {
 
 # Per-type decision thresholds (on final_score 0-100 scale)
 TYPE_THRESHOLDS = {
-    "mcp": {"accept": 40, "review": 25},
-    "skill": {"accept": 40, "review": 25},
-    "rule": {"accept": 30, "review": 15},
-    "prompt": {"accept": 30, "review": 15},
+    "mcp": {"accept": 50, "review": 35},
+    "skill": {"accept": 50, "review": 35},
+    "rule": {"accept": 40, "review": 25},
+    "prompt": {"accept": 40, "review": 25},
 }
 
 
@@ -76,6 +76,15 @@ def judge_decision(entry: dict[str, Any]) -> str:
     """Determine accept/review/reject based on final_score and type-specific thresholds."""
     evaluation = entry.get("evaluation") or {}
     final_score = evaluation.get("final_score", 0)
+    cr = evaluation.get("coding_relevance", 3)
+
+    # Hard rule: entries LLM deems unrelated to coding (cr≤1) never auto-accept.
+    # Default cr=3 so entries without LLM evaluation skip this gate.
+    if cr is not None and int(cr) <= 1:
+        if final_score < 35:
+            return "reject"
+        return "review"
+
     entry_type = _normalize_type(entry.get("type", ""))
     thresholds = TYPE_THRESHOLDS.get(entry_type, TYPE_THRESHOLDS["mcp"])
 
@@ -106,21 +115,40 @@ def apply_governance(entries: list[dict[str, Any]]) -> list[dict[str, Any]]:
         decision = judge_decision(entry)
         evaluation["decision"] = decision
 
+    # Deep review: reclassify "review" entries by fetching actual content.
+    # Runs after all entries have initial decisions, before reject filtering.
+    # Lazy import to avoid circular dependency (deep_reviewer imports judge_decision).
+    try:
+        try:
+            from .deep_reviewer import deep_review_entries
+        except ImportError:
+            from deep_reviewer import deep_review_entries
+        deep_review_entries(entries)
+    except ImportError:
+        logger.debug("deep_reviewer module not available, skipping deep review")
+    except Exception as e:
+        logger.warning(f"Deep review failed, skipping: {e}")
+
+    for entry in entries:
+        evaluation = entry.get("evaluation") or {}
+        decision = evaluation.get("decision", "reject")
+
         entry["health"] = compute_health(entry)
 
         if decision == "reject":
             reject_count += 1
+            score = evaluation.get("final_score", 0)
             if EVAL_DRY_RUN:
                 # Dry-run: log but keep the entry in the output.
                 logger.debug(
                     f"[DRY-RUN] Would reject: {entry.get('id')} "
-                    f"(score={final_score}, type={entry.get('type')})"
+                    f"(score={score}, type={entry.get('type')})"
                 )
                 result.append(entry)
             else:
                 logger.debug(
                     f"Rejected: {entry.get('id')} "
-                    f"(score={final_score}, type={entry.get('type')})"
+                    f"(score={score}, type={entry.get('type')})"
                 )
         else:
             result.append(entry)
