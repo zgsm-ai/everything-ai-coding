@@ -18,6 +18,14 @@ CATALOG_DIR = os.path.join(os.path.dirname(__file__), "..", "catalog", "prompts"
 TODAY = date.today().isoformat()
 
 
+def to_github_slug(title: str) -> str:
+    """Convert a title to a GitHub heading anchor slug."""
+    s = title.lower()
+    s = re.sub(r'[^a-z0-9 -]', '', s)
+    s = s.replace(' ', '-')
+    return s.strip('-')
+
+
 def parse_prompts_chat() -> list:
     """Parse f/prompts.chat prompts.csv - coding-related entries."""
     REPO = "f/prompts.chat"
@@ -58,7 +66,7 @@ def parse_prompts_chat() -> list:
             "name": act,
             "type": "prompt",
             "description": prompt_text[:200].replace("\n", " ").strip(),
-            "source_url": "https://github.com/f/prompts.chat",
+            "source_url": f"https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#{to_github_slug(act)}",
             "stars": None,
             "pushed_at": pushed_at,
             "category": category,

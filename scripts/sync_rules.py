@@ -130,7 +130,7 @@ def parse_rules_optimized() -> list:
                 "name": f"{name_base.replace('-', ' ').title()} (Rules 2.1)",
                 "type": "rule",
                 "description": description,
-                "source_url": f"https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/{subdir}",
+                "source_url": f"https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/{subdir}/{filename}",
                 "stars": None,
                 "pushed_at": pushed_at,
                 "category": category,

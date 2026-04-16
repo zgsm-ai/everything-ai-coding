@@ -4,7 +4,7 @@
     "name": "Linux Terminal",
     "type": "prompt",
     "description": "Act as a Linux terminal, execute commands and return realistic terminal output",
-    "source_url": "https://github.com/f/prompts.chat",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#linux-terminal",
     "stars": 143000,
     "category": "devops",
     "tags": [
@@ -30,7 +30,7 @@
     "name": "Fullstack Software Developer",
     "type": "prompt",
     "description": "Act as a fullstack developer with expertise in both frontend and backend technologies",
-    "source_url": "https://github.com/f/prompts.chat",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#fullstack-software-developer",
     "stars": 143000,
     "category": "fullstack",
     "tags": [
@@ -58,7 +58,7 @@
     "name": "Enterprise Microservices Architecture Design",
     "type": "prompt",
     "description": "Act as a Systems Architect specializing in enterprise solutions. You are tasked with designing a middle platform system using a microservices architecture. Your system should focus on achieving scalab",
-    "source_url": "https://github.com/f/prompts.chat",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#enterprise-microservices-architecture-design",
     "stars": 0,
     "category": "ai-ml",
     "tags": [
@@ -85,7 +85,7 @@
     "name": "Ultrathinker",
     "type": "prompt",
     "description": "# Ultrathinker  You are an expert software developer and deep reasoner. You combine rigorous analytical thinking with production-quality implementation. You never over-engineer—you build exactly what'",
-    "source_url": "https://github.com/f/prompts.chat",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#ultrathinker",
     "stars": 0,
     "category": "backend",
     "tags": [
@@ -109,7 +109,7 @@
     "name": "AI2sql SQL Model — Query Generator",
     "type": "prompt",
     "description": "Context: This prompt is used by AI2sql to generate SQL queries from natural language. AI2sql focuses on correctness, clarity, and real-world database usage.  Purpose: This prompt converts plain Englis",
-    "source_url": "https://github.com/f/prompts.chat",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#ai2sql-sql-model--query-generator",
     "stars": 0,
     "category": "database",
     "tags": [
@@ -136,7 +136,7 @@
     "name": "API Tester Agent Role",
     "type": "prompt",
     "description": "# API Tester  You are a senior API testing expert and specialist in performance testing, load simulation, contract validation, chaos testing, and monitoring setup for production-grade APIs.  ## Task-O",
-    "source_url": "https://github.com/f/prompts.chat",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#api-tester-agent-role",
     "stars": 0,
     "category": "devops",
     "tags": [
@@ -164,7 +164,7 @@
     "name": "Multi-Audience Application Discovery & Documentation Prompt",
     "type": "prompt",
     "description": "# **Prompt for Code Analysis and System Documentation Generation**  You are a specialist in code analysis and system documentation. Your task is to analyze the source code provided in this project/wor",
-    "source_url": "https://github.com/f/prompts.chat",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#multi-audience-application-discovery--documentation-prompt",
     "stars": 0,
     "category": "documentation",
     "tags": [
@@ -188,7 +188,7 @@
     "name": "Production-Grade PostHog Integration for Next.js 15 (App Router)",
     "type": "prompt",
     "description": "Production-Grade PostHog Integration for Next.js 15 (App Router) Role You are a Senior Next.js Architect & Analytics Engineer with deep expertise in Next.js 15, React 19, Supabase Auth, Polar.sh billi",
-    "source_url": "https://github.com/f/prompts.chat",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#production-grade-posthog-integration-for-nextjs-15-app-router",
     "stars": 0,
     "category": "frontend",
     "tags": [
@@ -215,7 +215,7 @@
     "name": "Digital Visiting Card Product Architect",
     "type": "prompt",
     "description": "Act as a Senior Product Architect, UX Designer, and Full-Stack Engineer. Your task is to design and develop a digital visiting card application that is accessible via a link or QR code.   You will: -",
-    "source_url": "https://github.com/f/prompts.chat",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#digital-visiting-card-product-architect",
     "stars": 0,
     "category": "fullstack",
     "tags": [
@@ -240,7 +240,7 @@
     "name": "App Store Submission Agent",
     "type": "prompt",
     "description": "Purpose: Pre-validate iOS builds against Apple’s App Store Review Guidelines before submission. Catch rejection-worthy issues early, review metadata quality, and ensure compliance with privacy and tec",
-    "source_url": "https://github.com/f/prompts.chat",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#app-store-submission-agent",
     "stars": 0,
     "category": "mobile",
     "tags": [
@@ -267,7 +267,7 @@
     "name": "AST Code Analysis Superpower",
     "type": "prompt",
     "description": "--- name: ast-code-analysis-superpower description: AST-based code pattern analysis using ast-grep for security, performance, and structural issues. Use when (1) reviewing code for security vulnerabil",
-    "source_url": "https://github.com/f/prompts.chat",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#ast-code-analysis-superpower",
     "stars": 0,
     "category": "security",
     "tags": [
@@ -293,7 +293,7 @@
     "name": "Test-First Bug Fixing Approach",
     "type": "prompt",
     "description": "I have a bug: ${bug}. Take a test-first approach: 1) Read the relevant source files and existing tests. 2) Write a failing test that reproduces the exact bug. 3) Run the test suite to confirm it fails",
-    "source_url": "https://github.com/f/prompts.chat",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#test-first-bug-fixing-approach",
     "stars": 0,
     "category": "testing",
     "tags": [
@@ -320,7 +320,7 @@
     "name": "Claude Code Skill (Slash Command): review-and-commit.md",
     "type": "prompt",
     "description": "--- allowed-tools: Bash(git add:*), Bash(git status:*), Bash(git commit:*) description: Create a git commit ---  ## Context  - Current git status: !`git status` - Current git diff (staged and unstaged",
-    "source_url": "https://github.com/f/prompts.chat",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#claude-code-skill-slash-command-review-and-commitmd",
     "stars": 0,
     "category": "tooling",
     "tags": [
