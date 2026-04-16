@@ -21,10 +21,22 @@ export default function Browse() {
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE)
   const sentinelRef = useRef<HTMLDivElement>(null)
 
+  const composingRef = useRef(false)
+
   const activeType = searchParams.get('type') || 'all'
   const activeCat = searchParams.get('cat') || 'all'
   const activeSort = searchParams.get('sort') || 'score'
   const searchQuery = searchParams.get('q') || ''
+
+  // Local input buffer to avoid URL param updates interrupting IME composition
+  const [inputValue, setInputValue] = useState(searchQuery)
+
+  // Sync URL → local when URL changes externally (e.g. browser back/forward)
+  useEffect(() => {
+    if (!composingRef.current) {
+      setInputValue(searchQuery)
+    }
+  }, [searchQuery])
 
   const { results: searchResults, searching } = useSearch(searchQuery)
 
@@ -111,8 +123,18 @@ export default function Browse() {
         </svg>
         <input
           type="text"
-          value={searchQuery}
-          onChange={e => setParam('q', e.target.value)}
+          value={inputValue}
+          onChange={e => {
+            setInputValue(e.target.value)
+            if (!composingRef.current) {
+              setParam('q', e.target.value)
+            }
+          }}
+          onCompositionStart={() => { composingRef.current = true }}
+          onCompositionEnd={e => {
+            composingRef.current = false
+            setParam('q', (e.target as HTMLInputElement).value)
+          }}
           placeholder={t('search.placeholder')}
           className="flex-1 bg-transparent border-none outline-none text-gray-900 dark:text-white placeholder-gray-400"
         />

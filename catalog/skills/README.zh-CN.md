@@ -64,7 +64,7 @@
 | 52 | [spec-to-code-compliance](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/spec-to-code-compliance) | 验证代码是否准确实现文档规范，用于区块链审计。 | Antigravity Skills | 🟢 活跃 | 92 | 2026-04-15 | tooling | `solidity`, `ethereum`, `web3` |
 | 53 | [test-fixing](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/test-fixing) | 系统识别并修复所有失败的测试，采用智能分组策略。 | Antigravity Skills | 🟢 活跃 | 92 | 2026-04-15 | testing | `testing`, `automation`, `debugging` |
 | 54 | [zeroize-audit](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/zeroize-audit) | 检测源代码中敏感数据零化缺失与编译器优化移除。 | Antigravity Skills | 🟢 活跃 | 92 | 2026-04-15 | security | `rust`, `security`, `audit` |
-| 55 | [claude-opus-4-5-migration](https://github.com/anthropics/claude-code/tree/main/plugins/claude-opus-4-5-migration/skills/claude-opus-4-5-migration) | 迁移至Claude Opus 4.5，处理模型更新与提示调整。 | Anthropic 官方 | 🟢 活跃 | 91 | 2026-04-15 | ai-ml | `ai`, `claude`, `automation` |
+| 55 | [claude-opus-4-5-migration](https://github.com/anthropics/claude-code/tree/main/plugins/claude-opus-4-5-migration/skills/claude-opus-4-5-migration) | 迁移至Claude Opus 4.5，处理模型更新与提示调整。 | Anthropic 官方 | 🟢 活跃 | 91 | 2026-04-16 | ai-ml | `ai`, `claude`, `automation` |
 | 56 | [distributed-llm-pretraining-torchtitan](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/model-architecture-torchtitan) | 使用torchtitan进行PyTorch原生分布式LLM预训练，支持4D并行。 | Claude Code 模板 | 🟢 活跃 | 91 | 2026-04-15 | ai-ml | `Model Architecture`, `Distributed Training`, `TorchTitan` |
 | 57 | [optimizing-attention-flash](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/optimization-flash-attention) | 使用Flash Attention优化Transformer注意力，提升速度并减少内存。 | Claude Code 模板 | 🟢 活跃 | 91 | 2026-04-15 | ai-ml | `Optimization`, `Flash Attention`, `Attention Optimization` |
 | 58 | [openrlhf-training](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/post-training-openrlhf) | 高性能RLHF框架，使用Ray+vLLM加速，支持PPO、DPO等训练。 | Claude Code 模板 | 🟢 活跃 | 91 | 2026-04-15 | ai-ml | `Post-Training`, `OpenRLHF`, `RLHF` |
@@ -159,7 +159,7 @@ Files: `skills/webapp-testing/`
 </details>
 
 <details>
-<summary>⭐ <strong>acceptance-orchestrator</strong> (33.1k★) — 驱动编码任务从需求到验收的端到端自动化流程。</summary>
+<summary>⭐ <strong>acceptance-orchestrator</strong> (33.3k★) — 驱动编码任务从需求到验收的端到端自动化流程。</summary>
 
 驱动编码任务从需求到验收的端到端自动化流程。
 
@@ -174,7 +174,7 @@ Files: `skills/acceptance-orchestrator/`
 </details>
 
 <details>
-<summary>⭐ <strong>agentic-actions-auditor</strong> (33.1k★) — 审计GitHub Actions工作流中AI代理集成的安全漏洞。</summary>
+<summary>⭐ <strong>agentic-actions-auditor</strong> (33.3k★) — 审计GitHub Actions工作流中AI代理集成的安全漏洞。</summary>
 
 审计GitHub Actions工作流中AI代理集成的安全漏洞。
 
@@ -189,7 +189,7 @@ Files: `skills/agentic-actions-auditor/`
 </details>
 
 <details>
-<summary>⭐ <strong>ai-native-cli</strong> (33.1k★) — 设计AI代理可安全使用的CLI工具规范，涵盖结构化输出。</summary>
+<summary>⭐ <strong>ai-native-cli</strong> (33.3k★) — 设计AI代理可安全使用的CLI工具规范，涵盖结构化输出。</summary>
 
 设计AI代理可安全使用的CLI工具规范，涵盖结构化输出。
 
@@ -204,7 +204,7 @@ Files: `skills/ai-native-cli/`
 </details>
 
 <details>
-<summary>⭐ <strong>airflow-dag-patterns</strong> (33.1k★) — 构建遵循最佳实践的Apache Airflow DAG生产环境</summary>
+<summary>⭐ <strong>airflow-dag-patterns</strong> (33.3k★) — 构建遵循最佳实践的Apache Airflow DAG生产环境</summary>
 
 构建遵循最佳实践的Apache Airflow DAG生产环境
 
@@ -219,7 +219,7 @@ Files: `skills/airflow-dag-patterns/`
 </details>
 
 <details>
-<summary>⭐ <strong>bats-testing-patterns</strong> (33.1k★) — 掌握Bash自动化测试系统，用于全面的shell脚本测试。</summary>
+<summary>⭐ <strong>bats-testing-patterns</strong> (33.3k★) — 掌握Bash自动化测试系统，用于全面的shell脚本测试。</summary>
 
 掌握Bash自动化测试系统，用于全面的shell脚本测试。
 
@@ -234,7 +234,7 @@ Files: `skills/bats-testing-patterns/`
 </details>
 
 <details>
-<summary>⭐ <strong>bazel-build-optimization</strong> (33.1k★) — 优化Bazel构建，适用于大规模单仓库。</summary>
+<summary>⭐ <strong>bazel-build-optimization</strong> (33.3k★) — 优化Bazel构建，适用于大规模单仓库。</summary>
 
 优化Bazel构建，适用于大规模单仓库。
 
@@ -249,7 +249,7 @@ Files: `skills/bazel-build-optimization/`
 </details>
 
 <details>
-<summary>⭐ <strong>bullmq-specialist</strong> (33.1k★) — BullMQ专家，用于Redis支持的作业队列、后台处理和可靠异步执行。</summary>
+<summary>⭐ <strong>bullmq-specialist</strong> (33.3k★) — BullMQ专家，用于Redis支持的作业队列、后台处理和可靠异步执行。</summary>
 
 BullMQ专家，用于Redis支持的作业队列、后台处理和可靠异步执行。
 
@@ -275,4 +275,4 @@ Files: `skills/bullmq-specialist/`
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-04-15*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-04-16*

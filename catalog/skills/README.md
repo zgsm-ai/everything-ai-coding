@@ -64,7 +64,7 @@
 | 52 | [spec-to-code-compliance](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/spec-to-code-compliance) | Verifies code implements exactly what documentation specifies for blockchain aud... | Antigravity Skills | 🟢 Active | 92 | 2026-04-15 | tooling | `solidity`, `ethereum`, `web3` |
 | 53 | [test-fixing](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/test-fixing) | Systematically identify and fix all failing tests using smart grouping strategie... | Antigravity Skills | 🟢 Active | 92 | 2026-04-15 | testing | `testing`, `automation`, `debugging` |
 | 54 | [zeroize-audit](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/zeroize-audit) | Detects missing zeroization of sensitive data in source code and identifies zero... | Antigravity Skills | 🟢 Active | 92 | 2026-04-15 | security | `rust`, `security`, `audit` |
-| 55 | [claude-opus-4-5-migration](https://github.com/anthropics/claude-code/tree/main/plugins/claude-opus-4-5-migration/skills/claude-opus-4-5-migration) | Migrate prompts and code from Claude Sonnet 4.0, Sonnet 4.5, or Opus 4.1 to Opus... | Anthropic Official | 🟢 Active | 91 | 2026-04-15 | ai-ml | `ai`, `claude`, `automation` |
+| 55 | [claude-opus-4-5-migration](https://github.com/anthropics/claude-code/tree/main/plugins/claude-opus-4-5-migration/skills/claude-opus-4-5-migration) | Migrate prompts and code from Claude Sonnet 4.0, Sonnet 4.5, or Opus 4.1 to Opus... | Anthropic Official | 🟢 Active | 91 | 2026-04-16 | ai-ml | `ai`, `claude`, `automation` |
 | 56 | [distributed-llm-pretraining-torchtitan](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/model-architecture-torchtitan) | Provides PyTorch-native distributed LLM pretraining using torchtitan with 4D par... | Claude Code Templates | 🟢 Active | 91 | 2026-04-15 | ai-ml | `Model Architecture`, `Distributed Training`, `TorchTitan` |
 | 57 | [optimizing-attention-flash](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/optimization-flash-attention) | Optimizes transformer attention with Flash Attention for 2-4x speedup and 10-20x... | Claude Code Templates | 🟢 Active | 91 | 2026-04-15 | ai-ml | `Optimization`, `Flash Attention`, `Attention Optimization` |
 | 58 | [openrlhf-training](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/post-training-openrlhf) | High-performance RLHF framework with Ray+vLLM acceleration. Use for PPO, GRPO, R... | Claude Code Templates | 🟢 Active | 91 | 2026-04-15 | ai-ml | `Post-Training`, `OpenRLHF`, `RLHF` |
@@ -159,7 +159,7 @@ Files: `skills/webapp-testing/`
 </details>
 
 <details>
-<summary>⭐ <strong>acceptance-orchestrator</strong> (33.1k★) — Use when a coding task should be driven end-to-end from issu...</summary>
+<summary>⭐ <strong>acceptance-orchestrator</strong> (33.3k★) — Use when a coding task should be driven end-to-end from issu...</summary>
 
 Use when a coding task should be driven end-to-end from issue intake through implementation, review, deployment, and acceptance verification with minimal human re-intervention.
 
@@ -174,7 +174,7 @@ Files: `skills/acceptance-orchestrator/`
 </details>
 
 <details>
-<summary>⭐ <strong>agentic-actions-auditor</strong> (33.1k★) — Audits GitHub Actions workflows for security vulnerabilities...</summary>
+<summary>⭐ <strong>agentic-actions-auditor</strong> (33.3k★) — Audits GitHub Actions workflows for security vulnerabilities...</summary>
 
 Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations  including Claude Code Action,  Gemini CLI, OpenAI Codex, and GitHub AI  Inference.  Detects attack vectors where attacker-controlled  input reaches. AI agents running in CI/CD pipelines.
 
@@ -190,7 +190,7 @@ Files: `skills/agentic-actions-auditor/`
 </details>
 
 <details>
-<summary>⭐ <strong>ai-native-cli</strong> (33.1k★) — Design spec with 98 rules for building CLI tools that AI age...</summary>
+<summary>⭐ <strong>ai-native-cli</strong> (33.3k★) — Design spec with 98 rules for building CLI tools that AI age...</summary>
 
 Design spec with 98 rules for building CLI tools that AI agents can safely use. Covers structured JSON output, error handling, input contracts, safety guardrails, exit codes, and agent self-description.
 
@@ -205,7 +205,7 @@ Files: `skills/ai-native-cli/`
 </details>
 
 <details>
-<summary>⭐ <strong>airflow-dag-patterns</strong> (33.1k★) — Build production Apache Airflow DAGs with best practices for...</summary>
+<summary>⭐ <strong>airflow-dag-patterns</strong> (33.3k★) — Build production Apache Airflow DAGs with best practices for...</summary>
 
 Build production Apache Airflow DAGs with best practices for operators, sensors, testing, and deployment. Use when creating data pipelines, orchestrating workflows, or scheduling batch jobs.
 
@@ -220,7 +220,7 @@ Files: `skills/airflow-dag-patterns/`
 </details>
 
 <details>
-<summary>⭐ <strong>bats-testing-patterns</strong> (33.1k★) — Master Bash Automated Testing System (Bats) for comprehensiv...</summary>
+<summary>⭐ <strong>bats-testing-patterns</strong> (33.3k★) — Master Bash Automated Testing System (Bats) for comprehensiv...</summary>
 
 Master Bash Automated Testing System (Bats) for comprehensive shell script testing. Use when writing tests for shell scripts, CI/CD pipelines, or requiring test-driven development of shell utilities.
 
@@ -235,7 +235,7 @@ Files: `skills/bats-testing-patterns/`
 </details>
 
 <details>
-<summary>⭐ <strong>bazel-build-optimization</strong> (33.1k★) — Optimize Bazel builds for large-scale monorepos. Use when co...</summary>
+<summary>⭐ <strong>bazel-build-optimization</strong> (33.3k★) — Optimize Bazel builds for large-scale monorepos. Use when co...</summary>
 
 Optimize Bazel builds for large-scale monorepos. Use when configuring Bazel, implementing remote execution, or optimizing build performance for enterprise codebases.
 
@@ -250,7 +250,7 @@ Files: `skills/bazel-build-optimization/`
 </details>
 
 <details>
-<summary>⭐ <strong>bullmq-specialist</strong> (33.1k★) — BullMQ expert for Redis-backed job queues, background proces...</summary>
+<summary>⭐ <strong>bullmq-specialist</strong> (33.3k★) — BullMQ expert for Redis-backed job queues, background proces...</summary>
 
 BullMQ expert for Redis-backed job queues, background processing, and reliable async execution in Node.js/TypeScript applications.
 
@@ -276,4 +276,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-04-15*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-04-16*
