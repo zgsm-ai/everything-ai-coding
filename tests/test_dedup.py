@@ -1,4 +1,4 @@
-"""Tests for deduplicate() type-aware URL dedup behavior."""
+"""Tests for deduplicate() — ID dedup, URL dedup, type-aware behavior."""
 
 import sys
 import os
@@ -25,7 +25,78 @@ def _entry(id, type="mcp", source_url="https://github.com/test/repo", name="Test
     }
 
 
-class TestTypAwareDedup:
+class TestDeduplicateBasics:
+    """Basic dedup: by ID, empty list, entries without ID."""
+
+    def test_dedup_by_id(self):
+        entries = [
+            {"id": "tool-a", "name": "First"},
+            {"id": "tool-a", "name": "Duplicate"},
+            {"id": "tool-b", "name": "Other"},
+        ]
+        result = deduplicate(entries)
+        assert len(result) == 2
+        assert result[0]["name"] == "First"
+
+    def test_no_duplicates(self):
+        entries = [
+            {"id": "a", "source_url": "https://github.com/owner/a"},
+            {"id": "b", "source_url": "https://github.com/owner/b"},
+        ]
+        result = deduplicate(entries)
+        assert len(result) == 2
+
+    def test_empty_list(self):
+        assert deduplicate([]) == []
+
+    def test_entries_without_id(self):
+        entries = [{"name": "no-id"}, {"name": "also-no-id"}]
+        result = deduplicate(entries)
+        assert len(result) == 2
+
+    def test_entries_without_source_url(self):
+        entries = [{"id": "a"}, {"id": "b"}]
+        result = deduplicate(entries)
+        assert len(result) == 2
+
+
+class TestUrlNormalization:
+    """URL normalization: trailing slash, .git suffix, case insensitive."""
+
+    def test_url_trailing_slash(self):
+        entries = [
+            _entry("a", source_url="https://github.com/owner/repo"),
+            _entry("b", source_url="https://github.com/owner/repo/"),
+        ]
+        result = deduplicate(entries)
+        assert len(result) == 1
+
+    def test_url_dot_git_suffix(self):
+        entries = [
+            _entry("a", source_url="https://github.com/owner/repo"),
+            _entry("b", source_url="https://github.com/owner/repo.git"),
+        ]
+        result = deduplicate(entries)
+        assert len(result) == 1
+
+    def test_url_case_insensitive(self):
+        entries = [
+            _entry("a", source_url="https://github.com/Owner/Repo"),
+            _entry("b", source_url="https://github.com/owner/repo"),
+        ]
+        result = deduplicate(entries)
+        assert len(result) == 1
+
+    def test_different_urls_kept(self):
+        entries = [
+            _entry("a", source_url="https://github.com/owner/repo-a"),
+            _entry("b", source_url="https://github.com/owner/repo-b"),
+        ]
+        result = deduplicate(entries)
+        assert len(result) == 2
+
+
+class TestTypeAwareDedup:
     """Type-aware URL dedup: prompt/rule skip URL dedup, MCP/skill keep it."""
 
     def test_prompts_sharing_url_all_preserved(self):
