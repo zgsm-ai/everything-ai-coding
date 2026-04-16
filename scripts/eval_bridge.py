@@ -151,7 +151,7 @@ def run_eval(
 
         results = runner.run(eval_items)
         for r in results:
-            rd = r.model_dump() if hasattr(r, "model_dump") else r
+            rd = r.model_dump(mode="json") if hasattr(r, "model_dump") else r
             all_results[rd["entry_id"]] = rd
 
     return all_results
