@@ -113,19 +113,26 @@ class TestMapResultToEntry:
         assert entry["evaluation"] == original_eval
 
 
-class TestResolveTaskConfig:
-    """Test task config resolution from eval_config/ directory."""
+class TestResolveTaskName:
+    """Test task name resolution for built-in configs."""
 
     def test_known_types(self):
-        from eval_bridge import resolve_task_config
+        from eval_bridge import resolve_task_name
 
-        for t in ("mcp", "skill", "rule", "prompt"):
-            path = resolve_task_config(t)
-            assert path.endswith(".yaml")
-            assert os.path.isfile(path), f"Config missing for type: {t}"
+        assert resolve_task_name("mcp") == "mcp_server"
+        assert resolve_task_name("skill") == "skill"
+        assert resolve_task_name("rule") == "rule"
+        assert resolve_task_name("prompt") == "prompt"
 
     def test_unknown_type_falls_back_to_skill(self):
-        from eval_bridge import resolve_task_config
+        from eval_bridge import resolve_task_name
 
-        path = resolve_task_config("unknown_type")
-        assert "skill.yaml" in path
+        assert resolve_task_name("unknown_type") == "skill"
+
+    def test_builtin_configs_loadable(self):
+        from ai_resource_eval.tasks.loader import load_task_config
+        from eval_bridge import resolve_task_name
+
+        for t in ("mcp", "skill", "rule", "prompt"):
+            config = load_task_config(resolve_task_name(t))
+            assert config is not None

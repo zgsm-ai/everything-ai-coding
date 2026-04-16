@@ -6,11 +6,8 @@ fields (no evidence/missing/suggestion).
 """
 from __future__ import annotations
 
-import json
 import logging
 import os
-import sys
-from pathlib import Path
 from typing import Any
 
 logger = logging.getLogger(__name__)
@@ -19,21 +16,17 @@ logger = logging.getLogger(__name__)
 # Config resolution
 # ---------------------------------------------------------------------------
 
-_PROJECT_ROOT = Path(__file__).resolve().parent.parent
-_EVAL_CONFIG_DIR = _PROJECT_ROOT / "eval_config"
-
-_TYPE_TO_CONFIG = {
-    "mcp": "mcp_server.yaml",
-    "skill": "skill.yaml",
-    "rule": "rule.yaml",
-    "prompt": "prompt.yaml",
+_TYPE_TO_TASK = {
+    "mcp": "mcp_server",
+    "skill": "skill",
+    "rule": "rule",
+    "prompt": "prompt",
 }
 
 
-def resolve_task_config(resource_type: str) -> str:
-    """Return absolute path to the task YAML for a resource type."""
-    filename = _TYPE_TO_CONFIG.get(resource_type, "skill.yaml")
-    return str(_EVAL_CONFIG_DIR / filename)
+def resolve_task_name(resource_type: str) -> str:
+    """Return the built-in task config name for a resource type."""
+    return _TYPE_TO_TASK.get(resource_type, "skill")
 
 
 # ---------------------------------------------------------------------------
@@ -100,7 +93,7 @@ def run_eval(
     try:
         from ai_resource_eval.api.types import EvalItem
         from ai_resource_eval.runner import EvalRunner
-        from ai_resource_eval.tasks.loader import load_task_config_from_path
+        from ai_resource_eval.tasks.loader import load_task_config
     except ImportError:
         logger.warning(
             "ai-resource-eval package not found. "
@@ -124,12 +117,12 @@ def run_eval(
     all_results: dict[str, dict[str, Any]] = {}
 
     for resource_type, group in groups.items():
-        config_path = resolve_task_config(resource_type)
+        task_name = resolve_task_name(resource_type)
         try:
-            task_config = load_task_config_from_path(config_path)
+            task_config = load_task_config(task_name)
         except (FileNotFoundError, ValueError) as exc:
             logger.warning("Failed to load config for %s: %s, using skill fallback", resource_type, exc)
-            task_config = load_task_config_from_path(resolve_task_config("skill"))
+            task_config = load_task_config("skill")
 
         # Convert dicts to EvalItem
         eval_items = []
