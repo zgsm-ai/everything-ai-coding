@@ -35,11 +35,6 @@ Thumbs.db
 # Sync caches (rebuilt by CI)
 catalog/skills/.repo_cache.json
 catalog/skills/.llm_cache.json
-catalog/.llm_eval_cache.json
-catalog/.deep_review_cache.json
-.llm_tag_cache.json
-.llm_translate_cache.json
-.llm_en_translate_cache.json
 incremental_recrawl_state.json
 scripts/fallback_skill_repos.json
 

@@ -31,11 +31,6 @@ jobs:
           path: |
             catalog/skills/.repo_cache.json
             catalog/skills/.llm_cache.json
-            catalog/.llm_tag_cache.json
-            catalog/.llm_techstack_cache.json
-            catalog/.llm_translate_cache.json
-            catalog/.llm_en_translate_cache.json
-            catalog/.llm_search_cache.json
             catalog/maintenance/incremental_recrawl_state.json
             scripts/fallback_skill_repos.json
             .eval_cache/
