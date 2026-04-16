@@ -1,0 +1,45 @@
+task: rule
+content_source: readme
+content_paths:
+  - README.md
+content_fallback: description
+
+# No install_clarity — weight redistributed proportionally to remaining 5 metrics
+# Original: cr=0.25 dc=0.20 da=0.15 wq=0.15 sp=0.15 ic=0.10 (sum=1.0)
+# After removing ic (0.10), redistribute: each_new = original / 0.90
+metrics:
+  - metric: coding_relevance
+    weight: 0.28
+  - metric: doc_completeness
+    weight: 0.22
+  - metric: desc_accuracy
+    weight: 0.17
+  - metric: writing_quality
+    weight: 0.17
+  - metric: specificity
+    weight: 0.16
+
+heuristic_signals:
+  - signal: freshness
+    weight: 0.30
+  - signal: popularity
+    weight: 0.30
+  - signal: source_trust
+    weight: 0.40
+
+star_routing:
+  zero_weight_sources:
+    - antigravity-skills
+    - ai-agent-skills
+    - "davila7/*"
+    - vasilyu-skills
+    - anthropics-skills
+    - "anthropics/claude-code"
+  monorepo_threshold: 5
+
+thresholds:
+  accept: 65
+  review: 50
+
+rubric_major_version: 1
+enrichment: true

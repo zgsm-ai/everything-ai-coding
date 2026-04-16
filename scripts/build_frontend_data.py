@@ -67,6 +67,7 @@ def slim_item(item):
         "install": item.get("install"),
         "added_at": item.get("added_at"),
         "pushed_at": item.get("pushed_at"),
+        "highlights": item.get("highlights"),
     }
 
 

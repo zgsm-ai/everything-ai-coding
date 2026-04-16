@@ -106,18 +106,9 @@ class TestMergeIndex(unittest.TestCase):
         self.assertEqual(len(dup_entries), 1)
         self.assertEqual(dup_entries[0]["name"], "First")
 
-    def test_health_score_present(self):
+    def test_unevaluated_entry_gets_defaults(self):
+        """Entries without harness evaluation get score=0, decision=review."""
         entry = _make_entry("h1", source_url="https://github.com/t/h1")
-        entry["stars"] = 1000
-        entry["install"]["method"] = "mcp_config"
-        entry["description"] = "A" * 100
-        entry["evaluation"] = {
-            "coding_relevance": 5,
-            "content_quality": 5,
-            "specificity": 5,
-            "source_trust": 5,
-            "confidence": 5,
-        }
         self._write_index("mcp", [entry])
 
         with unittest.mock.patch("merge_index.enrich_entries") as mock_enrich:
@@ -125,9 +116,8 @@ class TestMergeIndex(unittest.TestCase):
             merge_index.merge()
         result = self._read_output()
 
-        self.assertIn("health", result[0])
-        self.assertIn("score", result[0]["health"])
-        self.assertIn("signals", result[0]["health"])
+        self.assertEqual(result[0]["final_score"], 0)
+        self.assertEqual(result[0]["decision"], "review")
 
     def test_merge_prefers_older_added_at_from_source_indexes(self):
         entry = _make_entry(
@@ -252,23 +242,14 @@ class TestMergeIndex(unittest.TestCase):
 
         self.assertEqual(len(result), 1)
 
-    def test_evaluation_and_governance_applied(self):
-        """Entries get evaluation and governance after merge."""
+    def test_harness_evaluated_entry_passthrough(self):
+        """Entries with harness evaluation pass through governance unchanged."""
         entry = _make_entry("gov1", source_url="https://github.com/t/gov1")
-        # Give it enough score heuristic points to pass the threshold of 50
-        # stars gives popularity score. install method gives installability.
-        # desc gives some quality.
-        entry["stars"] = 1000
-        entry["install"]["method"] = "mcp_config"
-        entry["description"] = "A" * 100
-
-        # We need an evaluation object since the threshold checks the final_score calculated from signals
         entry["evaluation"] = {
+            "model_id": "deepseek-chat",
+            "final_score": 85.0,
+            "decision": "accept",
             "coding_relevance": 5,
-            "content_quality": 5,
-            "specificity": 5,
-            "source_trust": 5,
-            "confidence": 5,
         }
         self._write_index("mcp", [entry])
 
@@ -278,11 +259,10 @@ class TestMergeIndex(unittest.TestCase):
         result = self._read_output()
 
         self.assertIn("evaluation", result[0])
-        self.assertIn("health", result[0])
-        # Top-level scoring fields promoted from evaluation
         self.assertIn("final_score", result[0])
         self.assertIn("decision", result[0])
-        self.assertIsInstance(result[0]["final_score"], int)
+        self.assertEqual(result[0]["final_score"], 85.0)
+        self.assertEqual(result[0]["decision"], "accept")
         self.assertGreater(result[0]["final_score"], 0)
         self.assertIn(result[0]["decision"], ("accept", "review", "reject"))
 

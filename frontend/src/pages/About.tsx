@@ -69,17 +69,6 @@ function TargetIcon() {
   )
 }
 
-function PackageIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="m16.5 9.4-9-5.19" />
-      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-      <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-      <line x1="12" y1="22.08" x2="12" y2="12" />
-    </svg>
-  )
-}
-
 const SOURCES = [
   { name: 'awesome-mcp-servers', url: 'https://github.com/punkpeye/awesome-mcp-servers', trust: 4, type: 'MCP' },
   { name: 'mcp.so', url: 'https://mcp.so', trust: 2, type: 'MCP' },
@@ -168,31 +157,32 @@ export default function About() {
   ]
 
   const mcpWeights = [
-    { label: 'Coding Relevance', weight: 30, color: '#0071e3' },
-    { label: 'Content Quality',  weight: 25, color: '#34aadc' },
-    { label: 'Specificity',      weight: 20, color: '#5ac8fa' },
-    { label: 'Source Trust',     weight: 15, color: '#30d158' },
-    { label: 'Confidence',       weight: 10, color: '#64d2ff' },
+    { label: 'Coding Relevance', weight: 25, color: '#0071e3' },
+    { label: 'Doc Completeness', weight: 20, color: '#34aadc' },
+    { label: 'Desc Accuracy',    weight: 15, color: '#5ac8fa' },
+    { label: 'Writing Quality',  weight: 15, color: '#30d158' },
+    { label: 'Specificity',      weight: 15, color: '#64d2ff' },
+    { label: 'Install Clarity',  weight: 10, color: '#ff9f0a' },
   ]
 
   const ruleWeights = [
-    { label: 'Coding Relevance', weight: 35, color: '#0071e3' },
-    { label: 'Content Quality',  weight: 35, color: '#34aadc' },
-    { label: 'Source Trust',     weight: 15, color: '#30d158' },
-    { label: 'Confidence',       weight: 15, color: '#64d2ff' },
+    { label: 'Coding Relevance', weight: 28, color: '#0071e3' },
+    { label: 'Doc Completeness', weight: 22, color: '#34aadc' },
+    { label: 'Desc Accuracy',    weight: 17, color: '#5ac8fa' },
+    { label: 'Writing Quality',  weight: 17, color: '#30d158' },
+    { label: 'Specificity',      weight: 16, color: '#64d2ff' },
   ]
 
   const healthSignals = [
-    { icon: <StarIcon />,    bg: 'bg-amber-50 dark:bg-amber-500/10',   text: 'text-amber-600 dark:text-amber-400',   labelKey: 'about.signal.popularity',     descKey: 'about.signal.popularity.desc',     weight: 30 },
-    { icon: <ClockIcon />,   bg: 'bg-sky-50 dark:bg-sky-500/10',       text: 'text-sky-600 dark:text-sky-400',       labelKey: 'about.signal.freshness',      descKey: 'about.signal.freshness.desc',      weight: 25 },
-    { icon: <TargetIcon />,  bg: 'bg-violet-50 dark:bg-violet-500/10', text: 'text-violet-600 dark:text-violet-400', labelKey: 'about.signal.quality',        descKey: 'about.signal.quality.desc',        weight: 25 },
-    { icon: <PackageIcon />, bg: 'bg-teal-50 dark:bg-teal-500/10',     text: 'text-teal-600 dark:text-teal-400',     labelKey: 'about.signal.installability', descKey: 'about.signal.installability.desc', weight: 20 },
+    { icon: <ClockIcon />,   bg: 'bg-sky-50 dark:bg-sky-500/10',       text: 'text-sky-600 dark:text-sky-400',       labelKey: 'about.signal.freshness',     descKey: 'about.signal.freshness.desc',     weight: 30 },
+    { icon: <StarIcon />,    bg: 'bg-amber-50 dark:bg-amber-500/10',   text: 'text-amber-600 dark:text-amber-400',   labelKey: 'about.signal.popularity',    descKey: 'about.signal.popularity.desc',    weight: 30 },
+    { icon: <TargetIcon />,  bg: 'bg-violet-50 dark:bg-violet-500/10', text: 'text-violet-600 dark:text-violet-400', labelKey: 'about.signal.sourceTrust',   descKey: 'about.signal.sourceTrust.desc',   weight: 40 },
   ]
 
   const thresholds = [
-    { labelKey: 'about.decision.accept', mcp: '≥ 40', rp: '≥ 30', color: '#30d158', ring: 'ring-green-500/30',  bg: 'bg-green-500/8 dark:bg-green-500/12'  },
-    { labelKey: 'about.decision.review', mcp: '≥ 25', rp: '≥ 15', color: '#ff9f0a', ring: 'ring-yellow-500/30', bg: 'bg-yellow-500/8 dark:bg-yellow-500/12' },
-    { labelKey: 'about.decision.reject', mcp: '< 25',  rp: '< 15',  color: '#ff453a', ring: 'ring-red-500/30',   bg: 'bg-red-500/8 dark:bg-red-500/12'       },
+    { labelKey: 'about.decision.accept', score: '≥ 65', color: '#30d158', ring: 'ring-green-500/30',  bg: 'bg-green-500/8 dark:bg-green-500/12'  },
+    { labelKey: 'about.decision.review', score: '50 – 64', color: '#ff9f0a', ring: 'ring-yellow-500/30', bg: 'bg-yellow-500/8 dark:bg-yellow-500/12' },
+    { labelKey: 'about.decision.reject', score: '< 50',  color: '#ff453a', ring: 'ring-red-500/30',   bg: 'bg-red-500/8 dark:bg-red-500/12'       },
   ]
 
   return (
@@ -294,16 +284,7 @@ export default function About() {
                 <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: th.color }} />
                 <span className="text-sm font-semibold text-gray-900 dark:text-white">{t(th.labelKey)}</span>
               </div>
-              <div className="space-y-2">
-                <div>
-                  <div className="text-[10px] uppercase tracking-wide text-gray-400 dark:text-gray-500">MCP / Skill</div>
-                  <div className="text-base font-mono font-bold" style={{ color: th.color }}>{th.mcp}</div>
-                </div>
-                <div>
-                  <div className="text-[10px] uppercase tracking-wide text-gray-400 dark:text-gray-500">Rule / Prompt</div>
-                  <div className="text-base font-mono font-bold" style={{ color: th.color }}>{th.rp}</div>
-                </div>
-              </div>
+              <div className="text-xl font-mono font-bold" style={{ color: th.color }}>{th.score}</div>
             </div>
           ))}
         </div>

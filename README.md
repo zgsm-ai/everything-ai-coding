@@ -29,7 +29,7 @@
 
 AI coding agents are improving fast, but the ecosystem around them is still fragmented. Finding a reliable MCP server, reusable skill, practical rule set, or prompt collection usually means searching across multiple repositories and formats.
 
-Everything AI Coding is a **curated knowledge base** that continuously collects, deduplicates, enriches, and scores resources from 9+ upstream sources. Every entry includes quality signals — source trust, coding relevance, content quality, freshness, and community popularity — so you can evaluate before you install. Browse right here on GitHub, explore interactively with the [web catalog](https://zgsm-ai.github.io/everything-ai-coding/), or search and install with one command using the [Coding Hub](#coding-hub) tool.
+Everything AI Coding is a **curated knowledge base** that continuously collects, deduplicates, enriches, and scores resources from 9+ upstream sources. Every entry includes quality signals — LLM-scored coding relevance, documentation quality, specificity, plus health metrics like freshness and community popularity — so you can evaluate before you install. Browse right here on GitHub, explore interactively with the [web catalog](https://zgsm-ai.github.io/everything-ai-coding/), or search and install with one command using the [Coding Hub](#coding-hub) tool.
 
 <a id="knowledge-base"></a>
 ## 📚 Knowledge Base
@@ -112,20 +112,21 @@ Everything AI Coding aggregates data from multiple upstream sources, then enrich
 
 ### Quality scoring
 
-Every entry is scored on a 0-100 composite scale:
+Every entry is scored on a 0–100 composite scale: `final_score = LLM × 0.85 + health × 0.15`.
 
-- **Coding relevance** (1-5) — How directly useful for development
-- **Content quality** (1-5) — Documentation, maintenance, completeness
-- **Source trust** (1-5) — Upstream reputation (e.g., Anthropic Official = 5, mcp.so = 2)
-- **Community signals** — GitHub stars, freshness (🟢 Active / 🟡 Stale / 🔴 Abandoned), installability
+**LLM dimensions** (1–5, up to 6 per type): coding relevance, doc completeness, description accuracy, writing quality, specificity, install clarity (MCP & Skills only)
+
+**Health signals**: freshness (🟢 Active / 🟡 Stale / 🔴 Abandoned), popularity (GitHub stars), source trust (upstream reputation)
+
+**Decisions**: accept (≥ 65) · review (50–64) · reject (< 50)
 
 Each sub-directory README shows the Top 100 entries ranked by this composite score.
 
 ### Pipeline
 
 1. **Sync** — `scripts/sync_*.py` pull from upstream sources weekly
-2. **Merge** — `scripts/merge_index.py` deduplicates, enriches metadata, applies governance
-3. **Evaluate** — LLM + heuristic scoring for relevance, quality, and specificity
+2. **Merge** — `scripts/merge_index.py` deduplicates across sources, merges metadata
+3. **Evaluate** — Single LLM call: 6-dimension scoring + enrichment (tags, summary, tech_stack) + health signals
 4. **Publish** — GitHub Actions refresh the catalog, generate README tables, and update the web catalog
 
 <details>

@@ -1,0 +1,4919 @@
+[
+  {
+    "id": "microsoftmarkitdown",
+    "name": "microsoft/markitdown",
+    "type": "mcp",
+    "description": "MarkItDown MCP tool access - a library converting various file formats to Markdown for LLM use.",
+    "source_url": "https://github.com/microsoft/markitdown/tree/main/packages/markitdown-mcp",
+    "stars": 106284,
+    "pushed_at": "2026-03-30T17:17:56Z",
+    "category": "ai-ml",
+    "tags": [
+      "autogen",
+      "autogen-extension",
+      "langchain",
+      "markdown",
+      "microsoft-office",
+      "openai",
+      "pdf"
+    ],
+    "tech_stack": [
+      "langchain",
+      "openai",
+      "python"
+    ],
+    "install": {
+      "method": "manual"
+    },
+    "source": "awesome-mcp-zh",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:05:08.193517",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 4,
+      "specificity": 4,
+      "source_trust": 4,
+      "confidence": 5,
+      "reason": "File format conversion to Markdown directly aids code documentation and LLM context preparation.",
+      "final_score": 82,
+      "decision": "accept"
+    },
+    "description_zh": "MarkItDown MCP 工具访问 - 一个将多种文件格式（本地或远程）转换为 Markdown 以供 LLM 使用的库。",
+    "search_terms": [
+      "file to markdown conversion",
+      "文件转Markdown",
+      "document conversion library",
+      "文档转换库",
+      "PDF to markdown",
+      "PDF转Markdown",
+      "Office to markdown",
+      "Office转Markdown",
+      "LLM document processing",
+      "LLM文档处理"
+    ],
+    "health": {
+      "score": 80,
+      "signals": {
+        "popularity": 100,
+        "freshness": 100,
+        "quality": 82,
+        "installability": 20
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-03-30T17:17:56Z"
+    },
+    "final_score": 82,
+    "decision": "accept"
+  },
+  {
+    "id": "modelcontextprotocolserver-filesystem",
+    "name": "modelcontextprotocol/server-filesystem",
+    "type": "mcp",
+    "description": "Official reference implementation for direct access to the local filesystem with configurable permissions.",
+    "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+    "stars": 83630,
+    "pushed_at": "2026-03-29T04:08:59Z",
+    "category": "tooling",
+    "tags": [
+      "mcp-server",
+      "official",
+      "filesystem"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-memory"
+        ]
+      }
+    },
+    "source": "awesome-mcp-zh",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:05:08.193517",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 5,
+      "specificity": 4,
+      "source_trust": 4,
+      "confidence": 5,
+      "reason": "Official filesystem access implementation is a core development tool for file operations with configurable permissions.",
+      "final_score": 93,
+      "decision": "accept"
+    },
+    "description_zh": "官方参考实现，提供对本地文件系统的直接访问，带可配置权限。",
+    "search_terms": [
+      "local filesystem access",
+      "本地文件系统访问",
+      "file operations MCP",
+      "文件操作MCP",
+      "configurable permissions",
+      "可配置权限",
+      "reference implementation",
+      "参考实现"
+    ],
+    "health": {
+      "score": 98,
+      "signals": {
+        "popularity": 98,
+        "freshness": 100,
+        "quality": 93,
+        "installability": 100
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-03-29T04:08:59Z"
+    },
+    "final_score": 93,
+    "decision": "accept"
+  },
+  {
+    "id": "modelcontextprotocolserver-google-drive",
+    "name": "modelcontextprotocol/server-google-drive",
+    "type": "mcp",
+    "description": "Official reference implementation integrating Google Drive to list, read, and search files.",
+    "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/gdrive",
+    "stars": 83630,
+    "pushed_at": "2026-03-29T04:08:59Z",
+    "category": "backend",
+    "tags": [
+      "go",
+      "mcp-server",
+      "official",
+      "google-drive"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-memory"
+        ]
+      }
+    },
+    "source": "awesome-mcp-zh",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:05:08.193517",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 5,
+      "specificity": 4,
+      "source_trust": 4,
+      "confidence": 5,
+      "reason": "Official Google Drive integration is a core development tool for cloud file management in applications.",
+      "final_score": 93,
+      "decision": "accept"
+    },
+    "description_zh": "官方参考实现，集成 Google Drive，用于列出、读取和搜索文件。",
+    "search_terms": [
+      "Google Drive integration",
+      "Google Drive集成",
+      "cloud file access",
+      "云文件访问",
+      "drive file search",
+      "云端文件搜索",
+      "document management",
+      "文档管理"
+    ],
+    "health": {
+      "score": 98,
+      "signals": {
+        "popularity": 98,
+        "freshness": 100,
+        "quality": 93,
+        "installability": 100
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-03-29T04:08:59Z"
+    },
+    "final_score": 93,
+    "decision": "accept"
+  },
+  {
+    "id": "modelcontextprotocolserver-github",
+    "name": "modelcontextprotocol/server-github",
+    "type": "mcp",
+    "description": "Official reference implementation integrating GitHub API to manage repositories, files, PRs, and Issues.",
+    "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/github",
+    "stars": 83630,
+    "pushed_at": "2026-03-29T04:08:59Z",
+    "category": "backend",
+    "tags": [
+      "git",
+      "mcp-server",
+      "official",
+      "github"
+    ],
+    "tech_stack": [
+      "git",
+      "typescript"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-memory"
+        ]
+      }
+    },
+    "source": "awesome-mcp-zh",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T02:59:59.166657",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 4,
+      "specificity": 4,
+      "source_trust": 4,
+      "confidence": 5,
+      "reason": "Core dev tool for GitHub API integration managing repos, files, PRs, and issues, clearly described as official reference.",
+      "final_score": 88,
+      "decision": "accept"
+    },
+    "description_zh": "官方参考实现，集成 GitHub API，管理仓库、文件、PR 和 Issues。",
+    "search_terms": [
+      "GitHub API 参考实现",
+      "官方GitHub MCP",
+      "仓库文件PR管理",
+      "GitHub 项目管理",
+      "参考实现集成",
+      "GitHub 操作工具",
+      "官方参考实现"
+    ],
+    "health": {
+      "score": 96,
+      "signals": {
+        "popularity": 98,
+        "freshness": 100,
+        "quality": 88,
+        "installability": 100
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-03-29T04:08:59Z"
+    },
+    "final_score": 88,
+    "decision": "accept"
+  },
+  {
+    "id": "modelcontextprotocolserver-git",
+    "name": "modelcontextprotocol/server-git",
+    "type": "mcp",
+    "description": "Official reference implementation for directly operating local Git repositories for reading, searching, and analysis.",
+    "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/git",
+    "stars": 83630,
+    "pushed_at": "2026-03-29T04:08:59Z",
+    "category": "tooling",
+    "tags": [
+      "git",
+      "mcp-server",
+      "official"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-memory"
+        ]
+      }
+    },
+    "source": "awesome-mcp-zh",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T02:59:59.166657",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 4,
+      "specificity": 4,
+      "source_trust": 4,
+      "confidence": 5,
+      "reason": "Core dev tool for direct local Git repository operations like reading and analysis, clearly described as official reference.",
+      "final_score": 88,
+      "decision": "accept"
+    },
+    "description_zh": "官方参考实现，直接操作本地 Git 仓库，进行读取、搜索和分析。",
+    "search_terms": [
+      "本地Git仓库操作",
+      "Git 读取搜索分析",
+      "官方Git集成",
+      "本地版本控制",
+      "Git 仓库分析",
+      "代码库搜索工具",
+      "Git 操作参考实现"
+    ],
+    "health": {
+      "score": 96,
+      "signals": {
+        "popularity": 98,
+        "freshness": 100,
+        "quality": 88,
+        "installability": 100
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-03-29T04:08:59Z"
+    },
+    "final_score": 88,
+    "decision": "accept"
+  },
+  {
+    "id": "verodat",
+    "name": "Verodat",
+    "type": "mcp",
+    "description": "Interact with Verodat AI Ready Data platform",
+    "source_url": "https://github.com/Verodat/verodat-mcp-server",
+    "stars": null,
+    "pushed_at": null,
+    "category": "ai-ml",
+    "tags": [
+      "mcp-server",
+      "ai",
+      "data"
+    ],
+    "tech_stack": [
+      "python",
+      "openai"
+    ],
+    "install": {
+      "method": "manual"
+    },
+    "source": "awesome-mcp-servers",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:13:13.233468",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 2,
+      "content_quality": 2,
+      "specificity": 3,
+      "source_trust": 4,
+      "confidence": 3,
+      "reason": "AI data platform with vague description and weak coding relevance.",
+      "final_score": 52,
+      "decision": "accept"
+    },
+    "description_zh": "与Verodat AI就绪数据平台交互。",
+    "search_terms": [
+      "AI ready data platform",
+      "AI 数据平台",
+      "data for AI training",
+      "AI 训练数据集",
+      "structured data for LLM",
+      "MCP data integration",
+      "数据预处理工具"
+    ],
+    "health": {
+      "score": 17,
+      "signals": {
+        "popularity": 0,
+        "freshness": 0,
+        "quality": 52,
+        "installability": 20
+      },
+      "freshness_label": "abandoned",
+      "last_commit": null
+    },
+    "final_score": 52,
+    "decision": "accept"
+  },
+  {
+    "id": "mamertofabianmcp-everything-search",
+    "name": "mamertofabian/mcp-everything-search",
+    "type": "mcp",
+    "description": "Quickly search files on Windows using the Everything SDK.",
+    "source_url": "https://github.com/mamertofabian/mcp-everything-search",
+    "stars": null,
+    "pushed_at": null,
+    "category": "tooling",
+    "tags": [
+      "mcp-server",
+      "windows",
+      "file-search"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "manual"
+    },
+    "source": "awesome-mcp-zh",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:05:08.193517",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 4,
+      "specificity": 4,
+      "source_trust": 4,
+      "confidence": 3,
+      "reason": "Windows file search integration directly aids development workflows for file location and management.",
+      "final_score": 78,
+      "decision": "accept"
+    },
+    "description_zh": "在 Windows 上使用 Everything SDK 快速搜索文件。 (Awesome列表更通用)",
+    "search_terms": [
+      "Windows file search",
+      "Windows文件搜索",
+      "Everything SDK integration",
+      "Everything SDK集成",
+      "fast file查找",
+      "快速文件查找",
+      "desktop search tool",
+      "桌面搜索工具"
+    ],
+    "health": {
+      "score": 24,
+      "signals": {
+        "popularity": 0,
+        "freshness": 0,
+        "quality": 78,
+        "installability": 20
+      },
+      "freshness_label": "abandoned",
+      "last_commit": null
+    },
+    "final_score": 78,
+    "decision": "accept"
+  },
+  {
+    "id": "hal",
+    "name": "HAL",
+    "type": "mcp",
+    "description": "HTTP toolkit providing all 7 HTTP methods (GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS) with secret substitution, comprehensive error handling, and support for JSON, XML, HTML, and form data.",
+    "source_url": "https://github.com/dean/HAL",
+    "stars": null,
+    "pushed_at": null,
+    "category": "frontend",
+    "tags": [
+      "mcp",
+      "http",
+      "rest-api",
+      "toolkit"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "manual"
+    },
+    "source": "awesome-mcp-servers",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:13:13.233468",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 4,
+      "specificity": 5,
+      "source_trust": 4,
+      "confidence": 3,
+      "reason": "HTTP toolkit with comprehensive methods directly aids API testing and development.",
+      "final_score": 82,
+      "decision": "accept"
+    },
+    "description_zh": "HTTP工具包MCP，支持7种方法及JSON/XML/HTML数据处理。",
+    "search_terms": [
+      "HTTP toolkit MCP",
+      "HTTP 工具包",
+      "REST API testing",
+      "REST API 测试",
+      "HTTP methods toolkit",
+      "HTTP 方法工具包",
+      "API client tools",
+      "API 客户端工具",
+      "secret substitution HTTP"
+    ],
+    "health": {
+      "score": 24,
+      "signals": {
+        "popularity": 0,
+        "freshness": 0,
+        "quality": 82,
+        "installability": 20
+      },
+      "freshness_label": "abandoned",
+      "last_commit": null
+    },
+    "final_score": 82,
+    "decision": "accept"
+  },
+  {
+    "id": "ajtgjmdjpboj-mcp",
+    "name": "ajtgjmdjp/boj-mcp",
+    "type": "mcp",
+    "description": "A Bank of Japan statistics MCP server accessing 16 datasets like CGPI and Tankan, no API key needed.",
+    "source_url": "https://github.com/ajtgjmdjp/boj-mcp",
+    "stars": null,
+    "pushed_at": null,
+    "category": "backend",
+    "tags": [
+      "mcp-server",
+      "boj",
+      "japan",
+      "banking",
+      "mcp"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "manual"
+    },
+    "source": "awesome-mcp-zh",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:05:08.193517",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 2,
+      "content_quality": 4,
+      "specificity": 4,
+      "source_trust": 4,
+      "confidence": 3,
+      "reason": "Provides economic data access which is tangentially useful for financial analysis applications but not directly for coding.",
+      "final_score": 66,
+      "decision": "accept"
+    },
+    "description_zh": "日本银行统计数据 MCP 服务器。访问 CGPI、短观调查、资金循环、国际收支等 16 个数据集。无需 API 密钥。",
+    "search_terms": [
+      "Bank of Japan statistics",
+      "日本银行数据",
+      "BOJ economic data",
+      "日本经济指标",
+      "CGPI Tankan data",
+      "金融统计数据API",
+      "日本央行数据",
+      "经济数据集"
+    ],
+    "health": {
+      "score": 20,
+      "signals": {
+        "popularity": 0,
+        "freshness": 0,
+        "quality": 66,
+        "installability": 20
+      },
+      "freshness_label": "abandoned",
+      "last_commit": null
+    },
+    "final_score": 66,
+    "decision": "accept"
+  },
+  {
+    "id": "elevenlabs",
+    "name": "ElevenLabs",
+    "type": "mcp",
+    "description": "Integrates the ElevenLabs TTS API to generate full voiceovers with various voices.",
+    "source_url": "https://github.com/mamertofabian/elevenlabs-mcp-server",
+    "stars": null,
+    "pushed_at": null,
+    "category": "backend",
+    "tags": [
+      "mcp-server",
+      "tts",
+      "audio",
+      "rest-api",
+      "ai"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "manual"
+    },
+    "source": "awesome-mcp-zh",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:06:15.711124",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 3,
+      "content_quality": 4,
+      "specificity": 4,
+      "source_trust": 4,
+      "confidence": 3,
+      "reason": "Text-to-speech API integration supports multimedia applications but isn't core development.",
+      "final_score": 72,
+      "decision": "accept"
+    },
+    "description_zh": "集成 ElevenLabs TTS API，能生成包含多种声音的完整画外音。",
+    "search_terms": [
+      "text to speech API",
+      "文字转语音 API",
+      "voiceover generation",
+      "语音合成工具",
+      "TTS integration",
+      "ElevenLabs 语音生成",
+      "AI voice creation",
+      "语音克隆工具"
+    ],
+    "health": {
+      "score": 22,
+      "signals": {
+        "popularity": 0,
+        "freshness": 0,
+        "quality": 72,
+        "installability": 20
+      },
+      "freshness_label": "abandoned",
+      "last_commit": null
+    },
+    "final_score": 72,
+    "decision": "accept"
+  },
+  {
+    "id": "bsc-mcp",
+    "name": "Bsc-mcp",
+    "type": "mcp",
+    "description": "Connects AI to BNB Chain for complex on-chain operations like transfers, trades, and security checks.",
+    "source_url": "https://github.com/TermiX-official/bsc-mcp",
+    "stars": 105,
+    "pushed_at": "2025-08-30T03:22:04Z",
+    "category": "ai-ml",
+    "tags": [
+      "mcp-server",
+      "blockchain",
+      "bnb-chain",
+      "crypto"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "manual"
+    },
+    "source": "awesome-mcp-zh",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:05:08.193517",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 4,
+      "specificity": 4,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "BNB Chain integration with on-chain operations directly aids blockchain development and smart contract interaction.",
+      "final_score": 80,
+      "decision": "accept"
+    },
+    "description_zh": "连接 AI 与 BNB Chain，执行复杂的链上操作（转账、交易、安全检查等）。",
+    "search_terms": [
+      "BNB Chain AI integration",
+      "币安链AI工具",
+      "on-chain transfers AI",
+      "智能合约调用AI",
+      "BSC security checks",
+      "区块链交易自动化",
+      "crypto trading bot integration",
+      "链上操作AI助手"
+    ],
+    "health": {
+      "score": 52,
+      "signals": {
+        "popularity": 40,
+        "freshness": 65,
+        "quality": 80,
+        "installability": 20
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-08-30T03:22:04Z"
+    },
+    "final_score": 80,
+    "decision": "accept"
+  },
+  {
+    "id": "agentshield",
+    "name": "AgentShield",
+    "type": "mcp",
+    "description": "AI Agent skill, MCP server, and plugin security scanner with 30 detection rules, supporting AST taint tracking and prompt injection detection in 8 languages.",
+    "source_url": "https://github.com/elliotllliu/agent-shield",
+    "stars": 12,
+    "pushed_at": "2026-03-18T07:01:28Z",
+    "category": "security",
+    "tags": [
+      "agent-security",
+      "ai-agent",
+      "ai-security",
+      "dify",
+      "mcp",
+      "mcp-security",
+      "mcp-server",
+      "model-context-protocol",
+      "openclaw",
+      "prompt-injection",
+      "security-scanner",
+      "static-analysis",
+      "supply-chain-security",
+      "tool-poisoning"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "manual"
+    },
+    "source": "awesome-mcp-zh",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:08:39.210461",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 5,
+      "specificity": 5,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "This is a security scanner specifically for AI agents, MCP servers, and plugins, making it a core security tool for AI-assisted development ecosystems.",
+      "final_score": 95,
+      "decision": "accept"
+    },
+    "description_zh": "AI Agent 技能、MCP 服务器和插件安全扫描器。30 条检测规则，支持 AST 污点追踪、跨文件数据流分析、杀伤链检测、8 语言提示注入检测（中/日/韩/俄/阿/西/法/德）。零安装 (npx)，100% 离线运行。",
+    "search_terms": [
+      "AI agent security scanner",
+      "AI代理安全扫描",
+      "prompt injection detection",
+      "AST taint tracking",
+      "MCP security audit",
+      "代码安全检测",
+      "agent vulnerability scanning",
+      "多语言安全分析"
+    ],
+    "health": {
+      "score": 59,
+      "signals": {
+        "popularity": 22,
+        "freshness": 100,
+        "quality": 95,
+        "installability": 20
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-03-18T07:01:28Z"
+    },
+    "final_score": 95,
+    "decision": "accept"
+  },
+  {
+    "id": "google-cloud-run",
+    "name": "Google Cloud Run",
+    "type": "mcp",
+    "description": "Official MCP Server to deploy to [Google Cloud Run](https://cloud.google.com/run).",
+    "source_url": "https://github.com/GoogleCloudPlatform/cloud-run-mcp",
+    "stars": 590,
+    "pushed_at": "2026-04-13T11:47:12Z",
+    "category": "backend",
+    "tags": [
+      "go",
+      "google-cloud",
+      "google-cloud-run",
+      "mcp",
+      "mcp-server"
+    ],
+    "tech_stack": [
+      "go",
+      "gcp"
+    ],
+    "install": {
+      "method": "manual"
+    },
+    "source": "awesome-mcp-servers",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:11:03.108343",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 4,
+      "specificity": 4,
+      "source_trust": 4,
+      "confidence": 5,
+      "reason": "Deploying to Google Cloud Run is a core deployment/CI-CD tool for developers.",
+      "final_score": 88,
+      "decision": "accept"
+    },
+    "description_zh": "官方MCP服务器，用于部署应用到Google Cloud Run。",
+    "search_terms": [
+      "container deployment automation",
+      "容器部署自动化",
+      "serverless container hosting",
+      "无服务器容器托管",
+      "GCP deployment",
+      "谷歌云部署",
+      "cloud run automation",
+      "云运行自动化"
+    ],
+    "health": {
+      "score": 68,
+      "signals": {
+        "popularity": 55,
+        "freshness": 100,
+        "quality": 88,
+        "installability": 20
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T11:47:12Z"
+    },
+    "final_score": 88,
+    "decision": "accept"
+  },
+  {
+    "id": "aws-ec2-pricing",
+    "name": "AWS EC2 Pricing",
+    "type": "mcp",
+    "description": "Get up-to-date EC2 pricing information with one call. Fast. Powered by a pre-parsed AWS pricing catalogue.",
+    "source_url": "https://github.com/trilogy-group/aws-pricing-mcp",
+    "stars": 20,
+    "pushed_at": "2025-07-24T14:38:51Z",
+    "category": "devops",
+    "tags": [
+      "aws",
+      "mcp-server",
+      "pricing",
+      "ec2"
+    ],
+    "tech_stack": [
+      "aws",
+      "python"
+    ],
+    "install": {
+      "method": "manual"
+    },
+    "source": "awesome-mcp-servers",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:13:13.233468",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 4,
+      "specificity": 5,
+      "source_trust": 4,
+      "confidence": 3,
+      "reason": "Cloud infrastructure pricing data directly aids cost optimization in development workflows.",
+      "final_score": 82,
+      "decision": "accept"
+    },
+    "description_zh": "快速获取最新的EC2定价信息，基于预解析的AWS定价目录。",
+    "search_terms": [
+      "EC2 pricing API",
+      "EC2 价格 API",
+      "AWS cost calculator",
+      "AWS 成本计算",
+      "cloud pricing data",
+      "云定价数据",
+      "instance pricing lookup",
+      "实例价格查询",
+      "AWS pricing catalogue"
+    ],
+    "health": {
+      "score": 46,
+      "signals": {
+        "popularity": 26,
+        "freshness": 56,
+        "quality": 82,
+        "installability": 20
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-07-24T14:38:51Z"
+    },
+    "final_score": 82,
+    "decision": "accept"
+  },
+  {
+    "id": "saintdoreshyfinance-trader-mcp-claudedesktop",
+    "name": "SaintDoresh/YFinance-Trader-MCP-ClaudeDesktop",
+    "type": "mcp",
+    "description": "MCP tool providing stock market data and analysis using the Yahoo Finance API.",
+    "source_url": "https://github.com/SaintDoresh/YFinance-Trader-MCP-ClaudeDesktop.git",
+    "stars": 30,
+    "pushed_at": "2025-08-11T15:27:04Z",
+    "category": "ai-ml",
+    "tags": [
+      "mcp-server",
+      "finance",
+      "yfinance",
+      "trading",
+      "api"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "manual"
+    },
+    "source": "awesome-mcp-zh",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:05:08.193517",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 2,
+      "content_quality": 4,
+      "specificity": 4,
+      "source_trust": 4,
+      "confidence": 3,
+      "reason": "Stock market data and analysis tool is for financial trading, not coding workflows.",
+      "final_score": 66,
+      "decision": "accept"
+    },
+    "description_zh": "使用 Yahoo Finance API 提供股市数据和分析的 MCP 工具。",
+    "search_terms": [
+      "YFinance stock analysis",
+      "YFinance股票分析",
+      "stock market data API",
+      "股市数据API",
+      "trading analysis tools",
+      "交易分析工具",
+      "financial data integration",
+      "金融数据集成"
+    ],
+    "health": {
+      "score": 45,
+      "signals": {
+        "popularity": 30,
+        "freshness": 61,
+        "quality": 66,
+        "installability": 20
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-08-11T15:27:04Z"
+    },
+    "final_score": 66,
+    "decision": "accept"
+  },
+  {
+    "id": "wricardo-grpcurl-mcp",
+    "name": "MCP Grpcurl",
+    "type": "mcp",
+    "description": "Model Context Protocol (MCP) server to interact with gRPC services using the grpcurl tool",
+    "source_url": "https://github.com/wricardo/grpcurl-mcp",
+    "stars": 16,
+    "category": "tooling",
+    "tags": [
+      "grpcurl",
+      "gRPC",
+      "MCP"
+    ],
+    "tech_stack": [
+      "grpc"
+    ],
+    "install": {
+      "method": "manual"
+    },
+    "source": "mcp.so",
+    "last_synced": "2026-03-26",
+    "added_at": "2026-03-26",
+    "pushed_at": "2025-03-05T21:25:15Z",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T02:46:25.908815",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 4,
+      "specificity": 4,
+      "source_trust": 2,
+      "confidence": 3,
+      "reason": "Directly aids gRPC API testing and development with clear description.",
+      "final_score": 72,
+      "decision": "accept"
+    },
+    "description_zh": "使用grpcurl与gRPC服务交互的MCP服务器",
+    "search_terms": [
+      "gRPC MCP server",
+      "grpcurl AI integration",
+      "gRPC service automation",
+      "gRPC 协议测试工具",
+      "gRPC API testing with AI",
+      "gRPC client automation",
+      "远程过程调用 AI 工具"
+    ],
+    "health": {
+      "score": 36,
+      "signals": {
+        "popularity": 24,
+        "freshness": 28,
+        "quality": 72,
+        "installability": 20
+      },
+      "freshness_label": "abandoned",
+      "last_commit": "2025-03-05T21:25:15Z"
+    },
+    "final_score": 72,
+    "decision": "accept"
+  },
+  {
+    "id": "kleneway-awesome-cursor-mpc-server",
+    "name": "🤖 AI Development Assistant MCP Server",
+    "type": "mcp",
+    "description": "Example of an MCP server with custom tools that can be called directly from cursor",
+    "source_url": "https://github.com/kleneway/awesome-cursor-mpc-server",
+    "stars": 339,
+    "category": "ai-ml",
+    "tags": [
+      "mathgpt",
+      "math-solver",
+      "math-assistant"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "manual"
+    },
+    "source": "mcp.so",
+    "last_synced": "2026-03-26",
+    "added_at": "2026-03-26",
+    "pushed_at": "2025-02-05T21:41:57Z",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T02:56:13.834106",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 4,
+      "specificity": 3,
+      "source_trust": 2,
+      "confidence": 4,
+      "reason": "An example MCP server for Cursor IDE directly aids in extending development environment capabilities.",
+      "final_score": 76,
+      "decision": "accept"
+    },
+    "description_zh": "AI开发助手MCP服务器示例",
+    "search_terms": [
+      "math solver integration",
+      "数学计算工具",
+      "AI development assistant",
+      "开发助手工具",
+      "problem solving tools",
+      "解题工具集成",
+      "计算辅助工具",
+      "智能开发助手"
+    ],
+    "health": {
+      "score": 45,
+      "signals": {
+        "popularity": 51,
+        "freshness": 27,
+        "quality": 76,
+        "installability": 20
+      },
+      "freshness_label": "abandoned",
+      "last_commit": "2025-02-05T21:41:57Z"
+    },
+    "final_score": 76,
+    "decision": "accept"
+  },
+  {
+    "id": "funwarioisii-mcp-rb",
+    "name": "MCP-RB",
+    "type": "mcp",
+    "description": "A lightweight Ruby framework for building MCP servers with a Sinatra-like DSL",
+    "source_url": "https://github.com/funwarioisii/mcp-rb",
+    "stars": 207,
+    "category": "backend",
+    "tags": [
+      "mcp-server",
+      "modelcontextprotocol"
+    ],
+    "tech_stack": [
+      "ruby"
+    ],
+    "install": {
+      "method": "manual"
+    },
+    "source": "mcp.so",
+    "last_synced": "2026-03-26",
+    "added_at": "2026-03-26",
+    "pushed_at": "2025-04-06T01:09:11Z",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T02:35:20.954968",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 4,
+      "specificity": 4,
+      "source_trust": 2,
+      "confidence": 4,
+      "reason": "A Ruby framework for building MCP servers, directly aids development with a clear description.",
+      "final_score": 74,
+      "decision": "accept"
+    },
+    "description_zh": "使用类Sinatra DSL构建MCP服务器的轻量Ruby框架",
+    "search_terms": [
+      "Ruby MCP framework",
+      "MCP server Ruby DSL",
+      "Sinatra风格MCP",
+      "轻量级MCP框架",
+      "Ruby Model Context Protocol",
+      "MCP Ruby快速开发",
+      "Ruby AI工具框架"
+    ],
+    "health": {
+      "score": 44,
+      "signals": {
+        "popularity": 46,
+        "freshness": 30,
+        "quality": 74,
+        "installability": 20
+      },
+      "freshness_label": "abandoned",
+      "last_commit": "2025-04-06T01:09:11Z"
+    },
+    "final_score": 74,
+    "decision": "accept"
+  },
+  {
+    "id": "metorial-mcp-containers",
+    "name": "MCP Containers",
+    "type": "mcp",
+    "description": "Containerized versions of hundreds of MCP servers 📡 🧠",
+    "source_url": "https://github.com/metorial/mcp-containers",
+    "stars": 3242,
+    "category": "security",
+    "tags": [
+      "agent",
+      "docker",
+      "security",
+      "mcp",
+      "container",
+      "agentic-workflow"
+    ],
+    "tech_stack": [
+      "docker"
+    ],
+    "install": {
+      "method": "manual"
+    },
+    "source": "mcp.so",
+    "last_synced": "2026-03-26",
+    "added_at": "2026-03-26",
+    "pushed_at": "2026-04-13T12:23:30Z",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T02:44:02.015372",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 3,
+      "specificity": 4,
+      "source_trust": 2,
+      "confidence": 4,
+      "reason": "Containerization of MCP servers directly aids deployment and management in development workflows.",
+      "final_score": 69,
+      "decision": "accept"
+    },
+    "description_zh": "容器化MCP服务器集合",
+    "search_terms": [
+      "containerized MCP servers",
+      "Docker MCP server images",
+      "MCP server security isolation",
+      "agent workflow containers",
+      "MCP 服务器容器化",
+      "批量部署MCP工具",
+      "MCP server orchestration"
+    ],
+    "health": {
+      "score": 67,
+      "signals": {
+        "popularity": 70,
+        "freshness": 100,
+        "quality": 69,
+        "installability": 20
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T12:23:30Z"
+    },
+    "final_score": 69,
+    "decision": "accept"
+  },
+  {
+    "id": "magarcia-mcp-server-giphy",
+    "name": "MCP Server Giphy",
+    "type": "mcp",
+    "description": "An implementation of Giphy integration with Model Context Protocol",
+    "source_url": "https://github.com/magarcia/mcp-server-giphy",
+    "stars": 28,
+    "category": "backend",
+    "tags": [
+      "giphy",
+      "giphy-api",
+      "model-context-protocol",
+      "mcp-server"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "mcp_config_template",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "mcp-server-giphy"
+        ],
+        "env": {
+          "GIPHY_API_KEY": "<YOUR_API_KEY>"
+        }
+      },
+      "placeholder_hints": {
+        "GIPHY_API_KEY": "Set your GIPHY_API_KEY"
+      }
+    },
+    "source": "mcp.so",
+    "last_synced": "2026-03-26",
+    "description_zh": "通过 Giphy API 从 Giphy 的庞大库中搜索和检索 GIF。",
+    "added_at": "2026-03-26",
+    "pushed_at": "2025-05-22T08:56:12Z",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T02:45:17.926034",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 2,
+      "content_quality": 3,
+      "specificity": 4,
+      "source_trust": 2,
+      "confidence": 3,
+      "reason": "Weak connection to coding (GIF integration for maybe documentation/UI), with an adequate description.",
+      "final_score": 55,
+      "decision": "accept"
+    },
+    "search_terms": [
+      "GIF搜索集成",
+      "动图搜索工具",
+      "Giphy API集成",
+      "图片搜索自动化",
+      "表情包搜索",
+      "GIF生成工具",
+      "动图管理"
+    ],
+    "health": {
+      "score": 48,
+      "signals": {
+        "popularity": 29,
+        "freshness": 40,
+        "quality": 55,
+        "installability": 80
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-05-22T08:56:12Z"
+    },
+    "final_score": 55,
+    "decision": "accept"
+  },
+  {
+    "id": "fullstack-developer-prompt",
+    "name": "Fullstack Software Developer",
+    "type": "prompt",
+    "description": "Act as a fullstack developer with expertise in both frontend and backend technologies",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#fullstack-software-developer",
+    "stars": 143000,
+    "category": "fullstack",
+    "tags": [
+      "fullstack",
+      "web",
+      "frontend",
+      "backend"
+    ],
+    "tech_stack": [
+      "javascript",
+      "typescript",
+      "python"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-03-25",
+    "pushed_at": "2026-04-13T04:10:24Z",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:48:17.140073",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 2,
+      "source_trust": 5,
+      "confidence": 5,
+      "reason": "Directly aids coding through fullstack development expertise but description is extremely vague and generic.",
+      "final_score": 72,
+      "decision": "accept"
+    },
+    "description_zh": "精通前后端技术的全栈软件开发专家",
+    "search_terms": [
+      "fullstack development assistant",
+      "全栈开发指南",
+      "前后端技术咨询",
+      "web开发全流程",
+      "fullstack project setup",
+      "全栈架构设计",
+      "前后端集成",
+      "web应用开发"
+    ],
+    "health": {
+      "score": 81,
+      "signals": {
+        "popularity": 100,
+        "freshness": 100,
+        "quality": 72,
+        "installability": 40
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:24Z"
+    },
+    "final_score": 72,
+    "decision": "accept"
+  },
+  {
+    "id": "minimax-music-lyrics-generation-prompt",
+    "name": "Minimax Music & Lyrics Generation",
+    "type": "prompt",
+    "description": "--- name: minimax-music description: >   Comprehensive agent for the Minimax Music and Lyrics Generation API (music-2.5 model).   Helps craft optimized music prompts, structure lyrics with 14 section",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#minimax-music-lyrics-generation",
+    "stars": null,
+    "pushed_at": "2026-04-13T04:10:24Z",
+    "category": "backend",
+    "tags": [
+      "python",
+      "for-devs"
+    ],
+    "tech_stack": [
+      "python"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:45:26.655209",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 2,
+      "content_quality": 3,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "Weak connection to coding (API usage for music generation), description is moderately clear.",
+      "final_score": 59,
+      "decision": "accept"
+    },
+    "description_zh": "Minimax音乐歌词生成代理",
+    "search_terms": [
+      "music generation API",
+      "音乐生成API",
+      "lyrics creation tool",
+      "Minimax API integration",
+      "AI music composition",
+      "歌词生成工具",
+      "music prompt engineering"
+    ],
+    "health": {
+      "score": 48,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 59,
+        "installability": 40
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:24Z"
+    },
+    "final_score": 59,
+    "decision": "accept"
+  },
+  {
+    "id": "develop-a-notion-clone-application-prompt",
+    "name": "Develop a Notion Clone Application",
+    "type": "prompt",
+    "description": "Act as a Software Developer tasked with creating a Notion clone application. Your goal is to replicate the core features of Notion, enabling users to efficiently manage notes, tasks, and databases in",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#develop-a-notion-clone-application",
+    "stars": null,
+    "pushed_at": "2026-04-13T04:10:24Z",
+    "category": "database",
+    "tags": [
+      "go",
+      "web",
+      "productivity",
+      "database",
+      "system-design"
+    ],
+    "tech_stack": [
+      "go",
+      "react",
+      "postgres",
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:41:39.929567",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 3,
+      "content_quality": 3,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "The description clearly states the goal of replicating Notion's core features, which is a software development task, but it remains at a high level.",
+      "final_score": 66,
+      "decision": "accept"
+    },
+    "description_zh": "开发Notion克隆应用，实现笔记、任务和数据库管理。",
+    "search_terms": [
+      "Notion clone development",
+      "note-taking app clone",
+      "task management system",
+      "Notion替代品开发",
+      "笔记应用开发",
+      "数据库管理应用",
+      "productivity app",
+      "知识管理工具"
+    ],
+    "health": {
+      "score": 50,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 66,
+        "installability": 40
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:24Z"
+    },
+    "final_score": 66,
+    "decision": "accept"
+  },
+  {
+    "id": "strict-markdown-only-output-enforcement-prompt",
+    "name": "Strict Markdown-Only Output Enforcement",
+    "type": "prompt",
+    "description": "Send the entire response as ONE uninterrupted ```markdown fenced block only. No prose before or after. No nested code blocks. No formatting outside the block.",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#strict-markdown-only-output-enforcement",
+    "stars": null,
+    "pushed_at": "2026-04-13T04:10:24Z",
+    "category": "documentation",
+    "tags": [
+      "markdown",
+      "automation"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:43:40.326531",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 2,
+      "content_quality": 4,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "Enforces a specific output format (Markdown), which is a tangential tool for documentation but not a core development task, though the description is clear.",
+      "final_score": 66,
+      "decision": "accept"
+    },
+    "description_zh": "强制整个响应仅为一个不间断的Markdown代码块。",
+    "search_terms": [
+      "markdown only output",
+      "纯Markdown输出",
+      "code block enforcement",
+      "强制Markdown格式",
+      "no prose response",
+      "无文本回复",
+      "strict formatting",
+      "格式化输出控制"
+    ],
+    "health": {
+      "score": 50,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 66,
+        "installability": 40
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:24Z"
+    },
+    "final_score": 66,
+    "decision": "accept"
+  },
+  {
+    "id": "typing-speed-test-prompt",
+    "name": "Typing Speed Test",
+    "type": "prompt",
+    "description": "Build an interactive typing speed test using HTML5, CSS3, and JavaScript. Create a clean interface with text display and input area. Implement WPM and accuracy calculation in real-time. Add difficulty",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#typing-speed-test",
+    "stars": null,
+    "pushed_at": "2026-04-13T04:10:24Z",
+    "category": "frontend",
+    "tags": [
+      "javascript",
+      "java",
+      "css"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:38:46.716063",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 2,
+      "content_quality": 3,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "A skill-testing tool, weakly connected to development for improving typing speed for coding.",
+      "final_score": 59,
+      "decision": "accept"
+    },
+    "description_zh": "构建打字速度测试，实时计算WPM与准确率。",
+    "search_terms": [
+      "typing speed test tutorial",
+      "打字速度测试 实现",
+      "WPM calculator JavaScript",
+      "实时打字准确率计算",
+      "typing game with difficulty levels",
+      "键盘输入速度测试",
+      "typing challenge HTML5"
+    ],
+    "health": {
+      "score": 48,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 59,
+        "installability": 40
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:24Z"
+    },
+    "final_score": 59,
+    "decision": "accept"
+  },
+  {
+    "id": "devops-engineer-prompt",
+    "name": "Devops Engineer",
+    "type": "prompt",
+    "description": "You are a ${Title:Senior} DevOps engineer working at ${Company Type: Big Company}. Your role is to provide scalable, efficient, and automated solutions for software deployment, infrastructure manageme",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#devops-engineer",
+    "stars": null,
+    "pushed_at": "2026-04-13T04:10:24Z",
+    "category": "devops",
+    "tags": [
+      "for-devs",
+      "devops",
+      "automation",
+      "infrastructure"
+    ],
+    "tech_stack": [
+      "docker",
+      "kubernetes",
+      "terraform",
+      "github-actions",
+      "aws"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:37:50.055704",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 4,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "Core dev tool for deployment and infrastructure with clear role and template variables.",
+      "final_score": 87,
+      "decision": "accept"
+    },
+    "description_zh": "DevOps工程师角色，提供自动化部署方案。",
+    "search_terms": [
+      "DevOps 自动化",
+      "CI/CD 流水线",
+      "基础设施即代码",
+      "容器编排",
+      "云部署自动化",
+      "监控告警设置",
+      "自动化运维",
+      "云原生 DevOps"
+    ],
+    "health": {
+      "score": 55,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 87,
+        "installability": 40
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:24Z"
+    },
+    "final_score": 87,
+    "decision": "accept"
+  },
+  {
+    "id": "regex-generator-prompt",
+    "name": "RegEx Generator",
+    "type": "prompt",
+    "description": "Act as a Regular Expression (RegEx) Generator. Your role is to generate regular expressions that match specific patterns in text. You should provide the regular expressions in a format that can be eas",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#regex-generator",
+    "stars": null,
+    "pushed_at": "2026-04-13T04:10:24Z",
+    "category": "backend",
+    "tags": [
+      "express",
+      "for-devs"
+    ],
+    "tech_stack": [
+      "express",
+      "nodejs"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:36:53.174999",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 4,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "Directly aids coding through regular expression generation for text pattern matching with clear role definition.",
+      "final_score": 80,
+      "decision": "accept"
+    },
+    "description_zh": "生成正则表达式，匹配特定文本模式。",
+    "search_terms": [
+      "regular expression creator",
+      "正则表达式生成",
+      "pattern matching",
+      "文本匹配规则",
+      "regex builder",
+      "字符串匹配",
+      "正则编写",
+      "pattern extraction"
+    ],
+    "health": {
+      "score": 53,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 80,
+        "installability": 40
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:24Z"
+    },
+    "final_score": 80,
+    "decision": "accept"
+  },
+  {
+    "id": "product-manager-prompt",
+    "name": "Product Manager",
+    "type": "prompt",
+    "description": "Please acknowledge my following request. Please respond to me as a product manager. I will ask for subject, and you will help me writing a PRD for it with these heders: Subject, Introduction, Problem",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#product-manager",
+    "stars": null,
+    "pushed_at": "2026-04-13T04:10:24Z",
+    "category": "backend",
+    "tags": [
+      "go",
+      "product",
+      "management",
+      "documentation"
+    ],
+    "tech_stack": [
+      "go"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:37:50.055704",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 3,
+      "content_quality": 4,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "Tangentially related to software project management with clear structure described.",
+      "final_score": 73,
+      "decision": "accept"
+    },
+    "description_zh": "产品经理角色，协助撰写产品需求文档。",
+    "search_terms": [
+      "PRD template",
+      "产品需求文档",
+      "product requirements",
+      "产品规划",
+      "feature specification",
+      "产品设计文档",
+      "market requirements",
+      "产品开发计划"
+    ],
+    "health": {
+      "score": 51,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 73,
+        "installability": 40
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:24Z"
+    },
+    "final_score": 73,
+    "decision": "accept"
+  },
+  {
+    "id": "make-uiux-better-of-an-already-created-application-prompt",
+    "name": "Make UI/UX better of an already Created Application",
+    "type": "prompt",
+    "description": "You are a senior full-stack engineer and UX/UI architect with 10+ years of experience building production-grade web applications. You specialize in responsive design systems, modern UI/UX patterns, an",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#make-uiux-better-of-an-already-created-application",
+    "stars": null,
+    "pushed_at": "2026-04-13T04:10:24Z",
+    "category": "fullstack",
+    "tags": [
+      "ui",
+      "ux",
+      "frontend",
+      "refactoring"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:46:20.131101",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 3,
+      "content_quality": 4,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "Tangentially related to coding as it focuses on UI/UX enhancement rather than core development tasks.",
+      "final_score": 73,
+      "decision": "accept"
+    },
+    "description_zh": "现有应用UI/UX优化工具。",
+    "search_terms": [
+      "improve existing UI",
+      "前端重构优化",
+      "UI redesign existing app",
+      "responsive design improvements",
+      "UX enhancement",
+      "网站界面优化",
+      "modernize UI",
+      "design system refactoring"
+    ],
+    "health": {
+      "score": 51,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 73,
+        "installability": 40
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:24Z"
+    },
+    "final_score": 73,
+    "decision": "accept"
+  },
+  {
+    "id": "django-unit-test-generator-for-viewsets-prompt",
+    "name": "Django Unit Test Generator for Viewsets",
+    "type": "prompt",
+    "description": "I want you to act as a Django Unit Test Generator. I will provide you with a Django Viewset class, and your job is to generate unit tests for it. Ensure the following:  1. Create test cases for all CR",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#django-unit-test-generator-for-viewsets",
+    "stars": null,
+    "pushed_at": "2026-04-13T04:10:24Z",
+    "category": "backend",
+    "tags": [
+      "go",
+      "django",
+      "for-devs"
+    ],
+    "tech_stack": [
+      "python",
+      "django"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:38:46.716063",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 5,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "Core development tool for testing with a rich, detailed description of requirements and scope.",
+      "final_score": 94,
+      "decision": "accept"
+    },
+    "description_zh": "为Django Viewset生成单元测试，覆盖所有CRUD操作。",
+    "search_terms": [
+      "Django viewset testing",
+      "单元测试生成器",
+      "DRF test automation",
+      "API测试自动化",
+      "Django测试用例生成",
+      "ViewSet测试模板",
+      "Django test generator"
+    ],
+    "health": {
+      "score": 56,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 94,
+        "installability": 40
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:24Z"
+    },
+    "final_score": 94,
+    "decision": "accept"
+  },
+  {
+    "id": "mechanical-part-render-to-technical-drawing-converter-prompt",
+    "name": "Mechanical Part Render to Technical Drawing Converter",
+    "type": "prompt",
+    "description": "{   \"task\": \"image_to_image\",   \"description\": \"Convert a 3D mechanical part render into a fully dimensioned manufacturing drawing\",   \"input_image\": \"3d_render_of_pipe_or_mechanical_part.png\",   \"pro",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#mechanical-part-render-to-technical-drawing-converter",
+    "stars": null,
+    "pushed_at": "2026-04-13T04:10:24Z",
+    "category": "tooling",
+    "tags": [
+      "cad",
+      "3d",
+      "engineering",
+      "automation",
+      "graphics"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:42:35.968712",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 1,
+      "content_quality": 3,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "Focuses on mechanical engineering drawing conversion, not software development.",
+      "final_score": 52,
+      "decision": "accept"
+    },
+    "description_zh": "机械零件渲染转工程图工具",
+    "search_terms": [
+      "3D to technical drawing",
+      "机械图纸生成",
+      "CAD automation tool",
+      "工程图自动标注",
+      "制造图纸转换",
+      "3D 模型转工程图",
+      "机械设计自动化"
+    ],
+    "health": {
+      "score": 46,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 52,
+        "installability": 40
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:24Z"
+    },
+    "final_score": 52,
+    "decision": "accept"
+  },
+  {
+    "id": "autosar-software-module-developer-prompt",
+    "name": "AUTOSAR Software Module Developer",
+    "type": "prompt",
+    "description": "Act as an AUTOSAR Software Module Developer. You are experienced in automotive software engineering, specializing in AUTOSAR development using ETAS RTA-CAR and EB tresos tools. Your primary focus is o",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#autosar-software-module-developer",
+    "stars": null,
+    "pushed_at": "2026-04-13T04:10:24Z",
+    "category": "tooling",
+    "tags": [
+      "automotive",
+      "embedded-systems",
+      "c"
+    ],
+    "tech_stack": [
+      "c-sharp"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:39:43.477350",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 4,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "Directly aids coding through AUTOSAR automotive software development with specific tools and clear responsibilities.",
+      "final_score": 80,
+      "decision": "accept"
+    },
+    "description_zh": "AUTOSAR软件模块开发，专注汽车电子。",
+    "search_terms": [
+      "AUTOSAR开发工具",
+      "汽车嵌入式软件",
+      "ETAS RTA-CAR教程",
+      "EB tresos使用",
+      "车载软件架构",
+      "汽车ECU开发",
+      "嵌入式C编程"
+    ],
+    "health": {
+      "score": 53,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 80,
+        "installability": 40
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:24Z"
+    },
+    "final_score": 80,
+    "decision": "accept"
+  },
+  {
+    "id": "inference-scenario-automation-tool-prompt",
+    "name": "Inference Scenario Automation Tool",
+    "type": "prompt",
+    "description": "Act as an Inference Scenario Automation Specialist. You are an expert in automating inference processes for machine learning models. Your task is to develop a comprehensive automation tool to streamli",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#inference-scenario-automation-tool",
+    "stars": null,
+    "pushed_at": "2026-04-13T04:10:24Z",
+    "category": "mobile",
+    "tags": [
+      "ai",
+      "automation",
+      "machine-learning",
+      "ml"
+    ],
+    "tech_stack": [
+      "python",
+      "pytorch",
+      "tensorflow",
+      "openai",
+      "langchain"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:42:35.968712",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 4,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "Directly involves developing an automation tool for machine learning inference, a coding task.",
+      "final_score": 87,
+      "decision": "accept"
+    },
+    "description_zh": "机器学习推理场景自动化工具",
+    "search_terms": [
+      "ML inference automation",
+      "模型推理自动化",
+      "batch inference pipeline",
+      "AI model deployment automation",
+      "推理场景优化",
+      "machine learning workflow",
+      "MLOps inference tools",
+      "自动化推理系统"
+    ],
+    "health": {
+      "score": 55,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 87,
+        "installability": 40
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:24Z"
+    },
+    "final_score": 87,
+    "decision": "accept"
+  },
+  {
+    "id": "quizflix-mobile-app-design-for-university-students-prompt",
+    "name": "QuizFlix Mobile App Design for University Students",
+    "type": "prompt",
+    "description": "Act as a Mobile App Designer specialized in creating innovative educational apps. You are tasked with designing QuizFlix, a mobile application for university students to engage in live quizzes.  Your",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#quizflix-mobile-app-design-for-university-students",
+    "stars": null,
+    "pushed_at": "2026-04-13T04:10:24Z",
+    "category": "tooling",
+    "tags": [
+      "mobile",
+      "design",
+      "education"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:40:37.330390",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 3,
+      "content_quality": 4,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "Tangentially related to coding as app design, but focuses on UX/design rather than development.",
+      "final_score": 73,
+      "decision": "accept"
+    },
+    "description_zh": "移动应用设计师，为大学生设计QuizFlix直播问答应用。",
+    "search_terms": [
+      "educational app design",
+      "university quiz app",
+      "live quiz app design",
+      "学生互动应用设计",
+      "教育类移动应用UI",
+      "实时答题系统设计",
+      "学习类应用界面",
+      "mobile learning design"
+    ],
+    "health": {
+      "score": 51,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 73,
+        "installability": 40
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:24Z"
+    },
+    "final_score": 73,
+    "decision": "accept"
+  },
+  {
+    "id": "self-help-book-prompt",
+    "name": "Self-Help Book",
+    "type": "prompt",
+    "description": "I want you to act as a self-help book. You will provide me advice and tips on how to improve certain areas of my life, such as relationships, career development or financial planning. For example, if",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#self-help-book",
+    "stars": null,
+    "pushed_at": "2026-04-13T04:10:24Z",
+    "category": "tooling",
+    "tags": [
+      "ai",
+      "self-improvement",
+      "automation"
+    ],
+    "tech_stack": [
+      "openai"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:36:53.174999",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 1,
+      "content_quality": 3,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "Not related to software development; provides general life advice and self-improvement tips.",
+      "final_score": 52,
+      "decision": "accept"
+    },
+    "description_zh": "模拟自助书籍，提供生活改善建议与技巧。",
+    "search_terms": [
+      "life improvement advice",
+      "自我提升建议",
+      "personal development tips",
+      "职业发展指导",
+      "relationship advice AI",
+      "财务规划建议",
+      "人生指导助手"
+    ],
+    "health": {
+      "score": 46,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 52,
+        "installability": 40
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:24Z"
+    },
+    "final_score": 52,
+    "decision": "accept"
+  },
+  {
+    "id": "technical-codebase-discovery-onboarding-prompt-prompt",
+    "name": "Technical Codebase Discovery & Onboarding Prompt",
+    "type": "prompt",
+    "description": "**Context:**   I am a developer who has just joined the project and I am using you, an AI coding assistant, to gain a deep understanding of the existing codebase. My goal is to become productive as qu",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#technical-codebase-discovery-onboarding-prompt",
+    "stars": null,
+    "pushed_at": "2026-04-13T04:10:24Z",
+    "category": "backend",
+    "tags": [
+      "go",
+      "onboarding",
+      "code-analysis",
+      "for-devs",
+      "documentation"
+    ],
+    "tech_stack": [
+      "go"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:42:35.968712",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 5,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "Directly aids the coding process by helping developers understand and onboard to a new codebase.",
+      "final_score": 94,
+      "decision": "accept"
+    },
+    "description_zh": "技术代码库探索与入职指南",
+    "search_terms": [
+      "codebase onboarding guide",
+      "新项目上手教程",
+      "legacy code understanding",
+      "技术债务分析",
+      "project documentation generator",
+      "代码库探索工具",
+      "developer ramp-up assistant",
+      "项目架构理解"
+    ],
+    "health": {
+      "score": 56,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 94,
+        "installability": 40
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:24Z"
+    },
+    "final_score": 94,
+    "decision": "accept"
+  },
+  {
+    "id": "chess-game-prompt",
+    "name": "Chess Game",
+    "type": "prompt",
+    "description": "Develop a feature-rich chess game using HTML5, CSS3, and JavaScript. Create a realistic chessboard with proper piece rendering. Implement standard chess rules with move validation. Add move highlighti",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#chess-game",
+    "stars": null,
+    "pushed_at": "2026-04-13T04:10:24Z",
+    "category": "frontend",
+    "tags": [
+      "javascript",
+      "java",
+      "css"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:38:46.716063",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 1,
+      "content_quality": 3,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "A game for entertainment, not a software development tool.",
+      "final_score": 52,
+      "decision": "accept"
+    },
+    "description_zh": "开发功能丰富的国际象棋游戏，实现标准规则。",
+    "search_terms": [
+      "国际象棋游戏",
+      "棋类游戏开发",
+      "棋盘游戏实现",
+      "游戏规则验证",
+      "棋步验证算法",
+      "对战游戏制作",
+      "策略游戏开发",
+      "棋盘渲染实现"
+    ],
+    "health": {
+      "score": 46,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 52,
+        "installability": 40
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:24Z"
+    },
+    "final_score": 52,
+    "decision": "accept"
+  },
+  {
+    "id": "building-a-scalable-search-service-with-fastapi-and-postgresql-prompt",
+    "name": "Building a Scalable Search Service with FastAPI and PostgreSQL",
+    "type": "prompt",
+    "description": "Act as a software engineer tasked with developing a scalable search service. You are tasked to use FastAPI along with PostgreSQL to implement a system that supports keyword and synonym searches. Your",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#building-a-scalable-search-service-with-fastapi-and-postgresql",
+    "stars": null,
+    "pushed_at": "2026-04-13T04:10:24Z",
+    "category": "backend",
+    "tags": [
+      "postgres",
+      "fastapi"
+    ],
+    "tech_stack": [
+      "postgres",
+      "fastapi"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:44:30.975615",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 5,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "Building backend services with specific technologies is core software engineering.",
+      "final_score": 94,
+      "decision": "accept"
+    },
+    "description_zh": "使用FastAPI和PostgreSQL构建可扩展搜索服务。",
+    "search_terms": [
+      "FastAPI PostgreSQL search",
+      "可扩展搜索服务",
+      "keyword synonym search",
+      "全文检索系统",
+      "search engine implementation",
+      "Python 搜索服务",
+      "数据库搜索优化"
+    ],
+    "health": {
+      "score": 56,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 94,
+        "installability": 40
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:24Z"
+    },
+    "final_score": 94,
+    "decision": "accept"
+  },
+  {
+    "id": "it-architect-prompt",
+    "name": "IT Architect",
+    "type": "prompt",
+    "description": "I want you to act as an IT Architect. I will provide some details about the functionality of an application or other digital product, and it will be your job to come up with  ways to integrate it into",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#it-architect",
+    "stars": null,
+    "pushed_at": "2026-04-13T04:10:24Z",
+    "category": "ai-ml",
+    "tags": [
+      "git",
+      "for-devs"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:36:53.174999",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 3,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "Directly aids coding through application integration and architecture design, though description is somewhat generic.",
+      "final_score": 73,
+      "decision": "accept"
+    },
+    "description_zh": "担任IT架构师，设计应用集成方案。",
+    "search_terms": [
+      "system integration",
+      "系统架构设计",
+      "IT infrastructure planning",
+      "solution architecture",
+      "技术方案整合",
+      "enterprise architecture",
+      "cloud migration strategy",
+      "微服务架构"
+    ],
+    "health": {
+      "score": 51,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 73,
+        "installability": 40
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:24Z"
+    },
+    "final_score": 73,
+    "decision": "accept"
+  },
+  {
+    "id": "tech-reviewer-prompt",
+    "name": "Tech Reviewer",
+    "type": "prompt",
+    "description": "I want you to act as a tech reviewer. I will give you the name of a new piece of technology and you will provide me with an in-depth review - including pros, cons, features, and comparisons to other t",
+    "source_url": "https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#tech-reviewer",
+    "stars": null,
+    "pushed_at": "2026-04-13T04:10:24Z",
+    "category": "tooling",
+    "tags": [
+      "for-devs",
+      "ai",
+      "review",
+      "automation"
+    ],
+    "tech_stack": [
+      "openai"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      ]
+    },
+    "source": "prompts-chat",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:36:53.174999",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 2,
+      "content_quality": 3,
+      "source_trust": 4,
+      "confidence": 4,
+      "reason": "Weak connection to coding; focuses on technology reviews rather than direct development assistance.",
+      "final_score": 59,
+      "decision": "accept"
+    },
+    "description_zh": "担任科技评论员，深度评测新技术产品。",
+    "search_terms": [
+      "technology review",
+      "技术评测",
+      "product comparison",
+      "pros and cons analysis",
+      "tech evaluation",
+      "软件评测",
+      "feature analysis",
+      "vs comparison"
+    ],
+    "health": {
+      "score": 48,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 59,
+        "installability": 40
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:24Z"
+    },
+    "final_score": 59,
+    "decision": "accept"
+  },
+  {
+    "id": "flutter-dart-cursorrule",
+    "name": "Flutter & Dart Rules",
+    "type": "rule",
+    "description": "Cursor rules for Flutter and Dart development with best practices",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/flutter-dart",
+    "stars": 178,
+    "category": "mobile",
+    "tags": [
+      "flutter",
+      "dart",
+      "mobile"
+    ],
+    "tech_stack": [
+      "dart",
+      "flutter"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/flutter-dart/.cursorrules"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-03-25",
+    "pushed_at": "2025-10-24T16:37:26Z",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:35:54.359606",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 4,
+      "source_trust": 5,
+      "confidence": 4,
+      "reason": "Flutter/Dart development is directly coding-related with clear best practices description.",
+      "final_score": 90,
+      "decision": "accept"
+    },
+    "description_zh": "Flutter和Dart开发最佳实践规则",
+    "search_terms": [
+      "Flutter development best practices",
+      "Dart 编码规范",
+      "mobile app development rules",
+      "Flutter 最佳实践",
+      "cross-platform mobile rules",
+      "UI framework guidelines",
+      "Flutter Dart 标准"
+    ],
+    "health": {
+      "score": 64,
+      "signals": {
+        "popularity": 45,
+        "freshness": 80,
+        "quality": 90,
+        "installability": 40
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-10-24T16:37:26Z"
+    },
+    "final_score": 90,
+    "decision": "accept"
+  },
+  {
+    "id": "supabase-cursorrule",
+    "name": "Supabase Rules",
+    "type": "rule",
+    "description": "Cursor rules for Supabase with PostgreSQL and Edge Functions",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/supabase",
+    "stars": 178,
+    "category": "database",
+    "tags": [
+      "supabase",
+      "postgres",
+      "edge-functions"
+    ],
+    "tech_stack": [
+      "typescript",
+      "sql"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/supabase/.cursorrules"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-03-25",
+    "pushed_at": "2025-10-24T16:37:26Z",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:35:54.359606",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 4,
+      "source_trust": 5,
+      "confidence": 4,
+      "reason": "Supabase with PostgreSQL is a core database tool for development, clearly described.",
+      "final_score": 90,
+      "decision": "accept"
+    },
+    "description_zh": "Supabase PostgreSQL与边缘函数规则",
+    "search_terms": [
+      "Supabase development rules",
+      "PostgreSQL edge functions",
+      "Supabase 开发规范",
+      "real-time database rules",
+      "backend as service guidelines",
+      "Supabase 最佳实践",
+      "edge functions development"
+    ],
+    "health": {
+      "score": 64,
+      "signals": {
+        "popularity": 45,
+        "freshness": 80,
+        "quality": 90,
+        "installability": 40
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-10-24T16:37:26Z"
+    },
+    "final_score": 90,
+    "decision": "accept"
+  },
+  {
+    "id": "security-audit-rule",
+    "name": "Security Audit Rules",
+    "type": "rule",
+    "description": "AI-assisted security review rules covering OWASP, input validation, and authentication",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "security",
+    "tags": [
+      "security",
+      "audit",
+      "owasp",
+      "authentication"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/security-review.mdc"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-03-25",
+    "pushed_at": "2025-11-07T13:57:24Z",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:35:54.359606",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 5,
+      "source_trust": 5,
+      "confidence": 3,
+      "reason": "Security auditing is essential for secure coding with rich coverage of OWASP and validation.",
+      "final_score": 94,
+      "decision": "accept"
+    },
+    "description_zh": "AI辅助安全审计规则",
+    "search_terms": [
+      "AI security review",
+      "安全审计规则",
+      "OWASP compliance checking",
+      "input validation automation",
+      "authentication security",
+      "代码安全审查",
+      "security vulnerability detection"
+    ],
+    "health": {
+      "score": 62,
+      "signals": {
+        "popularity": 34,
+        "freshness": 83,
+        "quality": 94,
+        "installability": 40
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-11-07T13:57:24Z"
+    },
+    "final_score": 94,
+    "decision": "accept"
+  },
+  {
+    "id": "technical-docs-rule",
+    "name": "Technical Documentation Rules",
+    "type": "rule",
+    "description": "AI rules for generating and maintaining technical documentation",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": 50,
+    "category": "documentation",
+    "tags": [
+      "documentation",
+      "technical-writing",
+      "api-docs"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/doc-generation.mdc"
+      ]
+    },
+    "source": "curated",
+    "last_synced": "2026-03-25",
+    "pushed_at": "2025-11-07T13:57:24Z",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:35:54.359606",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 3,
+      "content_quality": 4,
+      "source_trust": 5,
+      "confidence": 3,
+      "reason": "Technical documentation is tangentially related to coding but clearly described for generation and maintenance.",
+      "final_score": 73,
+      "decision": "accept"
+    },
+    "description_zh": "技术文档生成与维护规则",
+    "search_terms": [
+      "technical documentation generation",
+      "技术文档生成",
+      "API documentation automation",
+      "docs maintenance AI",
+      "文档编写规范",
+      "code documentation rules",
+      "技术写作自动化"
+    ],
+    "health": {
+      "score": 57,
+      "signals": {
+        "popularity": 34,
+        "freshness": 83,
+        "quality": 73,
+        "installability": 40
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-11-07T13:57:24Z"
+    },
+    "final_score": 73,
+    "decision": "accept"
+  },
+  {
+    "id": "plasticode-telegram-api-cursorrules-prompt-file-cursorrule",
+    "name": "Plasticode Telegram Api Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Plasticode Telegram API .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/plasticode-telegram-api-cursorrules-prompt-file",
+    "stars": null,
+    "pushed_at": "2025-10-24T16:37:26Z",
+    "category": "backend",
+    "tags": [
+      "telegram-api",
+      "python",
+      "automation"
+    ],
+    "tech_stack": [
+      "python"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/plasticode-telegram-api-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:32:44.225858",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 3,
+      "source_trust": 4,
+      "confidence": 3,
+      "reason": "Telegram API integration is directly relevant to software development for building chat applications.",
+      "final_score": 70,
+      "decision": "accept"
+    },
+    "description_zh": "Plasticode Telegram API .cursorrules文件",
+    "search_terms": [
+      "Telegram bot development",
+      "Python Telegram API",
+      "聊天机器人开发",
+      "Telegram 机器人工具",
+      "messaging automation",
+      "即时通讯集成",
+      "bot 开发框架"
+    ],
+    "health": {
+      "score": 46,
+      "signals": {
+        "popularity": 0,
+        "freshness": 80,
+        "quality": 70,
+        "installability": 40
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-10-24T16:37:26Z"
+    },
+    "final_score": 70,
+    "decision": "accept"
+  },
+  {
+    "id": "python-fastapi-cursorrules-prompt-file-cursorrule",
+    "name": "Python Fastapi Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for python fastapi cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-fastapi-cursorrules-prompt-file",
+    "stars": null,
+    "pushed_at": "2025-10-24T16:37:26Z",
+    "category": "backend",
+    "tags": [
+      "python",
+      "fastapi"
+    ],
+    "tech_stack": [
+      "python",
+      "fastapi"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/python-fastapi-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:32:44.225858",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 3,
+      "source_trust": 4,
+      "confidence": 3,
+      "reason": "FastAPI is a modern Python web framework directly relevant to backend development.",
+      "final_score": 77,
+      "decision": "accept"
+    },
+    "description_zh": "Python FastAPI .cursorrules开发规则",
+    "search_terms": [
+      "fastapi development",
+      "FastAPI 开发",
+      "build fastapi app",
+      "创建FastAPI应用",
+      "fastapi project setup",
+      "API development with fastapi",
+      "Python API框架"
+    ],
+    "health": {
+      "score": 47,
+      "signals": {
+        "popularity": 0,
+        "freshness": 80,
+        "quality": 77,
+        "installability": 40
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-10-24T16:37:26Z"
+    },
+    "final_score": 77,
+    "decision": "accept"
+  },
+  {
+    "id": "error-recovery-system-rule21",
+    "name": "Error Recovery System (Rules 2.1)",
+    "type": "rule",
+    "description": "Error Recovery System - system-level error detection and automatic recovery strategies.",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": null,
+    "pushed_at": "2025-11-07T13:57:24Z",
+    "category": "tooling",
+    "tags": [
+      "global rules",
+      "global-rules",
+      "system",
+      "automation"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/error-recovery-system.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:35:54.359606",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 4,
+      "source_trust": 3,
+      "confidence": 3,
+      "reason": "Error detection and recovery are core system development tasks, clearly described.",
+      "final_score": 81,
+      "decision": "accept"
+    },
+    "description_zh": "错误恢复机制 - 系统级错误检测和自动恢复策略",
+    "search_terms": [
+      "system error recovery",
+      "系统错误自动恢复",
+      "fault tolerance automation",
+      "error detection and recovery",
+      "系统级容错",
+      "automatic error handling",
+      "resilience framework"
+    ],
+    "health": {
+      "score": 49,
+      "signals": {
+        "popularity": 0,
+        "freshness": 83,
+        "quality": 81,
+        "installability": 40
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-11-07T13:57:24Z"
+    },
+    "final_score": 81,
+    "decision": "accept"
+  },
+  {
+    "id": "javascript-chrome-apis-cursorrules-prompt-file-cursorrule",
+    "name": "Javascript Chrome Apis Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "JavaScript Chrome APIs .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/javascript-chrome-apis-cursorrules-prompt-file",
+    "stars": null,
+    "pushed_at": "2025-10-24T16:37:26Z",
+    "category": "frontend",
+    "tags": [
+      "javascript",
+      "java"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/javascript-chrome-apis-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:31:34.696261",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 2,
+      "source_trust": 4,
+      "confidence": 3,
+      "reason": "Directly aids Chrome extension development but description is just a file name without explanation.",
+      "final_score": 63,
+      "decision": "accept"
+    },
+    "description_zh": "JavaScript Chrome API .cursorrules提示文件",
+    "search_terms": [
+      "Chrome extension development",
+      "浏览器扩展 API 自动化",
+      "Chrome 插件开发指南",
+      "WebExtensions API",
+      "浏览器自动化开发",
+      "扩展程序开发规则",
+      "Chrome API 最佳实践"
+    ],
+    "health": {
+      "score": 44,
+      "signals": {
+        "popularity": 0,
+        "freshness": 80,
+        "quality": 63,
+        "installability": 40
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-10-24T16:37:26Z"
+    },
+    "final_score": 63,
+    "decision": "accept"
+  },
+  {
+    "id": "context7-preload-standard-rule21",
+    "name": "Context7 Preload Standard (Rules 2.1)",
+    "type": "rule",
+    "description": "Context7 Preload Standard - bug fixes and pre-launch steps for new projects.",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules",
+    "stars": null,
+    "pushed_at": "2025-11-07T13:57:24Z",
+    "category": "tooling",
+    "tags": [
+      "global rules",
+      "global-rules",
+      "knowledge-base",
+      "automation"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/global-rules/context7-preload-standard.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:35:54.359606",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 4,
+      "source_trust": 3,
+      "confidence": 3,
+      "reason": "Bug fixes and project setup directly aid coding workflows with a clear description.",
+      "final_score": 74,
+      "decision": "accept"
+    },
+    "description_zh": "Context7 知识预载标准 - 修复Bug与新项目启动前的前置步骤",
+    "search_terms": [
+      "Context7预加载",
+      "knowledge base preload",
+      "项目启动配置",
+      "预加载标准",
+      "新项目设置",
+      "知识库预加载",
+      "pre-launch configuration",
+      "项目初始化标准"
+    ],
+    "health": {
+      "score": 47,
+      "signals": {
+        "popularity": 0,
+        "freshness": 83,
+        "quality": 74,
+        "installability": 40
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-11-07T13:57:24Z"
+    },
+    "final_score": 74,
+    "decision": "accept"
+  },
+  {
+    "id": "astro-typescript-cursorrules-prompt-file-cursorrule",
+    "name": "Astro Typescript Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Astro TypeScript .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/astro-typescript-cursorrules-prompt-file",
+    "stars": null,
+    "pushed_at": "2025-10-24T16:37:26Z",
+    "category": "frontend",
+    "tags": [
+      "typescript",
+      "cursor",
+      "astro"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/astro-typescript-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:30:30.768584",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 2,
+      "source_trust": 4,
+      "confidence": 3,
+      "reason": "Directly relevant to Astro/TypeScript development, but description is minimal and uninformative.",
+      "final_score": 70,
+      "decision": "accept"
+    },
+    "description_zh": "Astro TypeScript光标规则文件",
+    "search_terms": [
+      "Astro TypeScript rules",
+      "Astro TS AI提示",
+      "静态站点生成规则",
+      "Astro框架开发",
+      "TypeScript静态站点",
+      "前端静态化AI",
+      "Astro最佳实践"
+    ],
+    "health": {
+      "score": 46,
+      "signals": {
+        "popularity": 0,
+        "freshness": 80,
+        "quality": 70,
+        "installability": 40
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-10-24T16:37:26Z"
+    },
+    "final_score": 70,
+    "decision": "accept"
+  },
+  {
+    "id": "vscode-extension-dev-typescript-cursorrules-prompt-file-cursorrule",
+    "name": "Vscode Extension Dev Typescript Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for vscode extension dev typescript cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/vscode-extension-dev-typescript-cursorrules-prompt-file",
+    "stars": null,
+    "pushed_at": "2025-10-24T16:37:26Z",
+    "category": "frontend",
+    "tags": [
+      "typescript",
+      "cursor",
+      "vscode",
+      "nodejs"
+    ],
+    "tech_stack": [
+      "typescript",
+      "nodejs"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/vscode-extension-dev-typescript-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:35:00.380488",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 2,
+      "source_trust": 4,
+      "confidence": 3,
+      "reason": "Core dev tool for IDE extension development, but the description is repetitive and unclear.",
+      "final_score": 70,
+      "decision": "accept"
+    },
+    "description_zh": "VSCode扩展TypeScript .cursorrules提示文件开发规则",
+    "search_terms": [
+      "VS Code 扩展开发 TypeScript",
+      "编辑器插件开发规则",
+      "VS Code 插件配置",
+      "TypeScript 扩展开发",
+      "编辑器工具开发指南",
+      "VS Code API 集成",
+      "插件开发最佳实践"
+    ],
+    "health": {
+      "score": 46,
+      "signals": {
+        "popularity": 0,
+        "freshness": 80,
+        "quality": 70,
+        "installability": 40
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-10-24T16:37:26Z"
+    },
+    "final_score": 70,
+    "decision": "accept"
+  },
+  {
+    "id": "vitest-unit-testing-cursorrules-prompt-file-cursorrule",
+    "name": "Vitest Unit Testing Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Vitest Unit Testing Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/vitest-unit-testing-cursorrules-prompt-file",
+    "stars": null,
+    "pushed_at": "2025-10-24T16:37:26Z",
+    "category": "testing",
+    "tags": [
+      "cursor",
+      "vitest",
+      "testing",
+      "javascript"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/vitest-unit-testing-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:35:00.380488",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 2,
+      "source_trust": 4,
+      "confidence": 3,
+      "reason": "Core dev tool for testing, but the description is extremely short and lacks detail.",
+      "final_score": 70,
+      "decision": "accept"
+    },
+    "description_zh": "Vitest单元测试提示文件",
+    "search_terms": [
+      "Vitest 单元测试配置",
+      "JavaScript 测试框架规则",
+      "单元测试自动化",
+      "Vitest 项目设置",
+      "前端测试指南",
+      "测试驱动开发配置",
+      "Vitest 测试规范"
+    ],
+    "health": {
+      "score": 46,
+      "signals": {
+        "popularity": 0,
+        "freshness": 80,
+        "quality": 70,
+        "installability": 40
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-10-24T16:37:26Z"
+    },
+    "final_score": 70,
+    "decision": "accept"
+  },
+  {
+    "id": "python-django-best-practices-cursorrules-prompt-fi-cursorrule",
+    "name": "Python Django Best Practices Cursorrules Prompt Fi Rules",
+    "type": "rule",
+    "description": "Python Django Best Practices .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/python-django-best-practices-cursorrules-prompt-fi",
+    "stars": null,
+    "pushed_at": "2025-10-24T16:37:26Z",
+    "category": "backend",
+    "tags": [
+      "python",
+      "go",
+      "django"
+    ],
+    "tech_stack": [
+      "python",
+      "django"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/python-django-best-practices-cursorrules-prompt-fi/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:32:44.225858",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 4,
+      "source_trust": 4,
+      "confidence": 3,
+      "reason": "Django is a core Python web framework and best practices are essential for quality development.",
+      "final_score": 84,
+      "decision": "accept"
+    },
+    "description_zh": "Python Django最佳实践.cursorrules文件",
+    "search_terms": [
+      "django best practices",
+      "Django 最佳实践",
+      "django project structure",
+      "Django 项目规范",
+      "django coding standards",
+      "django development guidelines",
+      "Django 代码规范"
+    ],
+    "health": {
+      "score": 49,
+      "signals": {
+        "popularity": 0,
+        "freshness": 80,
+        "quality": 84,
+        "installability": 40
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-10-24T16:37:26Z"
+    },
+    "final_score": 84,
+    "decision": "accept"
+  },
+  {
+    "id": "htmx-django-cursorrules-prompt-file-cursorrule",
+    "name": "Htmx Django Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for htmx django cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/htmx-django-cursorrules-prompt-file",
+    "stars": null,
+    "pushed_at": "2025-10-24T16:37:26Z",
+    "category": "backend",
+    "tags": [
+      "go",
+      "django"
+    ],
+    "tech_stack": [
+      "django"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/htmx-django-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:31:34.696261",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 2,
+      "source_trust": 4,
+      "confidence": 3,
+      "reason": "Directly aids Django+HTMX development but description is vague and repetitive.",
+      "final_score": 63,
+      "decision": "accept"
+    },
+    "description_zh": "HTMX Django提示文件开发规则",
+    "search_terms": [
+      "HTMX Django integration",
+      "Python Django HTMX patterns",
+      "Django 动态页面开发",
+      "服务器端渲染 HTMX",
+      "Python Web 应用现代化",
+      "Django 实时交互",
+      "无 SPA 的现代 Web"
+    ],
+    "health": {
+      "score": 44,
+      "signals": {
+        "popularity": 0,
+        "freshness": 80,
+        "quality": 63,
+        "installability": 40
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-10-24T16:37:26Z"
+    },
+    "final_score": 63,
+    "decision": "accept"
+  },
+  {
+    "id": "tailwind-css-nextjs-guide-cursorrules-prompt-file-cursorrule",
+    "name": "Tailwind Css Nextjs Guide Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Tailwind CSS Next.js Guide .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/tailwind-css-nextjs-guide-cursorrules-prompt-file",
+    "stars": null,
+    "pushed_at": "2025-10-24T16:37:26Z",
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "tailwind",
+      "css"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "tailwind"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/tailwind-css-nextjs-guide-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:33:53.980913",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 2,
+      "source_trust": 4,
+      "confidence": 3,
+      "reason": "Directly aids coding with Tailwind and Next.js development, but description is very brief.",
+      "final_score": 63,
+      "decision": "accept"
+    },
+    "description_zh": "Tailwind CSS Next.js 指南光标规则",
+    "search_terms": [
+      "Tailwind Next.js 配置",
+      "Next.js Tailwind 设置",
+      "Tailwind CSS Next.js 指南",
+      "Next.js 样式规范",
+      "Tailwind Next.js 模板",
+      "Next.js 项目样式规则",
+      "Tailwind 集成 Next.js"
+    ],
+    "health": {
+      "score": 44,
+      "signals": {
+        "popularity": 0,
+        "freshness": 80,
+        "quality": 63,
+        "installability": 40
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-10-24T16:37:26Z"
+    },
+    "final_score": 63,
+    "decision": "accept"
+  },
+  {
+    "id": "graphical-apps-development-cursorrules-prompt-file-cursorrule",
+    "name": "Graphical Apps Development Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Graphical Apps Development .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/graphical-apps-development-cursorrules-prompt-file",
+    "stars": null,
+    "pushed_at": "2025-10-24T16:37:26Z",
+    "category": "tooling",
+    "tags": [
+      "automation"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/graphical-apps-development-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:30:30.768584",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 2,
+      "source_trust": 4,
+      "confidence": 3,
+      "reason": "Relevant to GUI application development, but description is minimal and uninformative.",
+      "final_score": 63,
+      "decision": "accept"
+    },
+    "description_zh": "图形应用开发.cursorrules提示文件",
+    "search_terms": [
+      "GUI application development automation",
+      "图形界面应用开发",
+      "desktop app automation",
+      "UI 开发自动化",
+      "可视化应用开发",
+      "客户端应用开发",
+      "跨平台 GUI 开发"
+    ],
+    "health": {
+      "score": 44,
+      "signals": {
+        "popularity": 0,
+        "freshness": 80,
+        "quality": 63,
+        "installability": 40
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-10-24T16:37:26Z"
+    },
+    "final_score": 63,
+    "decision": "accept"
+  },
+  {
+    "id": "solidjs-tailwind-cursorrules-prompt-file-cursorrule",
+    "name": "Solidjs Tailwind Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cursor rules for solidjs tailwind cursorrules prompt file development",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/solidjs-tailwind-cursorrules-prompt-file",
+    "stars": null,
+    "pushed_at": "2025-10-24T16:37:26Z",
+    "category": "frontend",
+    "tags": [
+      "tailwind",
+      "cursor",
+      "solidjs",
+      "css"
+    ],
+    "tech_stack": [
+      "tailwind"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/solidjs-tailwind-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:33:53.980913",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 2,
+      "source_trust": 4,
+      "confidence": 3,
+      "reason": "Directly aids coding with SolidJS and Tailwind development, but description is vague and repetitive.",
+      "final_score": 63,
+      "decision": "accept"
+    },
+    "description_zh": "SolidJS Tailwind 光标规则文件",
+    "search_terms": [
+      "solidjs tailwind integration",
+      "SolidJS Tailwind集成",
+      "styling solidjs app",
+      "SolidJS样式配置",
+      "tailwind with solidjs",
+      "CSS框架使用",
+      "前端样式方案"
+    ],
+    "health": {
+      "score": 44,
+      "signals": {
+        "popularity": 0,
+        "freshness": 80,
+        "quality": 63,
+        "installability": 40
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-10-24T16:37:26Z"
+    },
+    "final_score": 63,
+    "decision": "accept"
+  },
+  {
+    "id": "nextjs-tailwind-typescript-apps-cursorrules-prompt-cursorrule",
+    "name": "Nextjs Tailwind Typescript Apps Cursorrules Prompt Rules",
+    "type": "rule",
+    "description": "Next.JS Tailwind TypeScript Apps .cursorrules prompt file",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/nextjs-tailwind-typescript-apps-cursorrules-prompt",
+    "stars": null,
+    "pushed_at": "2025-10-24T16:37:26Z",
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "typescript",
+      "tailwind"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "typescript",
+      "tailwind"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/nextjs-tailwind-typescript-apps-cursorrules-prompt/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:31:34.696261",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 2,
+      "source_trust": 4,
+      "confidence": 3,
+      "reason": "Directly aids Next.js development but description is just a file name without explanation.",
+      "final_score": 63,
+      "decision": "accept"
+    },
+    "description_zh": "Next.js Tailwind TypeScript应用.cursorrules提示文件",
+    "search_terms": [
+      "Next.js TS Tailwind apps",
+      "TypeScript 前端模板",
+      "modern web app setup",
+      "全栈应用配置",
+      "production-ready boilerplate",
+      "企业级前端模板",
+      "web应用开发工具"
+    ],
+    "health": {
+      "score": 44,
+      "signals": {
+        "popularity": 0,
+        "freshness": 80,
+        "quality": 63,
+        "installability": 40
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-10-24T16:37:26Z"
+    },
+    "final_score": 63,
+    "decision": "accept"
+  },
+  {
+    "id": "cypress-integration-testing-cursorrules-prompt-file-cursorrule",
+    "name": "Cypress Integration Testing Cursorrules Prompt File Rules",
+    "type": "rule",
+    "description": "Cypress Integration Testing Prompt",
+    "source_url": "https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/cypress-integration-testing-cursorrules-prompt-file",
+    "stars": null,
+    "pushed_at": "2025-10-24T16:37:26Z",
+    "category": "testing",
+    "tags": [
+      "cypress",
+      "testing",
+      "automation"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/rules/cypress-integration-testing-cursorrules-prompt-file/.cursorrules"
+      ]
+    },
+    "source": "awesome-cursorrules",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:30:30.768584",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 2,
+      "source_trust": 4,
+      "confidence": 3,
+      "reason": "Directly relevant to integration testing, but description is minimal and uninformative.",
+      "final_score": 70,
+      "decision": "accept"
+    },
+    "description_zh": "Cypress集成测试提示",
+    "search_terms": [
+      "Cypress integration test automation",
+      "component integration testing",
+      "模块集成测试自动化",
+      "Cypress 集成测试",
+      "system integration testing",
+      "API integration tests",
+      "微服务集成测试"
+    ],
+    "health": {
+      "score": 46,
+      "signals": {
+        "popularity": 0,
+        "freshness": 80,
+        "quality": 70,
+        "installability": 40
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-10-24T16:37:26Z"
+    },
+    "final_score": 70,
+    "decision": "accept"
+  },
+  {
+    "id": "intelligent-project-management-rule21",
+    "name": "Intelligent Project Management (Rules 2.1)",
+    "type": "rule",
+    "description": "Intelligent project management system integrating phase management, workflow orchestration, smart recommendations, and memory systems.",
+    "source_url": "https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules",
+    "stars": null,
+    "pushed_at": "2025-11-07T13:57:24Z",
+    "category": "tooling",
+    "tags": [
+      "project rules",
+      "ai",
+      "project-management",
+      "automation",
+      "workflow"
+    ],
+    "tech_stack": [
+      "openai",
+      "anthropic"
+    ],
+    "install": {
+      "method": "download_file",
+      "files": [
+        "https://raw.githubusercontent.com/Mr-chen-05/rules-2.1-optimized/master/project-rules/intelligent-project-management.mdc"
+      ]
+    },
+    "source": "rules-2.1-optimized",
+    "last_synced": "2026-04-13",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:35:00.380488",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 3,
+      "content_quality": 4,
+      "source_trust": 3,
+      "confidence": 3,
+      "reason": "Tangentially related to coding through project management integration, with a clear description of its comprehensive features.",
+      "final_score": 67,
+      "decision": "accept"
+    },
+    "description_zh": "智能项目管理系统 - 整合阶段管理、工作流编排、智能推荐和记忆系统",
+    "search_terms": [
+      "智能项目管理",
+      "workflow orchestration",
+      "项目阶段管理",
+      "智能推荐系统",
+      "项目记忆系统",
+      "AI项目规划",
+      "企业级项目管理",
+      "智能工作流管理"
+    ],
+    "health": {
+      "score": 46,
+      "signals": {
+        "popularity": 0,
+        "freshness": 83,
+        "quality": 67,
+        "installability": 40
+      },
+      "freshness_label": "stale",
+      "last_commit": "2025-11-07T13:57:24Z"
+    },
+    "final_score": 67,
+    "decision": "accept"
+  },
+  {
+    "id": "claude-opus-4-5-migration-skill",
+    "name": "claude-opus-4-5-migration",
+    "type": "skill",
+    "description": "Migrate prompts and code from Claude Sonnet 4.0, Sonnet 4.5, or Opus 4.1 to Opus 4.5. Use when the user wants to update their codebase, prompts, or API calls to use Opus 4.5. Handles model string updates and prompt adjustments for known Opus 4.5 behavioral differences. Does NOT migrate Haiku 4.5.",
+    "source_url": "https://github.com/anthropics/claude-code/tree/main/plugins/claude-opus-4-5-migration/skills/claude-opus-4-5-migration",
+    "stars": 113310,
+    "pushed_at": "2026-04-13T01:45:26Z",
+    "category": "ai-ml",
+    "tags": [
+      "ai",
+      "claude",
+      "automation"
+    ],
+    "tech_stack": [
+      "openai",
+      "anthropic"
+    ],
+    "install": {
+      "method": "git_clone",
+      "repo": "anthropics/claude-code",
+      "branch": "main",
+      "path": "plugins/claude-opus-4-5-migration/skills/claude-opus-4-5-migration"
+    },
+    "source": "anthropics/claude-code",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:52:54.310421",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 5,
+      "specificity": 5,
+      "source_trust": 2,
+      "confidence": 5,
+      "reason": "Core development tool for model migration with highly specific, detailed description covering version updates and prompt adjustments.",
+      "final_score": 91,
+      "decision": "accept"
+    },
+    "description_zh": "迁移提示和代码至Claude Opus 4.5，处理模型更新。",
+    "search_terms": [
+      "Claude model migration",
+      "prompt migration guide",
+      "API version update",
+      "Sonnet to Opus upgrade",
+      "model behavior differences",
+      "Claude 模型迁移",
+      "提示词调整",
+      "API 调用更新"
+    ],
+    "health": {
+      "score": 90,
+      "signals": {
+        "popularity": 100,
+        "freshness": 100,
+        "quality": 91,
+        "installability": 60
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T01:45:26Z"
+    },
+    "final_score": 91,
+    "decision": "accept"
+  },
+  {
+    "id": "mcp-integration-skill",
+    "name": "MCP Integration",
+    "type": "skill",
+    "description": "This skill should be used when the user asks to",
+    "source_url": "https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev/skills/mcp-integration",
+    "stars": 113310,
+    "pushed_at": "2026-04-13T01:45:26Z",
+    "category": "tooling",
+    "tags": [
+      "ai",
+      "mcp",
+      "automation"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "anthropics/claude-code",
+      "branch": "main",
+      "path": "plugins/plugin-dev/skills/mcp-integration"
+    },
+    "source": "anthropics/claude-code",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-04-02",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:52:54.310421",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 1,
+      "specificity": 2,
+      "source_trust": 2,
+      "confidence": 5,
+      "reason": "Core MCP integration tool for development, but description is incomplete placeholder text with no meaningful content.",
+      "final_score": 59,
+      "decision": "accept"
+    },
+    "description_zh": "用于用户请求集成MCP时",
+    "search_terms": [
+      "Model Context Protocol",
+      "MCP server setup",
+      "context management integration",
+      "AI tool integration",
+      "protocol implementation",
+      "MCP 集成",
+      "模型上下文协议",
+      "工具连接协议"
+    ],
+    "health": {
+      "score": 82,
+      "signals": {
+        "popularity": 100,
+        "freshness": 100,
+        "quality": 59,
+        "installability": 60
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T01:45:26Z"
+    },
+    "final_score": 59,
+    "decision": "accept"
+  },
+  {
+    "id": "writing-hookify-rules-skill",
+    "name": "Writing Hookify Rules",
+    "type": "skill",
+    "description": "This skill should be used when the user asks to",
+    "source_url": "https://github.com/anthropics/claude-code/tree/main/plugins/hookify/skills/writing-rules",
+    "stars": 113310,
+    "pushed_at": "2026-04-13T01:45:26Z",
+    "category": "tooling",
+    "tags": [
+      "ai",
+      "automation"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "anthropics/claude-code",
+      "branch": "main",
+      "path": "plugins/hookify/skills/writing-rules"
+    },
+    "source": "anthropics/claude-code",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-04-02",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:52:54.310421",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 1,
+      "specificity": 2,
+      "source_trust": 2,
+      "confidence": 5,
+      "reason": "Directly aids coding through hook development, but description is incomplete placeholder text with no meaningful content.",
+      "final_score": 53,
+      "decision": "accept"
+    },
+    "description_zh": "用户请求时使用此技能。",
+    "search_terms": [
+      "AI hook creation",
+      "automation rule writing",
+      "trigger-action patterns",
+      "workflow automation rules",
+      "event-driven automation",
+      "钩子规则编写",
+      "自动化触发器",
+      "规则引擎设计"
+    ],
+    "health": {
+      "score": 80,
+      "signals": {
+        "popularity": 100,
+        "freshness": 100,
+        "quality": 53,
+        "installability": 60
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T01:45:26Z"
+    },
+    "final_score": 53,
+    "decision": "accept"
+  },
+  {
+    "id": "agent-development-skill",
+    "name": "Agent Development",
+    "type": "skill",
+    "description": "This skill should be used when the user asks to",
+    "source_url": "https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev/skills/agent-development",
+    "stars": 113310,
+    "pushed_at": "2026-04-13T01:45:26Z",
+    "category": "tooling",
+    "tags": [
+      "ai",
+      "agent",
+      "automation"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "anthropics/claude-code",
+      "branch": "main",
+      "path": "plugins/plugin-dev/skills/agent-development"
+    },
+    "source": "anthropics/claude-code",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-04-02",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:52:54.310421",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 1,
+      "specificity": 2,
+      "source_trust": 2,
+      "confidence": 5,
+      "reason": "Directly aids coding through agent development, but description is incomplete placeholder text with no meaningful content.",
+      "final_score": 53,
+      "decision": "accept"
+    },
+    "description_zh": "用于用户请求开发AI代理时",
+    "search_terms": [
+      "AI agent development",
+      "autonomous agent design",
+      "agent architecture",
+      "intelligent system building",
+      "agent behavior programming",
+      "AI 代理开发",
+      "智能体架构",
+      "自主代理设计"
+    ],
+    "health": {
+      "score": 80,
+      "signals": {
+        "popularity": 100,
+        "freshness": 100,
+        "quality": 53,
+        "installability": 60
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T01:45:26Z"
+    },
+    "final_score": 53,
+    "decision": "accept"
+  },
+  {
+    "id": "command-development-skill",
+    "name": "Command Development",
+    "type": "skill",
+    "description": "This skill should be used when the user asks to",
+    "source_url": "https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev/skills/command-development",
+    "stars": 113310,
+    "pushed_at": "2026-04-13T01:45:26Z",
+    "category": "tooling",
+    "tags": [
+      "ai",
+      "automation"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "anthropics/claude-code",
+      "branch": "main",
+      "path": "plugins/plugin-dev/skills/command-development"
+    },
+    "source": "anthropics/claude-code",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-04-02",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:52:54.310421",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 1,
+      "specificity": 2,
+      "source_trust": 2,
+      "confidence": 5,
+      "reason": "Directly aids coding through command development, but description is incomplete placeholder text with no meaningful content.",
+      "final_score": 53,
+      "decision": "accept"
+    },
+    "description_zh": "用于用户请求开发命令时",
+    "search_terms": [
+      "CLI command creation",
+      "command-line tool development",
+      "terminal interface design",
+      "shell command patterns",
+      "command parsing",
+      "命令行工具开发",
+      "CLI 接口设计",
+      "终端命令开发"
+    ],
+    "health": {
+      "score": 80,
+      "signals": {
+        "popularity": 100,
+        "freshness": 100,
+        "quality": 53,
+        "installability": 60
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T01:45:26Z"
+    },
+    "final_score": 53,
+    "decision": "accept"
+  },
+  {
+    "id": "update-installed-skills-aiskill",
+    "name": "update-installed-skills",
+    "type": "skill",
+    "description": "Use when syncing or updating previously installed skills to their latest version. Always dry-run updates before applying, and check for breaking changes.",
+    "source_url": "https://github.com/skillcreatorai/Ai-Agent-Skills/tree/main/skills/update-installed-skills",
+    "stars": null,
+    "pushed_at": "2026-04-11T19:00:41Z",
+    "category": "testing",
+    "tags": [
+      "ai",
+      "automation"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/skillcreatorai/Ai-Agent-Skills.git",
+      "files": [
+        "skills/update-installed-skills/"
+      ]
+    },
+    "source": "ai-agent-skills",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-04-02",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:16:17.904930",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 5,
+      "specificity": 5,
+      "source_trust": 3,
+      "confidence": 3,
+      "reason": "Directly aids coding by managing skill updates and checking for breaking changes.",
+      "final_score": 84,
+      "decision": "accept"
+    },
+    "description_zh": "同步或更新已安装技能时使用。",
+    "search_terms": [
+      "update skills to latest",
+      "技能更新同步",
+      "version sync tool",
+      "检查破坏性变更",
+      "dry-run updates",
+      "技能版本管理",
+      "update automation",
+      "库更新工具"
+    ],
+    "health": {
+      "score": 58,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 84,
+        "installability": 60
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-11T19:00:41Z"
+    },
+    "final_score": 84,
+    "decision": "accept"
+  },
+  {
+    "id": "internal-comms-skill",
+    "name": "internal-comms",
+    "type": "skill",
+    "description": "A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/internal-comms",
+    "stars": null,
+    "pushed_at": "2026-04-09T17:20:07Z",
+    "category": "tooling",
+    "tags": [
+      "anthropic",
+      "official"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/anthropics/skills.git",
+      "files": [
+        "skills/internal-comms/"
+      ]
+    },
+    "source": "anthropics-skills",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:16:17.904930",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 1,
+      "content_quality": 4,
+      "specificity": 4,
+      "source_trust": 5,
+      "confidence": 3,
+      "reason": "Focused on writing internal communications like status reports and newsletters, not related to software development.",
+      "final_score": 63,
+      "decision": "accept"
+    },
+    "description_zh": "协助撰写各类内部通讯的资源集合。",
+    "search_terms": [
+      "internal communications",
+      "内部沟通文档",
+      "company updates",
+      "status reports",
+      "领导力更新",
+      "incident reports",
+      "企业通讯"
+    ],
+    "health": {
+      "score": 53,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 63,
+        "installability": 60
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-09T17:20:07Z"
+    },
+    "final_score": 63,
+    "decision": "accept"
+  },
+  {
+    "id": "algorithmic-art-skill",
+    "name": "algorithmic-art",
+    "type": "skill",
+    "description": "Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to avoid copyright violations.",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/algorithmic-art",
+    "stars": null,
+    "pushed_at": "2026-04-09T17:20:07Z",
+    "category": "backend",
+    "tags": [
+      "go",
+      "anthropic",
+      "official"
+    ],
+    "tech_stack": [
+      "go"
+    ],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/anthropics/skills.git",
+      "files": [
+        "skills/algorithmic-art/"
+      ]
+    },
+    "source": "anthropics-skills",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:16:17.904930",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 3,
+      "content_quality": 4,
+      "specificity": 4,
+      "source_trust": 5,
+      "confidence": 3,
+      "reason": "Directly involves coding with p5.js for generative art, but is more creative/artistic than core software development.",
+      "final_score": 75,
+      "decision": "accept"
+    },
+    "description_zh": "使用p5.js创建带种子随机性的算法艺术。",
+    "search_terms": [
+      "generative art code",
+      "算法艺术生成",
+      "p5.js art",
+      "procedural art",
+      "代码生成艺术",
+      "flow fields",
+      "particle systems art"
+    ],
+    "health": {
+      "score": 56,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 75,
+        "installability": 60
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-09T17:20:07Z"
+    },
+    "final_score": 75,
+    "decision": "accept"
+  },
+  {
+    "id": "build-workspace-docs-aiskill",
+    "name": "build-workspace-docs",
+    "type": "skill",
+    "description": "Use when regenerating README.md and WORK_AREAS.md in a managed library workspace. Always dry-run first to preview changes.",
+    "source_url": "https://github.com/skillcreatorai/Ai-Agent-Skills/tree/main/skills/build-workspace-docs",
+    "stars": null,
+    "pushed_at": "2026-04-11T19:00:41Z",
+    "category": "documentation",
+    "tags": [
+      "ai",
+      "automation",
+      "markdown"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/skillcreatorai/Ai-Agent-Skills.git",
+      "files": [
+        "skills/build-workspace-docs/"
+      ]
+    },
+    "source": "ai-agent-skills",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-04-02",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:16:17.904930",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 3,
+      "content_quality": 5,
+      "specificity": 5,
+      "source_trust": 3,
+      "confidence": 3,
+      "reason": "Regenerating documentation for managed libraries is tangentially related to development workflows.",
+      "final_score": 78,
+      "decision": "accept"
+    },
+    "description_zh": "在托管库工作区重新生成文档时使用。",
+    "search_terms": [
+      "generate README automatically",
+      "自动生成工作区文档",
+      "workspace documentation",
+      "文档重建工具",
+      "markdown generation",
+      "工作区说明文件",
+      "doc regeneration",
+      "文档自动化"
+    ],
+    "health": {
+      "score": 56,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 78,
+        "installability": 60
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-11T19:00:41Z"
+    },
+    "final_score": 78,
+    "decision": "accept"
+  },
+  {
+    "id": "canvas-design-skill",
+    "name": "canvas-design",
+    "type": "skill",
+    "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations.",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/canvas-design",
+    "stars": null,
+    "pushed_at": "2026-04-09T17:20:07Z",
+    "category": "tooling",
+    "tags": [
+      "anthropic",
+      "official"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/anthropics/skills.git",
+      "files": [
+        "skills/canvas-design/"
+      ]
+    },
+    "source": "anthropics-skills",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:16:17.904930",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 2,
+      "content_quality": 4,
+      "specificity": 4,
+      "source_trust": 5,
+      "confidence": 3,
+      "reason": "Focuses on visual art and design creation, not software development, though could involve some design-to-code aspects.",
+      "final_score": 69,
+      "decision": "accept"
+    },
+    "description_zh": "运用设计哲学创建精美的PNG/PDF视觉艺术作品。",
+    "search_terms": [
+      "visual art creation",
+      "视觉设计生成",
+      "PNG PDF design",
+      "海报设计工具",
+      "digital art creation",
+      "图形设计自动化",
+      "creative design"
+    ],
+    "health": {
+      "score": 54,
+      "signals": {
+        "popularity": 0,
+        "freshness": 100,
+        "quality": 69,
+        "installability": 60
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-09T17:20:07Z"
+    },
+    "final_score": 69,
+    "decision": "accept"
+  },
+  {
+    "id": "telegram-agskill",
+    "name": "telegram",
+    "type": "skill",
+    "description": "Integracao completa com Telegram Bot API. Setup com BotFather, mensagens, webhooks, inline keyboards, grupos, canais. Boilerplates Node.js e Python.",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/telegram",
+    "stars": 32612,
+    "pushed_at": "2026-04-13T07:38:49Z",
+    "category": "backend",
+    "tags": [
+      "python",
+      "nodejs"
+    ],
+    "tech_stack": [
+      "python",
+      "nodejs"
+    ],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/sickn33/antigravity-awesome-skills.git",
+      "files": [
+        "skills/telegram/"
+      ]
+    },
+    "source": "antigravity-skills",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:49:36.577627",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 4,
+      "content_quality": 4,
+      "specificity": 4,
+      "source_trust": 3,
+      "confidence": 4,
+      "reason": "Directly aids coding for Telegram bot integration with a clear description covering setup and boilerplates.",
+      "final_score": 77,
+      "decision": "accept"
+    },
+    "description_zh": "完整集成Telegram Bot API，支持消息、Webhook和键盘。",
+    "search_terms": [
+      "Telegram bot setup",
+      "BotFather configuration",
+      "Telegram webhooks",
+      "inline keyboard bot",
+      "Node.js Telegram bot",
+      "Python Telegram API",
+      "电报机器人",
+      "telegram bot boilerplate"
+    ],
+    "health": {
+      "score": 83,
+      "signals": {
+        "popularity": 90,
+        "freshness": 100,
+        "quality": 77,
+        "installability": 60
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T07:38:49Z"
+    },
+    "final_score": 77,
+    "decision": "accept"
+  },
+  {
+    "id": "llm-application-dev-langchain-agent-agskill",
+    "name": "llm-application-dev-langchain-agent",
+    "type": "skill",
+    "description": "You are an expert LangChain agent developer specializing in production-grade AI systems using LangChain 0.1+ and LangGraph.",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/llm-application-dev-langchain-agent",
+    "stars": 32612,
+    "pushed_at": "2026-04-13T07:38:49Z",
+    "category": "ai-ml",
+    "tags": [
+      "langchain",
+      "llm",
+      "ai",
+      "agent"
+    ],
+    "tech_stack": [
+      "langchain"
+    ],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/sickn33/antigravity-awesome-skills.git",
+      "files": [
+        "skills/llm-application-dev-langchain-agent/"
+      ]
+    },
+    "source": "antigravity-skills",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:38:31.211214",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 4,
+      "specificity": 4,
+      "source_trust": 3,
+      "confidence": 4,
+      "reason": "Developing production-grade AI systems with LangChain is directly about LLM application development.",
+      "final_score": 83,
+      "decision": "accept"
+    },
+    "description_zh": "LangChain代理开发专家，构建生产级AI系统。",
+    "search_terms": [
+      "langchain agent development",
+      "LangChain 代理开发",
+      "production langchain systems",
+      "LangGraph implementation",
+      "AI agent architecture",
+      "智能代理系统",
+      "langchain 0.1+ best practices",
+      "企业级AI代理"
+    ],
+    "health": {
+      "score": 85,
+      "signals": {
+        "popularity": 90,
+        "freshness": 100,
+        "quality": 83,
+        "installability": 60
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T07:38:49Z"
+    },
+    "final_score": 83,
+    "decision": "accept"
+  },
+  {
+    "id": "architecture-decision-records-agskill",
+    "name": "architecture-decision-records",
+    "type": "skill",
+    "description": "Comprehensive patterns for creating, maintaining, and managing Architecture Decision Records (ADRs) that capture the context and rationale behind significant technical decisions.",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/architecture-decision-records",
+    "stars": 32612,
+    "pushed_at": "2026-04-13T07:38:49Z",
+    "category": "tooling",
+    "tags": [
+      "markdown",
+      "architecture",
+      "documentation",
+      "adr"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/sickn33/antigravity-awesome-skills.git",
+      "files": [
+        "skills/architecture-decision-records/"
+      ]
+    },
+    "source": "antigravity-skills",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:20:00.765309",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 3,
+      "content_quality": 5,
+      "specificity": 5,
+      "source_trust": 3,
+      "confidence": 4,
+      "reason": "Tangentially related to coding through documentation of technical decisions, with rich, detailed description of ADR patterns.",
+      "final_score": 80,
+      "decision": "accept"
+    },
+    "description_zh": "创建和管理架构决策记录（ADR）的全面模式。",
+    "search_terms": [
+      "ADR documentation",
+      "架构决策记录",
+      "technical decision tracking",
+      "decision rationale",
+      "ADR patterns",
+      "架构文档管理",
+      "技术决策记录"
+    ],
+    "health": {
+      "score": 84,
+      "signals": {
+        "popularity": 90,
+        "freshness": 100,
+        "quality": 80,
+        "installability": 60
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T07:38:49Z"
+    },
+    "final_score": 80,
+    "decision": "accept"
+  },
+  {
+    "id": "dotnet-backend-agskill",
+    "name": "dotnet-backend",
+    "type": "skill",
+    "description": "Build ASP.NET Core 8+ backend services with EF Core, auth, background jobs, and production API patterns.",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/dotnet-backend",
+    "stars": 32612,
+    "pushed_at": "2026-04-13T07:38:49Z",
+    "category": "backend",
+    "tags": [
+      "sql",
+      "dotnet",
+      "csharp",
+      "aspnet",
+      "api"
+    ],
+    "tech_stack": [
+      "c-sharp"
+    ],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/sickn33/antigravity-awesome-skills.git",
+      "files": [
+        "skills/dotnet-backend/"
+      ]
+    },
+    "source": "antigravity-skills",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:31:01.164045",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 4,
+      "specificity": 4,
+      "source_trust": 3,
+      "confidence": 4,
+      "reason": "Core backend development with ASP.NET Core and production patterns.",
+      "final_score": 83,
+      "decision": "accept"
+    },
+    "description_zh": "构建ASP.NET Core 8+后端服务，包含EF Core和身份验证。",
+    "search_terms": [
+      "ASP.NET Core API development",
+      "C# REST API",
+      "Entity Framework Core",
+      "JWT authentication .NET",
+      "background services .NET",
+      ".NET 8 backend",
+      "Web API development"
+    ],
+    "health": {
+      "score": 85,
+      "signals": {
+        "popularity": 90,
+        "freshness": 100,
+        "quality": 83,
+        "installability": 60
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T07:38:49Z"
+    },
+    "final_score": 83,
+    "decision": "accept"
+  },
+  {
+    "id": "nestjs-expert-agskill",
+    "name": "nestjs-expert",
+    "type": "skill",
+    "description": "You are an expert in Nest.js with deep knowledge of enterprise-grade Node.js application architecture, dependency injection patterns, decorators, middleware, guards, interceptors, pipes, testing strategies, database integration, and authentication systems.",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/nestjs-expert",
+    "stars": 32612,
+    "pushed_at": "2026-04-13T07:38:49Z",
+    "category": "backend",
+    "tags": [
+      "nodejs",
+      "nestjs",
+      "server",
+      "typescript"
+    ],
+    "tech_stack": [
+      "nodejs",
+      "typescript"
+    ],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/sickn33/antigravity-awesome-skills.git",
+      "files": [
+        "skills/nestjs-expert/"
+      ]
+    },
+    "source": "antigravity-skills",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:41:12.807943",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 5,
+      "specificity": 4,
+      "source_trust": 3,
+      "confidence": 4,
+      "reason": "Provides expert knowledge on the Nest.js framework, covering core backend development concepts, though the scope is broad across many framework aspects.",
+      "final_score": 88,
+      "decision": "accept"
+    },
+    "description_zh": "Nest.js企业级应用架构与开发专家",
+    "search_terms": [
+      "Nest.js enterprise architecture",
+      "NestJS 依赖注入",
+      "decorators middleware guards",
+      "interceptors pipes testing",
+      "database integration NestJS",
+      "NestJS 认证系统",
+      "Node.js 企业级架构",
+      "NestJS 最佳实践"
+    ],
+    "health": {
+      "score": 86,
+      "signals": {
+        "popularity": 90,
+        "freshness": 100,
+        "quality": 88,
+        "installability": 60
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T07:38:49Z"
+    },
+    "final_score": 88,
+    "decision": "accept"
+  },
+  {
+    "id": "qa-observability-vyskill",
+    "name": "qa-observability",
+    "type": "skill",
+    "description": "Implement OpenTelemetry logs/metrics/traces, SLI/SLO gates, burn-rate alerts, and APM integrations. Use when adding or validating observability.",
+    "source_url": "https://github.com/vasilyu1983/ai-agents-public/tree/main/frameworks/shared-skills/skills/qa-observability",
+    "stars": 55,
+    "pushed_at": "2026-04-08T18:24:47Z",
+    "category": "testing",
+    "tags": [
+      "qa",
+      "observability"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/vasilyu1983/ai-agents-public.git",
+      "files": [
+        "frameworks/shared-skills/skills/qa-observability/"
+      ]
+    },
+    "source": "vasilyu-skills",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-04-06",
+    "evaluation": {
+      "evaluated_at": "2026-04-10T05:28:48.504775",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 4,
+      "specificity": 4,
+      "source_trust": 2,
+      "confidence": 4,
+      "reason": "Core observability implementation with clear description of OpenTelemetry and SLO-based monitoring.",
+      "final_score": 80,
+      "decision": "accept"
+    },
+    "description_zh": "实施OpenTelemetry日志/指标/追踪及SLO告警。",
+    "search_terms": [
+      "observability implementation",
+      "可观测性实施",
+      "OpenTelemetry setup",
+      "SLI SLO gates",
+      "burn rate alerts",
+      "APM integration",
+      "指标日志追踪",
+      "服务级别目标"
+    ],
+    "health": {
+      "score": 68,
+      "signals": {
+        "popularity": 35,
+        "freshness": 100,
+        "quality": 80,
+        "installability": 60
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-08T18:24:47Z"
+    },
+    "final_score": 80,
+    "decision": "accept"
+  },
+  {
+    "id": "tdd-orchestrator-agskill",
+    "name": "tdd-orchestrator",
+    "type": "skill",
+    "description": "Master TDD orchestrator specializing in red-green-refactor discipline, multi-agent workflow coordination, and comprehensive test-driven development practices.",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/tdd-orchestrator",
+    "stars": 32612,
+    "pushed_at": "2026-04-13T07:38:49Z",
+    "category": "testing",
+    "tags": [
+      "testing",
+      "automation",
+      "agent"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/sickn33/antigravity-awesome-skills.git",
+      "files": [
+        "skills/tdd-orchestrator/"
+      ]
+    },
+    "source": "antigravity-skills",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:49:36.577627",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 4,
+      "specificity": 4,
+      "source_trust": 3,
+      "confidence": 4,
+      "reason": "Core dev practice (TDD) with a clear description focused on orchestration and workflow coordination.",
+      "final_score": 83,
+      "decision": "accept"
+    },
+    "description_zh": "TDD编排专家，精通红绿重构流程与多代理协调。",
+    "search_terms": [
+      "TDD协调器",
+      "red-green-refactor流程",
+      "多代理测试驱动开发",
+      "测试工作流协调",
+      "TDD最佳实践",
+      "测试自动化协调",
+      "开发流程管理"
+    ],
+    "health": {
+      "score": 85,
+      "signals": {
+        "popularity": 90,
+        "freshness": 100,
+        "quality": 83,
+        "installability": 60
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T07:38:49Z"
+    },
+    "final_score": 83,
+    "decision": "accept"
+  },
+  {
+    "id": "expo-dev-client-agskill",
+    "name": "expo-dev-client",
+    "type": "skill",
+    "description": "Build and distribute Expo development clients locally or via TestFlight",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/expo-dev-client",
+    "stars": 32612,
+    "pushed_at": "2026-04-13T07:38:49Z",
+    "category": "mobile",
+    "tags": [
+      "react-native",
+      "automation",
+      "mobile"
+    ],
+    "tech_stack": [
+      "react-native"
+    ],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/sickn33/antigravity-awesome-skills.git",
+      "files": [
+        "skills/expo-dev-client/"
+      ]
+    },
+    "source": "antigravity-skills",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:32:14.608578",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 4,
+      "specificity": 4,
+      "source_trust": 3,
+      "confidence": 4,
+      "reason": "Core dev tool for building/distributing Expo clients with clear scope and good description.",
+      "final_score": 83,
+      "decision": "accept"
+    },
+    "description_zh": "本地或通过TestFlight构建分发Expo开发客户端",
+    "search_terms": [
+      "Expo development build",
+      "本地开发客户端",
+      "TestFlight distribution",
+      "Expo 开发版本分发",
+      "custom dev client",
+      "Expo Go alternative",
+      "调试版本构建"
+    ],
+    "health": {
+      "score": 85,
+      "signals": {
+        "popularity": 90,
+        "freshness": 100,
+        "quality": 83,
+        "installability": 60
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T07:38:49Z"
+    },
+    "final_score": 83,
+    "decision": "accept"
+  },
+  {
+    "id": "senior-secops-skill",
+    "name": "senior-secops",
+    "type": "skill",
+    "description": "Comprehensive SecOps skill for application security, vulnerability management, compliance, and secure development practices. Includes security scanning, vulnerability assessment, compliance checking, and security automation. Use when implementing security controls, conducting security audits, responding to vulnerabilities, or ensuring compliance requirements.",
+    "source_url": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/development/senior-secops",
+    "stars": 24535,
+    "pushed_at": "2026-04-13T04:10:53Z",
+    "category": "security",
+    "tags": [
+      "security",
+      "automation",
+      "compliance",
+      "vulnerability-management"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "davila7/claude-code-templates",
+      "branch": "main",
+      "path": "cli-tool/components/skills/development/senior-secops"
+    },
+    "source": "davila7/claude-code-templates",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-04-02",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:58:43.284690",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 5,
+      "content_quality": 4,
+      "specificity": 2,
+      "source_trust": 2,
+      "confidence": 5,
+      "reason": "Core security operations skill with clear description but broad scope and truncated text.",
+      "final_score": 74,
+      "decision": "accept"
+    },
+    "description_zh": "全面SecOps技能，应用安全与合规管理。",
+    "search_terms": [
+      "应用安全实施",
+      "漏洞管理",
+      "合规性检查",
+      "安全扫描工具",
+      "安全自动化",
+      "漏洞评估",
+      "安全控制实现"
+    ],
+    "health": {
+      "score": 82,
+      "signals": {
+        "popularity": 88,
+        "freshness": 100,
+        "quality": 74,
+        "installability": 60
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T04:10:53Z"
+    },
+    "final_score": 74,
+    "decision": "accept"
+  },
+  {
+    "id": "ddd-context-mapping-agskill",
+    "name": "ddd-context-mapping",
+    "type": "skill",
+    "description": "Map relationships between bounded contexts and define integration contracts using DDD context mapping patterns.",
+    "source_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ddd-context-mapping",
+    "stars": 32612,
+    "pushed_at": "2026-04-13T07:38:49Z",
+    "category": "tooling",
+    "tags": [
+      "ddd",
+      "architecture",
+      "design"
+    ],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/sickn33/antigravity-awesome-skills.git",
+      "files": [
+        "skills/ddd-context-mapping/"
+      ]
+    },
+    "source": "antigravity-skills",
+    "last_synced": "2026-04-13",
+    "added_at": "2026-03-30",
+    "evaluation": {
+      "evaluated_at": "2026-04-02T03:29:48.219625",
+      "evaluator": "deepseek-chat",
+      "coding_relevance": 3,
+      "content_quality": 3,
+      "specificity": 4,
+      "source_trust": 3,
+      "confidence": 4,
+      "reason": "Software design methodology with clear scope but tangential to direct coding.",
+      "final_score": 66,
+      "decision": "accept"
+    },
+    "description_zh": "映射限界上下文关系，定义DDD上下文映射集成契约。",
+    "search_terms": [
+      "bounded context mapping",
+      "上下文映射 DDD",
+      "integration contracts",
+      "微服务边界设计",
+      "context mapping patterns",
+      "domain relationships",
+      "DDD 集成模式",
+      "strategic design patterns"
+    ],
+    "health": {
+      "score": 80,
+      "signals": {
+        "popularity": 90,
+        "freshness": 100,
+        "quality": 66,
+        "installability": 60
+      },
+      "freshness_label": "active",
+      "last_commit": "2026-04-13T07:38:49Z"
+    },
+    "final_score": 66,
+    "decision": "accept"
+  }
+]
