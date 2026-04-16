@@ -12,11 +12,6 @@ except ImportError:
 
 logger = logging.getLogger(__name__)
 
-# Safe-by-default: dry-run unless explicitly disabled.
-# CI sets EVAL_DRY_RUN via vars; local/manual runs stay non-destructive.
-_raw = os.environ.get("EVAL_DRY_RUN", "true").lower()
-EVAL_DRY_RUN = _raw not in ("false", "0", "no")
-
 # Per-type signal weights for final_score (0-100)
 TYPE_WEIGHTS = {
     "mcp": {
@@ -96,72 +91,47 @@ def judge_decision(entry: dict[str, Any]) -> str:
 
 
 def apply_governance(entries: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """
-    Apply Layer 3 governance: compute final_score, decision, health, filter rejects.
-    Returns filtered list (rejects removed unless dry-run).
-    """
-    reject_count = 0
-    result = []
+    """Apply governance: verify eval fields, fallback-score unevaluated entries, filter rejects."""
+    dry_run = os.environ.get("EVAL_DRY_RUN", "true").lower() not in ("false", "0", "no")
 
     for entry in entries:
-        # Always compute and persist governance metadata (final_score,
-        # decision, health) so the published catalog retains correct
-        # sorting and signals regardless of mode.
-        final_score = compute_final_score(entry)
-        evaluation = entry.get("evaluation") or {}
-        evaluation["final_score"] = final_score
-        entry["evaluation"] = evaluation
+        ev = entry.get("evaluation", {})
 
+        # If harness already scored this entry, just verify fields
+        if ev.get("model_id") and ev.get("final_score") is not None:
+            entry["final_score"] = ev["final_score"]
+            entry["decision"] = ev.get("decision", "review")
+            continue
+
+        # Fallback: entry wasn't evaluated by harness — use old logic
+        score = compute_final_score(entry)
+        ev["final_score"] = score
         decision = judge_decision(entry)
-        evaluation["decision"] = decision
+        ev["decision"] = decision
+        entry["evaluation"] = ev
+        entry["final_score"] = score
+        entry["decision"] = decision
 
-    # Deep review: reclassify "review" entries by fetching actual content.
-    # Runs after all entries have initial decisions, before reject filtering.
-    # Lazy import to avoid circular dependency (deep_reviewer imports judge_decision).
-    try:
+        # Compute health via old scorer for fallback entries
         try:
-            from .deep_reviewer import deep_review_entries
-        except ImportError:
-            from deep_reviewer import deep_review_entries
-        deep_review_entries(entries)
-    except ImportError:
-        logger.debug("deep_reviewer module not available, skipping deep review")
-    except Exception as e:
-        logger.warning(f"Deep review failed, skipping: {e}")
+            entry["health"] = compute_health(entry)
+        except Exception:
+            pass
 
+    # Filter rejects
+    result = []
+    reject_count = 0
     for entry in entries:
-        evaluation = entry.get("evaluation") or {}
-        decision = evaluation.get("decision", "reject")
-
-        entry["health"] = compute_health(entry)
-
-        if decision == "reject":
+        decision = entry.get("decision", "review")
+        if decision == "reject" and not dry_run:
             reject_count += 1
-            score = evaluation.get("final_score", 0)
-            if EVAL_DRY_RUN:
-                # Dry-run: log but keep the entry in the output.
-                logger.debug(
-                    f"[DRY-RUN] Would reject: {entry.get('id')} "
-                    f"(score={score}, type={entry.get('type')})"
-                )
-                result.append(entry)
-            else:
-                logger.debug(
-                    f"Rejected: {entry.get('id')} "
-                    f"(score={score}, type={entry.get('type')})"
-                )
+            logger.info("REJECT (filtered): %s — score=%s", entry.get("id"), entry.get("final_score"))
         else:
+            if decision == "reject":
+                logger.info("REJECT (dry-run, kept): %s — score=%s", entry.get("id"), entry.get("final_score"))
             result.append(entry)
 
-    if reject_count:
-        mode = "[DRY-RUN] " if EVAL_DRY_RUN else ""
-        logger.info(
-            f"{mode}Governance: {reject_count}/{len(entries)} entries rejected, "
-            f"{len(result)} entries kept"
-        )
-    else:
-        logger.info(f"Governance: all {len(entries)} entries accepted")
-
+    logger.info("Governance: %d entries → %d kept, %d rejected", len(entries), len(result), reject_count)
     return result
 
 

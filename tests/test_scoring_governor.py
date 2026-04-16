@@ -133,13 +133,14 @@ class ApplyGovernanceTests(unittest.TestCase):
                 },
             },
         ]
-        with unittest.mock.patch.object(scoring_governor, "EVAL_DRY_RUN", False):
+        with unittest.mock.patch.dict(os.environ, {"EVAL_DRY_RUN": "false"}):
             result = scoring_governor.apply_governance(entries)
         ids = [e["id"] for e in result]
         self.assertIn("good", ids)
         self.assertNotIn("bad", ids)
 
     def test_health_computed(self):
+        """Health is computed for fallback (non-harness-evaluated) entries."""
         entries = [
             {
                 "id": "e1",
@@ -153,7 +154,7 @@ class ApplyGovernanceTests(unittest.TestCase):
                 },
             },
         ]
-        with unittest.mock.patch.object(scoring_governor, "EVAL_DRY_RUN", False):
+        with unittest.mock.patch.dict(os.environ, {"EVAL_DRY_RUN": "false"}):
             result = scoring_governor.apply_governance(entries)
         self.assertIn("health", result[0])
         self.assertIn("score", result[0]["health"])
@@ -172,13 +173,35 @@ class ApplyGovernanceTests(unittest.TestCase):
                 },
             },
         ]
-        with unittest.mock.patch.object(scoring_governor, "EVAL_DRY_RUN", True):
+        with unittest.mock.patch.dict(os.environ, {"EVAL_DRY_RUN": "true"}):
             result = scoring_governor.apply_governance(entries)
         self.assertEqual(len(result), 1)
         # Dry-run still computes governance metadata (score, decision, health)
         # so the catalog retains correct sorting — only rejection is suppressed.
         self.assertIn("final_score", result[0]["evaluation"])
         self.assertIn("health", result[0])
+
+    def test_harness_evaluated_passthrough(self):
+        """Entries with model_id and final_score from harness are passed through."""
+        entries = [
+            {
+                "id": "harness-scored",
+                "type": "mcp",
+                "evaluation": {
+                    "model_id": "deepseek-chat",
+                    "final_score": 75,
+                    "decision": "accept",
+                    "coding_relevance": 5,
+                },
+            },
+        ]
+        with unittest.mock.patch.dict(os.environ, {"EVAL_DRY_RUN": "true"}):
+            result = scoring_governor.apply_governance(entries)
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]["final_score"], 75)
+        self.assertEqual(result[0]["decision"], "accept")
+        # Health should NOT be computed for harness-evaluated entries
+        self.assertNotIn("health", result[0])
 
 
 import unittest.mock  # noqa: E402
