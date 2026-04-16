@@ -21,7 +21,9 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install requests
+        run: |
+          pip install requests
+          pip install -e ai-resource-eval
 
       - name: Restore sync caches
         uses: actions/cache@v4
@@ -38,6 +40,7 @@ jobs:
             catalog/.llm_search_cache.json
             catalog/maintenance/incremental_recrawl_state.json
             scripts/fallback_skill_repos.json
+            .eval_cache/
           key: sync-caches-${{ github.run_number }}
           restore-keys: |
             sync-caches-
@@ -94,6 +97,7 @@ jobs:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
           EVAL_DRY_RUN: ${{ vars.EVAL_DRY_RUN || 'true' }}
+          EVAL_INCREMENTAL: "true"
         run: python scripts/merge_index.py
         continue-on-error: true
 
