@@ -29,6 +29,9 @@ Thumbs.db
 #   catalog/index.json
 #   catalog/search-index.json
 
+# Eval harness cache (SQLite, persisted via CI cache, not committed)
+.eval_cache/
+
 # Sync caches (rebuilt by CI)
 catalog/skills/.repo_cache.json
 catalog/skills/.llm_cache.json
