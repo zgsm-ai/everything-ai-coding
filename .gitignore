@@ -29,8 +29,12 @@ Thumbs.db
 #   catalog/index.json
 #   catalog/search-index.json
 
-# Eval harness cache (SQLite, persisted via CI cache, not committed)
+# Eval harness cache (SQLite)
+# 本地全量跑完后 git add -f .eval_cache/eval_cache.db 种子 CI
+# CI 首次 checkout 拿到种子后，由 actions/cache 接管滚动更新
+# 种子提交后 git rm --cached .eval_cache/ 移除跟踪
 .eval_cache/
+.eval_cache_test/
 
 # Sync caches (rebuilt by CI)
 catalog/skills/.repo_cache.json

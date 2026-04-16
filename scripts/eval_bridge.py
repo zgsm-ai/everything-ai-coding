@@ -82,7 +82,8 @@ def map_result_to_entry(entry: dict[str, Any], result: dict[str, Any] | None) ->
         if enrichment.get("highlights"):
             entry["highlights"] = enrichment["highlights"]
         if enrichment.get("summary"):
-            entry["summary"] = enrichment["summary"]
+            entry["description_original"] = entry.get("description", "")
+            entry["description"] = enrichment["summary"]
 
     # ── Map health signals (convert to README-compatible format) ──────
     raw_health = result.get("health")

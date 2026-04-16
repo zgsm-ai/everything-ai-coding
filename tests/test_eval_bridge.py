@@ -143,9 +143,9 @@ class TestEnrichmentMapping:
         assert entry["description_zh"] == "通过 MCP 访问数据库的工具"
         assert entry["search_terms"] == ["database", "数据库", "MCP server"]
         assert entry["highlights"] == ["支持 15+ 数据库类型", "Docker 一键部署"]
-        assert entry["summary"] == "A tool for database access via MCP"
+        assert entry["description"] == "A tool for database access via MCP"
 
-    def test_enrichment_does_not_overwrite_description(self):
+    def test_summary_overwrites_description_and_preserves_original(self):
         from eval_bridge import map_result_to_entry
 
         entry = _make_entries()[0]
@@ -153,7 +153,8 @@ class TestEnrichmentMapping:
         result = _make_eval_result("test-mcp-1", enrichment=dict(_SAMPLE_ENRICHMENT))
         map_result_to_entry(entry, result)
 
-        assert entry["description"] == original_desc
+        assert entry["description"] == "A tool for database access via MCP"
+        assert entry["description_original"] == original_desc
 
     def test_no_enrichment_preserves_fields(self):
         from eval_bridge import map_result_to_entry
@@ -175,7 +176,7 @@ class TestEnrichmentMapping:
         result = _make_eval_result("test-mcp-1", enrichment=partial)
         map_result_to_entry(entry, result)
 
-        assert entry["summary"] == "test"
+        assert entry["description"] == "test"
         assert entry["tags"] == ["a"]
         # Fields not in enrichment should not be created
         assert "highlights" not in entry
