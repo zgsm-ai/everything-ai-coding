@@ -116,21 +116,7 @@ def enrich_entries(entries: list[dict[str, Any]]) -> None:
             incremental=incremental,
         )
     except ImportError:
-        logger.warning("[5/5] eval_bridge not available, falling back to legacy evaluator")
-        try:
-            from llm_evaluator import enrich_quality
-            from unified_enrichment import populate_signals
-            eval_map = enrich_quality(entries)
-            for entry in entries:
-                eid = entry["id"]
-                if eid in eval_map:
-                    entry.setdefault("evaluation", {}).update(eval_map[eid])
-                    entry["_llm_eval"] = eval_map[eid]
-                populate_signals(entry)
-        except Exception as exc:
-            logger.warning("Legacy evaluator also failed: %s", exc)
-
-    # ── Step 5b: (removed — harness computes signals internally) ─────
+        logger.warning("[5/5] eval_bridge not available, skipping evaluation")
 
     # Step 5: Search term enrichment (generates search_terms for semantic recall)
     try:
