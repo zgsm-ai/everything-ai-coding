@@ -152,10 +152,16 @@ export default function Detail() {
       {/* Evaluation */}
       {item.evaluation && (
         <div className="glass rounded-2xl p-6">
-          <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-4">{t('detail.evaluation')}</h3>
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300">{t('detail.evaluation')}</h3>
+            {item.evaluation.final_score > 0 && (
+              <span className="text-lg font-bold text-apple-blue">{Math.round(item.evaluation.final_score)}</span>
+            )}
+          </div>
           <div className="space-y-3">
-            {(['coding_relevance', 'content_quality', 'specificity', 'source_trust', 'confidence'] as const).map(dim => {
+            {(['coding_relevance', 'doc_completeness', 'desc_accuracy', 'writing_quality', 'specificity', 'install_clarity'] as const).map(dim => {
               const val = item.evaluation![dim]
+              if (val == null) return null
               return (
                 <div key={dim} className="flex items-center gap-3">
                   <span className="text-xs text-gray-500 dark:text-gray-400 w-32 shrink-0">{t(`eval.${dim}`)}</span>
@@ -174,14 +180,9 @@ export default function Detail() {
               )
             })}
           </div>
-          {item.evaluation.reason && (
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 leading-relaxed">
-              {item.evaluation.reason}
-            </p>
-          )}
-          {item.evaluation.evaluator && (
-            <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">
-              {t('eval.evaluator')}: {item.evaluation.evaluator}
+          {item.evaluation.evaluated_at && (
+            <p className="text-xs text-gray-400 dark:text-gray-500 mt-4">
+              {t('eval.evaluator')}: {item.evaluation.model_id === '__cached__' ? 'deepseek-chat' : (item.evaluation.model_id || 'unknown')} · {new Date(item.evaluation.evaluated_at).toLocaleDateString()}
             </p>
           )}
         </div>

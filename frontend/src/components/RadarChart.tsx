@@ -3,18 +3,16 @@ import { useTheme } from '../hooks/useTheme'
 
 interface Props {
   signals: {
-    popularity: number
     freshness: number
-    quality: number
-    installability: number
+    popularity: number
+    source_trust: number
   }
 }
 
 const AXES = [
   { key: 'popularity' as const, i18nKey: 'health.popularity', angle: -90 },
-  { key: 'freshness' as const, i18nKey: 'health.freshness', angle: 0 },
-  { key: 'quality' as const, i18nKey: 'health.quality', angle: 90 },
-  { key: 'installability' as const, i18nKey: 'health.installability', angle: 180 },
+  { key: 'freshness' as const, i18nKey: 'health.freshness', angle: 30 },
+  { key: 'source_trust' as const, i18nKey: 'health.source_trust', angle: 150 },
 ]
 
 // Layout: generous padding so labels never clip
@@ -42,12 +40,11 @@ export default function RadarChart({ signals }: Props) {
   const dataPoints = AXES.map(a => polar(a.angle, RADIUS * ((signals[a.key] || 0) / 100)))
   const dataPath = dataPoints.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x},${p.y}`).join(' ') + 'Z'
 
-  // Label positions: place them at fixed locations outside the chart area
+  // Label positions: place them outside the chart near each vertex
   const labelPos: Record<string, { x: number; y: number; anchor: 'start' | 'middle' | 'end' }> = {
-    popularity:    { x: CX,              y: PAD_Y - 14,        anchor: 'middle' }, // top center
-    freshness:     { x: WIDTH - 8,       y: CY,                anchor: 'end' },    // right
-    quality:       { x: CX,              y: HEIGHT - PAD_Y + 18, anchor: 'middle' }, // bottom center
-    installability:{ x: 8,               y: CY,                anchor: 'start' },  // left
+    popularity:   { x: CX,              y: PAD_Y - 14,           anchor: 'middle' }, // top center
+    freshness:    { x: WIDTH - 16,      y: CY + RADIUS * 0.6,   anchor: 'end' },    // bottom right
+    source_trust: { x: 16,              y: CY + RADIUS * 0.6,   anchor: 'start' },  // bottom left
   }
 
   return (
@@ -75,7 +72,7 @@ export default function RadarChart({ signals }: Props) {
 
       {/* Labels — placed at fixed edge positions */}
       {AXES.map(axis => {
-        const val = signals[axis.key] || 0
+        const val = Math.round(signals[axis.key] || 0)
         const lp = labelPos[axis.key]
         return (
           <text

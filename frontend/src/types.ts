@@ -22,24 +22,24 @@ export interface CatalogItem {
   last_synced: string
   added_at?: string
   evaluation?: {
-    evaluated_at: string
-    evaluator: string
     coding_relevance: number
-    content_quality: number
+    doc_completeness: number
+    desc_accuracy: number
+    writing_quality: number
     specificity: number
-    source_trust: number
-    confidence: number
-    reason: string
+    install_clarity: number
     final_score: number
     decision: string
+    model_id?: string
+    rubric_version?: string
+    evaluated_at?: string
   }
   health?: {
     score: number
     signals: {
-      popularity: number
       freshness: number
-      quality: number
-      installability: number
+      popularity: number
+      source_trust: number
     }
     freshness_label: string
     last_commit?: string

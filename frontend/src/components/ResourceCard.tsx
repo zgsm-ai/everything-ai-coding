@@ -80,7 +80,7 @@ export default function ResourceCard({ item, compact, highlight }: Props) {
           <div className="score-bar flex-1">
             <div className="score-bar-fill" style={{ width: `${item.final_score}%` }} />
           </div>
-          <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">{item.final_score}</span>
+          <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">{Math.round(item.final_score)}</span>
         </div>
       )}
 

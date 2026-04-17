@@ -78,18 +78,14 @@ const translations: Record<string, Record<Lang, string>> = {
   // Health radar chart labels
   'health.popularity': { en: 'Popularity', zh: '流行度' },
   'health.freshness': { en: 'Freshness', zh: '活跃度' },
-  'health.quality': { en: 'Quality', zh: '质量' },
-  'health.installability': { en: 'Installability', zh: '可安装性' },
+  'health.source_trust': { en: 'Source Trust', zh: '来源可信度' },
   // Evaluation dimension labels
   'eval.coding_relevance': { en: 'Coding Relevance', zh: '编程相关性' },
   'eval.doc_completeness': { en: 'Doc Completeness', zh: '文档完整度' },
   'eval.desc_accuracy': { en: 'Description Accuracy', zh: '描述准确性' },
   'eval.writing_quality': { en: 'Writing Quality', zh: '写作质量' },
-  'eval.content_quality': { en: 'Content Quality', zh: '内容质量' },
   'eval.specificity': { en: 'Specificity', zh: '专业度' },
   'eval.install_clarity': { en: 'Install Clarity', zh: '安装清晰度' },
-  'eval.source_trust': { en: 'Source Trust', zh: '来源可信度' },
-  'eval.confidence': { en: 'Confidence', zh: '置信度' },
   'eval.evaluator': { en: 'Evaluator', zh: '评估模型' },
   // Category labels
   'cat.tooling': { en: 'Tooling', zh: '工具' },
