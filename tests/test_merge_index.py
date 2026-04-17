@@ -337,8 +337,18 @@ class TestSearchIndex(unittest.TestCase):
             "id", "name", "type", "category", "tags", "tech_stack",
             "stars", "description", "description_zh", "source_url",
             "install_method", "final_score", "decision", "search_text",
+            "freshness_label",
         }
         self.assertEqual(set(result[0].keys()), expected_fields)
+
+    def test_search_index_carries_freshness_label(self):
+        entry = _make_entry("a", source_url="https://github.com/t/a")
+        entry["freshness_label"] = "active"
+        self._write_index("mcp", [entry])
+        self._run_merge()
+        result = self._read_search_index()
+        row = next(r for r in result if r["id"] == "a")
+        self.assertEqual(row["freshness_label"], "active")
 
     def test_search_index_excludes_heavy_fields(self):
         entry = _make_entry("a", source_url="https://github.com/t/a")

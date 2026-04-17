@@ -75,6 +75,80 @@ class ApplyGovernanceTests(unittest.TestCase):
         self.assertIn("new", ids)  # unevaluated → review → kept
         self.assertNotIn("bad", ids)  # reject → filtered
 
+    def test_weak_dims_single_dim(self):
+        entries = [
+            {
+                "id": "e1",
+                "type": "mcp",
+                "evaluation": {
+                    "coding_relevance": 5,
+                    "doc_completeness": 5,
+                    "desc_accuracy": 5,
+                    "writing_quality": 5,
+                    "specificity": 5,
+                    "install_clarity": 2,
+                    "final_score": 70,
+                    "decision": "accept",
+                },
+            },
+        ]
+        result = scoring_governor.apply_governance(entries)
+        self.assertEqual(result[0]["weak_dims"], ["install_clarity"])
+
+    def test_weak_dims_multiple_in_canonical_order(self):
+        """weak_dims must follow LLM_DIMENSION_ORDER, not dict insertion order."""
+        # Insert keys in scrambled order to prove ordering comes from governor.
+        ev = {}
+        ev["install_clarity"] = 1
+        ev["specificity"] = 5
+        ev["writing_quality"] = 5
+        ev["desc_accuracy"] = 5
+        ev["doc_completeness"] = 5
+        ev["coding_relevance"] = 2
+        ev["final_score"] = 50
+        ev["decision"] = "review"
+        entries = [{"id": "e1", "type": "mcp", "evaluation": ev}]
+        result = scoring_governor.apply_governance(entries)
+        self.assertEqual(
+            result[0]["weak_dims"], ["coding_relevance", "install_clarity"]
+        )
+
+    def test_weak_dims_unevaluated(self):
+        entries = [{"id": "e1", "type": "mcp"}]
+        result = scoring_governor.apply_governance(entries)
+        self.assertEqual(result[0]["weak_dims"], [])
+
+    def test_weak_dims_partial_eval_without_final_score(self):
+        """Partial evaluation (dims present, no final_score) → treated as unevaluated."""
+        entries = [
+            {
+                "id": "e1",
+                "type": "mcp",
+                "evaluation": {
+                    "install_clarity": 2,
+                    "coding_relevance": 5,
+                },
+            },
+        ]
+        result = scoring_governor.apply_governance(entries)
+        self.assertEqual(result[0]["weak_dims"], [])
+
+    def test_freshness_label_denormalized(self):
+        entries = [
+            {
+                "id": "e1",
+                "type": "mcp",
+                "health": {"freshness_label": "active", "score": 90},
+            },
+        ]
+        result = scoring_governor.apply_governance(entries)
+        self.assertEqual(result[0]["freshness_label"], "active")
+
+    def test_freshness_label_absent_when_no_health(self):
+        entries = [{"id": "e1", "type": "mcp"}]
+        result = scoring_governor.apply_governance(entries)
+        self.assertNotIn("freshness_label", result[0])
+
 
 if __name__ == "__main__":
     unittest.main()
