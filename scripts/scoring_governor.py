@@ -12,6 +12,15 @@ from typing import Any
 
 logger = logging.getLogger(__name__)
 
+LLM_DIMENSION_ORDER = (
+    "coding_relevance",
+    "doc_completeness",
+    "desc_accuracy",
+    "writing_quality",
+    "specificity",
+    "install_clarity",
+)
+
 
 def apply_governance(entries: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Verify eval fields, default unevaluated entries, filter rejects."""
@@ -19,8 +28,9 @@ def apply_governance(entries: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
     for entry in entries:
         ev = entry.get("evaluation", {})
+        was_evaluated = ev.get("final_score") is not None
 
-        if ev.get("final_score") is not None:
+        if was_evaluated:
             # Harness evaluated — passthrough
             entry["final_score"] = ev["final_score"]
             entry["decision"] = ev.get("decision", "review")
@@ -31,6 +41,18 @@ def apply_governance(entries: list[dict[str, Any]]) -> list[dict[str, Any]]:
             ev["final_score"] = 0
             ev["decision"] = "review"
             entry["evaluation"] = ev
+
+        weak_dims: list[str] = []
+        if was_evaluated:
+            for name in LLM_DIMENSION_ORDER:
+                score = ev.get(name)
+                if isinstance(score, (int, float)) and score < 3:
+                    weak_dims.append(name)
+        entry["weak_dims"] = weak_dims
+
+        health = entry.get("health") or {}
+        if isinstance(health, dict) and "freshness_label" in health:
+            entry["freshness_label"] = health["freshness_label"]
 
     # Filter rejects
     result = []

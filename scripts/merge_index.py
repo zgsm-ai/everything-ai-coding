@@ -310,7 +310,7 @@ def merge():
     SEARCH_INDEX_FIELDS = (
         "id", "name", "type", "category", "tags", "tech_stack",
         "stars", "description", "description_zh", "source_url",
-        "final_score", "decision",
+        "final_score", "decision", "freshness_label",
     )
     search_entries = []
     for entry in deduped:
