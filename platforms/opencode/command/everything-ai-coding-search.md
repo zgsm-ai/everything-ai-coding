@@ -78,15 +78,15 @@ Extract the search query and optional type filter from $ARGUMENTS, then run Bash
 8. Format results as "Top Candidates + Other Matches" two-tier output (not a flat single table)
    - For broad-intent queries, top candidates should focus on one primary direction; avoid mixing too many adjacent categories on the first screen
    - **Rationale**: for each Top Candidate, derive the rationale from `highlights[0:2]` joined with `"; "`. If `highlights` is empty/missing, fall back to `description` (or `description_zh` in Chinese mode).
-   - **Weak-dimension warnings**: when a Top Candidate has a non-empty `weak_dims` array, append one `⚠️` line per weak dimension using the active-language label. Bilingual label map:
+   - **Weak-dimension warnings**: when a Top Candidate has a non-empty `weak_dims` array, append one `⚠️` line per weak dimension. Each line describes WHERE the candidate scored low during LLM evaluation — it's a heads-up, not a deal-breaker. Do NOT leak the raw field name `weak_dims` or the rubric key (e.g. `install_clarity`) in output; use only the active-language label from the map below.
 
      ```
-     coding_relevance → 编码相关度 / coding relevance
-     doc_completeness → 文档完整度 / doc completeness
-     desc_accuracy    → 描述准确度 / description accuracy
-     writing_quality  → 文档写作质量 / writing quality
-     specificity      → 针对性 / specificity
-     install_clarity  → 安装步骤清晰度 / install clarity
+     coding_relevance → 编码相关度偏弱（与编码任务的直接关联较低） / coding relevance is weak (loosely tied to coding tasks)
+     doc_completeness → 文档不完整（README 覆盖不全） / documentation is incomplete (README is sparse)
+     desc_accuracy    → 描述与实际能力有出入 / description diverges from actual capability
+     writing_quality  → 文档写作质量一般（表达不够清晰） / writing quality is weak (unclear phrasing)
+     specificity      → 针对性不足（场景过于笼统） / specificity is low (scope too generic)
+     install_clarity  → 安装/接入步骤不够清晰 / install steps are unclear
      ```
 
      Unknown-dimension fallback: if `weak_dims` contains a name not in the map (e.g. future rubric version), render the raw dimension name as the label — do not error or drop it.
@@ -103,11 +103,11 @@ Line: "Search terms: original={original} | compressed={compressed} | alternative
 
 Section: "Top Candidates"
   (Only show gate-verified results. If none pass the gate, show: "No high-confidence candidates yet")
-  Per item:
+  Per item (use these exact labels — natural translations into the active language, NOT literal word-for-word):
     - ID (Type / Category)
-    - Why worth checking: relevance to user's query
-    - Basis: brief understandable basis from source/quality/install feasibility
-    - Next step: `/everything-ai-coding-install <id>`
+    - English "Why it fits" / Chinese "推荐理由": relevance to user's query
+    - English "Scoring basis" / Chinese "评分依据": brief understandable basis from source/quality/install feasibility
+    - English "Install command" / Chinese "安装命令": `/everything-ai-coding-install <id>`
 
 Section: "Other Matches" (table)
   Columns: # | ID | Type | Category | Stars | Install Method | Description

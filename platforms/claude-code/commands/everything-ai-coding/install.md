@@ -20,6 +20,19 @@ Once determined, apply consistently:
 - **All output** (confirmation dialogs, status messages, error messages) MUST be in the detected language.
 - Command references and file paths stay as-is regardless of language.
 
+## Prompt Rendering Rule
+
+Whenever a prompt asks the user to pick an option with letters (Y / n / edit / global / …), ALWAYS render each option with an explicit label describing what it does — never leave bare letters in Chinese output, as the letter alone is ambiguous. Use these bilingual templates:
+
+| Pattern | English | Chinese |
+|---------|---------|---------|
+| `Y/n` (simple confirm) | `(Y = yes / n = no, skip)` | `（Y = 是，继续 / n = 否，跳过）` |
+| `Y/n` (keep-original preferred) | `(Y = customize it / n = keep original (recommended))` | `（Y = 开始定制 / n = 保持原样（默认推荐））` |
+| `Y/n/edit` (apply/adjust/reject) | `(Y = apply as shown / n = discard, keep original / edit = tell me what to tweak)` | `（Y = 应用改动 / n = 放弃，保留原样 / edit = 告诉我怎么改）` |
+| `Y/n/global` (install scope) | `(Y = install to current project / n = cancel / global = install to ~/.claude)` | `（Y = 装到当前项目 / n = 取消 / global = 装到全局 ~/.claude）` |
+
+Every prompt line in this document that shows bare `(Y/n)` / `(Y/n/edit)` / `(Y/n/global)` MUST be expanded to the corresponding labeled form at render time.
+
 ## Data Sources
 
 **Note**: Apply GitHub Network Detection rules (see SKILL.md) to all GitHub URLs below. If `[network-config]` specifies a proxy, rewrite URLs accordingly.
