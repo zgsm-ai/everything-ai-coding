@@ -38,13 +38,15 @@ Everything AI Coding is a **curated knowledge base** that continuously collects,
 
 Model Context Protocol servers that connect AI agents to external tools, databases, and services.
 
+<!-- README_TOP5_MCP:START -->
 | Name | ⭐ Stars | Score | Description |
 |------|----------|-------|-------------|
-| [server-filesystem](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) | 83.6k | 93 | Official reference — local filesystem access |
-| [playwright-mcp](https://github.com/microsoft/playwright-mcp) | 30.5k | 82 | Browser automation and testing by Microsoft |
-| [github-mcp-server](https://github.com/github/github-mcp-server) | 28.7k | 88 | Deep GitHub API integration for workflows |
-| [pydantic-ai/mcp-run-python](https://github.com/pydantic/pydantic-ai/tree/main/mcp-run-python) | 16.3k | 97 | Run Python in a secure sandbox |
-| [FastAPI-MCP](https://github.com/tadata-org/fastapi_mcp) | 11.7k | 82 | Expose FastAPI endpoints as MCP tools |
+| [MCP Inspector](https://github.com/modelcontextprotocol/inspector) | 9.2k | 99 | A developer tool for visually testing and debugging Model Context Pro… |
+| [Desktop Commander MCP](https://github.com/wonderwhy-er/DesktopCommanderMCP) | 5.8k | 99 | MCP server enabling AI assistants to control terminals, edit files, a… |
+| [XcodeBuildMCP](https://github.com/cameroncooke/XcodeBuildMCP) | 4.9k | 98 | MCP server and CLI providing Xcode build, test, and debug tools for A… |
+| [AWS MCP Servers](https://github.com/awslabs/mcp) | 8.6k | 98 | A comprehensive suite of open-source MCP servers providing AI assista… |
+| [Context 7](https://github.com/upstash/context7-mcp) | 52.9k | 98 | MCP server that fetches up-to-date library documentation and code exa… |
+<!-- README_TOP5_MCP:END -->
 
 [Browse all MCP servers →](./catalog/mcp/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=mcp)
 
@@ -54,13 +56,15 @@ Model Context Protocol servers that connect AI agents to external tools, databas
 
 Reusable agent capabilities and workflows for AI coding assistants.
 
+<!-- README_TOP5_SKILL:START -->
 | Name | Source | Score | Description |
 |------|--------|-------|-------------|
-| [claude-api](https://github.com/anthropics/skills/tree/main/skills/claude-api) | Anthropic Official | 96 | Build and debug Claude API / Anthropic SDK apps |
-| [mcp-builder](https://github.com/anthropics/skills/tree/main/skills/mcp-builder) | Anthropic Official | 96 | Guide for creating high-quality MCP servers |
-| [webapp-testing](https://github.com/anthropics/skills/tree/main/skills/webapp-testing) | Anthropic Official | 96 | Test local web apps with Playwright |
-| [acceptance-orchestrator](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/acceptance-orchestrator) | Antigravity Skills | 92 | End-to-end from requirements to deploy verification |
-| [agentic-actions-auditor](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agentic-actions-auditor) | Antigravity Skills | 92 | Audit GitHub Actions for AI agent security |
+| [MCP Integration](https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev/skills/mcp-integration) | Anthropic Official | 97 | Guide for integrating Model Context Protocol (MCP) servers into Claud… |
+| [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) | Anthropic Official | 96 | An AI skill for creating, testing, and optimizing other AI skills thr… |
+| [slack-gif-creator](https://github.com/anthropics/skills/tree/main/skills/slack-gif-creator) | Anthropic Official | 96 | A Python toolkit for creating and optimizing animated GIFs specifical… |
+| [xlsx](https://github.com/anthropics/skills/tree/main/skills/xlsx) | Anthropic Official | 96 | An AI skill for creating, editing, and analyzing spreadsheet files (E… |
+| [agent-framework-azure-ai-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agent-framework-azure-ai-py) | Antigravity Skills | 95 | Python SDK for building persistent AI agents on Azure AI Foundry with… |
+<!-- README_TOP5_SKILL:END -->
 
 [Browse all skills →](./catalog/skills/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
@@ -70,13 +74,15 @@ Reusable agent capabilities and workflows for AI coding assistants.
 
 Coding conventions and AI behavior guidelines for consistent development.
 
+<!-- README_TOP5_RULE:START -->
 | Name | Source | Score | Category |
 |------|--------|-------|----------|
-| [Security Audit Rules](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | Curated | 94 | security |
-| [Flutter & Dart Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/flutter-dart) | CursorRules | 90 | mobile |
-| [Supabase Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/supabase) | CursorRules | 90 | database |
-| [Disaster Recovery Plan](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Rules 2.1 | 88 | tooling |
-| [Performance Monitoring System](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Rules 2.1 | 88 | devops |
+| [Backend Rules (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/global-rules/backend-rules.mdc) | Rules 2.1 | 89 | ai-ml |
+| [Feedback Enhanced (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/project-rules/feedback-enhanced.mdc) | Rules 2.1 | 88 | tooling |
+| [Bug Fix (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/project-rules/bug-fix.mdc) | Rules 2.1 | 86 | tooling |
+| [Mcp Intelligent Strategy (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/project-rules/mcp-intelligent-strategy.mdc) | Rules 2.1 | 86 | tooling |
+| [File Generation Safety Rules (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/global-rules/file-generation-safety-rules.mdc) | Rules 2.1 | 86 | ai-ml |
+<!-- README_TOP5_RULE:END -->
 
 [Browse all rules →](./catalog/rules/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=rule)
 
@@ -86,13 +92,15 @@ Coding conventions and AI behavior guidelines for consistent development.
 
 Developer-focused prompt templates for common coding tasks.
 
+<!-- README_TOP5_PROMPT:START -->
 | Name | Source | Score | Category |
 |------|--------|-------|----------|
-| [Linux Script Developer](https://github.com/f/prompts.chat) | prompts.chat | 91 | documentation |
-| [AI2sql SQL Model — Query Generator](https://github.com/f/prompts.chat) | prompts.chat | 91 | database |
-| [Django Unit Test Generator](https://github.com/f/prompts.chat) | prompts.chat | 91 | backend |
-| [Repository Analysis & Bug Fixing](https://github.com/f/prompts.chat) | prompts.chat | 91 | security |
-| [Ultrathinker](https://github.com/f/prompts.chat) | prompts.chat | 91 | backend |
+| [Comprehensive repository analysis](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#comprehensive-repository-analysis) | prompts.chat | 96 | security |
+| [Rapid Prototyper](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#rapid-prototyper) | prompts.chat | 96 | backend |
+| [Multiplayer 3D Plane Game](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#multiplayer-3d-plane-game) | prompts.chat | 92 | frontend |
+| [Todo List](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#todo-list) | prompts.chat | 92 | frontend |
+| [Django Unit Test Generator for Viewsets](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#django-unit-test-generator-for-viewsets) | prompts.chat | 92 | backend |
+<!-- README_TOP5_PROMPT:END -->
 
 [Browse all prompts →](./catalog/prompts/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=prompt)
 

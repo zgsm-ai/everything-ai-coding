@@ -38,13 +38,15 @@ Everything AI Coding 是一个**持续更新的知识库**，从 9+ 个上游源
 
 将 AI Agent 连接到外部工具、数据库和服务的 Model Context Protocol 服务器。
 
+<!-- README_TOP5_MCP:START -->
 | 名称 | ⭐ Stars | 评分 | 描述 |
 |------|----------|------|------|
-| [server-filesystem](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) | 83.6k | 93 | 官方参考实现 — 本地文件系统访问 |
-| [playwright-mcp](https://github.com/microsoft/playwright-mcp) | 30.5k | 82 | 微软出品的浏览器自动化与测试 |
-| [github-mcp-server](https://github.com/github/github-mcp-server) | 28.7k | 88 | 深度 GitHub API 集成 |
-| [pydantic-ai/mcp-run-python](https://github.com/pydantic/pydantic-ai/tree/main/mcp-run-python) | 16.3k | 97 | 在安全沙箱中运行 Python |
-| [FastAPI-MCP](https://github.com/tadata-org/fastapi_mcp) | 11.7k | 82 | 将 FastAPI 端点暴露为 MCP 工具 |
+| [MCP Inspector](https://github.com/modelcontextprotocol/inspector) | 9.2k | 99 | 用于可视化测试和调试 MCP 服务器的开发者工具，支持 UI 和 CLI 界面。 |
+| [Desktop Commander MCP](https://github.com/wonderwhy-er/DesktopCommanderMCP) | 5.8k | 99 | MCP 服务器，让 AI 助手控制终端、编辑文件并在本地执行代码。 |
+| [XcodeBuildMCP](https://github.com/cameroncooke/XcodeBuildMCP) | 4.9k | 98 | 为 AI 编程助手提供 Xcode 构建、测试和调试工具的 MCP 服务器和 CLI。 |
+| [AWS MCP Servers](https://github.com/awslabs/mcp) | 8.6k | 98 | 一套开源的 MCP 服务器，为 AI 助手提供 AWS 文档、API 和基础设施管理工具的访问能力。 |
+| [Context 7](https://github.com/upstash/context7-mcp) | 52.9k | 98 | 为AI编程助手提供最新库文档和代码示例的MCP服务器。 |
+<!-- README_TOP5_MCP:END -->
 
 [浏览全部 MCP 服务器 →](./catalog/mcp/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=mcp)
 
@@ -54,13 +56,15 @@ Everything AI Coding 是一个**持续更新的知识库**，从 9+ 个上游源
 
 AI 编程助手的可复用能力和工作流。
 
+<!-- README_TOP5_SKILL:START -->
 | 名称 | 来源 | 评分 | 描述 |
 |------|------|------|------|
-| [claude-api](https://github.com/anthropics/skills/tree/main/skills/claude-api) | Anthropic 官方 | 96 | 构建和调试 Claude API / Anthropic SDK 应用 |
-| [mcp-builder](https://github.com/anthropics/skills/tree/main/skills/mcp-builder) | Anthropic 官方 | 96 | 创建高质量 MCP 服务器的开发指南 |
-| [webapp-testing](https://github.com/anthropics/skills/tree/main/skills/webapp-testing) | Anthropic 官方 | 96 | 使用 Playwright 测试本地 Web 应用 |
-| [acceptance-orchestrator](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/acceptance-orchestrator) | Antigravity Skills | 92 | 端到端驱动：从需求到部署验证 |
-| [agentic-actions-auditor](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agentic-actions-auditor) | Antigravity Skills | 92 | 审计 GitHub Actions 中的 AI Agent 安全 |
+| [MCP Integration](https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev/skills/mcp-integration) | Anthropic 官方 | 97 | Claude Code 插件集成 Model Context Protocol (MCP) 服务器的指南，用于连接外部服务和 API。 |
+| [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) | Anthropic 官方 | 96 | 用于创建、测试和优化AI技能的元技能，支持迭代开发和评估工作流。 |
+| [slack-gif-creator](https://github.com/anthropics/skills/tree/main/skills/slack-gif-creator) | Anthropic 官方 | 96 | 用于创建和优化 Slack 动画 GIF 的 Python 工具包，包含验证、动画和优化工具。 |
+| [xlsx](https://github.com/anthropics/skills/tree/main/skills/xlsx) | Anthropic 官方 | 96 | 用于通过Python库创建、编辑和分析电子表格文件的AI技能。 |
+| [agent-framework-azure-ai-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agent-framework-azure-ai-py) | Antigravity Skills | 95 | 用于在 Azure AI Foundry 上构建持久 AI 代理的 Python SDK，支持托管工具和对话线程。 |
+<!-- README_TOP5_SKILL:END -->
 
 [浏览全部 Skills →](./catalog/skills/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
@@ -70,13 +74,15 @@ AI 编程助手的可复用能力和工作流。
 
 编码规范和 AI 行为准则，确保开发一致性。
 
+<!-- README_TOP5_RULE:START -->
 | 名称 | 来源 | 评分 | 分类 |
 |------|------|------|------|
-| [Security Audit Rules](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/project-rules) | 手工精选 | 94 | security |
-| [Flutter & Dart Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/flutter-dart) | CursorRules | 90 | mobile |
-| [Supabase Rules](https://github.com/PatrickJS/awesome-cursorrules/tree/main/rules/supabase) | CursorRules | 90 | database |
-| [Disaster Recovery Plan](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Rules 2.1 | 88 | tooling |
-| [Performance Monitoring System](https://github.com/Mr-chen-05/rules-2.1-optimized/tree/master/global-rules) | Rules 2.1 | 88 | devops |
+| [Backend Rules (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/global-rules/backend-rules.mdc) | Rules 2.1 | 89 | ai-ml |
+| [Feedback Enhanced (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/project-rules/feedback-enhanced.mdc) | Rules 2.1 | 88 | tooling |
+| [Bug Fix (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/project-rules/bug-fix.mdc) | Rules 2.1 | 86 | tooling |
+| [Mcp Intelligent Strategy (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/project-rules/mcp-intelligent-strategy.mdc) | Rules 2.1 | 86 | tooling |
+| [File Generation Safety Rules (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/global-rules/file-generation-safety-rules.mdc) | Rules 2.1 | 86 | ai-ml |
+<!-- README_TOP5_RULE:END -->
 
 [浏览全部 Rules →](./catalog/rules/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=rule)
 
@@ -86,13 +92,15 @@ AI 编程助手的可复用能力和工作流。
 
 面向开发者的提示词模板，覆盖常见编码场景。
 
+<!-- README_TOP5_PROMPT:START -->
 | 名称 | 来源 | 评分 | 分类 |
 |------|------|------|------|
-| [Linux Script Developer](https://github.com/f/prompts.chat) | prompts.chat | 91 | documentation |
-| [AI2sql SQL Model — Query Generator](https://github.com/f/prompts.chat) | prompts.chat | 91 | database |
-| [Django Unit Test Generator](https://github.com/f/prompts.chat) | prompts.chat | 91 | backend |
-| [Repository Analysis & Bug Fixing](https://github.com/f/prompts.chat) | prompts.chat | 91 | security |
-| [Ultrathinker](https://github.com/f/prompts.chat) | prompts.chat | 91 | backend |
+| [Comprehensive repository analysis](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#comprehensive-repository-analysis) | prompts.chat | 96 | security |
+| [Rapid Prototyper](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#rapid-prototyper) | prompts.chat | 96 | backend |
+| [Multiplayer 3D Plane Game](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#multiplayer-3d-plane-game) | prompts.chat | 92 | frontend |
+| [Todo List](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#todo-list) | prompts.chat | 92 | frontend |
+| [Django Unit Test Generator for Viewsets](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#django-unit-test-generator-for-viewsets) | prompts.chat | 92 | backend |
+<!-- README_TOP5_PROMPT:END -->
 
 [浏览全部 Prompts →](./catalog/prompts/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=prompt)
 
