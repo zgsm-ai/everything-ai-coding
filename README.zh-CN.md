@@ -6,7 +6,7 @@
   <a href="https://github.com/zgsm-ai/everything-ai-coding/stargazers"><img src="https://img.shields.io/github/stars/zgsm-ai/everything-ai-coding?style=flat-square&color=4A90D9" alt="Stars" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zgsm-ai/everything-ai-coding?style=flat-square" alt="License" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/commits/main"><img src="https://img.shields.io/github/last-commit/zgsm-ai/everything-ai-coding?style=flat-square" alt="Last Commit" /></a>
-  <img src="https://img.shields.io/badge/resources-4055-2ECC71?style=flat-square" alt="Resources" />
+  <img src="https://img.shields.io/badge/resources-4077-2ECC71?style=flat-square" alt="Resources" />
 </p>
 
 <p>
@@ -34,7 +34,7 @@ Everything AI Coding 是一个**持续更新的知识库**，从 9+ 个上游源
 <a id="knowledge-base"></a>
 ## 📚 知识库
 
-### [🔌 MCP 服务器](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->1627<!-- README_COUNT_MCP:END --> 个条目
+### [🔌 MCP 服务器](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->1628<!-- README_COUNT_MCP:END --> 个条目
 
 将 AI Agent 连接到外部工具、数据库和服务的 Model Context Protocol 服务器。
 
@@ -43,16 +43,16 @@ Everything AI Coding 是一个**持续更新的知识库**，从 9+ 个上游源
 |------|----------|------|------|
 | [MCP Inspector](https://github.com/modelcontextprotocol/inspector) | 9.2k | 99 | 用于可视化测试和调试 MCP 服务器的开发者工具，支持 UI 和 CLI 界面。 |
 | [Desktop Commander MCP](https://github.com/wonderwhy-er/DesktopCommanderMCP) | 5.8k | 99 | MCP 服务器，让 AI 助手控制终端、编辑文件并在本地执行代码。 |
-| [XcodeBuildMCP](https://github.com/cameroncooke/XcodeBuildMCP) | 4.9k | 98 | 为 AI 编程助手提供 Xcode 构建、测试和调试工具的 MCP 服务器和 CLI。 |
-| [AWS MCP Servers](https://github.com/awslabs/mcp) | 8.6k | 98 | 一套开源的 MCP 服务器，为 AI 助手提供 AWS 文档、API 和基础设施管理工具的访问能力。 |
-| [Context 7](https://github.com/upstash/context7-mcp) | 52.9k | 98 | 为AI编程助手提供最新库文档和代码示例的MCP服务器。 |
+| [Context 7](https://github.com/upstash/context7-mcp) | 53.2k | 98 | 为AI编程助手提供最新库文档和代码示例的MCP服务器。 |
+| [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | 31.1k | 98 | 基于 Playwright 的 MCP 服务器，让 AI 通过可访问性树自动化控制浏览器。 |
+| [github/github-mcp-server](https://github.com/github/github-mcp-server) | 29.1k | 98 | 官方 GitHub MCP 服务器，连接 AI 代理与 GitHub，实现仓库管理、代码分析和工作流自动化。 |
 <!-- README_TOP5_MCP:END -->
 
 [浏览全部 MCP 服务器 →](./catalog/mcp/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=mcp)
 
 ---
 
-### [🎯 Skills 技能](./catalog/skills/) — <!-- README_COUNT_SKILL:START -->1653<!-- README_COUNT_SKILL:END --> 个条目
+### [🎯 Skills 技能](./catalog/skills/) — <!-- README_COUNT_SKILL:START -->1671<!-- README_COUNT_SKILL:END --> 个条目
 
 AI 编程助手的可复用能力和工作流。
 
@@ -63,7 +63,7 @@ AI 编程助手的可复用能力和工作流。
 | [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) | Anthropic 官方 | 96 | 用于创建、测试和优化AI技能的元技能，支持迭代开发和评估工作流。 |
 | [slack-gif-creator](https://github.com/anthropics/skills/tree/main/skills/slack-gif-creator) | Anthropic 官方 | 96 | 用于创建和优化 Slack 动画 GIF 的 Python 工具包，包含验证、动画和优化工具。 |
 | [xlsx](https://github.com/anthropics/skills/tree/main/skills/xlsx) | Anthropic 官方 | 96 | 用于通过Python库创建、编辑和分析电子表格文件的AI技能。 |
-| [agent-framework-azure-ai-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agent-framework-azure-ai-py) | Antigravity Skills | 95 | 用于在 Azure AI Foundry 上构建持久 AI 代理的 Python SDK，支持托管工具和对话线程。 |
+| [ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/.claude/skills/ui-ux-pro-max) | nextlevelbuilder/ui-ux-pro-max-skill | 95 | 提供 UI/UX 设计智能、指南和 CLI 工具，用于跨多框架生成设计系统和代码最佳实践。 |
 <!-- README_TOP5_SKILL:END -->
 
 [浏览全部 Skills →](./catalog/skills/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
@@ -88,7 +88,7 @@ AI 编程助手的可复用能力和工作流。
 
 ---
 
-### [💡 Prompts 提示词](./catalog/prompts/) — <!-- README_COUNT_PROMPT:START -->539<!-- README_COUNT_PROMPT:END --> 个条目
+### [💡 Prompts 提示词](./catalog/prompts/) — <!-- README_COUNT_PROMPT:START -->542<!-- README_COUNT_PROMPT:END --> 个条目
 
 面向开发者的提示词模板，覆盖常见编码场景。
 

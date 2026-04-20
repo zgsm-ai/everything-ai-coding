@@ -6,7 +6,7 @@
   <a href="https://github.com/zgsm-ai/everything-ai-coding/stargazers"><img src="https://img.shields.io/github/stars/zgsm-ai/everything-ai-coding?style=flat-square&color=4A90D9" alt="Stars" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zgsm-ai/everything-ai-coding?style=flat-square" alt="License" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/commits/main"><img src="https://img.shields.io/github/last-commit/zgsm-ai/everything-ai-coding?style=flat-square" alt="Last Commit" /></a>
-  <img src="https://img.shields.io/badge/resources-4055-2ECC71?style=flat-square" alt="Resources" />
+  <img src="https://img.shields.io/badge/resources-4077-2ECC71?style=flat-square" alt="Resources" />
 </p>
 
 <p>
@@ -34,7 +34,7 @@ Everything AI Coding is a **curated knowledge base** that continuously collects,
 <a id="knowledge-base"></a>
 ## 📚 Knowledge Base
 
-### [🔌 MCP Servers](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->1627<!-- README_COUNT_MCP:END --> entries
+### [🔌 MCP Servers](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->1628<!-- README_COUNT_MCP:END --> entries
 
 Model Context Protocol servers that connect AI agents to external tools, databases, and services.
 
@@ -43,16 +43,16 @@ Model Context Protocol servers that connect AI agents to external tools, databas
 |------|----------|-------|-------------|
 | [MCP Inspector](https://github.com/modelcontextprotocol/inspector) | 9.2k | 99 | A developer tool for visually testing and debugging Model Context Pro… |
 | [Desktop Commander MCP](https://github.com/wonderwhy-er/DesktopCommanderMCP) | 5.8k | 99 | MCP server enabling AI assistants to control terminals, edit files, a… |
-| [XcodeBuildMCP](https://github.com/cameroncooke/XcodeBuildMCP) | 4.9k | 98 | MCP server and CLI providing Xcode build, test, and debug tools for A… |
-| [AWS MCP Servers](https://github.com/awslabs/mcp) | 8.6k | 98 | A comprehensive suite of open-source MCP servers providing AI assista… |
-| [Context 7](https://github.com/upstash/context7-mcp) | 52.9k | 98 | MCP server that fetches up-to-date library documentation and code exa… |
+| [Context 7](https://github.com/upstash/context7-mcp) | 53.2k | 98 | MCP server that fetches up-to-date library documentation and code exa… |
+| [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | 31.1k | 98 | An MCP server that enables AI agents to automate web browsers using P… |
+| [github/github-mcp-server](https://github.com/github/github-mcp-server) | 29.1k | 98 | An official MCP server that connects AI agents to GitHub for reposito… |
 <!-- README_TOP5_MCP:END -->
 
 [Browse all MCP servers →](./catalog/mcp/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=mcp)
 
 ---
 
-### [🎯 Skills](./catalog/skills/) — <!-- README_COUNT_SKILL:START -->1653<!-- README_COUNT_SKILL:END --> entries
+### [🎯 Skills](./catalog/skills/) — <!-- README_COUNT_SKILL:START -->1671<!-- README_COUNT_SKILL:END --> entries
 
 Reusable agent capabilities and workflows for AI coding assistants.
 
@@ -63,7 +63,7 @@ Reusable agent capabilities and workflows for AI coding assistants.
 | [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) | Anthropic Official | 96 | An AI skill for creating, testing, and optimizing other AI skills thr… |
 | [slack-gif-creator](https://github.com/anthropics/skills/tree/main/skills/slack-gif-creator) | Anthropic Official | 96 | A Python toolkit for creating and optimizing animated GIFs specifical… |
 | [xlsx](https://github.com/anthropics/skills/tree/main/skills/xlsx) | Anthropic Official | 96 | An AI skill for creating, editing, and analyzing spreadsheet files (E… |
-| [agent-framework-azure-ai-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agent-framework-azure-ai-py) | Antigravity Skills | 95 | Python SDK for building persistent AI agents on Azure AI Foundry with… |
+| [ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/.claude/skills/ui-ux-pro-max) | nextlevelbuilder/ui-ux-pro-max-skill | 95 | A comprehensive AI skill providing UI/UX design intelligence, guideli… |
 <!-- README_TOP5_SKILL:END -->
 
 [Browse all skills →](./catalog/skills/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
@@ -88,7 +88,7 @@ Coding conventions and AI behavior guidelines for consistent development.
 
 ---
 
-### [💡 Prompts](./catalog/prompts/) — <!-- README_COUNT_PROMPT:START -->539<!-- README_COUNT_PROMPT:END --> entries
+### [💡 Prompts](./catalog/prompts/) — <!-- README_COUNT_PROMPT:START -->542<!-- README_COUNT_PROMPT:END --> entries
 
 Developer-focused prompt templates for common coding tasks.
 
