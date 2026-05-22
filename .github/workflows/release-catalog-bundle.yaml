@@ -1,0 +1,200 @@
+name: Release Catalog Bundle
+
+# Builds dist/catalog-bundle.tar.gz from the current catalog/ + catalog-download/
+# trees and publishes it as a GitHub Release asset for downstream consumers
+# (e.g. costrict-web's CatalogIngestService).
+#
+# The bundle format is documented in scripts/build_catalog_bundle.md.
+# Consumers pull a single tar.gz instead of cloning the whole repo.
+#
+# Triggers
+# --------
+# - push tag matching `catalog-bundle-v*`  → tag is the release name, the
+#   download URL is stable and shareable. This is the canonical path.
+# - workflow_dispatch                       → for ad-hoc rebuilds when no tag
+#   is desired (e.g. validating a CI change). Creates a release tagged
+#   `catalog-bundle-manual-<short-sha>` so it doesn't collide with the
+#   canonical series.
+#
+# Notes
+# -----
+# - We run BOTH download_catalog.py and build_catalog_bundle.py here, so the
+#   release artifact always reflects "what the source listings looked like
+#   at this moment" rather than whatever stale catalog-download/ might be in
+#   a developer's working tree. This matters because catalog-download/ is
+#   gitignored.
+# - download_catalog.py's reconciliation step rewrites catalog/index.json on
+#   the runner — that change does NOT get committed back. It's a derived
+#   artifact, only the bundle is published.
+
+on:
+  push:
+    tags:
+      - 'catalog-bundle-v*'
+  workflow_dispatch:
+    inputs:
+      services_to_download:
+        description: "Comma-list passed to download_catalog.py --types. Default: all"
+        required: false
+        default: "skills,mcp,rules,prompts,plugins"
+      notes_extra:
+        description: "Extra notes appended to the GitHub Release body"
+        required: false
+        default: ""
+
+permissions:
+  contents: write   # required for `gh release create`
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests pyyaml
+
+      # Cache download_catalog.py's transient state files so we don't re-hit
+      # GitHub raw / mcp.so / mastra for every entry on every release run.
+      # Keyed by ISO week so the cache rotates weekly along with upstream
+      # source listings; per-day re-runs all hit the cache.
+      - name: Compute weekly cache stamp
+        id: stamp
+        run: echo "value=$(date -u +%Y-%U)" >> "$GITHUB_OUTPUT"
+
+      - name: Restore download caches
+        uses: actions/cache@v4
+        with:
+          path: |
+            catalog/skills/.repo_cache.json
+            catalog/skills/.llm_cache.json
+            catalog/maintenance/incremental_recrawl_state.json
+            scripts/fallback_skill_repos.json
+            .skills_sh_cache/
+            .mcp_registry_cache/
+          key: bundle-caches-${{ steps.stamp.outputs.value }}-${{ github.run_number }}
+          restore-keys: |
+            bundle-caches-${{ steps.stamp.outputs.value }}-
+            bundle-caches-
+
+      - name: Download catalog (per-entry files + reconcile index.json)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PYTHONUNBUFFERED: "1"
+        run: |
+          TYPES="${{ inputs.services_to_download || 'skills,mcp,rules,prompts,plugins' }}"
+          python -u scripts/download_catalog.py --types "$TYPES"
+
+      - name: Build bundle
+        run: |
+          python -u scripts/build_catalog_bundle.py
+          ls -la dist/
+
+      - name: Capture bundle metadata
+        id: bundle
+        run: |
+          python <<'PY'
+          import hashlib, json, tarfile, os
+          path = "dist/catalog-bundle.tar.gz"
+          with tarfile.open(path) as t:
+              manifest = json.loads(t.extractfile("manifest.json").read())
+          size = os.path.getsize(path)
+          sha = hashlib.sha256(open(path, "rb").read()).hexdigest()
+          with open(os.environ["GITHUB_OUTPUT"], "a") as fh:
+              fh.write(f"size={size}\n")
+              fh.write(f"sha256={sha}\n")
+              fh.write(f"entry_count={manifest['entry_count']}\n")
+              fh.write(f"generated_at={manifest['generated_at']}\n")
+              fh.write(f"filtered_from={manifest['filtered_from']}\n")
+              fh.write(f"index_sha256={manifest['index_sha256']}\n")
+          # type_counts is a dict; serialise carefully so release notes
+          # show a plain table.
+          tc = manifest.get("type_counts", {})
+          rows = "\n".join(f"| {k} | {v} |" for k, v in sorted(tc.items()))
+          with open("type_counts.md", "w") as fh:
+              fh.write("| type | count |\n|------|------:|\n" + rows + "\n")
+          PY
+
+      - name: Resolve release tag
+        id: tag
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            TAG="${GITHUB_REF#refs/tags/}"
+          else
+            TAG="catalog-bundle-manual-$(git rev-parse --short HEAD)"
+            # Pre-emptively delete a previous manual release with the same
+            # short-SHA so re-running the workflow is idempotent.
+            gh release delete "$TAG" --yes --cleanup-tag 2>/dev/null || true
+            git tag -f "$TAG"
+            git push origin "$TAG" --force
+          fi
+          echo "name=$TAG" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Compose release notes
+        run: |
+          cat > release-notes.md <<EOF
+          # Catalog bundle ${{ steps.tag.outputs.name }}
+
+          One-stop, self-contained bundle of \`catalog/index.json\` +
+          \`catalog-download/\` packed for downstream ingest (cf. \`scripts/build_catalog_bundle.md\`).
+
+          ## Bundle metadata
+
+          - **Generated at:** \`${{ steps.bundle.outputs.generated_at }}\`
+          - **Entries:** \`${{ steps.bundle.outputs.entry_count }}\` (filtered from \`${{ steps.bundle.outputs.filtered_from }}\` raw entries)
+          - **Bundle size:** \`${{ steps.bundle.outputs.size }}\` bytes
+          - **Bundle sha256:** \`${{ steps.bundle.outputs.sha256 }}\`
+          - **index.json sha256:** \`${{ steps.bundle.outputs.index_sha256 }}\`
+
+          ## Entries by type
+
+          $(cat type_counts.md)
+
+          ## Consumer usage
+
+          Direct ingest from this release (no git clone required):
+
+          \`\`\`bash
+          # On the bastion:
+          curl -L -o /tmp/catalog-bundle.tar.gz \\
+            https://github.com/${{ github.repository }}/releases/download/${{ steps.tag.outputs.name }}/catalog-bundle.tar.gz
+
+          # Then on a costrict-web api pod:
+          /app/migrate ingest-upstream --source=/tmp/catalog-bundle.tar.gz
+          \`\`\`
+
+          ${{ inputs.notes_extra }}
+          EOF
+          cat release-notes.md
+
+      - name: Create / update GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ steps.tag.outputs.name }}"
+          # Idempotent: if a release with this tag exists, replace its asset.
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "release $TAG exists — uploading bundle with --clobber"
+            gh release upload "$TAG" dist/catalog-bundle.tar.gz --clobber
+            gh release edit   "$TAG" --notes-file release-notes.md
+          else
+            gh release create "$TAG" dist/catalog-bundle.tar.gz \
+              --title "Catalog bundle $TAG" \
+              --notes-file release-notes.md
+          fi
+          echo ""
+          echo "Done. Download URL:"
+          echo "  https://github.com/${{ github.repository }}/releases/download/${TAG}/catalog-bundle.tar.gz"
