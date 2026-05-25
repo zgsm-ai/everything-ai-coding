@@ -4,6 +4,7 @@
 Fetches `.claude-plugin/marketplace.json` from:
   - anthropics/claude-plugins-official  (source_priority=1000)
   - obra/superpowers-marketplace        (source_priority=950)
+  - affaan-m/everything-claude-code     (source_priority=900)
 
 Parses each plugin entry, optionally fetches the per-plugin `plugin.json`
 manifest to compute `manifest_completeness`, and writes the resulting
@@ -97,6 +98,12 @@ SOURCES: list[dict] = [
         "repo_slug": "obra/superpowers-marketplace",
         "branch": "main",
         "source_priority": 950,
+    },
+    {
+        "id": "everything-claude-code",
+        "repo_slug": "affaan-m/ECC",
+        "branch": "main",
+        "source_priority": 900,
     },
 ]
 
@@ -571,6 +578,7 @@ def _build_id(source_id: str, plugin_name: str) -> str:
     prefix = {
         "claude-plugins-official": "anthropic",
         "superpowers-marketplace": "obra",
+        "everything-claude-code": "ecc",
     }.get(source_id, _slugify(source_id))
     return _slugify(f"{prefix}-{plugin_name}")
 
@@ -883,7 +891,8 @@ def main(argv: Optional[list[str]] = None) -> int:
     parser = argparse.ArgumentParser(
         description=(
             "Sync the official Claude Code plugin marketplaces "
-            "(anthropics/claude-plugins-official + obra/superpowers-marketplace) "
+            "(anthropics/claude-plugins-official + obra/superpowers-marketplace "
+            "+ affaan-m/ECC) "
             "into catalog/plugins/index.json."
         ),
     )

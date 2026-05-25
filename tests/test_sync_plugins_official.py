@@ -128,6 +128,7 @@ def test_parse_marketplace_json_basic(monkeypatch, tmp_path):
             # Second source returns empty, but with a valid shape so it
             # doesn't trip the "zero plugins" guard.
             "obra/superpowers-marketplace": _marketplace_payload([]),
+            "affaan-m/ECC": _marketplace_payload([]),
         },
     )
 
@@ -159,6 +160,48 @@ def test_parse_marketplace_json_basic(monkeypatch, tmp_path):
     assert beta["name"] == "beta"
     # github:someone/beta should resolve to https://github.com/someone/beta
     assert beta["source_url"] == "https://github.com/someone/beta"
+
+
+def test_parse_everything_claude_code_source(monkeypatch, tmp_path):
+    """The ECC marketplace source produces an installable ecc plugin entry."""
+    marketplace = _marketplace_payload(
+        [
+            {
+                "name": "ecc",
+                "version": "2.0.0-rc.1",
+                "description": "Harness-native ECC operator layer",
+                "author": {"name": "Affaan Mustafa"},
+                "source": "./",
+                "category": "workflow",
+                "tags": ["agents", "skills", "hooks"],
+            },
+        ]
+    )
+    _install_fake_http(
+        monkeypatch,
+        marketplaces={
+            "anthropics/claude-plugins-official": _marketplace_payload([]),
+            "obra/superpowers-marketplace": _marketplace_payload([]),
+            "affaan-m/ECC": marketplace,
+        },
+    )
+
+    output_path = tmp_path / "plugins" / "index.json"
+    rc = spo.main(["--output", str(output_path)])
+    assert rc == 0
+
+    with open(output_path, encoding="utf-8") as f:
+        entries = json.load(f)
+
+    assert len(entries) == 1
+    ecc = entries[0]
+    assert ecc["id"] == "ecc-ecc"
+    assert ecc["name"] == "ecc"
+    assert ecc["source"] == "everything-claude-code"
+    assert ecc["source_priority"] == 900
+    assert ecc["source_url"] == "https://github.com/affaan-m/ECC/tree/main/"
+    assert ecc["install"]["plugin_name"] == "ecc"
+    assert ecc["install"]["marketplace_repo"] == "affaan-m/ECC"
 
 
 # ---------------------------------------------------------------------------
@@ -227,6 +270,7 @@ def test_manifest_completeness_no_manifest(monkeypatch, tmp_path):
         marketplaces={
             "anthropics/claude-plugins-official": marketplace,
             "obra/superpowers-marketplace": _marketplace_payload([]),
+            "affaan-m/ECC": _marketplace_payload([]),
         },
     )
     output_path = tmp_path / "plugins" / "index.json"
@@ -267,6 +311,7 @@ def test_failure_isolation(monkeypatch, tmp_path):
         marketplaces={
             "anthropics/claude-plugins-official": marketplace,
             "obra/superpowers-marketplace": RuntimeError("boom"),
+            "affaan-m/ECC": _marketplace_payload([]),
         },
     )
 
@@ -295,6 +340,7 @@ def test_zero_plugins_exits_nonzero(monkeypatch, tmp_path):
             "anthropics/claude-plugins-official": None,
             # Second source: raises
             "obra/superpowers-marketplace": RuntimeError("boom"),
+            "affaan-m/ECC": None,
         },
     )
 

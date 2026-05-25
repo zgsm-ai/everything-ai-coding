@@ -169,6 +169,7 @@ SOURCE_LABELS: dict[Language, dict[str, str]] = {
         "wonderful-prompts": "wonderful-prompts",
         "claude-plugins-official": "Anthropic official",
         "superpowers-marketplace": "Superpowers",
+        "everything-claude-code": "Everything Claude Code",
         "claude-plugins-dev": "claude-plugins.dev",
     },
     "zh": {
@@ -181,6 +182,7 @@ SOURCE_LABELS: dict[Language, dict[str, str]] = {
         "wonderful-prompts": "wonderful-prompts",
         "claude-plugins-official": "Anthropic 官方",
         "superpowers-marketplace": "Superpowers",
+        "everything-claude-code": "Everything Claude Code",
         "claude-plugins-dev": "claude-plugins.dev",
     },
 }

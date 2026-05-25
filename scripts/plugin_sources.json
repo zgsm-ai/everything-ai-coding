@@ -3,7 +3,9 @@
   "repos": [
     "https://github.com/obra/superpowers",
     "https://github.com/obra/superpowers-marketplace",
-    "https://github.com/anthropics/claude-plugins-official"
+    "https://github.com/anthropics/claude-plugins-official",
+    "https://github.com/affaan-m/everything-claude-code",
+    "https://github.com/affaan-m/ECC"
   ],
   "plugins": [
     {"source": "superpowers-marketplace", "plugin_name": "superpowers"},

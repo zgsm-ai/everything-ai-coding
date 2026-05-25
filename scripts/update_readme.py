@@ -51,6 +51,7 @@ SOURCE_LABELS_EN: dict[str, str] = {
     "davila7/claude-code-templates": "Claude Code Templates",
     "claude-plugins-official": "Anthropic Official",
     "superpowers-marketplace": "Superpowers",
+    "everything-claude-code": "Everything Claude Code",
     "claude-plugins-dev": "claude-plugins.dev",
     "curated": "Curated",
 }
@@ -71,6 +72,7 @@ SOURCE_LABELS_ZH: dict[str, str] = {
     "davila7/claude-code-templates": "Claude Code 模板",
     "claude-plugins-official": "Anthropic 官方",
     "superpowers-marketplace": "Superpowers",
+    "everything-claude-code": "Everything Claude Code",
     "claude-plugins-dev": "claude-plugins.dev",
     "curated": "手工精选",
 }

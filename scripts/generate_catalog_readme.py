@@ -38,6 +38,7 @@ SOURCE_LABELS = {
     "claude-plugins-official": "Anthropic Official",
     "claude-plugins-dev": "claude-plugins.dev",
     "superpowers-marketplace": "Superpowers",
+    "everything-claude-code": "Everything Claude Code",
 }
 
 SOURCE_LABELS_ZH = {
@@ -58,6 +59,7 @@ SOURCE_LABELS_ZH = {
     "claude-plugins-official": "Anthropic 官方",
     "claude-plugins-dev": "claude-plugins.dev",
     "superpowers-marketplace": "Superpowers",
+    "everything-claude-code": "Everything Claude Code",
 }
 
 # --- Type metadata ---
