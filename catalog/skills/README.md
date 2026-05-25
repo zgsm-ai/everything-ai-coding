@@ -114,7 +114,7 @@
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>claude-api</strong> (140.4k★) — Comprehensive skill for building, debugging, and optimizing ...</summary>
+<summary>⭐ <strong>claude-api</strong> (140.5k★) — Comprehensive skill for building, debugging, and optimizing ...</summary>
 
 Comprehensive skill for building, debugging, and optimizing Claude API/Anthropic SDK applications with prompt caching and model migration support.
 
@@ -129,7 +129,7 @@ Files: `skills/claude-api/`
 </details>
 
 <details>
-<summary>⭐ <strong>docx</strong> (140.4k★) — A skill for programmatically creating, reading, editing, and...</summary>
+<summary>⭐ <strong>docx</strong> (140.5k★) — A skill for programmatically creating, reading, editing, and...</summary>
 
 A skill for programmatically creating, reading, editing, and manipulating Word (.docx) files using JavaScript and XML manipulation.
 
@@ -228,7 +228,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>skill-creator</strong> (140.4k★) — A comprehensive skill for creating, testing, and optimizing ...</summary>
+<summary>⭐ <strong>skill-creator</strong> (140.5k★) — A comprehensive skill for creating, testing, and optimizing ...</summary>
 
 A comprehensive skill for creating, testing, and optimizing AI assistant skills through an iterative workflow with evaluation and benchmarking.
 
@@ -243,7 +243,7 @@ Files: `skills/skill-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>xlsx</strong> (140.4k★) — A Python skill for programmatically creating, editing, and a...</summary>
+<summary>⭐ <strong>xlsx</strong> (140.5k★) — A Python skill for programmatically creating, editing, and a...</summary>
 
 A Python skill for programmatically creating, editing, and analyzing Excel and tabular files with strict formatting and formula standards.
 

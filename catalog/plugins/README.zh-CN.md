@@ -1,6 +1,6 @@
 # 🧩 Plugins 插件
 
-> 861 Claude Code 插件包，捆绑 skill、agent、command 与 MCP server，覆盖官方与社区 marketplace。
+> 833 Claude Code 插件包，捆绑 skill、agent、command 与 MCP server，覆盖官方与社区 marketplace。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=plugin)
 
@@ -12,7 +12,7 @@
 |---|---|---|---|---|---|---|---|---|
 | 1 | [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp.git) | Chrome DevTools MCP 服务器，供 AI 编程代理通过 CLI 和 MCP 工具调试、自动化和分析网页。 | Anthropic 官方 | 🟢 活跃 | 100 | 2026-05-09 | tooling | — |
 | 2 | [claude-code-setup](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/claude-code-setup) | 分析代码库并推荐定制的 Claude Code 自动化，如钩子、技能、MCP 服务器和子代理。 | Anthropic 官方 | 🟢 活跃 | 100 | 2026-05-08 | ai-ml | — |
-| 3 | [mcp-tunnels](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/mcp-tunnels) | Claude插件，通过Anthropic隧道连接私有MCP服务器，提供Docker Compose快速启动。 | Anthropic 官方 | 🟢 活跃 | 100 | 2026-05-24 | devops | `mcp-server`, `docker-compose`, `tunneling` |
+| 3 | [mcp-tunnels](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/mcp-tunnels) | Claude插件，通过Anthropic隧道连接私有MCP服务器，提供Docker Compose快速启动。 | Anthropic 官方 | 🟢 活跃 | 100 | 2026-05-25 | devops | `docker` |
 | 4 | [huggingface-skills](https://github.com/huggingface/skills.git) | Hugging Face Hub 的 AI 编码技能集合，涵盖模型训练、评估、部署和开发工具。 | Anthropic 官方 | 🟢 活跃 | 100 | 2026-05-08 | ai-ml | — |
 | 5 | [hookify](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/hookify) | Claude Code 插件，通过 Markdown 规则文件和正则表达式模式创建自定义钩子，防止不良编码行为。 | Anthropic 官方 | 🟢 活跃 | 99 | 2026-05-08 | documentation | — |
 | 6 | [mcp-server-dev](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/mcp-server-dev) | 为Claude构建MCP服务器和交互式UI组件的完整指南，涵盖部署模型、工具设计和测试。 | Anthropic 官方 | 🟢 活跃 | 99 | 2026-05-08 | security | — |
@@ -38,7 +38,7 @@
 | 26 | [cli-anything](https://github.com/HKUDS/CLI-Anything) | CLI-Anything 为软件生成有状态的 CLI 接口，使其成为代理原生工具，与 AI 编码代理集成。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-04-16 | tooling | — |
 | 27 | [agent-browser](https://github.com/vercel-labs/agent-browser) | 一个基于 Rust 的 CLI 工具，供 AI 代理自动化浏览器交互，如网页测试、表单填写、截图和数据提取。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-04-25 | testing | — |
 | 28 | [obsidian](https://github.com/kepano/obsidian-skills) | Obsidian 的 Claude 技能：CLI、Markdown、Bases 和 Canvas 自动化，用于 AI 辅助工作流。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-04-21 | tooling | — |
-| 29 | [copilotkit](https://github.com/CopilotKit/CopilotKit) | CopilotKit v2 插件，为 Claude Code 提供运行时、React 核心、A2UI 渲染器及生命周期旅程。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-05-22 | frontend | `copilotkit`, `react`, `runtime` |
+| 29 | [copilotkit](https://github.com/CopilotKit/CopilotKit) | CopilotKit v2 插件，为 Claude Code 提供运行时、React 核心、A2UI 渲染器及生命周期旅程。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-05-22 | frontend | `react` |
 | 30 | [impeccable](https://github.com/pbakaus/impeccable) | Claude Code 插件，提供 23 个命令用于 AI 辅助前端设计，包括评审、审计和优化。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-04-28 | tooling | `design`, `frontend`, `ui` |
 | 31 | [repomix-commands](https://github.com/yamadashy/repomix) | 将整个代码库打包成单个AI友好文件，用于LLM分析和代码审查的CLI工具。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-04-16 | tooling | — |
 | 32 | [repomix-explorer](https://github.com/yamadashy/repomix) | 将整个代码库打包成单个AI友好文件，用于大语言模型分析和代码生成。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-04-16 | tooling | — |
@@ -144,8 +144,8 @@ Claude插件，通过Anthropic隧道连接私有MCP服务器，提供Docker Comp
 
 📖 See [mcp-tunnels](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/mcp-tunnels)
 
-📊 评分: 100 · 🏥 健康度: 100 · 🏷️ 标签: `mcp-server`, `docker-compose`, `tunneling`
-📅 最近活跃: 2026-05-24 · 📦 来源: Anthropic 官方
+📊 评分: 100 · 🏥 健康度: 100 · 🏷️ 标签: `docker`
+📅 最近活跃: 2026-05-25 · 📦 来源: Anthropic 官方
 
 </details>
 

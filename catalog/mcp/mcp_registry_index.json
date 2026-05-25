@@ -122557,6 +122557,114 @@
     ]
   },
   {
+    "id": "io-github-fieldcure-assiststudio-runner-af1e9aa9",
+    "name": "io.github.fieldcure/assiststudio-runner",
+    "type": "mcp",
+    "description": "Windows-only headless LLM task automation engine with scheduling via Windows Task Scheduler.",
+    "source_url": "https://github.com/fieldcure/fieldcure-assiststudio-runner",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "nuget",
+        "identifier": "FieldCure.AssistStudio.Runner",
+        "version": "2.0.4",
+        "command": "nuget: FieldCure.AssistStudio.Runner@2.0.4"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-05-25",
+    "version": "2.0.4",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-05-25T09:29:16.45977Z",
+    "mcp_remotes": []
+  },
+  {
+    "id": "io-github-fieldcure-essentials-8f36b57a",
+    "name": "io.github.fieldcure/essentials",
+    "type": "mcp",
+    "description": "Essential MCP server: HTTP, web search, downloads, Wolfram|Alpha, shell, JS, file I/O, memory.",
+    "source_url": "https://github.com/fieldcure/fieldcure-mcp-essentials",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "nuget",
+        "identifier": "FieldCure.Mcp.Essentials",
+        "version": "2.6.1",
+        "command": "nuget: FieldCure.Mcp.Essentials@2.6.1"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-05-25",
+    "version": "2.6.1",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-05-25T09:34:02.543854Z",
+    "mcp_remotes": []
+  },
+  {
+    "id": "io-github-fieldcure-filesystem-fcd4136a",
+    "name": "io.github.fieldcure/filesystem",
+    "type": "mcp",
+    "description": "Secure MCP server for sandboxed filesystem operations with document parsing support.",
+    "source_url": "https://github.com/fieldcure/fieldcure-mcp-filesystem",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "nuget",
+        "identifier": "FieldCure.Mcp.Filesystem",
+        "version": "1.1.2",
+        "command": "nuget: FieldCure.Mcp.Filesystem@1.1.2"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-05-25",
+    "version": "1.1.2",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-05-25T09:23:37.340888Z",
+    "mcp_remotes": []
+  },
+  {
+    "id": "io-github-fieldcure-outbox-3e36a420",
+    "name": "io.github.fieldcure/outbox",
+    "type": "mcp",
+    "description": "Multi-channel messaging MCP server for Slack, Telegram, Email, KakaoTalk, and Discord.",
+    "source_url": "https://github.com/fieldcure/fieldcure-mcp-outbox",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "nuget",
+        "identifier": "FieldCure.Mcp.Outbox",
+        "version": "2.1.3",
+        "command": "nuget: FieldCure.Mcp.Outbox@2.1.3"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-05-25",
+    "version": "2.1.3",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-05-25T09:23:21.665113Z",
+    "mcp_remotes": []
+  },
+  {
     "id": "io-github-fieldcure-publicdata-kr-04cd7ac2",
     "name": "io.github.fieldcure/publicdata-kr",
     "type": "mcp",
@@ -122581,6 +122689,33 @@
     "version": "1.0.3",
     "mcp_registry_status": "active",
     "mcp_registry_published_at": "2026-05-25T09:20:53.154708Z",
+    "mcp_remotes": []
+  },
+  {
+    "id": "io-github-fieldcure-rag-05f2a3cf",
+    "name": "io.github.fieldcure/rag",
+    "type": "mcp",
+    "description": "MCP RAG server with hybrid search, multi-KB support, and AI-powered chunk contextualization.",
+    "source_url": "https://github.com/fieldcure/fieldcure-mcp-rag",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "nuget",
+        "identifier": "FieldCure.Mcp.Rag",
+        "version": "2.5.1",
+        "command": "nuget: FieldCure.Mcp.Rag@2.5.1"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-05-25",
+    "version": "2.5.1",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-05-25T09:26:38.625457Z",
     "mcp_remotes": []
   },
   {
@@ -134278,9 +134413,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-05-25",
-    "version": "1.0.7",
+    "version": "1.0.9",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-22T20:17:30.135395Z",
+    "mcp_registry_published_at": "2026-05-25T09:57:28.888997Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",

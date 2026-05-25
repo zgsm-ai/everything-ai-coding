@@ -114,7 +114,7 @@
 ## Top 10 安装指南
 
 <details>
-<summary>⭐ <strong>claude-api</strong> (140.4k★) — 全面的技能，用于构建、调试和优化Claude API/Anthropic SDK应用，支持提示缓存和模型迁移。</summary>
+<summary>⭐ <strong>claude-api</strong> (140.5k★) — 全面的技能，用于构建、调试和优化Claude API/Anthropic SDK应用，支持提示缓存和模型迁移。</summary>
 
 全面的技能，用于构建、调试和优化Claude API/Anthropic SDK应用，支持提示缓存和模型迁移。
 
@@ -129,7 +129,7 @@ Files: `skills/claude-api/`
 </details>
 
 <details>
-<summary>⭐ <strong>docx</strong> (140.4k★) — 用于通过 JavaScript 和 XML 操作程序化创建、读取、编辑和处理 Word (.docx) 文件的技能。</summary>
+<summary>⭐ <strong>docx</strong> (140.5k★) — 用于通过 JavaScript 和 XML 操作程序化创建、读取、编辑和处理 Word (.docx) 文件的技能。</summary>
 
 用于通过 JavaScript 和 XML 操作程序化创建、读取、编辑和处理 Word (.docx) 文件的技能。
 
@@ -228,7 +228,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>skill-creator</strong> (140.4k★) — 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。</summary>
+<summary>⭐ <strong>skill-creator</strong> (140.5k★) — 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。</summary>
 
 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。
 
@@ -243,7 +243,7 @@ Files: `skills/skill-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>xlsx</strong> (140.4k★) — 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。</summary>
+<summary>⭐ <strong>xlsx</strong> (140.5k★) — 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。</summary>
 
 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。
 
