@@ -55,6 +55,7 @@ try:
         _normalize_plugin_url,
         categorize,
         extract_tags,
+        is_plugin_source,
         is_plugin_blacklisted,
         load_index,
         load_plugin_blacklist,
@@ -66,6 +67,7 @@ except ImportError:  # pragma: no cover - script-style invocation
         _normalize_plugin_url,
         categorize,
         extract_tags,
+        is_plugin_source,
         is_plugin_blacklisted,
         load_index,
         load_plugin_blacklist,
@@ -397,6 +399,13 @@ def _entry_from_plugin(
         # repo URLs (a few do retain `.git` — we leave those as-is in the
         # existing index and only normalize newly-added ones here).
         pass  # Intentional no-op; preserve as-is to maximize dedup.
+    if is_plugin_source(git_url):
+        logger.info(
+            "Skipping plugin source repo %s (plugin=%s): represented by "
+            "plugin marketplace sync.",
+            git_url, name,
+        )
+        return None
     version = (plugin.get("version") or "").strip()
     upstream_keywords = plugin.get("keywords")
     if not isinstance(upstream_keywords, list):
@@ -692,6 +701,23 @@ def _merge_into_existing(new_entries: list[dict],
     return combined
 
 
+def _prune_existing_plugin_source_entries(
+    existing_entries: list[dict],
+) -> tuple[list[dict], int]:
+    """Drop stale claude-plugins.dev rows now covered by marketplace sync."""
+    kept: list[dict] = []
+    pruned = 0
+    for entry in existing_entries:
+        if (
+            entry.get("source") == SOURCE_ID
+            and is_plugin_source(entry.get("source_url", ""))
+        ):
+            pruned += 1
+            continue
+        kept.append(entry)
+    return kept, pruned
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -807,12 +833,19 @@ def main(argv: Optional[list[str]] = None) -> int:
     # 3. Merge with existing on-disk index (official entries win on
     #    source_url collision because of higher source_priority — they are
     #    already present in `existing` and we skip new dupes).
-    existing = load_index(args.output)
-    logger.info("Loaded %d existing entries from %s", len(existing), args.output)
+    existing_raw = load_index(args.output)
+    existing, pruned_existing = _prune_existing_plugin_source_entries(existing_raw)
+    logger.info("Loaded %d existing entries from %s", len(existing_raw), args.output)
+    if pruned_existing:
+        logger.info(
+            "Pruned %d stale claude-plugins-dev entries covered by "
+            "plugin_sources.json",
+            pruned_existing,
+        )
 
     combined = _merge_into_existing(new_entries, existing)
 
-    if len(combined) == len(existing) and not new_entries:
+    if len(combined) == len(existing_raw) and not new_entries and not pruned_existing:
         logger.warning(
             "No new claude-plugins-dev entries to add; output unchanged."
         )
@@ -823,7 +856,7 @@ def main(argv: Optional[list[str]] = None) -> int:
     logger.info(
         "Wrote %d total entries to %s "
         "(existing=%d, claude-plugins-dev added=%d)",
-        len(combined), args.output, len(existing),
+        len(combined), args.output, len(existing_raw),
         len(combined) - len(existing),
     )
     return 0

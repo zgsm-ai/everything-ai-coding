@@ -314,6 +314,91 @@ def test_dedup_against_existing_official_entries(monkeypatch, tmp_path):
     assert new_entry["source_url"] == "https://github.com/community/fresh-plugin"
 
 
+def test_skips_plugin_source_repo(monkeypatch, tmp_path):
+    """Repos listed in plugin_sources.json are not imported as dev entries."""
+    plugins = [
+        _make_plugin(
+            "everything-claude-code",
+            namespace="affaan-m",
+            stars=10000,
+            git_url="https://github.com/affaan-m/everything-claude-code",
+        ),
+        _make_plugin(
+            "ordinary",
+            namespace="community",
+            stars=10000,
+            git_url="https://github.com/community/ordinary",
+        ),
+    ]
+    _install_paged_http(monkeypatch, [_api_response(plugins, limit=100)])
+    monkeypatch.setattr(
+        spd,
+        "is_plugin_source",
+        lambda url: url == "https://github.com/affaan-m/everything-claude-code",
+    )
+
+    output_path = tmp_path / "plugins" / "index.json"
+    rc = spd.main(["--output", str(output_path)])
+    assert rc == 0
+
+    with open(output_path, encoding="utf-8") as f:
+        entries = json.load(f)
+
+    assert [e["name"] for e in entries] == ["ordinary"]
+
+
+def test_prunes_existing_plugin_source_repo(monkeypatch, tmp_path):
+    """Previously imported dev entries are removed after repo skip is added."""
+    output_path = tmp_path / "plugins" / "index.json"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    stale = {
+        "id": "affaan-m-everything-claude-code-everything-claude-code",
+        "name": "everything-claude-code",
+        "type": "plugin",
+        "source": "claude-plugins-dev",
+        "source_url": "https://github.com/affaan-m/everything-claude-code",
+    }
+    keep = {
+        "id": "community-ordinary",
+        "name": "ordinary",
+        "type": "plugin",
+        "source": "claude-plugins-dev",
+        "source_url": "https://github.com/community/ordinary",
+    }
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump([stale, keep], f, indent=2)
+
+    _install_paged_http(
+        monkeypatch,
+        [
+            _api_response(
+                [
+                    _make_plugin(
+                        "ordinary",
+                        namespace="community",
+                        stars=10000,
+                        git_url="https://github.com/community/ordinary",
+                    )
+                ],
+                limit=100,
+            )
+        ],
+    )
+    monkeypatch.setattr(
+        spd,
+        "is_plugin_source",
+        lambda url: url == "https://github.com/affaan-m/everything-claude-code",
+    )
+
+    rc = spd.main(["--output", str(output_path)])
+    assert rc == 0
+
+    with open(output_path, encoding="utf-8") as f:
+        entries = json.load(f)
+
+    assert entries == [keep]
+
+
 # ---------------------------------------------------------------------------
 # Failure isolation — exception during fetch
 # ---------------------------------------------------------------------------
