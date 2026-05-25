@@ -12835,7 +12835,7 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-05-25",
-    "version": "1.33.0",
+    "version": "1.26.0",
     "mcp_registry_status": "active",
     "mcp_registry_published_at": "2026-05-25T08:30:30.908119Z",
     "mcp_remotes": [
@@ -18781,7 +18781,7 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-05-25",
-    "version": "0.1.1",
+    "version": "0.1.0",
     "mcp_registry_status": "active",
     "mcp_registry_published_at": "2026-05-25T09:06:30.840201Z",
     "mcp_remotes": [
@@ -22742,37 +22742,6 @@
     ]
   },
   {
-    "id": "com-clauxel-agentmailrooms-agentmailrooms-mcp-f70a4b29",
-    "name": "com.clauxel.agentmailrooms/agentmailrooms-mcp",
-    "type": "mcp",
-    "description": "A paid remote MCP for OpenAI Codex agent coordination MCP, built to return verdicts, receipts, usage",
-    "source_url": "https://github.com/clauxel/agent-mail-rooms-mcp",
-    "stars": null,
-    "category": "tooling",
-    "tags": [],
-    "tech_stack": [],
-    "install": {
-      "method": "manual",
-      "remotes": [
-        {
-          "type": "streamable-http",
-          "url": "https://agentmailrooms.clauxel.com/mcp"
-        }
-      ]
-    },
-    "source": "registry.modelcontextprotocol.io",
-    "last_synced": "2026-05-25",
-    "version": "1.0.0",
-    "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-25T08:57:07.166194Z",
-    "mcp_remotes": [
-      {
-        "type": "streamable-http",
-        "url": "https://agentmailrooms.clauxel.com/mcp"
-      }
-    ]
-  },
-  {
     "id": "com-clauxel-agentmemorymcp-agentmemorymcp-mcp-6c8968f7",
     "name": "com.clauxel.agentmemorymcp/agentmemorymcp-mcp",
     "type": "mcp",
@@ -23238,37 +23207,6 @@
     ]
   },
   {
-    "id": "com-clauxel-chromedevtoolsmcp-chromedevtoolsmcp-mcp-2c706909",
-    "name": "com.clauxel.chromedevtoolsmcp/chromedevtoolsmcp-mcp",
-    "type": "mcp",
-    "description": "A paid remote MCP for AI agent browser DevTools MCP, built to return verdicts, receipts, usage logs,",
-    "source_url": "https://github.com/clauxel/chrome-devtools-session-mcp-mcp",
-    "stars": null,
-    "category": "tooling",
-    "tags": [],
-    "tech_stack": [],
-    "install": {
-      "method": "manual",
-      "remotes": [
-        {
-          "type": "streamable-http",
-          "url": "https://chromedevtoolsmcp.clauxel.com/mcp"
-        }
-      ]
-    },
-    "source": "registry.modelcontextprotocol.io",
-    "last_synced": "2026-05-25",
-    "version": "1.0.0",
-    "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-25T08:56:55.137971Z",
-    "mcp_remotes": [
-      {
-        "type": "streamable-http",
-        "url": "https://chromedevtoolsmcp.clauxel.com/mcp"
-      }
-    ]
-  },
-  {
     "id": "com-clauxel-clianythingharness-clianythingharness-mcp-b26ad9b0",
     "name": "com.clauxel.clianythingharness/clianythingharness-mcp",
     "type": "mcp",
@@ -23487,37 +23425,6 @@
     "website_url": "https://dbqueryguard.clauxel.com/"
   },
   {
-    "id": "com-clauxel-evalscopebench-evalscopebench-mcp-1ab30caf",
-    "name": "com.clauxel.evalscopebench/evalscopebench-mcp",
-    "type": "mcp",
-    "description": "A paid remote MCP for AI SDK benchmark dashboard, built to return verdicts, receipts, usage logs, an",
-    "source_url": "https://github.com/clauxel/evalscope-benchmark-mcp-mcp",
-    "stars": null,
-    "category": "tooling",
-    "tags": [],
-    "tech_stack": [],
-    "install": {
-      "method": "manual",
-      "remotes": [
-        {
-          "type": "streamable-http",
-          "url": "https://evalscopebench.clauxel.com/mcp"
-        }
-      ]
-    },
-    "source": "registry.modelcontextprotocol.io",
-    "last_synced": "2026-05-25",
-    "version": "1.0.0",
-    "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-25T08:58:04.202449Z",
-    "mcp_remotes": [
-      {
-        "type": "streamable-http",
-        "url": "https://evalscopebench.clauxel.com/mcp"
-      }
-    ]
-  },
-  {
     "id": "com-clauxel-fastmcpruntime-fastmcpruntime-mcp-4f1c2743",
     "name": "com.clauxel.fastmcpruntime/fastmcpruntime-mcp",
     "type": "mcp",
@@ -23545,37 +23452,6 @@
       {
         "type": "streamable-http",
         "url": "https://fastmcpruntime.clauxel.com/mcp"
-      }
-    ]
-  },
-  {
-    "id": "com-clauxel-futureagievals-futureagievals-mcp-4ddb213d",
-    "name": "com.clauxel.futureagievals/futureagievals-mcp",
-    "type": "mcp",
-    "description": "A paid remote MCP for AI SDK eval dashboard, built to return verdicts, receipts, usage logs, and aud",
-    "source_url": "https://github.com/clauxel/futureagi-evalops-mcp-mcp",
-    "stars": null,
-    "category": "tooling",
-    "tags": [],
-    "tech_stack": [],
-    "install": {
-      "method": "manual",
-      "remotes": [
-        {
-          "type": "streamable-http",
-          "url": "https://futureagievals.clauxel.com/mcp"
-        }
-      ]
-    },
-    "source": "registry.modelcontextprotocol.io",
-    "last_synced": "2026-05-25",
-    "version": "1.0.0",
-    "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-25T08:57:54.003926Z",
-    "mcp_remotes": [
-      {
-        "type": "streamable-http",
-        "url": "https://futureagievals.clauxel.com/mcp"
       }
     ]
   },
@@ -24015,37 +23891,6 @@
     ]
   },
   {
-    "id": "com-clauxel-playwritermcp-playwritermcp-mcp-bd2e3133",
-    "name": "com.clauxel.playwritermcp/playwritermcp-mcp",
-    "type": "mcp",
-    "description": "A paid remote MCP for AI agent browser MCP session, built to return verdicts, receipts, usage logs, ",
-    "source_url": "https://github.com/clauxel/playwriter-session-cloud-mcp",
-    "stars": null,
-    "category": "tooling",
-    "tags": [],
-    "tech_stack": [],
-    "install": {
-      "method": "manual",
-      "remotes": [
-        {
-          "type": "streamable-http",
-          "url": "https://playwritermcp.clauxel.com/mcp"
-        }
-      ]
-    },
-    "source": "registry.modelcontextprotocol.io",
-    "last_synced": "2026-05-25",
-    "version": "1.0.0",
-    "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-25T08:57:36.078359Z",
-    "mcp_remotes": [
-      {
-        "type": "streamable-http",
-        "url": "https://playwritermcp.clauxel.com/mcp"
-      }
-    ]
-  },
-  {
     "id": "com-clauxel-pydanticcontract-pydanticcontract-mcp-3a4138bb",
     "name": "com.clauxel.pydanticcontract/pydanticcontract-mcp",
     "type": "mcp",
@@ -24073,37 +23918,6 @@
       {
         "type": "streamable-http",
         "url": "https://pydanticcontract.clauxel.com/mcp"
-      }
-    ]
-  },
-  {
-    "id": "com-clauxel-rtkcontext-rtkcontext-mcp-9cc0ebb1",
-    "name": "com.clauxel.rtkcontext/rtkcontext-mcp",
-    "type": "mcp",
-    "description": "A paid remote MCP for OpenAI Codex context compressor, built to return verdicts, receipts, usage log",
-    "source_url": "https://github.com/clauxel/rtk-context-compressor-mcp",
-    "stars": null,
-    "category": "tooling",
-    "tags": [],
-    "tech_stack": [],
-    "install": {
-      "method": "manual",
-      "remotes": [
-        {
-          "type": "streamable-http",
-          "url": "https://rtkcontext.clauxel.com/mcp"
-        }
-      ]
-    },
-    "source": "registry.modelcontextprotocol.io",
-    "last_synced": "2026-05-25",
-    "version": "1.0.0",
-    "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-25T08:56:35.526196Z",
-    "mcp_remotes": [
-      {
-        "type": "streamable-http",
-        "url": "https://rtkcontext.clauxel.com/mcp"
       }
     ]
   },
@@ -49420,7 +49234,7 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-05-25",
-    "version": "29.14.0",
+    "version": "27.5.2",
     "mcp_registry_status": "active",
     "mcp_registry_published_at": "2026-05-25T08:28:15.478808Z",
     "mcp_remotes": [
@@ -59378,16 +59192,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "safari-mcp",
-        "version": "2.11.4",
-        "command": "npx -y safari-mcp@2.11.4"
+        "version": "2.11.3",
+        "command": "npx -y safari-mcp@2.11.3"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-05-25",
-    "version": "2.11.4",
+    "version": "2.11.3",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-25T08:33:51.590214Z",
+    "mcp_registry_published_at": "2026-05-21T12:53:41.690898Z",
     "mcp_remotes": []
   },
   {
@@ -83348,16 +83162,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "canvas-lms-mcp",
-        "version": "1.17.0",
-        "command": "npx -y canvas-lms-mcp@1.17.0"
+        "version": "1.16.0",
+        "command": "npx -y canvas-lms-mcp@1.16.0"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-05-25",
-    "version": "1.17.0",
+    "version": "1.16.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-25T09:02:21.182675Z",
+    "mcp_registry_published_at": "2026-05-25T07:02:33.644612Z",
     "mcp_remotes": []
   },
   {
@@ -102208,8 +102022,8 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@cyanheads/bls-labor-mcp-server",
-        "version": "0.2.1",
-        "command": "npx -y @cyanheads/bls-labor-mcp-server@0.2.1"
+        "version": "0.2.0",
+        "command": "npx -y @cyanheads/bls-labor-mcp-server@0.2.0"
       },
       "remotes": [
         {
@@ -102220,9 +102034,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-05-25",
-    "version": "0.2.1",
+    "version": "0.2.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-25T09:12:06.209181Z",
+    "mcp_registry_published_at": "2026-05-24T23:02:04.861909Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -102565,8 +102379,8 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@cyanheads/eia-energy-mcp-server",
-        "version": "0.2.1",
-        "command": "npx -y @cyanheads/eia-energy-mcp-server@0.2.1"
+        "version": "0.2.0",
+        "command": "npx -y @cyanheads/eia-energy-mcp-server@0.2.0"
       },
       "remotes": [
         {
@@ -102577,9 +102391,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-05-25",
-    "version": "0.2.1",
+    "version": "0.2.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-25T09:07:58.864691Z",
+    "mcp_registry_published_at": "2026-05-24T23:01:53.92865Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -102868,33 +102682,6 @@
     "version": "0.2.3",
     "mcp_registry_status": "active",
     "mcp_registry_published_at": "2026-05-25T02:04:30.405388Z",
-    "mcp_remotes": []
-  },
-  {
-    "id": "io-github-cyanheads-macos-mcp-server-e4dee552",
-    "name": "io.github.cyanheads/macos-mcp-server",
-    "type": "mcp",
-    "description": "Control macOS system settings, apps, windows, audio, displays, screenshots, and Focus mode via MCP.",
-    "source_url": "https://github.com/cyanheads/macos-mcp-server",
-    "stars": null,
-    "category": "tooling",
-    "tags": [],
-    "tech_stack": [],
-    "install": {
-      "method": "manual",
-      "config": {
-        "registry_type": "npm",
-        "identifier": "@cyanheads/macos-mcp-server",
-        "version": "0.1.2",
-        "command": "npx -y @cyanheads/macos-mcp-server@0.1.2"
-      },
-      "remotes": []
-    },
-    "source": "registry.modelcontextprotocol.io",
-    "last_synced": "2026-05-25",
-    "version": "0.1.2",
-    "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-25T08:51:36.198453Z",
     "mcp_remotes": []
   },
   {
@@ -103259,8 +103046,8 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@cyanheads/openalex-mcp-server",
-        "version": "0.6.14",
-        "command": "npx -y @cyanheads/openalex-mcp-server@0.6.14"
+        "version": "0.6.13",
+        "command": "npx -y @cyanheads/openalex-mcp-server@0.6.13"
       },
       "remotes": [
         {
@@ -103271,9 +103058,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-05-25",
-    "version": "0.6.14",
+    "version": "0.6.13",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-25T09:08:38.727455Z",
+    "mcp_registry_published_at": "2026-05-23T12:27:28.850326Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -130697,7 +130484,7 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-05-25",
-    "version": "0.2.0",
+    "version": "0.1.1",
     "mcp_registry_status": "active",
     "mcp_registry_published_at": "2026-05-25T08:32:37.257004Z",
     "mcp_remotes": []
@@ -134491,9 +134278,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-05-25",
-    "version": "1.0.8",
+    "version": "1.0.7",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-25T08:28:46.840029Z",
+    "mcp_registry_published_at": "2026-05-22T20:17:30.135395Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -136734,16 +136521,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@paparats/cli",
-        "version": "1.3.0",
-        "command": "npx -y @paparats/cli@1.3.0"
+        "version": "1.2.0",
+        "command": "npx -y @paparats/cli@1.2.0"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-05-25",
-    "version": "1.3.0",
+    "version": "1.2.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-25T08:56:53.485476Z",
+    "mcp_registry_published_at": "2026-05-25T07:43:23.084369Z",
     "mcp_remotes": [],
     "website_url": "https://github.com/IBazylchuk/paparats-mcp#readme"
   },
@@ -262381,16 +262168,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@withpica/mcp-server",
-        "version": "2.63.0",
-        "command": "npx -y @withpica/mcp-server@2.63.0"
+        "version": "2.62.0",
+        "command": "npx -y @withpica/mcp-server@2.62.0"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-05-25",
-    "version": "2.63.0",
+    "version": "2.62.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-25T08:43:46.122608Z",
+    "mcp_registry_published_at": "2026-05-24T15:23:36.048071Z",
     "mcp_remotes": []
   },
   {

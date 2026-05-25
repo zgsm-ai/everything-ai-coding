@@ -1,12 +1,12 @@
 <div align="center">
 <img src="assets/logo.png" alt="Everything AI Coding logo" width="600" />
-<p><strong><!-- README_APPROX_COUNT:START -->9400<!-- README_APPROX_COUNT:END -->+ 精选 AI 编程资源 — 浏览、评估、安装</strong><br/>MCP Servers · Skills · Rules · Prompts · Plugins</p>
+<p><strong><!-- README_APPROX_COUNT:START -->9600<!-- README_APPROX_COUNT:END -->+ 精选 AI 编程资源 — 浏览、评估、安装</strong><br/>MCP Servers · Skills · Rules · Prompts · Plugins</p>
 
 <p>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/stargazers"><img src="https://img.shields.io/github/stars/zgsm-ai/everything-ai-coding?style=flat-square&color=4A90D9" alt="Stars" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zgsm-ai/everything-ai-coding?style=flat-square" alt="License" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/commits/main"><img src="https://img.shields.io/github/last-commit/zgsm-ai/everything-ai-coding?style=flat-square" alt="Last Commit" /></a>
-  <img src="https://img.shields.io/badge/resources-9401-2ECC71?style=flat-square" alt="Resources" />
+  <img src="https://img.shields.io/badge/resources-9606-2ECC71?style=flat-square" alt="Resources" />
 </p>
 
 <p>
@@ -34,7 +34,7 @@ Everything AI Coding 是一个**持续更新的知识库**，从 9+ 个上游源
 <a id="knowledge-base"></a>
 ## 📚 知识库
 
-### [🔌 MCP 服务器](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->5969<!-- README_COUNT_MCP:END --> 个条目
+### [🔌 MCP 服务器](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->6174<!-- README_COUNT_MCP:END --> 个条目
 
 将 AI Agent 连接到外部工具、数据库和服务的 Model Context Protocol 服务器。
 

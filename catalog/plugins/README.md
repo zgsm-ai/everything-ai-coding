@@ -12,7 +12,7 @@
 |---|---|---|---|---|---|---|---|---|
 | 1 | [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp.git) | Chrome DevTools MCP server for AI coding agents to debug, automate, and analyze ... | Anthropic Official | 🟢 Active | 100 | 2026-05-09 | tooling | — |
 | 2 | [claude-code-setup](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/claude-code-setup) | A Claude Code plugin that analyzes codebases to recommend tailored automations l... | Anthropic Official | 🟢 Active | 100 | 2026-05-08 | ai-ml | — |
-| 3 | [mcp-tunnels](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/mcp-tunnels) | A Claude plugin for connecting to private MCP servers via Anthropic tunnels with... | Anthropic Official | 🟢 Active | 100 | 2026-05-25 | devops | `mcp-server`, `docker-compose`, `tunneling` |
+| 3 | [mcp-tunnels](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/mcp-tunnels) | A Claude plugin for connecting to private MCP servers via Anthropic tunnels with... | Anthropic Official | 🟢 Active | 100 | 2026-05-24 | devops | `mcp-server`, `docker-compose`, `tunneling` |
 | 4 | [huggingface-skills](https://github.com/huggingface/skills.git) | A comprehensive collection of AI coding skills for Hugging Face Hub, covering mo... | Anthropic Official | 🟢 Active | 100 | 2026-05-08 | ai-ml | — |
 | 5 | [hookify](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/hookify) | Claude Code plugin for creating custom hooks to prevent unwanted coding behavior... | Anthropic Official | 🟢 Active | 99 | 2026-05-08 | documentation | — |
 | 6 | [mcp-server-dev](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/mcp-server-dev) | Comprehensive guide for building MCP servers and interactive UI widgets for Clau... | Anthropic Official | 🟢 Active | 99 | 2026-05-08 | security | — |
@@ -145,7 +145,7 @@ A Claude plugin for connecting to private MCP servers via Anthropic tunnels with
 📖 See [mcp-tunnels](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/mcp-tunnels)
 
 📊 Score: 100 · 🏥 Health: 100 · 🏷️ Tags: `mcp-server`, `docker-compose`, `tunneling`
-📅 Last active: 2026-05-25 · 📦 Source: Anthropic Official
+📅 Last active: 2026-05-24 · 📦 Source: Anthropic Official
 
 </details>
 

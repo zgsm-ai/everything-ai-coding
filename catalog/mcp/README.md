@@ -1,6 +1,6 @@
 # 🔌 MCP Servers
 
-> 5969 Model Context Protocol servers that connect AI agents to external tools, databases, and services.
+> 6174 Model Context Protocol servers that connect AI agents to external tools, databases, and services.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=mcp)
 

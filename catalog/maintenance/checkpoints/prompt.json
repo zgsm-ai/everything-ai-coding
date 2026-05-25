@@ -1,5 +1,5 @@
 {
-  "completed_count": 597,
+  "completed_count": 598,
   "completed_entry_ids": [
     "12-month-ai-and-computer-vision-roadmap-for-defense-applications-prompt",
     "2046-puzzle-game-challenge-prompt",
@@ -36,6 +36,7 @@
     "ai-generated-patent-illustration-instructions-prompt",
     "ai-performance-deep-testing-engineer-prompt",
     "ai-powered-data-extraction-and-organization-tool-prompt",
+    "ai-powered-dynamic-ad-integration-system-for-live-ipl-broadcasts-prompt",
     "ai-powered-personal-compliment-coaching-engine-prompt",
     "ai-trying-to-escape-the-box-prompt",
     "ai2sql-sql-model-query-generator-prompt",
@@ -61,6 +62,7 @@
     "ascii-artist-prompt",
     "ast-code-analysis-superpower-prompt",
     "astrojs-prompt",
+    "astrologer-prompt",
     "audio-routing-automation-engineer-prompt",
     "auditor-de-código-python-nivel-senior-salida-en-español-prompt",
     "automate-repository-management-with-opencode-cli-prompt",
@@ -399,7 +401,6 @@
     "prompt-engineering-expert-prompt",
     "prompt-enhancer-prompt",
     "prompt-generator-for-claude-code-prompt",
-    "prompt-generator-prompt",
     "prompt-optimization-prompt",
     "prompt-refiner-prompt",
     "prompt-writer-for-specific-project-prompt",
@@ -529,8 +530,8 @@
     "the-pragmatic-architect-mastering-tech-with-humor-and-precision-prompt",
     "the-prd-mastermind-prompt",
     "the-quant-edge-engine-prompt",
-    "the-technical-co-founder-building-real-products-together-prompt",
     "the-ultimate-typescript-code-review-prompt",
+    "ticket-to-pr-prompt",
     "tistory-blog-skin-uiux-enhancement-pipeline-prompt",
     "todo-list-prompt",
     "token-architecture-prompt",
@@ -599,7 +600,7 @@
     "编写正则表达式-wprompt",
     "资深编程专家-can-wprompt"
   ],
-  "last_committed_at": "2026-05-20T12:51:19.805696+00:00",
+  "last_committed_at": "2026-05-25T08:39:01.592010+00:00",
   "remaining_entry_ids": [
     "claude-proje-çalışma-promptu-prompt",
     "quantum-topology-matcher-prompt",
