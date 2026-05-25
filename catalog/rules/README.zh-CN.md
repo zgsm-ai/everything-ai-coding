@@ -114,7 +114,7 @@
 ## Top 10 安装指南
 
 <details>
-<summary>⭐ <strong>Bug Fix (Rules 2.1)</strong> (166★) — AI辅助Bug修复工作流规则，从问题创建到拉取请求，包含详细步骤和代码示例。</summary>
+<summary>⭐ <strong>Bug Fix (Rules 2.1)</strong> (168★) — AI辅助Bug修复工作流规则，从问题创建到拉取请求，包含详细步骤和代码示例。</summary>
 
 AI辅助Bug修复工作流规则，从问题创建到拉取请求，包含详细步骤和代码示例。
 
@@ -127,7 +127,7 @@ AI辅助Bug修复工作流规则，从问题创建到拉取请求，包含详细
 </details>
 
 <details>
-<summary>⭐ <strong>Frontend Dev (Rules 2.1)</strong> (166★) — 专为 Vue 3、React 18+ 和 TypeScript 优化的 AI 辅助前端开发工作流规则，涵盖从需求到部署的...</summary>
+<summary>⭐ <strong>Frontend Dev (Rules 2.1)</strong> (168★) — 专为 Vue 3、React 18+ 和 TypeScript 优化的 AI 辅助前端开发工作流规则，涵盖从需求到部署的...</summary>
 
 专为 Vue 3、React 18+ 和 TypeScript 优化的 AI 辅助前端开发工作流规则，涵盖从需求到部署的完整周期。
 
@@ -140,7 +140,7 @@ AI辅助Bug修复工作流规则，从问题创建到拉取请求，包含详细
 </details>
 
 <details>
-<summary>⭐ <strong>File Generation Safety Rules (Rules 2.1)</strong> (166★) — 强制AI在生成文件前必须获得用户确认，防止未经授权的代码、配置和文档创建。</summary>
+<summary>⭐ <strong>File Generation Safety Rules (Rules 2.1)</strong> (168★) — 强制AI在生成文件前必须获得用户确认，防止未经授权的代码、配置和文档创建。</summary>
 
 强制AI在生成文件前必须获得用户确认，防止未经授权的代码、配置和文档创建。
 
@@ -153,7 +153,7 @@ AI辅助Bug修复工作流规则，从问题创建到拉取请求，包含详细
 </details>
 
 <details>
-<summary>⭐ <strong>Code Quality Check (Rules 2.1)</strong> (166★) — 一个AI驱动的跨语言代码质量检查规则，集成提交工作流并提供自动修复功能。</summary>
+<summary>⭐ <strong>Code Quality Check (Rules 2.1)</strong> (168★) — 一个AI驱动的跨语言代码质量检查规则，集成提交工作流并提供自动修复功能。</summary>
 
 一个AI驱动的跨语言代码质量检查规则，集成提交工作流并提供自动修复功能。
 
@@ -166,7 +166,7 @@ AI辅助Bug修复工作流规则，从问题创建到拉取请求，包含详细
 </details>
 
 <details>
-<summary>⭐ <strong>Context Loader (Rules 2.1)</strong> (166★) — AI驱动的项目上下文加载器，分析技术栈、代码结构并提供配置建议。</summary>
+<summary>⭐ <strong>Context Loader (Rules 2.1)</strong> (168★) — AI驱动的项目上下文加载器，分析技术栈、代码结构并提供配置建议。</summary>
 
 AI驱动的项目上下文加载器，分析技术栈、代码结构并提供配置建议。
 
@@ -179,7 +179,7 @@ AI驱动的项目上下文加载器，分析技术栈、代码结构并提供配
 </details>
 
 <details>
-<summary>⭐ <strong>Mcp Unified Management (Rules 2.1)</strong> (166★) — MCP统一管理策略，整合检测、推荐、配置、同步等所有MCP功能，支持跨平台AI工具。</summary>
+<summary>⭐ <strong>Mcp Unified Management (Rules 2.1)</strong> (168★) — MCP统一管理策略，整合检测、推荐、配置、同步等所有MCP功能，支持跨平台AI工具。</summary>
 
 MCP统一管理策略，整合检测、推荐、配置、同步等所有MCP功能，支持跨平台AI工具。
 
@@ -192,7 +192,7 @@ MCP统一管理策略，整合检测、推荐、配置、同步等所有MCP功�
 </details>
 
 <details>
-<summary>⭐ <strong>Systematic Debugging (Rules 2.1)</strong> (166★) — AI驱动的系统化调试规则，提供智能故障诊断、自动化工作流和工具集成。</summary>
+<summary>⭐ <strong>Systematic Debugging (Rules 2.1)</strong> (168★) — AI驱动的系统化调试规则，提供智能故障诊断、自动化工作流和工具集成。</summary>
 
 AI驱动的系统化调试规则，提供智能故障诊断、自动化工作流和工具集成。
 
@@ -205,7 +205,7 @@ AI驱动的系统化调试规则，提供智能故障诊断、自动化工作流
 </details>
 
 <details>
-<summary>⭐ <strong>Unified Rules Base (Rules 2.1)</strong> (166★) — 增强统一AI助手规则基准，确保不同工具功能一致，集成智能需求理解与深度讨论框架。</summary>
+<summary>⭐ <strong>Unified Rules Base (Rules 2.1)</strong> (168★) — 增强统一AI助手规则基准，确保不同工具功能一致，集成智能需求理解与深度讨论框架。</summary>
 
 增强统一AI助手规则基准，确保不同工具功能一致，集成智能需求理解与深度讨论框架。
 
@@ -218,7 +218,7 @@ AI驱动的系统化调试规则，提供智能故障诊断、自动化工作流
 </details>
 
 <details>
-<summary>⭐ <strong>Code Review (Rules 2.1)</strong> (166★) — 多角色拉取请求审查清单规则，用于代码质量、安全性和性能审查。</summary>
+<summary>⭐ <strong>Code Review (Rules 2.1)</strong> (168★) — 多角色拉取请求审查清单规则，用于代码质量、安全性和性能审查。</summary>
 
 多角色拉取请求审查清单规则，用于代码质量、安全性和性能审查。
 
@@ -231,7 +231,7 @@ AI驱动的系统化调试规则，提供智能故障诊断、自动化工作流
 </details>
 
 <details>
-<summary>⭐ <strong>Backend Dev (Rules 2.1)</strong> (166★) — 一个用于指导AI辅助Java、Python和Node.js后端开发工作流的结构化规则。</summary>
+<summary>⭐ <strong>Backend Dev (Rules 2.1)</strong> (168★) — 一个用于指导AI辅助Java、Python和Node.js后端开发工作流的结构化规则。</summary>
 
 一个用于指导AI辅助Java、Python和Node.js后端开发工作流的结构化规则。
 
@@ -255,4 +255,4 @@ AI驱动的系统化调试规则，提供智能故障诊断、自动化工作流
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-05-20*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-05-25*

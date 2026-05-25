@@ -114,7 +114,7 @@
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>Bug Fix (Rules 2.1)</strong> (166★) — A workflow rule for AI-assisted bug fixing from issue creati...</summary>
+<summary>⭐ <strong>Bug Fix (Rules 2.1)</strong> (168★) — A workflow rule for AI-assisted bug fixing from issue creati...</summary>
 
 A workflow rule for AI-assisted bug fixing from issue creation to pull request, with detailed steps and code examples.
 
@@ -127,7 +127,7 @@ A workflow rule for AI-assisted bug fixing from issue creation to pull request, 
 </details>
 
 <details>
-<summary>⭐ <strong>Frontend Dev (Rules 2.1)</strong> (166★) — A structured workflow rule for AI-assisted frontend developm...</summary>
+<summary>⭐ <strong>Frontend Dev (Rules 2.1)</strong> (168★) — A structured workflow rule for AI-assisted frontend developm...</summary>
 
 A structured workflow rule for AI-assisted frontend development with Vue 3, React 18+, and TypeScript, covering the full cycle from requirements to de
 
@@ -140,7 +140,7 @@ A structured workflow rule for AI-assisted frontend development with Vue 3, Reac
 </details>
 
 <details>
-<summary>⭐ <strong>File Generation Safety Rules (Rules 2.1)</strong> (166★) — A mandatory rule enforcing user confirmation before AI file ...</summary>
+<summary>⭐ <strong>File Generation Safety Rules (Rules 2.1)</strong> (168★) — A mandatory rule enforcing user confirmation before AI file ...</summary>
 
 A mandatory rule enforcing user confirmation before AI file generation to prevent unauthorized code, config, and doc creation.
 
@@ -153,7 +153,7 @@ A mandatory rule enforcing user confirmation before AI file generation to preven
 </details>
 
 <details>
-<summary>⭐ <strong>Code Quality Check (Rules 2.1)</strong> (166★) — An AI-driven rule for cross-language code quality analysis, ...</summary>
+<summary>⭐ <strong>Code Quality Check (Rules 2.1)</strong> (168★) — An AI-driven rule for cross-language code quality analysis, ...</summary>
 
 An AI-driven rule for cross-language code quality analysis, integrating with commit workflows and providing auto-fix capabilities.
 
@@ -166,7 +166,7 @@ An AI-driven rule for cross-language code quality analysis, integrating with com
 </details>
 
 <details>
-<summary>⭐ <strong>Context Loader (Rules 2.1)</strong> (166★) — AI-driven project context loader that analyzes tech stack, c...</summary>
+<summary>⭐ <strong>Context Loader (Rules 2.1)</strong> (168★) — AI-driven project context loader that analyzes tech stack, c...</summary>
 
 AI-driven project context loader that analyzes tech stack, code structure, and provides configuration recommendations for developers.
 
@@ -179,7 +179,7 @@ AI-driven project context loader that analyzes tech stack, code structure, and p
 </details>
 
 <details>
-<summary>⭐ <strong>Mcp Unified Management (Rules 2.1)</strong> (166★) — A unified management rule for MCP servers across AI coding t...</summary>
+<summary>⭐ <strong>Mcp Unified Management (Rules 2.1)</strong> (168★) — A unified management rule for MCP servers across AI coding t...</summary>
 
 A unified management rule for MCP servers across AI coding tools, providing detection, recommendation, configuration, and synchronization.
 
@@ -192,7 +192,7 @@ A unified management rule for MCP servers across AI coding tools, providing dete
 </details>
 
 <details>
-<summary>⭐ <strong>Systematic Debugging (Rules 2.1)</strong> (166★) — An AI-driven rule for systematic debugging, providing intell...</summary>
+<summary>⭐ <strong>Systematic Debugging (Rules 2.1)</strong> (168★) — An AI-driven rule for systematic debugging, providing intell...</summary>
 
 An AI-driven rule for systematic debugging, providing intelligent fault diagnosis, automated workflows, and tool integration for developers.
 
@@ -205,7 +205,7 @@ An AI-driven rule for systematic debugging, providing intelligent fault diagnosi
 </details>
 
 <details>
-<summary>⭐ <strong>Unified Rules Base (Rules 2.1)</strong> (166★) — A unified rule base for AI coding assistants to ensure consi...</summary>
+<summary>⭐ <strong>Unified Rules Base (Rules 2.1)</strong> (168★) — A unified rule base for AI coding assistants to ensure consi...</summary>
 
 A unified rule base for AI coding assistants to ensure consistent functionality, intelligent requirement understanding, and deep discussion frameworks
 
@@ -218,7 +218,7 @@ A unified rule base for AI coding assistants to ensure consistent functionality,
 </details>
 
 <details>
-<summary>⭐ <strong>Code Review (Rules 2.1)</strong> (166★) — A multi-role pull request review checklist rule for code qua...</summary>
+<summary>⭐ <strong>Code Review (Rules 2.1)</strong> (168★) — A multi-role pull request review checklist rule for code qua...</summary>
 
 A multi-role pull request review checklist rule for code quality, security, and performance in development workflows.
 
@@ -231,7 +231,7 @@ A multi-role pull request review checklist rule for code quality, security, and 
 </details>
 
 <details>
-<summary>⭐ <strong>Backend Dev (Rules 2.1)</strong> (166★) — A structured rule for guiding AI-assisted backend developmen...</summary>
+<summary>⭐ <strong>Backend Dev (Rules 2.1)</strong> (168★) — A structured rule for guiding AI-assisted backend developmen...</summary>
 
 A structured rule for guiding AI-assisted backend development workflows in Java, Python, and Node.js.
 
@@ -255,4 +255,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-05-20*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-05-25*

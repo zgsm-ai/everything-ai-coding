@@ -1,6 +1,6 @@
 # 🎯 Skills 技能
 
-> 1812 AI 编程助手的可复用能力和工作流。
+> 1802 AI 编程助手的可复用能力和工作流。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
@@ -114,7 +114,7 @@
 ## Top 10 安装指南
 
 <details>
-<summary>⭐ <strong>claude-api</strong> (138.0k★) — 全面的技能，用于构建、调试和优化Claude API/Anthropic SDK应用，支持提示缓存和模型迁移。</summary>
+<summary>⭐ <strong>claude-api</strong> (140.4k★) — 全面的技能，用于构建、调试和优化Claude API/Anthropic SDK应用，支持提示缓存和模型迁移。</summary>
 
 全面的技能，用于构建、调试和优化Claude API/Anthropic SDK应用，支持提示缓存和模型迁移。
 
@@ -129,7 +129,7 @@ Files: `skills/claude-api/`
 </details>
 
 <details>
-<summary>⭐ <strong>docx</strong> (138.0k★) — 用于通过 JavaScript 和 XML 操作程序化创建、读取、编辑和处理 Word (.docx) 文件的技能。</summary>
+<summary>⭐ <strong>docx</strong> (140.4k★) — 用于通过 JavaScript 和 XML 操作程序化创建、读取、编辑和处理 Word (.docx) 文件的技能。</summary>
 
 用于通过 JavaScript 和 XML 操作程序化创建、读取、编辑和处理 Word (.docx) 文件的技能。
 
@@ -144,7 +144,7 @@ Files: `skills/docx/`
 </details>
 
 <details>
-<summary>⭐ <strong>Writing Hookify Rules</strong> (125.2k★) — 用于创建 Hookify 规则的技能，监控 Claude Code 中的编码模式并触发警告或阻止。</summary>
+<summary>⭐ <strong>Writing Hookify Rules</strong> (126.4k★) — 用于创建 Hookify 规则的技能，监控 Claude Code 中的编码模式并触发警告或阻止。</summary>
 
 用于创建 Hookify 规则的技能，监控 Claude Code 中的编码模式并触发警告或阻止。
 
@@ -158,7 +158,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Hook Development</strong> (125.2k★) — Claude Code 插件钩子开发指南，用于验证、修改和自动化 AI 辅助编码工作流。</summary>
+<summary>⭐ <strong>Hook Development</strong> (126.4k★) — Claude Code 插件钩子开发指南，用于验证、修改和自动化 AI 辅助编码工作流。</summary>
 
 Claude Code 插件钩子开发指南，用于验证、修改和自动化 AI 辅助编码工作流。
 
@@ -172,7 +172,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>MCP Integration</strong> (125.2k★) — 全面指南，用于将模型上下文协议（MCP）服务器集成到Claude Code插件中，以连接外部服务作为工具。</summary>
+<summary>⭐ <strong>MCP Integration</strong> (126.4k★) — 全面指南，用于将模型上下文协议（MCP）服务器集成到Claude Code插件中，以连接外部服务作为工具。</summary>
 
 全面指南，用于将模型上下文协议（MCP）服务器集成到Claude Code插件中，以连接外部服务作为工具。
 
@@ -186,7 +186,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Plugin Settings</strong> (125.2k★) — Claude Code 插件技能模式，通过 .local.md 文件中的 YAML 前置数据存储项目配置。</summary>
+<summary>⭐ <strong>Plugin Settings</strong> (126.4k★) — Claude Code 插件技能模式，通过 .local.md 文件中的 YAML 前置数据存储项目配置。</summary>
 
 Claude Code 插件技能模式，通过 .local.md 文件中的 YAML 前置数据存储项目配置。
 
@@ -200,7 +200,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Plugin Structure</strong> (125.2k★) — 用于创建和组织 Claude Code 插件的技能，提供标准化目录结构和清单配置。</summary>
+<summary>⭐ <strong>Plugin Structure</strong> (126.4k★) — 用于创建和组织 Claude Code 插件的技能，提供标准化目录结构和清单配置。</summary>
 
 用于创建和组织 Claude Code 插件的技能，提供标准化目录结构和清单配置。
 
@@ -214,7 +214,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Skill Development</strong> (125.2k★) — 为 Claude Code 插件创建模块化技能的全面指南，涵盖结构、最佳实践和渐进式披露。</summary>
+<summary>⭐ <strong>Skill Development</strong> (126.4k★) — 为 Claude Code 插件创建模块化技能的全面指南，涵盖结构、最佳实践和渐进式披露。</summary>
 
 为 Claude Code 插件创建模块化技能的全面指南，涵盖结构、最佳实践和渐进式披露。
 
@@ -228,7 +228,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>skill-creator</strong> (138.0k★) — 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。</summary>
+<summary>⭐ <strong>skill-creator</strong> (140.4k★) — 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。</summary>
 
 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。
 
@@ -243,7 +243,7 @@ Files: `skills/skill-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>xlsx</strong> (138.0k★) — 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。</summary>
+<summary>⭐ <strong>xlsx</strong> (140.4k★) — 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。</summary>
 
 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。
 
@@ -269,4 +269,4 @@ Files: `skills/xlsx/`
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-05-20*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-05-25*
