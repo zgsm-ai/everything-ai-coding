@@ -378,6 +378,9 @@ jobs:
     needs: [sync-data, enrich]
     if: always() && needs.sync-data.result == 'success'
     runs-on: ubuntu-latest
+    outputs:
+      catalog_changed: ${{ steps.commit.outputs.catalog_changed }}
+      committed: ${{ steps.commit.outputs.committed }}
     # 30min 是非 security 路径的预算；add-security-risk-eval 后 aggregate 多了
     # 一个 Run security scan step：首跑约 13k entries × 6.8s / concurrency=6
     # ≈ 250min wall clock，且 LLM provider 偶发 transient timeout 会把实际时长
@@ -786,16 +789,24 @@ jobs:
         continue-on-error: true
 
       - name: Commit and push if changed
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add catalog/ README.md README.zh-CN.md
           # docs/coverage_report.md 在 gitignore 中，需要 -f 才能纳入 commit
           git add -f docs/coverage_report.md 2>/dev/null || true
+          if git diff --staged --name-only | grep -qx 'catalog/index.json'; then
+            echo "catalog_changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "catalog_changed=false" >> "$GITHUB_OUTPUT"
+          fi
           if git diff --staged --quiet; then
             echo "No changes to commit"
+            echo "committed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "[chore] 每周自动同步上游资源 $(date +%Y-%m-%d)"
+            echo "committed=true" >> "$GITHUB_OUTPUT"
             git stash --include-untracked
             # Use `-X theirs` so our newly-aggregated catalog wins on conflict
             # when a previous aggregate (e.g. from a cancelled / overlapping
@@ -812,3 +823,28 @@ jobs:
             git push || (git pull --rebase --strategy-option=theirs && git push)
             git stash pop || true
           fi
+
+  trigger-catalog-bundle-release:
+    needs: aggregate
+    if: ${{ needs.aggregate.result == 'success' && needs.aggregate.outputs.catalog_changed == 'true' }}
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: read
+    steps:
+      - name: Trigger catalog bundle release
+        env:
+          GH_TOKEN: ${{ secrets.MARKETPLACE_GITHUB_TOKEN }}
+          NOTES_EXTRA: Triggered by Weekly Sync run ${{ github.run_id }} after catalog/index.json changed.
+        run: |
+          gh workflow run release-catalog-bundle.yaml \
+            --repo "$GITHUB_REPOSITORY" \
+            --ref main \
+            -f services_to_download=skills,mcp,rules,prompts,plugins \
+            -f notes_extra="$NOTES_EXTRA" \
+            -f publish_plugin_marketplace=true
+
+      - name: Print release workflow hint
+        run: |
+          echo "release-catalog-bundle.yaml dispatched for main after catalog/index.json changed."
+          echo "Check the Release Catalog Bundle workflow runs for the bundle release and marketplace publish status."
