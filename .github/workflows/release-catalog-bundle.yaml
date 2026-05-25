@@ -41,6 +41,15 @@ on:
         description: "Extra notes appended to the GitHub Release body"
         required: false
         default: ""
+      publish_plugin_marketplace:
+        description: "Publish the costrict plugin marketplace mirror from this bundle"
+        required: false
+        default: true
+        type: boolean
+      marketplace_version:
+        description: "costrict-plugin-marketplace bundle SemVer without leading v. Defaults to catalog tag suffix/date."
+        required: false
+        default: ""
 
 permissions:
   contents: write   # required for `gh release create`
@@ -49,6 +58,11 @@ jobs:
   build-and-release:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    outputs:
+      release_tag: ${{ steps.tag.outputs.name }}
+      bundle_sha: ${{ steps.bundle.outputs.sha256 }}
+      index_sha: ${{ steps.bundle.outputs.index_sha256 }}
+      marketplace_version: ${{ steps.marketplace-version.outputs.value }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -143,6 +157,25 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Resolve marketplace version
+        id: marketplace-version
+        run: |
+          REQUESTED="${{ inputs.marketplace_version || '' }}"
+          if [ -n "$REQUESTED" ]; then
+            VERSION="$REQUESTED"
+          else
+            TAG="${{ steps.tag.outputs.name }}"
+            CANDIDATE="${TAG#catalog-bundle-v}"
+            if printf '%s' "$CANDIDATE" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+([+-][0-9A-Za-z.-]+)?$'; then
+              VERSION="$CANDIDATE"
+            else
+              SAFE_TAG="$(printf '%s' "$TAG" | tr -c 'A-Za-z0-9-' '-' | sed -E 's/^-+//; s/-+$//')"
+              VERSION="0.0.0-$SAFE_TAG"
+            fi
+          fi
+          echo "value=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Marketplace version: $VERSION"
+
       - name: Compose release notes
         run: |
           cat > release-notes.md <<EOF
@@ -198,3 +231,17 @@ jobs:
           echo ""
           echo "Done. Download URL:"
           echo "  https://github.com/${{ github.repository }}/releases/download/${TAG}/catalog-bundle.tar.gz"
+
+  publish-plugin-marketplace:
+    needs: build-and-release
+    if: ${{ github.event_name == 'push' || inputs.publish_plugin_marketplace }}
+    uses: costrict-plugins-repo/costrict-plugin-marketplace/.github/workflows/publish-marketplace.yml@main
+    with:
+      catalog_bundle_url: https://github.com/${{ github.repository }}/releases/download/${{ needs.build-and-release.outputs.release_tag }}/catalog-bundle.tar.gz
+      bundle_sha: ${{ needs.build-and-release.outputs.bundle_sha }}
+      index_sha: ${{ needs.build-and-release.outputs.index_sha }}
+      version: ${{ inputs.marketplace_version || needs.build-and-release.outputs.marketplace_version }}
+      publish: true
+      create_release: false
+    secrets:
+      MARKETPLACE_GITHUB_TOKEN: ${{ secrets.MARKETPLACE_GITHUB_TOKEN }}
