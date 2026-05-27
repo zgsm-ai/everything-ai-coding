@@ -7,6 +7,8 @@ import re
 import shutil
 from collections import Counter
 
+from source_registry import build_sources_payload
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CATALOG = os.path.join(ROOT, "catalog")
 OUT = os.path.join(ROOT, "frontend", "public", "api")
@@ -212,7 +214,15 @@ def main():
     # 3. Type-specific files
     build_type_files(items)
 
-    # 4. Copy search index
+    # 4. Data sources (About 页"数据源 / 信任分级"两个区块的真相来源)
+    sources_payload = build_sources_payload(items)
+    save_json(os.path.join(OUT, "sources.json"), sources_payload)
+    print(
+        f"sources.json: {len(sources_payload['sources'])} sources, "
+        f"{len(sources_payload['tiers'])} tiers"
+    )
+
+    # 5. Copy search index
     if os.path.exists(search_index_path):
         shutil.copy2(search_index_path, os.path.join(OUT, "search-index.json"))
         size_mb = os.path.getsize(search_index_path) / 1024 / 1024

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { useI18n } from '../hooks/useI18n'
 
 /* ── Pipeline step SVG icons ── */
@@ -77,27 +78,12 @@ function TargetIcon() {
   )
 }
 
-const SOURCES = [
-  { name: 'awesome-mcp-servers', url: 'https://github.com/punkpeye/awesome-mcp-servers', trust: 4, type: 'MCP' },
-  { name: 'mcp.so', url: 'https://mcp.so', trust: 2, type: 'MCP' },
-  { name: 'Anthropic Skills', url: 'https://github.com/anthropics/skills', trust: 5, type: 'Skills' },
-  { name: 'Ai-Agent-Skills', url: 'https://github.com/skillcreatorai/Ai-Agent-Skills', trust: 3, type: 'Skills' },
-  { name: 'antigravity-skills', url: 'https://github.com/antigravities/awesome-claude-code-skills', trust: 3, type: 'Skills' },
-  { name: 'awesome-cursorrules', url: 'https://github.com/PatrickJS/awesome-cursorrules', trust: 4, type: 'Rules' },
-  { name: 'Rules 2.1', url: 'https://github.com/Mr-chen-05/rules-2.1-optimized', trust: 3, type: 'Rules' },
-  { name: 'prompts.chat', url: 'https://github.com/f/prompts.chat', trust: 4, type: 'Prompts' },
-  { name: 'wonderful-prompts', url: 'https://github.com/langgptai/wonderful-prompts', trust: 3, type: 'Prompts' },
-  { name: 'Anthropic Plugins', url: 'https://github.com/anthropics/claude-plugins-official', trust: 5, type: 'Plugins' },
-  { name: 'superpowers-marketplace', url: 'https://github.com/obra/superpowers-marketplace', trust: 4, type: 'Plugins' },
-  { name: 'claude-plugins.dev', url: 'https://claude-plugins.dev', trust: 3, type: 'Plugins' },
-]
-
-const TRUST_LEVELS = [
-  { score: 5, label: 'Tier 1', sources: ['anthropics-skills', 'curated', 'claude-plugins-official', 'superpowers-marketplace'], color: '#30d158' },
-  { score: 4, label: 'Tier 2', sources: ['awesome-mcp-servers', 'awesome-cursorrules', 'prompts-chat', 'claude-plugins.dev'], color: '#0071e3' },
-  { score: 3, label: 'Tier 3', sources: ['ai-agent-skills', 'github-search', 'rules-2.1'], color: '#ff9f0a' },
-  { score: 2, label: 'Tier 4', sources: ['mcp.so'], color: '#ff453a' },
-]
+// 数据源 / 信任分级两个区块的数据由后端 scripts/source_registry.py 生成到
+// frontend/public/api/sources.json（join catalog 实时 count），前端只渲染。
+// 过去这里是手敲常量，源演进后会漂移（曾把 antigravity-skills 指到已删的
+// antigravities/... 404 库）——改 fetch 后由 sync 管线保证与真实源一致。
+type SourceItem = { slug: string; name: string; url: string; type: string; trust: number; count: number }
+type TierItem = { score: number; label: string; color: string; sources: string[] }
 
 const TYPE_BADGE: Record<string, string> = {
   MCP: 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300',
@@ -136,6 +122,19 @@ function WeightBar({ label, weight, color }: { label: string; weight: number; co
 
 export default function About() {
   const { t, lang } = useI18n()
+
+  const [sources, setSources] = useState<SourceItem[]>([])
+  const [tiers, setTiers] = useState<TierItem[]>([])
+
+  useEffect(() => {
+    fetch('./api/sources.json')
+      .then(r => (r.ok ? r.json() : { sources: [], tiers: [] }))
+      .then(d => {
+        setSources(d.sources || [])
+        setTiers(d.tiers || [])
+      })
+      .catch(() => {})
+  }, [])
 
   const pipelineSteps = [
     {
@@ -362,7 +361,7 @@ export default function About() {
           <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{t('about.trust.desc')}</p>
         </div>
         <div className="space-y-2.5">
-          {TRUST_LEVELS.map(tier => (
+          {tiers.map(tier => (
             <div key={tier.label} className="flex items-center gap-4">
               <span className="text-xs font-bold w-12 shrink-0 tabular-nums" style={{ color: tier.color }}>{tier.label}</span>
               <TrustDot score={tier.score} />
@@ -382,15 +381,16 @@ export default function About() {
       <div className="glass rounded-2xl p-6 space-y-4">
         <h2 className="text-base font-semibold text-gray-900 dark:text-white">{t('about.sources')}</h2>
         <div className="grid gap-2">
-          {SOURCES.map(s => (
+          {sources.map(s => (
             <a
-              key={s.name}
+              key={s.slug}
               href={s.url}
               target="_blank" rel="noreferrer"
               className="flex items-center gap-3 bg-white/40 dark:bg-white/5 hover:bg-white/70 dark:hover:bg-white/10 rounded-xl px-4 py-2.5 border border-white/40 dark:border-white/8 no-underline transition-colors group"
             >
               <span className={`text-xs font-semibold px-2 py-0.5 rounded-full shrink-0 ${TYPE_BADGE[s.type]}`}>{s.type}</span>
               <span className="text-sm text-gray-700 dark:text-gray-200 group-hover:text-apple-blue transition-colors flex-1">{s.name}</span>
+              <span className="text-xs text-gray-400 dark:text-gray-500 tabular-nums shrink-0">{s.count.toLocaleString()}</span>
               <TrustDot score={s.trust} />
             </a>
           ))}
