@@ -1,6 +1,6 @@
 # 🎯 Skills
 
-> 1802 Reusable agent capabilities and workflows for AI coding assistants.
+> 1828 Reusable agent capabilities and workflows for AI coding assistants.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
@@ -77,44 +77,44 @@
 | 65 | [claimable-postgres](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/claimable-postgres) | Provision instant, temporary Postgres databases for development and prototyping ... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | database | `postgres` |
 | 66 | [comfyui-gateway](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/comfyui-gateway) | A REST API gateway for ComfyUI servers providing workflow management, job queuin... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | backend | `rest-api` |
 | 67 | [constant-time-analysis](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/constant-time-analysis) | A static analysis tool to detect timing side-channels in cryptographic code acro... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | security | — |
-| 68 | [convex](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/convex) | A comprehensive expert guide for Convex, a reactive backend platform with TypeSc... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | backend | `react`, `typescript` |
-| 69 | [copilot-sdk](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/copilot-sdk) | An SDK for building applications that programmatically interact with GitHub Copi... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | backend | `python`, `go`, `nodejs` |
-| 70 | [data-structure-protocol](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/data-structure-protocol) | A protocol for AI agents to maintain persistent structural memory of codebases v... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | database | — |
-| 71 | [evolution](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/evolution) | A self-evolution system for the makepad-skills library, enabling continuous impr... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | — |
-| 72 | [expo-dev-client](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/expo-dev-client) | Guide for building and distributing Expo development clients locally or via Test... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | mobile | — |
-| 73 | [expo-tailwind-setup](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/expo-tailwind-setup) | A guide for setting up Tailwind CSS v4 in Expo with react-native-css and NativeW... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | mobile | `react`, `tailwind`, `css` |
-| 74 | [gdb-cli](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gdb-cli) | AI agent skill for GDB-based C/C++ debugging, enabling core dump analysis, live ... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | `linux` |
-| 75 | [gemini-api-integration](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gemini-api-integration) | A comprehensive guide for integrating Google Gemini API into projects, covering ... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | `go` |
-| 76 | [git-hooks-automation](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/git-hooks-automation) | A comprehensive guide to automating Git hooks for code quality enforcement using... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | `git` |
-| 77 | [github-automation](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/github-automation) | Automates GitHub workflows (issues, PRs, CI/CD) via Rube MCP (Composio) for prog... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | `git` |
-| 78 | [gitops-workflow](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gitops-workflow) | A comprehensive guide for implementing GitOps workflows on Kubernetes using Argo... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | devops | `go`, `kubernetes`, `git` |
-| 79 | [go-rod-master](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/go-rod-master) | A comprehensive guide for browser automation and web scraping with go-rod (Chrom... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | `go` |
-| 80 | [hierarchical-agent-memory](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hierarchical-agent-memory) | Scoped CLAUDE.md memory system that reduces context token spend by creating dire... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `claude`, `ai`, `llm` |
-| 81 | [hono](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hono) | Hono is a fast, lightweight web framework for building APIs and full-stack apps ... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | backend | `nodejs` |
-| 82 | [hosted-agents-v2-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hosted-agents-v2-py) | A Python SDK guide for creating and managing container-based hosted agents in Az... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `azure` |
-| 83 | [hugging-face-community-evals](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hugging-face-community-evals) | A skill for running local evaluations of Hugging Face Hub models using inspect-a... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `huggingface` |
-| 84 | [hugging-face-model-trainer](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hugging-face-model-trainer) | A skill for training and fine-tuning TRL language models on Hugging Face Jobs wi... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `huggingface`, `llm`, `ml` |
-| 85 | [hugging-face-vision-trainer](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hugging-face-vision-trainer) | A skill for training and fine-tuning vision models (detection, classification, s... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `huggingface`, `ml` |
-| 86 | [k6-load-testing](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/k6-load-testing) | A comprehensive k6 load testing skill for writing API, browser, and WebSocket pe... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | testing | `ci-cd` |
-| 87 | [m365-agents-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/m365-agents-py) | Python SDK for building AI agents integrated with Microsoft 365, Teams, and Copi... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `python` |
-| 88 | [m365-agents-ts](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/m365-agents-ts) | TypeScript/Node.js SDK for building enterprise agents integrated with Microsoft ... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `typescript`, `nodejs` |
-| 89 | [macos-spm-app-packaging](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/macos-spm-app-packaging) | A skill for scaffolding, building, signing, and packaging SwiftPM macOS apps wit... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | `swift` |
-| 90 | [makepad-deployment](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/makepad-deployment) | A comprehensive guide for packaging and deploying Makepad (Rust UI framework) ap... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | `go`, `git` |
-| 91 | [monte-carlo-validation-notebook](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/monte-carlo-validation-notebook) | Generates SQL validation notebooks for dbt PR changes with before/after comparis... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | database | — |
-| 92 | [photopea-embedded-editor](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/photopea-embedded-editor) | A comprehensive guide and API reference for embedding and controlling the Photop... | Antigravity Skills | 🟢 Active | 95 | 2026-05-20 | tooling | — |
-| 93 | [playwright-skill](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/playwright-skill) | Playwright-based browser automation skill for AI-assisted testing and web intera... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | testing | `playwright` |
-| 94 | [pptx-official](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/pptx-official) | AI skill for programmatically creating, editing, and analyzing PowerPoint (.pptx... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | documentation | — |
-| 95 | [production-audit](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/production-audit) | Audits shipped repos for production-readiness gaps like RLS, webhooks, secrets, ... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | security | — |
-| 96 | [progressive-web-app](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/progressive-web-app) | A comprehensive guide to building Progressive Web Apps with offline support, ins... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | frontend | `javascript` |
-| 97 | [pydantic-ai](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/pydantic-ai) | A Python framework for building type-safe, production-ready AI agents with struc... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `python`, `ai`, `llm` |
-| 98 | [python-development-python-scaffold](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/python-development-python-scaffold) | A skill for scaffolding production-ready Python projects with modern tooling lik... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | `python`, `go`, `fastapi` |
-| 99 | [qiskit](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/qiskit) | Qiskit is an open-source quantum computing framework for building, optimizing, a... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `python` |
-| 100 | [radix-ui-design-system](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/radix-ui-design-system) | A guide to building accessible, customizable design systems using Radix UI primi... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | frontend | `radix`, `react` |
+| 68 | [container-security-hardening](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/container-security-hardening) | A comprehensive skill for hardening Docker and Kubernetes deployments with secur... | Antigravity Skills | 🟢 Active | 95 | 2026-06-01 | security | `container-security`, `docker-hardening`, `kubernetes-security` |
+| 69 | [convex](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/convex) | A comprehensive expert guide for Convex, a reactive backend platform with TypeSc... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | backend | `react`, `typescript` |
+| 70 | [copilot-sdk](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/copilot-sdk) | An SDK for building applications that programmatically interact with GitHub Copi... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | backend | `python`, `go`, `nodejs` |
+| 71 | [data-structure-protocol](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/data-structure-protocol) | A protocol for AI agents to maintain persistent structural memory of codebases v... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | database | — |
+| 72 | [evolution](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/evolution) | A self-evolution system for the makepad-skills library, enabling continuous impr... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | — |
+| 73 | [expo-dev-client](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/expo-dev-client) | Guide for building and distributing Expo development clients locally or via Test... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | mobile | — |
+| 74 | [expo-tailwind-setup](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/expo-tailwind-setup) | A guide for setting up Tailwind CSS v4 in Expo with react-native-css and NativeW... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | mobile | `react`, `tailwind`, `css` |
+| 75 | [gdb-cli](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gdb-cli) | AI agent skill for GDB-based C/C++ debugging, enabling core dump analysis, live ... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | `linux` |
+| 76 | [gemini-api-integration](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gemini-api-integration) | A comprehensive guide for integrating Google Gemini API into projects, covering ... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | `go` |
+| 77 | [git-hooks-automation](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/git-hooks-automation) | A comprehensive guide to automating Git hooks for code quality enforcement using... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | `git` |
+| 78 | [github-automation](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/github-automation) | Automates GitHub workflows (issues, PRs, CI/CD) via Rube MCP (Composio) for prog... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | `git` |
+| 79 | [gitops-workflow](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gitops-workflow) | A comprehensive guide for implementing GitOps workflows on Kubernetes using Argo... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | devops | `go`, `kubernetes`, `git` |
+| 80 | [go-rod-master](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/go-rod-master) | A comprehensive guide for browser automation and web scraping with go-rod (Chrom... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | `go` |
+| 81 | [hierarchical-agent-memory](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hierarchical-agent-memory) | Scoped CLAUDE.md memory system that reduces context token spend by creating dire... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `claude`, `ai`, `llm` |
+| 82 | [hono](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hono) | Hono is a fast, lightweight web framework for building APIs and full-stack apps ... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | backend | `nodejs` |
+| 83 | [hosted-agents-v2-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hosted-agents-v2-py) | A Python SDK guide for creating and managing container-based hosted agents in Az... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `azure` |
+| 84 | [hugging-face-community-evals](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hugging-face-community-evals) | A skill for running local evaluations of Hugging Face Hub models using inspect-a... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `huggingface` |
+| 85 | [hugging-face-model-trainer](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hugging-face-model-trainer) | A skill for training and fine-tuning TRL language models on Hugging Face Jobs wi... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `huggingface`, `llm`, `ml` |
+| 86 | [hugging-face-vision-trainer](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hugging-face-vision-trainer) | A skill for training and fine-tuning vision models (detection, classification, s... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `huggingface`, `ml` |
+| 87 | [k6-load-testing](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/k6-load-testing) | A comprehensive k6 load testing skill for writing API, browser, and WebSocket pe... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | testing | `ci-cd` |
+| 88 | [m365-agents-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/m365-agents-py) | Python SDK for building AI agents integrated with Microsoft 365, Teams, and Copi... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `python` |
+| 89 | [m365-agents-ts](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/m365-agents-ts) | TypeScript/Node.js SDK for building enterprise agents integrated with Microsoft ... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `typescript`, `nodejs` |
+| 90 | [macos-spm-app-packaging](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/macos-spm-app-packaging) | A skill for scaffolding, building, signing, and packaging SwiftPM macOS apps wit... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | `swift` |
+| 91 | [makepad-deployment](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/makepad-deployment) | A comprehensive guide for packaging and deploying Makepad (Rust UI framework) ap... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | `go`, `git` |
+| 92 | [monte-carlo-validation-notebook](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/monte-carlo-validation-notebook) | Generates SQL validation notebooks for dbt PR changes with before/after comparis... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | database | — |
+| 93 | [photopea-embedded-editor](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/photopea-embedded-editor) | A comprehensive guide and API reference for embedding and controlling the Photop... | Antigravity Skills | 🟢 Active | 95 | 2026-05-20 | tooling | — |
+| 94 | [playwright-skill](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/playwright-skill) | Playwright-based browser automation skill for AI-assisted testing and web intera... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | testing | `playwright` |
+| 95 | [pptx-official](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/pptx-official) | AI skill for programmatically creating, editing, and analyzing PowerPoint (.pptx... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | documentation | — |
+| 96 | [production-audit](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/production-audit) | Audits shipped repos for production-readiness gaps like RLS, webhooks, secrets, ... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | security | — |
+| 97 | [progressive-web-app](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/progressive-web-app) | A comprehensive guide to building Progressive Web Apps with offline support, ins... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | frontend | `javascript` |
+| 98 | [pydantic-ai](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/pydantic-ai) | A Python framework for building type-safe, production-ready AI agents with struc... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `python`, `ai`, `llm` |
+| 99 | [python-development-python-scaffold](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/python-development-python-scaffold) | A skill for scaffolding production-ready Python projects with modern tooling lik... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | `python`, `go`, `fastapi` |
+| 100 | [qiskit](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/qiskit) | Qiskit is an open-source quantum computing framework for building, optimizing, a... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `python` |
 
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>claude-api</strong> (140.5k★) — Comprehensive skill for building, debugging, and optimizing ...</summary>
+<summary>⭐ <strong>claude-api</strong> (144.9k★) — Comprehensive skill for building, debugging, and optimizing ...</summary>
 
 Comprehensive skill for building, debugging, and optimizing Claude API/Anthropic SDK applications with prompt caching and model migration support.
 
@@ -129,7 +129,7 @@ Files: `skills/claude-api/`
 </details>
 
 <details>
-<summary>⭐ <strong>docx</strong> (140.5k★) — A skill for programmatically creating, reading, editing, and...</summary>
+<summary>⭐ <strong>docx</strong> (144.9k★) — A skill for programmatically creating, reading, editing, and...</summary>
 
 A skill for programmatically creating, reading, editing, and manipulating Word (.docx) files using JavaScript and XML manipulation.
 
@@ -144,7 +144,7 @@ Files: `skills/docx/`
 </details>
 
 <details>
-<summary>⭐ <strong>Writing Hookify Rules</strong> (126.4k★) — A skill for creating hookify rules that monitor coding patte...</summary>
+<summary>⭐ <strong>Writing Hookify Rules</strong> (129.2k★) — A skill for creating hookify rules that monitor coding patte...</summary>
 
 A skill for creating hookify rules that monitor coding patterns in Claude Code and trigger warnings or blocks.
 
@@ -158,7 +158,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Hook Development</strong> (126.4k★) — A comprehensive guide for developing event-driven hooks in C...</summary>
+<summary>⭐ <strong>Hook Development</strong> (129.2k★) — A comprehensive guide for developing event-driven hooks in C...</summary>
 
 A comprehensive guide for developing event-driven hooks in Claude Code plugins to validate, modify, and automate AI-assisted coding workflows.
 
@@ -172,7 +172,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>MCP Integration</strong> (126.4k★) — Comprehensive guide for integrating Model Context Protocol (...</summary>
+<summary>⭐ <strong>MCP Integration</strong> (129.2k★) — Comprehensive guide for integrating Model Context Protocol (...</summary>
 
 Comprehensive guide for integrating Model Context Protocol (MCP) servers into Claude Code plugins to connect external services as tools.
 
@@ -186,7 +186,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Plugin Settings</strong> (126.4k★) — A skill pattern for Claude Code plugins to store per-project...</summary>
+<summary>⭐ <strong>Plugin Settings</strong> (129.2k★) — A skill pattern for Claude Code plugins to store per-project...</summary>
 
 A skill pattern for Claude Code plugins to store per-project configuration using YAML frontmatter in .local.md files.
 
@@ -200,7 +200,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Plugin Structure</strong> (126.4k★) — A skill for creating and organizing Claude Code plugins with...</summary>
+<summary>⭐ <strong>Plugin Structure</strong> (129.2k★) — A skill for creating and organizing Claude Code plugins with...</summary>
 
 A skill for creating and organizing Claude Code plugins with standardized directory structure and manifest configuration.
 
@@ -214,7 +214,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Skill Development</strong> (126.4k★) — A comprehensive guide for creating modular skills for Claude...</summary>
+<summary>⭐ <strong>Skill Development</strong> (129.2k★) — A comprehensive guide for creating modular skills for Claude...</summary>
 
 A comprehensive guide for creating modular skills for Claude Code plugins, covering structure, best practices, and progressive disclosure.
 
@@ -228,7 +228,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>skill-creator</strong> (140.5k★) — A comprehensive skill for creating, testing, and optimizing ...</summary>
+<summary>⭐ <strong>skill-creator</strong> (144.9k★) — A comprehensive skill for creating, testing, and optimizing ...</summary>
 
 A comprehensive skill for creating, testing, and optimizing AI assistant skills through an iterative workflow with evaluation and benchmarking.
 
@@ -243,7 +243,7 @@ Files: `skills/skill-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>xlsx</strong> (140.5k★) — A Python skill for programmatically creating, editing, and a...</summary>
+<summary>⭐ <strong>xlsx</strong> (144.9k★) — A Python skill for programmatically creating, editing, and a...</summary>
 
 A Python skill for programmatically creating, editing, and analyzing Excel and tabular files with strict formatting and formula standards.
 
@@ -269,4 +269,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-05-25*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-01*

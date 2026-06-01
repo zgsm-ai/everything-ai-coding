@@ -1,12 +1,12 @@
 <div align="center">
 <img src="assets/logo.png" alt="Everything AI Coding logo" width="600" />
-<p><strong><!-- README_APPROX_COUNT:START -->9500<!-- README_APPROX_COUNT:END -->+ 精选 AI 编程资源 — 浏览、评估、安装</strong><br/>MCP Servers · Skills · Rules · Prompts · Plugins</p>
+<p><strong><!-- README_APPROX_COUNT:START -->9900<!-- README_APPROX_COUNT:END -->+ 精选 AI 编程资源 — 浏览、评估、安装</strong><br/>MCP Servers · Skills · Rules · Prompts · Plugins</p>
 
 <p>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/stargazers"><img src="https://img.shields.io/github/stars/zgsm-ai/everything-ai-coding?style=flat-square&color=4A90D9" alt="Stars" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zgsm-ai/everything-ai-coding?style=flat-square" alt="License" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/commits/main"><img src="https://img.shields.io/github/last-commit/zgsm-ai/everything-ai-coding?style=flat-square" alt="Last Commit" /></a>
-  <img src="https://img.shields.io/badge/resources-9561-2ECC71?style=flat-square" alt="Resources" />
+  <img src="https://img.shields.io/badge/resources-9902-2ECC71?style=flat-square" alt="Resources" />
 </p>
 
 <p>
@@ -34,25 +34,25 @@ Everything AI Coding 是一个**持续更新的知识库**，从 9+ 个上游源
 <a id="knowledge-base"></a>
 ## 📚 知识库
 
-### [🔌 MCP 服务器](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->6157<!-- README_COUNT_MCP:END --> 个条目
+### [🔌 MCP 服务器](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->6457<!-- README_COUNT_MCP:END --> 个条目
 
 将 AI Agent 连接到外部工具、数据库和服务的 Model Context Protocol 服务器。
 
 <!-- README_TOP5_MCP:START -->
 | 名称 | ⭐ Stars | 评分 | 描述 |
 |------|----------|------|------|
-| [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | 33.0k | 98 | 微软官方 MCP 服务器，通过 Playwright 让 AI 精确控制浏览器进行网页自动化和数据抓取。 |
-| [github/github-mcp-server](https://github.com/github/github-mcp-server) | 30.2k | 98 | GitHub 官方 MCP 服务器，让 AI 工具通过 API 深度集成 GitHub，实现仓库管理、Issue/PR 自动化和 CI/C… |
-| [googleapis/genai-toolbox](https://github.com/googleapis/genai-toolbox) | 15.3k | 98 | Google官方MCP服务器，将AI代理和IDE连接到企业数据库，提供预构建工具和自定义框架。 |
-| [MCP Inspector](https://github.com/modelcontextprotocol/inspector) | 9.2k | 98 | 用于通过 Web UI 或 CLI 可视化测试和调试 MCP 服务器的开发者工具。 |
-| [AWS MCP Servers](https://github.com/awslabs/mcp) | 8.6k | 98 | 50+个MCP服务器套件，让AI编程助手能够与AWS服务交互，支持基础设施、数据库、AI/ML和开发工作流。 |
+| [upstash/context7](https://github.com/upstash/context7) | 56.5k | 98 | 实时注入最新库文档和代码示例到 LLM 上下文的 MCP 服务器，消除 API 幻觉。 |
+| [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 42.5k | 98 | 谷歌官方 MCP 服务器，让 AI 编程代理直接操控 Chrome DevTools 进行调试、性能分析和浏览器自动化。 |
+| [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | 33.3k | 98 | 微软官方 MCP 服务器，通过 Playwright 让 AI 精确控制浏览器进行网页自动化和数据抓取。 |
+| [github/github-mcp-server](https://github.com/github/github-mcp-server) | 30.3k | 98 | GitHub 官方 MCP 服务器，让 AI 工具通过 API 深度集成 GitHub，实现仓库管理、Issue/PR 自动化和 CI/C… |
+| [googleapis/genai-toolbox](https://github.com/googleapis/genai-toolbox) | 15.4k | 98 | Google官方MCP服务器，将AI代理和IDE连接到企业数据库，提供预构建工具和自定义框架。 |
 <!-- README_TOP5_MCP:END -->
 
 [浏览全部 MCP 服务器 →](./catalog/mcp/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=mcp)
 
 ---
 
-### [🎯 Skills 技能](./catalog/skills/) — <!-- README_COUNT_SKILL:START -->1802<!-- README_COUNT_SKILL:END --> 个条目
+### [🎯 Skills 技能](./catalog/skills/) — <!-- README_COUNT_SKILL:START -->1828<!-- README_COUNT_SKILL:END --> 个条目
 
 AI 编程助手的可复用能力和工作流。
 
@@ -88,7 +88,7 @@ AI 编程助手的可复用能力和工作流。
 
 ---
 
-### [💡 Prompts 提示词](./catalog/prompts/) — <!-- README_COUNT_PROMPT:START -->601<!-- README_COUNT_PROMPT:END --> 个条目
+### [💡 Prompts 提示词](./catalog/prompts/) — <!-- README_COUNT_PROMPT:START -->606<!-- README_COUNT_PROMPT:END --> 个条目
 
 面向开发者的提示词模板，覆盖常见编码场景。
 
@@ -106,7 +106,7 @@ AI 编程助手的可复用能力和工作流。
 
 ---
 
-### [🧩 Plugins 插件](./catalog/plugins/) — <!-- README_COUNT_PLUGIN:START -->833<!-- README_COUNT_PLUGIN:END --> 个条目
+### [🧩 Plugins 插件](./catalog/plugins/) — <!-- README_COUNT_PLUGIN:START -->843<!-- README_COUNT_PLUGIN:END --> 个条目
 
 打包发布的市场插件（含 skills + commands + agents + MCP servers）。
 

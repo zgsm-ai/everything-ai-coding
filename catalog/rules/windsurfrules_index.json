@@ -5,7 +5,7 @@
     "type": "rule",
     "description": "Angular Novo Elements .cursorrules prompt file: Author: Dan Donathan ## What you can build Code Refactoring Tool: Develop an intelligent code refactoring tool that adheres to the principles outlined in the .cursorrules file. This tool can automatically detect code smells, suggest improvements for co",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/angular-novo-elements-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -20,7 +20,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "angular-novo-elements-cursorrules-prompt-file-schneidersam",
@@ -28,7 +28,7 @@
     "type": "rule",
     "description": "Angular Novo Elements .cursorrules prompt file: Author: Dan Donathan ## What you can build Code Refactoring Tool: Develop an intelligent code refactoring tool that adheres to the principles outlined in the .cursorrules file. This tool can automatically detect code smells, suggest improvements for co",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/angular-novo-elements-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -43,7 +43,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "angular-typescript-cursorrules-prompt-file-balqaasem",
@@ -51,7 +51,7 @@
     "type": "rule",
     "description": "Angular TypeScript .cursorrules prompt file: Author: Dave Bush ## What you can build Angular Code Refactoring Tool: A web application that allows developers to input existing Angular code and automatically refactor it according to modern development standards, ensuring compliance with ESLint, Pretti",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/angular-typescript-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -68,7 +68,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "angular-typescript-cursorrules-prompt-file-schneidersam",
@@ -76,7 +76,7 @@
     "type": "rule",
     "description": "Angular TypeScript .cursorrules prompt file: Author: Dave Bush ## What you can build Angular Code Refactoring Tool: A web application that allows developers to input existing Angular code and automatically refactor it according to modern development standards, ensuring compliance with ESLint, Pretti",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/angular-typescript-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -93,7 +93,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "ascii-simulation-game-cursorrules-prompt-file-balqaasem",
@@ -101,7 +101,7 @@
     "type": "rule",
     "description": "ASCII Simulation Game .cursorrules prompt file: Author: haldave159 ## What you can build Resource Expansion Simulator: Create a web-based game where users can observe and analyze how nations expand based on resource availability. This app would allow users to set parameters for the random map genera",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/ascii-simulation-game-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "security",
     "tags": [
@@ -115,7 +115,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "ascii-simulation-game-cursorrules-prompt-file-schneidersam",
@@ -123,7 +123,7 @@
     "type": "rule",
     "description": "ASCII Simulation Game .cursorrules prompt file: Author: haldave159 ## What you can build Resource Expansion Simulator: Create a web-based game where users can observe and analyze how nations expand based on resource availability. This app would allow users to set parameters for the random map genera",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/ascii-simulation-game-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "security",
     "tags": [
@@ -137,7 +137,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "astro-typescript-cursorrules-prompt-file-balqaasem",
@@ -145,7 +145,7 @@
     "type": "rule",
     "description": "Astro TypeScript .cursorrules prompt file: Author: Jaime Aleman ## What you can build Commit Message Generator Web Tool: A web application that provides developers with a form to input their changes and generates a conventional commit message that adheres to the specified guidelines, complete with t",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/astro-typescript-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -160,7 +160,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "astro-typescript-cursorrules-prompt-file-schneidersam",
@@ -168,7 +168,7 @@
     "type": "rule",
     "description": "Astro TypeScript .cursorrules prompt file: Author: Jaime Aleman ## What you can build Commit Message Generator Web Tool: A web application that provides developers with a form to input their changes and generates a conventional commit message that adheres to the specified guidelines, complete with t",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/astro-typescript-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -183,7 +183,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "blueprint-windsurfrules-prompt-file-schneidersam",
@@ -191,7 +191,7 @@
     "type": "rule",
     "description": "Inspiration from: - https://www.youtube.com/watch?v=9eF51MGhOEk - https://youtu.be/aG-utUqVrb0?si=zO9njHRq_NxEPa9S",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/blueprint-windsurfrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "tooling",
     "tags": [
@@ -205,7 +205,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "chrome-extension-dev-js-typescript-cursorrules-pro-balqaasem",
@@ -213,7 +213,7 @@
     "type": "rule",
     "description": "Chrome Extension Dev JS TypeScript .cursorrules prompt file: Author: penkzhou ## What you can build Interactive Learning Chrome Extension: Develop a Chrome extension that provides interactive programming lessons and quizzes directly in the browser. It could leverage TypeScript for type checking in e",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/chrome-extension-dev-js-typescript-cursorrules-pro/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -228,7 +228,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "chrome-extension-dev-js-typescript-cursorrules-pro-schneidersam",
@@ -236,7 +236,7 @@
     "type": "rule",
     "description": "Chrome Extension Dev JS TypeScript .cursorrules prompt file: Author: penkzhou ## What you can build Interactive Learning Chrome Extension: Develop a Chrome extension that provides interactive programming lessons and quizzes directly in the browser. It could leverage TypeScript for type checking in e",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/chrome-extension-dev-js-typescript-cursorrules-pro/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -251,7 +251,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "code-guidelines-cursorrules-prompt-file-balqaasem",
@@ -259,7 +259,7 @@
     "type": "rule",
     "description": "Code Guidelines .cursorrules prompt file: Author: Hamza Farhan ## What you can build Code Analysis Tool: Develop a tool that analyzes code for compliance with the rules set in the .cursorrules AI file. It would highlight violations such as missing error handling, lack of test coverage, and unmatched",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/code-guidelines-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "testing",
     "tags": [
@@ -273,7 +273,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "code-guidelines-cursorrules-prompt-file-schneidersam",
@@ -281,7 +281,7 @@
     "type": "rule",
     "description": "Code Guidelines .cursorrules prompt file: Author: Hamza Farhan ## What you can build Code Analysis Tool: Develop a tool that analyzes code for compliance with the rules set in the .cursorrules AI file. It would highlight violations such as missing error handling, lack of test coverage, and unmatched",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/code-guidelines-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "testing",
     "tags": [
@@ -295,7 +295,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "commit-message-long-global-rules-prompt-file-balqaasem",
@@ -303,7 +303,7 @@
     "type": "rule",
     "description": "Write a english commit message for every change you make, and always format it in a code block. Use the following guidelines for consistent and descriptive commit messages: prefix: short description Commit Prefixes: - feat: Introduce a new feature. - fix: Fix a bug or issue. - tweak: Make minor adju",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/global_rules/commit-message-long-global_rules-prompt-file/global_rules.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "tooling",
     "tags": [
@@ -318,7 +318,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "commit-message-long-global-rules-prompt-file-schneidersam",
@@ -326,7 +326,7 @@
     "type": "rule",
     "description": "Write a english commit message for every change you make, and always format it in a code block. Use the following guidelines for consistent and descriptive commit messages: prefix: short description Commit Prefixes: - feat: Introduce a new feature. - fix: Fix a bug or issue. - tweak: Make minor adju",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/global_rules/commit-message-long-global_rules-prompt-file/global_rules.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "tooling",
     "tags": [
@@ -341,7 +341,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "commit-message-short-global-rules-prompt-file-balqaasem",
@@ -349,7 +349,7 @@
     "type": "rule",
     "description": "Write a short english commit message (maximum one sentence) for every change you make, and always format it in a code block. Use the following guidelines for consistent and descriptive commit messages: prefix: short description (maximum one sentence) Commit Prefixes: - feat: Introduce a new feature.",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/global_rules/commit-message-short-global_rules-prompt-file/global_rules.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "tooling",
     "tags": [
@@ -364,7 +364,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "commit-message-short-global-rules-prompt-file-schneidersam",
@@ -372,7 +372,7 @@
     "type": "rule",
     "description": "Write a short english commit message (maximum one sentence) for every change you make, and always format it in a code block. Use the following guidelines for consistent and descriptive commit messages: prefix: short description (maximum one sentence) Commit Prefixes: - feat: Introduce a new feature.",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/global_rules/commit-message-short-global_rules-prompt-file/global_rules.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "tooling",
     "tags": [
@@ -387,7 +387,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "cursor-ai-react-typescript-shadcn-ui-cursorrules-p-balqaasem",
@@ -395,7 +395,7 @@
     "type": "rule",
     "description": "Cursor AI React TypeScript Shadcn UI .cursorrules prompt file: Author: Mia ## What you can build React Type UI Generator: A tool that allows developers to create UI components using Shadcn UI and Tailwind CSS, leveraging a drag-and-drop interface to facilitate design while generating clear, maintain",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/cursor-ai-react-typescript-shadcn-ui-cursorrules-p/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -413,7 +413,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "cursor-ai-react-typescript-shadcn-ui-cursorrules-p-schneidersam",
@@ -421,7 +421,7 @@
     "type": "rule",
     "description": "Cursor AI React TypeScript Shadcn UI .cursorrules prompt file: Author: Mia ## What you can build React Type UI Generator: A tool that allows developers to create UI components using Shadcn UI and Tailwind CSS, leveraging a drag-and-drop interface to facilitate design while generating clear, maintain",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/cursor-ai-react-typescript-shadcn-ui-cursorrules-p/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -439,7 +439,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "cursorrules-cursor-ai-nextjs-14-tailwind-seo-setup-balqaasem",
@@ -447,7 +447,7 @@
     "type": "rule",
     "description": ".cursorrules Cursor AI Next.js 14 Tailwind SEO setup .cursorrules prompt file: Author: kr3t3n ## What you can build Next.js 14 Design-to-Code Platform: A web application that allows users to upload design files in popular formats, which the platform then analyzes to produce a full Next.js 14 applica",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/cursorrules-cursor-ai-nextjs-14-tailwind-seo-setup/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -463,7 +463,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "cursorrules-cursor-ai-nextjs-14-tailwind-seo-setup-schneidersam",
@@ -471,7 +471,7 @@
     "type": "rule",
     "description": ".cursorrules Cursor AI Next.js 14 Tailwind SEO setup .cursorrules prompt file: Author: kr3t3n ## What you can build Next.js 14 Design-to-Code Platform: A web application that allows users to upload design files in popular formats, which the platform then analyzes to produce a full Next.js 14 applica",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/cursorrules-cursor-ai-nextjs-14-tailwind-seo-setup/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -487,7 +487,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "cursorrules-cursor-ai-wordpress-draft-macos-prompt-balqaasem",
@@ -495,7 +495,7 @@
     "type": "rule",
     "description": ".cursorrules Cursor AI WordPress Draft MacOS prompt file: Author: Shaun Andrews ## What you can build WordPress Draft Manager: An enhanced management tool that extends the functionality of PressThat, allowing users to edit, publish, or delete draft posts directly from the system tray app without nee",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/cursorrules-cursor-ai-wordpress-draft-macos-prompt/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "security",
     "tags": [
@@ -509,7 +509,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "cursorrules-cursor-ai-wordpress-draft-macos-prompt-schneidersam",
@@ -517,7 +517,7 @@
     "type": "rule",
     "description": ".cursorrules Cursor AI WordPress Draft MacOS prompt file: Author: Shaun Andrews ## What you can build WordPress Draft Manager: An enhanced management tool that extends the functionality of PressThat, allowing users to edit, publish, or delete draft posts directly from the system tray app without nee",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/cursorrules-cursor-ai-wordpress-draft-macos-prompt/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "security",
     "tags": [
@@ -531,7 +531,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "cursorrules-file-cursor-ai-python-fastapi-api-balqaasem",
@@ -539,7 +539,7 @@
     "type": "rule",
     "description": ".cursorrules file Cursor AI Python FastAPI API: Author: Caio Barbieri ## What you can build API Performance Monitoring Tool: A web app that uses FastAPI to track, analyze, and optimize API performance metrics such as response time, latency, and throughput. It will provide real-time dashboards and al",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/cursorrules-file-cursor-ai-python-fastapi-api/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "devops",
     "tags": [
@@ -555,7 +555,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "cursorrules-file-cursor-ai-python-fastapi-api-schneidersam",
@@ -563,7 +563,7 @@
     "type": "rule",
     "description": ".cursorrules file Cursor AI Python FastAPI API: Author: Caio Barbieri ## What you can build API Performance Monitoring Tool: A web app that uses FastAPI to track, analyze, and optimize API performance metrics such as response time, latency, and throughput. It will provide real-time dashboards and al",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/cursorrules-file-cursor-ai-python-fastapi-api/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "devops",
     "tags": [
@@ -579,7 +579,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "deno-integration-techniques-cursorrules-prompt-fil-balqaasem",
@@ -587,7 +587,7 @@
     "type": "rule",
     "description": "Deno Integration Techniques .cursorrules prompt file: Author: Zak Horton ## What you can build @findhow Automation IDE Plugin - Create an integrated development environment plugin that assists developers in automatically converting and refactoring denoland/automation scripts to work with @findhow pa",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/deno-integration-techniques-cursorrules-prompt-fil/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "security",
     "tags": [
@@ -601,7 +601,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "deno-integration-techniques-cursorrules-prompt-fil-schneidersam",
@@ -609,7 +609,7 @@
     "type": "rule",
     "description": "Deno Integration Techniques .cursorrules prompt file: Author: Zak Horton ## What you can build @findhow Automation IDE Plugin - Create an integrated development environment plugin that assists developers in automatically converting and refactoring denoland/automation scripts to work with @findhow pa",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/deno-integration-techniques-cursorrules-prompt-fil/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "security",
     "tags": [
@@ -623,7 +623,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "dragonruby-best-practices-cursorrules-prompt-file-balqaasem",
@@ -631,7 +631,7 @@
     "type": "rule",
     "description": "DragonRuby Best Practices .cursorrules prompt file: Author: Mathias Karstadt ## What you can build DragonRuby Game Creator: A tool that assists developers in building 2D and 3D games using the DragonRuby Game Toolkit by offering pre-made templates and code snippets following Ruby's best practices.Ru",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/dragonruby-best-practices-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -647,7 +647,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "dragonruby-best-practices-cursorrules-prompt-file-schneidersam",
@@ -655,7 +655,7 @@
     "type": "rule",
     "description": "DragonRuby Best Practices .cursorrules prompt file: Author: Mathias Karstadt ## What you can build DragonRuby Game Creator: A tool that assists developers in building 2D and 3D games using the DragonRuby Game Toolkit by offering pre-made templates and code snippets following Ruby's best practices.Ru",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/dragonruby-best-practices-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -671,7 +671,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "elixir-engineer-guidelines-cursorrules-prompt-file-balqaasem",
@@ -679,7 +679,7 @@
     "type": "rule",
     "description": "Elixir Engineer Guidelines .cursorrules prompt file: Author: Zane Riley ## What you can build Elixir Microservices Platform: Develop a platform for creating and managing microservices with Elixir, leveraging Docker for containerization and PostgreSQL for data storage. Utilize Phoenix LiveView for re",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/elixir-engineer-guidelines-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -695,7 +695,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "elixir-engineer-guidelines-cursorrules-prompt-file-schneidersam",
@@ -703,7 +703,7 @@
     "type": "rule",
     "description": "Elixir Engineer Guidelines .cursorrules prompt file: Author: Zane Riley ## What you can build Elixir Microservices Platform: Develop a platform for creating and managing microservices with Elixir, leveraging Docker for containerization and PostgreSQL for data storage. Utilize Phoenix LiveView for re",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/elixir-engineer-guidelines-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -719,7 +719,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "elixir-phoenix-docker-setup-cursorrules-prompt-fil-balqaasem",
@@ -727,7 +727,7 @@
     "type": "rule",
     "description": "Elixir Phoenix Docker Setup .cursorrules prompt file: Author: Zane Riley ## What you can build WebSocket Monitoring Dashboard: Build a real-time dashboard for monitoring and visualizing active WebSocket connections and message traffics using Phoenix LiveView and Phoenix LiveDashboard.Multi-tenant Sa",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/elixir-phoenix-docker-setup-cursorrules-prompt-fil/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "devops",
     "tags": [
@@ -742,7 +742,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "elixir-phoenix-docker-setup-cursorrules-prompt-fil-schneidersam",
@@ -750,7 +750,7 @@
     "type": "rule",
     "description": "Elixir Phoenix Docker Setup .cursorrules prompt file: Author: Zane Riley ## What you can build WebSocket Monitoring Dashboard: Build a real-time dashboard for monitoring and visualizing active WebSocket connections and message traffics using Phoenix LiveView and Phoenix LiveDashboard.Multi-tenant Sa",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/elixir-phoenix-docker-setup-cursorrules-prompt-fil/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "devops",
     "tags": [
@@ -765,7 +765,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "es-module-nodejs-guidelines-cursorrules-prompt-fil-balqaasem",
@@ -773,7 +773,7 @@
     "type": "rule",
     "description": "ES Module Node.js Guidelines .cursorrules prompt file: Author: Danny Ayers ## What you can build Agile Project Management Tool: A web-based application that helps teams plan, manage, and execute projects using agile methodologies. It can prioritize tasks, track progress, and provide analytics to opt",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/es-module-nodejs-guidelines-cursorrules-prompt-fil/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -788,7 +788,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "es-module-nodejs-guidelines-cursorrules-prompt-fil-schneidersam",
@@ -796,7 +796,7 @@
     "type": "rule",
     "description": "ES Module Node.js Guidelines .cursorrules prompt file: Author: Danny Ayers ## What you can build Agile Project Management Tool: A web-based application that helps teams plan, manage, and execute projects using agile methodologies. It can prioritize tasks, track progress, and provide analytics to opt",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/es-module-nodejs-guidelines-cursorrules-prompt-fil/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -811,7 +811,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "github-code-quality-cursorrules-prompt-file-balqaasem",
@@ -819,7 +819,7 @@
     "type": "rule",
     "description": "GitHub Code Quality .cursorrules prompt file: Author: meowso ## What you can build Automated Code Review Tool: An app that automatically reviews code and flags potential issues based on the rules provided. It ensures that code adheres to best practices, such as avoiding assumptions, verifying inform",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/github-code-quality-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "security",
     "tags": [
@@ -834,7 +834,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "github-code-quality-cursorrules-prompt-file-schneidersam",
@@ -842,7 +842,7 @@
     "type": "rule",
     "description": "GitHub Code Quality .cursorrules prompt file: Author: meowso ## What you can build Automated Code Review Tool: An app that automatically reviews code and flags potential issues based on the rules provided. It ensures that code adheres to best practices, such as avoiding assumptions, verifying inform",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/github-code-quality-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "security",
     "tags": [
@@ -857,7 +857,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "github-cursorrules-prompt-file-instructions-balqaasem",
@@ -865,7 +865,7 @@
     "type": "rule",
     "description": "GitHub .cursorrules prompt file instructions: Author: Jeremy Russell ## What you can build Code Readability and Maintainability Analyzer: A tool that inspects existing codebases and provides feedback on readability and maintainability by highlighting areas for improvement, such as complex logic, har",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/github-cursorrules-prompt-file-instructions/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "security",
     "tags": [
@@ -880,7 +880,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "github-cursorrules-prompt-file-instructions-schneidersam",
@@ -888,7 +888,7 @@
     "type": "rule",
     "description": "GitHub .cursorrules prompt file instructions: Author: Jeremy Russell ## What you can build Code Readability and Maintainability Analyzer: A tool that inspects existing codebases and provides feedback on readability and maintainability by highlighting areas for improvement, such as complex logic, har",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/github-cursorrules-prompt-file-instructions/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "security",
     "tags": [
@@ -903,7 +903,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "global-en-language-global-rules-prompt-file-balqaasem",
@@ -911,7 +911,7 @@
     "type": "rule",
     "description": "Regardless of the input language received by Cascade, always respond in English.",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/global_rules/global-en-language-global_rules-prompt-file/global_rules.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "tooling",
     "tags": [
@@ -926,7 +926,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "global-en-language-global-rules-prompt-file-schneidersam",
@@ -934,7 +934,7 @@
     "type": "rule",
     "description": "Regardless of the input language received by Cascade, always respond in English.",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/global_rules/global-en-language-global_rules-prompt-file/global_rules.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "tooling",
     "tags": [
@@ -949,7 +949,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "go-backend-scalability-cursorrules-prompt-file-balqaasem",
@@ -957,7 +957,7 @@
     "type": "rule",
     "description": "Go Backend Scalability .cursorrules prompt file: Author: Will Cygan ## What you can build AI-Driven API Suggestion Tool: An application that uses AI to suggest optimal API architectures and design patterns based on specified project requirements and goals, focusing on performance, scalability, and e",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/go-backend-scalability-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -972,7 +972,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "go-backend-scalability-cursorrules-prompt-file-schneidersam",
@@ -980,7 +980,7 @@
     "type": "rule",
     "description": "Go Backend Scalability .cursorrules prompt file: Author: Will Cygan ## What you can build AI-Driven API Suggestion Tool: An application that uses AI to suggest optimal API architectures and design patterns based on specified project requirements and goals, focusing on performance, scalability, and e",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/go-backend-scalability-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -995,7 +995,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "go-servemux-rest-api-cursorrules-prompt-file-balqaasem",
@@ -1003,7 +1003,7 @@
     "type": "rule",
     "description": "Go ServeMux REST API .cursorrules prompt file: Author: Daniel_Xu ## What you can build Go API Code Generator: A tool that generates Go code for RESTful APIs using the net/http package, following the latest Go standards including the ServeMux from Go 1.22, with features like wildcard matching and reg",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/go-servemux-rest-api-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -1019,7 +1019,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "go-servemux-rest-api-cursorrules-prompt-file-schneidersam",
@@ -1027,7 +1027,7 @@
     "type": "rule",
     "description": "Go ServeMux REST API .cursorrules prompt file: Author: Daniel_Xu ## What you can build Go API Code Generator: A tool that generates Go code for RESTful APIs using the net/http package, following the latest Go standards including the ServeMux from Go 1.22, with features like wildcard matching and reg",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/go-servemux-rest-api-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -1043,7 +1043,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "graphical-apps-development-cursorrules-prompt-file-balqaasem",
@@ -1051,7 +1051,7 @@
     "type": "rule",
     "description": "Graphical Apps Development .cursorrules prompt file: Author: Dmitriy Leybel ## What you can build AI Chatbot Builder Platform: A no-code or low-code platform for businesses and individuals to create custom AI chatbots by chaining together Elements. Users can interactively select and connect pre-buil",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/graphical-apps-development-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "security",
     "tags": [
@@ -1065,7 +1065,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "graphical-apps-development-cursorrules-prompt-file-schneidersam",
@@ -1073,7 +1073,7 @@
     "type": "rule",
     "description": "Graphical Apps Development .cursorrules prompt file: Author: Dmitriy Leybel ## What you can build AI Chatbot Builder Platform: A no-code or low-code platform for businesses and individuals to create custom AI chatbots by chaining together Elements. Users can interactively select and connect pre-buil",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/graphical-apps-development-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "security",
     "tags": [
@@ -1087,7 +1087,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "html-tailwind-css-javascript-cursorrules-prompt-fi-balqaasem",
@@ -1095,7 +1095,7 @@
     "type": "rule",
     "description": "HTML Tailwind CSS JavaScript .cursorrules prompt file: Author: Josh Pigford ## What you can build HTML and Tailwind CSS Web Builder: A tool that allows users to design web pages using a drag-and-drop interface, generating clean HTML and Tailwind CSS code, perfect for developers who wish to speed up ",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/html-tailwind-css-javascript-cursorrules-prompt-fi/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -1113,7 +1113,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "html-tailwind-css-javascript-cursorrules-prompt-fi-schneidersam",
@@ -1121,7 +1121,7 @@
     "type": "rule",
     "description": "HTML Tailwind CSS JavaScript .cursorrules prompt file: Author: Josh Pigford ## What you can build HTML and Tailwind CSS Web Builder: A tool that allows users to design web pages using a drag-and-drop interface, generating clean HTML and Tailwind CSS code, perfect for developers who wish to speed up ",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/html-tailwind-css-javascript-cursorrules-prompt-fi/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -1139,7 +1139,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "javascript-astro-tailwind-css-cursorrules-prompt-f-balqaasem",
@@ -1147,7 +1147,7 @@
     "type": "rule",
     "description": "JavaScript Astro Tailwind CSS .cursorrules prompt file: Author: Arun Sathiya ## What you can build ## Benefits ## Synopsis Developers building scalable static sites with Astro, JavaScript, and TypeScript will benefit by gaining guidance on optimal project structure, efficient component development, ",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/javascript-astro-tailwind-css-cursorrules-prompt-f/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -1166,7 +1166,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "javascript-astro-tailwind-css-cursorrules-prompt-f-schneidersam",
@@ -1174,7 +1174,7 @@
     "type": "rule",
     "description": "JavaScript Astro Tailwind CSS .cursorrules prompt file: Author: Arun Sathiya ## What you can build ## Benefits ## Synopsis Developers building scalable static sites with Astro, JavaScript, and TypeScript will benefit by gaining guidance on optimal project structure, efficient component development, ",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/javascript-astro-tailwind-css-cursorrules-prompt-f/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -1193,7 +1193,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "javascript-chrome-apis-cursorrules-prompt-file-balqaasem",
@@ -1201,7 +1201,7 @@
     "type": "rule",
     "description": "JavaScript Chrome APIs .cursorrules prompt file: Author: Tyler H ## What you can build Privacy Protector Extension: Develop a Chrome extension that enhances user privacy by blocking tracking scripts and cookies, managing permissions on visited sites, and providing a privacy report. Utilize Chrome de",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/javascript-chrome-apis-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -1217,7 +1217,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "javascript-chrome-apis-cursorrules-prompt-file-schneidersam",
@@ -1225,7 +1225,7 @@
     "type": "rule",
     "description": "JavaScript Chrome APIs .cursorrules prompt file: Author: Tyler H ## What you can build Privacy Protector Extension: Develop a Chrome extension that enhances user privacy by blocking tracking scripts and cookies, managing permissions on visited sites, and providing a privacy report. Utilize Chrome de",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/javascript-chrome-apis-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -1241,7 +1241,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "javascript-typescript-code-quality-cursorrules-pro-balqaasem",
@@ -1249,7 +1249,7 @@
     "type": "rule",
     "description": "JavaScript TypeScript Code Quality .cursorrules prompt file: Author: Thomas Haferlach ## What you can build Code Review Platform: Create a platform where developers can submit their code for peer reviews, based on best practices like simplicity, readability, and maintainability. This platform can pr",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/javascript-typescript-code-quality-cursorrules-pro/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -1266,7 +1266,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "javascript-typescript-code-quality-cursorrules-pro-schneidersam",
@@ -1274,7 +1274,7 @@
     "type": "rule",
     "description": "JavaScript TypeScript Code Quality .cursorrules prompt file: Author: Thomas Haferlach ## What you can build Code Review Platform: Create a platform where developers can submit their code for peer reviews, based on best practices like simplicity, readability, and maintainability. This platform can pr",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/javascript-typescript-code-quality-cursorrules-pro/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -1291,7 +1291,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "knative-istio-typesense-gpu-cursorrules-prompt-fil-balqaasem",
@@ -1299,7 +1299,7 @@
     "type": "rule",
     "description": "Knative Istio Typesense GPU .cursorrules prompt file: Author: Anonymous ## What you can build Serverless Application Builder for Knative - Develop a platform that allows users to visually design and deploy Knative services quickly, incorporating serverless deployment configurations and autoscaling o",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/knative-istio-typesense-gpu-cursorrules-prompt-fil/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "security",
     "tags": [
@@ -1313,7 +1313,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "knative-istio-typesense-gpu-cursorrules-prompt-fil-schneidersam",
@@ -1321,7 +1321,7 @@
     "type": "rule",
     "description": "Knative Istio Typesense GPU .cursorrules prompt file: Author: Anonymous ## What you can build Serverless Application Builder for Knative - Develop a platform that allows users to visually design and deploy Knative services quickly, incorporating serverless deployment configurations and autoscaling o",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/knative-istio-typesense-gpu-cursorrules-prompt-fil/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "security",
     "tags": [
@@ -1335,7 +1335,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "kubernetes-mkdocs-documentation-cursorrules-prompt-balqaasem",
@@ -1343,7 +1343,7 @@
     "type": "rule",
     "description": "Kubernetes MkDocs Documentation .cursorrules prompt file: Author: samzong ## What you can build Kubernetes Documentation Generator: An advanced tool that automates the creation of comprehensive Kubernetes documentation using the latest stable versions, best practices, and MkDocs. Users can input Kub",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/kubernetes-mkdocs-documentation-cursorrules-prompt/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "devops",
     "tags": [
@@ -1358,7 +1358,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "kubernetes-mkdocs-documentation-cursorrules-prompt-schneidersam",
@@ -1366,7 +1366,7 @@
     "type": "rule",
     "description": "Kubernetes MkDocs Documentation .cursorrules prompt file: Author: samzong ## What you can build Kubernetes Documentation Generator: An advanced tool that automates the creation of comprehensive Kubernetes documentation using the latest stable versions, best practices, and MkDocs. Users can input Kub",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/kubernetes-mkdocs-documentation-cursorrules-prompt/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "devops",
     "tags": [
@@ -1381,7 +1381,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "laravel-php-83-cursorrules-prompt-file-balqaasem",
@@ -1389,7 +1389,7 @@
     "type": "rule",
     "description": "Laravel PHP 8.3 .cursorrules prompt file: Author: Imam Susanto ## What you can build Laravel E-Commerce Package - Develop a Laravel package to provide a comprehensive e-commerce solution. Features include inventory management, order processing, payment gateways, and customer management. Leverage PHP",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/laravel-php-83-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -1404,7 +1404,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "laravel-php-83-cursorrules-prompt-file-schneidersam",
@@ -1412,7 +1412,7 @@
     "type": "rule",
     "description": "Laravel PHP 8.3 .cursorrules prompt file: Author: Imam Susanto ## What you can build Laravel E-Commerce Package - Develop a Laravel package to provide a comprehensive e-commerce solution. Features include inventory management, order processing, payment gateways, and customer management. Leverage PHP",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/laravel-php-83-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -1427,7 +1427,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "laravel-tall-stack-best-practices-cursorrules-prom-balqaasem",
@@ -1435,7 +1435,7 @@
     "type": "rule",
     "description": "Laravel TALL Stack Best Practices .cursorrules prompt file: Author: Eetu Rantanen ## What you can build TALL Stack Admin Dashboard: Develop a feature-rich admin dashboard using the TALL stack that leverages Livewire components for real-time data binding and updates, Alpine.js for interactivity, Tail",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/laravel-tall-stack-best-practices-cursorrules-prom/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -1449,7 +1449,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "laravel-tall-stack-best-practices-cursorrules-prom-schneidersam",
@@ -1457,7 +1457,7 @@
     "type": "rule",
     "description": "Laravel TALL Stack Best Practices .cursorrules prompt file: Author: Eetu Rantanen ## What you can build TALL Stack Admin Dashboard: Develop a feature-rich admin dashboard using the TALL stack that leverages Livewire components for real-time data binding and updates, Alpine.js for interactivity, Tail",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/laravel-tall-stack-best-practices-cursorrules-prom/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -1471,7 +1471,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "linux-nvidia-cuda-python-cursorrules-prompt-file-balqaasem",
@@ -1479,7 +1479,7 @@
     "type": "rule",
     "description": "Linux NVIDIA CUDA Python .cursorrules prompt file: Author: Shaun Prince ## What you can build AI Model Compression Service: A cloud-based service that allows users to upload AI models, automatically quantizes them, and provides an optimized and smaller version for download. This service would elimin",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/linux-nvidia-cuda-python-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -1494,7 +1494,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "linux-nvidia-cuda-python-cursorrules-prompt-file-schneidersam",
@@ -1502,7 +1502,7 @@
     "type": "rule",
     "description": "Linux NVIDIA CUDA Python .cursorrules prompt file: Author: Shaun Prince ## What you can build AI Model Compression Service: A cloud-based service that allows users to upload AI models, automatically quantizes them, and provides an optimized and smaller version for download. This service would elimin",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/linux-nvidia-cuda-python-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -1517,7 +1517,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "next-type-llm-balqaasem",
@@ -1525,7 +1525,7 @@
     "type": "rule",
     "description": "## What you can build ### Interactive Coding Assistant for Learning A web application using the specified stack that offers interactive coding lessons and exercises for new developers, integrating LLMs for real-time feedback, explanations, and step-by-step guides in TypeScript. It could allow users ",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/next-type-llm/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -1540,7 +1540,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "next-type-llm-schneidersam",
@@ -1548,7 +1548,7 @@
     "type": "rule",
     "description": "## What you can build ### Interactive Coding Assistant for Learning A web application using the specified stack that offers interactive coding lessons and exercises for new developers, integrating LLMs for real-time feedback, explanations, and step-by-step guides in TypeScript. It could allow users ",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/next-type-llm/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -1563,7 +1563,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-material-ui-tailwind-css-cursorrules-prompt-balqaasem",
@@ -1571,7 +1571,7 @@
     "type": "rule",
     "description": "Next.js Material UI Tailwind CSS .cursorrules prompt file: Author: LaurentP-56 ## What you can build Tailwind MUI Template Builder: A website service that provides customizable templates using Tailwind CSS and Material UI components. Users can select and combine different UI elements to create perso",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-material-ui-tailwind-css-cursorrules-prompt/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -1588,7 +1588,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-material-ui-tailwind-css-cursorrules-prompt-schneidersam",
@@ -1596,7 +1596,7 @@
     "type": "rule",
     "description": "Next.js Material UI Tailwind CSS .cursorrules prompt file: Author: LaurentP-56 ## What you can build Tailwind MUI Template Builder: A website service that provides customizable templates using Tailwind CSS and Material UI components. Users can select and combine different UI elements to create perso",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-material-ui-tailwind-css-cursorrules-prompt/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -1613,7 +1613,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-react-tailwind-cursorrules-prompt-file-balqaasem",
@@ -1621,7 +1621,7 @@
     "type": "rule",
     "description": "Next.js React Tailwind .cursorrules prompt file: Author: Shreyas Prakash ## What you can build Component Library Generator: Create a tool that automates the generation of component libraries based on Shadcn UI, Tailwind, and TypeScript. It would allow developers to input component specifications and",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-react-tailwind-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -1639,7 +1639,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-react-tailwind-cursorrules-prompt-file-schneidersam",
@@ -1647,7 +1647,7 @@
     "type": "rule",
     "description": "Next.js React Tailwind .cursorrules prompt file: Author: Shreyas Prakash ## What you can build Component Library Generator: Create a tool that automates the generation of component libraries based on Shadcn UI, Tailwind, and TypeScript. It would allow developers to input component specifications and",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-react-tailwind-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -1665,7 +1665,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-react-typescript-cursorrules-prompt-file-balqaasem",
@@ -1673,7 +1673,7 @@
     "type": "rule",
     "description": "Next.js React TypeScript .cursorrules prompt file: Author: wslyvh ## What you can build Decentralized Finance (DeFi) Dashboard: Create a web application that uses Solidity for smart contract interactions and displays real-time analytics of a user's DeFi portfolio using Next.js for SSR and Radix UI f",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-react-typescript-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -1690,7 +1690,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-react-typescript-cursorrules-prompt-file-schneidersam",
@@ -1698,7 +1698,7 @@
     "type": "rule",
     "description": "Next.js React TypeScript .cursorrules prompt file: Author: wslyvh ## What you can build Decentralized Finance (DeFi) Dashboard: Create a web application that uses Solidity for smart contract interactions and displays real-time analytics of a user's DeFi portfolio using Next.js for SSR and Radix UI f",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-react-typescript-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -1715,7 +1715,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-seo-dev-cursorrules-prompt-file-balqaasem",
@@ -1723,7 +1723,7 @@
     "type": "rule",
     "description": "Next.js SEO Dev .cursorrules prompt file: Author: Rostyslav ## What you can build Next.js Project Boilerplate Generator - A tool that allows developers to quickly generate a Next.js project with predefined configurations, dependencies, and scripts as seen in the package.json file, helping them kick-",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-seo-dev-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -1738,7 +1738,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-seo-dev-cursorrules-prompt-file-schneidersam",
@@ -1746,7 +1746,7 @@
     "type": "rule",
     "description": "Next.js SEO Dev .cursorrules prompt file: Author: Rostyslav ## What you can build Next.js Project Boilerplate Generator - A tool that allows developers to quickly generate a Next.js project with predefined configurations, dependencies, and scripts as seen in the package.json file, helping them kick-",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-seo-dev-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -1761,7 +1761,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-supabase-todo-app-cursorrules-prompt-file-balqaasem",
@@ -1769,7 +1769,7 @@
     "type": "rule",
     "description": "Next.js Supabase Todo App .cursorrules prompt file: Author: Mckay Wrigley ## What you can build ## Benefits ## Synopsis Developers aiming to create a structured full-stack Todo app with modern frameworks and best practices would benefit from this prompt. ## Overview of .cursorrules prompt The .curso",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-supabase-todo-app-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -1785,7 +1785,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-supabase-todo-app-cursorrules-prompt-file-schneidersam",
@@ -1793,7 +1793,7 @@
     "type": "rule",
     "description": "Next.js Supabase Todo App .cursorrules prompt file: Author: Mckay Wrigley ## What you can build ## Benefits ## Synopsis Developers aiming to create a structured full-stack Todo app with modern frameworks and best practices would benefit from this prompt. ## Overview of .cursorrules prompt The .curso",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-supabase-todo-app-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -1809,7 +1809,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-tailwind-typescript-apps-cursorrules-prompt-balqaasem",
@@ -1817,7 +1817,7 @@
     "type": "rule",
     "description": "Next.JS Tailwind TypeScript Apps .cursorrules prompt file: Author: Ojas Kapre ## What you can build Next.js Tailwind Blog Starter: A web app template that provides a boilerplate for creating a blog using Next.js with Tailwind CSS for styling, and TypeScript for type safety. The template can integrat",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-tailwind-typescript-apps-cursorrules-prompt/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -1835,7 +1835,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-tailwind-typescript-apps-cursorrules-prompt-schneidersam",
@@ -1843,7 +1843,7 @@
     "type": "rule",
     "description": "Next.JS Tailwind TypeScript Apps .cursorrules prompt file: Author: Ojas Kapre ## What you can build Next.js Tailwind Blog Starter: A web app template that provides a boilerplate for creating a blog using Next.js with Tailwind CSS for styling, and TypeScript for type safety. The template can integrat",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-tailwind-typescript-apps-cursorrules-prompt/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -1861,7 +1861,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-typescript-app-cursorrules-prompt-file-balqaasem",
@@ -1869,7 +1869,7 @@
     "type": "rule",
     "description": "Next.js TypeScript App .cursorrules prompt file: Author: autonomys ## What you can build Astral Analytics Dashboard: A tool that offers detailed analytics about the Autonomys network, including node performance metrics, transaction history, and usage statistics. The dashboard could integrate machine",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-typescript-app-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -1886,7 +1886,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-typescript-app-cursorrules-prompt-file-schneidersam",
@@ -1894,7 +1894,7 @@
     "type": "rule",
     "description": "Next.js TypeScript App .cursorrules prompt file: Author: autonomys ## What you can build Astral Analytics Dashboard: A tool that offers detailed analytics about the Autonomys network, including node performance metrics, transaction history, and usage statistics. The dashboard could integrate machine",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-typescript-app-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -1911,7 +1911,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-typescript-cursorrules-prompt-file-balqaasem",
@@ -1919,7 +1919,7 @@
     "type": "rule",
     "description": "Next.js TypeScript .cursorrules prompt file: Author: dlje ## What you can build Interactive Coding Assistant for Learning: A web application using the specified stack that offers interactive coding lessons and exercises for new developers, integrating LLMs for real-time feedback, explanations, and s",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-typescript-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -1935,7 +1935,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-typescript-cursorrules-prompt-file-schneidersam",
@@ -1943,7 +1943,7 @@
     "type": "rule",
     "description": "Next.js TypeScript .cursorrules prompt file: Author: dlje ## What you can build Interactive Coding Assistant for Learning: A web application using the specified stack that offers interactive coding lessons and exercises for new developers, integrating LLMs for real-time feedback, explanations, and s",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-typescript-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -1959,7 +1959,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-typescript-tailwind-cursorrules-prompt-file-balqaasem",
@@ -1967,7 +1967,7 @@
     "type": "rule",
     "description": "Next.js TypeScript Tailwind .cursorrules prompt file: Author: Marc-Aurele Besner ## What you can build Decentralized Application Template Creator: Develop a tool that provides templates for creating decentralized applications (dApps) using the Autonomys network, enabling developers to easily build u",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-typescript-tailwind-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -1984,7 +1984,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-typescript-tailwind-cursorrules-prompt-file-schneidersam",
@@ -1992,7 +1992,7 @@
     "type": "rule",
     "description": "Next.js TypeScript Tailwind .cursorrules prompt file: Author: Marc-Aurele Besner ## What you can build Decentralized Application Template Creator: Develop a tool that provides templates for creating decentralized applications (dApps) using the Autonomys network, enabling developers to easily build u",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-typescript-tailwind-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -2009,7 +2009,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-vercel-supabase-cursorrules-prompt-file-balqaasem",
@@ -2017,7 +2017,7 @@
     "type": "rule",
     "description": "Next.js Vercel Supabase .cursorrules prompt file: Author: JackFinnegan ## What you can build BA Copilot AI Chatbot: An AI-driven chatbot specifically designed for business analysts to create and iterate BPMN diagrams. It utilizes natural language processing to understand user queries and provides in",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-vercel-supabase-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -2033,7 +2033,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-vercel-supabase-cursorrules-prompt-file-schneidersam",
@@ -2041,7 +2041,7 @@
     "type": "rule",
     "description": "Next.js Vercel Supabase .cursorrules prompt file: Author: JackFinnegan ## What you can build BA Copilot AI Chatbot: An AI-driven chatbot specifically designed for business analysts to create and iterate BPMN diagrams. It utilizes natural language processing to understand user queries and provides in",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-vercel-supabase-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -2057,7 +2057,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-vercel-supabase-windsurfrules-prompt-file-schneidersam",
@@ -2065,7 +2065,7 @@
     "type": "rule",
     "description": "Inspiration from: - https://www.youtube.com/watch?v=9eF51MGhOEk - https://youtu.be/aG-utUqVrb0?si=zO9njHRq_NxEPa9S",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-vercel-supabase-windsurfrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -2081,7 +2081,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-vercel-typescript-cursorrules-prompt-file-balqaasem",
@@ -2089,7 +2089,7 @@
     "type": "rule",
     "description": "Next.js Vercel TypeScript .cursorrules prompt file: Author: Oleksii Bondarenko ## What you can build AI-Powered Customer Support Chatbot: Develop a customer support chatbot for websites using ai-sdk-rsc, integrated with Vercel middleware for session management and a KV database to persist conversati",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-vercel-typescript-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -2105,7 +2105,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs-vercel-typescript-cursorrules-prompt-file-schneidersam",
@@ -2113,7 +2113,7 @@
     "type": "rule",
     "description": "Next.js Vercel TypeScript .cursorrules prompt file: Author: Oleksii Bondarenko ## What you can build AI-Powered Customer Support Chatbot: Develop a customer support chatbot for websites using ai-sdk-rsc, integrated with Vercel middleware for session management and a KV database to persist conversati",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs-vercel-typescript-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -2129,7 +2129,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs15-react19-vercelai-tailwind-cursorrules-prompt-file-balqaasem",
@@ -2137,7 +2137,7 @@
     "type": "rule",
     "description": "Next.js 15, React 19, Vercel AI SDK, Tailwind CSS .cursorrules prompt file: Author: Adam Sardo # What You Can Build With this `.cursorrules` configuration, you can create modern, high-performance web applications using Next.js 15, React 19, and the Vercel AI SDK. The configuration is specifically de",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs15-react19-vercelai-tailwind-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -2155,7 +2155,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nextjs15-react19-vercelai-tailwind-cursorrules-prompt-file-schneidersam",
@@ -2163,7 +2163,7 @@
     "type": "rule",
     "description": "Next.js 15, React 19, Vercel AI SDK, Tailwind CSS .cursorrules prompt file: Author: Adam Sardo # What You Can Build With this `.cursorrules` configuration, you can create modern, high-performance web applications using Next.js 15, React 19, and the Vercel AI SDK. The configuration is specifically de",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs15-react19-vercelai-tailwind-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -2181,7 +2181,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nodejs-mongodb-cursorrules-prompt-file-tutorial-balqaasem",
@@ -2189,7 +2189,7 @@
     "type": "rule",
     "description": "Node.js MongoDB .cursorrules prompt file tutorial: Author: allxdamnxday ## What you can build Online Sports Pool Management Platform: Develop a comprehensive web application where users can join sports betting pools, submit requests, and get their entries approved by admin. Ensures fair play by stri",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/nodejs-mongodb-cursorrules-prompt-file-tutorial/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -2206,7 +2206,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nodejs-mongodb-cursorrules-prompt-file-tutorial-schneidersam",
@@ -2214,7 +2214,7 @@
     "type": "rule",
     "description": "Node.js MongoDB .cursorrules prompt file tutorial: Author: allxdamnxday ## What you can build Online Sports Pool Management Platform: Develop a comprehensive web application where users can join sports betting pools, submit requests, and get their entries approved by admin. Ensures fair play by stri",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/nodejs-mongodb-cursorrules-prompt-file-tutorial/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -2231,7 +2231,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nodejs-mongodb-jwt-express-react-cursorrules-promp-balqaasem",
@@ -2239,7 +2239,7 @@
     "type": "rule",
     "description": "Node.js MongoDB JWT Express React .cursorrules prompt file: Author: allxdamnxday ## What you can build Pool Management Platform: A web application that allows users to browse available pools, submit requests, and manage entries. It includes an admin panel for managing pool requests, payments, and en",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/nodejs-mongodb-jwt-express-react-cursorrules-promp/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -2258,7 +2258,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "nodejs-mongodb-jwt-express-react-cursorrules-promp-schneidersam",
@@ -2266,7 +2266,7 @@
     "type": "rule",
     "description": "Node.js MongoDB JWT Express React .cursorrules prompt file: Author: allxdamnxday ## What you can build Pool Management Platform: A web application that allows users to browse available pools, submit requests, and manage entries. It includes an admin panel for managing pool requests, payments, and en",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/nodejs-mongodb-jwt-express-react-cursorrules-promp/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -2285,7 +2285,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "optimize-dry-solid-principles-cursorrules-prompt-f-balqaasem",
@@ -2293,7 +2293,7 @@
     "type": "rule",
     "description": "Optimize DRY SOLID Principles .cursorrules prompt file: Author: Malcolm Jones (bossjones/Tony Dark) ## What you can build Interactive Coding Assistant: Develop a tool that provides real-time feedback and coding suggestions based on user input. It uses communication techniques to ask clarifying quest",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/optimize-dry-solid-principles-cursorrules-prompt-f/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "tooling",
     "tags": [
@@ -2307,7 +2307,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "optimize-dry-solid-principles-cursorrules-prompt-f-schneidersam",
@@ -2315,7 +2315,7 @@
     "type": "rule",
     "description": "Optimize DRY SOLID Principles .cursorrules prompt file: Author: Malcolm Jones (bossjones/Tony Dark) ## What you can build Interactive Coding Assistant: Develop a tool that provides real-time feedback and coding suggestions based on user input. It uses communication techniques to ask clarifying quest",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/optimize-dry-solid-principles-cursorrules-prompt-f/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "tooling",
     "tags": [
@@ -2329,7 +2329,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "optimize-rell-blockchain-code-cursorrules-prompt-f-balqaasem",
@@ -2337,7 +2337,7 @@
     "type": "rule",
     "description": "Optimize Rell Blockchain Code .cursorrules prompt file: Author: Viktor Plane ## What you can build Blockchain CRM System: Develop a customer relationship management system using Rell that enables businesses to store customer data on the blockchain. The system would include modules for managing user ",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/optimize-rell-blockchain-code-cursorrules-prompt-f/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "security",
     "tags": [
@@ -2351,7 +2351,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "optimize-rell-blockchain-code-cursorrules-prompt-f-schneidersam",
@@ -2359,7 +2359,7 @@
     "type": "rule",
     "description": "Optimize Rell Blockchain Code .cursorrules prompt file: Author: Viktor Plane ## What you can build Blockchain CRM System: Develop a customer relationship management system using Rell that enables businesses to store customer data on the blockchain. The system would include modules for managing user ",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/optimize-rell-blockchain-code-cursorrules-prompt-f/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "security",
     "tags": [
@@ -2373,7 +2373,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "pandas-scikit-learn-guide-cursorrules-prompt-file-balqaasem",
@@ -2381,7 +2381,7 @@
     "type": "rule",
     "description": "Pandas Scikit-Learn Guide .cursorrules prompt file: Author: Championeer ## What you can build DataVis Studio: A web app that allows users to upload datasets and automatically generates visualizations using matplotlib and seaborn, with options for customization and accessibility considerations.Notebo",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/pandas-scikit-learn-guide-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "security",
     "tags": [
@@ -2395,7 +2395,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "pandas-scikit-learn-guide-cursorrules-prompt-file-schneidersam",
@@ -2403,7 +2403,7 @@
     "type": "rule",
     "description": "Pandas Scikit-Learn Guide .cursorrules prompt file: Author: Championeer ## What you can build DataVis Studio: A web app that allows users to upload datasets and automatically generates visualizations using matplotlib and seaborn, with options for customization and accessibility considerations.Notebo",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/pandas-scikit-learn-guide-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "security",
     "tags": [
@@ -2417,7 +2417,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "plasticode-telegram-api-cursorrules-prompt-file-balqaasem",
@@ -2425,7 +2425,7 @@
     "type": "rule",
     "description": "Plasticode Telegram API .cursorrules prompt file: Author: Sergey Atroshchenko ## What you can build Plasticode CMS Enhancement Tool: A web application that provides additional plugins and modules for the Plasticode CMS, leveraging object-oriented PHP principles and dependency injection to allow deve",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/plasticode-telegram-api-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -2440,7 +2440,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "plasticode-telegram-api-cursorrules-prompt-file-schneidersam",
@@ -2448,7 +2448,7 @@
     "type": "rule",
     "description": "Plasticode Telegram API .cursorrules prompt file: Author: Sergey Atroshchenko ## What you can build Plasticode CMS Enhancement Tool: A web application that provides additional plugins and modules for the Plasticode CMS, leveraging object-oriented PHP principles and dependency injection to allow deve",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/plasticode-telegram-api-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -2463,7 +2463,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "py-fast-api-balqaasem",
@@ -2471,7 +2471,7 @@
     "type": "rule",
     "description": "## What you can build ### API Performance Monitoring Tool A web app that uses FastAPI to track, analyze, and optimize API performance metrics such as response time, latency, and throughput. It will provide real-time dashboards and alerts for performance issues. ### Async API Wrapper Generator A comm",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/py-fast-api/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "devops",
     "tags": [
@@ -2486,7 +2486,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "py-fast-api-schneidersam",
@@ -2494,7 +2494,7 @@
     "type": "rule",
     "description": "## What you can build ### API Performance Monitoring Tool A web app that uses FastAPI to track, analyze, and optimize API performance metrics such as response time, latency, and throughput. It will provide real-time dashboards and alerts for performance issues. ### Async API Wrapper Generator A comm",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/py-fast-api/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "devops",
     "tags": [
@@ -2509,7 +2509,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "pyqt6-eeg-processing-cursorrules-prompt-file-balqaasem",
@@ -2517,7 +2517,7 @@
     "type": "rule",
     "description": "PyQt6 EEG Processing .cursorrules prompt file: Author: Ernie Pedapati ## What you can build EEG Analysis and Visualization App: Develop an application that provides stunning visualizations of EEG data for researchers and neurologists, integrating advanced PyQt6 features for user-friendly controls an",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/pyqt6-eeg-processing-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "documentation",
     "tags": [
@@ -2531,7 +2531,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "pyqt6-eeg-processing-cursorrules-prompt-file-schneidersam",
@@ -2539,7 +2539,7 @@
     "type": "rule",
     "description": "PyQt6 EEG Processing .cursorrules prompt file: Author: Ernie Pedapati ## What you can build EEG Analysis and Visualization App: Develop an application that provides stunning visualizations of EEG data for researchers and neurologists, integrating advanced PyQt6 features for user-friendly controls an",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/pyqt6-eeg-processing-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "documentation",
     "tags": [
@@ -2553,7 +2553,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-312-fastapi-best-practices-cursorrules-prom-balqaasem",
@@ -2561,7 +2561,7 @@
     "type": "rule",
     "description": "Python 3.12 FastAPI Best Practices .cursorrules prompt file: Author: Raphael Mansuy ## What you can build Task Management API: Develop an API service using FastAPI for creating and managing tasks. Use pydantic for data validation and serialization, fastapi-users for user management, and fastapi-jwt-",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/python-312-fastapi-best-practices-cursorrules-prom/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -2577,7 +2577,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-312-fastapi-best-practices-cursorrules-prom-schneidersam",
@@ -2585,7 +2585,7 @@
     "type": "rule",
     "description": "Python 3.12 FastAPI Best Practices .cursorrules prompt file: Author: Raphael Mansuy ## What you can build Task Management API: Develop an API service using FastAPI for creating and managing tasks. Use pydantic for data validation and serialization, fastapi-users for user management, and fastapi-jwt-",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/python-312-fastapi-best-practices-cursorrules-prom/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -2601,7 +2601,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-containerization-cursorrules-prompt-file-balqaasem",
@@ -2609,7 +2609,7 @@
     "type": "rule",
     "description": "Python Containerization .cursorrules prompt file: Author: Chakshu Gautam ## What you can build Database Algorithm Playground: A web-based interactive tool for students and developers to learn and experiment with database algorithms like B-trees and MVCC. Users can visualize and manipulate data struc",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/python-containerization-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -2625,7 +2625,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-containerization-cursorrules-prompt-file-schneidersam",
@@ -2633,7 +2633,7 @@
     "type": "rule",
     "description": "Python Containerization .cursorrules prompt file: Author: Chakshu Gautam ## What you can build Database Algorithm Playground: A web-based interactive tool for students and developers to learn and experiment with database algorithms like B-trees and MVCC. Users can visualize and manipulate data struc",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/python-containerization-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -2649,7 +2649,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-cursorrules-prompt-file-best-practices-balqaasem",
@@ -2657,7 +2657,7 @@
     "type": "rule",
     "description": "Python .cursorrules prompt file best practices: Author: Malcolm Jones (bossjones/Tony Dark) ## What you can build Python Project Scaffold Generator: A web-based tool that generates a Python project scaffold with directories for source code, tests, documentation, and configuration files. Users can sp",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/python-cursorrules-prompt-file-best-practices/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -2672,7 +2672,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-cursorrules-prompt-file-best-practices-schneidersam",
@@ -2680,7 +2680,7 @@
     "type": "rule",
     "description": "Python .cursorrules prompt file best practices: Author: Malcolm Jones (bossjones/Tony Dark) ## What you can build Python Project Scaffold Generator: A web-based tool that generates a Python project scaffold with directories for source code, tests, documentation, and configuration files. Users can sp",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/python-cursorrules-prompt-file-best-practices/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -2695,7 +2695,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-developer-cursorrules-prompt-file-balqaasem",
@@ -2703,7 +2703,7 @@
     "type": "rule",
     "description": "Python Developer .cursorrules prompt file: Author: Raphael MANSUY ## What you can build Command-Line Automation Suite: Develop a command-line tool that automates repetitive tasks such as file management, text processing, and data transformation using Python and rich CLI interfaces powered by click a",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/python-developer-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -2718,7 +2718,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-developer-cursorrules-prompt-file-schneidersam",
@@ -2726,7 +2726,7 @@
     "type": "rule",
     "description": "Python Developer .cursorrules prompt file: Author: Raphael MANSUY ## What you can build Command-Line Automation Suite: Develop a command-line tool that automates repetitive tasks such as file management, text processing, and data transformation using Python and rich CLI interfaces powered by click a",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/python-developer-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -2741,7 +2741,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-django-best-practices-cursorrules-prompt-fi-balqaasem",
@@ -2749,7 +2749,7 @@
     "type": "rule",
     "description": "Python Django Best Practices .cursorrules prompt file: Author: pskishere ## What you can build Django E-commerce Platform: Develop a highly scalable and secure e-commerce platform using Django, integrating with payment gateways, and leveraging Django's ORM for managing product catalogs and user data",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/python-django-best-practices-cursorrules-prompt-fi/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -2766,7 +2766,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-django-best-practices-cursorrules-prompt-fi-schneidersam",
@@ -2774,7 +2774,7 @@
     "type": "rule",
     "description": "Python Django Best Practices .cursorrules prompt file: Author: pskishere ## What you can build Django E-commerce Platform: Develop a highly scalable and secure e-commerce platform using Django, integrating with payment gateways, and leveraging Django's ORM for managing product catalogs and user data",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/python-django-best-practices-cursorrules-prompt-fi/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -2791,7 +2791,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-fastapi-best-practices-cursorrules-prompt-f-balqaasem",
@@ -2799,7 +2799,7 @@
     "type": "rule",
     "description": "Python FastAPI Best Practices .cursorrules prompt file: Author: Caio Barbieri ## What you can build Scalable API Development Platform: Build a cloud-based platform that simplifies the development of scalable APIs using Python and FastAPI. It should include templates and modules for setting up API ro",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/python-fastapi-best-practices-cursorrules-prompt-f/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -2815,7 +2815,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-fastapi-best-practices-cursorrules-prompt-f-schneidersam",
@@ -2823,7 +2823,7 @@
     "type": "rule",
     "description": "Python FastAPI Best Practices .cursorrules prompt file: Author: Caio Barbieri ## What you can build Scalable API Development Platform: Build a cloud-based platform that simplifies the development of scalable APIs using Python and FastAPI. It should include templates and modules for setting up API ro",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/python-fastapi-best-practices-cursorrules-prompt-f/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -2839,7 +2839,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-fastapi-scalable-api-cursorrules-prompt-fil-balqaasem",
@@ -2847,7 +2847,7 @@
     "type": "rule",
     "description": "Python FastAPI Scalable API .cursorrules prompt file: Author: Felipe Pimentel ## What you can build Automated Deployment & CI/CD PipelineCross-Platform Mobile App FrameworkPydantic Schema Visualizer ## Benefits ## Synopsis Developers skilled in web technologies will benefit by building a scalable, h",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/python-fastapi-scalable-api-cursorrules-prompt-fil/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -2863,7 +2863,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-fastapi-scalable-api-cursorrules-prompt-fil-schneidersam",
@@ -2871,7 +2871,7 @@
     "type": "rule",
     "description": "Python FastAPI Scalable API .cursorrules prompt file: Author: Felipe Pimentel ## What you can build Automated Deployment & CI/CD PipelineCross-Platform Mobile App FrameworkPydantic Schema Visualizer ## Benefits ## Synopsis Developers skilled in web technologies will benefit by building a scalable, h",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/python-fastapi-scalable-api-cursorrules-prompt-fil/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -2887,7 +2887,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-flask-json-guide-cursorrules-prompt-file-balqaasem",
@@ -2895,7 +2895,7 @@
     "type": "rule",
     "description": "Python Flask JSON Guide .cursorrules prompt file: Author: Drawscape ## What you can build Drawscape Factorio Visualization App: Create a web application that allows users to upload JSON files from the FUE5 MOD and generate SVG visualizations of their Factorio setups using custom themes, color scheme",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/python-flask-json-guide-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -2912,7 +2912,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-flask-json-guide-cursorrules-prompt-file-schneidersam",
@@ -2920,7 +2920,7 @@
     "type": "rule",
     "description": "Python Flask JSON Guide .cursorrules prompt file: Author: Drawscape ## What you can build Drawscape Factorio Visualization App: Create a web application that allows users to upload JSON files from the FUE5 MOD and generate SVG visualizations of their Factorio setups using custom themes, color scheme",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/python-flask-json-guide-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -2937,7 +2937,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-github-setup-cursorrules-prompt-file-balqaasem",
@@ -2945,7 +2945,7 @@
     "type": "rule",
     "description": "Python GitHub Setup .cursorrules prompt file: Author: Jesse Naldo ## What you can build AI File Sorting Plugin for IDEs:Interactive AI File Organizing Dashboard:Intelligent File Organization Chatbot:Open Source File Classification Extension:AI-Powered Data Import Tool: ## Benefits ## Synopsis Develo",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/python-github-setup-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -2961,7 +2961,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-github-setup-cursorrules-prompt-file-schneidersam",
@@ -2969,7 +2969,7 @@
     "type": "rule",
     "description": "Python GitHub Setup .cursorrules prompt file: Author: Jesse Naldo ## What you can build AI File Sorting Plugin for IDEs:Interactive AI File Organizing Dashboard:Intelligent File Organization Chatbot:Open Source File Classification Extension:AI-Powered Data Import Tool: ## Benefits ## Synopsis Develo",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/python-github-setup-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -2985,7 +2985,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-projects-guide-cursorrules-prompt-file-balqaasem",
@@ -2993,7 +2993,7 @@
     "type": "rule",
     "description": "Python Projects Guide .cursorrules prompt file: Author: bossjones ## What you can build AI-Powered Python Project Boilerplate Generator: A web-based tool that generates a complete Python project structure adhering to best practices. Users can specify project details, and the tool outputs a zip file ",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/python-projects-guide-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -3008,7 +3008,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-projects-guide-cursorrules-prompt-file-schneidersam",
@@ -3016,7 +3016,7 @@
     "type": "rule",
     "description": "Python Projects Guide .cursorrules prompt file: Author: bossjones ## What you can build AI-Powered Python Project Boilerplate Generator: A web-based tool that generates a complete Python project structure adhering to best practices. Users can specify project details, and the tool outputs a zip file ",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/python-projects-guide-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -3031,7 +3031,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-typescript-guide-cursorrules-prompt-file-balqaasem",
@@ -3039,7 +3039,7 @@
     "type": "rule",
     "description": "Python & Typescript Guide .cursorrules prompt file: Author: Harry Khanna ## What you can build React-Django Project Starter Kit: A tool that generates a boilerplate for React and Django projects, equipped with the latest Tailwind CSS and InertiaJS integrations. It would include pre-configured Cataly",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/python--typescript-guide-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -3060,7 +3060,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "python-typescript-guide-cursorrules-prompt-file-schneidersam",
@@ -3068,7 +3068,7 @@
     "type": "rule",
     "description": "Python & Typescript Guide .cursorrules prompt file: Author: Harry Khanna ## What you can build React-Django Project Starter Kit: A tool that generates a boilerplate for React and Django projects, equipped with the latest Tailwind CSS and InertiaJS integrations. It would include pre-configured Cataly",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/python--typescript-guide-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -3089,7 +3089,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "pytorch-scikit-learn-cursorrules-prompt-file-balqaasem",
@@ -3097,7 +3097,7 @@
     "type": "rule",
     "description": "PyTorch Scikit-learn .cursorrules Prompt File: Author: Aravindh Marimuthu ## What you can build Chemistry-focused ML Toolkit: Develop a comprehensive software toolkit that provides easy-to-use APIs for building, training, and evaluating machine learning models for chemistry applications. Integration",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/pytorch-scikit-learn-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "security",
     "tags": [
@@ -3111,7 +3111,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "pytorch-scikit-learn-cursorrules-prompt-file-schneidersam",
@@ -3119,7 +3119,7 @@
     "type": "rule",
     "description": "PyTorch Scikit-learn .cursorrules Prompt File: Author: Aravindh Marimuthu ## What you can build Chemistry-focused ML Toolkit: Develop a comprehensive software toolkit that provides easy-to-use APIs for building, training, and evaluating machine learning models for chemistry applications. Integration",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/pytorch-scikit-learn-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "security",
     "tags": [
@@ -3133,7 +3133,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "react-components-creation-cursorrules-prompt-file-balqaasem",
@@ -3141,7 +3141,7 @@
     "type": "rule",
     "description": "React Components Creation .cursorrules prompt file: Author: austinm911 ## What you can build Component Repository Manager - An app that helps developers easily search, browse, and manage a repository of existing React components, with integrated identification for reused components across multiple p",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/react-components-creation-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -3156,7 +3156,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "react-components-creation-cursorrules-prompt-file-schneidersam",
@@ -3164,7 +3164,7 @@
     "type": "rule",
     "description": "React Components Creation .cursorrules prompt file: Author: austinm911 ## What you can build Component Repository Manager - An app that helps developers easily search, browse, and manage a repository of existing React components, with integrated identification for reused components across multiple p",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/react-components-creation-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -3179,7 +3179,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "react-nextjs-ui-development-cursorrules-prompt-fil-balqaasem",
@@ -3187,7 +3187,7 @@
     "type": "rule",
     "description": "React NextJS UI development .cursorrules prompt file: Author: Austin Thesing ## What you can build Interactive React/Next.js Tutorial Platform: Develop a platform that offers interactive tutorials and examples on how to build web applications using React and Next.js, focusing on the app router. It w",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/react-nextjs-ui-development-cursorrules-prompt-fil/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -3203,7 +3203,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "react-nextjs-ui-development-cursorrules-prompt-fil-schneidersam",
@@ -3211,7 +3211,7 @@
     "type": "rule",
     "description": "React NextJS UI development .cursorrules prompt file: Author: Austin Thesing ## What you can build Interactive React/Next.js Tutorial Platform: Develop a platform that offers interactive tutorials and examples on how to build web applications using React and Next.js, focusing on the app router. It w",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/react-nextjs-ui-development-cursorrules-prompt-fil/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -3227,7 +3227,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "react-typescript-nextjs-nodejs-cursorrules-prompt-balqaasem",
@@ -3235,7 +3235,7 @@
     "type": "rule",
     "description": "React TypeScript Next.js Node.js .cursorrules prompt file: Author: Gabo Esquivel ## What you can build Decentralized Finance Dashboard: Create a web app using Next.js 14 App Router and Wagmi v2 for aggregating and displaying DeFi related data such as token prices, liquidity pools, and yield farming ",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/react-typescript-nextjs-nodejs-cursorrules-prompt-/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -3253,7 +3253,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "react-typescript-nextjs-nodejs-cursorrules-prompt-schneidersam",
@@ -3261,7 +3261,7 @@
     "type": "rule",
     "description": "React TypeScript Next.js Node.js .cursorrules prompt file: Author: Gabo Esquivel ## What you can build Decentralized Finance Dashboard: Create a web app using Next.js 14 App Router and Wagmi v2 for aggregating and displaying DeFi related data such as token prices, liquidity pools, and yield farming ",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/react-typescript-nextjs-nodejs-cursorrules-prompt-/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -3279,7 +3279,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "react-typescript-symfony-cursorrules-prompt-file-balqaasem",
@@ -3287,7 +3287,7 @@
     "type": "rule",
     "description": "React TypeScript Symfony .cursorrules prompt file: Author: Anders Bryrup ## What you can build Code Quality Analyzer: A web tool that scans and analyzes codebases, providing detailed feedback on code readability, efficiency, and adherence to best practices in React, TypeScript, PHP, Symfony, and Doc",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/react-typescript-symfony-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -3304,7 +3304,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "react-typescript-symfony-cursorrules-prompt-file-schneidersam",
@@ -3312,7 +3312,7 @@
     "type": "rule",
     "description": "React TypeScript Symfony .cursorrules prompt file: Author: Anders Bryrup ## What you can build Code Quality Analyzer: A web tool that scans and analyzes codebases, providing detailed feedback on code readability, efficiency, and adherence to best practices in React, TypeScript, PHP, Symfony, and Doc",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/react-typescript-symfony-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -3329,7 +3329,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "solidity-hardhat-cursorrules-prompt-file-balqaasem",
@@ -3337,7 +3337,7 @@
     "type": "rule",
     "description": "Solidity Hardhat .cursorrules prompt file: Author: brolag ## What you can build Smart Contract Auditing Tool: A web-based platform that allows developers to automatically audit their Solidity smart contracts for security vulnerabilities, utilizing static analysis tools like Slither and Mythril.Upgra",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/solidity-hardhat-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "security",
     "tags": [
@@ -3351,7 +3351,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "solidity-hardhat-cursorrules-prompt-file-schneidersam",
@@ -3359,7 +3359,7 @@
     "type": "rule",
     "description": "Solidity Hardhat .cursorrules prompt file: Author: brolag ## What you can build Smart Contract Auditing Tool: A web-based platform that allows developers to automatically audit their Solidity smart contracts for security vulnerabilities, utilizing static analysis tools like Slither and Mythril.Upgra",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/solidity-hardhat-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "security",
     "tags": [
@@ -3373,7 +3373,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "solidity-react-blockchain-apps-cursorrules-prompt-balqaasem",
@@ -3381,7 +3381,7 @@
     "type": "rule",
     "description": "Solidity React Blockchain Apps .cursorrules prompt file: Author: brolag ## What you can build Solidity Static Analysis Tools: Develop a web-based platform that integrates powerful static analysis tools like Slither and Mythril to automatically scan Solidity contracts for vulnerabilities and provide ",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/solidity-react-blockchain-apps-cursorrules-prompt-/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -3396,7 +3396,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "solidity-react-blockchain-apps-cursorrules-prompt-schneidersam",
@@ -3404,7 +3404,7 @@
     "type": "rule",
     "description": "Solidity React Blockchain Apps .cursorrules prompt file: Author: brolag ## What you can build Solidity Static Analysis Tools: Develop a web-based platform that integrates powerful static analysis tools like Slither and Mythril to automatically scan Solidity contracts for vulnerabilities and provide ",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/solidity-react-blockchain-apps-cursorrules-prompt-/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -3419,7 +3419,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "svelte-5-vs-svelte-4-cursorrules-prompt-file-balqaasem",
@@ -3427,7 +3427,7 @@
     "type": "rule",
     "description": "Svelte 5 vs Svelte 4 .cursorrules prompt file: Author: Adam Shand ## What you can build Svelte 5 Interactive Playground: An interactive online platform that allows developers to experiment with Svelte 5's new features such as runes, reactive states, effects, and snippets in a live coding environment",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/svelte-5-vs-svelte-4-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -3443,7 +3443,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "svelte-5-vs-svelte-4-cursorrules-prompt-file-schneidersam",
@@ -3451,7 +3451,7 @@
     "type": "rule",
     "description": "Svelte 5 vs Svelte 4 .cursorrules prompt file: Author: Adam Shand ## What you can build Svelte 5 Interactive Playground: An interactive online platform that allows developers to experiment with Svelte 5's new features such as runes, reactive states, effects, and snippets in a live coding environment",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/svelte-5-vs-svelte-4-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -3467,7 +3467,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "sveltekit-restful-api-tailwind-css-cursorrules-pro-balqaasem",
@@ -3475,7 +3475,7 @@
     "type": "rule",
     "description": "SvelteKit RESTful API Tailwind CSS .cursorrules prompt file: Author: Djordje Stojanovic ## What you can build File Management Automation Tool - Create a tool that automatically appends the full file path as a comment to the start of each file within the Stojanovic-One project, ensuring consistency a",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/sveltekit-restful-api-tailwind-css-cursorrules-pro/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -3493,7 +3493,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "sveltekit-restful-api-tailwind-css-cursorrules-pro-schneidersam",
@@ -3501,7 +3501,7 @@
     "type": "rule",
     "description": "SvelteKit RESTful API Tailwind CSS .cursorrules prompt file: Author: Djordje Stojanovic ## What you can build File Management Automation Tool - Create a tool that automatically appends the full file path as a comment to the start of each file within the Stojanovic-One project, ensuring consistency a",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/sveltekit-restful-api-tailwind-css-cursorrules-pro/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -3519,7 +3519,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "sveltekit-tailwindcss-typescript-cursorrules-promp-balqaasem",
@@ -3527,7 +3527,7 @@
     "type": "rule",
     "description": "SvelteKit TailwindCSS TypeScript .cursorrules prompt file: Author: wisdom1456 ## What you can build ## Benefits ## Synopsis Frontend developers can use this prompt to ensure they follow best practices and standards when building maintainable and performant SvelteKit applications using specified tool",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/sveltekit-tailwindcss-typescript-cursorrules-promp/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -3545,7 +3545,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "sveltekit-tailwindcss-typescript-cursorrules-promp-schneidersam",
@@ -3553,7 +3553,7 @@
     "type": "rule",
     "description": "SvelteKit TailwindCSS TypeScript .cursorrules prompt file: Author: wisdom1456 ## What you can build ## Benefits ## Synopsis Frontend developers can use this prompt to ensure they follow best practices and standards when building maintainable and performant SvelteKit applications using specified tool",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/sveltekit-tailwindcss-typescript-cursorrules-promp/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -3571,7 +3571,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "sveltekit-typescript-guide-cursorrules-prompt-file-balqaasem",
@@ -3579,7 +3579,7 @@
     "type": "rule",
     "description": "SvelteKit TypeScript Guide .cursorrules prompt file: Author: Brandon Edley ## What you can build SvelteKit Project Starter Template: A template generator for quickly starting projects using SvelteKit, Supabase, and Drizzle. This tool would configure SSR, SSG, and real-time data with Supabase, leavin",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/sveltekit-typescript-guide-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -3596,7 +3596,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "sveltekit-typescript-guide-cursorrules-prompt-file-schneidersam",
@@ -3604,7 +3604,7 @@
     "type": "rule",
     "description": "SvelteKit TypeScript Guide .cursorrules prompt file: Author: Brandon Edley ## What you can build SvelteKit Project Starter Template: A template generator for quickly starting projects using SvelteKit, Supabase, and Drizzle. This tool would configure SSR, SSG, and real-time data with Supabase, leavin",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/sveltekit-typescript-guide-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -3621,7 +3621,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "swiftui-guidelines-cursorrules-prompt-file-balqaasem",
@@ -3629,7 +3629,7 @@
     "type": "rule",
     "description": "SwiftUI guidelines .cursorrules prompt file: Author: kevin regenrek ## What you can build SwiftUI Starter Kit: A project template with a clean SwiftUI architecture, utilizing the latest SwiftUI components, to help developers quickly start a new project.SwiftUI Design Guide: An app providing ready-to",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/swiftui-guidelines-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "mobile",
     "tags": [
@@ -3644,7 +3644,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "swiftui-guidelines-cursorrules-prompt-file-schneidersam",
@@ -3652,7 +3652,7 @@
     "type": "rule",
     "description": "SwiftUI guidelines .cursorrules prompt file: Author: kevin regenrek ## What you can build SwiftUI Starter Kit: A project template with a clean SwiftUI architecture, utilizing the latest SwiftUI components, to help developers quickly start a new project.SwiftUI Design Guide: An app providing ready-to",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/swiftui-guidelines-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "mobile",
     "tags": [
@@ -3667,7 +3667,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "tailwind-css-nextjs-guide-cursorrules-prompt-file-balqaasem",
@@ -3675,7 +3675,7 @@
     "type": "rule",
     "description": "Tailwind CSS Next.js Guide .cursorrules prompt file: Author: brolag ## What you can build Component Library Website - A website offering a collection of reusable, modular components styled with TailwindCSS and DaisyUI, featuring strict TypeScript integration and detailed documentation. Each componen",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/tailwind-css-nextjs-guide-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -3693,7 +3693,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "tailwind-css-nextjs-guide-cursorrules-prompt-file-schneidersam",
@@ -3701,7 +3701,7 @@
     "type": "rule",
     "description": "Tailwind CSS Next.js Guide .cursorrules prompt file: Author: brolag ## What you can build Component Library Website - A website offering a collection of reusable, modular components styled with TailwindCSS and DaisyUI, featuring strict TypeScript integration and detailed documentation. Each componen",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/tailwind-css-nextjs-guide-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -3719,7 +3719,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "tailwind-react-firebase-cursorrules-prompt-file-balqaasem",
@@ -3727,7 +3727,7 @@
     "type": "rule",
     "description": "Tailwind React Firebase .cursorrules prompt file: Author: prakrit100 ## What you can build Mobile UI Component Library: Develop a library of responsive UI components using Tailwind CSS with mobile-first design principles, ensuring consistent design and seamless scaling for different screen sizes.Res",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/tailwind-react-firebase-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -3744,7 +3744,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "tailwind-react-firebase-cursorrules-prompt-file-schneidersam",
@@ -3752,7 +3752,7 @@
     "type": "rule",
     "description": "Tailwind React Firebase .cursorrules prompt file: Author: prakrit100 ## What you can build Mobile UI Component Library: Develop a library of responsive UI components using Tailwind CSS with mobile-first design principles, ensuring consistent design and seamless scaling for different screen sizes.Res",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/tailwind-react-firebase-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -3769,7 +3769,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "tailwind-shadcn-ui-integration-cursorrules-prompt-balqaasem",
@@ -3777,7 +3777,7 @@
     "type": "rule",
     "description": "Tailwind Shadcn UI Integration .cursorrules prompt file: Author: Neeraj Sameer Allu ## What you can build TypeScript NextJS Snippet Generator: A web tool that generates clear and readable TypeScript NextJS code snippets based on user inputs. Users can specify components, features, and desired stylin",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/tailwind-shadcn-ui-integration-cursorrules-prompt-/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -3794,7 +3794,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "tailwind-shadcn-ui-integration-cursorrules-prompt-schneidersam",
@@ -3802,7 +3802,7 @@
     "type": "rule",
     "description": "Tailwind Shadcn UI Integration .cursorrules prompt file: Author: Neeraj Sameer Allu ## What you can build TypeScript NextJS Snippet Generator: A web tool that generates clear and readable TypeScript NextJS code snippets based on user inputs. Users can specify components, features, and desired stylin",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/tailwind-shadcn-ui-integration-cursorrules-prompt-/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -3819,7 +3819,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "tauri-svelte-typescript-guide-cursorrules-prompt-f-balqaasem",
@@ -3827,7 +3827,7 @@
     "type": "rule",
     "description": "Tauri Svelte TypeScript Guide .cursorrules prompt file: Author: Aravindh Marimuthu ## What you can build Cross-Platform Note-Taking App: Develop a secure, cross-platform note-taking app using Tauri, Svelte, and TypeScript. This app leverages Tauri's native capabilities for file system access, allowi",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/tauri-svelte-typescript-guide-cursorrules-prompt-f/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -3843,7 +3843,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "tauri-svelte-typescript-guide-cursorrules-prompt-f-schneidersam",
@@ -3851,7 +3851,7 @@
     "type": "rule",
     "description": "Tauri Svelte TypeScript Guide .cursorrules prompt file: Author: Aravindh Marimuthu ## What you can build Cross-Platform Note-Taking App: Develop a secure, cross-platform note-taking app using Tauri, Svelte, and TypeScript. This app leverages Tauri's native capabilities for file system access, allowi",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/tauri-svelte-typescript-guide-cursorrules-prompt-f/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -3867,7 +3867,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-axios-cursorrules-prompt-file-balqaasem",
@@ -3875,7 +3875,7 @@
     "type": "rule",
     "description": "TypeScript axios .cursorrules prompt file: Author: QuantaLogic ## What you can build Multi-LLM Orchestration Platform: Create a platform that allows developers to easily integrate and switch between multiple large language models, such as OpenAI, GPT-3, and others. It would utilize TypeScript for cr",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-axios-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -3891,7 +3891,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-axios-cursorrules-prompt-file-schneidersam",
@@ -3899,7 +3899,7 @@
     "type": "rule",
     "description": "TypeScript axios .cursorrules prompt file: Author: QuantaLogic ## What you can build Multi-LLM Orchestration Platform: Create a platform that allows developers to easily integrate and switch between multiple large language models, such as OpenAI, GPT-3, and others. It would utilize TypeScript for cr",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-axios-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -3915,7 +3915,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-clasp-cursorrules-prompt-file-balqaasem",
@@ -3923,7 +3923,7 @@
     "type": "rule",
     "description": "TypeScript Google Apps Script .cursorrules prompt file: Author: Shreyas Prakash ## What you can build Google Sheets Automation: Develop custom functions and macros for Google Sheets using TypeScript and Google Apps Script. Implement data validation, custom formatting, and complex calculations. Gmail",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-clasp-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -3939,7 +3939,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-clasp-cursorrules-prompt-file-schneidersam",
@@ -3947,7 +3947,7 @@
     "type": "rule",
     "description": "TypeScript Google Apps Script .cursorrules prompt file: Author: Shreyas Prakash ## What you can build Google Sheets Automation: Develop custom functions and macros for Google Sheets using TypeScript and Google Apps Script. Implement data validation, custom formatting, and complex calculations. Gmail",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-clasp-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -3963,7 +3963,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-code-convention-cursorrules-prompt-file-balqaasem",
@@ -3971,7 +3971,7 @@
     "type": "rule",
     "description": "TypeScript Code Convention .cursorrules prompt file: Author: Jaron Heard ## What you can build ## Benefits ## Synopsis Developers building a full-stack application with Next.js and Expo using TypeScript and modern UI libraries will benefit from improved code quality and performance optimization by a",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-code-convention-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -3987,7 +3987,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-code-convention-cursorrules-prompt-file-schneidersam",
@@ -3995,7 +3995,7 @@
     "type": "rule",
     "description": "TypeScript Code Convention .cursorrules prompt file: Author: Jaron Heard ## What you can build ## Benefits ## Synopsis Developers building a full-stack application with Next.js and Expo using TypeScript and modern UI libraries will benefit from improved code quality and performance optimization by a",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-code-convention-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -4011,7 +4011,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-expo-jest-detox-cursorrules-prompt-file-balqaasem",
@@ -4019,7 +4019,7 @@
     "type": "rule",
     "description": "TypeScript Expo Jest Detox .cursorrules prompt file: Author: İlknur Ültanır ## What you can build React Native Starter Kit for Expo: Create a starter template for React Native projects using Expo that includes pre-configured modules for state management with React Context, navigation with react-navi",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-expo-jest-detox-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -4036,7 +4036,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-expo-jest-detox-cursorrules-prompt-file-schneidersam",
@@ -4044,7 +4044,7 @@
     "type": "rule",
     "description": "TypeScript Expo Jest Detox .cursorrules prompt file: Author: İlknur Ültanır ## What you can build React Native Starter Kit for Expo: Create a starter template for React Native projects using Expo that includes pre-configured modules for state management with React Context, navigation with react-navi",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-expo-jest-detox-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -4061,7 +4061,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-llm-tech-stack-cursorrules-prompt-file-balqaasem",
@@ -4069,7 +4069,7 @@
     "type": "rule",
     "description": "TypeScript LLM Tech Stack .cursorrules prompt file: Author: Raphael Mansuy ## What you can build Multi-Provider LLM Integration Platform: An online service allowing developers to seamlessly integrate and manage multiple LLM providers. It provides a unified API, enabling easy switching between provid",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-llm-tech-stack-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -4084,7 +4084,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-llm-tech-stack-cursorrules-prompt-file-schneidersam",
@@ -4092,7 +4092,7 @@
     "type": "rule",
     "description": "TypeScript LLM Tech Stack .cursorrules prompt file: Author: Raphael Mansuy ## What you can build Multi-Provider LLM Integration Platform: An online service allowing developers to seamlessly integrate and manage multiple LLM providers. It provides a unified API, enabling easy switching between provid",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-llm-tech-stack-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -4107,7 +4107,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-nestjs-best-practices-cursorrules-promp-balqaasem",
@@ -4115,7 +4115,7 @@
     "type": "rule",
     "description": "TypeScript NestJS best practices .cursorrules prompt file: Author: Mariano Benedettini ## What you can build Code Audit Tool for TypeScript Projects: A web-based service that analyzes TypeScript projects, ensuring they meet the specified guidelines. It checks for proper nomenclature, use of types, f",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-nestjs-best-practices-cursorrules-promp/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -4130,7 +4130,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-nestjs-best-practices-cursorrules-promp-schneidersam",
@@ -4138,7 +4138,7 @@
     "type": "rule",
     "description": "TypeScript NestJS best practices .cursorrules prompt file: Author: Mariano Benedettini ## What you can build Code Audit Tool for TypeScript Projects: A web-based service that analyzes TypeScript projects, ensuring they meet the specified guidelines. It checks for proper nomenclature, use of types, f",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-nestjs-best-practices-cursorrules-promp/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -4153,7 +4153,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-nextjs-cursorrules-prompt-file-balqaasem",
@@ -4161,7 +4161,7 @@
     "type": "rule",
     "description": "TypeScript Next.js .cursorrules prompt file: Author: Shreyas Prakash ## What you can build Task Management App: Develop a task management tool with a clean user interface using React, Daisy UI, and Tailwind for styling. Use Next.js App Router for seamless navigation and Drizzle ORM with TypeScript f",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-nextjs-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -4179,7 +4179,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-nextjs-cursorrules-prompt-file-schneidersam",
@@ -4187,7 +4187,7 @@
     "type": "rule",
     "description": "TypeScript Next.js .cursorrules prompt file: Author: Shreyas Prakash ## What you can build Task Management App: Develop a task management tool with a clean user interface using React, Daisy UI, and Tailwind for styling. Use Next.js App Router for seamless navigation and Drizzle ORM with TypeScript f",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-nextjs-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -4205,7 +4205,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-nextjs-react-cursorrules-prompt-file-balqaasem",
@@ -4213,7 +4213,7 @@
     "type": "rule",
     "description": "TypeScript Next.js React .cursorrules prompt file: Author: Ansh ## What you can build AI-Powered E-Learning Platform: Leverage the OpenAI API to create an interactive e-learning platform that provides personalized learning experiences. Use React components for real-time quizzes and assignments, Tail",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-nextjs-react-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -4231,7 +4231,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-nextjs-react-cursorrules-prompt-file-schneidersam",
@@ -4239,7 +4239,7 @@
     "type": "rule",
     "description": "TypeScript Next.js React .cursorrules prompt file: Author: Ansh ## What you can build AI-Powered E-Learning Platform: Leverage the OpenAI API to create an interactive e-learning platform that provides personalized learning experiences. Use React components for real-time quizzes and assignments, Tail",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-nextjs-react-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -4257,7 +4257,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-nextjs-react-tailwind-supabase-cursorru-balqaasem",
@@ -4265,7 +4265,7 @@
     "type": "rule",
     "description": "TypeScript Next.js React Tailwind Supabase .cursorrules prompt file: Author: Guido Schmitz ## What you can build Code Quality Analysis Tool: An online platform that analyzes TypeScript code for adherence to predefined conventions, such as function declaration preference, naming conventions, and usag",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-nextjs-react-tailwind-supabase-cursorru/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -4284,7 +4284,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-nextjs-react-tailwind-supabase-cursorru-schneidersam",
@@ -4292,7 +4292,7 @@
     "type": "rule",
     "description": "TypeScript Next.js React Tailwind Supabase .cursorrules prompt file: Author: Guido Schmitz ## What you can build Code Quality Analysis Tool: An online platform that analyzes TypeScript code for adherence to predefined conventions, such as function declaration preference, naming conventions, and usag",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-nextjs-react-tailwind-supabase-cursorru/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -4311,7 +4311,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-nextjs-supabase-cursorrules-prompt-file-balqaasem",
@@ -4319,7 +4319,7 @@
     "type": "rule",
     "description": "TypeScript Next.js Supabase .cursorrules prompt file: Author: kr3t3n ## What you can build AI-Powered Code Review Tool: A web application that integrates with GitHub and uses Vercel AI SDK to provide automated code reviews. It will analyze pull requests for adherence to TypeScript best practices, co",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-nextjs-supabase-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -4337,7 +4337,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-nextjs-supabase-cursorrules-prompt-file-schneidersam",
@@ -4345,7 +4345,7 @@
     "type": "rule",
     "description": "TypeScript Next.js Supabase .cursorrules prompt file: Author: kr3t3n ## What you can build AI-Powered Code Review Tool: A web application that integrates with GitHub and uses Vercel AI SDK to provide automated code reviews. It will analyze pull requests for adherence to TypeScript best practices, co",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-nextjs-supabase-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -4363,7 +4363,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-nodejs-nextjs-ai-cursorrules-prompt-fil-balqaasem",
@@ -4371,7 +4371,7 @@
     "type": "rule",
     "description": "TypeScript Node.js Next.js AI .cursorrules prompt file: Author: Matt (AG) ## What you can build Custom SaaS Boilerplate: Create a robust SaaS boilerplate using TypeScript, Node.js, and Next.js with integrated Clerk authentication. This would allow developers to quickly spin up secure and full-featur",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-nodejs-nextjs-ai-cursorrules-prompt-fil/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -4388,7 +4388,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-nodejs-nextjs-ai-cursorrules-prompt-fil-schneidersam",
@@ -4396,7 +4396,7 @@
     "type": "rule",
     "description": "TypeScript Node.js Next.js AI .cursorrules prompt file: Author: Matt (AG) ## What you can build Custom SaaS Boilerplate: Create a robust SaaS boilerplate using TypeScript, Node.js, and Next.js with integrated Clerk authentication. This would allow developers to quickly spin up secure and full-featur",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-nodejs-nextjs-ai-cursorrules-prompt-fil/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -4413,7 +4413,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-nodejs-nextjs-app-cursorrules-prompt-fi-balqaasem",
@@ -4421,7 +4421,7 @@
     "type": "rule",
     "description": "TypeScript Node.js Next.js App .cursorrules prompt file: Author: Christoph Black ## What you can build Note-Taking Web App with Advanced Features: Develop a comprehensive note-taking application using TypeScript, Node.js, and Next.js with Shadcn UI and Tailwind styling. Features include adding new n",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-nodejs-nextjs-app-cursorrules-prompt-fi/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -4439,7 +4439,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-nodejs-nextjs-app-cursorrules-prompt-fi-schneidersam",
@@ -4447,7 +4447,7 @@
     "type": "rule",
     "description": "TypeScript Node.js Next.js App .cursorrules prompt file: Author: Christoph Black ## What you can build Note-Taking Web App with Advanced Features: Develop a comprehensive note-taking application using TypeScript, Node.js, and Next.js with Shadcn UI and Tailwind styling. Features include adding new n",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-nodejs-nextjs-app-cursorrules-prompt-fi/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -4465,7 +4465,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-nodejs-nextjs-react-ui-css-cursorrules-balqaasem",
@@ -4473,7 +4473,7 @@
     "type": "rule",
     "description": "TypeScript Node.js Next.js React UI CSS .cursorrules prompt file: Author: virgoone ## What you can build Next.js Learning Platform: A comprehensive learning platform focused on teaching TypeScript, Node.js, Next.js, React, and UI frameworks like Shadcn UI, Radix UI, and Tailwind CSS. It would includ",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-nodejs-nextjs-react-ui-css-cursorrules-/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -4494,7 +4494,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-nodejs-nextjs-react-ui-css-cursorrules-schneidersam",
@@ -4502,7 +4502,7 @@
     "type": "rule",
     "description": "TypeScript Node.js Next.js React UI CSS .cursorrules prompt file: Author: virgoone ## What you can build Next.js Learning Platform: A comprehensive learning platform focused on teaching TypeScript, Node.js, Next.js, React, and UI frameworks like Shadcn UI, Radix UI, and Tailwind CSS. It would includ",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-nodejs-nextjs-react-ui-css-cursorrules-/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -4523,7 +4523,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-nodejs-react-vite-cursorrules-prompt-fi-balqaasem",
@@ -4531,7 +4531,7 @@
     "type": "rule",
     "description": "TypeScript Node.js React Vite .cursorrules prompt file: Author: Ryan Atkinson ## What you can build TypeScript IDE Plugin: Develop a plugin for popular IDEs that enforces the code styles and structures outlined in the prompt, providing real-time feedback and suggestions to developers.React Component",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-nodejs-react-vite-cursorrules-prompt-fi/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -4548,7 +4548,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-nodejs-react-vite-cursorrules-prompt-fi-schneidersam",
@@ -4556,7 +4556,7 @@
     "type": "rule",
     "description": "TypeScript Node.js React Vite .cursorrules prompt file: Author: Ryan Atkinson ## What you can build TypeScript IDE Plugin: Develop a plugin for popular IDEs that enforces the code styles and structures outlined in the prompt, providing real-time feedback and suggestions to developers.React Component",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-nodejs-react-vite-cursorrules-prompt-fi/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -4573,7 +4573,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-react-nextjs-cloudflare-cursorrules-pro-balqaasem",
@@ -4581,7 +4581,7 @@
     "type": "rule",
     "description": "TypeScript React Next.js Cloudflare .cursorrules prompt file: Author: Dhravya Shah ## What you can build TypeScript Component Library: Develop a component library using TypeScript, Shadcn UI, and Radix UI for React apps, ensuring fully typed, reusable, and styled components optimized for performance",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-react-nextjs-cloudflare-cursorrules-pro/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -4598,7 +4598,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-react-nextjs-cloudflare-cursorrules-pro-schneidersam",
@@ -4606,7 +4606,7 @@
     "type": "rule",
     "description": "TypeScript React Next.js Cloudflare .cursorrules prompt file: Author: Dhravya Shah ## What you can build TypeScript Component Library: Develop a component library using TypeScript, Shadcn UI, and Radix UI for React apps, ensuring fully typed, reusable, and styled components optimized for performance",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-react-nextjs-cloudflare-cursorrules-pro/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -4623,7 +4623,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-react-nextui-supabase-cursorrules-promp-balqaasem",
@@ -4631,7 +4631,7 @@
     "type": "rule",
     "description": "TypeScript React NextUI Supabase .cursorrules prompt file: Author: jjfantini ## What you can build Supabase Authentication Manager: A tool that allows developers to easily set up and customize authentication flows using Supabase, with drag-and-drop options for email/password and OAuth integrations. ",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-react-nextui-supabase-cursorrules-promp/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -4648,7 +4648,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-react-nextui-supabase-cursorrules-promp-schneidersam",
@@ -4656,7 +4656,7 @@
     "type": "rule",
     "description": "TypeScript React NextUI Supabase .cursorrules prompt file: Author: jjfantini ## What you can build Supabase Authentication Manager: A tool that allows developers to easily set up and customize authentication flows using Supabase, with drag-and-drop options for email/password and OAuth integrations. ",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-react-nextui-supabase-cursorrules-promp/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -4673,7 +4673,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-shadcn-ui-nextjs-cursorrules-prompt-fil-balqaasem",
@@ -4681,7 +4681,7 @@
     "type": "rule",
     "description": "TypeScript Shadcn UI Next.js .cursorrules prompt file: Author: Pontus Abrahamsson ## What you can build Code Snippet Generator with TypeScript Focus - Create a tool that generates concise, functional TypeScript code snippets based on user requirements. It will incorporate patterns like iteration, mo",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-shadcn-ui-nextjs-cursorrules-prompt-fil/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -4697,7 +4697,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-shadcn-ui-nextjs-cursorrules-prompt-fil-schneidersam",
@@ -4705,7 +4705,7 @@
     "type": "rule",
     "description": "TypeScript Shadcn UI Next.js .cursorrules prompt file: Author: Pontus Abrahamsson ## What you can build Code Snippet Generator with TypeScript Focus - Create a tool that generates concise, functional TypeScript code snippets based on user requirements. It will incorporate patterns like iteration, mo",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-shadcn-ui-nextjs-cursorrules-prompt-fil/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -4721,7 +4721,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-vite-tailwind-cursorrules-prompt-file-balqaasem",
@@ -4729,7 +4729,7 @@
     "type": "rule",
     "description": "TypeScript Vite Tailwind .cursorrules prompt file: Author: sphiNx ## What you can build Vue Performance Optimization Toolkit: A web app that helps developers optimize their Vue.js applications by providing tools to analyze and improve key performance metrics like Web Vitals (LCP, CLS, FID) and offer",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-vite-tailwind-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -4746,7 +4746,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-vite-tailwind-cursorrules-prompt-file-schneidersam",
@@ -4754,7 +4754,7 @@
     "type": "rule",
     "description": "TypeScript Vite Tailwind .cursorrules prompt file: Author: sphiNx ## What you can build Vue Performance Optimization Toolkit: A web app that helps developers optimize their Vue.js applications by providing tools to analyze and improve key performance metrics like Web Vitals (LCP, CLS, FID) and offer",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-vite-tailwind-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -4771,7 +4771,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-vuejs-cursorrules-prompt-file-balqaasem",
@@ -4779,7 +4779,7 @@
     "type": "rule",
     "description": "TypeScript Vue.js .cursorrules prompt file: Author: Stacks ## What you can build TypeScript Code Snippet Generator: A web app that generates TypeScript code snippets based on user specifications, using functional programming patterns, descriptive variable names, and Bun native modules where availabl",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-vuejs-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -4795,7 +4795,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-vuejs-cursorrules-prompt-file-schneidersam",
@@ -4803,7 +4803,7 @@
     "type": "rule",
     "description": "TypeScript Vue.js .cursorrules prompt file: Author: Stacks ## What you can build TypeScript Code Snippet Generator: A web app that generates TypeScript code snippets based on user specifications, using functional programming patterns, descriptive variable names, and Bun native modules where availabl",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-vuejs-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -4819,7 +4819,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-zod-tailwind-nextjs-cursorrules-prompt-balqaasem",
@@ -4827,7 +4827,7 @@
     "type": "rule",
     "description": "TypeScript Zod Tailwind Next.js .cursorrules prompt file: Author: Vivek018 ## What you can build TypeScript Linter Plugin - A tool or plugin for code editors that enforces the specified TypeScript code style and structure guidelines, including naming conventions, TypeScript usage, and syntactic pref",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-zod-tailwind-nextjs-cursorrules-prompt-/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -4844,7 +4844,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "typescript-zod-tailwind-nextjs-cursorrules-prompt-schneidersam",
@@ -4852,7 +4852,7 @@
     "type": "rule",
     "description": "TypeScript Zod Tailwind Next.js .cursorrules prompt file: Author: Vivek018 ## What you can build TypeScript Linter Plugin - A tool or plugin for code editors that enforces the specified TypeScript code style and structure guidelines, including naming conventions, TypeScript usage, and syntactic pref",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/typescript-zod-tailwind-nextjs-cursorrules-prompt-/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -4869,7 +4869,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "unity-cursor-ai-c-cursorrules-prompt-file-balqaasem",
@@ -4877,7 +4877,7 @@
     "type": "rule",
     "description": "Unity Cursor AI C# .cursorrules prompt file: Author: tommygents ## What you can build Ringcon Tower Defense Game: Develop an engaging tower defense game using Unity and C# with unique features that involve the Nintendo Ringcon as a controller. Players charge turrets through physical exercises tracke",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/unity-cursor-ai-c-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -4891,7 +4891,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "unity-cursor-ai-c-cursorrules-prompt-file-schneidersam",
@@ -4899,7 +4899,7 @@
     "type": "rule",
     "description": "Unity Cursor AI C# .cursorrules prompt file: Author: tommygents ## What you can build Ringcon Tower Defense Game: Develop an engaging tower defense game using Unity and C# with unique features that involve the Nintendo Ringcon as a controller. Players charge turrets through physical exercises tracke",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/unity-cursor-ai-c-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -4913,7 +4913,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "vue-3-nuxt-3-development-cursorrules-prompt-file-balqaasem",
@@ -4921,7 +4921,7 @@
     "type": "rule",
     "description": "Vue 3 Nuxt 3 Development .cursorrules prompt file: Author: Andrei Vintila ## What you can build Vue 3 Component Library: Develop a comprehensive component library for Vue 3 that utilizes TailwindCSS for styling, offering pre-built components such as buttons, modals, forms, and more. All components w",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/vue-3-nuxt-3-development-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -4938,7 +4938,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "vue-3-nuxt-3-development-cursorrules-prompt-file-schneidersam",
@@ -4946,7 +4946,7 @@
     "type": "rule",
     "description": "Vue 3 Nuxt 3 Development .cursorrules prompt file: Author: Andrei Vintila ## What you can build Vue 3 Component Library: Develop a comprehensive component library for Vue 3 that utilizes TailwindCSS for styling, offering pre-built components such as buttons, modals, forms, and more. All components w",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/vue-3-nuxt-3-development-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -4963,7 +4963,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "vue-3-nuxt-3-typescript-cursorrules-prompt-file-balqaasem",
@@ -4971,7 +4971,7 @@
     "type": "rule",
     "description": "Vue 3 Nuxt 3 TypeScript .cursorrules prompt file: Author: codetie-ai ## What you can build Vue 3 Component Library: Develop a customizable Vue 3 component library that adheres to best practices in Vue 3, leveraging Nuxt UI, Tailwind CSS, and ensuring components are optimized for performance and resp",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/vue-3-nuxt-3-typescript-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -4989,7 +4989,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "vue-3-nuxt-3-typescript-cursorrules-prompt-file-schneidersam",
@@ -4997,7 +4997,7 @@
     "type": "rule",
     "description": "Vue 3 Nuxt 3 TypeScript .cursorrules prompt file: Author: codetie-ai ## What you can build Vue 3 Component Library: Develop a customizable Vue 3 component library that adheres to best practices in Vue 3, leveraging Nuxt UI, Tailwind CSS, and ensuring components are optimized for performance and resp",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/vue-3-nuxt-3-typescript-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -5015,7 +5015,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "web-app-optimization-cursorrules-prompt-file-balqaasem",
@@ -5023,7 +5023,7 @@
     "type": "rule",
     "description": "Web App Optimization .cursorrules prompt file: Author: JustMrMendez ## What you can build ## Benefits Implements Svelte Runes for handling state, effects, and props uniquely, enabling a reactive programming style with concise syntax.Emphasizes performance by leveraging SvelteKit's SSR, SSG, and comp",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/web-app-optimization-cursorrules-prompt-file/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "frontend",
     "tags": [
@@ -5039,7 +5039,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "web-app-optimization-cursorrules-prompt-file-schneidersam",
@@ -5047,7 +5047,7 @@
     "type": "rule",
     "description": "Web App Optimization .cursorrules prompt file: Author: JustMrMendez ## What you can build ## Benefits Implements Svelte Runes for handling state, effects, and props uniquely, enabling a reactive programming style with concise syntax.Emphasizes performance by leveraging SvelteKit's SSR, SSG, and comp",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/web-app-optimization-cursorrules-prompt-file/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "frontend",
     "tags": [
@@ -5063,7 +5063,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "webassembly-z80-cellular-automata-cursorrules-prom-balqaasem",
@@ -5071,7 +5071,7 @@
     "type": "rule",
     "description": "WebAssembly Z80 Cellular Automata .cursorrules prompt file: Author: PhantasticUniverse ## What you can build Interactive Cellular Automata Simulator: An application allowing users to customize and visualize cellular automata simulations with an environmental region grid. Users can adjust region para",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/webassembly-z80-cellular-automata-cursorrules-prom/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "security",
     "tags": [
@@ -5085,7 +5085,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "webassembly-z80-cellular-automata-cursorrules-prom-schneidersam",
@@ -5093,7 +5093,7 @@
     "type": "rule",
     "description": "WebAssembly Z80 Cellular Automata .cursorrules prompt file: Author: PhantasticUniverse ## What you can build Interactive Cellular Automata Simulator: An application allowing users to customize and visualize cellular automata simulations with an environmental region grid. Users can adjust region para",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/webassembly-z80-cellular-automata-cursorrules-prom/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "security",
     "tags": [
@@ -5107,7 +5107,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "wordpress-php-guzzle-gutenberg-cursorrules-prompt-balqaasem",
@@ -5115,7 +5115,7 @@
     "type": "rule",
     "description": "WordPress PHP Guzzle Gutenberg .cursorrules prompt file: Author: mhsdef ## What you can build E-commerce Store Integration Plugin: Create a WordPress plugin that integrates various e-commerce platforms using the Guzzle-based HTTP client, allowing users to manage products, orders, and inventory direc",
     "source_url": "https://github.com/balqaasem/awesome-windsurfrules/blob/main/rules/windsurfrules/wordpress-php-guzzle-gutenberg-cursorrules-prompt-/README.md",
-    "stars": 47,
+    "stars": 48,
     "pushed_at": "2024-12-16T08:22:59Z",
     "category": "backend",
     "tags": [
@@ -5130,7 +5130,7 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   {
     "id": "wordpress-php-guzzle-gutenberg-cursorrules-prompt-schneidersam",
@@ -5138,7 +5138,7 @@
     "type": "rule",
     "description": "WordPress PHP Guzzle Gutenberg .cursorrules prompt file: Author: mhsdef ## What you can build E-commerce Store Integration Plugin: Create a WordPress plugin that integrates various e-commerce platforms using the Guzzle-based HTTP client, allowing users to manage products, orders, and inventory direc",
     "source_url": "https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/wordpress-php-guzzle-gutenberg-cursorrules-prompt-/README.md",
-    "stars": 70,
+    "stars": 68,
     "pushed_at": "2025-01-10T08:43:24Z",
     "category": "backend",
     "tags": [
@@ -5153,6 +5153,6 @@
       ]
     },
     "source": "awesome-windsurfrules",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   }
 ]
