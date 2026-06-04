@@ -188,6 +188,17 @@ jobs:
         timeout-minutes: 15
         continue-on-error: true
 
+      # First-party cospowers plugins (yhangf/csc-plugins). Runs AFTER official
+      # (which overwrites the whole index) + dev (merge-preserve); this script
+      # merge-preserves too, so the 6 entries survive the weekly regen.
+      - name: Sync Plugins (csc-plugins first-party)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PYTHONUNBUFFERED: "1"
+        run: python -u scripts/sync_plugins_csc.py
+        timeout-minutes: 5
+        continue-on-error: true
+
       - name: Verify sync produced data
         run: |
           fail=0

@@ -23334,6 +23334,379 @@
     "verified": false
   },
   {
+    "id": "cospowers-integration-verification",
+    "name": "cospowers-integration-verification",
+    "type": "plugin",
+    "description": "AI 驱动的集成验证插件：执行集成测试、回归验证、契约验证、发布前检查和分支收尾。",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin",
+    "category": "ai-ml",
+    "tags": [
+      "cospowers",
+      "ai-workers"
+    ],
+    "tech_stack": [],
+    "source": "csc-plugins",
+    "source_priority": 1000,
+    "marketplace_url": "https://github.com/yhangf/csc-plugins",
+    "platforms": [
+      "claude-code"
+    ],
+    "install": {
+      "method": "plugin_marketplace",
+      "plugin_name": "cospowers-integration-verification",
+      "marketplace_repo": "yhangf/csc-plugins",
+      "marketplace_name": "ai-workers-integration-verification",
+      "marketplace_verified": true,
+      "marketplace": "yhangf/csc-plugins"
+    },
+    "bundle": {
+      "skills_count": 15,
+      "commands_count": 0,
+      "agents_count": 1,
+      "mcp_servers_count": 0,
+      "skills_namespaces": [
+        "cospowers-integration-verification:code-compliance-check",
+        "cospowers-integration-verification:contract-verification",
+        "cospowers-integration-verification:doc-quality-evaluator",
+        "cospowers-integration-verification:e2e-verification",
+        "cospowers-integration-verification:finishing-a-development-branch",
+        "cospowers-integration-verification:integration-test-runner",
+        "cospowers-integration-verification:integration-verification",
+        "cospowers-integration-verification:regression-verification",
+        "cospowers-integration-verification:release-readiness-check",
+        "cospowers-integration-verification:requesting-code-review",
+        "cospowers-integration-verification:session-context",
+        "cospowers-integration-verification:spec-commit",
+        "cospowers-integration-verification:systematic-debugging",
+        "cospowers-integration-verification:using-integration-verification-plugin",
+        "cospowers-integration-verification:verification-before-completion"
+      ],
+      "hooks_count": 0,
+      "hook_events": [],
+      "mcp_server_names": [],
+      "is_marketplace_repo": false
+    },
+    "manifest_completeness": 1.0,
+    "last_synced": "2026-06-04",
+    "stars": 0,
+    "pushed_at": "2026-06-03T07:47:30Z",
+    "version": "0.0.1",
+    "final_score": 100,
+    "health": {
+      "score": 100,
+      "freshness_label": "active",
+      "signals": {}
+    },
+    "verified": true
+  },
+  {
+    "id": "cospowers-requirements",
+    "name": "cospowers-requirements",
+    "type": "plugin",
+    "description": "AI 驱动的需求梳理插件：将原始想法、PRD、issue、需求变更转化为结构化需求和系统需求。",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin",
+    "category": "ai-ml",
+    "tags": [
+      "cospowers",
+      "ai-workers"
+    ],
+    "tech_stack": [],
+    "source": "csc-plugins",
+    "source_priority": 1000,
+    "marketplace_url": "https://github.com/yhangf/csc-plugins",
+    "platforms": [
+      "claude-code"
+    ],
+    "install": {
+      "method": "plugin_marketplace",
+      "plugin_name": "cospowers-requirements",
+      "marketplace_repo": "yhangf/csc-plugins",
+      "marketplace_name": "ai-workers-requirements",
+      "marketplace_verified": true,
+      "marketplace": "yhangf/csc-plugins"
+    },
+    "bundle": {
+      "skills_count": 9,
+      "commands_count": 0,
+      "agents_count": 0,
+      "mcp_servers_count": 0,
+      "skills_namespaces": [
+        "cospowers-requirements:aireq-evaluator",
+        "cospowers-requirements:requirement-analysis",
+        "cospowers-requirements:requirements-change-analysis",
+        "cospowers-requirements:requirements-intake",
+        "cospowers-requirements:requirements-review",
+        "cospowers-requirements:session-context",
+        "cospowers-requirements:sysreq-evaluator",
+        "cospowers-requirements:system-requirement-analysis",
+        "cospowers-requirements:using-requirements-plugin"
+      ],
+      "hooks_count": 0,
+      "hook_events": [],
+      "mcp_server_names": [],
+      "is_marketplace_repo": false
+    },
+    "manifest_completeness": 1.0,
+    "last_synced": "2026-06-04",
+    "stars": 0,
+    "pushed_at": "2026-06-03T07:47:30Z",
+    "version": "0.0.1",
+    "final_score": 100,
+    "health": {
+      "score": 100,
+      "freshness_label": "active",
+      "signals": {}
+    },
+    "verified": true
+  },
+  {
+    "id": "cospowers-solution-design",
+    "name": "cospowers-solution-design",
+    "type": "plugin",
+    "description": "AI 驱动的方案设计插件：从需求、PRD 或现有系统上下文生成系统设计、子系统设计和 API 契约。",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin",
+    "category": "ai-ml",
+    "tags": [
+      "cospowers",
+      "ai-workers"
+    ],
+    "tech_stack": [],
+    "source": "csc-plugins",
+    "source_priority": 1000,
+    "marketplace_url": "https://github.com/yhangf/csc-plugins",
+    "platforms": [
+      "claude-code"
+    ],
+    "install": {
+      "method": "plugin_marketplace",
+      "plugin_name": "cospowers-solution-design",
+      "marketplace_repo": "yhangf/csc-plugins",
+      "marketplace_name": "ai-workers-design",
+      "marketplace_verified": true,
+      "marketplace": "yhangf/csc-plugins"
+    },
+    "bundle": {
+      "skills_count": 12,
+      "commands_count": 0,
+      "agents_count": 0,
+      "mcp_servers_count": 0,
+      "skills_namespaces": [
+        "cospowers-solution-design:api-contract-design",
+        "cospowers-solution-design:architecture-review",
+        "cospowers-solution-design:design-change-analysis",
+        "cospowers-solution-design:design-spec",
+        "cospowers-solution-design:doc-consistency-check",
+        "cospowers-solution-design:doc-quality-evaluator",
+        "cospowers-solution-design:session-context",
+        "cospowers-solution-design:solution-design",
+        "cospowers-solution-design:subsystem-design-spec",
+        "cospowers-solution-design:subsystem-evaluator",
+        "cospowers-solution-design:sysdesign-evaluator",
+        "cospowers-solution-design:using-solution-design-plugin"
+      ],
+      "hooks_count": 0,
+      "hook_events": [],
+      "mcp_server_names": [],
+      "is_marketplace_repo": false
+    },
+    "manifest_completeness": 1.0,
+    "last_synced": "2026-06-04",
+    "stars": 0,
+    "pushed_at": "2026-06-03T07:47:30Z",
+    "version": "0.0.1",
+    "final_score": 100,
+    "health": {
+      "score": 100,
+      "freshness_label": "active",
+      "signals": {}
+    },
+    "verified": true
+  },
+  {
+    "id": "cospowers-task-planning",
+    "name": "cospowers-task-planning",
+    "type": "plugin",
+    "description": "AI 驱动的任务拆解插件：将需求或设计拆解为实现计划、任务图、里程碑和执行策略。",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-task-planning-plugin",
+    "category": "ai-ml",
+    "tags": [
+      "cospowers",
+      "ai-workers"
+    ],
+    "tech_stack": [],
+    "source": "csc-plugins",
+    "source_priority": 1000,
+    "marketplace_url": "https://github.com/yhangf/csc-plugins",
+    "platforms": [
+      "claude-code"
+    ],
+    "install": {
+      "method": "plugin_marketplace",
+      "plugin_name": "cospowers-task-planning",
+      "marketplace_repo": "yhangf/csc-plugins",
+      "marketplace_name": "ai-workers-plan",
+      "marketplace_verified": true,
+      "marketplace": "yhangf/csc-plugins"
+    },
+    "bundle": {
+      "skills_count": 9,
+      "commands_count": 0,
+      "agents_count": 0,
+      "mcp_servers_count": 0,
+      "skills_namespaces": [
+        "cospowers-task-planning:execution-strategy-selection",
+        "cospowers-task-planning:milestone-planning",
+        "cospowers-task-planning:session-context",
+        "cospowers-task-planning:subagent-dispatch-planning",
+        "cospowers-task-planning:task-graph-generation",
+        "cospowers-task-planning:task-planning",
+        "cospowers-task-planning:using-task-planning-plugin",
+        "cospowers-task-planning:worktree-planning",
+        "cospowers-task-planning:writing-plans"
+      ],
+      "hooks_count": 0,
+      "hook_events": [],
+      "mcp_server_names": [],
+      "is_marketplace_repo": false
+    },
+    "manifest_completeness": 1.0,
+    "last_synced": "2026-06-04",
+    "stars": 0,
+    "pushed_at": "2026-06-03T07:47:30Z",
+    "version": "0.0.1",
+    "final_score": 100,
+    "health": {
+      "score": 100,
+      "freshness_label": "active",
+      "signals": {}
+    },
+    "verified": true
+  },
+  {
+    "id": "cospowers-tdd-development",
+    "name": "cospowers-tdd-development",
+    "type": "plugin",
+    "description": "AI 驱动的 TDD 编码插件：基于任务、测试、issue 或 bug 执行测试优先开发、调试、代码检查和提交。",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin",
+    "category": "ai-ml",
+    "tags": [
+      "cospowers",
+      "ai-workers"
+    ],
+    "tech_stack": [],
+    "source": "csc-plugins",
+    "source_priority": 1000,
+    "marketplace_url": "https://github.com/yhangf/csc-plugins",
+    "platforms": [
+      "claude-code"
+    ],
+    "install": {
+      "method": "plugin_marketplace",
+      "plugin_name": "cospowers-tdd-development",
+      "marketplace_repo": "yhangf/csc-plugins",
+      "marketplace_name": "ai-workers-tdd",
+      "marketplace_verified": true,
+      "marketplace": "yhangf/csc-plugins"
+    },
+    "bundle": {
+      "skills_count": 12,
+      "commands_count": 0,
+      "agents_count": 1,
+      "mcp_servers_count": 0,
+      "skills_namespaces": [
+        "cospowers-tdd-development:code-compliance-check",
+        "cospowers-tdd-development:executing-plans",
+        "cospowers-tdd-development:implementation-review",
+        "cospowers-tdd-development:requesting-code-review",
+        "cospowers-tdd-development:session-context",
+        "cospowers-tdd-development:spec-commit",
+        "cospowers-tdd-development:subagent-driven-development",
+        "cospowers-tdd-development:systematic-debugging",
+        "cospowers-tdd-development:tdd-implementation",
+        "cospowers-tdd-development:test-driven-development",
+        "cospowers-tdd-development:using-git-worktrees",
+        "cospowers-tdd-development:using-tdd-development-plugin"
+      ],
+      "hooks_count": 0,
+      "hook_events": [],
+      "mcp_server_names": [],
+      "is_marketplace_repo": false
+    },
+    "manifest_completeness": 1.0,
+    "last_synced": "2026-06-04",
+    "stars": 0,
+    "pushed_at": "2026-06-03T07:47:30Z",
+    "version": "0.0.1",
+    "final_score": 100,
+    "health": {
+      "score": 100,
+      "freshness_label": "active",
+      "signals": {}
+    },
+    "verified": true
+  },
+  {
+    "id": "cospowers-test-generation",
+    "name": "cospowers-test-generation",
+    "type": "plugin",
+    "description": "AI 驱动的测试生成插件：从需求、设计、计划、bug 或代码生成测试策略、测试用例和测试代码草稿。",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-test-generation-plugin",
+    "category": "testing",
+    "tags": [
+      "cospowers",
+      "ai-workers"
+    ],
+    "tech_stack": [],
+    "source": "csc-plugins",
+    "source_priority": 1000,
+    "marketplace_url": "https://github.com/yhangf/csc-plugins",
+    "platforms": [
+      "claude-code"
+    ],
+    "install": {
+      "method": "plugin_marketplace",
+      "plugin_name": "cospowers-test-generation",
+      "marketplace_repo": "yhangf/csc-plugins",
+      "marketplace_name": "ai-workers-test",
+      "marketplace_verified": true,
+      "marketplace": "yhangf/csc-plugins"
+    },
+    "bundle": {
+      "skills_count": 10,
+      "commands_count": 0,
+      "agents_count": 0,
+      "mcp_servers_count": 0,
+      "skills_namespaces": [
+        "cospowers-test-generation:acceptance-test-generation",
+        "cospowers-test-generation:edge-case-test-generation",
+        "cospowers-test-generation:regression-test-generation",
+        "cospowers-test-generation:session-context",
+        "cospowers-test-generation:test-case-generation",
+        "cospowers-test-generation:test-code-generator",
+        "cospowers-test-generation:test-coverage-review",
+        "cospowers-test-generation:test-generation",
+        "cospowers-test-generation:test-strategy-generation",
+        "cospowers-test-generation:using-test-generation-plugin"
+      ],
+      "hooks_count": 0,
+      "hook_events": [],
+      "mcp_server_names": [],
+      "is_marketplace_repo": false
+    },
+    "manifest_completeness": 1.0,
+    "last_synced": "2026-06-04",
+    "stars": 0,
+    "pushed_at": "2026-06-03T07:47:30Z",
+    "version": "0.0.1",
+    "final_score": 100,
+    "health": {
+      "score": 100,
+      "freshness_label": "active",
+      "signals": {}
+    },
+    "verified": true
+  },
+  {
     "id": "crazyguitar-pysheeet-pysheeet",
     "name": "pysheeet",
     "type": "plugin",

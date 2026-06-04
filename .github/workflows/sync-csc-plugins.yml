@@ -1,0 +1,99 @@
+name: Sync csc-plugins (cospowers, first-party)
+
+# Manual re-sync of the 6 first-party cospowers plugins from
+# https://github.com/yhangf/csc-plugins into the catalog, then (optionally)
+# chain into the existing Release Catalog Bundle workflow — which builds the
+# bundle AND publishes the costrict plugin marketplace mirror.
+#
+# What this does (canonical path, see scripts/sync_plugins_csc.py):
+#   1. sync_plugins_csc.py --overlay-catalog-index
+#        → upserts 6 entries into catalog/plugins/index.json (per-type)
+#        → surgically overlays the same 6 into catalog/index.json (top-level),
+#          PRESERVING every other entry's enrichment (no merge_index, no score wipe)
+#   2. commit + push both index files
+#   3. (trigger_release) dispatch release-catalog-bundle.yaml, which:
+#        → download_catalog + build_catalog_bundle → catalog-bundle release
+#        → publish-plugin-marketplace → costrict-plugins-repo/<id>.git × 6 + marketplace.git
+#
+# web hub visibility is NOT part of this workflow — it happens via the existing
+# deploy step `migrate ingest-upstream --source=<bundle-url>` (unchanged).
+#
+# Re-run anytime csc-plugins updates: the script re-reads the live tree, so
+# version / description / skill-count changes are picked up idempotently.
+
+on:
+  workflow_dispatch:
+    inputs:
+      trigger_release:
+        description: "Chain into release-catalog-bundle (build bundle + publish marketplace)"
+        required: false
+        default: true
+        type: boolean
+      marketplace_version:
+        description: "Marketplace bundle SemVer (no leading v) passed to release-catalog-bundle. Blank = let it auto-derive."
+        required: false
+        default: ""
+        type: string
+
+permissions:
+  contents: write   # commit + push the updated index files
+  actions: write    # dispatch release-catalog-bundle.yaml
+
+concurrency:
+  group: sync-csc-plugins
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Sync cospowers plugins (per-type + top-level overlay)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PYTHONUNBUFFERED: "1"
+        run: |
+          python -u scripts/sync_plugins_csc.py --overlay-catalog-index
+
+      - name: Commit & push index changes
+        id: commit
+        run: |
+          git config user.name  "costrict-build"
+          git config user.email "build@costrict.local"
+          git add catalog/plugins/index.json catalog/index.json
+          if git diff --cached --quiet; then
+            echo "No catalog changes — csc-plugins already up to date."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git commit -m "chore(catalog): sync cospowers plugins from yhangf/csc-plugins"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Trigger Release Catalog Bundle (build + publish marketplace)
+        if: ${{ inputs.trigger_release }}
+        env:
+          # A token with actions:write on this repo. The default GITHUB_TOKEN can
+          # dispatch workflow_dispatch in the same repo; if your org policy blocks
+          # token-initiated workflow runs, set MARKETPLACE_GITHUB_TOKEN (a PAT) and
+          # it will be used instead.
+          GH_TOKEN: ${{ secrets.MARKETPLACE_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Dispatching release-catalog-bundle.yaml on main..."
+          gh workflow run release-catalog-bundle.yaml \
+            --ref main \
+            -f publish_plugin_marketplace=true \
+            -f marketplace_version="${{ inputs.marketplace_version }}"
+          echo "Dispatched. Track it under Actions → Release Catalog Bundle."
+          echo "If nothing started (org blocks token-initiated runs), run that"
+          echo "workflow manually — the catalog already has the 6 cospowers plugins."
