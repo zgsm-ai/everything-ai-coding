@@ -326,6 +326,10 @@ def build_entry(
             "signals": {},
         },
         "verified": True,
+        # Mirror the source subdir verbatim in the marketplace (rules/, templates/,
+        # evaluators/, examples/, CLAUDE.md, …). costrict-plugin-marketplace/build.py
+        # reads this and skips its size-pruning for these entries.
+        "prune_content": False,
     }
 
 

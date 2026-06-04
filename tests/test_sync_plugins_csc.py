@@ -135,6 +135,8 @@ def test_collect_entries_shape(fake_http):
     assert inst["marketplace_verified"] is True
     # provenance tags
     assert "cospowers" in req["tags"] and "ai-workers" in req["tags"]
+    # full-content mirror flag (marketplace build.py skips pruning)
+    assert req["prune_content"] is False
 
 
 def test_entries_satisfy_catalog_required_fields(fake_http):
