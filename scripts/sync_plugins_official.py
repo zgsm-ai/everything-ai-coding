@@ -264,7 +264,10 @@ def _resolve_source_url(plugin_entry: dict, marketplace_repo: str, branch: str) 
         if src.startswith("git+"):
             return src[len("git+"):]
         if src.startswith("./") or src.startswith("/"):
-            sub = src.lstrip("./").lstrip("/")
+            # Strip ONLY the leading "./" or "/" — not as a character set, so a
+            # hidden-dir subdir like "./.claude/plugins/x" keeps its ".claude"
+            # dot (lstrip("./") would eat it → wrong path → 404).
+            sub = (src[2:] if src.startswith("./") else src.lstrip("/")).strip("/")
             return f"https://github.com/{marketplace_repo}/tree/{branch}/{sub}"
     # Fallback: the marketplace repo itself.
     return _marketplace_url(marketplace_repo)

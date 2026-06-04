@@ -68,11 +68,13 @@ def _load_marketplace(repo_slug: str):
 
 
 def _resolved_subdir_url(entry: dict) -> str | None:
-    """Return a corrected subdir source_url for `entry`, or None to leave as-is."""
+    """Return a corrected subdir source_url for `entry`, or None to leave as-is.
+
+    Always re-resolves from the repo's marketplace.json so a previously
+    mis-resolved subdir (e.g. a dropped hidden-dir dot) self-corrects on re-run;
+    only returns a value when the freshly-resolved subdir URL actually differs.
+    """
     src_url = entry.get("source_url") or ""
-    # Already a subdir (official sync, or a previous backfill) — don't touch.
-    if "/tree/" in src_url:
-        return None
     install = entry.get("install", {})
     repo_slug = install.get("marketplace_repo")
     if not repo_slug:
@@ -86,7 +88,7 @@ def _resolved_subdir_url(entry: dict) -> str | None:
     if not mp_entry:
         return None
     new_url = _resolve_source_url(mp_entry, repo_slug, branch)
-    # Only rewrite when resolution actually points into a subdirectory.
+    # Only rewrite when resolution points into a subdirectory and changed.
     if "/tree/" in new_url and new_url != src_url:
         return new_url
     return None
