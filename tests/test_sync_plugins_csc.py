@@ -194,3 +194,17 @@ def test_merge_is_idempotent_on_rerun():
     once = scp.merge_into_index(existing, fresh)
     twice = scp.merge_into_index(once, fresh)
     assert once == twice
+
+
+def test_merge_sort_false_preserves_order_and_appends():
+    # sort=False keeps existing order and appends fresh at the end (small diff
+    # for the 33MB top-level index). Still idempotent across re-runs.
+    existing = [
+        {"id": "z-foo", "source": "claude-plugins-official"},
+        {"id": "a-bar", "source": "claude-plugins-dev"},
+        {"id": "cospowers-old", "source": "csc-plugins"},
+    ]
+    fresh = [{"id": "cospowers-requirements", "source": "csc-plugins"}]
+    merged = scp.merge_into_index(existing, fresh, sort=False)
+    assert [e["id"] for e in merged] == ["z-foo", "a-bar", "cospowers-requirements"]
+    assert merged == scp.merge_into_index(merged, fresh, sort=False)

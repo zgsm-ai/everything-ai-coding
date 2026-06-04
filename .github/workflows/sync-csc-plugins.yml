@@ -1,39 +1,33 @@
 name: Sync csc-plugins (cospowers, first-party)
 
 # Manual re-sync of the 6 first-party cospowers plugins from
-# https://github.com/yhangf/csc-plugins into the catalog, then (optionally)
-# chain into the existing Release Catalog Bundle workflow — which builds the
-# bundle AND publishes the costrict plugin marketplace mirror.
+# https://github.com/yhangf/csc-plugins. Unlike the bulk publish path
+# (publish.sh --skip-existing, which SKIPS already-published repos and so never
+# updates their content), this workflow **force-mirrors** the cospowers plugin
+# repos so a re-run actually ships the latest content.
 #
-# What this does (canonical path, see scripts/sync_plugins_csc.py):
-#   1. sync_plugins_csc.py --overlay-catalog-index
-#        → upserts 6 entries into catalog/plugins/index.json (per-type)
-#        → surgically overlays the same 6 into catalog/index.json (top-level),
-#          PRESERVING every other entry's enrichment (no merge_index, no score wipe)
-#   2. commit + push both index files
-#   3. (trigger_release) dispatch release-catalog-bundle.yaml, which:
-#        → download_catalog + build_catalog_bundle → catalog-bundle release
-#        → publish-plugin-marketplace → costrict-plugins-repo/<id>.git × 6 + marketplace.git
+# Steps:
+#   1. sync_plugins_csc.py --overlay-catalog-index → upsert the 6 entries into
+#      catalog/plugins/index.json (per-type) + catalog/index.json (top-level),
+#      preserving every other entry's enrichment. Commit + push.
+#   2. Targeted force-publish: check out the marketplace repo, build ONLY the 6
+#      cospowers bare repos (full content — build.py honors prune_content=false),
+#      then publish.sh --skip-marketplace (force --mirror, NO --skip-existing) so
+#      costrict-plugins-repo/<id>.git always reflects the latest source.
+#   3. (optional) trigger the full release-catalog-bundle so the marketplace.json
+#      index + web catalog-bundle also refresh (needed when plugins are
+#      ADDED/REMOVED, or to refresh web hub visibility).
 #
-# web hub visibility is NOT part of this workflow — it happens via the existing
-# deploy step `migrate ingest-upstream --source=<bundle-url>` (unchanged).
-#
-# Re-run anytime csc-plugins updates: the script re-reads the live tree, so
-# version / description / skill-count changes are picked up idempotently.
+# Re-run anytime csc-plugins updates: the script + build re-read the live tree.
 
 on:
   workflow_dispatch:
     inputs:
-      trigger_release:
-        description: "Chain into release-catalog-bundle (build bundle + publish marketplace)"
+      trigger_full_release:
+        description: "Also trigger release-catalog-bundle (refresh marketplace.json index + web bundle). Needed when adding/removing a plugin."
         required: false
-        default: true
+        default: false
         type: boolean
-      marketplace_version:
-        description: "Marketplace bundle SemVer (no leading v) passed to release-catalog-bundle. Blank = let it auto-derive."
-        required: false
-        default: ""
-        type: string
 
 permissions:
   contents: write   # commit + push the updated index files
@@ -44,11 +38,14 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  sync:
+  sync-and-publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
+    env:
+      MARKETPLACE_REPO: costrict-plugins-repo/costrict-plugin-marketplace
+      ORG: costrict-plugins-repo
     steps:
-      - name: Checkout
+      - name: Checkout catalog repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
@@ -62,38 +59,62 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PYTHONUNBUFFERED: "1"
-        run: |
-          python -u scripts/sync_plugins_csc.py --overlay-catalog-index
+        run: python -u scripts/sync_plugins_csc.py --overlay-catalog-index
 
       - name: Commit & push index changes
-        id: commit
         run: |
           git config user.name  "costrict-build"
           git config user.email "build@costrict.local"
           git add catalog/plugins/index.json catalog/index.json
           if git diff --cached --quiet; then
             echo "No catalog changes — csc-plugins already up to date."
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            exit 0
+          else
+            git commit -m "chore(catalog): sync cospowers plugins from yhangf/csc-plugins"
+            git push
           fi
-          git commit -m "chore(catalog): sync cospowers plugins from yhangf/csc-plugins"
-          git push
-          echo "changed=true" >> "$GITHUB_OUTPUT"
 
-      - name: Trigger Release Catalog Bundle (build + publish marketplace)
-        if: ${{ inputs.trigger_release }}
+      - name: Check out marketplace repo
+        uses: actions/checkout@v4
+        with:
+          repository: costrict-plugins-repo/costrict-plugin-marketplace
+          token: ${{ secrets.MARKETPLACE_GITHUB_TOKEN }}
+          path: .marketplace
+          fetch-depth: 1
+
+      - name: Force-publish the cospowers plugin repos (full content)
         env:
-          # A token with actions:write on this repo. The default GITHUB_TOKEN can
-          # dispatch workflow_dispatch in the same repo; if your org policy blocks
-          # token-initiated workflow runs, set MARKETPLACE_GITHUB_TOKEN (a PAT) and
-          # it will be used instead.
+          GH_TOKEN: ${{ secrets.MARKETPLACE_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MARKETPLACE_GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          # The 6 cospowers entries → a mini catalog build.py can consume.
+          python3 - <<'PY'
+          import json
+          d = json.load(open("catalog/plugins/index.json"))
+          csc = [e for e in d if e.get("source") == "csc-plugins"]
+          json.dump(csc, open("/tmp/csc.json", "w"), ensure_ascii=False, indent=2)
+          print(f"cospowers entries: {len(csc)} -> {[e['id'] for e in csc]}")
+          PY
+          VER="csc-${{ github.run_number }}"
+          python3 .marketplace/scripts/build.py \
+            --version "$VER" \
+            --catalog /tmp/csc.json \
+            --github-org "$ORG" \
+            --workers 6 \
+            --output /tmp/csc-build
+          gh auth setup-git
+          # --skip-marketplace: do NOT touch marketplace.git (a mini build would
+          #   otherwise overwrite the full index with just these 6).
+          # NO --skip-existing: force --mirror so existing repos get the new content.
+          .marketplace/scripts/publish.sh "/tmp/csc-build/costrict-marketplace-bundle-v$VER" \
+            --org "$ORG" \
+            --skip-marketplace \
+            --yes
+
+      - name: (optional) Trigger Release Catalog Bundle
+        if: ${{ inputs.trigger_full_release }}
+        env:
           GH_TOKEN: ${{ secrets.MARKETPLACE_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
-          echo "Dispatching release-catalog-bundle.yaml on main..."
-          gh workflow run release-catalog-bundle.yaml \
-            --ref main \
-            -f publish_plugin_marketplace=true \
-            -f marketplace_version="${{ inputs.marketplace_version }}"
-          echo "Dispatched. Track it under Actions → Release Catalog Bundle."
-          echo "If nothing started (org blocks token-initiated runs), run that"
-          echo "workflow manually — the catalog already has the 6 cospowers plugins."
+          gh workflow run release-catalog-bundle.yaml --ref main -f publish_plugin_marketplace=true
+          echo "Dispatched release-catalog-bundle (index + web bundle refresh)."

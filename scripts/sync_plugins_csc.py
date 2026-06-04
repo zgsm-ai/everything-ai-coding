@@ -337,14 +337,18 @@ def build_entry(
 # Merge-preserve into catalog/plugins/index.json
 # ---------------------------------------------------------------------------
 
-def merge_into_index(existing: list[dict], fresh: list[dict]) -> list[dict]:
+def merge_into_index(existing: list[dict], fresh: list[dict], sort: bool = True) -> list[dict]:
     """Replace all prior `source == SOURCE_ID` entries with `fresh`, keep rest.
 
-    Sorted by id for readable git diffs.
+    sort=True  → sort by id (readable diffs for the small per-type index).
+    sort=False → preserve the existing entries' order and append `fresh` at the
+                 end. Used for the 33MB top-level catalog/index.json so a re-sync
+                 produces a ~6-entry diff instead of re-sorting the whole file.
     """
     kept = [e for e in existing if e.get("source") != SOURCE_ID]
     merged = kept + fresh
-    merged.sort(key=lambda e: e.get("id", ""))
+    if sort:
+        merged.sort(key=lambda e: e.get("id", ""))
     return merged
 
 
@@ -422,7 +426,9 @@ def main(argv: Optional[list[str]] = None) -> int:
                 args.catalog_index,
             )
             return 1
-        top_merged = merge_into_index(top, fresh)
+        # Preserve the huge top-level index's existing order; only the 6 csc
+        # entries move/append → small, reviewable diff per re-sync.
+        top_merged = merge_into_index(top, fresh, sort=False)
         save_index(top_merged, args.catalog_index)
         logger.info(
             "Overlaid %d cospowers plugin(s) into %s (total entries now %d, "
