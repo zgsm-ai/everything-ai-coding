@@ -77,8 +77,16 @@ CATALOG_INDEX_PATH = os.path.join(REPO_ROOT, "catalog", "index.json")
 SOURCE_ID = "csc-plugins"
 SOURCE_PRIORITY = 1000
 
-CSC_REPO = "yhangf/csc-plugins"          # <owner>/<repo>
+CSC_REPO = "yhangf/csc-plugins"          # <owner>/<repo> — build/content source (not user-facing)
 CSC_BRANCH = "main"
+
+# User-facing home: each cospowers plugin is published as its own standard repo
+# under our org, which is what `csc plugin install <name>@costrict-plugins`
+# actually clones. install.marketplace_repo points here so the web hub's
+# "Upstream Source" link shows our repo, not the non-standard yhangf monorepo.
+# (source_url stays on CSC_REPO — it's the build clone source and is never
+# returned to the hub UI.)
+COSTRICT_ORG = "costrict-plugins-repo"
 
 # Self-own: first-party plugins get a fixed perfect score instead of the
 # upstream ai-resource-eval pipeline. 0-100 scale (web ingest maps
@@ -300,15 +308,17 @@ def build_entry(
         "tech_stack": [],
         "source": SOURCE_ID,
         "source_priority": SOURCE_PRIORITY,
-        "marketplace_url": f"https://github.com/{CSC_REPO}",
+        "marketplace_url": f"https://github.com/{COSTRICT_ORG}/{plugin_id}",
         "platforms": ["claude-code"],
         "install": {
             "method": "plugin_marketplace",
             "plugin_name": name,
-            "marketplace_repo": CSC_REPO,
+            # Our own published repo (what csc actually installs from) — keeps the
+            # non-standard yhangf monorepo out of the hub's Upstream Source link.
+            "marketplace_repo": f"{COSTRICT_ORG}/{plugin_id}",
             "marketplace_name": marketplace_name,
             "marketplace_verified": True,
-            "marketplace": CSC_REPO,
+            "marketplace": f"{COSTRICT_ORG}/{plugin_id}",
         },
         "bundle": bundle,
         "manifest_completeness": 1.0,

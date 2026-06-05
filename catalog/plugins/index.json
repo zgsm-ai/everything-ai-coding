@@ -23347,17 +23347,17 @@
     "tech_stack": [],
     "source": "csc-plugins",
     "source_priority": 1000,
-    "marketplace_url": "https://github.com/yhangf/csc-plugins",
+    "marketplace_url": "https://github.com/costrict-plugins-repo/cospowers-integration-verification",
     "platforms": [
       "claude-code"
     ],
     "install": {
       "method": "plugin_marketplace",
       "plugin_name": "cospowers-integration-verification",
-      "marketplace_repo": "yhangf/csc-plugins",
+      "marketplace_repo": "costrict-plugins-repo/cospowers-integration-verification",
       "marketplace_name": "ai-workers-integration-verification",
       "marketplace_verified": true,
-      "marketplace": "yhangf/csc-plugins"
+      "marketplace": "costrict-plugins-repo/cospowers-integration-verification"
     },
     "bundle": {
       "skills_count": 15,
@@ -23387,9 +23387,9 @@
       "is_marketplace_repo": false
     },
     "manifest_completeness": 1.0,
-    "last_synced": "2026-06-04",
+    "last_synced": "2026-06-05",
     "stars": 0,
-    "pushed_at": "2026-06-03T07:47:30Z",
+    "pushed_at": "2026-06-04T07:27:39Z",
     "version": "0.0.1",
     "final_score": 100,
     "health": {
@@ -23414,17 +23414,17 @@
     "tech_stack": [],
     "source": "csc-plugins",
     "source_priority": 1000,
-    "marketplace_url": "https://github.com/yhangf/csc-plugins",
+    "marketplace_url": "https://github.com/costrict-plugins-repo/cospowers-requirements",
     "platforms": [
       "claude-code"
     ],
     "install": {
       "method": "plugin_marketplace",
       "plugin_name": "cospowers-requirements",
-      "marketplace_repo": "yhangf/csc-plugins",
+      "marketplace_repo": "costrict-plugins-repo/cospowers-requirements",
       "marketplace_name": "ai-workers-requirements",
       "marketplace_verified": true,
-      "marketplace": "yhangf/csc-plugins"
+      "marketplace": "costrict-plugins-repo/cospowers-requirements"
     },
     "bundle": {
       "skills_count": 9,
@@ -23448,9 +23448,9 @@
       "is_marketplace_repo": false
     },
     "manifest_completeness": 1.0,
-    "last_synced": "2026-06-04",
+    "last_synced": "2026-06-05",
     "stars": 0,
-    "pushed_at": "2026-06-03T07:47:30Z",
+    "pushed_at": "2026-06-04T07:27:39Z",
     "version": "0.0.1",
     "final_score": 100,
     "health": {
@@ -23475,17 +23475,17 @@
     "tech_stack": [],
     "source": "csc-plugins",
     "source_priority": 1000,
-    "marketplace_url": "https://github.com/yhangf/csc-plugins",
+    "marketplace_url": "https://github.com/costrict-plugins-repo/cospowers-solution-design",
     "platforms": [
       "claude-code"
     ],
     "install": {
       "method": "plugin_marketplace",
       "plugin_name": "cospowers-solution-design",
-      "marketplace_repo": "yhangf/csc-plugins",
+      "marketplace_repo": "costrict-plugins-repo/cospowers-solution-design",
       "marketplace_name": "ai-workers-design",
       "marketplace_verified": true,
-      "marketplace": "yhangf/csc-plugins"
+      "marketplace": "costrict-plugins-repo/cospowers-solution-design"
     },
     "bundle": {
       "skills_count": 12,
@@ -23512,9 +23512,9 @@
       "is_marketplace_repo": false
     },
     "manifest_completeness": 1.0,
-    "last_synced": "2026-06-04",
+    "last_synced": "2026-06-05",
     "stars": 0,
-    "pushed_at": "2026-06-03T07:47:30Z",
+    "pushed_at": "2026-06-04T07:27:39Z",
     "version": "0.0.1",
     "final_score": 100,
     "health": {
@@ -23539,17 +23539,17 @@
     "tech_stack": [],
     "source": "csc-plugins",
     "source_priority": 1000,
-    "marketplace_url": "https://github.com/yhangf/csc-plugins",
+    "marketplace_url": "https://github.com/costrict-plugins-repo/cospowers-task-planning",
     "platforms": [
       "claude-code"
     ],
     "install": {
       "method": "plugin_marketplace",
       "plugin_name": "cospowers-task-planning",
-      "marketplace_repo": "yhangf/csc-plugins",
+      "marketplace_repo": "costrict-plugins-repo/cospowers-task-planning",
       "marketplace_name": "ai-workers-plan",
       "marketplace_verified": true,
-      "marketplace": "yhangf/csc-plugins"
+      "marketplace": "costrict-plugins-repo/cospowers-task-planning"
     },
     "bundle": {
       "skills_count": 9,
@@ -23573,9 +23573,9 @@
       "is_marketplace_repo": false
     },
     "manifest_completeness": 1.0,
-    "last_synced": "2026-06-04",
+    "last_synced": "2026-06-05",
     "stars": 0,
-    "pushed_at": "2026-06-03T07:47:30Z",
+    "pushed_at": "2026-06-04T07:27:39Z",
     "version": "0.0.1",
     "final_score": 100,
     "health": {
@@ -23600,17 +23600,17 @@
     "tech_stack": [],
     "source": "csc-plugins",
     "source_priority": 1000,
-    "marketplace_url": "https://github.com/yhangf/csc-plugins",
+    "marketplace_url": "https://github.com/costrict-plugins-repo/cospowers-tdd-development",
     "platforms": [
       "claude-code"
     ],
     "install": {
       "method": "plugin_marketplace",
       "plugin_name": "cospowers-tdd-development",
-      "marketplace_repo": "yhangf/csc-plugins",
+      "marketplace_repo": "costrict-plugins-repo/cospowers-tdd-development",
       "marketplace_name": "ai-workers-tdd",
       "marketplace_verified": true,
-      "marketplace": "yhangf/csc-plugins"
+      "marketplace": "costrict-plugins-repo/cospowers-tdd-development"
     },
     "bundle": {
       "skills_count": 12,
@@ -23637,9 +23637,9 @@
       "is_marketplace_repo": false
     },
     "manifest_completeness": 1.0,
-    "last_synced": "2026-06-04",
+    "last_synced": "2026-06-05",
     "stars": 0,
-    "pushed_at": "2026-06-03T07:47:30Z",
+    "pushed_at": "2026-06-04T07:27:39Z",
     "version": "0.0.1",
     "final_score": 100,
     "health": {
@@ -23664,17 +23664,17 @@
     "tech_stack": [],
     "source": "csc-plugins",
     "source_priority": 1000,
-    "marketplace_url": "https://github.com/yhangf/csc-plugins",
+    "marketplace_url": "https://github.com/costrict-plugins-repo/cospowers-test-generation",
     "platforms": [
       "claude-code"
     ],
     "install": {
       "method": "plugin_marketplace",
       "plugin_name": "cospowers-test-generation",
-      "marketplace_repo": "yhangf/csc-plugins",
+      "marketplace_repo": "costrict-plugins-repo/cospowers-test-generation",
       "marketplace_name": "ai-workers-test",
       "marketplace_verified": true,
-      "marketplace": "yhangf/csc-plugins"
+      "marketplace": "costrict-plugins-repo/cospowers-test-generation"
     },
     "bundle": {
       "skills_count": 10,
@@ -23699,9 +23699,9 @@
       "is_marketplace_repo": false
     },
     "manifest_completeness": 1.0,
-    "last_synced": "2026-06-04",
+    "last_synced": "2026-06-05",
     "stars": 0,
-    "pushed_at": "2026-06-03T07:47:30Z",
+    "pushed_at": "2026-06-04T07:27:39Z",
     "version": "0.0.1",
     "final_score": 100,
     "health": {

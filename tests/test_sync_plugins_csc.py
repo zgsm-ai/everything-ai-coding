@@ -130,9 +130,15 @@ def test_collect_entries_shape(fake_http):
     inst = req["install"]
     assert inst["method"] == "plugin_marketplace"
     assert inst["plugin_name"] == "cospowers-requirements"
-    assert inst["marketplace_repo"] == "yhangf/csc-plugins"
+    # marketplace_repo points at OUR published repo, not the yhangf source
+    assert inst["marketplace_repo"] == "costrict-plugins-repo/cospowers-requirements"
+    assert inst["marketplace"] == "costrict-plugins-repo/cospowers-requirements"
     assert inst["marketplace_name"] == "ai-workers-requirements"
     assert inst["marketplace_verified"] is True
+    # build/content source stays on yhangf (not user-facing)
+    assert req["source_url"] == (
+        "https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin"
+    )
     # provenance tags
     assert "cospowers" in req["tags"] and "ai-workers" in req["tags"]
     # full-content mirror flag (marketplace build.py skips pruning)
