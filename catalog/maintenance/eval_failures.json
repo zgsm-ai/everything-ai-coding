@@ -1,5 +1,23 @@
 {
   "failures": {
+    "ai-calfeed-calfeed-f688eb73": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-06-08T08:57:48.223618+00:00",
+      "last_error_kind": "EvalRunnerSkip",
+      "last_error_message": "runner returned no result for entry",
+      "last_failed_at": "2026-06-08T08:57:48.223618+00:00",
+      "next_retry_after": "2026-06-08T08:57:48.223618+00:00",
+      "type": "mcp"
+    },
+    "ai-canvora-canvora-7380f1bb": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-06-08T08:57:48.223626+00:00",
+      "last_error_kind": "EvalRunnerSkip",
+      "last_error_message": "runner returned no result for entry",
+      "last_failed_at": "2026-06-08T08:57:48.223626+00:00",
+      "next_retry_after": "2026-06-08T08:57:48.223626+00:00",
+      "type": "mcp"
+    },
     "ai-smithery-bergeramit-bergeramit-hw3-tech-046e6037": {
       "attempt_count": 3,
       "first_failed_at": "2026-05-09T10:01:47.091393+00:00",
@@ -45,15 +63,6 @@
       "next_retry_after": "2026-06-15T07:22:47.914731+00:00",
       "type": "mcp"
     },
-    "app-promptfax-promptfax-431e8a1a": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-01T09:14:34.419864+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-01T09:14:34.419864+00:00",
-      "next_retry_after": "2026-06-01T09:14:34.419864+00:00",
-      "type": "mcp"
-    },
     "app-tradeit-mcp-87da23e4": {
       "attempt_count": 3,
       "first_failed_at": "2026-05-09T10:15:05.434296+00:00",
@@ -65,11 +74,11 @@
     },
     "claude-proje-çalışma-promptu-prompt": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-01T09:05:30.862443+00:00",
+      "first_failed_at": "2026-06-08T08:56:51.714606+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-01T09:05:30.862443+00:00",
-      "next_retry_after": "2026-06-01T09:05:30.862443+00:00",
+      "last_failed_at": "2026-06-08T08:56:51.714606+00:00",
+      "next_retry_after": "2026-06-08T08:56:51.714606+00:00",
       "type": "prompt"
     },
     "co-bizverify-mcp-9a0d1ae5": {
@@ -79,15 +88,6 @@
       "last_error_message": "runner returned no result for entry",
       "last_failed_at": "2026-05-18T07:22:47.915467+00:00",
       "next_retry_after": "2026-05-18T07:22:47.915467+00:00",
-      "type": "mcp"
-    },
-    "com-thenetworkos-networkos-1aed429e": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-01T09:20:55.427734+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-01T09:20:55.427734+00:00",
-      "next_retry_after": "2026-06-01T09:20:55.427734+00:00",
       "type": "mcp"
     },
     "ddukbggithub-enterprise-mcp": {
@@ -106,15 +106,6 @@
       "last_error_message": "runner returned no result for entry",
       "last_failed_at": "2026-05-18T07:22:47.912539+00:00",
       "next_retry_after": "2026-06-15T07:22:47.912539+00:00",
-      "type": "mcp"
-    },
-    "fr-brandyze-mcp-957b6493": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-01T09:20:55.429962+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-01T09:20:55.429962+00:00",
-      "next_retry_after": "2026-06-01T09:20:55.429962+00:00",
       "type": "mcp"
     },
     "fredericbarthelet-mcp-server-linkedin": {
@@ -153,6 +144,24 @@
       "next_retry_after": "2026-05-18T07:27:44.274485+00:00",
       "type": "mcp"
     },
+    "io-github-dizzyvinci-shopify-catalog-monitor-bb327c1d": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-06-08T09:30:51.574729+00:00",
+      "last_error_kind": "EvalRunnerSkip",
+      "last_error_message": "runner returned no result for entry",
+      "last_failed_at": "2026-06-08T09:30:51.574729+00:00",
+      "next_retry_after": "2026-06-08T09:30:51.574729+00:00",
+      "type": "mcp"
+    },
+    "io-github-gotolstoy-studio-182463a8": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-06-08T09:36:59.517086+00:00",
+      "last_error_kind": "EvalRunnerSkip",
+      "last_error_message": "runner returned no result for entry",
+      "last_failed_at": "2026-06-08T09:36:59.517086+00:00",
+      "next_retry_after": "2026-06-08T09:36:59.517086+00:00",
+      "type": "mcp"
+    },
     "io-github-philipand-mkdshare-db629dd5": {
       "attempt_count": 1,
       "first_failed_at": "2026-05-18T07:52:15.340880+00:00",
@@ -187,15 +196,6 @@
       "last_error_message": "runner returned no result for entry",
       "last_failed_at": "2026-05-25T09:17:54.874760+00:00",
       "next_retry_after": "2026-05-25T09:17:54.874760+00:00",
-      "type": "mcp"
-    },
-    "kubestellar-console": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-01T09:07:57.746702+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-01T09:07:57.746702+00:00",
-      "next_retry_after": "2026-06-01T09:07:57.746702+00:00",
       "type": "mcp"
     },
     "laubplusco-mpc-webdav-server": {
@@ -486,15 +486,6 @@
       "next_retry_after": "2026-06-15T07:22:47.912512+00:00",
       "type": "mcp"
     },
-    "olo-dot-iouni-cli": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-01T09:07:57.746484+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-01T09:07:57.746484+00:00",
-      "next_retry_after": "2026-06-01T09:07:57.746484+00:00",
-      "type": "mcp"
-    },
     "piplabs-story-sdk-mcp": {
       "attempt_count": 3,
       "first_failed_at": "2026-05-09T09:24:15.703467+00:00",
@@ -506,11 +497,11 @@
     },
     "quantum-topology-matcher-prompt": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-01T09:05:30.862477+00:00",
+      "first_failed_at": "2026-06-08T08:56:51.714640+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-01T09:05:30.862477+00:00",
-      "next_retry_after": "2026-06-01T09:05:30.862477+00:00",
+      "last_failed_at": "2026-06-08T08:56:51.714640+00:00",
+      "next_retry_after": "2026-06-08T08:56:51.714640+00:00",
       "type": "prompt"
     },
     "readingdancer-teamwork-mcp": {
@@ -549,26 +540,35 @@
       "next_retry_after": "2026-06-15T07:22:47.912526+00:00",
       "type": "mcp"
     },
-    "فريق-العمل-prompt": {
+    "vostrideagent-qa": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-01T09:05:30.862514+00:00",
+      "first_failed_at": "2026-06-08T08:57:48.223017+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-01T09:05:30.862514+00:00",
-      "next_retry_after": "2026-06-01T09:05:30.862514+00:00",
+      "last_failed_at": "2026-06-08T08:57:48.223017+00:00",
+      "next_retry_after": "2026-06-08T08:57:48.223017+00:00",
+      "type": "mcp"
+    },
+    "فريق-العمل-prompt": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-06-08T08:56:51.714645+00:00",
+      "last_error_kind": "EvalRunnerSkip",
+      "last_error_message": "runner returned no result for entry",
+      "last_failed_at": "2026-06-08T08:56:51.714645+00:00",
+      "next_retry_after": "2026-06-08T08:56:51.714645+00:00",
       "type": "prompt"
     },
     "算法比赛教练-prompt": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-01T09:05:30.862469+00:00",
+      "first_failed_at": "2026-06-08T08:56:51.714632+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-01T09:05:30.862469+00:00",
-      "next_retry_after": "2026-06-01T09:05:30.862469+00:00",
+      "last_failed_at": "2026-06-08T08:56:51.714632+00:00",
+      "next_retry_after": "2026-06-08T08:56:51.714632+00:00",
       "type": "prompt"
     }
   },
   "rubric_version": "3.b46c05b2",
   "schema_version": 1,
-  "updated_at": "2026-06-01T10:17:05.786644+00:00"
+  "updated_at": "2026-06-08T10:34:49.546743+00:00"
 }
