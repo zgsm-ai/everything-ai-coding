@@ -57,7 +57,8 @@ permissions:
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # Download can legitimately ride out a rate-limit wait; 30m killed it.
+    timeout-minutes: 120
     outputs:
       release_tag: ${{ steps.tag.outputs.name }}
       bundle_sha: ${{ steps.bundle.outputs.sha256 }}
@@ -104,7 +105,11 @@ jobs:
 
       - name: Download catalog (per-entry files + reconcile index.json)
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Prefer the PAT (5,000 req/h) over the Actions GITHUB_TOKEN
+          # (1,000 req/h): the catalog now carries 1k+ plugin-bundled child
+          # entries and the per-repo tree/raw fetches exceed the default
+          # budget, stalling the job into the timeout (seen 2026-06-10).
+          GITHUB_TOKEN: ${{ secrets.MARKETPLACE_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           PYTHONUNBUFFERED: "1"
         run: |
           TYPES="${{ inputs.services_to_download || 'skills,mcp,rules,prompts,plugins' }}"
