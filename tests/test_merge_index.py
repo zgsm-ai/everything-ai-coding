@@ -80,6 +80,62 @@ class TestMergeIndex(unittest.TestCase):
         ids = {r["id"] for r in result}
         self.assertEqual(ids, {"a", "b"})
 
+    def test_synthesized_plugin_children_are_written_to_type_indexes(self):
+        plugin = _make_entry(
+            "plugin-one",
+            type="plugin",
+            source_url="https://github.com/acme/plugin-one",
+        )
+        plugin["install"] = {
+            "method": "plugin_marketplace",
+            "marketplace_repo": "acme/plugin-one",
+            "marketplace_verified": True,
+        }
+        plugin["bundle"] = {
+            "skills_namespaces": ["plugin-one:ghost"],
+            "skill_paths": ["skills/ghost/SKILL.md"],
+            "source_repo": "acme/plugin-one",
+            "source_ref": "HEAD",
+            "mcp_server_names": ["plugin-mcp"],
+            "mcp_server_configs": {
+                "plugin-mcp": {"command": "npx", "args": ["plugin-mcp"]},
+            },
+        }
+        self._write_index("plugins", [plugin])
+
+        with unittest.mock.patch("merge_index.enrich_entries") as mock_enrich, \
+             unittest.mock.patch("merge_index.apply_governance") as mock_gov:
+            mock_enrich.side_effect = lambda x: x
+            mock_gov.side_effect = lambda x: x
+            merge_index.merge()
+
+        top = self._read_output()
+        top_children = {
+            e["id"] for e in top
+            if e.get("source") in ("plugin-bundled-skill", "plugin-bundled-mcp")
+        }
+        self.assertEqual(
+            top_children,
+            {"plugin-one-ghost", "plugin-one-mcp-plugin-mcp"},
+        )
+
+        with open(os.path.join(self.tmpdir, "skills", "index.json")) as f:
+            skills_index = json.load(f)
+        with open(os.path.join(self.tmpdir, "mcp", "index.json")) as f:
+            mcp_index = json.load(f)
+
+        self.assertIn("plugin-one-ghost", {e["id"] for e in skills_index})
+        self.assertIn("plugin-one-mcp-plugin-mcp", {e["id"] for e in mcp_index})
+        output_plugin = next(e for e in top if e["id"] == "plugin-one")
+        self.assertEqual(
+            output_plugin["bundle"]["bundled_skill_ids"],
+            ["plugin-one-ghost"],
+        )
+        self.assertEqual(
+            output_plugin["bundle"]["bundled_mcp_ids"],
+            ["plugin-one-mcp-plugin-mcp"],
+        )
+
     def test_dedup_id_keeps_first(self):
         self._write_index(
             "mcp",
@@ -535,6 +591,282 @@ class TestBundledInReverseMapping(unittest.TestCase):
         # Missing bundle case: we must not have manufactured one with the field.
         bundle = plugin_missing.get("bundle") or {}
         self.assertNotIn("bundled_skill_ids", bundle)
+
+
+class TestOrphanSubSkillSynthesis(unittest.TestCase):
+    """Tests for synthesizing standalone type=skill entries for orphan
+    sub-skills bundled by a plugin (merge_index._apply_bundled_in_annotations
+    orphan branch + _synthetic_skill_id helper)."""
+
+    def test_synthetic_id_is_kebab_idempotent(self):
+        """Synthetic ids must satisfy to_kebab_case(id) == id so the downloaded
+        folder name (to_kebab_case) matches the raw id costrict-web looks up."""
+        from utils import to_kebab_case
+
+        cases = [
+            ("everything-claude-code-superpowers", "Brainstorming"),
+            ("foo_bar__plugin", "writing_plans"),
+            ("Plugin Name", "Skill Name With Spaces"),
+            ("a", "b"),
+        ]
+        for plugin_id, skill_name in cases:
+            sid = merge_index._synthetic_skill_id(plugin_id, skill_name, set())
+            self.assertRegex(sid, r"^[a-z0-9-]+$", f"id {sid!r} not kebab-safe")
+            self.assertEqual(
+                to_kebab_case(sid), sid,
+                f"id {sid!r} not idempotent under to_kebab_case",
+            )
+
+    def test_synthetic_id_collision_appends_shorthash(self):
+        existing = {"superpowers-brainstorming"}
+        sid = merge_index._synthetic_skill_id(
+            "superpowers", "brainstorming", existing
+        )
+        self.assertNotIn(sid, existing)
+        self.assertTrue(sid.startswith("superpowers-brainstorming-"))
+        self.assertRegex(sid, r"^[a-z0-9-]+$")
+
+    def test_orphan_synthesizes_standalone_skill_entry(self):
+        """Plugin with a matched skill + an orphan sub-skill (carrying
+        skill_paths/source_repo in bundle) produces a new type=skill entry with
+        the right id/install/bundled_in, and backfills bundled_skill_ids."""
+        plugin = _make_entry(
+            "superpowers-plugin",
+            type="plugin",
+            source_url="https://github.com/obra/superpowers",
+        )
+        plugin["bundle"] = {
+            "skills_namespaces": [
+                "superpowers:brainstorming",
+                "superpowers:secret-skill",
+            ],
+            "skill_paths": [
+                "skills/brainstorming/SKILL.md",
+                "skills/secret-skill/SKILL.md",
+            ],
+            "source_repo": "obra/superpowers",
+            "source_ref": "main",
+        }
+        skill_a = _make_entry(
+            "superpowers-brainstorming",
+            type="skill",
+            source_url="https://github.com/obra/superpowers/tree/main/skills/brainstorming",
+        )
+        skill_a["namespace"] = "superpowers:brainstorming"
+
+        entries = [plugin, skill_a]
+        merge_index._apply_bundled_in_annotations(entries)
+
+        # A new synthesized skill entry should now exist.
+        synth = [
+            e for e in entries
+            if e.get("source") == "plugin-bundled-skill"
+        ]
+        self.assertEqual(len(synth), 1)
+        s = synth[0]
+        self.assertEqual(s["type"], "skill")
+        self.assertEqual(s["bundled_in"], "superpowers-plugin")
+        self.assertEqual(s["name"], "secret-skill")
+        # id kebab-safe + idempotent
+        from utils import to_kebab_case
+        self.assertRegex(s["id"], r"^[a-z0-9-]+$")
+        self.assertEqual(to_kebab_case(s["id"]), s["id"])
+        # install block usable by download_catalog (git_clone + repo + path)
+        self.assertEqual(s["install"]["method"], "git_clone")
+        self.assertEqual(
+            s["install"]["repo"], "https://github.com/obra/superpowers.git"
+        )
+        self.assertEqual(s["install"]["branch"], "main")
+        self.assertEqual(s["install"]["path"], "skills/secret-skill")
+        # reverse mapping backfilled with the synthetic id (not None)
+        ids = plugin["bundle"]["bundled_skill_ids"]
+        self.assertEqual(ids[0], "superpowers-brainstorming")
+        self.assertEqual(ids[1], s["id"])
+        self.assertIsNone(None if ids[1] else True)
+
+    def test_orphan_without_skill_paths_falls_back_to_none(self):
+        """Legacy bundle without skill_paths/source_repo → orphan stays None,
+        no synthesis (back-compat)."""
+        plugin = _make_entry(
+            "legacy-plugin",
+            type="plugin",
+            source_url="https://github.com/x/legacy",
+        )
+        plugin["bundle"] = {
+            "skills_namespaces": ["legacy:ghost"],
+        }
+        entries = [plugin]
+        merge_index._apply_bundled_in_annotations(entries)
+
+        self.assertEqual(
+            len([e for e in entries if e.get("source") == "plugin-bundled-skill"]),
+            0,
+        )
+        self.assertEqual(plugin["bundle"]["bundled_skill_ids"], [None])
+
+    def test_orphan_skill_keeps_head_ref_for_default_branch_resolution(self):
+        plugin = _make_entry(
+            "head-plugin",
+            type="plugin",
+            source_url="https://github.com/x/head-plugin",
+        )
+        plugin["bundle"] = {
+            "skills_namespaces": ["head:ghost"],
+            "skill_paths": ["skills/ghost/SKILL.md"],
+            "source_repo": "x/head-plugin",
+            "source_ref": "HEAD",
+        }
+
+        entries = [plugin]
+        merge_index._apply_bundled_in_annotations(entries)
+
+        synth = next(e for e in entries if e.get("source") == "plugin-bundled-skill")
+        self.assertEqual(synth["install"]["branch"], "HEAD")
+
+    def test_final_score_inherited_from_parent_plugin(self):
+        """Synthesized plugin children inherit the parent plugin's score."""
+        plugin = _make_entry("p1", type="plugin", source_url="https://github.com/x/p1")
+        plugin["final_score"] = 72.5
+        synth = _make_entry("p1-ghost", type="skill", source_url="https://github.com/x/p1/tree/main/skills/ghost")
+        synth["source"] = "plugin-bundled-skill"
+        synth["bundled_in"] = "p1"
+        synth["final_score"] = 0
+        mcp = _make_entry("p1-mcp-ghost", type="mcp", source_url="https://github.com/x/p1")
+        mcp["source"] = "plugin-bundled-mcp"
+        mcp["bundled_in"] = "p1"
+        mcp["final_score"] = 0
+        entries = [plugin, synth, mcp]
+        merge_index._backfill_bundled_child_final_scores(entries)
+        self.assertEqual(synth["final_score"], 72.5)
+        self.assertEqual(mcp["final_score"], 72.5)
+
+    def test_final_score_backfill_skips_non_synthesized(self):
+        """A real standalone skill that carries bundled_in keeps its own score
+        (only source == plugin-bundled-skill is rewritten)."""
+        plugin = _make_entry("p2", type="plugin", source_url="https://github.com/x/p2")
+        plugin["final_score"] = 90
+        real = _make_entry("real-skill", type="skill", source_url="https://github.com/x/p2/tree/main/skills/real")
+        real["source"] = "anthropics-skills"
+        real["bundled_in"] = "p2"
+        real["final_score"] = 30
+        entries = [plugin, real]
+        merge_index._backfill_bundled_child_final_scores(entries)
+        self.assertEqual(real["final_score"], 30)
+
+
+class TestBundledMcpSynthesis(unittest.TestCase):
+    """Tests for synthesizing standalone MCP entries from plugin bundle config."""
+
+    def test_synthesizes_standalone_mcp_entries(self):
+        plugin = _make_entry(
+            "zoom-plugin",
+            type="plugin",
+            source_url="https://github.com/zoom/zoom-plugin",
+        )
+        plugin["bundle"] = {
+            "mcp_server_names": ["zoom-mcp", "zoom-docs-mcp", "missing-config"],
+            "mcp_server_configs": {
+                "zoom-mcp": {"command": "npx", "args": ["zoom-mcp"]},
+                "zoom-docs-mcp": {"url": "https://example.com/mcp"},
+            },
+        }
+
+        entries = [plugin]
+        merge_index._apply_bundled_in_annotations(entries)
+
+        synth = [
+            e for e in entries
+            if e.get("source") == "plugin-bundled-mcp"
+        ]
+        self.assertEqual(len(synth), 2)
+        by_name = {e["name"]: e for e in synth}
+        self.assertEqual(set(by_name), {"zoom-mcp", "zoom-docs-mcp"})
+        self.assertEqual(by_name["zoom-mcp"]["type"], "mcp")
+        self.assertEqual(by_name["zoom-mcp"]["bundled_in"], "zoom-plugin")
+        self.assertEqual(
+            by_name["zoom-mcp"]["install"],
+            {"method": "mcp_config", "config": {"command": "npx", "args": ["zoom-mcp"]}},
+        )
+        self.assertRegex(by_name["zoom-mcp"]["id"], r"^[a-z0-9-]+$")
+        self.assertEqual(
+            plugin["bundle"]["bundled_mcp_ids"],
+            [by_name["zoom-mcp"]["id"], by_name["zoom-docs-mcp"]["id"], None],
+        )
+
+    def test_does_not_synthesize_mcp_without_install_info(self):
+        plugin = _make_entry(
+            "empty-mcp-plugin",
+            type="plugin",
+            source_url="https://github.com/example/empty",
+        )
+        plugin["bundle"] = {
+            "mcp_server_names": ["empty"],
+            "mcp_server_configs": {"empty": {"args": ["no-command"]}},
+        }
+
+        entries = [plugin]
+        merge_index._apply_bundled_in_annotations(entries)
+
+        self.assertEqual(
+            [e for e in entries if e.get("source") == "plugin-bundled-mcp"],
+            [],
+        )
+        self.assertEqual(plugin["bundle"]["bundled_mcp_ids"], [None])
+
+    def test_reuses_existing_plugin_bundled_mcp_entry(self):
+        plugin = _make_entry(
+            "zoom-plugin",
+            type="plugin",
+            source_url="https://github.com/zoom/zoom-plugin",
+        )
+        plugin["bundle"] = {
+            "mcp_server_names": ["zoom-mcp"],
+            "mcp_server_configs": {
+                "zoom-mcp": {"command": "npx", "args": ["zoom-mcp@latest"]},
+            },
+        }
+        existing = _make_entry(
+            "zoom-plugin-mcp-zoom-mcp",
+            name="zoom-mcp",
+            type="mcp",
+            source_url="https://github.com/zoom/zoom-plugin",
+        )
+        existing["source"] = "plugin-bundled-mcp"
+        existing["bundled_in"] = "zoom-plugin"
+        existing["install"] = {"method": "mcp_config", "config": {"command": "old"}}
+
+        entries = [plugin, existing]
+        merge_index._apply_bundled_in_annotations(entries)
+
+        synth = [e for e in entries if e.get("source") == "plugin-bundled-mcp"]
+        self.assertEqual(len(synth), 1)
+        self.assertEqual(plugin["bundle"]["bundled_mcp_ids"], [existing["id"]])
+        self.assertEqual(
+            existing["install"],
+            {"method": "mcp_config", "config": {"command": "npx", "args": ["zoom-mcp@latest"]}},
+        )
+
+    def test_prunes_stale_plugin_child_refs_after_governance(self):
+        plugin = _make_entry("p1", type="plugin", source_url="https://github.com/x/p1")
+        plugin["bundle"] = {
+            "bundled_skill_ids": ["missing-skill", "kept-skill"],
+            "bundled_mcp_ids": ["missing-mcp", "kept-mcp"],
+        }
+        skill = _make_entry("kept-skill", type="skill", source_url="https://github.com/x/p1")
+        skill["source"] = "plugin-bundled-skill"
+        skill["bundled_in"] = "p1"
+        mcp = _make_entry("kept-mcp", type="mcp", source_url="https://github.com/x/p1")
+        mcp["source"] = "plugin-bundled-mcp"
+        mcp["bundled_in"] = "p1"
+        orphan = _make_entry("orphan-child", type="mcp", source_url="https://github.com/x/orphan")
+        orphan["source"] = "plugin-bundled-mcp"
+        orphan["bundled_in"] = "filtered-plugin"
+
+        entries = merge_index._prune_invalid_plugin_child_refs([plugin, skill, mcp, orphan])
+
+        self.assertNotIn("orphan-child", {e["id"] for e in entries})
+        self.assertEqual(plugin["bundle"]["bundled_skill_ids"], [None, "kept-skill"])
+        self.assertEqual(plugin["bundle"]["bundled_mcp_ids"], [None, "kept-mcp"])
 
 
 class TestSearchIndex(unittest.TestCase):

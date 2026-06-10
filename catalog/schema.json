@@ -176,6 +176,42 @@
             "type": "array",
             "description": "<plugin-name>:<skill-name> 形式的 skill namespace 列表，供 merge_index.py 软标注",
             "items": { "type": "string" }
+          },
+          "skill_paths": {
+            "type": "array",
+            "description": "每个 sub-skill 的 repo 相对 SKILL.md 路径，与 skills_namespaces 同序；供 merge_index.py 为 orphan sub-skill 合成独立 skill 条目的 install 块；optional",
+            "items": { "type": "string" }
+          },
+          "source_repo": {
+            "type": "string",
+            "description": "plugin 内容所在的 owner/repo（用于合成 orphan sub-skill 的 git_clone install）；optional"
+          },
+          "source_ref": {
+            "type": "string",
+            "description": "plugin 内容所在的 git ref/branch；optional"
+          },
+          "plugin_root": {
+            "type": "string",
+            "description": "plugin 根目录的 repo 相对路径；download_catalog.py 用于定位 plugin 内 .mcp.json / plugin.json；optional"
+          },
+          "plugin_json_path": {
+            "type": "string",
+            "description": "plugin.json 的 repo 相对路径；download_catalog.py 用于提取 inline mcpServers；optional"
+          },
+          "bundled_skill_ids": {
+            "type": "array",
+            "description": "与 skills_namespaces 同序的反向映射：每个 namespace 对应的 catalog skill id，或 null（无匹配且无法合成）；merge_index.py post-merge 写入；optional",
+            "items": { "type": ["string", "null"] }
+          },
+          "mcp_server_configs": {
+            "type": "object",
+            "description": "可安装的 plugin 内 MCP server 配置，key 为 server name，value 为 mcpServers.<name> config；仅包含带 command 或 url 的配置；optional",
+            "additionalProperties": { "type": "object" }
+          },
+          "bundled_mcp_ids": {
+            "type": "array",
+            "description": "与 mcp_server_names 同序的反向映射：每个 MCP server 对应的 catalog mcp id，或 null（无可用 config）；merge_index.py post-merge 写入；optional",
+            "items": { "type": ["string", "null"] }
           }
         }
       },
@@ -187,7 +223,7 @@
       },
       "bundled_in": {
         "type": "string",
-        "description": "若该 skill entry 被某 plugin 打包，写入对应的 plugin id；merge_index.py post-merge 软标注，optional"
+        "description": "若该 skill/mcp entry 被某 plugin 打包，写入对应的 plugin id；merge_index.py post-merge 标注或合成，optional"
       }
     }
   }

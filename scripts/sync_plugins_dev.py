@@ -303,6 +303,7 @@ def _build_bundle_from_layout_dev(
         "mcp_servers_count": 0,
         "skills_namespaces": fallback_namespaces,
         **_extension_defaults,
+        "mcp_server_configs": {},
     }
     zero_bundle = {
         "skills_count": 0,
@@ -311,6 +312,7 @@ def _build_bundle_from_layout_dev(
         "mcp_servers_count": 0,
         "skills_namespaces": [],
         **_extension_defaults,
+        "mcp_server_configs": {},
     }
 
     if fetcher is None:
@@ -343,9 +345,19 @@ def _build_bundle_from_layout_dev(
             "agents_count": len(layout.agent_paths),
             "mcp_servers_count": len(layout.mcp_server_names),
             "skills_namespaces": list(layout.skills_namespaces),
+            # Repo-relative SKILL.md paths (position-aligned with
+            # skills_namespaces) + source coordinates, carried through so
+            # merge_index can synthesize standalone skill entries for orphan
+            # sub-skills. See sync_plugins_official._build_bundle_from_layout.
+            "skill_paths": list(layout.skill_paths),
+            "source_repo": repo,
+            "source_ref": ref,
+            "plugin_root": layout.plugin_root,
+            "plugin_json_path": layout.plugin_json_path,
             "hooks_count": layout.hooks_count,
             "hook_events": list(layout.hook_events),
             "mcp_server_names": list(layout.mcp_server_names),
+            "mcp_server_configs": dict(getattr(layout, "mcp_server_configs", {}) or {}),
             "is_marketplace_repo": False,
         }
 

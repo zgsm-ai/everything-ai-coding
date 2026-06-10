@@ -429,6 +429,7 @@ def _build_bundle_from_layout(
         "hooks_count": 0,
         "hook_events": [],
         "mcp_server_names": [],
+        "mcp_server_configs": {},
         "is_marketplace_repo": False,
     }
 
@@ -459,9 +460,24 @@ def _build_bundle_from_layout(
                 "agents_count": len(layout.agent_paths),
                 "mcp_servers_count": len(layout.mcp_server_names),
                 "skills_namespaces": list(layout.skills_namespaces),
+                # Repo-relative SKILL.md paths, position-aligned with
+                # ``skills_namespaces``. Carried through so the merge stage can
+                # synthesize standalone ``type=skill`` entries for orphan
+                # sub-skills (no matching catalog skill) and build a working
+                # ``install.git_clone`` block pointing at the skill directory.
+                # See merge_index._apply_bundled_in_annotations orphan branch.
+                "skill_paths": list(layout.skill_paths),
+                # Source coordinates used to construct the orphan skill's
+                # install block (repo + branch). ``ref`` may be "HEAD"; the
+                # downloader defaults to "main" when no usable branch is given.
+                "source_repo": repo,
+                "source_ref": ref,
+                "plugin_root": layout.plugin_root,
+                "plugin_json_path": layout.plugin_json_path,
                 "hooks_count": layout.hooks_count,
                 "hook_events": list(layout.hook_events),
                 "mcp_server_names": list(layout.mcp_server_names),
+                "mcp_server_configs": dict(getattr(layout, "mcp_server_configs", {}) or {}),
                 "is_marketplace_repo": False,
             }
 
@@ -517,6 +533,7 @@ def _build_bundle(manifest: Optional[dict], plugin_name: str) -> dict:
         "hooks_count": 0,
         "hook_events": [],
         "mcp_server_names": [],
+        "mcp_server_configs": {},
         "is_marketplace_repo": False,
     }
     if not isinstance(manifest, dict):
@@ -541,6 +558,17 @@ def _build_bundle(manifest: Optional[dict], plugin_name: str) -> dict:
             k for k in mcp_field.keys() if isinstance(k, str)
         )
         bundle["mcp_servers_count"] = len(bundle["mcp_server_names"])
+        configs = {}
+        for k, cfg in mcp_field.items():
+            if not isinstance(k, str) or not isinstance(cfg, dict):
+                continue
+            command = cfg.get("command")
+            url = cfg.get("url")
+            has_command = isinstance(command, str) and command.strip()
+            has_url = isinstance(url, str) and url.strip()
+            if has_command or has_url:
+                configs[k] = cfg
+        bundle["mcp_server_configs"] = configs
 
     skills = manifest.get("skills")
     namespaces: list[str] = []

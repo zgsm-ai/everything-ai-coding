@@ -157,6 +157,9 @@ def test_postman_extracts_mcp_via_dot_mcp_json() -> None:
     assert layout.hook_events == []
     assert layout.hooks_count == 0
     assert layout.mcp_server_names == ["postman"]
+    assert layout.mcp_server_configs["postman"].get("command") or layout.mcp_server_configs[
+        "postman"
+    ].get("url")
 
 
 def test_zoom_extracts_three_mcp_servers() -> None:
@@ -169,6 +172,11 @@ def test_zoom_extracts_three_mcp_servers() -> None:
     layout = fetcher.detect_plugin_layout(repo, plugin_root="", ref="HEAD")
 
     assert layout.mcp_server_names == ["zoom-docs-mcp", "zoom-mcp", "zoom-whiteboard-mcp"]
+    assert set(layout.mcp_server_configs) == {
+        "zoom-docs-mcp",
+        "zoom-mcp",
+        "zoom-whiteboard-mcp",
+    }
     assert layout.hooks_count == 0
 
 
@@ -182,6 +190,7 @@ def test_episodic_memory_extracts_mcp_via_plugin_json_inline() -> None:
     layout = fetcher.detect_plugin_layout(repo, plugin_root="", ref="HEAD")
 
     assert layout.mcp_server_names == ["episodic-memory"]
+    assert layout.mcp_server_configs["episodic-memory"]["command"]
     assert layout.hooks_count == 1
     assert layout.hook_events == ["SessionStart"]
 
@@ -308,6 +317,7 @@ def test_empty_mcpservers_dict_treated_as_zero(tmp_path: Path) -> None:
     layout = fetcher.detect_plugin_layout(repo, plugin_root="", ref="HEAD")
 
     assert layout.mcp_server_names == []
+    assert layout.mcp_server_configs == {}
 
 
 def test_path_string_mcpservers_falls_back_to_dot_mcp_json(tmp_path: Path) -> None:
@@ -326,6 +336,7 @@ def test_path_string_mcpservers_falls_back_to_dot_mcp_json(tmp_path: Path) -> No
     layout = fetcher.detect_plugin_layout(repo, plugin_root="", ref="HEAD")
 
     assert layout.mcp_server_names == ["t"]
+    assert layout.mcp_server_configs["t"]["command"] == "echo"
 
 
 def test_dot_codex_plugin_excluded(tmp_path: Path) -> None:

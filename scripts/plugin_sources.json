@@ -8,6 +8,7 @@
     "https://github.com/affaan-m/ECC"
   ],
   "plugins": [
+    {"source": "everything-claude-code", "plugin_name": "ecc"},
     {"source": "superpowers-marketplace", "plugin_name": "superpowers"},
     {"source": "superpowers-marketplace", "plugin_name": "superpowers-dev"},
     {"source": "claude-plugins-dev", "plugin_name": "superpowers"}

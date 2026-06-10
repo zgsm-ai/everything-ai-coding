@@ -201,9 +201,18 @@ def build(output: Path, *, compress: bool = True) -> dict:
             unusable_yaml += 1
             continue
         entries.append(entry)
+
+    entries, missing_parent_child_count, stale_reverse_ref_count = (
+        _prune_plugin_child_parent_consistency(entries)
+    )
     print(f"index.json: {len(full_entries)} entries → bundled {len(entries)}")
     print(f"  dropped: orphan_no_file={orphan_count} unknown_type={unknown_type_count} "
           f"mcp_empty_stub={unusable_mcp_stub} md_yaml_broken={unusable_yaml}")
+    print(
+        "  plugin child consistency: "
+        f"missing_parent={missing_parent_child_count} "
+        f"stale_reverse_refs={stale_reverse_ref_count}"
+    )
 
     # Write a filtered index.json to a tempfile inside dist/ so we hash and
     # ship the SAME bytes that downstream will diff against.
@@ -222,6 +231,8 @@ def build(output: Path, *, compress: bool = True) -> dict:
         "filtered_from": len(full_entries),
         "orphan_dropped": orphan_count,
         "unknown_type_dropped": unknown_type_count,
+        "plugin_child_missing_parent_dropped": missing_parent_child_count,
+        "plugin_child_stale_reverse_refs_dropped": stale_reverse_ref_count,
     }
     manifest_bytes = json.dumps(manifest, indent=2, sort_keys=False).encode("utf-8") + b"\n"
 
@@ -258,6 +269,58 @@ def build(output: Path, *, compress: bool = True) -> dict:
     print(f"  index_sha:   {index_sha256[:16]}...")
     print(f"  bundle_sha:  {bundle_sha256[:16]}...")
     return {**manifest, "bundle_sha256": bundle_sha256, "output_path": str(output)}
+
+
+def _prune_plugin_child_parent_consistency(entries: list[dict]) -> tuple[list[dict], int, int]:
+    """Keep bundled plugin children only when their parent plugin is present.
+
+    Earlier build passes can legitimately remove parent plugin entries (for
+    example no downloaded plugin payload) or child entries (for example broken
+    SKILL.md frontmatter). The bundle index is the final downstream contract, so
+    parent/child references must be internally consistent at this point.
+    """
+    plugin_ids = {
+        entry.get("id")
+        for entry in entries
+        if entry.get("type") == "plugin" and isinstance(entry.get("id"), str)
+    }
+
+    pruned: list[dict] = []
+    missing_parent_count = 0
+    for entry in entries:
+        bundled_in = entry.get("bundled_in")
+        if isinstance(bundled_in, str) and bundled_in.strip():
+            if bundled_in not in plugin_ids:
+                missing_parent_count += 1
+                continue
+        pruned.append(entry)
+
+    present_ids = {
+        entry.get("id")
+        for entry in pruned
+        if isinstance(entry.get("id"), str)
+    }
+    stale_reverse_ref_count = 0
+    for entry in pruned:
+        if entry.get("type") != "plugin":
+            continue
+        bundle = entry.get("bundle")
+        if not isinstance(bundle, dict):
+            continue
+        for key in ("bundled_skill_ids", "bundled_mcp_ids"):
+            ids = bundle.get(key)
+            if not isinstance(ids, list):
+                continue
+            cleaned = []
+            for child_id in ids:
+                if isinstance(child_id, str) and child_id not in present_ids:
+                    stale_reverse_ref_count += 1
+                    cleaned.append(None)
+                else:
+                    cleaned.append(child_id)
+            bundle[key] = cleaned
+
+    return pruned, missing_parent_count, stale_reverse_ref_count
 
 
 def _type_counts(entries: list[dict]) -> dict[str, int]:

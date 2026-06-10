@@ -2,6 +2,7 @@
 """Merge all type-specific indexes and curated files into catalog/index.json."""
 
 import argparse
+import hashlib
 import json
 import os
 import sys
@@ -18,6 +19,7 @@ try:
         extract_tags,
         normalize_source_url,
         get_repo_meta,
+        to_kebab_case,
         logger,
     )
     from .enrichment_orchestrator import enrich_entries
@@ -37,6 +39,7 @@ except ImportError:
         extract_tags,
         normalize_source_url,
         get_repo_meta,
+        to_kebab_case,
         logger,
     )
     from enrichment_orchestrator import enrich_entries
@@ -56,9 +59,170 @@ TYPES = ["mcp", "skills", "rules", "prompts", "plugins"]
 TODAY = date.today().isoformat()
 
 
+def _synthetic_skill_id(plugin_id: str, skill_name: str, existing_ids: set[str]) -> str:
+    """Build a kebab-safe, collision-free id for a synthesized orphan sub-skill.
+
+    The id MUST be idempotent under ``to_kebab_case`` (i.e.
+    ``to_kebab_case(id) == id``). The downstream pipeline derives the on-disk
+    folder name via ``download_catalog._kebab_name`` (= ``to_kebab_case(id)``)
+    while costrict-web ingest and ``download_catalog._filter_top_index_to_downloaded``
+    look up the SKILL.md by the **raw** entry id. Any character that
+    ``to_kebab_case`` rewrites (notably ``_`` / ``__``) would make the written
+    folder name differ from the raw id → ENOENT → the entry gets dropped.
+
+    Strategy: kebab-case both halves independently, then join with a single
+    ``-`` (so ``<plugin-id>-<skill-name>``). On collision with an existing id,
+    append ``-<shorthash>`` where the hash is lowercase hex (still kebab-safe).
+    """
+    base = f"{to_kebab_case(plugin_id)}-{to_kebab_case(skill_name)}"
+    base = to_kebab_case(base)  # collapse any double hyphen from empty halves
+    if base not in existing_ids:
+        return base
+    digest = hashlib.sha1(f"{plugin_id}:{skill_name}".encode("utf-8")).hexdigest()
+    for length in (8, 12, 40):
+        candidate = f"{base}-{digest[:length]}"
+        if candidate not in existing_ids:
+            return candidate
+    # Extremely unlikely fallthrough; widen with a counter.
+    counter = 2
+    while f"{base}-{digest[:8]}-{counter}" in existing_ids:
+        counter += 1
+    return f"{base}-{digest[:8]}-{counter}"
+
+
+def _synthetic_mcp_id(plugin_id: str, server_name: str, existing_ids: set[str]) -> str:
+    """Build a kebab-safe id for a synthesized plugin-bundled MCP entry."""
+    base = f"{to_kebab_case(plugin_id)}-mcp-{to_kebab_case(server_name)}"
+    base = to_kebab_case(base)
+    if base not in existing_ids:
+        return base
+    digest = hashlib.sha1(f"{plugin_id}:mcp:{server_name}".encode("utf-8")).hexdigest()
+    for length in (8, 12, 40):
+        candidate = f"{base}-{digest[:length]}"
+        if candidate not in existing_ids:
+            return candidate
+    counter = 2
+    while f"{base}-{digest[:8]}-{counter}" in existing_ids:
+        counter += 1
+    return f"{base}-{digest[:8]}-{counter}"
+
+
+def _synthesize_orphan_skill_entry(
+    plugin: dict,
+    skill_name: str,
+    skill_path: str | None,
+    source_repo: str | None,
+    source_ref: str | None,
+    synthetic_id: str,
+) -> dict:
+    """Construct a standalone ``type=skill`` catalog entry for an orphan
+    sub-skill declared by ``plugin`` but absent from the catalog.
+
+    The entry carries an ``install.git_clone`` block pointing at the skill's
+    directory so ``download_catalog._download_skill`` can fetch SKILL.md (and
+    siblings) into ``catalog-download/skills/<synthetic_id>/SKILL.md`` — exactly
+    the path costrict-web ingest reads. ``final_score`` is inherited from the
+    parent later (after governance promotes it); here it is initialized so the
+    field is present even if backfill is skipped.
+    """
+    plugin_id = plugin.get("id") or ""
+    repo = (source_repo or "").strip()
+    # skill_path is repo-relative, e.g. "<plugin_root>/skills/<name>/SKILL.md".
+    # The install dir is its parent directory (drop the trailing /SKILL.md).
+    skill_dir = ""
+    if isinstance(skill_path, str) and skill_path:
+        skill_dir = skill_path.rsplit("/SKILL.md", 1)[0].strip("/")
+
+    branch = (source_ref or "").strip()
+    # Keep HEAD when the sync layer used it. GitHub tree/raw endpoints accept
+    # HEAD and resolve it to the repository default branch; forcing "main"
+    # breaks repositories whose default branch has another name.
+    if not branch:
+        branch = "HEAD"
+
+    install: dict[str, Any] = {"method": "git_clone"}
+    if repo:
+        install["repo"] = f"https://github.com/{repo}.git"
+        install["branch"] = branch
+    if skill_dir:
+        install["path"] = skill_dir
+
+    if repo and skill_dir:
+        source_url = f"https://github.com/{repo}/tree/{branch}/{skill_dir}"
+    else:
+        source_url = plugin.get("source_url") or _PLACEHOLDER_SOURCE_URL
+
+    description = f"Bundled skill {skill_name} from plugin {plugin.get('name') or plugin_id}".strip()
+    tags = extract_tags(skill_name, description)
+    category = categorize(skill_name, description, tags)
+
+    entry: dict[str, Any] = {
+        "id": synthetic_id,
+        "name": skill_name,
+        "type": "skill",
+        "description": description,
+        "source_url": source_url,
+        "stars": plugin.get("stars"),
+        "pushed_at": plugin.get("pushed_at"),
+        "category": category,
+        "tags": tags,
+        "tech_stack": [],
+        "install": install,
+        "bundled_in": plugin_id,
+        # Inherited from the parent plugin after governance promotes its
+        # top-level final_score (see merge() final_score backfill). Seeded to 0
+        # so the field is always present and schema-valid.
+        "final_score": plugin.get("final_score", 0) or 0,
+        "source": "plugin-bundled-skill",
+        "last_synced": TODAY,
+    }
+    return entry
+
+
+def _synthesize_bundled_mcp_entry(
+    plugin: dict,
+    server_name: str,
+    config: dict,
+    synthetic_id: str,
+) -> dict:
+    """Construct a standalone ``type=mcp`` entry for a plugin-bundled server.
+
+    The entry carries ``install.config`` directly so download_catalog._download_mcp
+    can write a valid ``catalog-download/mcp/<id>/.mcp.json`` without cloning the
+    full plugin repository.
+    """
+    plugin_id = plugin.get("id") or ""
+    description = f"Bundled MCP server {server_name} from plugin {plugin.get('name') or plugin_id}".strip()
+    tags = extract_tags(server_name, description)
+    category = categorize(server_name, description, tags)
+
+    return {
+        "id": synthetic_id,
+        "name": server_name,
+        "type": "mcp",
+        "description": description,
+        "source_url": plugin.get("source_url") or _PLACEHOLDER_SOURCE_URL,
+        "stars": plugin.get("stars"),
+        "pushed_at": plugin.get("pushed_at"),
+        "category": category,
+        "tags": tags,
+        "tech_stack": [],
+        "install": {
+            "method": "mcp_config",
+            "config": config,
+        },
+        "bundled_in": plugin_id,
+        "final_score": plugin.get("final_score", 0) or 0,
+        "source": "plugin-bundled-mcp",
+        "last_synced": TODAY,
+    }
+
+
+_PLACEHOLDER_SOURCE_URL = "https://github.com/zgsm-ai/everything-ai-coding"
+
+
 def _apply_bundled_in_annotations(entries: list[dict], log=logger) -> list[dict]:
-    """Soft-annotate skill entries that are bundled by a plugin entry, and
-    write the reverse mapping (``bundle.bundled_skill_ids``) on plugin entries.
+    """Soft-annotate plugin-bundled children and write reverse mappings.
 
     For each entry whose ``type == "plugin"``, scan ``bundle.skills_namespaces``
     (a list of ``"<plugin-name>:<skill-name>"`` strings, per the plugin manifest
@@ -85,6 +249,7 @@ def _apply_bundled_in_annotations(entries: list[dict], log=logger) -> list[dict]
     """
     plugin_entries = [e for e in entries if (e.get("type") or "") == "plugin"]
     skill_entries = [e for e in entries if (e.get("type") or "") == "skill"]
+    mcp_entries = [e for e in entries if (e.get("type") or "") == "mcp"]
 
     skills_by_namespace: dict[str, dict] = {}
     skills_by_id: dict[str, dict] = {}
@@ -109,6 +274,13 @@ def _apply_bundled_in_annotations(entries: list[dict], log=logger) -> list[dict]
             if tail and tail != "skills":
                 skills_by_source_skill_name.setdefault(tail, []).append(s)
 
+    bundled_mcp_by_parent_name: dict[tuple[str, str], dict] = {}
+    for m in mcp_entries:
+        parent_id = m.get("bundled_in")
+        name = m.get("name")
+        if isinstance(parent_id, str) and parent_id and isinstance(name, str) and name:
+            bundled_mcp_by_parent_name.setdefault((parent_id, name), m)
+
     def _plugin_source_repo(plugin: dict) -> str:
         url = plugin.get("source_url") or ""
         if "github.com" not in url:
@@ -121,12 +293,31 @@ def _apply_bundled_in_annotations(entries: list[dict], log=logger) -> list[dict]
         parts = path.split("/")
         return "/".join(parts[:2]) if len(parts) >= 2 else ""
 
+    # All catalog ids (including skills synthesized in earlier plugin
+    # iterations of this same pass) so synthetic ids stay globally unique.
+    existing_ids: set[str] = {
+        s for s in (e.get("id") for e in entries) if isinstance(s, str) and s
+    }
+    synthesized: list[dict] = []
+    synthesized_mcp_count = 0
+
     annotated = 0
     orphan_count = 0
+    synthesized_count = 0
     for plugin in plugin_entries:
         plugin_id = plugin.get("id") or ""
         bundle = plugin.get("bundle") or {}
         namespaces = bundle.get("skills_namespaces")
+        # Repo-relative SKILL.md paths + source coordinates, written by
+        # sync_plugins_official._build_bundle_from_layout (position-aligned
+        # with skills_namespaces). Used to synthesize orphan skill entries with
+        # a working install block. May be absent for legacy / manifest-only
+        # bundles → orphan synthesis is skipped for those (no usable path).
+        skill_paths = bundle.get("skill_paths")
+        if not isinstance(skill_paths, list):
+            skill_paths = []
+        bundle_source_repo = bundle.get("source_repo")
+        bundle_source_ref = bundle.get("source_ref")
         if not namespaces:
             log.debug(
                 "post-merge: plugin %s has no skills_namespaces; skipping",
@@ -145,7 +336,7 @@ def _apply_bundled_in_annotations(entries: list[dict], log=logger) -> list[dict]
         # (None for orphans). Written back to plugin["bundle"]["bundled_skill_ids"]
         # after the namespace loop completes.
         bundled_skill_ids: list = []
-        for ns in namespaces:
+        for i, ns in enumerate(namespaces):
             if not isinstance(ns, str) or not ns:
                 # Non-string / empty namespace entries can't be matched; keep
                 # alignment with the input list by recording None.
@@ -171,14 +362,47 @@ def _apply_bundled_in_annotations(entries: list[dict], log=logger) -> list[dict]
                     ]
                     target = same_repo[0] if same_repo else candidates[0]
             if target is None:
+                # Orphan: no matching catalog skill. Synthesize a standalone
+                # type=skill entry so the bundled sub-skill becomes a
+                # first-class, separately-installable item. Requires the
+                # repo-relative skill path + source coordinates carried in the
+                # bundle (sync_plugins_official); without them we fall back to
+                # the legacy "warn + None" behaviour.
                 orphan_count += 1
-                bundled_skill_ids.append(None)
-                log.warning(
-                    "post-merge: plugin %s declares orphan namespace %r "
-                    "(no matching skill in catalog)",
-                    plugin_id or "<unknown>",
-                    ns,
-                )
+                skill_name = ns.split(":", 1)[1] if ":" in ns else ns
+                skill_path = skill_paths[i] if i < len(skill_paths) else None
+                if plugin_id and skill_path and bundle_source_repo:
+                    synthetic_id = _synthetic_skill_id(
+                        plugin_id, skill_name, existing_ids
+                    )
+                    existing_ids.add(synthetic_id)
+                    synthetic_entry = _synthesize_orphan_skill_entry(
+                        plugin,
+                        skill_name,
+                        skill_path,
+                        bundle_source_repo,
+                        bundle_source_ref,
+                        synthetic_id,
+                    )
+                    synthesized.append(synthetic_entry)
+                    bundled_skill_ids.append(synthetic_id)
+                    synthesized_count += 1
+                    log.info(
+                        "post-merge: synthesized standalone skill %s for orphan "
+                        "namespace %r bundled by plugin %s",
+                        synthetic_id,
+                        ns,
+                        plugin_id,
+                    )
+                else:
+                    bundled_skill_ids.append(None)
+                    log.warning(
+                        "post-merge: plugin %s declares orphan namespace %r "
+                        "(no matching skill in catalog; cannot synthesize — "
+                        "missing skill_path/source_repo in bundle)",
+                        plugin_id or "<unknown>",
+                        ns,
+                    )
                 continue
             target_id = target.get("id") or None
             bundled_skill_ids.append(target_id)
@@ -191,14 +415,219 @@ def _apply_bundled_in_annotations(entries: list[dict], log=logger) -> list[dict]
         # safe to set the field unconditionally here.
         plugin.setdefault("bundle", {})["bundled_skill_ids"] = bundled_skill_ids
 
+    for plugin in plugin_entries:
+        plugin_id = plugin.get("id") or ""
+        bundle = plugin.get("bundle") or {}
+        configs = bundle.get("mcp_server_configs")
+        if not plugin_id or not isinstance(configs, dict) or not configs:
+            continue
+        bundled_mcp_ids: list[str | None] = []
+        names = bundle.get("mcp_server_names")
+        ordered_names = names if isinstance(names, list) and names else sorted(configs)
+        for raw_name in ordered_names:
+            if not isinstance(raw_name, str) or not raw_name:
+                bundled_mcp_ids.append(None)
+                continue
+            config = configs.get(raw_name)
+            if not isinstance(config, dict):
+                bundled_mcp_ids.append(None)
+                continue
+            command = config.get("command")
+            url = config.get("url")
+            has_command = isinstance(command, str) and command.strip()
+            has_url = isinstance(url, str) and url.strip()
+            if not has_command and not has_url:
+                bundled_mcp_ids.append(None)
+                continue
+            existing_mcp = bundled_mcp_by_parent_name.get((plugin_id, raw_name))
+            if existing_mcp is not None:
+                existing_id = existing_mcp.get("id")
+                if existing_mcp.get("source") == "plugin-bundled-mcp":
+                    existing_mcp["install"] = {
+                        "method": "mcp_config",
+                        "config": config,
+                    }
+                    existing_mcp["last_synced"] = TODAY
+                bundled_mcp_ids.append(existing_id if isinstance(existing_id, str) else None)
+                continue
+            synthetic_id = _synthetic_mcp_id(plugin_id, raw_name, existing_ids)
+            existing_ids.add(synthetic_id)
+            synthetic_entry = _synthesize_bundled_mcp_entry(
+                plugin, raw_name, config, synthetic_id
+            )
+            synthesized.append(synthetic_entry)
+            bundled_mcp_by_parent_name[(plugin_id, raw_name)] = synthetic_entry
+            bundled_mcp_ids.append(synthetic_id)
+            synthesized_mcp_count += 1
+            log.info(
+                "post-merge: synthesized standalone MCP %s for server %r bundled by plugin %s",
+                synthetic_id,
+                raw_name,
+                plugin_id,
+            )
+        if bundled_mcp_ids:
+            plugin.setdefault("bundle", {})["bundled_mcp_ids"] = bundled_mcp_ids
+
+    # Append synthesized child entries last so they don't participate in this
+    # pass's matching indexes (they already carry bundled_in; re-matching them
+    # against plugins would be redundant and could double-attribute).
+    if synthesized:
+        entries.extend(synthesized)
+
     log.info(
         "post-merge: scanned %d plugins, annotated %d skills with bundled_in, "
-        "found %d orphan namespaces",
+        "found %d orphan namespaces, synthesized %d standalone skills, "
+        "synthesized %d standalone MCP servers",
         len(plugin_entries),
         annotated,
         orphan_count,
+        synthesized_count,
+        synthesized_mcp_count,
     )
     return entries
+
+
+def _backfill_bundled_child_final_scores(entries: list[dict], log=logger) -> None:
+    """Backfill ``final_score`` on synthesized plugin children from their
+    parent plugin (resolved via ``bundled_in``).
+
+    Runs after governance has promoted ``final_score`` to the top level on all
+    entries, so the parent plugin's score is now available. Only touches
+    entries we synthesized (``source == "plugin-bundled-skill"`` or
+    ``plugin-bundled-mcp``) so a real standalone child that happens to carry
+    ``bundled_in`` keeps its own score.
+    Survives parent plugins that were filtered out by governance (no parent →
+    leave the seeded score unchanged).
+    """
+    plugin_score_by_id: dict[str, Any] = {}
+    for e in entries:
+        if (e.get("type") or "") == "plugin":
+            pid = e.get("id")
+            if isinstance(pid, str) and pid:
+                plugin_score_by_id[pid] = e.get("final_score", 0)
+
+    backfilled = 0
+    for e in entries:
+        if e.get("source") not in ("plugin-bundled-skill", "plugin-bundled-mcp"):
+            continue
+        parent_id = e.get("bundled_in")
+        if not isinstance(parent_id, str) or parent_id not in plugin_score_by_id:
+            continue
+        e["final_score"] = plugin_score_by_id[parent_id]
+        backfilled += 1
+
+    if backfilled:
+        log.info(
+            "post-merge: inherited final_score for %d synthesized plugin children "
+            "from parent plugins",
+            backfilled,
+        )
+
+
+def _prune_invalid_plugin_child_refs(entries: list[dict], log=logger) -> list[dict]:
+    """Drop synthesized children whose parent plugin was filtered out, then
+    clear plugin reverse mappings that point at missing children.
+
+    ``bundle.bundled_*_ids`` is written before governance so the merge pass can
+    keep position alignment with the source bundle. Governance may later filter
+    out either a parent plugin or a child entry. This cleanup makes the final
+    catalog internally consistent before it is written.
+    """
+    existing_ids: set[str] = {
+        e["id"] for e in entries if isinstance(e.get("id"), str) and e.get("id")
+    }
+    plugin_ids: set[str] = {
+        e["id"]
+        for e in entries
+        if e.get("type") == "plugin" and isinstance(e.get("id"), str) and e.get("id")
+    }
+
+    kept: list[dict] = []
+    dropped_children = 0
+    for entry in entries:
+        if entry.get("source") in ("plugin-bundled-skill", "plugin-bundled-mcp"):
+            parent_id = entry.get("bundled_in")
+            if not isinstance(parent_id, str) or parent_id not in plugin_ids:
+                dropped_children += 1
+                continue
+        kept.append(entry)
+
+    if dropped_children:
+        existing_ids = {
+            e["id"] for e in kept if isinstance(e.get("id"), str) and e.get("id")
+        }
+
+    cleared_refs = 0
+    for plugin in kept:
+        if plugin.get("type") != "plugin":
+            continue
+        bundle = plugin.get("bundle")
+        if not isinstance(bundle, dict):
+            continue
+        for field in ("bundled_skill_ids", "bundled_mcp_ids"):
+            ids = bundle.get(field)
+            if not isinstance(ids, list):
+                continue
+            cleaned: list[Any] = []
+            for item in ids:
+                if item is None:
+                    cleaned.append(None)
+                elif isinstance(item, str) and item in existing_ids:
+                    cleaned.append(item)
+                else:
+                    cleaned.append(None)
+                    cleared_refs += 1
+            bundle[field] = cleaned
+
+    if dropped_children or cleared_refs:
+        log.info(
+            "post-merge: dropped %d plugin children with missing parent and "
+            "cleared %d stale plugin child refs",
+            dropped_children,
+            cleared_refs,
+        )
+    return kept
+
+
+def _sync_synthesized_children_to_type_indexes(entries: list[dict], log=logger) -> None:
+    """Write final synthesized plugin children back to type indexes.
+
+    download_catalog.py downloads from catalog/{skills,mcp}/index.json, then
+    reconciles catalog/index.json against files on disk. Synthetic children are
+    created during merge, so they must be present in the type indexes as final
+    entries before the download step runs.
+    """
+    children_by_dir: dict[str, list[dict]] = {"skills": [], "mcp": []}
+    for entry in entries:
+        source = entry.get("source")
+        if source == "plugin-bundled-skill" and entry.get("type") == "skill":
+            children_by_dir["skills"].append(entry)
+        elif source == "plugin-bundled-mcp" and entry.get("type") == "mcp":
+            children_by_dir["mcp"].append(entry)
+
+    for type_dir, children in children_by_dir.items():
+        index_path = os.path.join(CATALOG_DIR, type_dir, "index.json")
+        original = load_index(index_path)
+        existing = [
+            e for e in original
+            if e.get("source") not in ("plugin-bundled-skill", "plugin-bundled-mcp")
+        ]
+        if not children:
+            if len(existing) != len(original):
+                save_index(existing, index_path)
+            continue
+
+        child_ids = {
+            e.get("id") for e in children if isinstance(e.get("id"), str) and e.get("id")
+        }
+        merged = [e for e in existing if e.get("id") not in child_ids]
+        merged.extend(children)
+        save_index(merged, index_path)
+        log.info(
+            "post-merge: synced %d synthesized plugin children into %s/index.json",
+            len(children),
+            type_dir,
+        )
 
 
 def overlay_curated_fields(entries: list) -> list:
@@ -512,8 +941,12 @@ def merge(skip_enrichment: bool = False):
             f"from mcp_registry_published_at"
         )
 
+    skip_pushed_at_backfill = (
+        os.environ.get("MERGE_INDEX_SKIP_PUSHED_AT_BACKFILL", "").strip().lower()
+        == "true"
+    )
     still_missing = [e for e in deduped if not e.get("pushed_at") and e.get("source_url", "").startswith("https://github.com/")]
-    if still_missing:
+    if still_missing and not skip_pushed_at_backfill:
         logger.info(f"Backfilling pushed_at for {len(still_missing)} new entries via GitHub API (overlayed {overlayed} from prior output)")
         filled = 0
         for entry in still_missing:
@@ -522,6 +955,13 @@ def merge(skip_enrichment: bool = False):
                 entry["pushed_at"] = meta["pushed_at"]
                 filled += 1
         logger.info(f"Backfilled pushed_at for {filled}/{len(still_missing)} entries")
+    elif still_missing and skip_pushed_at_backfill:
+        logger.info(
+            "MERGE_INDEX_SKIP_PUSHED_AT_BACKFILL=true: skipped pushed_at "
+            "GitHub API backfill for %d entries (overlayed %d from prior output)",
+            len(still_missing),
+            overlayed,
+        )
     elif overlayed:
         logger.info(f"Overlayed pushed_at for {overlayed} entries from prior output, 0 new API calls")
 
@@ -558,6 +998,8 @@ def merge(skip_enrichment: bool = False):
         deduped = apply_governance(deduped)
     logger.info(f"Governance complete: {len(deduped)} entries after filtering")
 
+    deduped = _prune_invalid_plugin_child_refs(deduped)
+
     # Promote scoring fields to top level for easy consumption by search/browse/recommend.
     # In skip_enrichment mode, evaluation stays empty ({}) so final_score=0,
     # decision="review" — aggregate_enrichment will fill these in later.
@@ -570,6 +1012,14 @@ def merge(skip_enrichment: bool = False):
         else:
             entry["final_score"] = ev.get("final_score", 0)
             entry["decision"] = ev.get("decision", "review")
+
+    # Inherit final_score from the parent plugin for synthesized plugin
+    # children. This MUST run AFTER the promotion loop above: at synthesis
+    # time (_apply_bundled_in_annotations, pre-governance) the parent plugin's
+    # top-level final_score is not computed yet, so the field would be 0/stale.
+    # MVP: bundled children display the parent plugin's score (no separate
+    # eval). Identified by source == plugin-bundled-* + bundled_in.
+    _backfill_bundled_child_final_scores(deduped)
 
     # --- Lifecycle ---
     existing_output = backfill_missing_added_at(existing_output, today=TODAY)
@@ -606,6 +1056,7 @@ def merge(skip_enrichment: bool = False):
     )
 
     output_path = os.path.join(CATALOG_DIR, "index.json")
+    _sync_synthesized_children_to_type_indexes(deduped)
     save_index(deduped, output_path)
 
     # Generate lightweight search index (subset of fields for search/browse/recommend)

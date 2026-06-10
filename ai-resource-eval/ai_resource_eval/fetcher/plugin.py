@@ -100,6 +100,10 @@ class PluginLayout:
     hooks_count: int = 0
     # MCP server names (union of plugin.json inline mcpServers and .mcp.json)
     mcp_server_names: list[str] = field(default_factory=list)
+    # MCP server configs keyed by server name. Only configs with a usable
+    # command or url are included; name-only declarations remain visible in
+    # mcp_server_names but are not enough to synthesize installable children.
+    mcp_server_configs: dict[str, dict[str, Any]] = field(default_factory=dict)
     # True when the repo at this plugin_root looks like a marketplace shell
     # (contains a plugins/ subdir with multiple nested plugins) rather than a
     # single plugin. Sync layer SHALL skip writing an entry when this is True.
@@ -296,7 +300,7 @@ class PluginContentFetcher:
 
         # Hook + MCP signals — content fetches via raw URLs (cached).
         hook_events, hooks_count = self._extract_hooks(repo, ref, plugin_root)
-        mcp_server_names = self._extract_mcp_servers(
+        mcp_server_names, mcp_server_configs = self._extract_mcp_servers(
             repo, ref, plugin_root, plugin_json_path
         )
 
@@ -311,6 +315,7 @@ class PluginContentFetcher:
             hook_events=hook_events,
             hooks_count=hooks_count,
             mcp_server_names=mcp_server_names,
+            mcp_server_configs=mcp_server_configs,
             is_marketplace_repo=False,
         )
 
@@ -527,8 +532,8 @@ class PluginContentFetcher:
         ref: str,
         plugin_root: str,
         plugin_json_path: str,
-    ) -> list[str]:
-        """Merge MCP server names from plugin.json + .mcp.json (sorted, unique).
+    ) -> tuple[list[str], dict[str, dict[str, Any]]]:
+        """Merge MCP servers from plugin.json + .mcp.json.
 
         Source A — ``plugin.json.mcpServers`` when its value is a dict (string
         path values are treated as references and ignored; an empty dict
@@ -538,6 +543,23 @@ class PluginContentFetcher:
         ``{"mcpServers": {"<name>": {...}}}``.
         """
         names: set[str] = set()
+        configs: dict[str, dict[str, Any]] = {}
+
+        def add_servers(value: Any) -> None:
+            if not isinstance(value, dict):
+                return
+            for name, config in value.items():
+                if not isinstance(name, str) or not name:
+                    continue
+                names.add(name)
+                if not isinstance(config, dict):
+                    continue
+                command = config.get("command")
+                url = config.get("url")
+                has_command = isinstance(command, str) and command.strip()
+                has_url = isinstance(url, str) and url.strip()
+                if has_command or has_url:
+                    configs[name] = config
 
         # Source A — plugin.json inline mcpServers (dict only).
         plugin_json_raw = self._fetch_raw(repo, ref, plugin_json_path)
@@ -548,8 +570,7 @@ class PluginContentFetcher:
                 payload = None
             if isinstance(payload, dict):
                 inline = payload.get("mcpServers")
-                if isinstance(inline, dict):
-                    names.update(k for k in inline.keys() if isinstance(k, str))
+                add_servers(inline)
 
         # Source B — .mcp.json at plugin root.
         dot_mcp_path = self._plugin_relative(plugin_root, _DOT_MCP_JSON_PATH)
@@ -561,10 +582,9 @@ class PluginContentFetcher:
                 payload = None
             if isinstance(payload, dict):
                 servers = payload.get("mcpServers", payload)
-                if isinstance(servers, dict):
-                    names.update(k for k in servers.keys() if isinstance(k, str))
+                add_servers(servers)
 
-        return sorted(names)
+        return sorted(names), {k: configs[k] for k in sorted(configs)}
 
     def _detect_marketplace(
         self,
