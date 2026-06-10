@@ -163,7 +163,10 @@ def test_parse_marketplace_json_basic(monkeypatch, tmp_path):
 
 
 def test_parse_everything_claude_code_source(monkeypatch, tmp_path):
-    """The ECC marketplace source produces an installable ecc plugin entry."""
+    """The ECC marketplace source syncs non-collapsed plugins; the "ecc"
+    plugin itself is collapsed via the plugin_sources.json plugins list (the
+    canonical entry comes from the affaan-m/ECC repo listing), so it must NOT
+    appear in the output."""
     marketplace = _marketplace_payload(
         [
             {
@@ -174,6 +177,15 @@ def test_parse_everything_claude_code_source(monkeypatch, tmp_path):
                 "source": "./",
                 "category": "workflow",
                 "tags": ["agents", "skills", "hooks"],
+            },
+            {
+                "name": "operator",
+                "version": "1.0.0",
+                "description": "Standalone ECC operator plugin",
+                "author": {"name": "Affaan Mustafa"},
+                "source": "./plugins/operator",
+                "category": "workflow",
+                "tags": ["agents"],
             },
         ]
     )
@@ -193,15 +205,14 @@ def test_parse_everything_claude_code_source(monkeypatch, tmp_path):
     with open(output_path, encoding="utf-8") as f:
         entries = json.load(f)
 
-    assert len(entries) == 1
-    ecc = entries[0]
-    assert ecc["id"] == "ecc-ecc"
-    assert ecc["name"] == "ecc"
-    assert ecc["source"] == "everything-claude-code"
-    assert ecc["source_priority"] == 900
-    assert ecc["source_url"] == "https://github.com/affaan-m/ECC/tree/main/"
-    assert ecc["install"]["plugin_name"] == "ecc"
-    assert ecc["install"]["marketplace_repo"] == "affaan-m/ECC"
+    # "ecc" collapsed by plugin_sources.json; only "operator" survives.
+    assert [e["name"] for e in entries] == ["operator"]
+    operator = entries[0]
+    assert operator["id"] == "ecc-operator"
+    assert operator["source"] == "everything-claude-code"
+    assert operator["source_priority"] == 900
+    assert operator["install"]["plugin_name"] == "operator"
+    assert operator["install"]["marketplace_repo"] == "affaan-m/ECC"
 
 
 # ---------------------------------------------------------------------------
