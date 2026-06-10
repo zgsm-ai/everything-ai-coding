@@ -209,7 +209,11 @@ def compute_bundle(tree_paths: list[str], subdir: str, plugin_name: str) -> dict
     - agents:   `<subdir>/agents/<file>.md`        → count
     """
     bundle = _empty_bundle()
-    skill_names: list[str] = []
+    # name -> repo-relative SKILL.md path. merge_index orphan synthesis needs
+    # the path (position-aligned with skills_namespaces) plus source_repo/ref
+    # to materialize each bundled skill as a standalone catalog entry; without
+    # them cospowers children silently stay un-synthesized (warn + None).
+    skill_paths_by_name: dict[str, str] = {}
     command_files: set[str] = set()
     agent_files: set[str] = set()
     skills_prefix = f"{subdir}/skills/"
@@ -221,7 +225,7 @@ def compute_bundle(tree_paths: list[str], subdir: str, plugin_name: str) -> dict
             rel = path[len(skills_prefix):]
             name = rel.split("/", 1)[0]
             if name:
-                skill_names.append(name)
+                skill_paths_by_name.setdefault(name, path)
         elif path.startswith(commands_prefix):
             rel = path[len(commands_prefix):]
             top = rel.split("/", 1)[0]
@@ -233,9 +237,14 @@ def compute_bundle(tree_paths: list[str], subdir: str, plugin_name: str) -> dict
             if top:
                 agent_files.add(top)
 
-    skill_names = sorted(set(skill_names))
+    skill_names = sorted(skill_paths_by_name)
     bundle["skills_count"] = len(skill_names)
     bundle["skills_namespaces"] = [f"{plugin_name}:{s}" for s in skill_names]
+    # Position-aligned with skills_namespaces (same sorted order).
+    bundle["skill_paths"] = [skill_paths_by_name[s] for s in skill_names]
+    bundle["source_repo"] = CSC_REPO
+    bundle["source_ref"] = CSC_BRANCH
+    bundle["plugin_root"] = subdir
     bundle["commands_count"] = len(command_files)
     bundle["agents_count"] = len(agent_files)
     return bundle
