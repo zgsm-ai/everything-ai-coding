@@ -1,6 +1,6 @@
 # 💡 Prompts
 
-> 610 Developer-focused prompt templates for common coding tasks.
+> 613 Developer-focused prompt templates for common coding tasks.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=prompt)
 
@@ -57,7 +57,7 @@
 | 45 | [Code Review Professional](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#code-review-professional) | A prompt that instructs an AI to act as a professional code review expert, analy... | prompts.chat | 🟢 Active | 92 | 2026-05-09 | tooling | `for-devs` |
 | 46 | [App Feature - Focused Readiness Audit](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#app-feature---focused-readiness-audit) | A prompt template for an AI to conduct a structured readiness audit of a softwar... | prompts.chat | 🟢 Active | 92 | 2026-05-12 | tooling | — |
 | 47 | [Modern Web Development Assistant](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#modern-web-development-assistant) | A prompt for acting as a full-stack web developer to generate clean, optimized c... | prompts.chat | 🟢 Active | 92 | 2026-05-18 | database | `react`, `javascript`, `java` |
-| 48 | [iOS Localization File Translation](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#ios-localization-file-translation) | An AI prompt for accurately translating iOS Localizable.strings files while pres... | prompts.chat | 🟢 Active | 92 | 2026-06-08 | mobile | `ios-development`, `localization`, `prompt-engineering` |
+| 48 | [iOS Localization File Translation](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#ios-localization-file-translation) | An AI prompt for accurately translating iOS Localizable.strings files while pres... | prompts.chat | 🟢 Active | 92 | 2026-06-08 | mobile | — |
 | 49 | [White-Box Web Application Security Audit & Penetration Testing Prompt for AI Code Editors (Cursor, Windsurf, Antigravity)](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#white-box-web-application-security-audit--penetration-testing-prompt-for-ai-code-editors-cursor-windsurf-antigravity) | A structured prompt for AI code editors to perform a white-box security audit on... | prompts.chat | 🟢 Active | 90 | 2026-05-12 | security | — |
 | 50 | [Kubernetes & Docker RPG Learning Engine](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#kubernetes--docker-rpg-learning-engine) | A gamified RPG-style prompt engine for learning Kubernetes and Docker through mi... | prompts.chat | 🟢 Active | 90 | 2026-05-12 | devops | `docker`, `kubernetes` |
 | 51 | [SaaS Security Audit - OWASP Top 10 & Multi-Tenant Isolation Review](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#saas-security-audit---owasp-top-10--multi-tenant-isolation-review) | A structured prompt for auditing a SaaS dashboard backend against OWASP Top 10 a... | prompts.chat | 🟢 Active | 90 | 2026-05-12 | security | `rest-api` |
@@ -114,7 +114,7 @@
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>Comprehensive repository analysis</strong> (163.4k★) — A structured AI prompt template for exhaustive codebase anal...</summary>
+<summary>⭐ <strong>Comprehensive repository analysis</strong> (163.5k★) — A structured AI prompt template for exhaustive codebase anal...</summary>
 
 A structured AI prompt template for exhaustive codebase analysis, bug detection, prioritization, fix implementation, and documentation.
 
@@ -127,7 +127,7 @@ A structured AI prompt template for exhaustive codebase analysis, bug detection,
 </details>
 
 <details>
-<summary>⭐ <strong>Frontend Developer Skill</strong> (163.4k★) — A detailed prompt template defining an AI persona as an elit...</summary>
+<summary>⭐ <strong>Frontend Developer Skill</strong> (163.5k★) — A detailed prompt template defining an AI persona as an elit...</summary>
 
 A detailed prompt template defining an AI persona as an elite frontend developer specializing in modern JS frameworks, responsive design, and performa
 
@@ -140,7 +140,7 @@ A detailed prompt template defining an AI persona as an elite frontend developer
 </details>
 
 <details>
-<summary>⭐ <strong>Backend Architect</strong> (163.4k★) — An AI agent prompt for designing scalable, secure backend sy...</summary>
+<summary>⭐ <strong>Backend Architect</strong> (163.5k★) — An AI agent prompt for designing scalable, secure backend sy...</summary>
 
 An AI agent prompt for designing scalable, secure backend systems, covering API design, databases, and DevOps.
 
@@ -153,7 +153,7 @@ An AI agent prompt for designing scalable, secure backend systems, covering API 
 </details>
 
 <details>
-<summary>⭐ <strong>Frontend Developer</strong> (163.4k★) — A detailed prompt to configure an AI agent as a frontend dev...</summary>
+<summary>⭐ <strong>Frontend Developer</strong> (163.5k★) — A detailed prompt to configure an AI agent as a frontend dev...</summary>
 
 A detailed prompt to configure an AI agent as a frontend development specialist for React, Vue, Angular, focusing on UI, performance, and accessibilit
 
@@ -166,7 +166,7 @@ A detailed prompt to configure an AI agent as a frontend development specialist 
 </details>
 
 <details>
-<summary>⭐ <strong>Mobile App Builder</strong> (163.4k★) — An expert AI agent prompt for building high-performance nati...</summary>
+<summary>⭐ <strong>Mobile App Builder</strong> (163.5k★) — An expert AI agent prompt for building high-performance nati...</summary>
 
 An expert AI agent prompt for building high-performance native and cross-platform mobile applications with React Native, Swift, and Kotlin.
 
@@ -179,7 +179,7 @@ An expert AI agent prompt for building high-performance native and cross-platfor
 </details>
 
 <details>
-<summary>⭐ <strong>Rapid Prototyper</strong> (163.4k★) — An AI agent prompt for rapidly building application prototyp...</summary>
+<summary>⭐ <strong>Rapid Prototyper</strong> (163.5k★) — An AI agent prompt for rapidly building application prototyp...</summary>
 
 An AI agent prompt for rapidly building application prototypes, MVPs, and demos within a 6-day cycle using modern web stacks.
 
@@ -192,7 +192,7 @@ An AI agent prompt for rapidly building application prototypes, MVPs, and demos 
 </details>
 
 <details>
-<summary>⭐ <strong>Test Automation Expert</strong> (163.4k★) — An AI agent prompt for writing, running, analyzing, and fixi...</summary>
+<summary>⭐ <strong>Test Automation Expert</strong> (163.5k★) — An AI agent prompt for writing, running, analyzing, and fixi...</summary>
 
 An AI agent prompt for writing, running, analyzing, and fixing tests after code changes to ensure suite integrity.
 
@@ -205,7 +205,7 @@ An AI agent prompt for writing, running, analyzing, and fixing tests after code 
 </details>
 
 <details>
-<summary>⭐ <strong>Production-Grade PostHog Integration for Next.js 15 (App Router)</strong> (163.4k★) — A detailed prompt for generating production-grade PostHog an...</summary>
+<summary>⭐ <strong>Production-Grade PostHog Integration for Next.js 15 (App Router)</strong> (163.5k★) — A detailed prompt for generating production-grade PostHog an...</summary>
 
 A detailed prompt for generating production-grade PostHog analytics integration code in a Next.js 15 App Router SaaS application.
 
@@ -218,7 +218,7 @@ A detailed prompt for generating production-grade PostHog analytics integration 
 </details>
 
 <details>
-<summary>⭐ <strong>Python Unit Test Generator — Comprehensive, Coverage-Mapped & Production-Ready</strong> (163.4k★) — A detailed prompt for generating comprehensive, coverage-map...</summary>
+<summary>⭐ <strong>Python Unit Test Generator — Comprehensive, Coverage-Mapped & Production-Ready</strong> (163.5k★) — A detailed prompt for generating comprehensive, coverage-map...</summary>
 
 A detailed prompt for generating comprehensive, coverage-mapped Python unit test suites using pytest and best practices.
 
@@ -231,7 +231,7 @@ A detailed prompt for generating comprehensive, coverage-mapped Python unit test
 </details>
 
 <details>
-<summary>⭐ <strong>Dead Code Surgeon - Phased Codebase Audit & Cleanup Roadmap</strong> (163.4k★) — A structured prompt for an AI to conduct a phased dead-code ...</summary>
+<summary>⭐ <strong>Dead Code Surgeon - Phased Codebase Audit & Cleanup Roadmap</strong> (163.5k★) — A structured prompt for an AI to conduct a phased dead-code ...</summary>
 
 A structured prompt for an AI to conduct a phased dead-code audit, triage findings, and generate a cleanup roadmap.
 
@@ -255,4 +255,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-08*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-11*

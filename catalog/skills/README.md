@@ -1,6 +1,6 @@
 # 🎯 Skills
 
-> 1859 Reusable agent capabilities and workflows for AI coding assistants.
+> 3886 Reusable agent capabilities and workflows for AI coding assistants.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
@@ -81,7 +81,7 @@
 | 69 | [convex](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/convex) | A comprehensive expert guide for Convex, a reactive backend platform with TypeSc... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | backend | `react`, `typescript` |
 | 70 | [copilot-sdk](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/copilot-sdk) | An SDK for building applications that programmatically interact with GitHub Copi... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | backend | `python`, `go`, `nodejs` |
 | 71 | [data-structure-protocol](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/data-structure-protocol) | A protocol for AI agents to maintain persistent structural memory of codebases v... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | database | — |
-| 72 | [deploy-to-vercel](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/deploy-to-vercel) | A skill for AI agents to deploy projects to Vercel via CLI, git, or no-auth scri... | Antigravity Skills | 🟢 Active | 95 | 2026-06-08 | devops | `vercel-deployment`, `cli-tool`, `git-integration` |
+| 72 | [deploy-to-vercel](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/deploy-to-vercel) | A skill for AI agents to deploy projects to Vercel via CLI, git, or no-auth scri... | Antigravity Skills | 🟢 Active | 95 | 2026-06-08 | devops | — |
 | 73 | [evolution](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/evolution) | A self-evolution system for the makepad-skills library, enabling continuous impr... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | — |
 | 74 | [expo-dev-client](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/expo-dev-client) | Guide for building and distributing Expo development clients locally or via Test... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | mobile | — |
 | 75 | [expo-tailwind-setup](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/expo-tailwind-setup) | A guide for setting up Tailwind CSS v4 in Expo with react-native-css and NativeW... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | mobile | `react`, `tailwind`, `css` |
@@ -114,7 +114,7 @@
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>claude-api</strong> (147.8k★) — Comprehensive skill for building, debugging, and optimizing ...</summary>
+<summary>⭐ <strong>claude-api</strong> (149.1k★) — Comprehensive skill for building, debugging, and optimizing ...</summary>
 
 Comprehensive skill for building, debugging, and optimizing Claude API/Anthropic SDK applications with prompt caching and model migration support.
 
@@ -129,7 +129,7 @@ Files: `skills/claude-api/`
 </details>
 
 <details>
-<summary>⭐ <strong>docx</strong> (147.8k★) — A skill for programmatically creating, reading, editing, and...</summary>
+<summary>⭐ <strong>docx</strong> (149.1k★) — A skill for programmatically creating, reading, editing, and...</summary>
 
 A skill for programmatically creating, reading, editing, and manipulating Word (.docx) files using JavaScript and XML manipulation.
 
@@ -144,7 +144,7 @@ Files: `skills/docx/`
 </details>
 
 <details>
-<summary>⭐ <strong>Writing Hookify Rules</strong> (131.0k★) — A skill for creating hookify rules that monitor coding patte...</summary>
+<summary>⭐ <strong>Writing Hookify Rules</strong> (131.6k★) — A skill for creating hookify rules that monitor coding patte...</summary>
 
 A skill for creating hookify rules that monitor coding patterns in Claude Code and trigger warnings or blocks.
 
@@ -158,7 +158,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Hook Development</strong> (131.0k★) — A comprehensive guide for developing event-driven hooks in C...</summary>
+<summary>⭐ <strong>Hook Development</strong> (131.6k★) — A comprehensive guide for developing event-driven hooks in C...</summary>
 
 A comprehensive guide for developing event-driven hooks in Claude Code plugins to validate, modify, and automate AI-assisted coding workflows.
 
@@ -172,7 +172,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>MCP Integration</strong> (131.0k★) — Comprehensive guide for integrating Model Context Protocol (...</summary>
+<summary>⭐ <strong>MCP Integration</strong> (131.6k★) — Comprehensive guide for integrating Model Context Protocol (...</summary>
 
 Comprehensive guide for integrating Model Context Protocol (MCP) servers into Claude Code plugins to connect external services as tools.
 
@@ -186,7 +186,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Plugin Settings</strong> (131.0k★) — A skill pattern for Claude Code plugins to store per-project...</summary>
+<summary>⭐ <strong>Plugin Settings</strong> (131.6k★) — A skill pattern for Claude Code plugins to store per-project...</summary>
 
 A skill pattern for Claude Code plugins to store per-project configuration using YAML frontmatter in .local.md files.
 
@@ -200,7 +200,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Plugin Structure</strong> (131.0k★) — A skill for creating and organizing Claude Code plugins with...</summary>
+<summary>⭐ <strong>Plugin Structure</strong> (131.6k★) — A skill for creating and organizing Claude Code plugins with...</summary>
 
 A skill for creating and organizing Claude Code plugins with standardized directory structure and manifest configuration.
 
@@ -214,7 +214,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Skill Development</strong> (131.0k★) — A comprehensive guide for creating modular skills for Claude...</summary>
+<summary>⭐ <strong>Skill Development</strong> (131.6k★) — A comprehensive guide for creating modular skills for Claude...</summary>
 
 A comprehensive guide for creating modular skills for Claude Code plugins, covering structure, best practices, and progressive disclosure.
 
@@ -228,7 +228,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>skill-creator</strong> (147.8k★) — A comprehensive skill for creating, testing, and optimizing ...</summary>
+<summary>⭐ <strong>skill-creator</strong> (149.1k★) — A comprehensive skill for creating, testing, and optimizing ...</summary>
 
 A comprehensive skill for creating, testing, and optimizing AI assistant skills through an iterative workflow with evaluation and benchmarking.
 
@@ -243,7 +243,7 @@ Files: `skills/skill-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>xlsx</strong> (147.8k★) — A Python skill for programmatically creating, editing, and a...</summary>
+<summary>⭐ <strong>xlsx</strong> (149.1k★) — A Python skill for programmatically creating, editing, and a...</summary>
 
 A Python skill for programmatically creating, editing, and analyzing Excel and tabular files with strict formatting and formula standards.
 
@@ -269,4 +269,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-08*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-11*
