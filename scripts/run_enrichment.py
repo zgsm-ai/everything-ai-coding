@@ -130,6 +130,15 @@ def _build_arg_parser() -> argparse.ArgumentParser:
         default=DEFAULT_BUDGET_BATCH_SIZE,
         help=f"Mini-batch size for budget enforcement (default {DEFAULT_BUDGET_BATCH_SIZE}).",
     )
+    parser.add_argument(
+        "--remap-all",
+        action="store_true",
+        help="Ignore the checkpoint and treat ALL entries as pending. Every entry "
+        "is re-emitted (served from the eval cache, so no new LLM calls) and "
+        "re-mapped by aggregate_enrichment. Use this to backfill newly added "
+        "map_result_to_entry fields (e.g. effective_score / content_quality) onto "
+        "stable entries that would otherwise never be re-evaluated.",
+    )
     return parser
 
 
@@ -300,6 +309,15 @@ def main(argv: list[str] | None = None) -> int:
     )
     completed_set = set(completed_ids)
     remaining_set = set(remaining_ids)
+
+    # --remap-all backfill: re-process every entry (served from the eval cache,
+    # no new LLM calls) so stable entries that are already "completed" still flow
+    # through map_result_to_entry and gain newly-added fields. Quarantine/deferred
+    # filtering below still applies; the checkpoint is rebuilt as entries
+    # re-complete, so subsequent runs return to normal incremental behavior.
+    if args.remap_all:
+        remaining_set = set(all_ids)
+        completed_set = set()
 
     # Classify what got dropped so we can surface it in the artifact.
     quarantined_ids, _deferred_at_load = _classify_skipped(

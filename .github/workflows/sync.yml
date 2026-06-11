@@ -13,6 +13,14 @@ on:
         options:
           - "true"
           - "false"
+      remap_all:
+        description: "Re-map ALL entries from the eval cache (no new LLM calls) to backfill newly added evaluation/health fields onto stable entries."
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
 
 permissions:
   contents: read
@@ -371,7 +379,8 @@ jobs:
         run: |
           python -u scripts/run_enrichment.py \
             --type ${{ matrix.type }} \
-            --max-wall-seconds 19800
+            --max-wall-seconds 19800 \
+            ${{ github.event.inputs.remap_all == 'true' && '--remap-all' || '' }}
 
       # always() 保证脚本预算 / 异常退出仍能上传 partial artifact 给 aggregate 兜底。
       - name: Upload enrichment artifact
