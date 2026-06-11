@@ -98,6 +98,19 @@ SOURCE_REGISTRY: dict[str, dict] = {
         "type": "Skills",
         "trust": 4,
     },
+    "claude-office-skills": {
+        "label": "claude-office-skills",
+        "url": "https://github.com/claude-office-skills/skills",
+        "type": "Skills",
+        "trust": 3,
+    },
+    "composio-office": {
+        # ComposioHQ/awesome-claude-skills 原创子集（文档/办公），仓库无 SPDX license
+        "label": "awesome-claude-skills",
+        "url": "https://github.com/ComposioHQ/awesome-claude-skills",
+        "type": "Skills",
+        "trust": 2,
+    },
     # ── Rules ──
     "awesome-cursorrules": {
         "label": "awesome-cursorrules",

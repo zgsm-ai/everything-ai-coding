@@ -365,6 +365,184 @@ def parse_vasilyu_skills() -> list[dict[str, Any]]:
     return entries
 
 
+# === Office / document skill sources (Tier 1, full inclusion) ===
+# Both repos hang <skill-dir>/SKILL.md directly at the repo root (no skills/
+# prefix). Entries are forced to category="documentation" so the whole source
+# clusters under the store's "文档类" bucket regardless of per-skill topic.
+
+# claude-office-skills/skills root dirs that are scaffolding / non-skill helpers
+# or overlap with anthropics/skills (already in catalog via anthropics-skills).
+CLAUDE_OFFICE_EXCLUDE_DIRS = {
+    "_template",
+    "_shared",
+    "agents",
+    "mcp-servers",
+    "official-skills",
+    "scripts",
+    "test-cases",
+}
+
+# ComposioHQ/awesome-claude-skills root dirs to drop: copies of anthropics/skills
+# (already in catalog) + composio app-connector plumbing (not document/office).
+COMPOSIO_OFFICE_EXCLUDE_DIRS = {
+    # verbatim copies of anthropics/skills — would duplicate anthropics-skills
+    "artifacts-builder",
+    "brand-guidelines",
+    "canvas-design",
+    "document-skills",
+    "internal-comms",
+    "mcp-builder",
+    "skill-creator",
+    "slack-gif-creator",
+    "theme-factory",
+    "webapp-testing",
+    # composio app-connector plumbing, not office/document skills
+    "composio-skills",
+    "connect",
+    "connect-apps",
+    "connect-apps-plugin",
+    "skill-share",
+    "template-skill",
+}
+
+
+def _parse_office_skills(
+    repo: str,
+    branch: str,
+    source: str,
+    id_suffix: str,
+    exclude_dirs: set[str],
+    extra_tags: list[str],
+    dedupe_against: set[str] | None = None,
+) -> list[dict[str, Any]]:
+    """Shared Tier 1 driver for the two office/document skill sources.
+
+    Discovers root-level ``<dir>/SKILL.md`` via the Tree API, parses YAML
+    frontmatter (dir-name fallback), and forces ``category="documentation"``.
+    Skips dirs in ``exclude_dirs`` (and any ``_``/``.`` prefixed dir), nested
+    ``a/b/SKILL.md`` (e.g. ComposioHQ's 832 auto-generated composio-skills/*),
+    and dirs already collected by an earlier source (``dedupe_against`` = set of
+    kebab dir names, lets claude-office-skills win cross-repo name collisions).
+    """
+    skill_paths = list_repo_files(repo, branch, pattern="SKILL.md")
+    skill_dirs: dict[str, str] = {}
+    for path in skill_paths:
+        parts = path.split("/")
+        # Root-level single segment only: "<dir>/SKILL.md".
+        if len(parts) != 2 or parts[1].upper() != "SKILL.MD":
+            continue
+        dir_name = parts[0]
+        if (
+            dir_name in exclude_dirs
+            or dir_name.startswith("_")
+            or dir_name.startswith(".")
+        ):
+            continue
+        skill_dirs[dir_name] = path
+
+    if not skill_dirs:
+        logger.warning(f"No root-level SKILL.md found in {repo} (branch {branch})")
+        return []
+
+    repo_info = github_api(f"repos/{repo}")
+    stars = repo_info.get("stargazers_count", 0) if repo_info else 0
+    pushed_at = repo_info.get("pushed_at") if repo_info else None
+
+    dedupe_against = dedupe_against or set()
+    entries: list[dict[str, Any]] = []
+    fetch_failures = 0
+    deduped = 0
+    for dir_name, skill_path in sorted(skill_dirs.items()):
+        if to_kebab_case(dir_name) in dedupe_against:
+            deduped += 1
+            continue
+
+        skill_md = fetch_raw_content(repo, skill_path, branch, quiet_404=True)
+        if not skill_md:
+            fetch_failures += 1
+            continue
+
+        name = dir_name
+        description = f"Office skill: {dir_name}"
+        fm_match = re.match(r"^---\s*\n(.*?)\n---", skill_md, re.DOTALL)
+        if fm_match:
+            frontmatter = fm_match.group(1)
+            name_match = re.search(r'name:\s*"?([^"\n]+)"?', frontmatter)
+            desc_match = re.search(r'description:\s*"?([^"\n]+)"?', frontmatter)
+            if name_match:
+                name = name_match.group(1).strip()
+            if desc_match:
+                description = desc_match.group(1).strip()
+
+        install: dict[str, Any] = {
+            "method": "git_clone",
+            "repo": f"https://github.com/{repo}.git",
+            "files": [f"{dir_name}/"],
+        }
+        # download_catalog defaults branch to "main"; non-main repos must say so
+        # or the Tree cache (keyed by repo+branch) 404s on every file.
+        if branch != "main":
+            install["branch"] = branch
+
+        entries.append(
+            {
+                "id": f"{to_kebab_case(dir_name)}{id_suffix}",
+                "name": name,
+                "type": "skill",
+                "description": description,
+                "source_url": f"https://github.com/{repo}/tree/{branch}/{dir_name}",
+                "stars": stars,
+                "pushed_at": pushed_at,
+                "category": "documentation",
+                "tags": extract_tags(name, description) + extra_tags,
+                "tech_stack": [],
+                "install": install,
+                "source": source,
+                "last_synced": TODAY,
+            }
+        )
+
+    logger.info(
+        f"Parsed {len(entries)} office skills from {repo} "
+        f"({fetch_failures} fetch failures, {deduped} cross-source dups skipped, "
+        f"stars={stars})"
+    )
+    return entries
+
+
+def parse_claude_office_skills() -> list[dict[str, Any]]:
+    """Tier 1: claude-office-skills/skills (MIT) — root-level office/doc skills."""
+    return _parse_office_skills(
+        repo="claude-office-skills/skills",
+        branch="main",
+        source="claude-office-skills",
+        id_suffix="-offskill",
+        exclude_dirs=CLAUDE_OFFICE_EXCLUDE_DIRS,
+        extra_tags=["office", "documentation"],
+    )
+
+
+def parse_composio_office_skills(
+    dedupe_against: set[str] | None = None,
+) -> list[dict[str, Any]]:
+    """Tier 1: ComposioHQ/awesome-claude-skills original office subset.
+
+    Excludes anthropics/skills copies + composio app-connector plumbing, and any
+    skill already collected by parse_claude_office_skills. Repo default branch is
+    ``master`` and carries no SPDX license, so entries are tagged
+    ``license-unknown`` (provenance回链 via ``source_url``).
+    """
+    return _parse_office_skills(
+        repo="ComposioHQ/awesome-claude-skills",
+        branch="master",
+        source="composio-office",
+        id_suffix="-coskill",
+        exclude_dirs=COMPOSIO_OFFICE_EXCLUDE_DIRS,
+        extra_tags=["office", "documentation", "license-unknown"],
+        dedupe_against=dedupe_against,
+    )
+
+
 def parse_anthropic_skills() -> list[dict[str, Any]]:
     """Parse anthropics/skills repository."""
     data = github_api("repos/anthropics/skills/contents/skills")
@@ -755,6 +933,12 @@ def sync():
     tier1_entries.extend(parse_ai_agent_skills())
     tier1_entries.extend(parse_antigravity_skills())
     tier1_entries.extend(parse_vasilyu_skills())
+    # Office/document专源 (full inclusion, category forced to documentation).
+    # claude-office-skills wins cross-repo name collisions over composio-office.
+    office_entries = parse_claude_office_skills()
+    tier1_entries.extend(office_entries)
+    office_dirs = {e["id"][: -len("-offskill")] for e in office_entries}
+    tier1_entries.extend(parse_composio_office_skills(office_dirs))
     logger.info(f"Tier 1 total: {len(tier1_entries)} skills")
 
     # === Tier 2: Registry discovery + OpenClaw + deterministic filtering ===

@@ -118,6 +118,9 @@ class SyncSkillsLifecycleTests(unittest.TestCase):
     @patch("sync_skills.deterministic_tier2_filter", return_value=[])
     @patch("sync_skills.discover_skills", return_value=[])
     @patch("sync_skills.parse_openclaw_skills", return_value=[])
+    @patch("sync_skills.parse_composio_office_skills", return_value=[])
+    @patch("sync_skills.parse_claude_office_skills", return_value=[])
+    @patch("sync_skills.parse_vasilyu_skills", return_value=[])
     @patch("sync_skills.parse_antigravity_skills", return_value=[])
     @patch("sync_skills.parse_ai_agent_skills", return_value=[])
     @patch("sync_skills.parse_anthropic_skills")
@@ -126,6 +129,9 @@ class SyncSkillsLifecycleTests(unittest.TestCase):
         mock_anthropic,
         mock_ai_agent,
         mock_antigravity,
+        mock_vasilyu,
+        mock_claude_office,
+        mock_composio_office,
         mock_openclaw,
         mock_discover,
         mock_tier2,
