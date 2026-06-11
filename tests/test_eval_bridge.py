@@ -402,3 +402,77 @@ class TestResolveTaskName:
         for t in ("mcp", "skill", "rule", "prompt"):
             config = load_task_config(resolve_task_name(t))
             assert config is not None
+
+
+class TestBlendDerivedHealth:
+    """effective_score / content_quality / excluded_signals / manifest axis are
+    derived in map_result_to_entry from the blend identity
+    ``final = α·llm + (1-α)·health`` (α=0.85), so downstream consumers display a
+    self-consistent breakdown instead of re-porting the scoring engine."""
+
+    @staticmethod
+    def _result(**over):
+        r = {
+            "metrics": {
+                "coding_relevance": {"score": 4}, "doc_completeness": {"score": 4},
+                "desc_accuracy": {"score": 5}, "writing_quality": {"score": 4},
+                "specificity": {"score": 4}, "install_clarity": {"score": 4},
+            },
+            "health": {"freshness": 100.0, "popularity": 100.0, "source_trust": 40.0},
+            "llm_score": 83.0,
+            "final_score": 80.407,  # 0.85*83 + 0.15*65.71
+            "decision": "accept", "star_weight": 0.0,
+            "model_id": "m", "rubric_version": "v", "evaluated_at": "t",
+        }
+        r.update(over)
+        return r
+
+    def test_skill_star_noise(self):
+        from eval_bridge import map_result_to_entry
+
+        entry = {"id": "azure", "type": "skill", "pushed_at": "2026-05-09T00:00:00Z"}
+        map_result_to_entry(entry, self._result())
+        assert entry["evaluation"]["content_quality"] == 83
+        assert entry["health"]["effective_score"] == 66  # round((80.407-70.55)/0.15)
+        assert entry["health"]["excluded_signals"] == ["popularity"]
+        assert entry["health"]["score"] == 80  # simple-mean radar unchanged
+        assert "manifest_completeness" not in entry["health"]["signals"]
+
+    def test_plugin_manifest_axis(self):
+        from eval_bridge import map_result_to_entry
+
+        entry = {"id": "sp", "type": "plugin", "pushed_at": "2026-06-09T00:00:00Z"}
+        result = self._result(
+            metrics={
+                "coding_relevance": {"score": 5}, "doc_completeness": {"score": 4},
+                "desc_accuracy": {"score": 5}, "writing_quality": {"score": 5},
+                "specificity": {"score": 5},
+            },
+            health={"freshness": 100.0, "popularity": 100.0, "source_trust": 100.0,
+                    "manifest_completeness": 70.0},
+            llm_score=94.0, final_score=94.45, star_weight=1.0,
+        )
+        map_result_to_entry(entry, result)
+        assert entry["evaluation"]["content_quality"] == 94
+        assert entry["health"]["effective_score"] == 97  # (94.45-79.9)/0.15
+        assert entry["health"]["excluded_signals"] == []
+        assert entry["health"]["signals"]["manifest_completeness"] == 70
+
+    def test_missing_pushed_at_excludes_freshness(self):
+        from eval_bridge import map_result_to_entry
+
+        entry = {"id": "x", "type": "skill", "pushed_at": None}
+        map_result_to_entry(entry, self._result(star_weight=1.0))
+        assert entry["health"]["excluded_signals"] == ["freshness"]
+
+    def test_health_only_has_no_content_quality(self):
+        from eval_bridge import map_result_to_entry
+
+        entry = {"id": "ho", "type": "plugin", "pushed_at": "2026-06-09T00:00:00Z"}
+        map_result_to_entry(entry, {
+            "metrics": {}, "llm_score": None, "final_score": 100.0,
+            "health": {"freshness": 100.0, "popularity": 100.0,
+                       "source_trust": 100.0, "manifest_completeness": 100.0},
+        })
+        assert "content_quality" not in entry["evaluation"]
+        assert entry["health"]["effective_score"] == 100  # final == health

@@ -602,6 +602,14 @@ def map_result_to_entry(entry: dict[str, Any], result: dict[str, Any] | None) ->
     evaluation["rubric_version"] = result.get("rubric_version")
     evaluation["evaluated_at"] = result.get("evaluated_at")
 
+    # content_quality: the LLM-only weighted subtotal (内容质量) — the α term of
+    # the blend `final = α·llm + (1-α)·health`. Persisted so consumers display it
+    # directly instead of re-deriving it from the metric dimensions with the
+    # wrong (per-task) weights.
+    llm_score = result.get("llm_score")
+    if llm_score is not None:
+        evaluation["content_quality"] = round(llm_score)
+
     entry["evaluation"] = evaluation
 
     # ── Map enrichment fields ──────────────────────────────────────────
@@ -665,16 +673,47 @@ def map_result_to_entry(entry: dict[str, Any], result: dict[str, Any] | None) ->
         else:
             freshness_label = "abandoned"
 
+        # effective_score: the (1-α) blend term — the weighted + star-routing
+        # redistributed health the final_score ACTUALLY uses, distinct from the
+        # simple-mean `score` above. Recovered exactly from the blend identity
+        # `final = α·llm + (1-α)·health` (α=0.85 across all task configs); the
+        # raw, un-rounded final_score and llm_score carry full precision here.
+        # Health-only entries (no llm_score) blend to `final = health`.
+        final_score_raw = result.get("final_score", 0.0) or 0.0
+        alpha = 0.85
+        if llm_score is not None:
+            effective_health = (final_score_raw - alpha * llm_score) / (1.0 - alpha)
+        else:
+            effective_health = final_score_raw
+
+        # excluded_signals: weighted health signals dropped from the blend, so the
+        # UI can explain why effective_score is below the simple-mean radar.
+        excluded_signals: list[str] = []
+        if result.get("star_weight", 1.0) == 0.0:
+            excluded_signals.append("popularity")
+        if entry.get("pushed_at") is None:
+            excluded_signals.append("freshness")
+
+        signals: dict[str, Any] = {
+            "freshness": round(freshness),
+            "popularity": round(popularity),
+            "source_trust": round(source_trust),
+            "install_popularity": round(install_popularity),
+        }
+        # manifest_completeness is a plugin-only signal (plugin.yaml weight 0.10);
+        # surface it (0-100) so the UI can render it, e.g. a 4th health-radar axis.
+        if entry.get("type") == "plugin":
+            signals["manifest_completeness"] = round(
+                raw_health.get("manifest_completeness", 0.0)
+            )
+
         entry["health"] = {
             "score": health_score,
+            "effective_score": round(effective_health),
+            "excluded_signals": excluded_signals,
             "freshness_label": freshness_label,
             "last_commit": entry.get("pushed_at"),
-            "signals": {
-                "freshness": round(freshness),
-                "popularity": round(popularity),
-                "source_trust": round(source_trust),
-                "install_popularity": round(install_popularity),
-            },
+            "signals": signals,
         }
 
     # Top-level promotion (consumed by sort + downstream scripts)
