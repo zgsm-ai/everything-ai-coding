@@ -6,7 +6,7 @@
   <a href="https://github.com/zgsm-ai/everything-ai-coding/stargazers"><img src="https://img.shields.io/github/stars/zgsm-ai/everything-ai-coding?style=flat-square&color=4A90D9" alt="Stars" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zgsm-ai/everything-ai-coding?style=flat-square" alt="License" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/commits/main"><img src="https://img.shields.io/github/last-commit/zgsm-ai/everything-ai-coding?style=flat-square" alt="Last Commit" /></a>
-  <img src="https://img.shields.io/badge/resources-12628-2ECC71?style=flat-square" alt="Resources" />
+  <img src="https://img.shields.io/badge/resources-12632-2ECC71?style=flat-square" alt="Resources" />
 </p>
 
 <p>
@@ -34,18 +34,18 @@ Everything AI Coding 是一个**持续更新的知识库**，从 9+ 个上游源
 <a id="knowledge-base"></a>
 ## 📚 知识库
 
-### [🔌 MCP 服务器](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->7026<!-- README_COUNT_MCP:END --> 个条目
+### [🔌 MCP 服务器](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->7028<!-- README_COUNT_MCP:END --> 个条目
 
 将 AI Agent 连接到外部工具、数据库和服务的 Model Context Protocol 服务器。
 
 <!-- README_TOP5_MCP:START -->
 | 名称 | ⭐ Stars | 评分 | 描述 |
 |------|----------|------|------|
-| [upstash/context7](https://github.com/upstash/context7) | 57.1k | 98 | 实时注入最新库文档和代码示例到 LLM 上下文的 MCP 服务器，消除 API 幻觉。 |
+| [upstash/context7](https://github.com/upstash/context7) | 57.2k | 98 | 实时注入最新库文档和代码示例到 LLM 上下文的 MCP 服务器，消除 API 幻觉。 |
 | [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 43.3k | 98 | 谷歌官方 MCP 服务器，让 AI 编程代理直接操控 Chrome DevTools 进行调试、性能分析和浏览器自动化。 |
 | [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | 33.8k | 98 | 微软官方 MCP 服务器，通过 Playwright 让 AI 精确控制浏览器进行网页自动化和数据抓取。 |
-| [github/github-mcp-server](https://github.com/github/github-mcp-server) | 30.6k | 98 | GitHub 官方 MCP 服务器，让 AI 工具通过 API 深度集成 GitHub，实现仓库管理、Issue/PR 自动化和 CI/C… |
-| [googleapis/genai-toolbox](https://github.com/googleapis/genai-toolbox) | 15.6k | 98 | Google官方MCP服务器，将AI代理和IDE连接到企业数据库，提供预构建工具和自定义框架。 |
+| [googleapis/genai-toolbox](https://github.com/googleapis/genai-toolbox) | 15.6k | 98 | 一款开源MCP服务器，可将AI代理和IDE连接至企业数据库，助力AI辅助编程工作流。 |
+| [MCP Inspector](https://github.com/modelcontextprotocol/inspector) | 9.2k | 98 | 用于通过 Web UI 或 CLI 可视化测试和调试 MCP 服务器的开发者工具。 |
 <!-- README_TOP5_MCP:END -->
 
 [浏览全部 MCP 服务器 →](./catalog/mcp/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=mcp)
@@ -60,10 +60,10 @@ AI 编程助手的可复用能力和工作流。
 | 名称 | 来源 | 评分 | 描述 |
 |------|------|------|------|
 | [agent-framework-azure-ai-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agent-framework-azure-ai-py) | Antigravity Skills | 95 | 用于在 Azure AI Foundry 上构建持久化 AI 代理的 Python SDK 技能，支持工具集成和对话管理。 |
-| [agents-v2-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agents-v2-py) | Antigravity Skills | 95 | 使用 Azure AI Projects SDK 在 Azure AI Foundry 中构建基于容器的托管代理。 |
 | [ai-engineering-toolkit](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ai-engineering-toolkit) | Antigravity Skills | 95 | 一套包含6个结构化AI工程工作流的工具包，用于提示词评估、RAG设计、安全审计等，专为编程助手设计。 |
 | [apify-actor-development](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/apify-actor-development) | Antigravity Skills | 95 | 用于AI辅助开发、测试和部署Apify Actor（无服务器网络爬虫/自动化程序）的综合技能。 |
 | [apify-actorization](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/apify-actorization) | Antigravity Skills | 95 | 将现有软件转换为可在 Apify 平台上运行的可重用、无服务器 Docker 化 Actor 的技能。 |
+| [astro](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/astro) | Antigravity Skills | 95 | 用于构建以内容为中心的 Astro 网站的技能，默认零 JS、岛屿架构和多框架支持。 |
 <!-- README_TOP5_SKILL:END -->
 
 [浏览全部 Skills →](./catalog/skills/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
@@ -77,18 +77,18 @@ AI 编程助手的可复用能力和工作流。
 <!-- README_TOP5_RULE:START -->
 | 名称 | 来源 | 评分 | 分类 |
 |------|------|------|------|
-| [Bug Fix (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/project-rules/bug-fix.mdc) | Rules 2.1 | 93 | tooling |
-| [Frontend Dev (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/project-rules/frontend-dev.mdc) | Rules 2.1 | 89 | frontend |
+| [Bug Fix (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/project-rules/bug-fix.mdc) | Rules 2.1 | 92 | tooling |
+| [Changelog Management (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/project-rules/changelog-management.mdc) | Rules 2.1 | 92 | ai-ml |
 | [File Generation Safety Rules (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/global-rules/file-generation-safety-rules.mdc) | Rules 2.1 | 88 | ai-ml |
-| [Code Quality Check (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/project-rules/code-quality-check.mdc) | Rules 2.1 | 86 | ai-ml |
 | [Context Loader (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/project-rules/context-loader.mdc) | Rules 2.1 | 86 | ai-ml |
+| [Mcp Unified Management (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/project-rules/mcp-unified-management.mdc) | Rules 2.1 | 86 | tooling |
 <!-- README_TOP5_RULE:END -->
 
 [浏览全部 Rules →](./catalog/rules/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=rule)
 
 ---
 
-### [💡 Prompts 提示词](./catalog/prompts/) — <!-- README_COUNT_PROMPT:START -->613<!-- README_COUNT_PROMPT:END --> 个条目
+### [💡 Prompts 提示词](./catalog/prompts/) — <!-- README_COUNT_PROMPT:START -->615<!-- README_COUNT_PROMPT:END --> 个条目
 
 面向开发者的提示词模板，覆盖常见编码场景。
 
@@ -115,11 +115,11 @@ AI 编程助手的可复用能力和工作流。
 <!-- README_TOP5_PLUGIN:START -->
 | 名称 | 来源 | 评分 | 描述 |
 |------|------|------|------|
+| [superpowers](https://github.com/obra/superpowers.git) | Anthropic 官方 | 100 | 教授 Claude Code 系统化开发工作流，包括测试驱动开发、调试、代码审查和子代理驱动开发的详细技能文档。 |
 | [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp.git) | Anthropic 官方 | 100 | Chrome DevTools MCP 服务器，供 AI 编程代理通过 CLI 和 MCP 工具调试、自动化和分析网页。 |
 | [claude-code-setup](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/claude-code-setup) | Anthropic 官方 | 100 | 分析代码库并推荐定制的 Claude Code 自动化，如钩子、技能、MCP 服务器和子代理。 |
 | [mcp-tunnels](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/mcp-tunnels) | Anthropic 官方 | 100 | Claude插件，通过Anthropic隧道连接私有MCP服务器，提供Docker Compose快速启动。 |
-| [huggingface-skills](https://github.com/huggingface/skills.git) | Anthropic 官方 | 100 | Hugging Face Hub 的 AI 编码技能集合，涵盖模型训练、评估、部署和开发工具。 |
-| [cospowers-integration-verification](https://github.com/costrict-plugins-repo/cospowers-integration-verification/tree/main/) | csc-plugins | 100 | — |
+| [hyperframes](https://github.com/heygen-com/hyperframes.git) | Anthropic 官方 | 100 | HyperFrames 让开发者用 HTML/CSS/JS 编写确定性视频合成，支持 GSAP 动画、字幕、语音合成和 WebGL 特效。 |
 <!-- README_TOP5_PLUGIN:END -->
 
 [浏览全部 Plugins →](./catalog/plugins/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=plugin)

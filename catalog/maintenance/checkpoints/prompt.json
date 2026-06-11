@@ -65,7 +65,6 @@
     "ascii-artist-prompt",
     "ast-code-analysis-superpower-prompt",
     "astrojs-prompt",
-    "astrologer-prompt",
     "audio-routing-automation-engineer-prompt",
     "auditor-de-código-python-nivel-senior-salida-en-español-prompt",
     "automate-repository-management-with-opencode-cli-prompt",
@@ -410,6 +409,7 @@
     "prompt-engineering-expert-prompt",
     "prompt-enhancer-prompt",
     "prompt-generator-for-claude-code-prompt",
+    "prompt-generator-prompt",
     "prompt-optimization-prompt",
     "prompt-refiner-prompt",
     "prompt-writer-for-specific-project-prompt",
@@ -610,11 +610,13 @@
     "编写正则表达式-wprompt",
     "资深编程专家-can-wprompt"
   ],
-  "last_committed_at": "2026-06-11T03:26:57.166581+00:00",
+  "last_committed_at": "2026-06-11T07:32:13.352290+00:00",
   "remaining_entry_ids": [
+    "automated-time-tracking-via-image-recognition-prompt",
     "claude-proje-çalışma-promptu-prompt",
     "plataforma-escopo-bugbouty-cyber-hunter-lab-prompt",
     "quantum-topology-matcher-prompt",
+    "the-technical-co-founder-building-real-products-together-prompt",
     "فريق-العمل-prompt",
     "算法比赛教练-prompt"
   ],

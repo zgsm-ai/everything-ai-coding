@@ -6,7 +6,7 @@
   <a href="https://github.com/zgsm-ai/everything-ai-coding/stargazers"><img src="https://img.shields.io/github/stars/zgsm-ai/everything-ai-coding?style=flat-square&color=4A90D9" alt="Stars" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zgsm-ai/everything-ai-coding?style=flat-square" alt="License" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/commits/main"><img src="https://img.shields.io/github/last-commit/zgsm-ai/everything-ai-coding?style=flat-square" alt="Last Commit" /></a>
-  <img src="https://img.shields.io/badge/resources-12628-2ECC71?style=flat-square" alt="Resources" />
+  <img src="https://img.shields.io/badge/resources-12632-2ECC71?style=flat-square" alt="Resources" />
 </p>
 
 <p>
@@ -34,18 +34,18 @@ Everything AI Coding is a **curated knowledge base** that continuously collects,
 <a id="knowledge-base"></a>
 ## 📚 Knowledge Base
 
-### [🔌 MCP Servers](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->7026<!-- README_COUNT_MCP:END --> entries
+### [🔌 MCP Servers](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->7028<!-- README_COUNT_MCP:END --> entries
 
 Model Context Protocol servers that connect AI agents to external tools, databases, and services.
 
 <!-- README_TOP5_MCP:START -->
 | Name | ⭐ Stars | Score | Description |
 |------|----------|-------|-------------|
-| [upstash/context7](https://github.com/upstash/context7) | 57.1k | 98 | An MCP server that injects real-time, version-specific library docume… |
+| [upstash/context7](https://github.com/upstash/context7) | 57.2k | 98 | An MCP server that injects real-time, version-specific library docume… |
 | [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 43.3k | 98 | Official Google MCP server enabling AI coding agents to control Chrom… |
 | [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | 33.8k | 98 | Official Microsoft MCP server enabling AI to control web browsers via… |
-| [github/github-mcp-server](https://github.com/github/github-mcp-server) | 30.6k | 98 | Official GitHub MCP server enabling AI tools to interact with GitHub… |
-| [googleapis/genai-toolbox](https://github.com/googleapis/genai-toolbox) | 15.6k | 98 | Official Google MCP server connecting AI agents and IDEs to enterpris… |
+| [googleapis/genai-toolbox](https://github.com/googleapis/genai-toolbox) | 15.6k | 98 | An open-source MCP server connecting AI agents and IDEs to enterprise… |
+| [MCP Inspector](https://github.com/modelcontextprotocol/inspector) | 9.2k | 98 | A developer tool for visually testing and debugging MCP servers via a… |
 <!-- README_TOP5_MCP:END -->
 
 [Browse all MCP servers →](./catalog/mcp/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=mcp)
@@ -60,10 +60,10 @@ Reusable agent capabilities and workflows for AI coding assistants.
 | Name | Source | Score | Description |
 |------|--------|-------|-------------|
 | [agent-framework-azure-ai-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agent-framework-azure-ai-py) | Antigravity Skills | 95 | A Python SDK skill for building persistent AI agents on Azure AI Foun… |
-| [agents-v2-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agents-v2-py) | Antigravity Skills | 95 | A Python skill for building container-based hosted agents in Azure AI… |
 | [ai-engineering-toolkit](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ai-engineering-toolkit) | Antigravity Skills | 95 | A collection of 6 structured AI engineering workflows for prompt eval… |
 | [apify-actor-development](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/apify-actor-development) | Antigravity Skills | 95 | A comprehensive skill for AI-assisted development, testing, and deplo… |
 | [apify-actorization](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/apify-actorization) | Antigravity Skills | 95 | A skill for converting existing software into reusable, serverless Do… |
+| [astro](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/astro) | Antigravity Skills | 95 | A skill for building content-focused websites with Astro, featuring z… |
 <!-- README_TOP5_SKILL:END -->
 
 [Browse all skills →](./catalog/skills/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
@@ -77,18 +77,18 @@ Coding conventions and AI behavior guidelines for consistent development.
 <!-- README_TOP5_RULE:START -->
 | Name | Source | Score | Category |
 |------|--------|-------|----------|
-| [Bug Fix (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/project-rules/bug-fix.mdc) | Rules 2.1 | 93 | tooling |
-| [Frontend Dev (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/project-rules/frontend-dev.mdc) | Rules 2.1 | 89 | frontend |
+| [Bug Fix (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/project-rules/bug-fix.mdc) | Rules 2.1 | 92 | tooling |
+| [Changelog Management (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/project-rules/changelog-management.mdc) | Rules 2.1 | 92 | ai-ml |
 | [File Generation Safety Rules (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/global-rules/file-generation-safety-rules.mdc) | Rules 2.1 | 88 | ai-ml |
-| [Code Quality Check (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/project-rules/code-quality-check.mdc) | Rules 2.1 | 86 | ai-ml |
 | [Context Loader (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/project-rules/context-loader.mdc) | Rules 2.1 | 86 | ai-ml |
+| [Mcp Unified Management (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/project-rules/mcp-unified-management.mdc) | Rules 2.1 | 86 | tooling |
 <!-- README_TOP5_RULE:END -->
 
 [Browse all rules →](./catalog/rules/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=rule)
 
 ---
 
-### [💡 Prompts](./catalog/prompts/) — <!-- README_COUNT_PROMPT:START -->613<!-- README_COUNT_PROMPT:END --> entries
+### [💡 Prompts](./catalog/prompts/) — <!-- README_COUNT_PROMPT:START -->615<!-- README_COUNT_PROMPT:END --> entries
 
 Developer-focused prompt templates for common coding tasks.
 
@@ -115,11 +115,11 @@ Bundled marketplace plugins (skills + commands + agents + MCP servers).
 <!-- README_TOP5_PLUGIN:START -->
 | Name | Source | Score | Description |
 |------|--------|-------|-------------|
+| [superpowers](https://github.com/obra/superpowers.git) | Anthropic Official | 100 | Teaches Claude Code systematic development workflows including TDD, d… |
 | [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp.git) | Anthropic Official | 100 | Chrome DevTools MCP server for AI coding agents to debug, automate, a… |
 | [claude-code-setup](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/claude-code-setup) | Anthropic Official | 100 | A Claude Code plugin that analyzes codebases to recommend tailored au… |
 | [mcp-tunnels](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/mcp-tunnels) | Anthropic Official | 100 | A Claude plugin for connecting to private MCP servers via Anthropic t… |
-| [huggingface-skills](https://github.com/huggingface/skills.git) | Anthropic Official | 100 | A comprehensive collection of AI coding skills for Hugging Face Hub,… |
-| [cospowers-integration-verification](https://github.com/costrict-plugins-repo/cospowers-integration-verification/tree/main/) | csc-plugins | 100 | AI 驱动的集成验证插件：执行集成测试、回归验证、契约验证、发布前检查和分支收尾。 |
+| [hyperframes](https://github.com/heygen-com/hyperframes.git) | Anthropic Official | 100 | HyperFrames lets developers write HTML/CSS/JS to create deterministic… |
 <!-- README_TOP5_PLUGIN:END -->
 
 [Browse all plugins →](./catalog/plugins/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=plugin)
