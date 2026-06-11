@@ -1,5 +1,5 @@
 {
-  "completed_count": 934,
+  "completed_count": 935,
   "completed_entry_ids": [
     "abhigyanpatwari-gitnexus-marketplace-gitnexus",
     "addyosmani-addy-agent-skills-agent-skills",
@@ -572,6 +572,7 @@
     "deanpeters-pm-skills-customer-journey-mapping-workshop",
     "deanpeters-pm-skills-director-readiness-advisor",
     "deanpeters-pm-skills-discovery-interview-prep",
+    "deanpeters-pm-skills-discovery-process",
     "deanpeters-pm-skills-eol-message",
     "deanpeters-pm-skills-epic-breakdown-advisor",
     "deanpeters-pm-skills-epic-hypothesis",
@@ -936,10 +937,8 @@
     "yuan1z0825-nature-skills-nature-skills",
     "zarazhangrui-frontend-slides-frontend-slides"
   ],
-  "last_committed_at": "2026-06-11T07:59:25.164656+00:00",
-  "remaining_entry_ids": [
-    "deanpeters-pm-skills-discovery-process"
-  ],
+  "last_committed_at": "2026-06-11T12:55:41.847146+00:00",
+  "remaining_entry_ids": [],
   "rubric_version": "2.85974ec3",
   "started_at": "2026-05-09T07:30:41.948272+00:00",
   "type": "plugin"
