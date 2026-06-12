@@ -28,11 +28,15 @@ class BaseJudge(abc.ABC):
     - Structured JSON parsing (try ``json.loads`` first)
     - Fallback extraction of JSON from freetext (fenced blocks or bare ``{…}``)
     - Pydantic schema validation when a schema is supplied
-    - Retry up to 3 total attempts with exponential back-off
+    - Retry up to 6 total attempts with exponential back-off
     """
 
-    max_retries: int = 3
-    backoff_base: float = 1.0  # seconds; real wait = base * 2^attempt
+    # 6 attempts × backoff_base 2.0 → cumulative wait 2+4+8+16+32 = 62s before
+    # giving up. Tuned to outlast sustained provider 429 rate-limit windows:
+    # the old 3×1.0 (~3s total) exhausted retries mid-window, dropping entries
+    # to the next sync cycle even at low request volume.
+    max_retries: int = 6
+    backoff_base: float = 2.0  # seconds; real wait = base * 2^attempt
 
     # ------------------------------------------------------------------
     # Abstract interface – subclasses must implement

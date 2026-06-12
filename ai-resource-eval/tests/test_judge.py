@@ -601,6 +601,9 @@ class TestResponseFormatFallback:
         mock_post.return_value = resp_500
 
         judge = self._make_judge()
+        # Pin to the retry count this test asserts; base default is now 6.
+        judge.max_retries = 3
+        judge.backoff_base = 1.0
         schema = {"type": "object", "properties": {"score": {"type": "integer"}}}
         with pytest.raises(httpx.HTTPStatusError):
             judge.judge("system", "user", schema=schema)
@@ -653,6 +656,9 @@ class TestRetryLogic:
             api_key="sk-test",
             model="test",
         )
+        # Pin to the retry count this test asserts; base default is now 6.
+        judge.max_retries = 3
+        judge.backoff_base = 1.0
         result = judge.judge("system", "user")
 
         assert result.structured is None
@@ -675,6 +681,9 @@ class TestRetryLogic:
             api_key="sk-test",
             model="test",
         )
+        # Pin to the backoff this test asserts; base default is now 6 × 2.0.
+        judge.max_retries = 3
+        judge.backoff_base = 1.0
         judge.judge("system", "user")
 
         sleep_args = [call.args[0] for call in mock_sleep.call_args_list]
@@ -937,6 +946,9 @@ class TestPydanticModelValidation:
         mock_post.return_value = _make_mock_response(bad_body)
 
         judge = self._make_judge()
+        # Pin to the retry count this test asserts; base default is now 6.
+        judge.max_retries = 3
+        judge.backoff_base = 1.0
         result = judge.judge(
             "system", "user", pydantic_model=_SimpleEvalResponse
         )
@@ -1138,6 +1150,9 @@ class TestTransientRetry:
         mock_post.side_effect = httpx.TimeoutException("read timed out")
 
         judge = self._make_judge()
+        # Pin to the retry count this test asserts; base default is now 6.
+        judge.max_retries = 3
+        judge.backoff_base = 1.0
         with pytest.raises(httpx.TimeoutException):
             judge.judge("system", "user")
 
