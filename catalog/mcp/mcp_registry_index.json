@@ -1360,16 +1360,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@bolthub/mcp-registry",
-        "version": "0.1.4",
-        "command": "npx -y @bolthub/mcp-registry@0.1.4"
+        "version": "0.1.6",
+        "command": "npx -y @bolthub/mcp-registry@0.1.6"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.1.4",
+    "version": "0.1.6",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-11T04:01:37.760989Z",
+    "mcp_registry_published_at": "2026-06-12T04:34:33.335941Z",
     "mcp_remotes": [],
     "website_url": "https://docs.bolthub.ai/docs/sdks/mcp-registry"
   },
@@ -3852,6 +3852,38 @@
       }
     ],
     "website_url": "https://hermitsh.ai/texts/"
+  },
+  {
+    "id": "ai-hivewiki-hivewiki-07bd55d0",
+    "name": "hiveWiki",
+    "type": "mcp",
+    "description": "Shared project wiki for AI agents: read and write pages, next actions, and activity logs over MCP.",
+    "source_url": "https://registry.modelcontextprotocol.io/v0/servers/ai.hivewiki%2Fhivewiki",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mcp.hivewiki.ai/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "1.0.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T04:04:40.771482Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://mcp.hivewiki.ai/mcp"
+      }
+    ],
+    "website_url": "https://hivewiki.ai/docs"
   },
   {
     "id": "ai-hostprofit-mcp-8fc01519",
@@ -23463,7 +23495,7 @@
     "id": "com-agentsprice-agentsprice-9cff30e9",
     "name": "AgentsPrice",
     "type": "mcp",
-    "description": "Verified best-price lookup for AI agents: real sellers, live buy links, never fabricated prices.",
+    "description": "Verified best price across crypto, retail, tools & Rx generics — real sellers, never fabricated.",
     "source_url": "https://registry.modelcontextprotocol.io/v0/servers/com.agentsprice%2Fagentsprice",
     "stars": null,
     "category": "tooling",
@@ -23480,9 +23512,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-11T17:24:09.335267Z",
+    "mcp_registry_published_at": "2026-06-12T05:23:06.515976Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -31048,9 +31080,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "2.4.7",
+    "version": "2.4.9",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-11T05:30:43.889368Z",
+    "mcp_registry_published_at": "2026-06-12T06:09:27.354079Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -34681,6 +34713,38 @@
     ]
   },
   {
+    "id": "com-giveradar-charity-registry-8091d08a",
+    "name": "com.giveradar/charity-registry",
+    "type": "mcp",
+    "description": "Search, verify, and compare 8.7M+ charities from official government registries in 60+ countries.",
+    "source_url": "https://github.com/matt-timmermans/giveradar-mcp",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://giveradar.com/mcp/"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "1.0.1",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T06:27:00.233047Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://giveradar.com/mcp/"
+      }
+    ],
+    "website_url": "https://giveradar.com/mcp/"
+  },
+  {
     "id": "com-glean-mcp-63acdbc3",
     "name": "Glean Remote MCP Server",
     "type": "mcp",
@@ -37248,16 +37312,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@kage-core/kage-graph-mcp",
-        "version": "2.0.1",
-        "command": "npx -y @kage-core/kage-graph-mcp@2.0.1"
+        "version": "2.0.2",
+        "command": "npx -y @kage-core/kage-graph-mcp@2.0.2"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-11T21:38:21.183726Z",
+    "mcp_registry_published_at": "2026-06-12T03:54:53.638955Z",
     "mcp_remotes": []
   },
   {
@@ -39247,19 +39311,19 @@
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://mc-api.marketcheck.com/mcp"
+          "url": "https://developers.marketcheck.com/api/mcp"
         }
       ]
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-11T17:20:44.525506Z",
+    "mcp_registry_published_at": "2026-06-12T02:59:15.933505Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
-        "url": "https://mc-api.marketcheck.com/mcp"
+        "url": "https://developers.marketcheck.com/api/mcp"
       }
     ],
     "website_url": "https://developers.marketcheck.com/mcp"
@@ -44093,6 +44157,38 @@
     "website_url": "https://www.naxytra.com/agents"
   },
   {
+    "id": "com-neblla-neblla-5ee79249",
+    "name": "Neblla",
+    "type": "mcp",
+    "description": "Build and publish multiplayer apps and games on Neblla: scaffold, edit files, ship to the gallery.",
+    "source_url": "https://registry.modelcontextprotocol.io/v0/servers/com.neblla%2Fneblla",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://neblla.com/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "1.0.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T06:07:14.03496Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://neblla.com/mcp"
+      }
+    ],
+    "website_url": "https://neblla.com"
+  },
+  {
     "id": "com-neurarelay-relay-mcp-6180af35",
     "name": "Neura Relay MCP",
     "type": "mcp",
@@ -44387,6 +44483,38 @@
         "url": "https://mcp.notion.com/sse"
       }
     ]
+  },
+  {
+    "id": "com-npledger-np-ledger-729d8004",
+    "name": "NP Ledger",
+    "type": "mcp",
+    "description": "Nonprofit fund accounting your AI agent helps you run — read the books and post entries.",
+    "source_url": "https://registry.modelcontextprotocol.io/v0/servers/com.npledger%2Fnp-ledger",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mcp.npledger.com/v1/"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "1.0.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T03:41:58.935318Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://mcp.npledger.com/v1/"
+      }
+    ],
+    "website_url": "https://npledger.com/docs/integrations/ai-agents/"
   },
   {
     "id": "com-nullpath-marketplace-4304436b",
@@ -56554,9 +56682,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-12T02:43:09.013827Z",
+    "mcp_registry_published_at": "2026-06-12T06:21:11.765048Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -57732,6 +57860,37 @@
       }
     ],
     "website_url": "https://zippfeed.com"
+  },
+  {
+    "id": "com-zobrx-zobrx-92a2218c",
+    "name": "zobrx",
+    "type": "mcp",
+    "description": "Read-only zobrx e-commerce data: P&L, orders, inventory, marketplace, tax & shelf insights.",
+    "source_url": "https://registry.modelcontextprotocol.io/v0/servers/com.zobrx%2Fzobrx",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mcp.zobrx.com/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "1.0.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T06:15:47.571611Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://mcp.zobrx.com/mcp"
+      }
+    ]
   },
   {
     "id": "com-zomato-mcp-a093668d",
@@ -65825,6 +65984,70 @@
     "website_url": "https://justcall.io"
   },
   {
+    "id": "house-bim-bimhouse-9f57d027",
+    "name": "house.bim/bimhouse",
+    "type": "mcp",
+    "description": "bim.house — words become buildings. Generate BIM, check code & structure, quote materials.",
+    "source_url": "https://registry.modelcontextprotocol.io/v0/servers/house.bim%2Fbimhouse",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://bim.house/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "1.0.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T03:39:54.301101Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://bim.house/mcp"
+      }
+    ],
+    "website_url": "https://bim.house"
+  },
+  {
+    "id": "house-device-device-house-ce92cbbc",
+    "name": "house.device/device-house",
+    "type": "mcp",
+    "description": "device.house — words become circuits. Design devices: BoM, enclosure, firmware, routed PCB.",
+    "source_url": "https://registry.modelcontextprotocol.io/v0/servers/house.device%2Fdevice-house",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://device-house-mcp.fly.dev/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "1.0.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T04:04:18.569489Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://device-house-mcp.fly.dev/mcp"
+      }
+    ],
+    "website_url": "https://device.house"
+  },
+  {
     "id": "hu-xfish-webshop-8843b494",
     "name": "XFish Horgász Webáruház",
     "type": "mcp",
@@ -66541,7 +66764,7 @@
     "name": "io.artifacta/mcp",
     "type": "mcp",
     "description": "Artifact store for AI agents — persist, list, hand off run outputs with session metadata and dedup.",
-    "source_url": "https://github.com/sagapeak/artifacta",
+    "source_url": "https://github.com/SagaPeak/artifacta-mcp",
     "stars": null,
     "category": "tooling",
     "tags": [],
@@ -66551,16 +66774,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@artifacta-mcp/mcp",
-        "version": "1.0.1",
-        "command": "npx -y @artifacta-mcp/mcp@1.0.1"
+        "version": "1.0.2",
+        "command": "npx -y @artifacta-mcp/mcp@1.0.2"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-05T07:48:07.053024Z",
+    "mcp_registry_published_at": "2026-06-12T05:40:14.041928Z",
     "mcp_remotes": []
   },
   {
@@ -81635,7 +81858,7 @@
     "id": "io-github-anish632-ground-truth-581236cf",
     "name": "Ground Truth - First Tool Call",
     "type": "mcp",
-    "description": "✅ Try check_endpoint with url=https://example.com - no API key needed for activation test.",
+    "description": "✅ Try check_endpoint with url=https://example.com. Paid plan adds monitors and reports.",
     "source_url": "https://registry.modelcontextprotocol.io/v0/servers/io.github.anish632%2Fground-truth",
     "stars": null,
     "category": "tooling",
@@ -81652,9 +81875,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.5.1",
+    "version": "0.5.2",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-08T22:21:07.83704Z",
+    "mcp_registry_published_at": "2026-06-12T02:55:07.923265Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -81827,7 +82050,7 @@
     "id": "io-github-anp2dev-anp2-mcp-server-266cbb3b",
     "name": "io.github.anp2dev/anp2-mcp-server",
     "type": "mcp",
-    "description": "Economic protocol for AI agents — identity + reputation + credit + Sybil resistance (MCP bridge)",
+    "description": "AI-agent economic protocol over MCP — identity, reputation, tasks, credit, Sybil resistance",
     "source_url": "https://github.com/anp2dev/anp2/tree/HEAD/prototypes/mcp-server",
     "stars": null,
     "category": "tooling",
@@ -81838,16 +82061,16 @@
       "config": {
         "registry_type": "pypi",
         "identifier": "anp2-mcp-server",
-        "version": "0.2.2",
-        "command": "pipx run anp2-mcp-server==0.2.2"
+        "version": "0.3.0",
+        "command": "pipx run anp2-mcp-server==0.3.0"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.2.2",
+    "version": "0.3.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-10T08:10:57.856559Z",
+    "mcp_registry_published_at": "2026-06-12T03:19:29.64227Z",
     "mcp_remotes": [],
     "website_url": "https://anp2.com"
   },
@@ -83938,16 +84161,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "appium-mcp",
-        "version": "1.85.1",
-        "command": "npx -y appium-mcp@1.85.1"
+        "version": "1.85.2",
+        "command": "npx -y appium-mcp@1.85.2"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.85.1",
+    "version": "1.85.2",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-11T07:40:17.189857Z",
+    "mcp_registry_published_at": "2026-06-12T05:40:31.483221Z",
     "mcp_remotes": []
   },
   {
@@ -91527,16 +91750,16 @@
       "config": {
         "registry_type": "pypi",
         "identifier": "modulor",
-        "version": "0.6.1",
-        "command": "pipx run modulor==0.6.1"
+        "version": "0.7.0",
+        "command": "pipx run modulor==0.7.0"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.6.1",
+    "version": "0.7.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-11T16:29:36.412204Z",
+    "mcp_registry_published_at": "2026-06-12T06:30:54.164365Z",
     "mcp_remotes": []
   },
   {
@@ -99282,16 +99505,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "brilliant-directories-mcp",
-        "version": "6.55.46",
-        "command": "npx -y brilliant-directories-mcp@6.55.46"
+        "version": "6.55.48",
+        "command": "npx -y brilliant-directories-mcp@6.55.48"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "6.55.46",
+    "version": "6.55.48",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-12T01:02:28.812635Z",
+    "mcp_registry_published_at": "2026-06-12T05:42:54.349695Z",
     "mcp_remotes": []
   },
   {
@@ -100869,6 +101092,33 @@
       }
     ],
     "website_url": "https://api.rhdxm.com"
+  },
+  {
+    "id": "io-github-c64dos-png-vector-mirror-cab07471",
+    "name": "io.github.c64dos-png/vector-mirror",
+    "type": "mcp",
+    "description": "Deterministic SVG perception for LLM agents — measures, never guesses. MCP server.",
+    "source_url": "https://github.com/c64dos-png/vector-mirror",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "npm",
+        "identifier": "vector-mirror",
+        "version": "1.0.0",
+        "command": "npx -y vector-mirror@1.0.0"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "1.0.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T04:08:59.853692Z",
+    "mcp_remotes": []
   },
   {
     "id": "io-github-cablate-google-map-e692aef2",
@@ -111185,6 +111435,141 @@
     "mcp_remotes": []
   },
   {
+    "id": "io-github-conorbronsdon-gws-mcp-server-bffc2b20",
+    "name": "Google Workspace MCP Server",
+    "type": "mcp",
+    "description": "Google Workspace as 41 curated MCP tools: Gmail, Calendar, Drive, Sheets, Docs, and Tasks.",
+    "source_url": "https://github.com/conorbronsdon/gws-mcp-server",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "npm",
+        "identifier": "gws-mcp-server",
+        "version": "0.2.0",
+        "command": "npx -y gws-mcp-server@0.2.0"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "0.2.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T05:28:47.871645Z",
+    "mcp_remotes": []
+  },
+  {
+    "id": "io-github-conorbronsdon-op3-mcp-7cdb3eaf",
+    "name": "OP3 MCP Server",
+    "type": "mcp",
+    "description": "OP3 podcast analytics: downloads, geography, app share, episode breakdowns. Read-only.",
+    "source_url": "https://github.com/conorbronsdon/op3-mcp",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "npm",
+        "identifier": "@conorbronsdon/op3-mcp",
+        "version": "0.1.0",
+        "command": "npx -y @conorbronsdon/op3-mcp@0.1.0"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T05:29:03.883164Z",
+    "mcp_remotes": []
+  },
+  {
+    "id": "io-github-conorbronsdon-podcastindex-mcp-051d092e",
+    "name": "Podcast Index MCP Server",
+    "type": "mcp",
+    "description": "Search the Podcast Index: podcasts, episodes, person appearances, trending, feed health.",
+    "source_url": "https://github.com/conorbronsdon/podcastindex-mcp",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "npm",
+        "identifier": "podcastindex-mcp",
+        "version": "0.2.0",
+        "command": "npx -y podcastindex-mcp@0.2.0"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "0.2.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T05:29:14.638221Z",
+    "mcp_remotes": []
+  },
+  {
+    "id": "io-github-conorbronsdon-substack-mcp-f9b932bd",
+    "name": "Substack MCP Server",
+    "type": "mcp",
+    "description": "Substack MCP server: posts are draft-only by design; short-form Notes publish immediately.",
+    "source_url": "https://github.com/conorbronsdon/substack-mcp",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "npm",
+        "identifier": "@conorbronsdon/substack-mcp",
+        "version": "0.3.0",
+        "command": "npx -y @conorbronsdon/substack-mcp@0.3.0"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "0.3.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T05:29:28.828979Z",
+    "mcp_remotes": []
+  },
+  {
+    "id": "io-github-conorbronsdon-transistor-mcp-9ec04d82",
+    "name": "Transistor MCP Server",
+    "type": "mcp",
+    "description": "Manage Transistor.fm podcasts: episodes, analytics, transcripts, and webhooks.",
+    "source_url": "https://github.com/conorbronsdon/Transistor-MCP",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "npm",
+        "identifier": "transistor-mcp",
+        "version": "0.2.0",
+        "command": "npx -y transistor-mcp@0.2.0"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "0.2.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T05:29:43.860892Z",
+    "mcp_remotes": []
+  },
+  {
     "id": "io-github-constripacity-claude-code-bridge-e1d3400a",
     "name": "io.github.constripacity/claude-code-bridge",
     "type": "mcp",
@@ -113145,6 +113530,38 @@
     "mcp_registry_status": "active",
     "mcp_registry_published_at": "2026-05-14T22:38:54.458555Z",
     "mcp_remotes": []
+  },
+  {
+    "id": "io-github-crossi-dev-latam-tools-10a7669c",
+    "name": "Velora LATAM Tools",
+    "type": "mcp",
+    "description": "Argentina CUIT/CUIL validation and AFIP fiscal QR generation. Pure, no-auth MCP tools.",
+    "source_url": "https://registry.modelcontextprotocol.io/v0/servers/io.github.crossi-dev%2Flatam-tools",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://tools.somosvelora.com/api/mcp/public"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "1.0.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T03:18:04.206142Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://tools.somosvelora.com/api/mcp/public"
+      }
+    ],
+    "website_url": "https://somosvelora.com"
   },
   {
     "id": "io-github-crosspad-crosspad-mcp-d95b9203",
@@ -122800,16 +123217,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@cyanheads/anime-mcp-server",
-        "version": "0.1.2",
-        "command": "npx -y @cyanheads/anime-mcp-server@0.1.2"
+        "version": "0.1.3",
+        "command": "npx -y @cyanheads/anime-mcp-server@0.1.3"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-07T06:23:09.793851Z",
+    "mcp_registry_published_at": "2026-06-12T03:29:17.918564Z",
     "mcp_remotes": []
   },
   {
@@ -123194,16 +123611,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@cyanheads/clipboard-mcp-server",
-        "version": "0.1.4",
-        "command": "npx -y @cyanheads/clipboard-mcp-server@0.1.4"
+        "version": "0.1.5",
+        "command": "npx -y @cyanheads/clipboard-mcp-server@0.1.5"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-26T07:46:53.276609Z",
+    "mcp_registry_published_at": "2026-06-12T03:30:51.608008Z",
     "mcp_remotes": []
   },
   {
@@ -123248,8 +123665,8 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@cyanheads/congressgov-mcp-server",
-        "version": "0.3.29",
-        "command": "npx -y @cyanheads/congressgov-mcp-server@0.3.29"
+        "version": "0.3.30",
+        "command": "npx -y @cyanheads/congressgov-mcp-server@0.3.30"
       },
       "remotes": [
         {
@@ -123260,9 +123677,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.3.29",
+    "version": "0.3.30",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-04T09:04:36.297278Z",
+    "mcp_registry_published_at": "2026-06-12T03:43:09.20339Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -123285,8 +123702,8 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@cyanheads/courtlistener-mcp-server",
-        "version": "0.2.2",
-        "command": "npx -y @cyanheads/courtlistener-mcp-server@0.2.2"
+        "version": "0.2.3",
+        "command": "npx -y @cyanheads/courtlistener-mcp-server@0.2.3"
       },
       "remotes": [
         {
@@ -123297,9 +123714,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-04T09:19:41.634259Z",
+    "mcp_registry_published_at": "2026-06-12T03:42:22.971621Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -123322,8 +123739,8 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@cyanheads/cpsc-recalls-mcp-server",
-        "version": "0.1.2",
-        "command": "npx -y @cyanheads/cpsc-recalls-mcp-server@0.1.2"
+        "version": "0.1.3",
+        "command": "npx -y @cyanheads/cpsc-recalls-mcp-server@0.1.3"
       },
       "remotes": [
         {
@@ -123334,9 +123751,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-02T14:06:16.02104Z",
+    "mcp_registry_published_at": "2026-06-12T03:31:18.098976Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -123359,16 +123776,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@cyanheads/crossref-mcp-server",
-        "version": "0.1.13",
-        "command": "npx -y @cyanheads/crossref-mcp-server@0.1.13"
+        "version": "0.1.14",
+        "command": "npx -y @cyanheads/crossref-mcp-server@0.1.14"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.1.13",
+    "version": "0.1.14",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-04T08:01:16.168479Z",
+    "mcp_registry_published_at": "2026-06-12T03:45:59.759907Z",
     "mcp_remotes": []
   },
   {
@@ -123625,8 +124042,8 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@cyanheads/eur-lex-mcp-server",
-        "version": "0.1.3",
-        "command": "npx -y @cyanheads/eur-lex-mcp-server@0.1.3"
+        "version": "0.1.4",
+        "command": "npx -y @cyanheads/eur-lex-mcp-server@0.1.4"
       },
       "remotes": [
         {
@@ -123637,9 +124054,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-07T06:23:46.341692Z",
+    "mcp_registry_published_at": "2026-06-12T03:38:15.980029Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -123827,8 +124244,8 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@cyanheads/fema-mcp-server",
-        "version": "0.1.7",
-        "command": "npx -y @cyanheads/fema-mcp-server@0.1.7"
+        "version": "0.1.8",
+        "command": "npx -y @cyanheads/fema-mcp-server@0.1.8"
       },
       "remotes": [
         {
@@ -123839,9 +124256,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.1.7",
+    "version": "0.1.8",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-10T18:19:37.149695Z",
+    "mcp_registry_published_at": "2026-06-12T03:38:36.944929Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -124238,16 +124655,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@cyanheads/mailchimp-mcp-server",
-        "version": "0.3.5",
-        "command": "npx -y @cyanheads/mailchimp-mcp-server@0.3.5"
+        "version": "0.3.6",
+        "command": "npx -y @cyanheads/mailchimp-mcp-server@0.3.6"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.3.5",
+    "version": "0.3.6",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-23T12:28:07.146474Z",
+    "mcp_registry_published_at": "2026-06-12T03:31:29.217365Z",
     "mcp_remotes": []
   },
   {
@@ -124595,16 +125012,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "ntfy-mcp-server",
-        "version": "2.1.0",
-        "command": "npx -y ntfy-mcp-server@2.1.0"
+        "version": "2.1.1",
+        "command": "npx -y ntfy-mcp-server@2.1.1"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-31T03:47:51.108639Z",
+    "mcp_registry_published_at": "2026-06-12T03:11:13.865163Z",
     "mcp_remotes": []
   },
   {
@@ -125908,16 +126325,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@cyanheads/workflows-mcp-server",
-        "version": "0.1.1",
-        "command": "npx -y @cyanheads/workflows-mcp-server@0.1.1"
+        "version": "0.1.2",
+        "command": "npx -y @cyanheads/workflows-mcp-server@0.1.2"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-28T10:05:46.060596Z",
+    "mcp_registry_published_at": "2026-06-12T03:42:08.684517Z",
     "mcp_remotes": []
   },
   {
@@ -126090,16 +126507,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "cyberdyne-mcp",
-        "version": "0.6.15",
-        "command": "npx -y cyberdyne-mcp@0.6.15"
+        "version": "0.6.20",
+        "command": "npx -y cyberdyne-mcp@0.6.20"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.6.15",
+    "version": "0.6.20",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-11T07:30:14.214729Z",
+    "mcp_registry_published_at": "2026-06-12T05:39:12.121475Z",
     "mcp_remotes": []
   },
   {
@@ -132717,16 +133134,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@delega-dev/mcp",
-        "version": "1.12.0",
-        "command": "npx -y @delega-dev/mcp@1.12.0"
+        "version": "1.12.1",
+        "command": "npx -y @delega-dev/mcp@1.12.1"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.12.0",
+    "version": "1.12.1",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-11T22:19:19.697857Z",
+    "mcp_registry_published_at": "2026-06-12T03:11:03.289918Z",
     "mcp_remotes": [],
     "website_url": "https://delega.dev"
   },
@@ -151511,6 +151928,34 @@
     "mcp_remotes": []
   },
   {
+    "id": "io-github-flowing-abyss-obsidian-hybrid-search-4be967b6",
+    "name": "Obsidian Hybrid Search",
+    "type": "mcp",
+    "description": "Search Obsidian vaults with hybrid full-text, fuzzy, semantic, and graph retrieval.",
+    "source_url": "https://github.com/flowing-abyss/obsidian-hybrid-search",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "npm",
+        "identifier": "obsidian-hybrid-search",
+        "version": "0.13.8",
+        "command": "npx -y obsidian-hybrid-search@0.13.8"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "0.13.8",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T06:24:38.44592Z",
+    "mcp_remotes": [],
+    "website_url": "https://github.com/flowing-abyss/obsidian-hybrid-search#readme"
+  },
+  {
     "id": "io-github-flowzap-xyz-flowzap-6184aaac",
     "name": "io.github.flowzap-xyz/flowzap",
     "type": "mcp",
@@ -168240,16 +168685,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "mcp-searxng",
-        "version": "1.3.4",
-        "command": "npx -y mcp-searxng@1.3.4"
+        "version": "1.4.0",
+        "command": "npx -y mcp-searxng@1.4.0"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.3.4",
+    "version": "1.4.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-11T20:42:51.560932Z",
+    "mcp_registry_published_at": "2026-06-12T03:12:23.680771Z",
     "mcp_remotes": []
   },
   {
@@ -175588,7 +176033,7 @@
     "id": "io-github-jayofemi-shikamaru-c912108e",
     "name": "io.github.JayOfemi/shikamaru",
     "type": "mcp",
-    "description": "Provably correct ISDA day-count and accrued-interest calculations, verified against QuantLib.",
+    "description": "Provably correct day-count, calendar, business-day, and schedule math, verified against QuantLib.",
     "source_url": "https://github.com/JayOfemi/shikamaru",
     "stars": null,
     "category": "tooling",
@@ -175599,16 +176044,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@jayofemi/shikamaru",
-        "version": "1.0.1",
-        "command": "npx -y @jayofemi/shikamaru@1.0.1"
+        "version": "1.1.1",
+        "command": "npx -y @jayofemi/shikamaru@1.1.1"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.0.1",
+    "version": "1.1.1",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-08T02:29:02.906339Z",
+    "mcp_registry_published_at": "2026-06-12T03:39:49.997044Z",
     "mcp_remotes": []
   },
   {
@@ -182760,16 +183205,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@kaditang/agent-wallet-mcp",
-        "version": "0.2.0",
-        "command": "npx -y @kaditang/agent-wallet-mcp@0.2.0"
+        "version": "0.2.3",
+        "command": "npx -y @kaditang/agent-wallet-mcp@0.2.3"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.2.0",
+    "version": "0.2.3",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-28T09:12:24.369353Z",
+    "mcp_registry_published_at": "2026-06-12T05:27:20.452264Z",
     "mcp_remotes": [],
     "website_url": "https://autoyield.org"
   },
@@ -183810,6 +184255,43 @@
     "mcp_registry_published_at": "2025-12-27T14:26:43.583032Z",
     "mcp_remotes": [],
     "website_url": "https://www.oilpriceapi.com"
+  },
+  {
+    "id": "io-github-karstenkreh-standby-design-mcp-b692816a",
+    "name": "io.github.KarstenKreh/standby-design-mcp",
+    "type": "mcp",
+    "description": "Generate design systems: OKLCH color palettes, fluid type scales, spacing, shape and icon tokens.",
+    "source_url": "https://github.com/KarstenKreh/Standby.Design",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "npm",
+        "identifier": "standby-design-mcp",
+        "version": "0.1.2",
+        "command": "npx -y standby-design-mcp@0.1.2"
+      },
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mcp.standby.design/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "0.1.2",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T05:21:34.525722Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://mcp.standby.design/mcp"
+      }
+    ]
   },
   {
     "id": "io-github-kartegagithub-laviya-agent-skills-6b5ecfb5",
@@ -195782,6 +196264,33 @@
     "website_url": "https://lorecontext.com"
   },
   {
+    "id": "io-github-lorenzo-cambiaghi-lynx-27607023",
+    "name": "io.github.lorenzo-cambiaghi/lynx",
+    "type": "mcp",
+    "description": "100% local MCP server for semantic code search: AST chunking, hybrid retrieval, code knowledge graph",
+    "source_url": "https://github.com/lorenzo-cambiaghi/LynxMCP",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "pypi",
+        "identifier": "lynx-mcp",
+        "version": "1.2.0",
+        "command": "pipx run lynx-mcp==1.2.0"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "1.2.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T06:22:25.706306Z",
+    "mcp_remotes": []
+  },
+  {
     "id": "io-github-lorgai-lorg-mcp-server-42d09514",
     "name": "io.github.LorgAI/lorg-mcp-server",
     "type": "mcp",
@@ -200523,6 +201032,44 @@
     "website_url": "https://malnati.github.io/vaults-diagram-tools/"
   },
   {
+    "id": "io-github-mambaventures-nzxplorer-mcp-42c889b7",
+    "name": "io.github.mambaventures/nzxplorer-mcp",
+    "type": "mcp",
+    "description": "NZX (New Zealand stock exchange) data: governance scores, financials, insider trades, boards",
+    "source_url": "https://github.com/mambaventures/nzxplorer-mcp-server",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "npm",
+        "identifier": "nzxplorer-mcp",
+        "version": "1.36.0",
+        "command": "npx -y nzxplorer-mcp@1.36.0"
+      },
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mcp.nzxplorer.co.nz"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "1.36.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T05:54:29.135134Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://mcp.nzxplorer.co.nz"
+      }
+    ],
+    "website_url": "https://nzxplorer.co.nz/for-agents"
+  },
+  {
     "id": "io-github-mameshivaa-x-archive-rag-ab9f3688",
     "name": "X Archive RAG",
     "type": "mcp",
@@ -203601,6 +204148,37 @@
     "mcp_registry_status": "active",
     "mcp_registry_published_at": "2026-04-25T02:17:59.209624Z",
     "mcp_remotes": []
+  },
+  {
+    "id": "io-github-masmedeam-learnthat-8d3711db",
+    "name": "LearnThat MCP",
+    "type": "mcp",
+    "description": "Remote MCP learning coach for coding agents.",
+    "source_url": "https://github.com/Masmedeam/learnthat",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://learnthat-mcp-3bqygzrtsa-uc.a.run.app/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T04:21:34.54708Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://learnthat-mcp-3bqygzrtsa-uc.a.run.app/mcp"
+      }
+    ]
   },
   {
     "id": "io-github-masonchow-source-map-parser-mcp-59072e1d",
@@ -211987,17 +212565,17 @@
       "method": "manual",
       "config": {
         "registry_type": "oci",
-        "identifier": "ghcr.io/microsoft/mcp-dotnet-samples/awesome-copilot:1.0.2026061201",
+        "identifier": "ghcr.io/microsoft/mcp-dotnet-samples/awesome-copilot:1.0.2026061203",
         "version": "",
-        "command": "docker run ghcr.io/microsoft/mcp-dotnet-samples/awesome-copilot:1.0.2026061201"
+        "command": "docker run ghcr.io/microsoft/mcp-dotnet-samples/awesome-copilot:1.0.2026061203"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.0.2026061201",
+    "version": "1.0.2026061203",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-12T01:10:03.740207Z",
+    "mcp_registry_published_at": "2026-06-12T03:18:11.31771Z",
     "mcp_remotes": [],
     "website_url": "https://aka.ms/awesome-copilot/mcp"
   },
@@ -213050,6 +213628,34 @@
       }
     ],
     "website_url": "https://tubepull.com"
+  },
+  {
+    "id": "io-github-mikeypetrillo-agent402-ae5a03af",
+    "name": "Agent402 — pay-per-call web tools",
+    "type": "mcp",
+    "description": "1000+ pay-per-call web tools for agents: search, browser, PDF, memory. x402 USDC or proof-of-work.",
+    "source_url": "https://github.com/MikeyPetrillo/Agent402",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "npm",
+        "identifier": "agent402-mcp",
+        "version": "0.2.3",
+        "command": "npx -y agent402-mcp@0.2.3"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "0.2.3",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T05:25:04.024383Z",
+    "mcp_remotes": [],
+    "website_url": "https://agent402.tools"
   },
   {
     "id": "io-github-mikhae1-kubeview-d1c81b51",
@@ -215067,16 +215673,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@mirnoorata/codexa",
-        "version": "0.2.2",
-        "command": "npx -y @mirnoorata/codexa@0.2.2"
+        "version": "0.3.0",
+        "command": "npx -y @mirnoorata/codexa@0.3.0"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.2.2",
+    "version": "0.3.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-12T01:56:26.011059Z",
+    "mcp_registry_published_at": "2026-06-12T04:59:30.408024Z",
     "mcp_remotes": []
   },
   {
@@ -232330,6 +232936,33 @@
     "website_url": "https://smithery.ai/server/ormuzdo/agentic-security-shield"
   },
   {
+    "id": "io-github-orygnscode-omnicord-3e34c198",
+    "name": "io.github.OrygnsCode/omnicord",
+    "type": "mcp",
+    "description": "Your AI runs your Discord server: chat, moderation, admin, even building it all from one brief.",
+    "source_url": "https://github.com/OrygnsCode/Omnicord",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "npm",
+        "identifier": "@orygn/omnicord",
+        "version": "1.0.2",
+        "command": "npx -y @orygn/omnicord@1.0.2"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "1.0.2",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T04:23:18.837776Z",
+    "mcp_remotes": []
+  },
+  {
     "id": "io-github-orygnscode-opa-mcp-4ac74a58",
     "name": "OPA MCP",
     "type": "mcp",
@@ -232437,17 +233070,17 @@
       "method": "manual",
       "config": {
         "registry_type": "mcpb",
-        "identifier": "https://github.com/osauer/ibkr/releases/download/v1.9.0/ibkr-v1.9.0.mcpb",
+        "identifier": "https://github.com/osauer/ibkr/releases/download/v1.10.1/ibkr-v1.10.1.mcpb",
         "version": "",
-        "command": "mcpb: https://github.com/osauer/ibkr/releases/download/v1.9.0/ibkr-v1.9.0.mcpb"
+        "command": "mcpb: https://github.com/osauer/ibkr/releases/download/v1.10.1/ibkr-v1.10.1.mcpb"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.9.0",
+    "version": "1.10.1",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-11T04:41:30.651305Z",
+    "mcp_registry_published_at": "2026-06-12T06:41:51.760331Z",
     "mcp_remotes": [],
     "website_url": "https://osauer.dev/ibkr/"
   },
@@ -234495,6 +235128,44 @@
     "mcp_registry_status": "active",
     "mcp_registry_published_at": "2026-06-10T22:02:46.38441Z",
     "mcp_remotes": []
+  },
+  {
+    "id": "io-github-patchistry-patchistry-mcp-server-8ee3e343",
+    "name": "io.github.patchistry/patchistry-mcp-server",
+    "type": "mcp",
+    "description": "DTC modular hat brand MCP server. 6 tools for AI agents: catalog, curated builds, shipping.",
+    "source_url": "https://github.com/patchistry/patchistry-mcp-server",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "npm",
+        "identifier": "patchistry-mcp-server",
+        "version": "0.2.0",
+        "command": "npx -y patchistry-mcp-server@0.2.0"
+      },
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://patchistry-mcp-server.vercel.app/rpc"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "0.2.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T04:25:49.183964Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://patchistry-mcp-server.vercel.app/rpc"
+      }
+    ],
+    "website_url": "https://patchistry.com"
   },
   {
     "id": "io-github-patdolitse-piia-engram-f3bd8591",
@@ -236566,17 +237237,17 @@
       "method": "manual",
       "config": {
         "registry_type": "oci",
-        "identifier": "ghcr.io/pete-builds/mcp-unifi:0.10.1",
+        "identifier": "ghcr.io/pete-builds/mcp-unifi:0.11.0",
         "version": "",
-        "command": "docker run ghcr.io/pete-builds/mcp-unifi:0.10.1"
+        "command": "docker run ghcr.io/pete-builds/mcp-unifi:0.11.0"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.10.1",
+    "version": "0.11.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-03T18:56:01.978157Z",
+    "mcp_registry_published_at": "2026-06-12T03:31:37.644215Z",
     "mcp_remotes": [],
     "website_url": "https://pete-builds.github.io/mcp-unifi/"
   },
@@ -264389,19 +265060,19 @@
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://gulltoppr-mcp.fly.dev/mcp"
+          "url": "https://mcp.gulltoppr.dev/mcp"
         }
       ]
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-11T13:10:41.946178Z",
+    "mcp_registry_published_at": "2026-06-12T06:31:35.778373Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
-        "url": "https://gulltoppr-mcp.fly.dev/mcp"
+        "url": "https://mcp.gulltoppr.dev/mcp"
       }
     ]
   },
@@ -272731,16 +273402,16 @@
       "config": {
         "registry_type": "pypi",
         "identifier": "projectmem",
-        "version": "0.1.3",
-        "command": "pipx run projectmem==0.1.3"
+        "version": "0.1.4",
+        "command": "pipx run projectmem==0.1.4"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-20T06:30:04.334715Z",
+    "mcp_registry_published_at": "2026-06-12T05:42:10.958263Z",
     "mcp_remotes": []
   },
   {
@@ -297470,6 +298141,34 @@
     "website_url": "https://bot.staccpad.fun/dashboard"
   },
   {
+    "id": "io-github-stackql-stackql-mcp-444f5d04",
+    "name": "StackQL MCP Server",
+    "type": "mcp",
+    "description": "SQL-native query and provisioning engine for cloud infrastructure, served over MCP.",
+    "source_url": "https://github.com/stackql/stackql",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "mcpb",
+        "identifier": "https://github.com/stackql/stackql/releases/download/v0.10.500/stackql-mcp-linux-x64.mcpb",
+        "version": "0.10.500",
+        "command": "mcpb: https://github.com/stackql/stackql/releases/download/v0.10.500/stackql-mcp-linux-x64.mcpb@0.10.500"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "0.10.500",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T06:25:52.367041Z",
+    "mcp_remotes": [],
+    "website_url": "https://stackql.io"
+  },
+  {
     "id": "io-github-stagproject-mirelia-patent-market-abc1dcfb",
     "name": "io.github.stagproject/mirelia-patent-market",
     "type": "mcp",
@@ -298289,16 +298988,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "stelaspace-mcp",
-        "version": "1.0.2",
-        "command": "npx -y stelaspace-mcp@1.0.2"
+        "version": "1.0.3",
+        "command": "npx -y stelaspace-mcp@1.0.3"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-11T15:58:29.817927Z",
+    "mcp_registry_published_at": "2026-06-12T04:03:02.715047Z",
     "mcp_remotes": []
   },
   {
@@ -300016,6 +300715,33 @@
       }
     ],
     "website_url": "https://www.sunholo.com/ailang-parse/"
+  },
+  {
+    "id": "io-github-sunhome243-figma-mcp-express-5104f2bc",
+    "name": "io.github.sunhome243/figma-mcp-express",
+    "type": "mcp",
+    "description": "Fast, quota-free, token-efficient Figma MCP via a local plugin bridge.",
+    "source_url": "https://github.com/sunhome243/figma-mcp-express",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "npm",
+        "identifier": "figma-mcp-express",
+        "version": "1.0.2",
+        "command": "npx -y figma-mcp-express@1.0.2"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "1.0.2",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T05:50:48.520935Z",
+    "mcp_remotes": []
   },
   {
     "id": "io-github-sunshad0w-html2md-84584f26",
@@ -309268,6 +309994,68 @@
     "website_url": "https://thelastceo.live"
   },
   {
+    "id": "io-github-timwal78-402proof-1550584e",
+    "name": "io.github.Timwal78/402proof",
+    "type": "mcp",
+    "description": "x402 payment firewall + Agent Credit Bureau. Invoice/verify/score via RLUSD on XRPL.",
+    "source_url": "https://github.com/Timwal78/SqueezeOS",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://four02proof.onrender.com/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "1.0.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T04:54:51.137697Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://four02proof.onrender.com/mcp"
+      }
+    ]
+  },
+  {
+    "id": "io-github-timwal78-squeezeos-20a148d0",
+    "name": "io.github.Timwal78/squeezeos",
+    "type": "mcp",
+    "description": "Institutional AI market intel: council verdicts, squeeze scanner, options flow via x402/RLUSD.",
+    "source_url": "https://github.com/Timwal78/SqueezeOS",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://squeezeos-api.onrender.com/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "6.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T04:54:36.121248Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://squeezeos-api.onrender.com/mcp"
+      }
+    ]
+  },
+  {
     "id": "io-github-tinqiao-oss-clawtouch-mcp-3049f735",
     "name": "io.github.tinqiao-oss/clawtouch-mcp",
     "type": "mcp",
@@ -312344,16 +313132,16 @@
       "config": {
         "registry_type": "pypi",
         "identifier": "cli-market-world",
-        "version": "1.9.33",
-        "command": "pipx run cli-market-world==1.9.33"
+        "version": "1.9.34",
+        "command": "pipx run cli-market-world==1.9.34"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.9.33",
+    "version": "1.9.34",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-12T01:48:59.11656Z",
+    "mcp_registry_published_at": "2026-06-12T03:57:27.195974Z",
     "mcp_remotes": []
   },
   {
@@ -320915,8 +321703,8 @@
       "config": {
         "registry_type": "npm",
         "identifier": "webcake-landing-mcp",
-        "version": "1.0.63",
-        "command": "npx -y webcake-landing-mcp@1.0.63"
+        "version": "1.0.67",
+        "command": "npx -y webcake-landing-mcp@1.0.67"
       },
       "remotes": [
         {
@@ -320927,9 +321715,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.0.63",
+    "version": "1.0.67",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-11T17:26:39.73287Z",
+    "mcp_registry_published_at": "2026-06-12T05:19:33.62151Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -331051,9 +331839,9 @@
       "method": "manual",
       "config": {
         "registry_type": "oci",
-        "identifier": "ghcr.io/yonatangross/orchestkit-docs-mcp:8.41.1",
+        "identifier": "ghcr.io/yonatangross/orchestkit-docs-mcp:8.42.1",
         "version": "",
-        "command": "docker run ghcr.io/yonatangross/orchestkit-docs-mcp:8.41.1"
+        "command": "docker run ghcr.io/yonatangross/orchestkit-docs-mcp:8.42.1"
       },
       "remotes": [
         {
@@ -331064,9 +331852,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "8.41.1",
+    "version": "8.42.1",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-11T19:14:27.020285Z",
+    "mcp_registry_published_at": "2026-06-12T06:31:15.579512Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -333995,16 +334783,16 @@
       "config": {
         "registry_type": "pypi",
         "identifier": "vmware-aiops",
-        "version": "1.5.36",
-        "command": "pipx run vmware-aiops==1.5.36"
+        "version": "1.5.37",
+        "command": "pipx run vmware-aiops==1.5.37"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.5.36",
+    "version": "1.5.37",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-12T00:32:58.842201Z",
+    "mcp_registry_published_at": "2026-06-12T05:45:45.519939Z",
     "mcp_remotes": []
   },
   {
@@ -334022,16 +334810,16 @@
       "config": {
         "registry_type": "pypi",
         "identifier": "vmware-aria",
-        "version": "1.5.36",
-        "command": "pipx run vmware-aria==1.5.36"
+        "version": "1.5.37",
+        "command": "pipx run vmware-aria==1.5.37"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.5.36",
+    "version": "1.5.37",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-12T00:33:00.120695Z",
+    "mcp_registry_published_at": "2026-06-12T05:45:52.988603Z",
     "mcp_remotes": []
   },
   {
@@ -334049,16 +334837,16 @@
       "config": {
         "registry_type": "pypi",
         "identifier": "vmware-avi",
-        "version": "1.5.36",
-        "command": "pipx run vmware-avi==1.5.36"
+        "version": "1.5.37",
+        "command": "pipx run vmware-avi==1.5.37"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.5.36",
+    "version": "1.5.37",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-12T00:33:01.230587Z",
+    "mcp_registry_published_at": "2026-06-12T05:45:54.419975Z",
     "mcp_remotes": []
   },
   {
@@ -334076,16 +334864,16 @@
       "config": {
         "registry_type": "pypi",
         "identifier": "vmware-harden",
-        "version": "1.5.36",
-        "command": "pipx run vmware-harden==1.5.36"
+        "version": "1.5.37",
+        "command": "pipx run vmware-harden==1.5.37"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.5.36",
+    "version": "1.5.37",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-12T00:33:02.348041Z",
+    "mcp_registry_published_at": "2026-06-12T05:45:55.733329Z",
     "mcp_remotes": []
   },
   {
@@ -334103,16 +334891,16 @@
       "config": {
         "registry_type": "pypi",
         "identifier": "vmware-monitor",
-        "version": "1.5.36",
-        "command": "pipx run vmware-monitor==1.5.36"
+        "version": "1.5.37",
+        "command": "pipx run vmware-monitor==1.5.37"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.5.36",
+    "version": "1.5.37",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-12T00:33:04.219172Z",
+    "mcp_registry_published_at": "2026-06-12T05:45:56.766165Z",
     "mcp_remotes": []
   },
   {
@@ -334130,16 +334918,16 @@
       "config": {
         "registry_type": "pypi",
         "identifier": "vmware-nsx-mgmt",
-        "version": "1.5.36",
-        "command": "pipx run vmware-nsx-mgmt==1.5.36"
+        "version": "1.5.37",
+        "command": "pipx run vmware-nsx-mgmt==1.5.37"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.5.36",
+    "version": "1.5.37",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-12T00:33:06.159855Z",
+    "mcp_registry_published_at": "2026-06-12T05:45:57.912371Z",
     "mcp_remotes": []
   },
   {
@@ -334157,16 +334945,16 @@
       "config": {
         "registry_type": "pypi",
         "identifier": "vmware-nsx-security",
-        "version": "1.5.36",
-        "command": "pipx run vmware-nsx-security==1.5.36"
+        "version": "1.5.37",
+        "command": "pipx run vmware-nsx-security==1.5.37"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.5.36",
+    "version": "1.5.37",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-12T00:33:07.222021Z",
+    "mcp_registry_published_at": "2026-06-12T05:45:58.923329Z",
     "mcp_remotes": []
   },
   {
@@ -334184,16 +334972,16 @@
       "config": {
         "registry_type": "pypi",
         "identifier": "vmware-storage",
-        "version": "1.5.36",
-        "command": "pipx run vmware-storage==1.5.36"
+        "version": "1.5.37",
+        "command": "pipx run vmware-storage==1.5.37"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.5.36",
+    "version": "1.5.37",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-12T00:33:08.242528Z",
+    "mcp_registry_published_at": "2026-06-12T05:46:00.177341Z",
     "mcp_remotes": []
   },
   {
@@ -334211,16 +334999,16 @@
       "config": {
         "registry_type": "pypi",
         "identifier": "vmware-vks",
-        "version": "1.5.36",
-        "command": "pipx run vmware-vks==1.5.36"
+        "version": "1.5.37",
+        "command": "pipx run vmware-vks==1.5.37"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "1.5.36",
+    "version": "1.5.37",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-12T00:33:09.700175Z",
+    "mcp_registry_published_at": "2026-06-12T05:46:01.276452Z",
     "mcp_remotes": []
   },
   {
@@ -337989,6 +338777,38 @@
         "url": "https://tmtb-mcp.fly.dev/mcp"
       }
     ]
+  },
+  {
+    "id": "io-toolforest-toolforest-89b5b930",
+    "name": "Toolforest",
+    "type": "mcp",
+    "description": "Hosted MCP server with managed OAuth for 15+ toolkits: Google Workspace, Fitbit, Oura, Kalshi, etc.",
+    "source_url": "https://registry.modelcontextprotocol.io/v0/servers/io.toolforest%2Ftoolforest",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mcp.toolforest.io/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-12",
+    "version": "1.0.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-12T06:43:39.146049Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://mcp.toolforest.io/mcp"
+      }
+    ],
+    "website_url": "https://www.toolforest.io"
   },
   {
     "id": "io-tooloracle-accessoracle-898e7764",
@@ -348117,9 +348937,9 @@
   },
   {
     "id": "sh-stipple-openwarrant-aa5d76df",
-    "name": "OpenWarrant",
+    "name": "OpenWarrant — Document Verification Suite",
     "type": "mcp",
-    "description": "Verify document authenticity for AI agents: detect tampering in PDFs and images with evidence.",
+    "description": "Verify, classify financial docs, detect AI text, fact-check citations. One server, full suite.",
     "source_url": "https://github.com/Sketchjar/openwarrant",
     "stars": null,
     "category": "tooling",
@@ -348136,9 +348956,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-12",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-05T06:24:49.272143Z",
+    "mcp_registry_published_at": "2026-06-12T03:40:47.934192Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
