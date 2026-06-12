@@ -1,6 +1,6 @@
 # 🔌 MCP Servers
 
-> 7060 Model Context Protocol servers that connect AI agents to external tools, databases, and services.
+> 7102 Model Context Protocol servers that connect AI agents to external tools, databases, and services.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=mcp)
 
@@ -63,7 +63,7 @@
 | 51 | [Swiss Army Knife for MCP Servers](https://github.com/f/mcptools) | A comprehensive CLI tool for interacting with MCP servers, supporting multiple t... | 1.5k | 🟡 Stale | 96 | 2025-12-18 | tooling | `mcp`, `mcp-server`, `modelcontextprotocol` |
 | 52 | [caol64/wenyan-mcp](https://github.com/caol64/wenyan-mcp) | An MCP server that lets AI assistants format Markdown and publish articles direc... | 1.2k | 🟢 Active | 96 | 2026-04-29 | ai-ml | `mcp-server`, `wechat`, `wenyan` |
 | 53 | [Neon](https://github.com/neondatabase/mcp-server-neon) | Official Neon MCP server enabling natural language management of Neon Postgres d... | 609 | 🟢 Active | 96 | 2026-06-05 | database | `postgres` |
-| 54 | [Bernstein](https://github.com/sipyourdrink-ltd/bernstein) | Deterministic multi-agent CLI orchestrator that runs 44 coding agents in paralle... | 569 | 🟢 Active | 96 | 2026-06-10 | backend | `git`, `agent-framework`, `agent-orchestrator` |
+| 54 | [Bernstein](https://github.com/sipyourdrink-ltd/bernstein) | Deterministic multi-agent CLI orchestrator that runs 44 coding agents in paralle... | 570 | 🟢 Active | 96 | 2026-06-10 | backend | `git`, `agent-framework`, `agent-orchestrator` |
 | 55 | [n8n Workflow Builder MCP Server](https://github.com/makafeli/n8n-workflow-builder) | MCP server enabling AI assistants to manage n8n workflows programmatically via n... | 502 | 🟢 Active | 96 | 2026-03-19 | tooling | — |
 | 56 | [Muvon/octocode](https://github.com/Muvon/octocode) | Rust-based semantic code indexer that builds GraphRAG knowledge graphs and expos... | 396 | 🟢 Active | 96 | 2026-06-09 | backend | `rust`, `ai`, `ai-tools` |
 | 57 | [FreePeak/db-mcp-server](https://github.com/FreePeak/db-mcp-server) | A Go-based MCP server enabling AI assistants to interact with multiple databases... | 387 | 🟢 Active | 96 | 2026-04-19 | backend | `go`, `mysql`, `database-mcp-server` |
@@ -81,14 +81,14 @@
 | 69 | [MCP Access Point](https://github.com/sxhxliang/mcp-access-point) | A lightweight gateway that converts HTTP APIs into MCP servers for AI coding ass... | 169 | 🟢 Active | 96 | 2026-03-11 | tooling | — |
 | 70 | [Slack MCP Client in Go](https://github.com/tuannvm/slack-mcp-client) | A Go-based Slack bot that bridges Slack with MCP servers, enabling AI models to ... | 165 | 🟢 Active | 96 | 2026-03-02 | backend | `slack`, `mcp`, `mcp-client` |
 | 71 | [piia-engram](https://github.com/Patdolitse/piia-engram) | Local-first MCP server providing persistent AI memory across coding tools with u... | 164 | 🟢 Active | 96 | 2026-06-10 | backend | `agent-memory`, `ai-agent`, `ai-identity` |
-| 72 | [crw](https://github.com/us/crw) | Self-hosted Rust web scraper with built-in MCP server, Firecrawl-compatible API,... | 160 | 🟢 Active | 96 | 2026-06-10 | frontend | `rust`, `ai`, `ai-agents` |
+| 72 | [crw](https://github.com/us/crw) | Self-hosted Rust web scraper with built-in MCP server, Firecrawl-compatible API,... | 161 | 🟢 Active | 96 | 2026-06-10 | frontend | `rust`, `ai`, `ai-agents` |
 | 73 | [Easy Code Reader](https://github.com/FangYuan33/easy-code-reader) | MCP server for intelligent Java source code reading from Maven dependencies and ... | 134 | 🟢 Active | 96 | 2026-03-01 | backend | `easy-code-reader`, `java-source-code`, `mcp-server` |
 | 74 | [BrowserStack MCP Server](https://github.com/browserstack/mcp-server) | Official BrowserStack MCP server for AI-assisted test management, execution, deb... | 131 | 🟢 Active | 96 | 2026-04-13 | testing | `testing`, `automation`, `browserstack` |
 | 75 | [FHIR](https://github.com/wso2/fhir-mcp-server/) | MCP server for FHIR APIs enabling AI tools to securely interact with healthcare ... | 123 | 🟢 Active | 96 | 2026-05-29 | security | `fhir`, `healthcare`, `mcp` |
 | 76 | [MCP TypeScript Template 🚀](https://github.com/cyanheads/mcp-ts-template) | A TypeScript framework for building MCP servers with declarative tools, resource... | 122 | 🟢 Active | 96 | 2026-04-13 | frontend | `template`, `mcp`, `ts` |
 | 77 | [Canvas MCP Server v2.0](https://github.com/DMontgomery40/mcp-canvas-lms) | MCP server for AI agents to interact with Canvas LMS API for course, assignment,... | 90 | 🟢 Active | 96 | 2026-03-23 | ai-ml | `mcp`, `school-education`, `canvas-lms` |
 | 78 | [Multiverse MCP Server](https://github.com/lamemind/mcp-server-multiverse) | Middleware server enabling isolated, namespaced instances of the same MCP server... | 77 | 🟢 Active | 96 | 2026-03-30 | tooling | — |
-| 79 | [Debugg AI](https://github.com/debugg-ai/debugg-ai-mcp) | MCP server enabling AI coding agents to run end-to-end browser tests against web... | 76 | 🟢 Active | 96 | 2026-05-07 | testing | `automation`, `browser`, `end-to-end-testing` |
+| 79 | [Debugg AI](https://github.com/debugg-ai/debugg-ai-mcp) | MCP server enabling AI coding agents to run end-to-end browser tests against web... | 77 | 🟢 Active | 96 | 2026-05-07 | testing | `automation`, `browser`, `end-to-end-testing` |
 | 80 | [CodeAlive](https://github.com/CodeAlive-AI/codealive-mcp) | MCP server providing semantic code search and codebase understanding for AI assi... | 75 | 🟢 Active | 96 | 2026-04-14 | ai-ml | `codealive`, `code-search`, `ai-assistant` |
 | 81 | [Appwrite MCP server](https://github.com/appwrite/mcp) | An MCP server for AI-assisted management of Appwrite backend services like datab... | 62 | 🟢 Active | 96 | 2026-04-11 | tooling | — |
 | 82 | [Attio MCP Server](https://github.com/kesslerio/attio-mcp-server) | MCP server enabling AI assistants like Claude to interact with Attio CRM via nat... | 60 | 🟢 Active | 96 | 2026-04-09 | ai-ml | `attio`, `mcp`, `server` |
@@ -345,4 +345,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-11*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-12*

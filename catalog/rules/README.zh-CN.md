@@ -255,4 +255,4 @@ AI驱动的系统化调试规则，提供智能故障诊断、自动化工作流
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-11*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-12*

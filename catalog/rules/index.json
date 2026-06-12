@@ -19,7 +19,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "analyze-issue-rule21",
@@ -42,7 +42,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "backend-dev-rule21",
@@ -67,7 +67,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "bug-fix-rule21",
@@ -89,7 +89,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "changelog-management-rule21",
@@ -111,7 +111,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "code-quality-check-rule21",
@@ -133,7 +133,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "code-review-rule21",
@@ -155,7 +155,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "commit-rule21",
@@ -177,7 +177,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "context-loader-rule21",
@@ -199,7 +199,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "create-docs-rule21",
@@ -221,7 +221,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "custom-command-builder-rule21",
@@ -243,7 +243,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "feedback-enhanced-rule21",
@@ -265,7 +265,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "frontend-dev-rule21",
@@ -290,7 +290,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "implement-task-rule21",
@@ -312,7 +312,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "intelligent-project-management-rule21",
@@ -334,7 +334,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "intelligent-workflow-orchestration-rule21",
@@ -356,7 +356,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "mcp-debugging-enhanced-rule21",
@@ -378,7 +378,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "mcp-intelligent-strategy-rule21",
@@ -400,7 +400,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "mcp-unified-management-rule21",
@@ -422,7 +422,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "mcp-zero-config-detection-rule21",
@@ -444,7 +444,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "mermaid-rule21",
@@ -466,7 +466,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "root-cause-analysis-rule21",
@@ -488,7 +488,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "systematic-debugging-rule21",
@@ -510,7 +510,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "ai-agent-intelligence-core-rule21",
@@ -532,7 +532,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "ai-ethical-boundaries-rule21",
@@ -554,7 +554,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "ai-thinking-protocol-rule21",
@@ -576,7 +576,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "audit-logging-system-rule21",
@@ -598,7 +598,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "backend-rules-rule21",
@@ -620,7 +620,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "brain-recorder-integration-rule21",
@@ -642,7 +642,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "context-recorder-advanced-rule21",
@@ -664,7 +664,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "context-recorder-core-rule21",
@@ -686,7 +686,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "context-recorder-edge-cases-rule21",
@@ -708,7 +708,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "context-recorder-system-rule21",
@@ -730,7 +730,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "context-recorder-templates-rule21",
@@ -752,7 +752,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "context-systems-integration-rule21",
@@ -774,7 +774,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "context7-preload-standard-rule21",
@@ -796,7 +796,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "disaster-recovery-plan-rule21",
@@ -818,7 +818,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "dynamic-thinking-depth-regulation-rule21",
@@ -840,7 +840,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "error-recovery-system-rule21",
@@ -862,7 +862,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "file-generation-safety-rules-rule21",
@@ -884,7 +884,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "frontend-rules-rule21",
@@ -906,7 +906,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "human-ai-collaboration-optimization-rule21",
@@ -928,7 +928,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "intelligent-recommendation-engine-rule21",
@@ -950,7 +950,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "knowledge-creation-discovery-framework-rule21",
@@ -972,7 +972,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "memory-system-integration-rule21",
@@ -994,7 +994,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "multimodal-interaction-framework-rule21",
@@ -1016,7 +1016,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "performance-monitoring-system-rule21",
@@ -1038,7 +1038,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "permission-control-system-rule21",
@@ -1060,7 +1060,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "rule-conflict-resolution-rule21",
@@ -1082,7 +1082,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "rule-hot-reload-system-rule21",
@@ -1104,7 +1104,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "super-brain-system-rule21",
@@ -1126,7 +1126,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "system-diagnostics-rule21",
@@ -1148,7 +1148,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "system-integration-config-rule21",
@@ -1170,7 +1170,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   },
   {
     "id": "unified-rules-base-rule21",
@@ -1192,6 +1192,6 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-11"
+    "last_synced": "2026-06-12"
   }
 ]

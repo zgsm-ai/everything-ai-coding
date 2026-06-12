@@ -1,6 +1,6 @@
 # 🎯 Skills 技能
 
-> 4033 AI 编程助手的可复用能力和工作流。
+> 4037 AI 编程助手的可复用能力和工作流。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
@@ -22,7 +22,7 @@
 | 10 | [xlsx](https://github.com/anthropics/skills/tree/main/skills/xlsx) | 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。 | Anthropic 官方 | 🟢 活跃 | 96 | 2026-05-09 | tooling | `anthropic`, `official` |
 | 11 | [Agent Development](https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev/skills/agent-development) | 为Claude Code AI编程助手开发自主代理插件的完整指南。 | Anthropic 官方 | 🟢 活跃 | 95 | 2026-05-09 | tooling | — |
 | 12 | [Command Development](https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev/skills/command-development) | Claude Code 斜杠命令开发指南，涵盖结构、参数和最佳实践。 | Anthropic 官方 | 🟢 活跃 | 95 | 2026-05-09 | tooling | — |
-| 13 | [langsmith-fetch](https://github.com/ComposioHQ/awesome-claude-skills/tree/master/langsmith-fetch) | 用于调试LangChain/LangGraph代理的CLI工具，可从LangSmith Studio获取和分析执行跟踪。 | composio-office | 🟢 活跃 | 95 | 2026-05-22 | documentation | `langchain-debugging`, `agent-tracing`, `cli-tool` |
+| 13 | [langsmith-fetch](https://github.com/ComposioHQ/awesome-claude-skills/tree/master/langsmith-fetch) | 用于调试LangChain/LangGraph代理的CLI工具，可从LangSmith Studio获取和分析执行跟踪。 | composio-office | 🟢 活跃 | 95 | 2026-05-22 | documentation | `langchain`, `office`, `documentation` |
 | 14 | [agent-framework-azure-ai-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agent-framework-azure-ai-py) | 用于在 Azure AI Foundry 上构建持久化 AI 代理的 Python SDK 技能，支持工具集成和对话管理。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | ai-ml | `python`, `azure` |
 | 15 | [ai-engineering-toolkit](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ai-engineering-toolkit) | 一套包含6个结构化AI工程工作流的工具包，用于提示词评估、RAG设计、安全审计等，专为编程助手设计。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | database | `ai`, `llm` |
 | 16 | [apify-actor-development](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/apify-actor-development) | 用于AI辅助开发、测试和部署Apify Actor（无服务器网络爬虫/自动化程序）的综合技能。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | tooling | `javascript`, `nodejs` |
@@ -114,7 +114,7 @@
 ## Top 10 安装指南
 
 <details>
-<summary>⭐ <strong>docx</strong> (149.3k★) — 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。</summary>
+<summary>⭐ <strong>docx</strong> (149.6k★) — 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。</summary>
 
 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。
 
@@ -129,7 +129,7 @@ Files: `skills/docx/`
 </details>
 
 <details>
-<summary>⭐ <strong>slack-gif-creator</strong> (149.3k★) — 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。</summary>
+<summary>⭐ <strong>slack-gif-creator</strong> (149.6k★) — 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。</summary>
 
 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。
 
@@ -144,7 +144,7 @@ Files: `skills/slack-gif-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>Writing Hookify Rules</strong> (131.7k★) — 用于创建 Hookify 规则的技能，监控 Claude Code 中的编码模式并触发警告或阻止。</summary>
+<summary>⭐ <strong>Writing Hookify Rules</strong> (131.8k★) — 用于创建 Hookify 规则的技能，监控 Claude Code 中的编码模式并触发警告或阻止。</summary>
 
 用于创建 Hookify 规则的技能，监控 Claude Code 中的编码模式并触发警告或阻止。
 
@@ -158,7 +158,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Hook Development</strong> (131.7k★) — Claude Code 插件钩子开发指南，用于验证、修改和自动化 AI 辅助编码工作流。</summary>
+<summary>⭐ <strong>Hook Development</strong> (131.8k★) — Claude Code 插件钩子开发指南，用于验证、修改和自动化 AI 辅助编码工作流。</summary>
 
 Claude Code 插件钩子开发指南，用于验证、修改和自动化 AI 辅助编码工作流。
 
@@ -172,7 +172,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>MCP Integration</strong> (131.7k★) — 全面指南，用于将模型上下文协议（MCP）服务器集成到Claude Code插件中，以连接外部服务作为工具。</summary>
+<summary>⭐ <strong>MCP Integration</strong> (131.8k★) — 全面指南，用于将模型上下文协议（MCP）服务器集成到Claude Code插件中，以连接外部服务作为工具。</summary>
 
 全面指南，用于将模型上下文协议（MCP）服务器集成到Claude Code插件中，以连接外部服务作为工具。
 
@@ -186,7 +186,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Plugin Settings</strong> (131.7k★) — Claude Code 插件技能模式，通过 .local.md 文件中的 YAML 前置数据存储项目配置。</summary>
+<summary>⭐ <strong>Plugin Settings</strong> (131.8k★) — Claude Code 插件技能模式，通过 .local.md 文件中的 YAML 前置数据存储项目配置。</summary>
 
 Claude Code 插件技能模式，通过 .local.md 文件中的 YAML 前置数据存储项目配置。
 
@@ -200,7 +200,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Plugin Structure</strong> (131.7k★) — 用于创建和组织 Claude Code 插件的技能，提供标准化目录结构和清单配置。</summary>
+<summary>⭐ <strong>Plugin Structure</strong> (131.8k★) — 用于创建和组织 Claude Code 插件的技能，提供标准化目录结构和清单配置。</summary>
 
 用于创建和组织 Claude Code 插件的技能，提供标准化目录结构和清单配置。
 
@@ -214,7 +214,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Skill Development</strong> (131.7k★) — 为 Claude Code 插件创建模块化技能的全面指南，涵盖结构、最佳实践和渐进式披露。</summary>
+<summary>⭐ <strong>Skill Development</strong> (131.8k★) — 为 Claude Code 插件创建模块化技能的全面指南，涵盖结构、最佳实践和渐进式披露。</summary>
 
 为 Claude Code 插件创建模块化技能的全面指南，涵盖结构、最佳实践和渐进式披露。
 
@@ -228,7 +228,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>skill-creator</strong> (149.3k★) — 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。</summary>
+<summary>⭐ <strong>skill-creator</strong> (149.6k★) — 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。</summary>
 
 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。
 
@@ -243,7 +243,7 @@ Files: `skills/skill-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>xlsx</strong> (149.3k★) — 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。</summary>
+<summary>⭐ <strong>xlsx</strong> (149.6k★) — 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。</summary>
 
 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。
 
@@ -269,4 +269,4 @@ Files: `skills/xlsx/`
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-11*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-12*

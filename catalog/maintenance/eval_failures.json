@@ -243,6 +243,15 @@
       "next_retry_after": "2026-06-11T10:12:14.441554+00:00",
       "type": "mcp"
     },
+    "ai-duvera-gateway-da4b8dc3": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-06-12T03:05:00.109043+00:00",
+      "last_error_kind": "EvalRunnerSkip",
+      "last_error_message": "runner returned no result for entry",
+      "last_failed_at": "2026-06-12T03:05:00.109043+00:00",
+      "next_retry_after": "2026-06-12T03:05:00.109043+00:00",
+      "type": "mcp"
+    },
     "ai-gossiper-shopify-admin-mcp-4b4b4a91": {
       "attempt_count": 1,
       "first_failed_at": "2026-06-11T10:12:14.441632+00:00",
@@ -394,15 +403,6 @@
       "last_error_message": "runner returned no result for entry",
       "last_failed_at": "2026-06-11T10:18:56.523100+00:00",
       "next_retry_after": "2026-06-11T10:18:56.523100+00:00",
-      "type": "mcp"
-    },
-    "ai-rfp-rfp-ai-0bb83cb7": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:01:19.065805+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:01:19.065805+00:00",
-      "next_retry_after": "2026-06-11T13:01:19.065805+00:00",
       "type": "mcp"
     },
     "ai-smithery-a-ariff-canvas-instant-mcp-72b71b76": {
@@ -1052,6 +1052,15 @@
       "last_failed_at": "2026-06-11T07:15:51.840732+00:00",
       "next_retry_after": "2026-06-11T07:15:51.840732+00:00",
       "type": "mcp"
+    },
+    "anthropic-convex-quickstart": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-06-12T03:00:56.925044+00:00",
+      "last_error_kind": "EvalRunnerSkip",
+      "last_error_message": "runner returned no result for entry",
+      "last_failed_at": "2026-06-12T03:00:56.925044+00:00",
+      "next_retry_after": "2026-06-12T03:00:56.925044+00:00",
+      "type": "skill"
     },
     "anthropic-cookbook": {
       "attempt_count": 1,
@@ -2108,11 +2117,11 @@
     },
     "claude-proje-çalışma-promptu-prompt": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:00:38.299103+00:00",
+      "first_failed_at": "2026-06-12T03:03:32.659258+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:00:38.299103+00:00",
-      "next_retry_after": "2026-06-11T13:00:38.299103+00:00",
+      "last_failed_at": "2026-06-12T03:03:32.659258+00:00",
+      "next_retry_after": "2026-06-12T03:03:32.659258+00:00",
       "type": "prompt"
     },
     "claudepost": {
@@ -2367,6 +2376,24 @@
       "next_retry_after": "2026-06-11T11:07:33.137548+00:00",
       "type": "mcp"
     },
+    "com-askmatchbox-matchbox-eb3a2e27": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-06-12T03:05:00.110486+00:00",
+      "last_error_kind": "EvalRunnerSkip",
+      "last_error_message": "runner returned no result for entry",
+      "last_failed_at": "2026-06-12T03:05:00.110486+00:00",
+      "next_retry_after": "2026-06-12T03:05:00.110486+00:00",
+      "type": "mcp"
+    },
+    "com-avalara-avatax-15f07f4f": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-06-12T03:05:00.110496+00:00",
+      "last_error_kind": "EvalRunnerSkip",
+      "last_error_message": "runner returned no result for entry",
+      "last_failed_at": "2026-06-12T03:05:00.110496+00:00",
+      "next_retry_after": "2026-06-12T03:05:00.110496+00:00",
+      "type": "mcp"
+    },
     "com-blackwalltier-blackwall-4ad43c14": {
       "attempt_count": 1,
       "first_failed_at": "2026-06-11T11:12:27.509806+00:00",
@@ -2394,6 +2421,15 @@
       "next_retry_after": "2026-06-11T11:14:04.627253+00:00",
       "type": "mcp"
     },
+    "com-convika-convika-b99d7489": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-06-12T03:05:00.110501+00:00",
+      "last_error_kind": "EvalRunnerSkip",
+      "last_error_message": "runner returned no result for entry",
+      "last_failed_at": "2026-06-12T03:05:00.110501+00:00",
+      "next_retry_after": "2026-06-12T03:05:00.110501+00:00",
+      "type": "mcp"
+    },
     "com-cre8techdev-mini-pricer-mcp-05da6aaf": {
       "attempt_count": 1,
       "first_failed_at": "2026-06-11T11:22:39.959483+00:00",
@@ -2401,6 +2437,15 @@
       "last_error_message": "runner returned no result for entry",
       "last_failed_at": "2026-06-11T11:22:39.959483+00:00",
       "next_retry_after": "2026-06-11T11:22:39.959483+00:00",
+      "type": "mcp"
+    },
+    "com-crosswire-api-crosswire-f5f95619": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-06-12T03:05:00.110506+00:00",
+      "last_error_kind": "EvalRunnerSkip",
+      "last_error_message": "runner returned no result for entry",
+      "last_failed_at": "2026-06-12T03:05:00.110506+00:00",
+      "next_retry_after": "2026-06-12T03:05:00.110506+00:00",
       "type": "mcp"
     },
     "com-cryptorefills-mcp-server-82ec25dc": {
@@ -2430,6 +2475,15 @@
       "next_retry_after": "2026-06-11T11:22:39.959598+00:00",
       "type": "mcp"
     },
+    "com-getcaboo-caboo-6fc5bfb7": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-06-12T03:05:00.110512+00:00",
+      "last_error_kind": "EvalRunnerSkip",
+      "last_error_message": "runner returned no result for entry",
+      "last_failed_at": "2026-06-12T03:05:00.110512+00:00",
+      "next_retry_after": "2026-06-12T03:05:00.110512+00:00",
+      "type": "mcp"
+    },
     "com-gitsim-chat-c6b3a5f2": {
       "attempt_count": 1,
       "first_failed_at": "2026-06-11T11:33:07.109234+00:00",
@@ -2448,6 +2502,33 @@
       "next_retry_after": "2026-06-11T11:37:38.096831+00:00",
       "type": "mcp"
     },
+    "com-kage-core-kage-554bc2e9": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-06-12T03:05:00.110516+00:00",
+      "last_error_kind": "EvalRunnerSkip",
+      "last_error_message": "runner returned no result for entry",
+      "last_failed_at": "2026-06-12T03:05:00.110516+00:00",
+      "next_retry_after": "2026-06-12T03:05:00.110516+00:00",
+      "type": "mcp"
+    },
+    "com-keepmysubs-keepmysubs-35a6b28a": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-06-12T03:05:00.110521+00:00",
+      "last_error_kind": "EvalRunnerSkip",
+      "last_error_message": "runner returned no result for entry",
+      "last_failed_at": "2026-06-12T03:05:00.110521+00:00",
+      "next_retry_after": "2026-06-12T03:05:00.110521+00:00",
+      "type": "mcp"
+    },
+    "com-marketcheck-api-fcb58043": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-06-12T03:05:00.110525+00:00",
+      "last_error_kind": "EvalRunnerSkip",
+      "last_error_message": "runner returned no result for entry",
+      "last_failed_at": "2026-06-12T03:05:00.110525+00:00",
+      "next_retry_after": "2026-06-12T03:05:00.110525+00:00",
+      "type": "mcp"
+    },
     "com-olyport-irs-990-6ebbb193": {
       "attempt_count": 1,
       "first_failed_at": "2026-06-11T11:58:11.802285+00:00",
@@ -2457,22 +2538,22 @@
       "next_retry_after": "2026-06-11T11:58:11.802285+00:00",
       "type": "mcp"
     },
-    "company-research-offskill": {
+    "com-wearmu-mu-9703eded": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-11T12:59:30.900692+00:00",
+      "first_failed_at": "2026-06-12T03:05:00.111497+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T12:59:30.900692+00:00",
-      "next_retry_after": "2026-06-11T12:59:30.900692+00:00",
-      "type": "skill"
+      "last_failed_at": "2026-06-12T03:05:00.111497+00:00",
+      "next_retry_after": "2026-06-12T03:05:00.111497+00:00",
+      "type": "mcp"
     },
     "competitive-analysis-offskill": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-11T12:59:30.900700+00:00",
+      "first_failed_at": "2026-06-12T03:00:56.924118+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T12:59:30.900700+00:00",
-      "next_retry_after": "2026-06-11T12:59:30.900700+00:00",
+      "last_failed_at": "2026-06-12T03:00:56.924118+00:00",
+      "next_retry_after": "2026-06-12T03:00:56.924118+00:00",
       "type": "skill"
     },
     "confluentincmcp-confluent": {
@@ -2495,11 +2576,11 @@
     },
     "content-writer-offskill": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-11T12:59:30.900705+00:00",
+      "first_failed_at": "2026-06-12T03:00:56.924153+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T12:59:30.900705+00:00",
-      "next_retry_after": "2026-06-11T12:59:30.900705+00:00",
+      "last_failed_at": "2026-06-12T03:00:56.924153+00:00",
+      "next_retry_after": "2026-06-12T03:00:56.924153+00:00",
       "type": "skill"
     },
     "context-7": {
@@ -2522,29 +2603,29 @@
     },
     "contract-review-offskill": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-11T12:59:30.900710+00:00",
+      "first_failed_at": "2026-06-12T03:00:56.924159+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T12:59:30.900710+00:00",
-      "next_retry_after": "2026-06-11T12:59:30.900710+00:00",
+      "last_failed_at": "2026-06-12T03:00:56.924159+00:00",
+      "next_retry_after": "2026-06-12T03:00:56.924159+00:00",
       "type": "skill"
     },
     "contract-template-offskill": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-11T12:59:30.900714+00:00",
+      "first_failed_at": "2026-06-12T03:00:56.924164+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T12:59:30.900714+00:00",
-      "next_retry_after": "2026-06-11T12:59:30.900714+00:00",
+      "last_failed_at": "2026-06-12T03:00:56.924164+00:00",
+      "next_retry_after": "2026-06-12T03:00:56.924164+00:00",
       "type": "skill"
     },
     "cover-letter-offskill": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-11T12:59:30.900719+00:00",
+      "first_failed_at": "2026-06-12T03:00:56.924169+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T12:59:30.900719+00:00",
-      "next_retry_after": "2026-06-11T12:59:30.900719+00:00",
+      "last_failed_at": "2026-06-12T03:00:56.924169+00:00",
+      "next_retry_after": "2026-06-12T03:00:56.924169+00:00",
       "type": "skill"
     },
     "cr7258-elasticsearch-mcp-server": {
@@ -2567,20 +2648,20 @@
     },
     "crm-automation-offskill": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-11T12:59:30.900723+00:00",
+      "first_failed_at": "2026-06-12T03:00:56.924174+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T12:59:30.900723+00:00",
-      "next_retry_after": "2026-06-11T12:59:30.900723+00:00",
+      "last_failed_at": "2026-06-12T03:00:56.924174+00:00",
+      "next_retry_after": "2026-06-12T03:00:56.924174+00:00",
       "type": "skill"
     },
     "crypto-report-offskill": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-11T12:59:30.900727+00:00",
+      "first_failed_at": "2026-06-12T03:00:56.924178+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T12:59:30.900727+00:00",
-      "next_retry_after": "2026-06-11T12:59:30.900727+00:00",
+      "last_failed_at": "2026-06-12T03:00:56.924178+00:00",
+      "next_retry_after": "2026-06-12T03:00:56.924178+00:00",
       "type": "skill"
     },
     "cua": {
@@ -2594,11 +2675,11 @@
     },
     "customer-success-offskill": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-11T12:59:30.900731+00:00",
+      "first_failed_at": "2026-06-12T03:00:56.924182+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T12:59:30.900731+00:00",
-      "next_retry_after": "2026-06-11T12:59:30.900731+00:00",
+      "last_failed_at": "2026-06-12T03:00:56.924182+00:00",
+      "next_retry_after": "2026-06-12T03:00:56.924182+00:00",
       "type": "skill"
     },
     "da-okazaki-mcp-neo4j-server": {
@@ -2639,11 +2720,11 @@
     },
     "data-analysis-offskill": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-11T12:59:30.900813+00:00",
+      "first_failed_at": "2026-06-12T03:00:56.924186+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T12:59:30.900813+00:00",
-      "next_retry_after": "2026-06-11T12:59:30.900813+00:00",
+      "last_failed_at": "2026-06-12T03:00:56.924186+00:00",
+      "next_retry_after": "2026-06-12T03:00:56.924186+00:00",
       "type": "skill"
     },
     "data-exploration": {
@@ -3458,38 +3539,29 @@
     },
     "invoice-automation-offskill": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:05:03.764182+00:00",
+      "first_failed_at": "2026-06-12T03:00:56.924190+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:05:03.764182+00:00",
-      "next_retry_after": "2026-06-11T13:05:03.764182+00:00",
+      "last_failed_at": "2026-06-12T03:00:56.924190+00:00",
+      "next_retry_after": "2026-06-12T03:00:56.924190+00:00",
       "type": "skill"
     },
     "invoice-generator-offskill": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:05:03.764200+00:00",
+      "first_failed_at": "2026-06-12T03:00:56.924195+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:05:03.764200+00:00",
-      "next_retry_after": "2026-06-11T13:05:03.764200+00:00",
+      "last_failed_at": "2026-06-12T03:00:56.924195+00:00",
+      "next_retry_after": "2026-06-12T03:00:56.924195+00:00",
       "type": "skill"
     },
     "invoice-organizer-offskill": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:05:03.764206+00:00",
+      "first_failed_at": "2026-06-12T03:00:56.924199+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:05:03.764206+00:00",
-      "next_retry_after": "2026-06-11T13:05:03.764206+00:00",
-      "type": "skill"
-    },
-    "invoice-template-offskill": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:05:03.764211+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:05:03.764211+00:00",
-      "next_retry_after": "2026-06-11T13:05:03.764211+00:00",
+      "last_failed_at": "2026-06-12T03:00:56.924199+00:00",
+      "next_retry_after": "2026-06-12T03:00:56.924199+00:00",
       "type": "skill"
     },
     "io-bitquery-mcp-42e5d1f0": {
@@ -3501,114 +3573,6 @@
       "next_retry_after": "2026-05-18T07:27:44.274485+00:00",
       "type": "mcp"
     },
-    "io-github-giuseppesocci-bot-kalicart-global-5bd2f392": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:01:19.070925+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:01:19.070925+00:00",
-      "next_retry_after": "2026-06-11T13:01:19.070925+00:00",
-      "type": "mcp"
-    },
-    "io-github-guptaprakhariitr-arxiv-mcp-ae32ab6f": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:01:19.070937+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:01:19.070937+00:00",
-      "next_retry_after": "2026-06-11T13:01:19.070937+00:00",
-      "type": "mcp"
-    },
-    "io-github-guptaprakhariitr-crypto-prices-mcp-22a4596b": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:01:19.070944+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:01:19.070944+00:00",
-      "next_retry_after": "2026-06-11T13:01:19.070944+00:00",
-      "type": "mcp"
-    },
-    "io-github-guptaprakhariitr-drug-interaction-mcp-cc0d05a2": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:01:19.070949+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:01:19.070949+00:00",
-      "next_retry_after": "2026-06-11T13:01:19.070949+00:00",
-      "type": "mcp"
-    },
-    "io-github-guptaprakhariitr-fda-approvals-mcp-f7be71a8": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:01:19.070954+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:01:19.070954+00:00",
-      "next_retry_after": "2026-06-11T13:01:19.070954+00:00",
-      "type": "mcp"
-    },
-    "io-github-guptaprakhariitr-gdelt-events-mcp-563cbd5c": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:01:19.070959+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:01:19.070959+00:00",
-      "next_retry_after": "2026-06-11T13:01:19.070959+00:00",
-      "type": "mcp"
-    },
-    "io-github-guptaprakhariitr-gst-validator-mcp-a3b083a8": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:01:19.070964+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:01:19.070964+00:00",
-      "next_retry_after": "2026-06-11T13:01:19.070964+00:00",
-      "type": "mcp"
-    },
-    "io-github-guptaprakhariitr-hsn-classifier-mcp-f700becf": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:01:19.071208+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:01:19.071208+00:00",
-      "next_retry_after": "2026-06-11T13:01:19.071208+00:00",
-      "type": "mcp"
-    },
-    "io-github-guptaprakhariitr-indian-regulatory-mcp-daf0481f": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:01:19.071215+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:01:19.071215+00:00",
-      "next_retry_after": "2026-06-11T13:01:19.071215+00:00",
-      "type": "mcp"
-    },
-    "io-github-guptaprakhariitr-indic-normalize-mcp-7d75715b": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:01:19.071220+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:01:19.071220+00:00",
-      "next_retry_after": "2026-06-11T13:01:19.071220+00:00",
-      "type": "mcp"
-    },
-    "io-github-guptaprakhariitr-multi-carrier-tracking-mcp-3c2b741b": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:01:19.071224+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:01:19.071224+00:00",
-      "next_retry_after": "2026-06-11T13:01:19.071224+00:00",
-      "type": "mcp"
-    },
-    "io-github-guptaprakhariitr-sec-edgar-mcp-1735d31c": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:01:19.071229+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:01:19.071229+00:00",
-      "next_retry_after": "2026-06-11T13:01:19.071229+00:00",
-      "type": "mcp"
-    },
     "io-github-philipand-mkdshare-db629dd5": {
       "attempt_count": 1,
       "first_failed_at": "2026-05-18T07:52:15.340880+00:00",
@@ -3616,42 +3580,6 @@
       "last_error_message": "runner returned no result for entry",
       "last_failed_at": "2026-05-18T07:52:15.340880+00:00",
       "next_retry_after": "2026-05-18T07:52:15.340880+00:00",
-      "type": "mcp"
-    },
-    "io-github-pipeworx-io-geonet-nz-80c0701e": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:07:34.494363+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:07:34.494363+00:00",
-      "next_retry_after": "2026-06-11T13:07:34.494363+00:00",
-      "type": "mcp"
-    },
-    "io-github-pipeworx-io-hathitrust-73e908b0": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:07:34.494382+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:07:34.494382+00:00",
-      "next_retry_after": "2026-06-11T13:07:34.494382+00:00",
-      "type": "mcp"
-    },
-    "io-github-pipeworx-io-hgnc-bac8e9cd": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:07:34.494388+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:07:34.494388+00:00",
-      "next_retry_after": "2026-06-11T13:07:34.494388+00:00",
-      "type": "mcp"
-    },
-    "io-github-pipeworx-io-sciencebase-83f540f5": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:07:34.496433+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:07:34.496433+00:00",
-      "next_retry_after": "2026-06-11T13:07:34.496433+00:00",
       "type": "mcp"
     },
     "io-github-serpapi-serpapi-mcp-87d22508": {
@@ -3851,15 +3779,6 @@
       "last_failed_at": "2026-06-11T06:52:44.136411+00:00",
       "next_retry_after": "2026-06-11T06:52:44.136411+00:00",
       "type": "mcp"
-    },
-    "jira-automation-offskill": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:05:03.764215+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:05:03.764215+00:00",
-      "next_retry_after": "2026-06-11T13:05:03.764215+00:00",
-      "type": "skill"
     },
     "json": {
       "attempt_count": 1,
@@ -4554,15 +4473,6 @@
       "next_retry_after": "2026-06-11T07:30:48.977835+00:00",
       "type": "mcp"
     },
-    "meeting-insights-analyzer-coskill": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T12:59:30.898878+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T12:59:30.898878+00:00",
-      "next_retry_after": "2026-06-11T12:59:30.898878+00:00",
-      "type": "skill"
-    },
     "meilisearch": {
       "attempt_count": 1,
       "first_failed_at": "2026-06-11T07:15:51.840914+00:00",
@@ -4580,6 +4490,15 @@
       "last_failed_at": "2026-06-11T07:37:12.636002+00:00",
       "next_retry_after": "2026-06-11T07:37:12.636002+00:00",
       "type": "mcp"
+    },
+    "mempalace-mempalace-mempalace-mempalace-recall-fff3eea8": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-06-12T03:00:56.923957+00:00",
+      "last_error_kind": "EvalRunnerSkip",
+      "last_error_message": "runner returned no result for entry",
+      "last_failed_at": "2026-06-12T03:00:56.923957+00:00",
+      "next_retry_after": "2026-06-12T03:00:56.923957+00:00",
+      "type": "skill"
     },
     "memtrace": {
       "attempt_count": 1,
@@ -4977,6 +4896,15 @@
       "next_retry_after": "2026-06-11T06:41:48.401664+00:00",
       "type": "mcp"
     },
+    "org-memoryapi-fec-ac65795d": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-06-12T03:22:57.256992+00:00",
+      "last_error_kind": "EvalRunnerSkip",
+      "last_error_message": "runner returned no result for entry",
+      "last_failed_at": "2026-06-12T03:22:57.256992+00:00",
+      "next_retry_after": "2026-06-12T03:22:57.256992+00:00",
+      "type": "mcp"
+    },
     "osomai-zoom-mcp": {
       "attempt_count": 1,
       "first_failed_at": "2026-06-11T08:55:27.300746+00:00",
@@ -4994,33 +4922,6 @@
       "last_failed_at": "2026-06-11T07:58:52.480310+00:00",
       "next_retry_after": "2026-06-11T07:58:52.480310+00:00",
       "type": "mcp"
-    },
-    "pdf-ocr-offskill": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:10:07.188804+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:10:07.188804+00:00",
-      "next_retry_after": "2026-06-11T13:10:07.188804+00:00",
-      "type": "skill"
-    },
-    "pdf-to-docx-offskill": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:10:07.188822+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:10:07.188822+00:00",
-      "next_retry_after": "2026-06-11T13:10:07.188822+00:00",
-      "type": "skill"
-    },
-    "pdf-watermark-offskill": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:10:07.188828+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:10:07.188828+00:00",
-      "next_retry_after": "2026-06-11T13:10:07.188828+00:00",
-      "type": "skill"
     },
     "perplexity": {
       "attempt_count": 1,
@@ -5078,11 +4979,11 @@
     },
     "plataforma-escopo-bugbouty-cyber-hunter-lab-prompt": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:00:38.299146+00:00",
+      "first_failed_at": "2026-06-12T03:03:32.659314+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:00:38.299146+00:00",
-      "next_retry_after": "2026-06-11T13:00:38.299146+00:00",
+      "last_failed_at": "2026-06-12T03:03:32.659314+00:00",
+      "next_retry_after": "2026-06-12T03:03:32.659314+00:00",
       "type": "prompt"
     },
     "playcanvas-editor-mcp-server": {
@@ -5093,15 +4994,6 @@
       "last_failed_at": "2026-06-11T07:37:12.636896+00:00",
       "next_retry_after": "2026-06-11T07:37:12.636896+00:00",
       "type": "mcp"
-    },
-    "ppt-visual-offskill": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:10:07.189009+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:10:07.189009+00:00",
-      "next_retry_after": "2026-06-11T13:10:07.189009+00:00",
-      "type": "skill"
     },
     "praneshasp-foundry-mcp-server": {
       "attempt_count": 1,
@@ -5195,11 +5087,11 @@
     },
     "quantum-topology-matcher-prompt": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:00:38.299136+00:00",
+      "first_failed_at": "2026-06-12T03:03:32.659299+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:00:38.299136+00:00",
-      "next_retry_after": "2026-06-11T13:00:38.299136+00:00",
+      "last_failed_at": "2026-06-12T03:03:32.659299+00:00",
+      "next_retry_after": "2026-06-12T03:03:32.659299+00:00",
       "type": "prompt"
     },
     "quarkiverse-quarkus-mcp-server": {
@@ -5237,15 +5129,6 @@
       "last_failed_at": "2026-06-11T07:06:47.298681+00:00",
       "next_retry_after": "2026-06-11T07:06:47.298681+00:00",
       "type": "mcp"
-    },
-    "raffle-winner-picker-coskill": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T12:59:30.898899+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T12:59:30.898899+00:00",
-      "next_retry_after": "2026-06-11T12:59:30.898899+00:00",
-      "type": "skill"
     },
     "railsware-mailtrap-mcp": {
       "attempt_count": 1,
@@ -5670,15 +5553,6 @@
       "next_retry_after": "2026-06-11T07:30:48.977417+00:00",
       "type": "mcp"
     },
-    "space-customjs-customjs-mcp-d4f7fc83": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:08:43.044657+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:08:43.044657+00:00",
-      "next_retry_after": "2026-06-11T13:08:43.044657+00:00",
-      "type": "mcp"
-    },
     "sparfenyuk-mcp-proxy": {
       "attempt_count": 1,
       "first_failed_at": "2026-06-11T06:49:17.517381+00:00",
@@ -5814,15 +5688,6 @@
       "next_retry_after": "2026-06-11T09:17:58.581828+00:00",
       "type": "mcp"
     },
-    "table-extractor-offskill": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:10:07.190368+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:10:07.190368+00:00",
-      "next_retry_after": "2026-06-11T13:10:07.190368+00:00",
-      "type": "skill"
-    },
     "tacticlaunchmcp-linear": {
       "attempt_count": 1,
       "first_failed_at": "2026-06-11T07:25:24.377391+00:00",
@@ -5849,24 +5714,6 @@
       "last_failed_at": "2026-06-11T06:49:17.517394+00:00",
       "next_retry_after": "2026-06-11T06:49:17.517394+00:00",
       "type": "mcp"
-    },
-    "telegram-bot-offskill": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:10:07.190377+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:10:07.190377+00:00",
-      "next_retry_after": "2026-06-11T13:10:07.190377+00:00",
-      "type": "skill"
-    },
-    "template-engine-offskill": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:10:07.190382+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:10:07.190382+00:00",
-      "next_retry_after": "2026-06-11T13:10:07.190382+00:00",
-      "type": "skill"
     },
     "tevonsb-homeassistant-mcp": {
       "attempt_count": 1,
@@ -5931,15 +5778,6 @@
       "next_retry_after": "2026-06-11T07:53:00.487154+00:00",
       "type": "mcp"
     },
-    "tiktok-marketing-offskill": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:10:07.190387+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:10:07.190387+00:00",
-      "next_retry_after": "2026-06-11T13:10:07.190387+00:00",
-      "type": "skill"
-    },
     "time": {
       "attempt_count": 1,
       "first_failed_at": "2026-06-11T06:41:48.401233+00:00",
@@ -5976,15 +5814,6 @@
       "next_retry_after": "2026-06-15T07:22:47.912526+00:00",
       "type": "mcp"
     },
-    "transcription-automation-offskill": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:10:07.190391+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:10:07.190391+00:00",
-      "next_retry_after": "2026-06-11T13:10:07.190391+00:00",
-      "type": "skill"
-    },
     "tritlo-lsp-mcp": {
       "attempt_count": 1,
       "first_failed_at": "2026-06-11T07:30:48.977412+00:00",
@@ -6011,15 +5840,6 @@
       "last_failed_at": "2026-06-11T07:53:00.486878+00:00",
       "next_retry_after": "2026-06-11T07:53:00.486878+00:00",
       "type": "mcp"
-    },
-    "twitter-automation-offskill": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:10:07.190545+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:10:07.190545+00:00",
-      "next_retry_after": "2026-06-11T13:10:07.190545+00:00",
-      "type": "skill"
     },
     "typingmind-typingmind-mcp": {
       "attempt_count": 1,
@@ -6255,15 +6075,6 @@
       "next_retry_after": "2026-06-11T07:10:08.196961+00:00",
       "type": "mcp"
     },
-    "xyz-gembook-gembook-706e17d4": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:08:43.044680+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:08:43.044680+00:00",
-      "next_retry_after": "2026-06-11T13:08:43.044680+00:00",
-      "type": "mcp"
-    },
     "yanxingliu-dify-mcp-server": {
       "attempt_count": 1,
       "first_failed_at": "2026-06-11T07:06:47.299232+00:00",
@@ -6392,24 +6203,24 @@
     },
     "فريق-العمل-prompt": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:00:38.299141+00:00",
+      "first_failed_at": "2026-06-12T03:03:32.659306+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:00:38.299141+00:00",
-      "next_retry_after": "2026-06-11T13:00:38.299141+00:00",
+      "last_failed_at": "2026-06-12T03:03:32.659306+00:00",
+      "next_retry_after": "2026-06-12T03:03:32.659306+00:00",
       "type": "prompt"
     },
     "算法比赛教练-prompt": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-11T13:00:38.299129+00:00",
+      "first_failed_at": "2026-06-12T03:03:32.659289+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-11T13:00:38.299129+00:00",
-      "next_retry_after": "2026-06-11T13:00:38.299129+00:00",
+      "last_failed_at": "2026-06-12T03:03:32.659289+00:00",
+      "next_retry_after": "2026-06-12T03:03:32.659289+00:00",
       "type": "prompt"
     }
   },
   "rubric_version": "3.b46c05b2",
   "schema_version": 1,
-  "updated_at": "2026-06-11T13:10:07.243528+00:00"
+  "updated_at": "2026-06-12T03:22:57.309496+00:00"
 }

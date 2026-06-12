@@ -1,6 +1,6 @@
 # 🔌 MCP 服务器
 
-> 7060 模型上下文协议服务器，将 AI Agent 连接到外部工具、数据库和服务。
+> 7102 模型上下文协议服务器，将 AI Agent 连接到外部工具、数据库和服务。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=mcp)
 
@@ -63,7 +63,7 @@
 | 51 | [Swiss Army Knife for MCP Servers](https://github.com/f/mcptools) | 一个功能全面的命令行工具，用于与MCP服务器交互，支持多种传输方式、输出格式和服务器模式。 | 1.5k | 🟡 停滞 | 96 | 2025-12-18 | tooling | `mcp`, `mcp-server`, `modelcontextprotocol` |
 | 52 | [caol64/wenyan-mcp](https://github.com/caol64/wenyan-mcp) | 文颜 MCP 服务器，让 AI 助手自动排版 Markdown 并发布至微信公众号。 | 1.2k | 🟢 活跃 | 96 | 2026-04-29 | ai-ml | `mcp-server`, `wechat`, `wenyan` |
 | 53 | [Neon](https://github.com/neondatabase/mcp-server-neon) | Neon 官方 MCP 服务器，支持在 AI 编程环境中通过自然语言管理 Neon Postgres 数据库。 | 609 | 🟢 活跃 | 96 | 2026-06-05 | database | `postgres` |
-| 54 | [Bernstein](https://github.com/sipyourdrink-ltd/bernstein) | 确定性多智能体编排器，在并行 Git 工作树中运行 44 个 CLI 编码代理，内置 HMAC 审计链。 | 569 | 🟢 活跃 | 96 | 2026-06-10 | backend | `git`, `agent-framework`, `agent-orchestrator` |
+| 54 | [Bernstein](https://github.com/sipyourdrink-ltd/bernstein) | 确定性多智能体编排器，在并行 Git 工作树中运行 44 个 CLI 编码代理，内置 HMAC 审计链。 | 570 | 🟢 活跃 | 96 | 2026-06-10 | backend | `git`, `agent-framework`, `agent-orchestrator` |
 | 55 | [n8n Workflow Builder MCP Server](https://github.com/makafeli/n8n-workflow-builder) | MCP服务器使AI助手能通过自然语言命令以编程方式管理n8n工作流。 | 502 | 🟢 活跃 | 96 | 2026-03-19 | tooling | — |
 | 56 | [Muvon/octocode](https://github.com/Muvon/octocode) | Rust编写的语义代码索引器，构建GraphRAG知识图谱并通过MCP暴露给AI，支持13+语言的代码理解与搜索。 | 396 | 🟢 活跃 | 96 | 2026-06-09 | backend | `rust`, `ai`, `ai-tools` |
 | 57 | [FreePeak/db-mcp-server](https://github.com/FreePeak/db-mcp-server) | 基于 Go 的 MCP 服务器，支持 AI 助手通过统一接口操作多种数据库（MySQL、PostgreSQL、SQLite、Oracle、TimescaleDB... | 387 | 🟢 活跃 | 96 | 2026-04-19 | backend | `go`, `mysql`, `database-mcp-server` |
@@ -81,14 +81,14 @@
 | 69 | [MCP Access Point](https://github.com/sxhxliang/mcp-access-point) | 轻量级网关，无需修改代码即可将HTTP API转换为MCP服务器，供AI编程助手使用。 | 169 | 🟢 活跃 | 96 | 2026-03-11 | tooling | — |
 | 70 | [Slack MCP Client in Go](https://github.com/tuannvm/slack-mcp-client) | Go语言编写的Slack机器人，桥接Slack与MCP服务器，使AI模型能够使用工具进行DevOps、开发和支持任务。 | 165 | 🟢 活跃 | 96 | 2026-03-02 | backend | `slack`, `mcp`, `mcp-client` |
 | 71 | [piia-engram](https://github.com/Patdolitse/piia-engram) | 本地优先的MCP服务器，为AI编码工具提供跨工具持久化记忆，存储用户身份、偏好、经验教训和决策记录。 | 164 | 🟢 活跃 | 96 | 2026-06-10 | backend | `agent-memory`, `ai-agent`, `ai-identity` |
-| 72 | [crw](https://github.com/us/crw) | 自托管 Rust 网页抓取工具，内置 MCP 服务器，兼容 Firecrawl API，专为 AI 代理设计。 | 160 | 🟢 活跃 | 96 | 2026-06-10 | frontend | `rust`, `ai`, `ai-agents` |
+| 72 | [crw](https://github.com/us/crw) | 自托管 Rust 网页抓取工具，内置 MCP 服务器，兼容 Firecrawl API，专为 AI 代理设计。 | 161 | 🟢 活跃 | 96 | 2026-06-10 | frontend | `rust`, `ai`, `ai-agents` |
 | 73 | [Easy Code Reader](https://github.com/FangYuan33/easy-code-reader) | 智能读取Java源代码的MCP服务器，支持从Maven依赖和本地项目提取源码，配备双反编译器。 | 134 | 🟢 活跃 | 96 | 2026-03-01 | backend | `easy-code-reader`, `java-source-code`, `mcp-server` |
 | 74 | [BrowserStack MCP Server](https://github.com/browserstack/mcp-server) | BrowserStack官方MCP服务器，支持在IDE中通过AI进行测试管理、执行、调试和无障碍扫描。 | 131 | 🟢 活跃 | 96 | 2026-04-13 | testing | `testing`, `automation`, `browserstack` |
 | 75 | [FHIR](https://github.com/wso2/fhir-mcp-server/) | 用于 FHIR API 的 MCP 服务器，使 AI 工具能通过标准操作和 SMART-on-FHIR 认证安全访问医疗数据。 | 123 | 🟢 活跃 | 96 | 2026-05-29 | security | `fhir`, `healthcare`, `mcp` |
 | 76 | [MCP TypeScript Template 🚀](https://github.com/cyanheads/mcp-ts-template) | 用于构建 MCP 服务器的 TypeScript 框架，支持声明式工具、资源、认证和可观测性。 | 122 | 🟢 活跃 | 96 | 2026-04-13 | frontend | `template`, `mcp`, `ts` |
 | 77 | [Canvas MCP Server v2.0](https://github.com/DMontgomery40/mcp-canvas-lms) | AI 代理与 Canvas LMS API 交互的 MCP 服务器，用于管理课程、作业和成绩。 | 90 | 🟢 活跃 | 96 | 2026-03-23 | ai-ml | `mcp`, `school-education`, `canvas-lms` |
 | 78 | [Multiverse MCP Server](https://github.com/lamemind/mcp-server-multiverse) | MCP中间件服务器，支持同一MCP服务器的多个隔离实例通过独立命名空间并行运行。 | 77 | 🟢 活跃 | 96 | 2026-03-30 | tooling | — |
-| 79 | [Debugg AI](https://github.com/debugg-ai/debugg-ai-mcp) | MCP 服务器，让 AI 编码代理能在远程浏览器中对 Web 应用进行端到端测试，返回截图和网络追踪。 | 76 | 🟢 活跃 | 96 | 2026-05-07 | testing | `automation`, `browser`, `end-to-end-testing` |
+| 79 | [Debugg AI](https://github.com/debugg-ai/debugg-ai-mcp) | MCP 服务器，让 AI 编码代理能在远程浏览器中对 Web 应用进行端到端测试，返回截图和网络追踪。 | 77 | 🟢 活跃 | 96 | 2026-05-07 | testing | `automation`, `browser`, `end-to-end-testing` |
 | 80 | [CodeAlive](https://github.com/CodeAlive-AI/codealive-mcp) | 为 AI 助手提供基于 CodeAlive 平台的语义代码搜索和代码库理解的 MCP 服务器。 | 75 | 🟢 活跃 | 96 | 2026-04-14 | ai-ml | `codealive`, `code-search`, `ai-assistant` |
 | 81 | [Appwrite MCP server](https://github.com/appwrite/mcp) | 一个用于AI辅助管理Appwrite后端服务（如数据库、用户和函数）的MCP服务器。 | 62 | 🟢 活跃 | 96 | 2026-04-11 | tooling | — |
 | 82 | [Attio MCP Server](https://github.com/kesslerio/attio-mcp-server) | MCP服务器使Claude等AI助手能通过自然语言与Attio CRM交互，实现完整CRM自动化。 | 60 | 🟢 活跃 | 96 | 2026-04-09 | ai-ml | `attio`, `mcp`, `server` |
@@ -345,4 +345,4 @@ MCP 服务器，将 Supabase 数据库服务连接到 AI 编程助手，支持�
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-11*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-12*
