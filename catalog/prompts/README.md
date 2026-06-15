@@ -1,6 +1,6 @@
 # 💡 Prompts
 
-> 615 Developer-focused prompt templates for common coding tasks.
+> 620 Developer-focused prompt templates for common coding tasks.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=prompt)
 
@@ -38,7 +38,7 @@
 | 26 | [Codebase WIKI Documentation Skill](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#codebase-wiki-documentation-skill) | A prompt skill for generating comprehensive WIKI.md documentation for codebases ... | prompts.chat | 🟢 Active | 92 | 2026-05-09 | documentation | — |
 | 27 | [Comprehensive POS Application Development with FIFO and Reporting](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#comprehensive-pos-application-development-with-fifo-and-reporting) | A prompt to instruct an AI to generate a complete POS application with inventory... | prompts.chat | 🟢 Active | 92 | 2026-05-09 | ai-ml | — |
 | 28 | [Develop a UI Library for ESP32](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#develop-a-ui-library-for-esp32) | A detailed prompt instructing an AI to develop a generic, schema-driven UI libra... | prompts.chat | 🟢 Active | 92 | 2026-05-09 | tooling | — |
-| 29 | [Code Review Specialist 2](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#code-review-specialist-2) | A prompt template instructing an AI to act as a code review specialist, focusing... | prompts.chat | 🟢 Active | 92 | 2026-05-09 | ai-ml | — |
+| 29 | [Code Review Specialist 2](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#code-review-specialist-2) | A prompt template instructing an AI to act as a code review specialist, focusing... | prompts.chat | 🟢 Active | 92 | 2026-05-09 | ai-ml | `for-devs` |
 | 30 | [Auditor de Código Python: Nivel Senior (Salida en Español)](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#auditor-de-cdigo-python-nivel-senior-salida-en-espaol) | A prompt template for AI to audit and refactor Python code as a senior architect... | prompts.chat | 🟢 Active | 92 | 2026-05-09 | backend | `python`, `go` |
 | 31 | [Build a DDQN Snake Game with TensorFlow.js in a Single HTML File](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#build-a-ddqn-snake-game-with-tensorflowjs-in-a-single-html-file) | A prompt to generate a single HTML file implementing a DDQN Snake game using Ten... | prompts.chat | 🟢 Active | 92 | 2026-05-09 | frontend | — |
 | 32 | [Fix Blank Screen Issues After Deploy on Vercel (Angular, React, Vite)](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#fix-blank-screen-issues-after-deploy-on-vercel-angular-react-vite) | A prompt template for diagnosing and fixing blank screen issues in SPAs (Angular... | prompts.chat | 🟢 Active | 92 | 2026-06-11 | frontend | `react`, `angular` |
@@ -87,7 +87,7 @@
 | 75 | [Technical Codebase Discovery & Onboarding Prompt](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#technical-codebase-discovery--onboarding-prompt) | A prompt for AI coding assistants to analyze a codebase and generate a detailed ... | prompts.chat | 🟢 Active | 86 | 2026-06-11 | backend | `go` |
 | 76 | [AI-First Design Handoff Generator (Dev-Ready Spec)](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#ai-first-design-handoff-generator-dev-ready-spec) | A prompt to generate structured, implementation-ready design handoffs optimized ... | prompts.chat | 🟢 Active | 86 | 2026-06-11 | tooling | — |
 | 77 | [Session Continuity Engine](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#session-continuity-engine) | A prompt that compresses lengthy AI chat sessions into structured transfer packa... | prompts.chat | 🟢 Active | 86 | 2026-06-11 | security | — |
-| 78 | [Code Review Assistant](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#code-review-assistant) | A structured prompt for an AI code review assistant focused on JavaScript/React ... | prompts.chat | 🟢 Active | 85 | 2026-05-09 | security | `react`, `javascript`, `go` |
+| 78 | [Code Review Assistant](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#code-review-assistant) | A structured prompt for an AI code review assistant focused on JavaScript/React ... | prompts.chat | 🟢 Active | 85 | 2026-05-09 | ai-ml | `for-devs` |
 | 79 | [AST Code Analysis Superpower](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#ast-code-analysis-superpower) | A prompt for using ast-grep to analyze code patterns for security, performance, ... | prompts.chat | 🟢 Active | 85 | 2026-05-09 | security | `react`, `code-analysis`, `security` |
 | 80 | [Bug Discovery Code Assistant](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#bug-discovery-code-assistant) | A prompt template for an AI assistant that analyzes code to identify bugs, ineff... | prompts.chat | 🟢 Active | 85 | 2026-05-09 | tooling | `for-devs` |
 | 81 | [ESP32 UI Library Development](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#esp32-ui-library-development) | A prompt for generating an ESP32 UI library with specific embedded systems requi... | prompts.chat | 🟢 Active | 85 | 2026-06-11 | tooling | `for-devs` |
@@ -95,7 +95,7 @@
 | 83 | [MCP Builder](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#mcp-builder) | A prompt guide for building high-quality MCP servers that connect LLMs to extern... | prompts.chat | 🟢 Active | 85 | 2026-05-09 | backend | `python`, `nodejs` |
 | 84 | [gemini.md](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#geminimd) | A system prompt defining an AI persona as a senior full-stack engineer focused o... | prompts.chat | 🟢 Active | 85 | 2026-05-09 | security | — |
 | 85 | [PHP Microscope: Forensic Codebase Autopsy Protocol](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#php-microscope-forensic-codebase-autopsy-protocol) | A prompt for performing forensic-level PHP codebase analysis focused on security... | prompts.chat | 🟢 Active | 85 | 2026-05-09 | security | `php` |
-| 86 | [Code Review Specialist](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#code-review-specialist) | A structured AI prompt for professional code review, providing detailed steps an... | prompts.chat | 🟢 Active | 85 | 2026-06-11 | ai-ml | `for-devs` |
+| 86 | [Code Review Specialist](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#code-review-specialist) | A structured AI prompt for professional code review, providing detailed steps an... | prompts.chat | 🟢 Active | 85 | 2026-06-11 | ai-ml | — |
 | 87 | [CLAUDE.md Generator for AI Coding Agents](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#claudemd-generator-for-ai-coding-agents) | A prompt for generating production-ready CLAUDE.md instruction files for AI codi... | prompts.chat | 🟢 Active | 85 | 2026-05-09 | tooling | — |
 | 88 | [Next.js](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#nextjs) | A set of opinionated best-practice rules for Next.js component development, focu... | prompts.chat | 🟢 Active | 85 | 2026-06-11 | frontend | `nextjs`, `for-devs` |
 | 89 | [Page-by-Page Build](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#page-by-page-build) | A prompt for building a single-file React component with Tailwind, focused on mo... | prompts.chat | 🟢 Active | 85 | 2026-06-11 | frontend | `react`, `tailwind` |
@@ -114,7 +114,7 @@
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>Comprehensive repository analysis</strong> (163.6k★) — A structured prompt for AI-assisted comprehensive codebase a...</summary>
+<summary>⭐ <strong>Comprehensive repository analysis</strong> (163.8k★) — A structured prompt for AI-assisted comprehensive codebase a...</summary>
 
 A structured prompt for AI-assisted comprehensive codebase analysis, bug discovery, prioritization, fixing, and documentation across any technology st
 
@@ -127,7 +127,7 @@ A structured prompt for AI-assisted comprehensive codebase analysis, bug discove
 </details>
 
 <details>
-<summary>⭐ <strong>Frontend Developer Skill</strong> (163.6k★) — A detailed prompt template defining an AI persona as an elit...</summary>
+<summary>⭐ <strong>Frontend Developer Skill</strong> (163.8k★) — A detailed prompt template defining an AI persona as an elit...</summary>
 
 A detailed prompt template defining an AI persona as an elite frontend developer specializing in modern JS frameworks, responsive design, and performa
 
@@ -140,7 +140,7 @@ A detailed prompt template defining an AI persona as an elite frontend developer
 </details>
 
 <details>
-<summary>⭐ <strong>Backend Architect</strong> (163.6k★) — An AI agent prompt for designing scalable, secure backend sy...</summary>
+<summary>⭐ <strong>Backend Architect</strong> (163.8k★) — An AI agent prompt for designing scalable, secure backend sy...</summary>
 
 An AI agent prompt for designing scalable, secure backend systems, covering API design, databases, and DevOps.
 
@@ -153,7 +153,7 @@ An AI agent prompt for designing scalable, secure backend systems, covering API 
 </details>
 
 <details>
-<summary>⭐ <strong>Frontend Developer</strong> (163.6k★) — A detailed prompt to configure an AI agent as a frontend dev...</summary>
+<summary>⭐ <strong>Frontend Developer</strong> (163.8k★) — A detailed prompt to configure an AI agent as a frontend dev...</summary>
 
 A detailed prompt to configure an AI agent as a frontend development specialist for React, Vue, Angular, focusing on UI, performance, and accessibilit
 
@@ -166,7 +166,7 @@ A detailed prompt to configure an AI agent as a frontend development specialist 
 </details>
 
 <details>
-<summary>⭐ <strong>Mobile App Builder</strong> (163.6k★) — An expert AI agent prompt for building high-performance nati...</summary>
+<summary>⭐ <strong>Mobile App Builder</strong> (163.8k★) — An expert AI agent prompt for building high-performance nati...</summary>
 
 An expert AI agent prompt for building high-performance native and cross-platform mobile applications with React Native, Swift, and Kotlin.
 
@@ -179,7 +179,7 @@ An expert AI agent prompt for building high-performance native and cross-platfor
 </details>
 
 <details>
-<summary>⭐ <strong>Rapid Prototyper</strong> (163.6k★) — An AI agent prompt for rapidly building application prototyp...</summary>
+<summary>⭐ <strong>Rapid Prototyper</strong> (163.8k★) — An AI agent prompt for rapidly building application prototyp...</summary>
 
 An AI agent prompt for rapidly building application prototypes, MVPs, and demos within a 6-day cycle using modern web stacks.
 
@@ -192,7 +192,7 @@ An AI agent prompt for rapidly building application prototypes, MVPs, and demos 
 </details>
 
 <details>
-<summary>⭐ <strong>Test Automation Expert</strong> (163.6k★) — An AI agent prompt for writing, running, analyzing, and fixi...</summary>
+<summary>⭐ <strong>Test Automation Expert</strong> (163.8k★) — An AI agent prompt for writing, running, analyzing, and fixi...</summary>
 
 An AI agent prompt for writing, running, analyzing, and fixing tests after code changes to ensure suite integrity.
 
@@ -205,7 +205,7 @@ An AI agent prompt for writing, running, analyzing, and fixing tests after code 
 </details>
 
 <details>
-<summary>⭐ <strong>Production-Grade PostHog Integration for Next.js 15 (App Router)</strong> (163.6k★) — A detailed prompt for generating production-grade PostHog an...</summary>
+<summary>⭐ <strong>Production-Grade PostHog Integration for Next.js 15 (App Router)</strong> (163.8k★) — A detailed prompt for generating production-grade PostHog an...</summary>
 
 A detailed prompt for generating production-grade PostHog analytics integration code in a Next.js 15 App Router SaaS application.
 
@@ -218,7 +218,7 @@ A detailed prompt for generating production-grade PostHog analytics integration 
 </details>
 
 <details>
-<summary>⭐ <strong>Python Unit Test Generator — Comprehensive, Coverage-Mapped & Production-Ready</strong> (163.6k★) — A structured prompt template for generating comprehensive Py...</summary>
+<summary>⭐ <strong>Python Unit Test Generator — Comprehensive, Coverage-Mapped & Production-Ready</strong> (163.8k★) — A structured prompt template for generating comprehensive Py...</summary>
 
 A structured prompt template for generating comprehensive Python unit tests with coverage mapping, mocking strategies, and production-ready quality st
 
@@ -231,7 +231,7 @@ A structured prompt template for generating comprehensive Python unit tests with
 </details>
 
 <details>
-<summary>⭐ <strong>Dead Code Surgeon - Phased Codebase Audit & Cleanup Roadmap</strong> (163.6k★) — A structured prompt for an AI to conduct a phased dead-code ...</summary>
+<summary>⭐ <strong>Dead Code Surgeon - Phased Codebase Audit & Cleanup Roadmap</strong> (163.8k★) — A structured prompt for an AI to conduct a phased dead-code ...</summary>
 
 A structured prompt for an AI to conduct a phased dead-code audit, triage findings, and generate a cleanup roadmap.
 
@@ -255,4 +255,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-12*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-15*

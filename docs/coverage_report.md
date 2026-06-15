@@ -1,7 +1,7 @@
 # Catalog 热门资源覆盖率审计
 
-报告生成时间：2026-06-12
-catalog 版本：catalog/index.json 总条目 12866
+报告生成时间：2026-06-15
+catalog 版本：catalog/index.json 总条目 12159
 
 ## Skills 覆盖
 

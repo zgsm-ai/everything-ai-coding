@@ -1,12 +1,12 @@
 <div align="center">
 <img src="assets/logo.png" alt="Everything AI Coding logo" width="600" />
-<p><strong><!-- README_APPROX_COUNT:START -->12800<!-- README_APPROX_COUNT:END -->+ 精选 AI 编程资源 — 浏览、评估、安装</strong><br/>MCP Servers · Skills · Rules · Prompts · Plugins</p>
+<p><strong><!-- README_APPROX_COUNT:START -->12100<!-- README_APPROX_COUNT:END -->+ 精选 AI 编程资源 — 浏览、评估、安装</strong><br/>MCP Servers · Skills · Rules · Prompts · Plugins</p>
 
 <p>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/stargazers"><img src="https://img.shields.io/github/stars/zgsm-ai/everything-ai-coding?style=flat-square&color=4A90D9" alt="Stars" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zgsm-ai/everything-ai-coding?style=flat-square" alt="License" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/commits/main"><img src="https://img.shields.io/github/last-commit/zgsm-ai/everything-ai-coding?style=flat-square" alt="Last Commit" /></a>
-  <img src="https://img.shields.io/badge/resources-12866-2ECC71?style=flat-square" alt="Resources" />
+  <img src="https://img.shields.io/badge/resources-12159-2ECC71?style=flat-square" alt="Resources" />
 </p>
 
 <p>
@@ -34,36 +34,36 @@ Everything AI Coding 是一个**持续更新的知识库**，从 9+ 个上游源
 <a id="knowledge-base"></a>
 ## 📚 知识库
 
-### [🔌 MCP 服务器](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->7115<!-- README_COUNT_MCP:END --> 个条目
+### [🔌 MCP 服务器](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->7226<!-- README_COUNT_MCP:END --> 个条目
 
 将 AI Agent 连接到外部工具、数据库和服务的 Model Context Protocol 服务器。
 
 <!-- README_TOP5_MCP:START -->
 | 名称 | ⭐ Stars | 评分 | 描述 |
 |------|----------|------|------|
-| [upstash/context7](https://github.com/upstash/context7) | 57.2k | 98 | 实时注入最新库文档和代码示例到 LLM 上下文的 MCP 服务器，消除 API 幻觉。 |
-| [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 43.4k | 98 | 谷歌官方 MCP 服务器，让 AI 编程代理直接操控 Chrome DevTools 进行调试、性能分析和浏览器自动化。 |
-| [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | 33.8k | 98 | 微软官方 MCP 服务器，通过 Playwright 让 AI 精确控制浏览器进行网页自动化和数据抓取。 |
+| [upstash/context7](https://github.com/upstash/context7) | 57.4k | 98 | 实时注入最新库文档和代码示例到 LLM 上下文的 MCP 服务器，消除 API 幻觉。 |
+| [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 43.6k | 98 | 谷歌官方 MCP 服务器，让 AI 编程代理直接操控 Chrome DevTools 进行调试、性能分析和浏览器自动化。 |
+| [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | 33.9k | 98 | 微软官方 MCP 服务器，通过 Playwright 让 AI 精确控制浏览器进行网页自动化和数据抓取。 |
+| [Headroom](https://github.com/chopratejas/headroom) | 28.1k | 98 | AI 智能体上下文压缩层，减少 60-95% token 使用，支持可逆压缩与跨智能体内存共享。 |
 | [googleapis/genai-toolbox](https://github.com/googleapis/genai-toolbox) | 15.6k | 98 | 一款开源MCP服务器，可将AI代理和IDE连接至企业数据库，助力AI辅助编程工作流。 |
-| [MCP Inspector](https://github.com/modelcontextprotocol/inspector) | 9.2k | 98 | 用于通过 Web UI 或 CLI 可视化测试和调试 MCP 服务器的开发者工具。 |
 <!-- README_TOP5_MCP:END -->
 
 [浏览全部 MCP 服务器 →](./catalog/mcp/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=mcp)
 
 ---
 
-### [🎯 Skills 技能](./catalog/skills/) — <!-- README_COUNT_SKILL:START -->4033<!-- README_COUNT_SKILL:END --> 个条目
+### [🎯 Skills 技能](./catalog/skills/) — <!-- README_COUNT_SKILL:START -->3157<!-- README_COUNT_SKILL:END --> 个条目
 
 AI 编程助手的可复用能力和工作流。
 
 <!-- README_TOP5_SKILL:START -->
 | 名称 | 来源 | 评分 | 描述 |
 |------|------|------|------|
+| [docx](https://github.com/anthropics/skills/tree/main/skills/docx) | Anthropic 官方 | 98 | 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。 |
+| [slack-gif-creator](https://github.com/anthropics/skills/tree/main/skills/slack-gif-creator) | Anthropic 官方 | 98 | 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。 |
+| [xlsx](https://github.com/anthropics/skills/tree/main/skills/xlsx) | Anthropic 官方 | 96 | 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。 |
 | [langsmith-fetch](https://github.com/ComposioHQ/awesome-claude-skills/tree/master/langsmith-fetch) | composio-office | 95 | 用于调试LangChain/LangGraph代理的CLI工具，可从LangSmith Studio获取和分析执行跟踪。 |
 | [agent-framework-azure-ai-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agent-framework-azure-ai-py) | Antigravity Skills | 95 | 用于在 Azure AI Foundry 上构建持久化 AI 代理的 Python SDK 技能，支持工具集成和对话管理。 |
-| [ai-engineering-toolkit](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ai-engineering-toolkit) | Antigravity Skills | 95 | 一套包含6个结构化AI工程工作流的工具包，用于提示词评估、RAG设计、安全审计等，专为编程助手设计。 |
-| [apify-actor-development](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/apify-actor-development) | Antigravity Skills | 95 | 用于AI辅助开发、测试和部署Apify Actor（无服务器网络爬虫/自动化程序）的综合技能。 |
-| [apify-actorization](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/apify-actorization) | Antigravity Skills | 95 | 将现有软件转换为可在 Apify 平台上运行的可重用、无服务器 Docker 化 Actor 的技能。 |
 <!-- README_TOP5_SKILL:END -->
 
 [浏览全部 Skills →](./catalog/skills/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
@@ -88,7 +88,7 @@ AI 编程助手的可复用能力和工作流。
 
 ---
 
-### [💡 Prompts 提示词](./catalog/prompts/) — <!-- README_COUNT_PROMPT:START -->615<!-- README_COUNT_PROMPT:END --> 个条目
+### [💡 Prompts 提示词](./catalog/prompts/) — <!-- README_COUNT_PROMPT:START -->620<!-- README_COUNT_PROMPT:END --> 个条目
 
 面向开发者的提示词模板，覆盖常见编码场景。
 
@@ -106,7 +106,7 @@ AI 编程助手的可复用能力和工作流。
 
 ---
 
-### [🧩 Plugins 插件](./catalog/plugins/) — <!-- README_COUNT_PLUGIN:START -->935<!-- README_COUNT_PLUGIN:END --> 个条目
+### [🧩 Plugins 插件](./catalog/plugins/) — <!-- README_COUNT_PLUGIN:START -->988<!-- README_COUNT_PLUGIN:END --> 个条目
 
 打包发布的市场插件（含 skills + commands + agents + MCP servers）。
 

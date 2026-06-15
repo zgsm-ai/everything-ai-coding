@@ -1,6 +1,6 @@
 # 💡 Prompts 提示词
 
-> 615 面向开发者的提示词模板，覆盖常见编码场景。
+> 620 面向开发者的提示词模板，覆盖常见编码场景。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=prompt)
 
@@ -38,7 +38,7 @@
 | 26 | [Codebase WIKI Documentation Skill](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#codebase-wiki-documentation-skill) | 使用语言服务器协议（LSP）为代码库生成全面WIKI.md文档的提示技能。 | prompts.chat | 🟢 活跃 | 92 | 2026-05-09 | documentation | — |
 | 27 | [Comprehensive POS Application Development with FIFO and Reporting](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#comprehensive-pos-application-development-with-fifo-and-reporting) | 一个用于指导AI生成完整POS应用的提示，包含库存管理、FIFO成本核算和每日销售报告功能。 | prompts.chat | 🟢 活跃 | 92 | 2026-05-09 | ai-ml | — |
 | 28 | [Develop a UI Library for ESP32](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#develop-a-ui-library-for-esp32) | 一个详细的提示，指导AI为ESP32微控制器开发一个通用的、基于模式的UI库，使用PlatformIO和C++14。 | prompts.chat | 🟢 活跃 | 92 | 2026-05-09 | tooling | — |
-| 29 | [Code Review Specialist 2](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#code-review-specialist-2) | 一个提示模板，指示AI扮演代码审查专家，专注于质量、标准、漏洞、安全和性能。 | prompts.chat | 🟢 活跃 | 92 | 2026-05-09 | ai-ml | — |
+| 29 | [Code Review Specialist 2](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#code-review-specialist-2) | 一个提示模板，指示AI扮演代码审查专家，专注于质量、标准、漏洞、安全和性能。 | prompts.chat | 🟢 活跃 | 92 | 2026-05-09 | ai-ml | `for-devs` |
 | 30 | [Auditor de Código Python: Nivel Senior (Salida en Español)](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#auditor-de-cdigo-python-nivel-senior-salida-en-espaol) | 一个提示模板，用于AI以高级架构师身份审计和重构Python代码，输出为西班牙语。 | prompts.chat | 🟢 活跃 | 92 | 2026-05-09 | backend | `python`, `go` |
 | 31 | [Build a DDQN Snake Game with TensorFlow.js in a Single HTML File](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#build-a-ddqn-snake-game-with-tensorflowjs-in-a-single-html-file) | 一个用于生成单HTML文件实现DDQN贪吃蛇游戏的TensorFlow.js提示。 | prompts.chat | 🟢 活跃 | 92 | 2026-05-09 | frontend | — |
 | 32 | [Fix Blank Screen Issues After Deploy on Vercel (Angular, React, Vite)](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#fix-blank-screen-issues-after-deploy-on-vercel-angular-react-vite) | 用于诊断和修复 Vercel 部署的单页应用（Angular, React, Vite）白屏问题的提示词模板。 | prompts.chat | 🟢 活跃 | 92 | 2026-06-11 | frontend | `react`, `angular` |
@@ -87,7 +87,7 @@
 | 75 | [Technical Codebase Discovery & Onboarding Prompt](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#technical-codebase-discovery--onboarding-prompt) | 一个用于AI编程助手分析代码库并为新开发者生成详细Markdown入职指南的提示词。 | prompts.chat | 🟢 活跃 | 86 | 2026-06-11 | backend | `go` |
 | 76 | [AI-First Design Handoff Generator (Dev-Ready Spec)](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#ai-first-design-handoff-generator-dev-ready-spec) | 为AI编码代理和前端开发人员生成结构化、可实施的设计交接规范的提示词。 | prompts.chat | 🟢 活跃 | 86 | 2026-06-11 | tooling | — |
 | 77 | [Session Continuity Engine](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#session-continuity-engine) | 一个将冗长AI聊天会话压缩为结构化传输包的提示，以保持跨会话的项目连续性。 | prompts.chat | 🟢 活跃 | 86 | 2026-06-11 | security | — |
-| 78 | [Code Review Assistant](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#code-review-assistant) | 一个用于AI代码审查助手的结构化提示，专注于JavaScript/React的性能、安全性和最佳实践。 | prompts.chat | 🟢 活跃 | 85 | 2026-05-09 | security | `react`, `javascript`, `go` |
+| 78 | [Code Review Assistant](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#code-review-assistant) | 一个用于AI代码审查助手的结构化提示，专注于JavaScript/React的性能、安全性和最佳实践。 | prompts.chat | 🟢 活跃 | 85 | 2026-05-09 | ai-ml | `for-devs` |
 | 79 | [AST Code Analysis Superpower](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#ast-code-analysis-superpower) | 一个使用 ast-grep 分析代码模式以发现安全、性能和结构问题的提示词。 | prompts.chat | 🟢 活跃 | 85 | 2026-05-09 | security | `react`, `code-analysis`, `security` |
 | 80 | [Bug Discovery Code Assistant](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#bug-discovery-code-assistant) | 一个用于AI助手分析代码以识别错误、低效和安全问题的提示词模板。 | prompts.chat | 🟢 活跃 | 85 | 2026-05-09 | tooling | `for-devs` |
 | 81 | [ESP32 UI Library Development](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#esp32-ui-library-development) | 用于生成ESP32 UI库的提示，包含嵌入式系统特定要求和功能。 | prompts.chat | 🟢 活跃 | 85 | 2026-06-11 | tooling | `for-devs` |
@@ -95,7 +95,7 @@
 | 83 | [MCP Builder](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#mcp-builder) | 一份用于构建高质量MCP服务器的提示指南，使LLM能通过Python或TypeScript连接外部API。 | prompts.chat | 🟢 活跃 | 85 | 2026-05-09 | backend | `python`, `nodejs` |
 | 84 | [gemini.md](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#geminimd) | 一个系统提示词，将AI定义为注重正确性和可维护性的资深全栈工程师。 | prompts.chat | 🟢 活跃 | 85 | 2026-05-09 | security | — |
 | 85 | [PHP Microscope: Forensic Codebase Autopsy Protocol](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#php-microscope-forensic-codebase-autopsy-protocol) | 一个用于对PHP代码库进行法医级分析的提示，专注于安全、性能和遗留系统现代化。 | prompts.chat | 🟢 活跃 | 85 | 2026-05-09 | security | `php` |
-| 86 | [Code Review Specialist](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#code-review-specialist) | 一个结构化的AI代码审查提示，提供详细步骤和约束条件，以生成可操作的反馈。 | prompts.chat | 🟢 活跃 | 85 | 2026-06-11 | ai-ml | `for-devs` |
+| 86 | [Code Review Specialist](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#code-review-specialist) | 一个结构化的AI代码审查提示，提供详细步骤和约束条件，以生成可操作的反馈。 | prompts.chat | 🟢 活跃 | 85 | 2026-06-11 | ai-ml | — |
 | 87 | [CLAUDE.md Generator for AI Coding Agents](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#claudemd-generator-for-ai-coding-agents) | 一个用于为Claude Code、Cursor等AI编程助手生成生产级CLAUDE.md指令文件的提示词。 | prompts.chat | 🟢 活跃 | 85 | 2026-05-09 | tooling | — |
 | 88 | [Next.js](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#nextjs) | 针对Next.js组件开发的一系列最佳实践规则，涵盖钩子、架构和UI集成。 | prompts.chat | 🟢 活跃 | 85 | 2026-06-11 | frontend | `nextjs`, `for-devs` |
 | 89 | [Page-by-Page Build](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#page-by-page-build) | 构建单文件React组件页面的提示，使用Tailwind，移动优先且响应式设计。 | prompts.chat | 🟢 活跃 | 85 | 2026-06-11 | frontend | `react`, `tailwind` |
@@ -114,7 +114,7 @@
 ## Top 10 安装指南
 
 <details>
-<summary>⭐ <strong>Comprehensive repository analysis</strong> (163.6k★) — 一个结构化提示，用于AI辅助的全面代码库分析、漏洞发现、优先级排序、修复和文档记录。</summary>
+<summary>⭐ <strong>Comprehensive repository analysis</strong> (163.8k★) — 一个结构化提示，用于AI辅助的全面代码库分析、漏洞发现、优先级排序、修复和文档记录。</summary>
 
 一个结构化提示，用于AI辅助的全面代码库分析、漏洞发现、优先级排序、修复和文档记录。
 
@@ -127,7 +127,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Frontend Developer Skill</strong> (163.6k★) — 一个详细的提示词模板，将AI定义为精通现代JS框架、响应式设计和性能优化的精英前端开发者。</summary>
+<summary>⭐ <strong>Frontend Developer Skill</strong> (163.8k★) — 一个详细的提示词模板，将AI定义为精通现代JS框架、响应式设计和性能优化的精英前端开发者。</summary>
 
 一个详细的提示词模板，将AI定义为精通现代JS框架、响应式设计和性能优化的精英前端开发者。
 
@@ -140,7 +140,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Backend Architect</strong> (163.6k★) — 用于设计可扩展、安全后端系统的AI代理提示，涵盖API设计、数据库和DevOps。</summary>
+<summary>⭐ <strong>Backend Architect</strong> (163.8k★) — 用于设计可扩展、安全后端系统的AI代理提示，涵盖API设计、数据库和DevOps。</summary>
 
 用于设计可扩展、安全后端系统的AI代理提示，涵盖API设计、数据库和DevOps。
 
@@ -153,7 +153,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Frontend Developer</strong> (163.6k★) — 一个详细的提示词，用于将AI代理配置为专注于React、Vue、Angular的前端开发专家，关注UI、性能和可访问性。</summary>
+<summary>⭐ <strong>Frontend Developer</strong> (163.8k★) — 一个详细的提示词，用于将AI代理配置为专注于React、Vue、Angular的前端开发专家，关注UI、性能和可访问性。</summary>
 
 一个详细的提示词，用于将AI代理配置为专注于React、Vue、Angular的前端开发专家，关注UI、性能和可访问性。
 
@@ -166,7 +166,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Mobile App Builder</strong> (163.6k★) — 一个用于构建高性能原生和跨平台移动应用的专家级AI代理提示，支持React Native、Swift和Kotlin。</summary>
+<summary>⭐ <strong>Mobile App Builder</strong> (163.8k★) — 一个用于构建高性能原生和跨平台移动应用的专家级AI代理提示，支持React Native、Swift和Kotlin。</summary>
 
 一个用于构建高性能原生和跨平台移动应用的专家级AI代理提示，支持React Native、Swift和Kotlin。
 
@@ -179,7 +179,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Rapid Prototyper</strong> (163.6k★) — 一个用于在6天内快速构建应用原型、MVP和演示的AI智能体提示词。</summary>
+<summary>⭐ <strong>Rapid Prototyper</strong> (163.8k★) — 一个用于在6天内快速构建应用原型、MVP和演示的AI智能体提示词。</summary>
 
 一个用于在6天内快速构建应用原型、MVP和演示的AI智能体提示词。
 
@@ -192,7 +192,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Test Automation Expert</strong> (163.6k★) — 一个用于在代码变更后编写、运行、分析和修复测试以确保测试套件完整性的AI代理提示。</summary>
+<summary>⭐ <strong>Test Automation Expert</strong> (163.8k★) — 一个用于在代码变更后编写、运行、分析和修复测试以确保测试套件完整性的AI代理提示。</summary>
 
 一个用于在代码变更后编写、运行、分析和修复测试以确保测试套件完整性的AI代理提示。
 
@@ -205,7 +205,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Production-Grade PostHog Integration for Next.js 15 (App Router)</strong> (163.6k★) — 一个用于在 Next.js 15 应用路由 SaaS 应用中生成生产级 PostHog 分析集成代码的详细提示。</summary>
+<summary>⭐ <strong>Production-Grade PostHog Integration for Next.js 15 (App Router)</strong> (163.8k★) — 一个用于在 Next.js 15 应用路由 SaaS 应用中生成生产级 PostHog 分析集成代码的详细提示。</summary>
 
 一个用于在 Next.js 15 应用路由 SaaS 应用中生成生产级 PostHog 分析集成代码的详细提示。
 
@@ -218,7 +218,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Python Unit Test Generator — Comprehensive, Coverage-Mapped & Production-Ready</strong> (163.6k★) — 结构化提示模板，用于生成全面的Python单元测试，包含覆盖率映射、Mock策略和生产级质量标准。</summary>
+<summary>⭐ <strong>Python Unit Test Generator — Comprehensive, Coverage-Mapped & Production-Ready</strong> (163.8k★) — 结构化提示模板，用于生成全面的Python单元测试，包含覆盖率映射、Mock策略和生产级质量标准。</summary>
 
 结构化提示模板，用于生成全面的Python单元测试，包含覆盖率映射、Mock策略和生产级质量标准。
 
@@ -231,7 +231,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Dead Code Surgeon - Phased Codebase Audit & Cleanup Roadmap</strong> (163.6k★) — 一个结构化提示词，指导AI进行分阶段死代码审计、分类问题并生成清理路线图。</summary>
+<summary>⭐ <strong>Dead Code Surgeon - Phased Codebase Audit & Cleanup Roadmap</strong> (163.8k★) — 一个结构化提示词，指导AI进行分阶段死代码审计、分类问题并生成清理路线图。</summary>
 
 一个结构化提示词，指导AI进行分阶段死代码审计、分类问题并生成清理路线图。
 
@@ -255,4 +255,4 @@
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-12*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-15*

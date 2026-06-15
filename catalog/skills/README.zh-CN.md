@@ -1,6 +1,6 @@
 # 🎯 Skills 技能
 
-> 4033 AI 编程助手的可复用能力和工作流。
+> 3157 AI 编程助手的可复用能力和工作流。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
@@ -73,48 +73,48 @@
 | 61 | [container-security-hardening](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/container-security-hardening) | 全面的容器安全加固技能，涵盖安全基础镜像、非root用户、CVE扫描、SBOM/签名和运行时安全控制。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | security | `docker`, `kubernetes` |
 | 62 | [convex](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/convex) | Convex 是一个 TypeScript 优先的响应式后端平台，提供 ACID 事务、实时更新和托管基础设施的完整指南。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | backend | `react`, `typescript` |
 | 63 | [copilot-sdk](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/copilot-sdk) | 用于与 GitHub Copilot 编程交互的 SDK，支持会话管理、自定义工具、钩子及 MCP 集成，覆盖 Node.js、Python、Go 和 .NET... | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | backend | `python`, `go`, `nodejs` |
-| 64 | [deploy-to-vercel](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/deploy-to-vercel) | 一个AI技能，用于通过CLI、Git或无认证脚本将项目部署到Vercel，适应多种环境状态。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | devops | — |
-| 65 | [gdb-cli](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gdb-cli) | 一个AI智能体技能，使用GDB调试C/C++程序，支持分析核心转储、调试实时进程、调查崩溃和死锁，并与源代码关联。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | `linux` |
-| 66 | [git-hooks-automation](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/git-hooks-automation) | 全面指南，使用 Husky、lint-staged、pre-commit 和 commitlint 自动化 Git 钩子以强制代码质量。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | tooling | `git` |
-| 67 | [gitops-workflow](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gitops-workflow) | 使用 ArgoCD 和 Flux CD 在 Kubernetes 上实现 GitOps 工作流的完整指南，涵盖安装、配置和高级部署策略。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | devops | `go`, `kubernetes`, `git` |
-| 68 | [go-rod-master](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/go-rod-master) | 全面指南，介绍使用 go-rod 进行浏览器自动化与网页抓取，包括反机器人检测隐身模式。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | `go` |
-| 69 | [hierarchical-agent-memory](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hierarchical-agent-memory) | 分层代理记忆系统，通过创建目录级上下文文件减少AI编码代理的上下文令牌消耗。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | ai-ml | `claude`, `ai`, `llm` |
-| 70 | [hosted-agents-v2-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hosted-agents-v2-py) | 使用 Azure AI Projects SDK 在 Azure AI Foundry 中创建和管理容器化托管代理的 Python 指南。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | ai-ml | `azure` |
-| 71 | [hugging-face-model-trainer](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hugging-face-model-trainer) | 在Hugging Face Jobs上训练和微调TRL语言模型，支持SFT、DPO、GRPO和GGUF导出。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | ai-ml | `huggingface`, `llm`, `ml` |
-| 72 | [hugging-face-vision-trainer](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hugging-face-vision-trainer) | 在Hugging Face Jobs上训练视觉模型（检测、分类、SAM/SAM2分割），提供完整脚本和基础设施。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | ai-ml | `huggingface`, `ml` |
-| 73 | [javascript-typescript-typescript-scaffold](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/javascript-typescript-typescript-scaffold) | 用于脚手架搭建生产就绪TypeScript项目的AI技能，支持pnpm、Vite、Next.js等现代工具。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | `typescript`, `javascript`, `java` |
-| 74 | [makepad-deployment](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/makepad-deployment) | Makepad Rust 应用跨平台打包部署指南，支持桌面、移动、Web 和 CI/CD。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | `go`, `git` |
-| 75 | [manage-skills](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/manage-skills) | 一个终端技能，用于管理11种主流AI编程工具的智能体技能。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | ai-ml | — |
-| 76 | [production-audit](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/production-audit) | AI技能，用于审计已发布代码仓库的生产就绪状态，涵盖安全、基础设施和部署问题。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | security | — |
-| 77 | [pydantic-ai](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/pydantic-ai) | 用于构建类型安全、生产就绪的AI智能体的Python框架，支持结构化输出、工具使用、依赖注入和多模型支持。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | ai-ml | `python`, `ai`, `llm` |
-| 78 | [radix-ui-design-system](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/radix-ui-design-system) | 使用 Radix UI 原语构建无障碍、可定制设计系统的全面指南。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | frontend | `radix`, `react` |
-| 79 | [rayden-code](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/rayden-code) | 使用 Rayden UI 组件库生成高质量的 React + Tailwind CSS 代码，包含正确的属性、令牌和布局模式。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | `react` |
-| 80 | [seo-image-gen](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/seo-image-gen) | AI驱动的SEO图片生成器，支持OG卡片、首图、架构图等SEO图片的自动生成与后处理。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | documentation | `ai` |
-| 81 | [shadcn](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/shadcn) | 管理 shadcn/ui 组件的 CLI 技能，提供项目上下文、文档和设计系统模式。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | backend | `shadcn` |
-| 82 | [shellcheck-configuration](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/shellcheck-configuration) | ShellCheck静态分析配置与使用指南，用于提升Shell脚本质量。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | `linux` |
-| 83 | [supabase-automation](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/supabase-automation) | 通过 Rube MCP (Composio) 自动化 Supabase 数据库操作与管理，提供全面工具序列。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | `supabase` |
-| 84 | [sveltekit](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/sveltekit) | 使用 SvelteKit 构建全栈 Web 应用，涵盖文件路由、SSR、SSG、API 路由和表单操作。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | frontend | `svelte` |
-| 85 | [tailwind-patterns](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/tailwind-patterns) | 提供 Tailwind CSS v4 原则、CSS 优先配置、容器查询及现代设计令牌模式的技能。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | frontend | `tailwind`, `css` |
-| 86 | [threejs-materials](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/threejs-materials) | Three.js 材质类型的全面参考，涵盖 PBR、着色器等在 3D 图形编程中的应用。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | frontend | `javascript` |
-| 87 | [trpc-fullstack](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/trpc-fullstack) | 全面指南，介绍如何使用 tRPC 构建端到端类型安全 API，涵盖路由、中间件、订阅及 Next.js/React 集成。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | backend | `react`, `nextjs` |
-| 88 | [varlock](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/varlock) | Claude Code 会话中安全管理环境变量和密钥的安全技能，通过CLI和模式验证实现。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | security | — |
-| 89 | [vercel-cli-with-tokens](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/vercel-cli-with-tokens) | 使用 Vercel CLI 和基于令牌的身份验证来部署和管理 Web 项目的指南。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | — |
-| 90 | [vercel-optimize](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/vercel-optimize) | 一个通过指标、代码扫描和版本感知建议来审计已部署 Vercel 应用成本与性能问题的 AI 技能。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | — |
-| 91 | [zeroize-audit](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/zeroize-audit) | 审计C/C++/Rust代码中敏感数据的缺失或优化清除零化，使用源码、IR和汇编分析。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | security | `rust` |
-| 92 | [project-session-manager](https://github.com/Yeachan-Heo/oh-my-claudecode/tree/HEAD/skills/project-session-manager) | Claude Code 技能，通过 git worktree 和 tmux 会话管理隔离开发环境，支持并行处理 PR、issue 和功能开发。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-08 | tooling | — |
-| 93 | [crewai-multi-agent](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/agents-crewai) | 用于构建自主多智能体系统的Python框架，支持基于角色的协作、记忆功能及顺序/层级工作流。 | Claude Code 模板 | 🟢 活跃 | 95 | 2026-06-11 | ai-ml | `Agents`, `CrewAI`, `Multi-Agent` |
-| 94 | [huggingface-accelerate](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/distributed-training-accelerate) | 只需4行代码即可为PyTorch脚本添加分布式训练支持的Python库，支持DeepSpeed、FSDP和Megatron后端。 | Claude Code 模板 | 🟢 活跃 | 95 | 2026-06-11 | ai-ml | `Distributed Training`, `HuggingFace`, `Accelerate` |
-| 95 | [training-llms-megatron](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/distributed-training-megatron-core) | 基于NVIDIA Megatron-Core的生产级框架，用于在GPU上训练大型语言模型（2B-462B参数），支持高级并行策略。 | Claude Code 模板 | 🟢 活跃 | 95 | 2026-06-11 | ai-ml | `Megatron-Core`, `Large-Scale Training`, `NVIDIA` |
-| 96 | [evaluating-code-models](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/evaluation-bigcode-evaluation-harness) | 使用 HumanEval、MBPP 和 MultiPL-E 基准评估代码生成模型，支持 pass@k 指标，用于 AI 辅助编程研究。 | Claude Code 模板 | 🟢 活跃 | 95 | 2026-06-11 | testing | `Evaluation`, `Code Generation`, `HumanEval` |
-| 97 | [nemo-evaluator-sdk](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/evaluation-nemo-evaluator) | 评估LLM在100+基准测试上的表现，支持多后端执行（Docker、Slurm、云平台）以实现可复现基准测试。 | Claude Code 模板 | 🟢 活跃 | 95 | 2026-06-11 | devops | `Evaluation`, `NeMo`, `NVIDIA` |
-| 98 | [peft-fine-tuning](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/fine-tuning-peft) | 一份关于使用LoRA、QLoRA等参数高效微调(PEFT)大型语言模型的全面指南，实现内存高效训练。 | Claude Code 模板 | 🟢 活跃 | 95 | 2026-06-11 | ai-ml | `Fine-Tuning`, `PEFT`, `LoRA` |
-| 99 | [mlflow](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/mlops-mlflow) | MLflow是一个框架无关的机器学习生命周期平台，用于实验跟踪、模型注册与版本管理，以及模型部署。 | Claude Code 模板 | 🟢 活跃 | 95 | 2026-06-11 | ai-ml | `MLOps`, `MLflow`, `Experiment Tracking` |
-| 100 | [distributed-llm-pretraining-torchtitan](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/model-architecture-torchtitan) | 基于 PyTorch 的分布式大模型预训练框架，支持 FSDP2、张量并行、流水线并行和上下文并行。 | Claude Code 模板 | 🟢 活跃 | 95 | 2026-06-11 | ai-ml | `Model Architecture`, `Distributed Training`, `TorchTitan` |
+| 64 | [dep](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agent-squad/dep) | 一个用于DevOps的AI代理技能，负责为生产就绪代码生成容器化、CI/CD流水线和部署配置。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-15 | devops | `devops-agent`, `containerization`, `ci-cd` |
+| 65 | [deploy-to-vercel](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/deploy-to-vercel) | 一个AI技能，用于通过CLI、Git或无认证脚本将项目部署到Vercel，适应多种环境状态。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | devops | — |
+| 66 | [dos-verify-done-claims](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/dos-verify-done-claims) | 使用DOS内核工具验证AI代理的完成声明，基于git提交差异和历史记录。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-15 | ai-ml | `ai-agent-verification`, `git-diff`, `quality-gate` |
+| 67 | [gdb-cli](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gdb-cli) | 一个AI智能体技能，使用GDB调试C/C++程序，支持分析核心转储、调试实时进程、调查崩溃和死锁，并与源代码关联。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | `linux` |
+| 68 | [git-hooks-automation](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/git-hooks-automation) | 全面指南，使用 Husky、lint-staged、pre-commit 和 commitlint 自动化 Git 钩子以强制代码质量。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | tooling | `git` |
+| 69 | [gitops-workflow](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gitops-workflow) | 使用 ArgoCD 和 Flux CD 在 Kubernetes 上实现 GitOps 工作流的完整指南，涵盖安装、配置和高级部署策略。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | devops | `go`, `kubernetes`, `git` |
+| 70 | [go-rod-master](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/go-rod-master) | 全面指南，介绍使用 go-rod 进行浏览器自动化与网页抓取，包括反机器人检测隐身模式。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | `go` |
+| 71 | [hierarchical-agent-memory](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hierarchical-agent-memory) | 分层代理记忆系统，通过创建目录级上下文文件减少AI编码代理的上下文令牌消耗。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | ai-ml | `claude`, `ai`, `llm` |
+| 72 | [hosted-agents-v2-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hosted-agents-v2-py) | 使用 Azure AI Projects SDK 在 Azure AI Foundry 中创建和管理容器化托管代理的 Python 指南。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | ai-ml | `azure` |
+| 73 | [hugging-face-model-trainer](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hugging-face-model-trainer) | 在Hugging Face Jobs上训练和微调TRL语言模型，支持SFT、DPO、GRPO和GGUF导出。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | ai-ml | `huggingface`, `llm`, `ml` |
+| 74 | [hugging-face-vision-trainer](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hugging-face-vision-trainer) | 在Hugging Face Jobs上训练视觉模型（检测、分类、SAM/SAM2分割），提供完整脚本和基础设施。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | ai-ml | `huggingface`, `ml` |
+| 75 | [javascript-typescript-typescript-scaffold](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/javascript-typescript-typescript-scaffold) | 用于脚手架搭建生产就绪TypeScript项目的AI技能，支持pnpm、Vite、Next.js等现代工具。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | `typescript`, `javascript`, `java` |
+| 76 | [makepad-deployment](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/makepad-deployment) | Makepad Rust 应用跨平台打包部署指南，支持桌面、移动、Web 和 CI/CD。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | `go`, `git` |
+| 77 | [manage-skills](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/manage-skills) | 一个终端技能，用于管理11种主流AI编程工具的智能体技能。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | ai-ml | — |
+| 78 | [production-audit](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/production-audit) | AI技能，用于审计已发布代码仓库的生产就绪状态，涵盖安全、基础设施和部署问题。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | security | — |
+| 79 | [pydantic-ai](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/pydantic-ai) | 用于构建类型安全、生产就绪的AI智能体的Python框架，支持结构化输出、工具使用、依赖注入和多模型支持。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | ai-ml | `python`, `ai`, `llm` |
+| 80 | [radix-ui-design-system](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/radix-ui-design-system) | 使用 Radix UI 原语构建无障碍、可定制设计系统的全面指南。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | frontend | `radix`, `react` |
+| 81 | [rayden-code](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/rayden-code) | 使用 Rayden UI 组件库生成高质量的 React + Tailwind CSS 代码，包含正确的属性、令牌和布局模式。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | `react` |
+| 82 | [seo-image-gen](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/seo-image-gen) | AI驱动的SEO图片生成器，支持OG卡片、首图、架构图等SEO图片的自动生成与后处理。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | documentation | `ai` |
+| 83 | [shadcn](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/shadcn) | 管理 shadcn/ui 组件的 CLI 技能，提供项目上下文、文档和设计系统模式。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | backend | `shadcn` |
+| 84 | [shellcheck-configuration](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/shellcheck-configuration) | ShellCheck静态分析配置与使用指南，用于提升Shell脚本质量。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | `linux` |
+| 85 | [supabase-automation](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/supabase-automation) | 通过 Rube MCP (Composio) 自动化 Supabase 数据库操作与管理，提供全面工具序列。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | `supabase` |
+| 86 | [sveltekit](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/sveltekit) | 使用 SvelteKit 构建全栈 Web 应用，涵盖文件路由、SSR、SSG、API 路由和表单操作。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | frontend | `svelte` |
+| 87 | [tailwind-patterns](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/tailwind-patterns) | 提供 Tailwind CSS v4 原则、CSS 优先配置、容器查询及现代设计令牌模式的技能。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | frontend | `tailwind`, `css` |
+| 88 | [threejs-materials](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/threejs-materials) | Three.js 材质类型的全面参考，涵盖 PBR、着色器等在 3D 图形编程中的应用。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | frontend | `javascript` |
+| 89 | [trpc-fullstack](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/trpc-fullstack) | 全面指南，介绍如何使用 tRPC 构建端到端类型安全 API，涵盖路由、中间件、订阅及 Next.js/React 集成。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | backend | `react`, `nextjs` |
+| 90 | [varlock](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/varlock) | Claude Code 会话中安全管理环境变量和密钥的安全技能，通过CLI和模式验证实现。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | security | — |
+| 91 | [vercel-cli-with-tokens](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/vercel-cli-with-tokens) | 使用 Vercel CLI 和基于令牌的身份验证来部署和管理 Web 项目的指南。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | — |
+| 92 | [vercel-optimize](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/vercel-optimize) | 一个通过指标、代码扫描和版本感知建议来审计已部署 Vercel 应用成本与性能问题的 AI 技能。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | — |
+| 93 | [zeroize-audit](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/zeroize-audit) | 审计C/C++/Rust代码中敏感数据的缺失或优化清除零化，使用源码、IR和汇编分析。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | security | `rust` |
+| 94 | [crewai-multi-agent](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/agents-crewai) | 用于构建自主多智能体系统的Python框架，支持基于角色的协作、记忆功能及顺序/层级工作流。 | Claude Code 模板 | 🟢 活跃 | 95 | 2026-06-11 | ai-ml | `Agents`, `CrewAI`, `Multi-Agent` |
+| 95 | [huggingface-accelerate](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/distributed-training-accelerate) | 只需4行代码即可为PyTorch脚本添加分布式训练支持的Python库，支持DeepSpeed、FSDP和Megatron后端。 | Claude Code 模板 | 🟢 活跃 | 95 | 2026-06-11 | ai-ml | `Distributed Training`, `HuggingFace`, `Accelerate` |
+| 96 | [training-llms-megatron](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/distributed-training-megatron-core) | 基于NVIDIA Megatron-Core的生产级框架，用于在GPU上训练大型语言模型（2B-462B参数），支持高级并行策略。 | Claude Code 模板 | 🟢 活跃 | 95 | 2026-06-11 | ai-ml | `Megatron-Core`, `Large-Scale Training`, `NVIDIA` |
+| 97 | [evaluating-code-models](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/evaluation-bigcode-evaluation-harness) | 使用 HumanEval、MBPP 和 MultiPL-E 基准评估代码生成模型，支持 pass@k 指标，用于 AI 辅助编程研究。 | Claude Code 模板 | 🟢 活跃 | 95 | 2026-06-11 | testing | `Evaluation`, `Code Generation`, `HumanEval` |
+| 98 | [nemo-evaluator-sdk](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/evaluation-nemo-evaluator) | 评估LLM在100+基准测试上的表现，支持多后端执行（Docker、Slurm、云平台）以实现可复现基准测试。 | Claude Code 模板 | 🟢 活跃 | 95 | 2026-06-11 | devops | `Evaluation`, `NeMo`, `NVIDIA` |
+| 99 | [peft-fine-tuning](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/fine-tuning-peft) | 一份关于使用LoRA、QLoRA等参数高效微调(PEFT)大型语言模型的全面指南，实现内存高效训练。 | Claude Code 模板 | 🟢 活跃 | 95 | 2026-06-11 | ai-ml | `Fine-Tuning`, `PEFT`, `LoRA` |
+| 100 | [mlflow](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/mlops-mlflow) | MLflow是一个框架无关的机器学习生命周期平台，用于实验跟踪、模型注册与版本管理，以及模型部署。 | Claude Code 模板 | 🟢 活跃 | 95 | 2026-06-11 | ai-ml | `MLOps`, `MLflow`, `Experiment Tracking` |
 
 ## Top 10 安装指南
 
 <details>
-<summary>⭐ <strong>docx</strong> (149.7k★) — 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。</summary>
+<summary>⭐ <strong>docx</strong> (150.9k★) — 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。</summary>
 
 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。
 
@@ -129,7 +129,7 @@ Files: `skills/docx/`
 </details>
 
 <details>
-<summary>⭐ <strong>slack-gif-creator</strong> (149.7k★) — 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。</summary>
+<summary>⭐ <strong>slack-gif-creator</strong> (150.9k★) — 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。</summary>
 
 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。
 
@@ -144,7 +144,7 @@ Files: `skills/slack-gif-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>Writing Hookify Rules</strong> (131.9k★) — 用于创建 Hookify 规则的技能，监控 Claude Code 中的编码模式并触发警告或阻止。</summary>
+<summary>⭐ <strong>Writing Hookify Rules</strong> (132.5k★) — 用于创建 Hookify 规则的技能，监控 Claude Code 中的编码模式并触发警告或阻止。</summary>
 
 用于创建 Hookify 规则的技能，监控 Claude Code 中的编码模式并触发警告或阻止。
 
@@ -158,7 +158,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Hook Development</strong> (131.9k★) — Claude Code 插件钩子开发指南，用于验证、修改和自动化 AI 辅助编码工作流。</summary>
+<summary>⭐ <strong>Hook Development</strong> (132.5k★) — Claude Code 插件钩子开发指南，用于验证、修改和自动化 AI 辅助编码工作流。</summary>
 
 Claude Code 插件钩子开发指南，用于验证、修改和自动化 AI 辅助编码工作流。
 
@@ -172,7 +172,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>MCP Integration</strong> (131.9k★) — 全面指南，用于将模型上下文协议（MCP）服务器集成到Claude Code插件中，以连接外部服务作为工具。</summary>
+<summary>⭐ <strong>MCP Integration</strong> (132.5k★) — 全面指南，用于将模型上下文协议（MCP）服务器集成到Claude Code插件中，以连接外部服务作为工具。</summary>
 
 全面指南，用于将模型上下文协议（MCP）服务器集成到Claude Code插件中，以连接外部服务作为工具。
 
@@ -186,7 +186,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Plugin Settings</strong> (131.9k★) — Claude Code 插件技能模式，通过 .local.md 文件中的 YAML 前置数据存储项目配置。</summary>
+<summary>⭐ <strong>Plugin Settings</strong> (132.5k★) — Claude Code 插件技能模式，通过 .local.md 文件中的 YAML 前置数据存储项目配置。</summary>
 
 Claude Code 插件技能模式，通过 .local.md 文件中的 YAML 前置数据存储项目配置。
 
@@ -200,7 +200,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Plugin Structure</strong> (131.9k★) — 用于创建和组织 Claude Code 插件的技能，提供标准化目录结构和清单配置。</summary>
+<summary>⭐ <strong>Plugin Structure</strong> (132.5k★) — 用于创建和组织 Claude Code 插件的技能，提供标准化目录结构和清单配置。</summary>
 
 用于创建和组织 Claude Code 插件的技能，提供标准化目录结构和清单配置。
 
@@ -214,7 +214,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Skill Development</strong> (131.9k★) — 为 Claude Code 插件创建模块化技能的全面指南，涵盖结构、最佳实践和渐进式披露。</summary>
+<summary>⭐ <strong>Skill Development</strong> (132.5k★) — 为 Claude Code 插件创建模块化技能的全面指南，涵盖结构、最佳实践和渐进式披露。</summary>
 
 为 Claude Code 插件创建模块化技能的全面指南，涵盖结构、最佳实践和渐进式披露。
 
@@ -228,7 +228,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>skill-creator</strong> (149.7k★) — 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。</summary>
+<summary>⭐ <strong>skill-creator</strong> (150.9k★) — 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。</summary>
 
 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。
 
@@ -243,7 +243,7 @@ Files: `skills/skill-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>xlsx</strong> (149.7k★) — 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。</summary>
+<summary>⭐ <strong>xlsx</strong> (150.9k★) — 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。</summary>
 
 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。
 
@@ -269,4 +269,4 @@ Files: `skills/xlsx/`
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-12*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-15*

@@ -1,6 +1,6 @@
 # 🧩 Plugins
 
-> 935 Claude Code plugin bundles packaging skills, agents, commands, and MCP servers from official and community marketplaces.
+> 988 Claude Code plugin bundles packaging skills, agents, commands, and MCP servers from official and community marketplaces.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=plugin)
 
@@ -21,8 +21,8 @@
 | 9 | [skill-creator](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/skill-creator) | A plugin for creating, testing, benchmarking, and optimizing Claude skills throu... | Anthropic Official | 🟢 Active | 99 | 2026-05-08 | testing | — |
 | 10 | [mcp-apps](https://github.com/modelcontextprotocol/ext-apps.git) | An SDK and set of Agent Skills for building interactive UIs (charts, forms, dash... | Anthropic Official | 🟢 Active | 99 | 2026-06-05 | tooling | — |
 | 11 | [microsoft-docs](https://github.com/MicrosoftDocs/mcp.git) | A plugin for AI-assisted coding that provides access to official Microsoft docum... | Anthropic Official | 🟢 Active | 99 | 2026-06-04 | backend | `azure` |
-| 12 | [stripe](https://github.com/stripe/ai.git) | Stripe SDKs and MCP server for integrating Stripe APIs with LLMs and agent frame... | Anthropic Official | 🟢 Active | 99 | 2026-06-10 | tooling | — |
-| 13 | [figma](https://github.com/figma/mcp-server-guide.git) | Figma MCP server plugin for AI-assisted design-to-code workflows, component mapp... | Anthropic Official | 🟢 Active | 99 | 2026-06-10 | tooling | — |
+| 12 | [figma](https://github.com/figma/mcp-server-guide.git) | Figma MCP server plugin for AI-assisted design-to-code workflows, component mapp... | Anthropic Official | 🟢 Active | 99 | 2026-06-10 | tooling | — |
+| 13 | [stripe](https://github.com/stripe/ai.git) | Stripe SDKs and MCP server for integrating Stripe APIs with LLMs and agent frame... | Anthropic Official | 🟢 Active | 99 | 2026-06-10 | tooling | — |
 | 14 | [nvidia-skills](https://github.com/NVIDIA/skills.git) | Official catalog of NVIDIA-verified agent skills that teach AI coding agents how... | Anthropic Official | 🟢 Active | 99 | 2026-06-11 | backend | `python` |
 | 15 | [airwallex](https://github.com/airwallex/airwallex-marketplace.git) | AI coding assistant plugin for Airwallex APIs, providing skills for payments, bi... | Anthropic Official | 🟢 Active | 99 | 2026-06-09 | ai-ml | — |
 | 16 | [convex](https://github.com/get-convex/convex-backend-skill.git) | Official Convex plugin for Claude Code providing backend development skills, cod... | Anthropic Official | 🟢 Active | 99 | 2026-05-29 | security | — |
@@ -44,7 +44,7 @@
 | 32 | [repomix-explorer](https://github.com/yamadashy/repomix/tree/main/.claude/plugins/repomix-explorer) | — | claude-plugins.dev | 🟢 Active | 97 | 2026-04-16 | tooling | — |
 | 33 | [repomix-mcp](https://github.com/yamadashy/repomix/tree/main/.claude/plugins/repomix-mcp) | — | claude-plugins.dev | 🟢 Active | 97 | 2026-05-13 | tooling | — |
 | 34 | [beads](https://github.com/gastownhall/beads/tree/main/plugins/beads) | Dolt-powered distributed graph issue tracker designed for AI coding agents with ... | claude-plugins.dev | 🟢 Active | 97 | 2026-04-24 | ai-ml | — |
-| 35 | [planning-with-files](https://github.com/OthmanAdi/planning-with-files/tree/master/) | A plugin for AI coding assistants that uses persistent markdown files for struct... | claude-plugins.dev | 🟢 Active | 97 | 2026-05-01 | documentation | — |
+| 35 | [planning-with-files](https://github.com/OthmanAdi/planning-with-files/tree/master/) | A plugin for AI coding assistants that uses persistent markdown files for struct... | claude-plugins.dev | 🟢 Active | 97 | 2026-05-01 | tooling | — |
 | 36 | [pua](https://github.com/tanweai/pua/tree/main/) | A Claude Code plugin that enhances AI coding workflows with corporate pressure t... | claude-plugins.dev | 🟢 Active | 97 | 2026-05-09 | ai-ml | — |
 | 37 | [compound-engineering](https://github.com/EveryInc/compound-engineering-plugin/tree/main/plugins/compound-engineering) | AI plugin for coding assistants that compounds engineering knowledge through str... | claude-plugins.dev | 🟢 Active | 97 | 2026-04-16 | ai-ml | `ai-powered`, `compound-engineering`, `workflow-automation` |
 | 38 | [agentmemory](https://github.com/rohitg00/agentmemory/tree/main/plugin) | Persistent memory engine for AI coding agents that captures tool usage, compress... | claude-plugins.dev | 🟢 Active | 97 | 2026-05-13 | tooling | — |
@@ -74,47 +74,47 @@
 | 62 | [togetherai-skills](https://github.com/togethercomputer/skills.git) | A plugin offering agent skills for Together AI's platform covering inference, tr... | Anthropic Official | 🟢 Active | 97 | 2026-06-10 | ai-ml | — |
 | 63 | [datahub-skills](https://github.com/datahub-project/datahub-skills.git) | A comprehensive AI coding plugin suite for DataHub, offering skills for connecto... | Anthropic Official | 🟢 Active | 97 | 2026-06-04 | tooling | — |
 | 64 | [fastly-agent-toolkit](https://github.com/fastly/fastly-agent-toolkit.git) | A Claude plugin providing skills for Fastly VCL development, Compute WASM testin... | Anthropic Official | 🟢 Active | 97 | 2026-05-06 | tooling | — |
-| 65 | [ruflo-agent](https://github.com/ruvnet/ruflo/tree/main/plugins/ruflo-agent) | A plugin providing two AI agent runtimes: local WASM-sandboxed agents and Anthro... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | tooling | `agent-runtime`, `wasm-sandbox`, `mcp-server` |
-| 66 | [ruflo-intelligence](https://github.com/ruvnet/ruflo/tree/main/plugins/ruflo-intelligence) | A self-learning neural intelligence plugin for AI-assisted coding with model rou... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | tooling | `mcp-plugin`, `neural-learning`, `model-routing` |
-| 67 | [ruflo-plugin-creator](https://github.com/ruvnet/ruflo/tree/main/plugins/ruflo-plugin-creator) | A plugin for scaffolding, validating, and publishing Claude Code plugins with pr... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | tooling | `claude-code-plugin`, `plugin-scaffolding`, `mcp-tools` |
-| 68 | [accessibility-compliance](https://github.com/wshobson/agents/tree/main/plugins/accessibility-compliance) | A comprehensive system of 185 specialized AI agents and 80 plugins for Claude Co... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | testing | — |
-| 69 | [agent-orchestration](https://github.com/wshobson/agents/tree/main/plugins/agent-orchestration) | A comprehensive plugin system for Claude Code with 185 specialized AI agents, 16... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | ai-ml | — |
-| 70 | [agent-teams](https://github.com/wshobson/agents/tree/main/plugins/agent-teams) | Multi-agent orchestration system for Claude Code with 80 plugins, 185 agents, an... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | tooling | — |
-| 71 | [api-scaffolding](https://github.com/wshobson/agents/tree/main/plugins/api-scaffolding) | A comprehensive system of 185 AI agents and 80 plugins for Claude Code to automa... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | backend | `graphql`, `rest-api` |
-| 72 | [backend-development](https://github.com/wshobson/agents/tree/main/plugins/backend-development) | A comprehensive multi-agent plugin system for Claude Code, offering 80 specializ... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | testing | `graphql` |
-| 73 | [cicd-automation](https://github.com/wshobson/agents/tree/main/plugins/cicd-automation) | Comprehensive CI/CD automation plugin with GitHub Actions/GitLab CI templates, d... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | devops | `git` |
-| 74 | [comprehensive-review](https://github.com/wshobson/agents/tree/main/plugins/comprehensive-review) | A comprehensive Claude Code plugin system with 185 specialized AI agents for mul... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | security | — |
-| 75 | [conductor](https://github.com/wshobson/agents/tree/main/plugins/conductor) | A comprehensive plugin system for Claude Code with 185 specialized AI agents, 15... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | tooling | — |
-| 76 | [content-marketing](https://github.com/wshobson/agents/tree/main/plugins/content-marketing) | A comprehensive system of 185 specialized AI agents and 80 plugins for Claude Co... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | documentation | — |
-| 77 | [data-engineering](https://github.com/wshobson/agents/tree/main/plugins/data-engineering) | A comprehensive system of 185 specialized AI agents and 80 plugins for Claude Co... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | tooling | — |
-| 78 | [database-design](https://github.com/wshobson/agents/tree/main/plugins/database-design) | A comprehensive plugin ecosystem for Claude Code featuring 185 specialized AI ag... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | database | — |
-| 79 | [developer-essentials](https://github.com/wshobson/agents/tree/main/plugins/developer-essentials) | A comprehensive system of 185 AI agents and 80 plugins for Claude Code, enabling... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | database | `git` |
-| 80 | [documentation-generation](https://github.com/wshobson/agents/tree/main/plugins/documentation-generation) | A comprehensive system of 185 AI agents and 80 plugins for Claude Code, enabling... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | documentation | — |
-| 81 | [documentation-standards](https://github.com/wshobson/agents/tree/main/plugins/documentation-standards) | A comprehensive system of 185 AI agents, 153 skills, and 100 commands organized ... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | documentation | — |
-| 82 | [error-debugging](https://github.com/wshobson/agents/tree/main/plugins/error-debugging) | A comprehensive system of 185 AI agents and 80 plugins for Claude Code, enabling... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | tooling | — |
-| 83 | [framework-migration](https://github.com/wshobson/agents/tree/main/plugins/framework-migration) | A comprehensive plugin system for Claude Code with 80+ specialized agents, skill... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | tooling | — |
-| 84 | [frontend-mobile-security](https://github.com/wshobson/agents/tree/main/plugins/frontend-mobile-security) | A comprehensive system of 185 AI agents and 80 plugins for Claude Code to automa... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | security | — |
-| 85 | [julia-development](https://github.com/wshobson/agents/tree/main/plugins/julia-development) | A comprehensive system of 185 specialized AI agents and 80 plugins for Claude Co... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | tooling | — |
-| 86 | [qa-orchestra](https://github.com/wshobson/agents) | A multi-agent QA toolkit with 10 specialized agents covering the full QA lifecyc... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | testing | — |
-| 87 | [quantitative-trading](https://github.com/wshobson/agents/tree/main/plugins/quantitative-trading) | A comprehensive system of 185 specialized AI agents and 80 plugins for Claude Co... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | backend | `go` |
-| 88 | [security-scanning](https://github.com/wshobson/agents/tree/main/plugins/security-scanning) | A comprehensive plugin system for Claude Code with 185 specialized AI agents, 15... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | security | — |
-| 89 | [ship-mate](https://github.com/wshobson/agents/tree/main/plugins/ship-mate) | An AI-driven development pipeline that automates story-to-feature workflows usin... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | testing | `pipeline`, `automation`, `orchestration` |
-| 90 | [signed-audit-trails](https://github.com/wshobson/agents/tree/main/plugins/signed-audit-trails) | Cookbook for cryptographically signed audit trails on Claude Code tool calls usi... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | backend | `tutorial`, `skill`, `recipe` |
-| 91 | [team-collaboration](https://github.com/wshobson/agents/tree/main/plugins/team-collaboration) | A comprehensive system of 185 AI agents and 80 plugins for Claude Code, enabling... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | tooling | — |
-| 92 | [financial-analysis](https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/financial-analysis) | A Claude plugin for AI-assisted financial modeling, including DCF, LBO, comps, 3... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | tooling | — |
-| 93 | [pitch-agent](https://github.com/anthropics/financial-services/tree/main/plugins/agent-plugins/pitch-agent) | An AI agent plugin for investment banking that automates financial modeling (DCF... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | tooling | — |
-| 94 | [voltagent-data-ai](https://github.com/VoltAgent/awesome-claude-code-subagents/tree/main/categories/05-data-ai) | A curated collection of 131+ specialized Claude Code subagents for development, ... | claude-plugins.dev | 🟢 Active | 96 | 2026-04-16 | ai-ml | `data-engineering`, `machine-learning`, `ai` |
-| 95 | [voltagent-domains](https://github.com/VoltAgent/awesome-claude-code-subagents/tree/main/categories/07-specialized-domains) | A curated collection of 131+ specialized Claude Code subagents for domain-specif... | claude-plugins.dev | 🟢 Active | 96 | 2026-04-16 | ai-ml | `blockchain`, `fintech`, `gaming` |
-| 96 | [voltagent-infra](https://github.com/VoltAgent/awesome-claude-code-subagents/tree/main/categories/03-infrastructure) | A collection of 131+ specialized Claude Code subagents for development, DevOps, ... | claude-plugins.dev | 🟢 Active | 96 | 2026-04-16 | devops | `devops`, `docker`, `kubernetes` |
-| 97 | [voltagent-lang](https://github.com/VoltAgent/awesome-claude-code-subagents/tree/main/categories/02-language-specialists) | A curated collection of 131+ specialized Claude Code subagents for development t... | claude-plugins.dev | 🟢 Active | 96 | 2026-04-16 | frontend | `python`, `typescript`, `golang` |
-| 98 | [voltagent-meta](https://github.com/VoltAgent/awesome-claude-code-subagents/tree/main/categories/09-meta-orchestration) | A curated collection of 131+ specialized Claude Code subagents for development t... | claude-plugins.dev | 🟢 Active | 96 | 2026-04-16 | backend | `multi-agent`, `orchestration`, `workflow` |
-| 99 | [voltagent-qa-sec](https://github.com/VoltAgent/awesome-claude-code-subagents/tree/main/categories/04-quality-security) | A curated collection of 131+ specialized Claude Code subagents for development, ... | claude-plugins.dev | 🟢 Active | 96 | 2026-04-16 | security | `testing`, `security`, `code-review` |
-| 100 | [autoresearch-agent](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/autoresearch-agent) | An autonomous experiment loop plugin that optimizes files through measurable met... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-11 | documentation | `autoresearch`, `optimization`, `experiments` |
+| 65 | [ruflo-agent](https://github.com/ruvnet/ruflo/tree/main/plugins/ruflo-agent) | A plugin providing two AI agent runtimes: local WASM-sandboxed agents and Anthro... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | tooling | — |
+| 66 | [ruflo-intelligence](https://github.com/ruvnet/ruflo/tree/main/plugins/ruflo-intelligence) | A self-learning neural intelligence plugin for AI-assisted coding with model rou... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | tooling | — |
+| 67 | [ruflo-plugin-creator](https://github.com/ruvnet/ruflo/tree/main/plugins/ruflo-plugin-creator) | A plugin for scaffolding, validating, and publishing Claude Code plugins with pr... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | tooling | — |
+| 68 | [antigravity-bundle-aas-qa-test-automation](https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-aas-qa-test-automation) | Comprehensive Claude Code plugin bundle with 9 specialized QA and test automatio... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-05 | testing | `claude-code-plugin`, `browser-automation`, `test-automation` |
+| 69 | [antigravity-bundle-integration-apis](https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-integration-apis) | A Claude Code plugin bundle providing expert coding patterns for integrating thi... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-05 | backend | `claude-code-plugin`, `api-integration`, `skills-bundle` |
+| 70 | [antigravity-bundle-odoo-erp](https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-odoo-erp) | A Claude Code skill bundle for Odoo ERP covering deployment, development, securi... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-05 | tooling | `claude-code`, `odoo-erp`, `docker-deployment` |
+| 71 | [accessibility-compliance](https://github.com/wshobson/agents/tree/main/plugins/accessibility-compliance) | A comprehensive system of 185 specialized AI agents and 80 plugins for Claude Co... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | testing | — |
+| 72 | [agent-orchestration](https://github.com/wshobson/agents/tree/main/plugins/agent-orchestration) | A comprehensive plugin system for Claude Code with 185 specialized AI agents, 16... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | ai-ml | — |
+| 73 | [agent-teams](https://github.com/wshobson/agents/tree/main/plugins/agent-teams) | Multi-agent orchestration system for Claude Code with 80 plugins, 185 agents, an... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | tooling | — |
+| 74 | [api-scaffolding](https://github.com/wshobson/agents/tree/main/plugins/api-scaffolding) | A comprehensive system of 185 AI agents and 80 plugins for Claude Code to automa... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | backend | `graphql`, `rest-api` |
+| 75 | [backend-development](https://github.com/wshobson/agents/tree/main/plugins/backend-development) | A comprehensive multi-agent plugin system for Claude Code, offering 80 specializ... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | testing | `graphql` |
+| 76 | [cicd-automation](https://github.com/wshobson/agents/tree/main/plugins/cicd-automation) | Comprehensive CI/CD automation plugin with GitHub Actions/GitLab CI templates, d... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | devops | `git` |
+| 77 | [comprehensive-review](https://github.com/wshobson/agents/tree/main/plugins/comprehensive-review) | A comprehensive Claude Code plugin system with 185 specialized AI agents for mul... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | security | — |
+| 78 | [conductor](https://github.com/wshobson/agents/tree/main/plugins/conductor) | A comprehensive plugin system for Claude Code with 185 specialized AI agents, 15... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | tooling | — |
+| 79 | [content-marketing](https://github.com/wshobson/agents/tree/main/plugins/content-marketing) | A comprehensive system of 185 specialized AI agents and 80 plugins for Claude Co... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | documentation | — |
+| 80 | [data-engineering](https://github.com/wshobson/agents/tree/main/plugins/data-engineering) | A comprehensive system of 185 specialized AI agents and 80 plugins for Claude Co... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | tooling | — |
+| 81 | [database-design](https://github.com/wshobson/agents/tree/main/plugins/database-design) | A comprehensive plugin ecosystem for Claude Code featuring 185 specialized AI ag... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | database | — |
+| 82 | [developer-essentials](https://github.com/wshobson/agents/tree/main/plugins/developer-essentials) | A comprehensive system of 185 AI agents and 80 plugins for Claude Code, enabling... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | database | `git` |
+| 83 | [documentation-generation](https://github.com/wshobson/agents/tree/main/plugins/documentation-generation) | A comprehensive system of 185 AI agents and 80 plugins for Claude Code, enabling... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | documentation | — |
+| 84 | [documentation-standards](https://github.com/wshobson/agents/tree/main/plugins/documentation-standards) | A comprehensive system of 185 AI agents, 153 skills, and 100 commands organized ... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | documentation | — |
+| 85 | [error-debugging](https://github.com/wshobson/agents/tree/main/plugins/error-debugging) | A comprehensive system of 185 AI agents and 80 plugins for Claude Code, enabling... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | tooling | — |
+| 86 | [framework-migration](https://github.com/wshobson/agents/tree/main/plugins/framework-migration) | A comprehensive plugin system for Claude Code with 80+ specialized agents, skill... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | tooling | — |
+| 87 | [frontend-mobile-security](https://github.com/wshobson/agents/tree/main/plugins/frontend-mobile-security) | A comprehensive system of 185 AI agents and 80 plugins for Claude Code to automa... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | security | — |
+| 88 | [julia-development](https://github.com/wshobson/agents/tree/main/plugins/julia-development) | A comprehensive system of 185 specialized AI agents and 80 plugins for Claude Co... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | tooling | — |
+| 89 | [qa-orchestra](https://github.com/wshobson/agents) | A multi-agent QA toolkit with 10 specialized agents covering the full QA lifecyc... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | testing | — |
+| 90 | [quantitative-trading](https://github.com/wshobson/agents/tree/main/plugins/quantitative-trading) | A comprehensive system of 185 specialized AI agents and 80 plugins for Claude Co... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | backend | `go` |
+| 91 | [security-scanning](https://github.com/wshobson/agents/tree/main/plugins/security-scanning) | A comprehensive plugin system for Claude Code with 185 specialized AI agents, 15... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | security | — |
+| 92 | [ship-mate](https://github.com/wshobson/agents/tree/main/plugins/ship-mate) | An AI-driven development pipeline that automates story-to-feature workflows usin... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | testing | `pipeline`, `automation`, `orchestration` |
+| 93 | [signed-audit-trails](https://github.com/wshobson/agents/tree/main/plugins/signed-audit-trails) | Cookbook for cryptographically signed audit trails on Claude Code tool calls usi... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | backend | `tutorial`, `skill`, `recipe` |
+| 94 | [team-collaboration](https://github.com/wshobson/agents/tree/main/plugins/team-collaboration) | A comprehensive system of 185 AI agents and 80 plugins for Claude Code, enabling... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | tooling | — |
+| 95 | [financial-analysis](https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/financial-analysis) | A Claude plugin for AI-assisted financial modeling, including DCF, LBO, comps, 3... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | tooling | — |
+| 96 | [pitch-agent](https://github.com/anthropics/financial-services/tree/main/plugins/agent-plugins/pitch-agent) | An AI agent plugin for investment banking that automates financial modeling (DCF... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | tooling | — |
+| 97 | [voltagent-data-ai](https://github.com/VoltAgent/awesome-claude-code-subagents/tree/main/categories/05-data-ai) | A curated collection of 131+ specialized Claude Code subagents for development, ... | claude-plugins.dev | 🟢 Active | 96 | 2026-04-16 | ai-ml | `data-engineering`, `machine-learning`, `ai` |
+| 98 | [voltagent-domains](https://github.com/VoltAgent/awesome-claude-code-subagents/tree/main/categories/07-specialized-domains) | A curated collection of 131+ specialized Claude Code subagents for domain-specif... | claude-plugins.dev | 🟢 Active | 96 | 2026-04-16 | ai-ml | `blockchain`, `fintech`, `gaming` |
+| 99 | [voltagent-infra](https://github.com/VoltAgent/awesome-claude-code-subagents/tree/main/categories/03-infrastructure) | A collection of 131+ specialized Claude Code subagents for development, DevOps, ... | claude-plugins.dev | 🟢 Active | 96 | 2026-04-16 | devops | `devops`, `docker`, `kubernetes` |
+| 100 | [voltagent-lang](https://github.com/VoltAgent/awesome-claude-code-subagents/tree/main/categories/02-language-specialists) | A curated collection of 131+ specialized Claude Code subagents for development t... | claude-plugins.dev | 🟢 Active | 96 | 2026-04-16 | frontend | `python`, `typescript`, `golang` |
 
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>superpowers</strong> (225.2k★) — Teaches Claude Code systematic development workflows includi...</summary>
+<summary>⭐ <strong>superpowers</strong> (228.3k★) — Teaches Claude Code systematic development workflows includi...</summary>
 
 Teaches Claude Code systematic development workflows including TDD, debugging, code review, and subagent-driven development with detailed skill docume
 
@@ -126,7 +126,7 @@ Teaches Claude Code systematic development workflows including TDD, debugging, c
 </details>
 
 <details>
-<summary>⭐ <strong>chrome-devtools-mcp</strong> (43.4k★) — Chrome DevTools MCP server for AI coding agents to debug, au...</summary>
+<summary>⭐ <strong>chrome-devtools-mcp</strong> (43.6k★) — Chrome DevTools MCP server for AI coding agents to debug, au...</summary>
 
 Chrome DevTools MCP server for AI coding agents to debug, automate, and analyze web pages via CLI and MCP tools.
 
@@ -138,7 +138,7 @@ Chrome DevTools MCP server for AI coding agents to debug, automate, and analyze 
 </details>
 
 <details>
-<summary>⭐ <strong>claude-code-setup</strong> (29.9k★) — A Claude Code plugin that analyzes codebases to recommend ta...</summary>
+<summary>⭐ <strong>claude-code-setup</strong> (30.2k★) — A Claude Code plugin that analyzes codebases to recommend ta...</summary>
 
 A Claude Code plugin that analyzes codebases to recommend tailored automations like hooks, skills, MCP servers, and subagents.
 
@@ -150,7 +150,7 @@ A Claude Code plugin that analyzes codebases to recommend tailored automations l
 </details>
 
 <details>
-<summary>⭐ <strong>mcp-tunnels</strong> (29.9k★) — A Claude plugin for connecting to private MCP servers via An...</summary>
+<summary>⭐ <strong>mcp-tunnels</strong> (30.2k★) — A Claude plugin for connecting to private MCP servers via An...</summary>
 
 A Claude plugin for connecting to private MCP servers via Anthropic tunnels with Docker Compose quickstart.
 
@@ -162,7 +162,7 @@ A Claude plugin for connecting to private MCP servers via Anthropic tunnels with
 </details>
 
 <details>
-<summary>⭐ <strong>hyperframes</strong> (26.9k★) — HyperFrames lets developers write HTML/CSS/JS to create dete...</summary>
+<summary>⭐ <strong>hyperframes</strong> (27.8k★) — HyperFrames lets developers write HTML/CSS/JS to create dete...</summary>
 
 HyperFrames lets developers write HTML/CSS/JS to create deterministic video compositions with GSAP animations, captions, TTS narration, and WebGL effe
 
@@ -174,7 +174,7 @@ HyperFrames lets developers write HTML/CSS/JS to create deterministic video comp
 </details>
 
 <details>
-<summary>⭐ <strong>hookify</strong> (29.9k★) — Claude Code plugin for creating custom hooks to prevent unwa...</summary>
+<summary>⭐ <strong>hookify</strong> (30.2k★) — Claude Code plugin for creating custom hooks to prevent unwa...</summary>
 
 Claude Code plugin for creating custom hooks to prevent unwanted coding behaviors using markdown rule files with regex patterns.
 
@@ -186,7 +186,7 @@ Claude Code plugin for creating custom hooks to prevent unwanted coding behavior
 </details>
 
 <details>
-<summary>⭐ <strong>mcp-server-dev</strong> (29.9k★) — Comprehensive guide for building MCP servers and interactive...</summary>
+<summary>⭐ <strong>mcp-server-dev</strong> (30.2k★) — Comprehensive guide for building MCP servers and interactive...</summary>
 
 Comprehensive guide for building MCP servers and interactive UI widgets for Claude, covering deployment models, tool design, and testing.
 
@@ -198,7 +198,7 @@ Comprehensive guide for building MCP servers and interactive UI widgets for Clau
 </details>
 
 <details>
-<summary>⭐ <strong>plugin-dev</strong> (29.9k★) — A comprehensive toolkit with 7 expert skills for developing ...</summary>
+<summary>⭐ <strong>plugin-dev</strong> (30.2k★) — A comprehensive toolkit with 7 expert skills for developing ...</summary>
 
 A comprehensive toolkit with 7 expert skills for developing Claude Code plugins, covering agents, commands, hooks, MCP integration, and best practices
 
@@ -210,7 +210,7 @@ A comprehensive toolkit with 7 expert skills for developing Claude Code plugins,
 </details>
 
 <details>
-<summary>⭐ <strong>skill-creator</strong> (29.9k★) — A plugin for creating, testing, benchmarking, and optimizing...</summary>
+<summary>⭐ <strong>skill-creator</strong> (30.2k★) — A plugin for creating, testing, benchmarking, and optimizing...</summary>
 
 A plugin for creating, testing, benchmarking, and optimizing Claude skills through an iterative development workflow.
 
@@ -245,4 +245,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-12*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-15*
