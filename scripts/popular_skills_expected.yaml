@@ -28,9 +28,9 @@ expected_skills:
   - name: supermemory
     github_repo: supermemoryai/supermemory
     reason: "17K stars, 跨 agent 记忆引擎"
-  - name: taste
-    github_repo: Leonxlnx/taste
-    reason: "13K stars, 第三方设计 skill 标杆"
+  - name: taste-skill
+    github_repo: leonxlnx/taste-skill
+    reason: "44K stars, 第三方设计 skill 标杆（原 Leonxlnx/taste 已 404，改名为 taste-skill）"
   - name: interface-design
     github_repo: Dammyjay93/interface-design
     reason: "4.7K stars, UI 一致性 skill"
@@ -54,9 +54,9 @@ expected_mcp:
   - name: cloudflare/mcp-server-cloudflare
     github_repo: cloudflare/mcp-server-cloudflare
     reason: "Cloudflare 官方 MCP，覆盖 Workers / R2 / KV 等服务"
-  - name: supabase-community/supabase-mcp
-    github_repo: supabase-community/supabase-mcp
-    reason: "Supabase 社区维护的官方 MCP server"
+  - name: supabase/mcp
+    github_repo: supabase/mcp
+    reason: "Supabase 官方 MCP server（原 supabase-community/supabase-mcp 已改名为 supabase/mcp）"
   - name: sooperset/mcp-atlassian
     github_repo: sooperset/mcp-atlassian
     reason: "Atlassian (Jira/Confluence) MCP，registry 与社区都广泛使用"
@@ -74,6 +74,6 @@ expected_rules:
   - name: balqaasem/awesome-windsurfrules
     github_repo: balqaasem/awesome-windsurfrules
     reason: "§3 新接入，windsurfrules mirror 仓库"
-  - name: pontusab/directories
-    github_repo: pontusab/directories
-    reason: "cursor.directory 上游数据仓库（spike §9 评估候选）"
+  - name: cursor/community-plugins
+    github_repo: cursor/community-plugins
+    reason: "cursor.directory 上游数据仓库（原 pontusab/directories 已改名为 cursor/community-plugins，spike §9 评估候选）"
