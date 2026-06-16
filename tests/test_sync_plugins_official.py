@@ -163,10 +163,16 @@ def test_parse_marketplace_json_basic(monkeypatch, tmp_path):
 
 
 def test_parse_everything_claude_code_source(monkeypatch, tmp_path):
-    """The ECC marketplace source syncs non-collapsed plugins; the "ecc"
-    plugin itself is collapsed via the plugin_sources.json plugins list (the
-    canonical entry comes from the affaan-m/ECC repo listing), so it must NOT
-    appear in the output."""
+    """The ECC marketplace source syncs all its plugins, including the "ecc"
+    plugin itself.
+
+    Historically "ecc" was collapsed via the plugin_sources.json plugins
+    blacklist, on the assumption that affaan-m/ECC also exposed standalone
+    sub-plugins carrying the canonical content. In reality the upstream
+    marketplace ships only the single "ecc" plugin (source "./"), so the
+    unconditional collapse dropped the sole plugin and the 216K-star source
+    contributed zero entries. The blacklist entry was removed; "ecc" must now
+    appear alongside any standalone sub-plugins."""
     marketplace = _marketplace_payload(
         [
             {
@@ -205,9 +211,17 @@ def test_parse_everything_claude_code_source(monkeypatch, tmp_path):
     with open(output_path, encoding="utf-8") as f:
         entries = json.load(f)
 
-    # "ecc" collapsed by plugin_sources.json; only "operator" survives.
-    assert [e["name"] for e in entries] == ["operator"]
-    operator = entries[0]
+    # Both plugins survive now that the over-aggressive "ecc" collapse is gone.
+    assert [e["name"] for e in entries] == ["ecc", "operator"]
+    by_name = {e["name"]: e for e in entries}
+
+    ecc = by_name["ecc"]
+    assert ecc["id"] == "ecc-ecc"
+    assert ecc["source"] == "everything-claude-code"
+    assert ecc["source_priority"] == 900
+    assert ecc["install"]["plugin_name"] == "ecc"
+
+    operator = by_name["operator"]
     assert operator["id"] == "ecc-operator"
     assert operator["source"] == "everything-claude-code"
     assert operator["source_priority"] == 900
