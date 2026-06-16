@@ -223,6 +223,11 @@ def discover_skills(tier1_entries: list) -> list[dict]:
     candidates = []
     new_cache = {}
     skipped = 0
+    # Visibility into silent Tier 2 failures (previously masked by a silent
+    # `continue` + the "keep existing index" guard in sync_skills.py).
+    unreachable_repos: list[str] = []
+    zero_scan_repos: list[str] = []
+    zero_scan_regressions: list[str] = []
 
     for repo_key, repo_info in repos_data.items():
         if not isinstance(repo_info, dict):
@@ -243,28 +248,70 @@ def discover_skills(tier1_entries: list) -> list[dict]:
         info = get_repo_info(repo_slug)
         if not info:
             logger.warning(f"Cannot access repo: {repo_slug}, skipping")
+            unreachable_repos.append(repo_slug)
             continue
 
         stars = info["stars"]
         pushed_at = info["pushed_at"]
+        default_branch = info.get("default_branch") or ""
 
         cached = repo_cache.get(repo_slug)
-        if cached and cached.get("pushed_at") == pushed_at:
-            # Repo unchanged — reuse cached skills
+        if cached and cached.get("pushed_at") == pushed_at and cached.get("skills"):
+            # Repo unchanged and has cached skills — reuse. A cached *empty*
+            # result is treated as a miss (re-scanned below), so a cache poisoned
+            # by a past transient failure self-heals instead of sticking forever.
             skipped += 1
             new_cache[repo_slug] = cached
             skill_entries = cached.get("skills", [])
             logger.debug(f"Cache hit: {repo_slug} ({len(skill_entries)} skills)")
         else:
-            # Repo changed or first time — scan via API
+            # Repo changed, first time, or last scan was empty — scan via API.
             logger.info(f"Scanning repo: {repo_slug} (branch: {branch})")
             skill_entries = scan_repo_via_api(repo_slug, branch)
-            # Serialize skill entries for cache (list of dicts)
-            new_cache[repo_slug] = {
-                "pushed_at": pushed_at,
-                "stars": stars,
-                "skills": skill_entries,
-            }
+            # Branch fallback: a hardcoded branch (usually a guessed "main") that
+            # doesn't match the repo's real default_branch silently yields 0 files
+            # (~30% of the whitelist was misconfigured this way). Retry on the
+            # actual default_branch and adopt whichever branch produced skills so
+            # source_url / install.branch below stay valid.
+            if not skill_entries and default_branch and default_branch != branch:
+                logger.info(
+                    f"  0 skills on '{branch}', retrying {repo_slug} on "
+                    f"default branch '{default_branch}'"
+                )
+                retried = scan_repo_via_api(repo_slug, default_branch)
+                if retried:
+                    skill_entries = retried
+                    branch = default_branch
+
+            if skill_entries:
+                new_cache[repo_slug] = {
+                    "pushed_at": pushed_at,
+                    "stars": stars,
+                    "skills": skill_entries,
+                }
+            else:
+                # Scan produced nothing: a transient API failure (rate-limit /
+                # network) or a genuinely empty repo. Never cache an empty result
+                # keyed on pushed_at — that short-circuits every future run (the
+                # silent-failure stickiness bug). Re-scan next run instead.
+                prev = cached.get("skills") if cached else None
+                if prev:
+                    # Regression vs a prior non-empty scan → almost certainly
+                    # transient. Reuse prior skills this run (no silent loss) and
+                    # keep the old cache entry so a changed pushed_at re-triggers a scan.
+                    skill_entries = prev
+                    new_cache[repo_slug] = cached
+                    zero_scan_regressions.append(repo_slug)
+                    logger.warning(
+                        f"Scan of {repo_slug} returned 0 but cache had "
+                        f"{len(prev)} skills — treating as transient, reusing cached"
+                    )
+                else:
+                    zero_scan_repos.append(repo_slug)
+                    logger.warning(
+                        f"Scan of {repo_slug} returned 0 skills "
+                        f"(transient failure or empty repo) — not caching, will re-scan"
+                    )
 
         for entry in skill_entries:
             skill_id = f"{to_kebab_case(entry['name'])}-skill"
@@ -314,6 +361,20 @@ def discover_skills(tier1_entries: list) -> list[dict]:
         f"Phase 1 passed: {len(candidates)} candidates from {len(repos_data)} repos "
         f"({skipped} repos unchanged, skipped scan)"
     )
+
+    # Surface silent Tier 2 failures so a degraded run is visible in CI logs
+    # instead of quietly producing near-zero entries.
+    if unreachable_repos or zero_scan_repos or zero_scan_regressions:
+        logger.warning(
+            "Tier 2 scan health: %d unreachable, %d regressed-to-zero (reused cache), "
+            "%d empty/failed. unreachable=%s regressed=%s empty=%s",
+            len(unreachable_repos),
+            len(zero_scan_regressions),
+            len(zero_scan_repos),
+            unreachable_repos,
+            zero_scan_regressions,
+            zero_scan_repos,
+        )
 
     return candidates
 
