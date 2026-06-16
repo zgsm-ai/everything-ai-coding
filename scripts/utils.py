@@ -404,6 +404,76 @@ def list_repo_files(repo_slug: str, branch: str = "main",
     return paths
 
 
+# --- Localized (i18n) skill copy detection --------------------------------
+#
+# Some repos ship N translated copies of every SKILL.md under
+# ``docs/<locale>/skills/.../SKILL.md`` (e.g. affaan-m/ECC: 519 / 881 paths are
+# translations in ja-JP / zh-CN / zh-TW / ko-KR / es / tr). Scanning by filename
+# pulls each skill in N times (N = #languages), flooding + polluting the catalog.
+#
+# Design bias: HIGH PRECISION — prefer to MISS a translation rather than wrongly
+# drop a canonical skill. Two signals only:
+#   1. A region-form locale segment ``xx-XX`` anywhere in the path → localized.
+#   2. A bare two-letter locale segment (es/de/fr/...) ONLY when it sits directly
+#      under a recognised i18n root (docs/i18n/locale/locales/translation(s)/
+#      lang/languages). A bare ``go`` / ``es`` skill directory NOT under an i18n
+#      root is left untouched.
+
+# Bare two-letter codes treated as locales only directly under an i18n root.
+# Deliberately conservative: omits ambiguous codes (e.g. "go", "rs", "ml", "id",
+# "no", "is", "in") that double as common tech / word / directory names.
+_BARE_LOCALE_CODES = frozenset({
+    "es", "de", "fr", "ru", "ja", "ko", "pt", "vi", "it", "th", "tr",
+    "nl", "pl", "uk", "cs", "ar", "fa", "he", "hi", "sv", "da", "fi",
+    "el", "ro", "hu", "bg", "sr", "hr", "sk", "lt", "lv", "et", "ca",
+})
+
+# Path segments that mark the root of an i18n / translation tree. A bare
+# two-letter locale code immediately following one of these is treated as a
+# locale directory.
+_I18N_ROOTS = frozenset({
+    "docs", "doc", "i18n", "locale", "locales",
+    "translation", "translations", "lang", "languages",
+})
+
+# region-form locale: two lowercase letters, hyphen, two uppercase letters
+# (e.g. zh-CN, ja-JP, pt-BR). Anchored to a full path segment.
+_REGION_LOCALE_RE = re.compile(r"^[a-z]{2}-[A-Z]{2}$")
+
+
+def is_localized_skill_path(path: str) -> bool:
+    """Return True if ``path`` looks like a localized / translated SKILL.md copy.
+
+    High precision (favours keeping canonical skills). See module comment above.
+
+    >>> is_localized_skill_path("docs/ja-JP/skills/api-design/SKILL.md")
+    True
+    >>> is_localized_skill_path("docs/es/skills/api-design/SKILL.md")
+    True
+    >>> is_localized_skill_path(".agents/skills/api-design/SKILL.md")
+    False
+    >>> is_localized_skill_path("skills/go/SKILL.md")
+    False
+    """
+    if not path:
+        return False
+    segments = [s for s in str(path).replace("\\", "/").split("/") if s]
+    for idx, seg in enumerate(segments):
+        # Signal 1: region-form locale anywhere (zh-CN, ja-JP, pt-BR, ...)
+        if _REGION_LOCALE_RE.match(seg):
+            return True
+        # Signal 2: bare two-letter locale ONLY directly under an i18n root
+        if seg.lower() in _BARE_LOCALE_CODES and idx > 0:
+            if segments[idx - 1].lower() in _I18N_ROOTS:
+                return True
+    return False
+
+
+def filter_canonical_skill_paths(paths) -> list:
+    """Drop localized SKILL.md copies, keeping canonical ones (order preserved)."""
+    return [p for p in (paths or []) if not is_localized_skill_path(p)]
+
+
 def get_stars(repo_url: str) -> int:
     """Get star count for a GitHub repo URL. Returns 0 on error.
 

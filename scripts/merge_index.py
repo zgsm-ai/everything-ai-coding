@@ -20,6 +20,7 @@ try:
         normalize_source_url,
         get_repo_meta,
         to_kebab_case,
+        is_localized_skill_path,
         logger,
     )
     from .enrichment_orchestrator import enrich_entries
@@ -40,6 +41,7 @@ except ImportError:
         normalize_source_url,
         get_repo_meta,
         to_kebab_case,
+        is_localized_skill_path,
         logger,
     )
     from enrichment_orchestrator import enrich_entries
@@ -331,6 +333,40 @@ def _apply_bundled_in_annotations(entries: list[dict], log=logger) -> list[dict]
                 type(namespaces).__name__,
             )
             continue
+        # Drop localized/translated bundled skills (e.g. ECC's 519
+        # docs/<locale>/skills/.../SKILL.md copies) before any matching /
+        # synthesis. namespaces and skill_paths are position-aligned (both from
+        # the layout detector); we only drop a position when its aligned
+        # skill_path is present AND classified localized — absent paths are
+        # never dropped (high-precision bias, keeps canonical / legacy bundles).
+        # When we drop, persist the filtered lists + corrected skills_count back
+        # onto the bundle so skills_namespaces / skill_paths / bundled_skill_ids
+        # stay position-aligned (downstream chips + counts).
+        if skill_paths:
+            kept_ns: list = []
+            kept_paths: list = []
+            dropped_localized = 0
+            for i, ns in enumerate(namespaces):
+                sp = skill_paths[i] if i < len(skill_paths) else None
+                if sp and is_localized_skill_path(sp):
+                    dropped_localized += 1
+                    continue
+                kept_ns.append(ns)
+                kept_paths.append(sp if i < len(skill_paths) else None)
+            if dropped_localized:
+                log.info(
+                    "post-merge: plugin %s — dropped %d localized bundled SKILL.md "
+                    "copies, kept %d canonical",
+                    plugin_id or "<unknown>",
+                    dropped_localized,
+                    len(kept_ns),
+                )
+                namespaces = kept_ns
+                skill_paths = kept_paths
+                bundle["skills_namespaces"] = list(kept_ns)
+                bundle["skill_paths"] = list(kept_paths)
+                bundle["skills_count"] = len(kept_ns)
+                plugin["bundle"] = bundle
         plugin_repo = _plugin_source_repo(plugin)
         # Position-aligned reverse mapping: one element per namespace entry
         # (None for orphans). Written back to plugin["bundle"]["bundled_skill_ids"]

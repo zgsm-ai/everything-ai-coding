@@ -41,6 +41,7 @@ from utils import (  # noqa: E402
     to_kebab_case,
     categorize,
     extract_tags,
+    filter_canonical_skill_paths,
 )
 import skill_registry  # noqa: E402  scan_repo_via_api, hard_filter
 import sync_plugins_official as spo  # noqa: E402  sync_one_source 等
@@ -294,6 +295,10 @@ def classify_repo(repo_slug, branch, api_list_files=list_repo_files):
     paths = api_list_files(repo_slug, branch) or []
     total_files = len(paths)
     skill_paths = [p for p in paths if os.path.basename(p).upper() == "SKILL.MD"]
+    # Drop localized/translated SKILL.md copies (e.g. docs/<locale>/skills/...).
+    # Use the canonical count for both megaapp density and downstream scanning so
+    # a multilingual repo (e.g. affaan-m/ECC) is not credited N× its real skills.
+    skill_paths = filter_canonical_skill_paths(skill_paths)
     meta = {"total_files": total_files, "skill_count": len(skill_paths)}
     has_marketplace = any(p in _MARKETPLACE_PATHS for p in paths)
     if has_marketplace:

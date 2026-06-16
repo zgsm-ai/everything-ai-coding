@@ -24,6 +24,7 @@ from utils import (
     get_repo_info,
     list_repo_files,
     fetch_raw_content,
+    filter_canonical_skill_paths,
     SPAM_PATTERNS,
     NON_CODING_CATEGORIES,
     SKILL_CODING_KEYWORDS,
@@ -142,6 +143,17 @@ def scan_repo_via_api(repo_slug: str, branch: str) -> list[dict]:
 
     # Filter to actual SKILL.md files (case-insensitive match on filename)
     skill_paths = [p for p in skill_paths if os.path.basename(p).upper() == "SKILL.MD"]
+
+    # Drop localized/translated copies (e.g. docs/ja-JP/skills/.../SKILL.md) so a
+    # multilingual repo's single skill is not counted once per language. Keeps
+    # canonical copies untouched (high-precision filter, see utils).
+    before = len(skill_paths)
+    skill_paths = filter_canonical_skill_paths(skill_paths)
+    if before != len(skill_paths):
+        logger.info(
+            f"Repo {repo_slug}: dropped {before - len(skill_paths)} localized "
+            f"SKILL.md copies, kept {len(skill_paths)} canonical"
+        )
 
     if len(skill_paths) > AGGREGATOR_THRESHOLD:
         logger.warning(
