@@ -76,6 +76,13 @@ MIN_STARS = int(os.environ.get("TRENDING_MIN_STARS", "50"))
 MAX_PAGES = int(os.environ.get("TRENDING_MAX_PAGES", "3"))          # 每查询翻几页（按 stars 排序，尾部价值低）
 SEARCH_THROTTLE = float(os.environ.get("TRENDING_THROTTLE", "2.0"))  # search 桶 authed 30/min ≈ 1 次/2s
 RECENCY_DAYS = int(os.environ.get("TRENDING_RECENCY_DAYS", "90"))    # trending 切片：近 N 天新仓
+# 每轮限量：本轮只对 stars 最高的前 N 个 net-new 候选做昂贵的结构验证 + build。
+# 单轮能在 CI timeout 内跑完 → 正常写 index → known_repos 下轮自动跳过它们、推进
+# backlog。~1191 候选几轮内排空，新爆款每周补入。env 可覆盖。
+MAX_VERIFY = int(os.environ.get("TRENDING_MAX_VERIFY", "300"))
+# verify_cache 增量保存间隔：每验证 N 个候选落盘一次（二级保险）。即便单轮仍被 kill，
+# 已验证进度也持久化，下轮 cache 命中跳过。
+VERIFY_CACHE_FLUSH_EVERY = int(os.environ.get("TRENDING_CACHE_FLUSH_EVERY", "25"))
 SOURCE_ID = "github-trending"
 PLUGIN_SOURCE_PRIORITY = 600  # 低于 official/superpowers/ECC/dev，碰撞时让既有源胜出
 
@@ -398,12 +405,20 @@ def save_verify_cache(cache):
 
 # --- 主发现流程 ------------------------------------------------------------
 
-def discover(last_synced, api=github_api, list_files=list_repo_files):
+def discover(last_synced, api=github_api, list_files=list_repo_files,
+             max_verify=None):
     """跑完整发现流程，返回 ``(skill_entries, plugin_repo_cfgs, stats)``。
 
     plugin 不在此构造 entry（schema 复杂，交给 sync_one_source），仅返回待同步的
     source_cfg 列表。
+
+    **每轮限量**（主修超时）：net-new 候选按 stars 降序排序，本轮只对前 ``max_verify``
+    （默认 ``MAX_VERIFY``=300）个做昂贵的结构验证 + build，其余推迟到后续轮次。
+    高星优先；单轮在 CI timeout 内完成 → 正常写 index → 持久化 → 下轮 known_repos
+    跳过它们、自动推进 backlog。``max_verify=0`` 表示不限量（全量）。
     """
+    if max_verify is None:
+        max_verify = MAX_VERIFY
     known = build_known_repos()
     logger.info("known_repos 预过滤集合大小：%d", len(known))
 
@@ -420,6 +435,23 @@ def discover(last_synced, api=github_api, list_files=list_repo_files):
         stats["below_min_stars"], len(candidates),
     )
 
+    # 每轮限量（主修）：按 stars 降序排序后只取前 max_verify 个。高星优先入库，
+    # 其余推迟到后续轮次（下轮 known_repos 已含本轮入库的，自动推进 backlog）。
+    ranked = sorted(
+        candidates.items(),
+        key=lambda kv: (kv[1].get("stargazers_count") or 0),
+        reverse=True,
+    )
+    total_candidates = len(ranked)
+    stats["deferred"] = 0
+    if max_verify and total_candidates > max_verify:
+        stats["deferred"] = total_candidates - max_verify
+        logger.info(
+            "本轮限量 %d，推迟 %d 个到后续轮次（按 stars 降序，高星优先）",
+            max_verify, stats["deferred"],
+        )
+        ranked = ranked[:max_verify]
+
     verify_cache = load_verify_cache()
     new_cache = {}
     skill_entries = []
@@ -429,7 +461,12 @@ def discover(last_synced, api=github_api, list_files=list_repo_files):
         "verify_failed": 0, "errored": 0, "megaapp_dropped": 0,
     })
 
-    for full, item in candidates.items():
+    # verify_cache 增量保存（二级保险）：把上轮 cache 里仍命中的条目先并入 new_cache，
+    # 避免增量落盘把"本轮没碰到的旧 cache 条目"丢掉。
+    new_cache.update(verify_cache)
+    processed = 0
+
+    for full, item in ranked:
         repo_slug = item.get("full_name")
         branch = item.get("default_branch") or "main"
         pushed_at = item.get("pushed_at") or ""
@@ -507,7 +544,12 @@ def discover(last_synced, api=github_api, list_files=list_repo_files):
             stats["errored"] += 1
             logger.warning("候选仓 %s 验证失败（跳过，下次重试）：%s", repo_slug, e)
             # 不写 new_cache → 不缓存失败结果，下个周期重新验证
-            continue
+        finally:
+            # verify_cache 增量保存（二级保险）：每验证 N 个落盘一次，即便本轮仍被
+            # kill，已验证进度也持久化、下轮 cache 命中跳过。写失败 best-effort 不崩。
+            processed += 1
+            if VERIFY_CACHE_FLUSH_EVERY and processed % VERIFY_CACHE_FLUSH_EVERY == 0:
+                save_verify_cache(new_cache)
 
     save_verify_cache(new_cache)
     return skill_entries, plugin_cfgs, stats
@@ -557,6 +599,13 @@ def main(argv=None):
 
     last_synced = date.today().isoformat()
 
+    # 提前建 cache 目录：即便发现流程早退（如 build_known_repos raise），CI 的
+    # cache save step 也有目录可存，避免 "Cache save failed" annotation。
+    try:
+        os.makedirs(CACHE_DIR, exist_ok=True)
+    except OSError as e:
+        logger.debug("cache 目录创建失败：%s", e)
+
     try:
         skill_entries, plugin_cfgs, stats = discover(last_synced)
     except RuntimeError as e:
@@ -568,10 +617,11 @@ def main(argv=None):
     # WARN 汇总：让一次发现的健康度在 CI 日志可见（不静默）。
     logger.warning(
         "GitHub trending 发现健康度：skill 仓=%d（%d 条 entry）｜plugin 仓=%d（%d 条 entry）"
-        "｜丢弃越界=%d｜丢弃巨型app=%d｜验证未产出=%d｜验证异常=%d｜预过滤已知=%d",
+        "｜丢弃越界=%d｜丢弃巨型app=%d｜验证未产出=%d｜验证异常=%d｜预过滤已知=%d｜本轮推迟=%d",
         stats["skill_repos"], len(skill_entries), stats["plugin_repos"],
         len(plugin_entries), stats["discarded"], stats.get("megaapp_dropped", 0),
         stats["verify_failed"], stats["errored"], stats["prefiltered_known"],
+        stats.get("deferred", 0),
     )
 
     if args.dry_run:

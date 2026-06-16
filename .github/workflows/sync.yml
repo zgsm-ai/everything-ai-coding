@@ -226,7 +226,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PYTHONUNBUFFERED: "1"
         run: python -u scripts/sync_github_trending.py
-        timeout-minutes: 15
+        timeout-minutes: 25
         continue-on-error: true
 
       # Rewrite monorepo plugins' source_url to their declared subdir (dev sync

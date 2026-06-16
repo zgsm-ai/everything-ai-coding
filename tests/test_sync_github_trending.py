@@ -397,3 +397,197 @@ def test_discover_build_skill_entries_exception_counts_errored(monkeypatch):
     assert skill_entries == []
     assert stats["errored"] == 1
     assert "boom/skill" not in saved["cache"]
+
+
+# --- 每轮限量（主修超时）：只处理 top-N，按 stars 降序优先 -------------------
+
+def test_discover_limits_to_top_n_by_stars(monkeypatch):
+    """net-new 候选超过 max_verify 时，本轮只对 stars 最高的前 N 个做结构验证 + build，
+    其余推迟（stats['deferred']），高星优先。"""
+    # 5 个候选，stars 各不同；max_verify=2 → 只处理 stars 最高的两个
+    candidates = {
+        "a/s10": _item("a/s10", stars=10),
+        "b/s500": _item("b/s500", stars=500),
+        "c/s50": _item("c/s50", stars=50),
+        "d/s900": _item("d/s900", stars=900),
+        "e/s100": _item("e/s100", stars=100),
+    }
+    saved = _setup_discover_env(
+        monkeypatch, candidates,
+        lambda r: ("skill", ["skills/x/SKILL.md"], {"total_files": 100, "skill_count": 1}),
+    )
+
+    classified = []
+
+    def fake_classify(repo_slug, branch, list_files):
+        classified.append(repo_slug)
+        return "skill", ["skills/x/SKILL.md"], {"total_files": 100, "skill_count": 1}
+
+    monkeypatch.setattr(t, "classify_repo", fake_classify)
+
+    built = []
+
+    def fake_build(repo, branch, item, ls):
+        built.append(repo)
+        return [{"id": f"{repo.replace('/', '-')}-skill", "type": "skill",
+                 "source": t.SOURCE_ID,
+                 "source_url": f"https://github.com/{repo}/tree/{branch}/x"}]
+
+    monkeypatch.setattr(t, "build_skill_entries", fake_build)
+
+    skill_entries, plugin_cfgs, stats = t.discover("2026-06-16", max_verify=2)
+
+    # 只处理 stars 最高的两个：d/s900, b/s500（按 stars 降序）
+    assert classified == ["d/s900", "b/s500"]
+    assert built == ["d/s900", "b/s500"]
+    assert stats["skill_repos"] == 2
+    assert len(skill_entries) == 2
+    # 其余 3 个推迟到后续轮次（下轮 known_repos 自动推进 backlog）
+    assert stats["deferred"] == 3
+    # 推迟的仓不进 cache（本轮根本没验证）
+    assert "a/s10" not in saved["cache"]
+    assert "c/s50" not in saved["cache"]
+    assert "e/s100" not in saved["cache"]
+
+
+def test_discover_no_limit_when_under_max_verify(monkeypatch):
+    """候选数不超过 max_verify 时全量处理，deferred=0。"""
+    candidates = {
+        "a/s1": _item("a/s1", stars=100),
+        "b/s2": _item("b/s2", stars=200),
+    }
+    _setup_discover_env(
+        monkeypatch, candidates,
+        lambda r: ("skill", ["skills/x/SKILL.md"], {"total_files": 100, "skill_count": 1}),
+    )
+    monkeypatch.setattr(
+        t, "build_skill_entries",
+        lambda repo, branch, item, ls: [
+            {"id": f"{repo.replace('/', '-')}-skill", "type": "skill",
+             "source": t.SOURCE_ID,
+             "source_url": f"https://github.com/{repo}/tree/{branch}/x"},
+        ],
+    )
+    skill_entries, plugin_cfgs, stats = t.discover("2026-06-16", max_verify=10)
+    assert stats["deferred"] == 0
+    assert stats["skill_repos"] == 2
+
+
+def test_discover_max_verify_zero_means_unlimited(monkeypatch):
+    """max_verify=0 视作不限量（全量验证），不推迟任何候选。"""
+    candidates = {f"o/r{i}": _item(f"o/r{i}", stars=100 + i) for i in range(5)}
+    _setup_discover_env(
+        monkeypatch, candidates,
+        lambda r: ("skill", ["skills/x/SKILL.md"], {"total_files": 100, "skill_count": 1}),
+    )
+    monkeypatch.setattr(
+        t, "build_skill_entries",
+        lambda repo, branch, item, ls: [
+            {"id": f"{repo.replace('/', '-')}-skill", "type": "skill",
+             "source": t.SOURCE_ID,
+             "source_url": f"https://github.com/{repo}/tree/{branch}/x"},
+        ],
+    )
+    skill_entries, plugin_cfgs, stats = t.discover("2026-06-16", max_verify=0)
+    assert stats["deferred"] == 0
+    assert stats["skill_repos"] == 5
+
+
+# --- verify_cache 增量写（二级保险）：中途落盘，被 kill 也持久化 -------------
+
+def test_discover_flushes_verify_cache_incrementally(monkeypatch):
+    """验证循环里每 N 个落盘一次 verify_cache（而非只在末尾），即便中途被 kill
+    已验证进度也持久化。"""
+    # 6 个候选，FLUSH_EVERY=2 → 第 2、4、6 个之后各落盘一次（含末尾）
+    candidates = {f"o/r{i}": _item(f"o/r{i}", stars=200 - i) for i in range(6)}
+    monkeypatch.setattr(t, "build_known_repos", lambda: set())
+    monkeypatch.setattr(t, "load_verify_cache", lambda: {})
+    monkeypatch.setattr(t, "VERIFY_CACHE_FLUSH_EVERY", 2)
+    monkeypatch.setattr(
+        t, "collect_candidates",
+        lambda *a, **k: (dict(candidates),
+                         {"raw": 6, "prefiltered_known": 0, "below_min_stars": 0}),
+    )
+    monkeypatch.setattr(
+        t, "classify_repo",
+        lambda r, b, ls: ("skill", ["skills/x/SKILL.md"], {"total_files": 100, "skill_count": 1}),
+    )
+    monkeypatch.setattr(
+        t, "build_skill_entries",
+        lambda repo, branch, item, ls: [
+            {"id": f"{repo.replace('/', '-')}-skill", "type": "skill",
+             "source": t.SOURCE_ID,
+             "source_url": f"https://github.com/{repo}/tree/{branch}/x"},
+        ],
+    )
+
+    # 记录每次 save_verify_cache 调用时 cache 的大小，验证是"中途渐增"而非只末尾一次
+    flush_sizes = []
+    monkeypatch.setattr(
+        t, "save_verify_cache",
+        lambda c: flush_sizes.append(len(c)),
+    )
+
+    t.discover("2026-06-16", max_verify=0)
+
+    # 6 个候选 / 每 2 个 flush 一次 = 3 次中途 flush + 1 次末尾 = 4 次（末尾与第 3 次 size 相同）
+    assert len(flush_sizes) >= 3            # 至少中途落盘多次（非只末尾一次）
+    assert flush_sizes[0] == 2              # 第一次 flush 时已有 2 条
+    assert flush_sizes[-1] == 6             # 末尾全部落盘
+    # 大小单调不减（增量积累）
+    assert flush_sizes == sorted(flush_sizes)
+
+
+def test_discover_flush_survives_kill_midway(monkeypatch):
+    """模拟"中途被 kill"：在处理第 3 个候选时抛 KeyboardInterrupt，
+    断言前 2 个已 flush 持久化（不丢进度）。"""
+    candidates = {f"o/r{i}": _item(f"o/r{i}", stars=300 - i) for i in range(5)}
+    monkeypatch.setattr(t, "build_known_repos", lambda: set())
+    monkeypatch.setattr(t, "load_verify_cache", lambda: {})
+    monkeypatch.setattr(t, "VERIFY_CACHE_FLUSH_EVERY", 2)
+    monkeypatch.setattr(
+        t, "collect_candidates",
+        lambda *a, **k: (dict(candidates),
+                         {"raw": 5, "prefiltered_known": 0, "below_min_stars": 0}),
+    )
+    monkeypatch.setattr(
+        t, "classify_repo",
+        lambda r, b, ls: ("skill", ["skills/x/SKILL.md"], {"total_files": 100, "skill_count": 1}),
+    )
+
+    n_built = {"count": 0}
+
+    def fake_build(repo, branch, item, ls):
+        n_built["count"] += 1
+        if n_built["count"] == 3:
+            raise KeyboardInterrupt("simulated CI kill")  # 第 3 个时被 kill
+        return [{"id": f"{repo.replace('/', '-')}-skill", "type": "skill",
+                 "source": t.SOURCE_ID,
+                 "source_url": f"https://github.com/{repo}/tree/{branch}/x"}]
+
+    monkeypatch.setattr(t, "build_skill_entries", fake_build)
+
+    last_flush = {"cache": None}
+    monkeypatch.setattr(
+        t, "save_verify_cache",
+        lambda c: last_flush.update({"cache": dict(c)}),
+    )
+
+    # KeyboardInterrupt 不被 per-candidate except 吞（BaseException 非 Exception），
+    # 会向上冒泡，但前 2 个的进度已通过增量 flush 持久化
+    with pytest.raises(KeyboardInterrupt):
+        t.discover("2026-06-16", max_verify=0)
+
+    # 被 kill 前已 flush（处理完前 2 个时触发了一次 FLUSH_EVERY=2 的落盘）
+    assert last_flush["cache"] is not None
+    assert len(last_flush["cache"]) == 2    # 前 2 个的进度已持久化
+
+
+def test_save_verify_cache_best_effort_on_write_failure(monkeypatch, tmp_path):
+    """cache 写失败要 best-effort 不崩（OSError 被吞）。"""
+    bad_dir = tmp_path / "nope"
+    bad_path = bad_dir / "verify_cache.json"
+    monkeypatch.setattr(t, "CACHE_DIR", "/dev/null/cannot-mkdir")
+    monkeypatch.setattr(t, "VERIFY_CACHE_PATH", str(bad_path))
+    # 不应抛
+    t.save_verify_cache({"o/r": {"kind": "skill"}})
