@@ -598,6 +598,10 @@ class EvalRunner:
         "obra/superpowers-marketplace": 95,
         "claude-plugins.dev": 70,
         "awesome-claude-plugins": 50,
+        # 自动发现源（GitHub Search 主动捞）：未经人工策展，给与 unknown 同档的
+        # 适度低信任值。显式登记表达"有意为之"而非靠默认兜底；source_trust 在
+        # final_score 里影响极小（最多约 3.6 分摆动），主闸门仍是 LLM 内容质量。
+        "github-trending": 40,
     }
     _SOURCE_TRUST_DEFAULT = 40  # unknown sources
 
