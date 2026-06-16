@@ -162,6 +162,18 @@ SOURCE_REGISTRY: dict[str, dict] = {
         "type": "Plugins",
         "trust": 3,
     },
+    # ── 主动发现（跨类型）──
+    # github-trending 同时产 skill + plugin，但 SOURCE_REGISTRY schema 假设单一
+    # type（`type` 仅用于 About 页的 TYPE_ORDER 分组排序，必须是已知值）。
+    # 这里按"主体是 skill 发现"归到 Skills，避免 build_sources_payload 在
+    # TYPE_ORDER.index() 处抛 ValueError、破坏 About 页渲染；trust=2（自动发现、
+    # 未策展，最低档）。多 type 精确归属属后续 schema 扩展，不在本任务范围。
+    "github-trending": {
+        "label": "GitHub Trending",
+        "url": "https://github.com/search",
+        "type": "Skills",
+        "trust": 2,
+    },
 }
 
 

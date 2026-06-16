@@ -918,7 +918,7 @@ class TestSearchIndex(unittest.TestCase):
             "id", "name", "type", "category", "tags", "tech_stack",
             "stars", "description", "description_zh", "source_url",
             "install_method", "final_score", "decision", "search_text",
-            "freshness_label", "bundled_in",
+            "freshness_label", "bundled_in", "source",
         }
         self.assertEqual(set(result[0].keys()), expected_fields)
 

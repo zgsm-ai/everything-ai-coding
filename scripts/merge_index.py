@@ -1064,6 +1064,9 @@ def merge(skip_enrichment: bool = False):
         "id", "name", "type", "category", "tags", "tech_stack",
         "stars", "description", "description_zh", "source_url",
         "final_score", "decision", "freshness_label", "bundled_in",
+        # source 透传：让 Detail fallback / 客户端搜索结果也能渲染
+        # github-trending 等 source 角标（per-type JSON 已带，这里补上 search-index）。
+        "source",
     )
     search_entries = []
     for entry in deduped:

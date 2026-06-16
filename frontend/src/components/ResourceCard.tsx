@@ -53,6 +53,12 @@ export default function ResourceCard({ item, compact, highlight }: Props) {
     lang === 'zh'
       ? 'marketplace 元数据未验证，自动安装不可用'
       : 'Marketplace metadata not verified — automated install unavailable'
+  // Auto-discovered from GitHub trending (not a curated upstream source).
+  const showTrending = item.source === 'github-trending'
+  const trendingTooltip =
+    lang === 'zh'
+      ? 'GitHub 趋势主动发现（非人工策展源，质量以评分为准）'
+      : 'Auto-discovered from GitHub trending (not a curated source)'
   const shieldStyle: Record<string, string> = {
     medium: 'text-amber-500 hover:text-amber-600 dark:text-amber-400 dark:hover:text-amber-300',
     high: 'text-rose-500 hover:text-rose-600 dark:text-rose-400 dark:hover:text-rose-300',
@@ -86,6 +92,15 @@ export default function ResourceCard({ item, compact, highlight }: Props) {
               className="text-xs px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300 cursor-help"
             >
               {lang === 'zh' ? '未验证' : 'unverified'}
+            </span>
+          )}
+          {showTrending && (
+            <span
+              title={trendingTooltip}
+              aria-label={trendingTooltip}
+              className="text-xs px-1.5 py-0.5 rounded-full bg-orange-100 text-orange-700 dark:bg-orange-900/50 dark:text-orange-300 cursor-help"
+            >
+              {lang === 'zh' ? '🔥 主动发现' : '🔥 trending'}
             </span>
           )}
         </div>

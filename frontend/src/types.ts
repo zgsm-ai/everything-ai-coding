@@ -133,6 +133,7 @@ export interface SearchIndexItem {
   source_url: string
   final_score: number
   decision: string
+  source?: string
   install_method?: string
   search_text?: string
 }
