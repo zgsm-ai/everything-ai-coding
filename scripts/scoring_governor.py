@@ -23,6 +23,57 @@ LLM_DIMENSION_ORDER = (
 
 MCP_REGISTRY_SOURCE = "registry.modelcontextprotocol.io"
 
+# 自动发现源（无人工策展）需要更硬的安全门槛：security verdict 直接参与 decision。
+# 其他源 security 仍只写字段不卡门槛（保持现状）。
+GITHUB_TRENDING_SOURCE = "github-trending"
+
+
+def _apply_security_to_decision(entries: list[dict[str, Any]]) -> None:
+    """对 github-trending 源把 security verdict 落进 decision（仅此源，原地修改）。
+
+    自动发现仓未经人工审查，给它的 security 信号一个真实的决策权重：
+      - ``verdict == "reject"``（risk_level high/extreme）→ ``decision = "reject"``
+      - ``verdict == "caution"``（risk_level medium）→ 若当前 accept 则降级为 "review"
+
+    ``verdict == "safe"``（clean/low）或无 security 字段 → 不动 decision。
+    仅作用于 ``source == "github-trending"``，不影响任何其他源。
+    """
+    adjusted = 0
+    for entry in entries:
+        if (entry.get("source") or "") != GITHUB_TRENDING_SOURCE:
+            continue
+        security = entry.get("security")
+        if not isinstance(security, dict):
+            continue
+        verdict = security.get("verdict")
+        if verdict == "reject":
+            if entry.get("decision") != "reject":
+                entry["decision"] = "reject"
+                ev = entry.get("evaluation")
+                if isinstance(ev, dict):
+                    ev["decision"] = "reject"
+                adjusted += 1
+                logger.info(
+                    "SECURITY gate (github-trending): %s → reject (verdict=reject)",
+                    entry.get("id"),
+                )
+        elif verdict == "caution":
+            if entry.get("decision") == "accept":
+                entry["decision"] = "review"
+                ev = entry.get("evaluation")
+                if isinstance(ev, dict):
+                    ev["decision"] = "review"
+                adjusted += 1
+                logger.info(
+                    "SECURITY gate (github-trending): %s accept → review (verdict=caution)",
+                    entry.get("id"),
+                )
+    if adjusted:
+        logger.info(
+            "SECURITY gate (github-trending): %d entries adjusted by security verdict",
+            adjusted,
+        )
+
 
 def apply_governance(
     entries: list[dict[str, Any]],
@@ -96,6 +147,10 @@ def apply_governance(
         health = entry.get("health") or {}
         if isinstance(health, dict) and "freshness_label" in health:
             entry["freshness_label"] = health["freshness_label"]
+
+    # github-trending：security verdict 参与 decision（在 reject 过滤之前，
+    # 这样被降级/置 reject 的条目能被下面的过滤段一并处理）。
+    _apply_security_to_decision(entries)
 
     # Filter rejects
     result = []

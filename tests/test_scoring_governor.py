@@ -197,5 +197,116 @@ class ApplyGovernanceTests(unittest.TestCase):
         self.assertEqual([e["id"] for e in result], ["reg-review"])
 
 
+class SecurityGateGithubTrendingTests(unittest.TestCase):
+    """github-trending 源：security verdict 参与 decision（仅此源）。"""
+
+    def test_reject_verdict_sets_decision_reject(self):
+        """verdict=reject（risk high/extreme）→ decision 置 reject。"""
+        entries = [
+            {
+                "id": "gt-bad",
+                "type": "skill",
+                "source": "github-trending",
+                "evaluation": {"final_score": 80.0, "decision": "accept"},
+                "security": {"verdict": "reject", "risk_level": "high"},
+            },
+        ]
+        with unittest.mock.patch.dict(os.environ, {"EVAL_DRY_RUN": "true"}, clear=False):
+            result = scoring_governor.apply_governance(entries)
+        self.assertEqual(result[0]["decision"], "reject")
+        self.assertEqual(result[0]["evaluation"]["decision"], "reject")
+
+    def test_reject_verdict_dropped_when_not_dry_run(self):
+        """verdict=reject → 置 reject → 非 dry-run 下被 reject 过滤丢弃。"""
+        entries = [
+            {
+                "id": "gt-bad",
+                "type": "skill",
+                "source": "github-trending",
+                "evaluation": {"final_score": 80.0, "decision": "accept"},
+                "security": {"verdict": "reject", "risk_level": "extreme"},
+            },
+        ]
+        with unittest.mock.patch.dict(os.environ, {"EVAL_DRY_RUN": "false"}, clear=False):
+            result = scoring_governor.apply_governance(entries)
+        self.assertEqual(len(result), 0)
+
+    def test_caution_verdict_downgrades_accept_to_review(self):
+        """verdict=caution（medium）→ accept 降级为 review。"""
+        entries = [
+            {
+                "id": "gt-caution",
+                "type": "plugin",
+                "source": "github-trending",
+                "evaluation": {"final_score": 70.0, "decision": "accept"},
+                "security": {"verdict": "caution", "risk_level": "medium"},
+            },
+        ]
+        with unittest.mock.patch.dict(os.environ, {"EVAL_DRY_RUN": "true"}, clear=False):
+            result = scoring_governor.apply_governance(entries)
+        self.assertEqual(result[0]["decision"], "review")
+        self.assertEqual(result[0]["evaluation"]["decision"], "review")
+
+    def test_caution_verdict_leaves_non_accept_unchanged(self):
+        """caution 只降 accept；已是 review 的不再动。"""
+        entries = [
+            {
+                "id": "gt-caution-review",
+                "type": "skill",
+                "source": "github-trending",
+                "evaluation": {"final_score": 55.0, "decision": "review"},
+                "security": {"verdict": "caution", "risk_level": "medium"},
+            },
+        ]
+        with unittest.mock.patch.dict(os.environ, {"EVAL_DRY_RUN": "true"}, clear=False):
+            result = scoring_governor.apply_governance(entries)
+        self.assertEqual(result[0]["decision"], "review")
+
+    def test_safe_verdict_leaves_decision_untouched(self):
+        """verdict=safe（clean/low）→ 不动 decision。"""
+        entries = [
+            {
+                "id": "gt-clean",
+                "type": "skill",
+                "source": "github-trending",
+                "evaluation": {"final_score": 80.0, "decision": "accept"},
+                "security": {"verdict": "safe", "risk_level": "clean"},
+            },
+        ]
+        with unittest.mock.patch.dict(os.environ, {"EVAL_DRY_RUN": "true"}, clear=False):
+            result = scoring_governor.apply_governance(entries)
+        self.assertEqual(result[0]["decision"], "accept")
+
+    def test_other_source_security_does_not_affect_decision(self):
+        """非 github-trending 源即便 verdict=reject 也不改 decision（保持现状）。"""
+        entries = [
+            {
+                "id": "official-bad",
+                "type": "plugin",
+                "source": "claude-plugins-official",
+                "evaluation": {"final_score": 80.0, "decision": "accept"},
+                "security": {"verdict": "reject", "risk_level": "high"},
+            },
+        ]
+        with unittest.mock.patch.dict(os.environ, {"EVAL_DRY_RUN": "false"}, clear=False):
+            result = scoring_governor.apply_governance(entries)
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]["decision"], "accept")
+
+    def test_no_security_field_no_change(self):
+        """github-trending 但无 security 字段 → decision 不动。"""
+        entries = [
+            {
+                "id": "gt-no-sec",
+                "type": "skill",
+                "source": "github-trending",
+                "evaluation": {"final_score": 80.0, "decision": "accept"},
+            },
+        ]
+        with unittest.mock.patch.dict(os.environ, {"EVAL_DRY_RUN": "true"}, clear=False):
+            result = scoring_governor.apply_governance(entries)
+        self.assertEqual(result[0]["decision"], "accept")
+
+
 if __name__ == "__main__":
     unittest.main()
