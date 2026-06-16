@@ -121,6 +121,16 @@ jobs:
           restore-keys: |
             plugins-dev-cache-${{ steps.week.outputs.stamp }}-
 
+      - name: Restore github-trending weekly cache
+        id: cache-restore-github-trending
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            .github_trending_cache/
+          key: github-trending-cache-${{ steps.week.outputs.stamp }}-${{ github.run_number }}
+          restore-keys: |
+            github-trending-cache-${{ steps.week.outputs.stamp }}-
+
       - name: Crawl mcp.so (incremental)
         run: python -u scripts/crawl_mcp_so.py --mode incremental
         env:
@@ -205,6 +215,18 @@ jobs:
           PYTHONUNBUFFERED: "1"
         run: python -u scripts/sync_plugins_csc.py
         timeout-minutes: 5
+        continue-on-error: true
+
+      # Active discovery: GitHub Search by stars → structure-verify (SKILL.md /
+      # marketplace.json) → merge-preserve into skills + plugins indexes. Runs
+      # after all curated/registry syncs so its repo-level known_repos pre-filter
+      # sees the freshest indexes (dedup main line; merge deduplicate() backstops).
+      - name: Sync GitHub trending (skills + plugins)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PYTHONUNBUFFERED: "1"
+        run: python -u scripts/sync_github_trending.py
+        timeout-minutes: 15
         continue-on-error: true
 
       # Rewrite monorepo plugins' source_url to their declared subdir (dev sync
@@ -301,6 +323,14 @@ jobs:
           path: |
             .plugins_dev_cache/
           key: plugins-dev-cache-${{ steps.week.outputs.stamp }}-${{ github.run_number }}
+
+      - name: Save github-trending weekly cache
+        uses: actions/cache/save@v4
+        if: always() && steps.cache-restore-github-trending.outputs.cache-hit != 'true'
+        with:
+          path: |
+            .github_trending_cache/
+          key: github-trending-cache-${{ steps.week.outputs.stamp }}-${{ github.run_number }}
 
   # ---------------------------------------------------------------------------
   # Job 2: enrich (matrix per type)

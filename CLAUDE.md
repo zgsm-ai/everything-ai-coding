@@ -197,6 +197,17 @@ sync 时通过 `scripts/marketplace_verifier.py` 统一 fetch + cache，每次 s
 
 **平台兼容性**：主要面向 **Claude Code**；**opencode** 部分兼容（npm 包形式）；**cursor / windsurf / costrict 暂无等价 plugin 机制**，安装命令侧仅 Claude Code 路径生效。
 
+### 主动发现源（GitHub Search）
+
+`scripts/sync_github_trending.py` —— 唯一**主动发现**源（其余源都是被动等上游 curated 白名单/registry 收录）。补"发现盲区"：~190 个高星热门 skill 仓不在任何现有源里。
+
+- **发现**：`utils.github_api` 跑一组 repo search 查询（topic/keyword + `created:>` trending 切片），`sort=stars`，主动 2s 节流避开 search 桶（authed 30/min、1000 条/查询上限）。**不引入 gh CLI**（标准库原则）。
+- **结构验证定 type**：对候选仓**一次 Tree API** 调用，含 `.claude-plugin/marketplace.json` → plugin（优先，bundled skill 交下游合成）；含 `SKILL.md` → skill；都没有 → 丢弃（天然剔除 cherry-studio/cliproxyapi 这类越界工具，比描述正则准）。
+- **去重主防线 = repo 级 `known_repos` 预过滤**（`build_known_repos`）：扫描/LLM **之前**就挡掉"已存在于任意 type/source 的仓"。关键——`deduplicate()` 按 `type` 分命名空间，**跨类型抓不住**（一个仓已作 plugin 在库，再被当 skill 发现会重复）；实测 301 候选中 60 已在库、含 37 个跨类型地雷。known_repos **双路提取** owner/repo：`source_url` 反解 + `install.marketplace_repo`（覆盖 marketplace 容器仓无自指 source_url 的盲区）+ 镜像归一。merge 阶段 `deduplicate()` 仅兜底。
+- **复用**：skill 走 `skill_registry.scan_repo_via_api` + `hard_filter`；plugin 走 `sync_plugins_official.sync_one_source`（`_entry_from_plugin`），避免重写 plugin schema。**merge-preserve** 写 `catalog/{skills,plugins}/index.json`（plugin 侧 id-only dedup，同 monorepo 多 plugin 合法共享 URL）。
+- **增量友好 + 失败可见**：`.github_trending_cache/verify_cache.json` 按 `pushed_at` 缓存结构验证结果、**不缓存空结果**；末尾 WARN 汇总发现健康度（skill/plugin 仓数、丢弃、预过滤命中）。`source_priority=600`（低于 official/dev，碰撞时既有源胜出）。
+- **覆盖**：skill + plugin（MVP）。star velocity / trending 时间序列信号留待后续。
+
 ### 多平台适配
 
 `platforms/` 下四套内容，差异仅在文件命名、frontmatter、命令引用格式：
@@ -225,7 +236,7 @@ merge_index.py
 
 `.github/workflows/sync.yml` — 每周一 UTC 3:23 自动触发，也支持 `workflow_dispatch` 手动触发。
 
-**流程**：crawl_mcp_so → sync_mcp → sync_mcp_registry → sync_rules → sync_windsurfrules → sync_skills → sync_skills_sh → sync_prompts → verify_sync → merge_index → update_readme → audit_popular_coverage → auto commit+push
+**流程**：crawl_mcp_so → sync_mcp → sync_mcp_registry → sync_rules → sync_windsurfrules → sync_skills → sync_skills_sh → sync_prompts → sync_plugins(official→dev→csc) → **sync_github_trending** → backfill_plugin_subdirs → verify_sync → merge_index → update_readme → audit_popular_coverage → auto commit+push
 
 **缓存**：CI 通过 `actions/cache` 持久化 `.llm_cache.json`、`.eval_cache/`（SQLite）、`incremental_recrawl_state.json`、`fallback_skill_repos.json` 等文件避免重复计算；`.skills_sh_cache/` / `.mcp_registry_cache/` / `.windsurfrules_cache/` 各自使用独立 weekly cache block，`restore-keys` 仅锚定本周 stamp，不跨周回退。
 
