@@ -178,7 +178,7 @@ Plugins 是 Claude Code 的 marketplace 打包格式（一个 plugin 通常捆�
 - **[obra/superpowers-marketplace](https://github.com/obra/superpowers-marketplace)** — Jesse Vincent 的社区 marketplace，同样解析 `marketplace.json`；`source_priority` 为 `950`，`scripts/sync_plugins_superpowers.py`；与官方源同名 plugin（如 `superpowers`）走精确黑名单收敛
 - **[claude-plugins.dev](https://claude-plugins.dev)** — 公共 registry API（约 32k plugins），脚本 `scripts/sync_plugins_registry.py` 拉取后按 `stars ≥ 5` 过滤；`source_priority` 为 `700`
 
-**任务配置**（`ai-resource-eval` 包内 4 个新增 plugin task）：`plugin_marketplace_official` / `plugin_marketplace_community` / `plugin_registry_curated` / `plugin_registry_general`，根据来源 + stars 自动路由。所有 plugin task **关闭 LLM 评分（health-only）**，仅跑 4 个健康度信号 — `freshness` / `popularity` / `source_trust` / `manifest_completeness`，`enrichment: true` 仍生效（summary / tags / tech_stack）。
+**任务配置**（`ai-resource-eval` 包内 `plugin` task，配置见 `ai-resource-eval/ai_resource_eval/tasks/plugin.yaml`）：**v2 起已激活 5 维 LLM 评分**（`coding_relevance` / `doc_completeness` / `desc_accuracy` / `writing_quality` / `specificity`，剔除了 skill 的 `install_clarity`，其 0.10 权重并入 `doc_completeness`），由 `PluginContentFetcher` 抓全 plugin 内容（plugin.json + 全部 SKILL.md / agents / commands）作为 LLM 输入。`health_blend_alpha: 0.85`（与 skill 对齐），accept/review 阈值 65/50，`rubric_major_version: 2`。健康度信号 4 个 — `freshness` / `popularity` / `source_trust` / `manifest_completeness`，`enrichment: true` 仍生效（summary / tags / tech_stack）。（旧文档曾写"plugin task 关闭 LLM 评分（health-only）"，v2 已不再如此。）
 
 **Marketplace 字段**（`fix-plugin-marketplace-fields` change 引入）：plugin entry 的 `install` 对象在 `plugin_name` / `marketplace`（display-only）之外新增 3 个必填字段：
 - `install.marketplace_repo` — 规范的 GitHub `owner/repo` 字符串。official 源直接取自 `repo_slug`；dev 源从 `gitUrl` / `source_url` 反推
