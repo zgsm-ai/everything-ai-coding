@@ -353,41 +353,54 @@ def discover(last_synced, api=github_api, list_files=list_repo_files):
     new_cache = {}
     skill_entries = []
     plugin_cfgs = []
-    stats.update({"skill_repos": 0, "plugin_repos": 0, "discarded": 0, "verify_failed": 0})
+    stats.update({
+        "skill_repos": 0, "plugin_repos": 0, "discarded": 0,
+        "verify_failed": 0, "errored": 0,
+    })
 
     for full, item in candidates.items():
         repo_slug = item.get("full_name")
         branch = item.get("default_branch") or "main"
         pushed_at = item.get("pushed_at") or ""
 
-        cached = verify_cache.get(full)
-        if cached and cached.get("pushed_at") == pushed_at and cached.get("kind"):
-            kind, skill_paths = cached["kind"], []
-        else:
-            kind, skill_paths = classify_repo(repo_slug, branch, list_files)
-
-        if kind == "plugin":
-            stats["plugin_repos"] += 1
-            plugin_cfgs.append({
-                "id": SOURCE_ID,
-                "repo_slug": repo_slug,
-                "branch": branch,
-                "source_priority": PLUGIN_SOURCE_PRIORITY,
-            })
-            new_cache[full] = {"pushed_at": pushed_at, "kind": "plugin"}
-        elif kind == "skill":
-            built = build_skill_entries(repo_slug, branch, item, last_synced)
-            if built:
-                stats["skill_repos"] += 1
-                skill_entries.extend(built)
-                new_cache[full] = {"pushed_at": pushed_at, "kind": "skill"}
+        # 单仓的结构验证 / SKILL.md 解析可能抛瞬时网络异常
+        # （http.client.RemoteDisconnected 等）；隔离到 per-candidate try/except，
+        # 单仓失败 → WARN + 计入 errored + 不写 new_cache（下次重试，不缓存失败结果），
+        # 绝不让一个坏仓拖垮整个 discover()。
+        try:
+            cached = verify_cache.get(full)
+            if cached and cached.get("pushed_at") == pushed_at and cached.get("kind"):
+                kind, skill_paths = cached["kind"], []
             else:
-                # 有 SKILL.md 但全被 hard_filter 刷掉 / 解析失败 → 不缓存空结果，下次重试
-                stats["verify_failed"] += 1
-        else:
-            stats["discarded"] += 1
-            # 越界仓（无 SKILL.md/marketplace.json）：缓存为 discarded 避免反复 Tree
-            new_cache[full] = {"pushed_at": pushed_at, "kind": "none"}
+                kind, skill_paths = classify_repo(repo_slug, branch, list_files)
+
+            if kind == "plugin":
+                stats["plugin_repos"] += 1
+                plugin_cfgs.append({
+                    "id": SOURCE_ID,
+                    "repo_slug": repo_slug,
+                    "branch": branch,
+                    "source_priority": PLUGIN_SOURCE_PRIORITY,
+                })
+                new_cache[full] = {"pushed_at": pushed_at, "kind": "plugin"}
+            elif kind == "skill":
+                built = build_skill_entries(repo_slug, branch, item, last_synced)
+                if built:
+                    stats["skill_repos"] += 1
+                    skill_entries.extend(built)
+                    new_cache[full] = {"pushed_at": pushed_at, "kind": "skill"}
+                else:
+                    # 有 SKILL.md 但全被 hard_filter 刷掉 / 解析失败 → 不缓存空结果，下次重试
+                    stats["verify_failed"] += 1
+            else:
+                stats["discarded"] += 1
+                # 越界仓（无 SKILL.md/marketplace.json）：缓存为 discarded 避免反复 Tree
+                new_cache[full] = {"pushed_at": pushed_at, "kind": "none"}
+        except Exception as e:  # noqa: BLE001
+            stats["errored"] += 1
+            logger.warning("候选仓 %s 验证失败（跳过，下次重试）：%s", repo_slug, e)
+            # 不写 new_cache → 不缓存失败结果，下个周期重新验证
+            continue
 
     save_verify_cache(new_cache)
     return skill_entries, plugin_cfgs, stats
@@ -448,10 +461,10 @@ def main(argv=None):
     # WARN 汇总：让一次发现的健康度在 CI 日志可见（不静默）。
     logger.warning(
         "GitHub trending 发现健康度：skill 仓=%d（%d 条 entry）｜plugin 仓=%d（%d 条 entry）"
-        "｜丢弃越界=%d｜验证未产出=%d｜预过滤已知=%d",
+        "｜丢弃越界=%d｜验证未产出=%d｜验证异常=%d｜预过滤已知=%d",
         stats["skill_repos"], len(skill_entries), stats["plugin_repos"],
         len(plugin_entries), stats["discarded"], stats["verify_failed"],
-        stats["prefiltered_known"],
+        stats["errored"], stats["prefiltered_known"],
     )
 
     if args.dry_run:

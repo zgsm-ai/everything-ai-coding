@@ -184,3 +184,89 @@ def test_build_skill_entries_hard_filter_drops_low_stars(monkeypatch):
     ])
     item = _item("foo/bar", stars=10)  # ≤50 → hard_filter 刷掉
     assert t.build_skill_entries("foo/bar", "main", item, "2026-06-16") == []
+
+
+# --- discover() 健壮性：单仓异常不拖垮整个流程 -----------------------------
+
+def _setup_discover_env(monkeypatch, candidates, classify_side_effect):
+    """注入 discover() 的所有外部依赖（known_repos / cache / search），
+    candidates 为 {full_name: item}，classify_side_effect(repo_slug)->kind 或抛异常。"""
+    monkeypatch.setattr(t, "build_known_repos", lambda: set())
+    monkeypatch.setattr(t, "load_verify_cache", lambda: {})
+    saved = {}
+    monkeypatch.setattr(t, "save_verify_cache", lambda c: saved.update({"cache": c}))
+    monkeypatch.setattr(
+        t, "collect_candidates",
+        lambda *a, **k: (dict(candidates),
+                         {"raw": len(candidates), "prefiltered_known": 0,
+                          "below_min_stars": 0}),
+    )
+
+    def fake_classify(repo_slug, branch, list_files):
+        return classify_side_effect(repo_slug)
+
+    monkeypatch.setattr(t, "classify_repo", fake_classify)
+    return saved
+
+
+def test_discover_isolates_per_repo_exception(monkeypatch):
+    """某个候选仓在结构验证 / 解析处抛异常 → discover() 不崩，
+    其他候选照常产出，errored 计数正确，崩溃仓不写 cache（下次重试）。"""
+    candidates = {
+        "good/skill": _item("good/skill", stars=120),
+        "boom/repo": _item("boom/repo", stars=200),
+        "good/plugin": _item("good/plugin", stars=300),
+    }
+
+    def classify(repo_slug):
+        if repo_slug == "boom/repo":
+            # 模拟 fetch_raw_content 抛 http.client.RemoteDisconnected 那类瞬时网络断
+            import http.client
+            raise http.client.RemoteDisconnected("Remote end closed connection")
+        if repo_slug == "good/plugin":
+            return "plugin", []
+        return "skill", ["skills/x/SKILL.md"]
+
+    saved = _setup_discover_env(monkeypatch, candidates, classify)
+    # good/skill 的 skill entry 构造也要 stub（否则会真扫描）
+    monkeypatch.setattr(
+        t, "build_skill_entries",
+        lambda repo, branch, item, ls: [
+            {"id": "x-skill", "type": "skill", "source": t.SOURCE_ID,
+             "source_url": f"https://github.com/{repo}/tree/{branch}/skills/x"},
+        ],
+    )
+
+    skill_entries, plugin_cfgs, stats = t.discover("2026-06-16")
+
+    # 没崩；好仓照常产出
+    assert len(skill_entries) == 1
+    assert stats["skill_repos"] == 1
+    assert len(plugin_cfgs) == 1
+    assert stats["plugin_repos"] == 1
+    # 崩溃仓被计入 errored
+    assert stats["errored"] == 1
+    # 崩溃仓不写 new_cache（下次重试），好仓写了
+    cache = saved["cache"]
+    assert "boom/repo" not in cache
+    assert "good/skill" in cache
+    assert "good/plugin" in cache
+
+
+def test_discover_build_skill_entries_exception_counts_errored(monkeypatch):
+    """异常发生在 build_skill_entries（scan/fetch 阶段）也要被 per-candidate 捕获。"""
+    candidates = {"boom/skill": _item("boom/skill", stars=120)}
+    saved = _setup_discover_env(
+        monkeypatch, candidates, lambda r: ("skill", ["skills/x/SKILL.md"])
+    )
+
+    def boom(repo, branch, item, ls):
+        import http.client
+        raise http.client.RemoteDisconnected("boom")
+
+    monkeypatch.setattr(t, "build_skill_entries", boom)
+
+    skill_entries, plugin_cfgs, stats = t.discover("2026-06-16")
+    assert skill_entries == []
+    assert stats["errored"] == 1
+    assert "boom/skill" not in saved["cache"]
