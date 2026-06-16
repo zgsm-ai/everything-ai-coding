@@ -114,7 +114,7 @@
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>Bug Fix (Rules 2.1)</strong> (168★) — A structured workflow rule for complete bug-fixing from issu...</summary>
+<summary>⭐ <strong>Bug Fix (Rules 2.1)</strong> (169★) — A structured workflow rule for complete bug-fixing from issu...</summary>
 
 A structured workflow rule for complete bug-fixing from issue creation to pull request, with code examples and best practices.
 
@@ -127,7 +127,7 @@ A structured workflow rule for complete bug-fixing from issue creation to pull r
 </details>
 
 <details>
-<summary>⭐ <strong>Changelog Management (Rules 2.1)</strong> (168★) — An AI-driven rule for automatically generating and managing ...</summary>
+<summary>⭐ <strong>Changelog Management (Rules 2.1)</strong> (169★) — An AI-driven rule for automatically generating and managing ...</summary>
 
 An AI-driven rule for automatically generating and managing project changelogs from Git commit history.
 
@@ -140,7 +140,7 @@ An AI-driven rule for automatically generating and managing project changelogs f
 </details>
 
 <details>
-<summary>⭐ <strong>File Generation Safety Rules (Rules 2.1)</strong> (168★) — A mandatory rule enforcing user confirmation before AI file ...</summary>
+<summary>⭐ <strong>File Generation Safety Rules (Rules 2.1)</strong> (169★) — A mandatory rule enforcing user confirmation before AI file ...</summary>
 
 A mandatory rule enforcing user confirmation before AI file generation to prevent unauthorized code, config, and doc creation.
 
@@ -153,7 +153,7 @@ A mandatory rule enforcing user confirmation before AI file generation to preven
 </details>
 
 <details>
-<summary>⭐ <strong>Context Loader (Rules 2.1)</strong> (168★) — AI-driven project context loader that analyzes tech stack, c...</summary>
+<summary>⭐ <strong>Context Loader (Rules 2.1)</strong> (169★) — AI-driven project context loader that analyzes tech stack, c...</summary>
 
 AI-driven project context loader that analyzes tech stack, code structure, and provides configuration recommendations for developers.
 
@@ -166,7 +166,7 @@ AI-driven project context loader that analyzes tech stack, code structure, and p
 </details>
 
 <details>
-<summary>⭐ <strong>Mcp Unified Management (Rules 2.1)</strong> (168★) — A unified management rule for MCP servers across AI coding t...</summary>
+<summary>⭐ <strong>Mcp Unified Management (Rules 2.1)</strong> (169★) — A unified management rule for MCP servers across AI coding t...</summary>
 
 A unified management rule for MCP servers across AI coding tools, providing detection, recommendation, configuration, and synchronization.
 
@@ -179,7 +179,7 @@ A unified management rule for MCP servers across AI coding tools, providing dete
 </details>
 
 <details>
-<summary>⭐ <strong>Systematic Debugging (Rules 2.1)</strong> (168★) — An AI-driven rule for systematic debugging, providing intell...</summary>
+<summary>⭐ <strong>Systematic Debugging (Rules 2.1)</strong> (169★) — An AI-driven rule for systematic debugging, providing intell...</summary>
 
 An AI-driven rule for systematic debugging, providing intelligent fault diagnosis, automated workflows, and tool integration for developers.
 
@@ -192,7 +192,7 @@ An AI-driven rule for systematic debugging, providing intelligent fault diagnosi
 </details>
 
 <details>
-<summary>⭐ <strong>Code Review (Rules 2.1)</strong> (168★) — A multi-role pull request review checklist rule for code qua...</summary>
+<summary>⭐ <strong>Code Review (Rules 2.1)</strong> (169★) — A multi-role pull request review checklist rule for code qua...</summary>
 
 A multi-role pull request review checklist rule for code quality, security, and performance in development workflows.
 
@@ -205,7 +205,7 @@ A multi-role pull request review checklist rule for code quality, security, and 
 </details>
 
 <details>
-<summary>⭐ <strong>Commit (Rules 2.1)</strong> (168★) — A unified Git commit workflow with standard, fast, and AI-po...</summary>
+<summary>⭐ <strong>Commit (Rules 2.1)</strong> (169★) — A unified Git commit workflow with standard, fast, and AI-po...</summary>
 
 A unified Git commit workflow with standard, fast, and AI-powered modes, including pre-commit checks and CI/CD integration.
 
@@ -218,7 +218,7 @@ A unified Git commit workflow with standard, fast, and AI-powered modes, includi
 </details>
 
 <details>
-<summary>⭐ <strong>Frontend Rules (Rules 2.1)</strong> (168★) — A comprehensive rule set for configuring an AI assistant to ...</summary>
+<summary>⭐ <strong>Frontend Rules (Rules 2.1)</strong> (169★) — A comprehensive rule set for configuring an AI assistant to ...</summary>
 
 A comprehensive rule set for configuring an AI assistant to specialize in modern frontend development workflows, tooling, and best practices.
 
@@ -231,7 +231,7 @@ A comprehensive rule set for configuring an AI assistant to specialize in modern
 </details>
 
 <details>
-<summary>⭐ <strong>Intelligent Project Management (Rules 2.1)</strong> (168★) — An intelligent project management rule system that integrate...</summary>
+<summary>⭐ <strong>Intelligent Project Management (Rules 2.1)</strong> (169★) — An intelligent project management rule system that integrate...</summary>
 
 An intelligent project management rule system that integrates phase management, workflow orchestration, AI recommendations, and memory for structured 
 
@@ -255,4 +255,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-15*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-16*

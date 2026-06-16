@@ -1,5 +1,5 @@
 {
-  "completed_count": 988,
+  "completed_count": 991,
   "completed_entry_ids": [
     "abhigyanpatwari-gitnexus-marketplace-gitnexus",
     "addyosmani-addy-agent-skills-agent-skills",
@@ -114,6 +114,7 @@
     "anthropic-base44",
     "anthropic-bigdata-com",
     "anthropic-bigquery-data-analytics",
+    "anthropic-boltz",
     "anthropic-box",
     "anthropic-brightdata-plugin",
     "anthropic-buildkite",
@@ -199,6 +200,7 @@
     "anthropic-liquid-skills",
     "anthropic-logfire",
     "anthropic-looker",
+    "anthropic-lovable",
     "anthropic-lua-lsp",
     "anthropic-lumen",
     "anthropic-lusha",
@@ -631,6 +633,7 @@
     "dontbesilent2025-dontbesilent-skills-dbs-slowisfast",
     "dontbesilent2025-dontbesilent-skills-dbs-xhs-title",
     "earthtojake-text-to-cad-cad",
+    "ecc-ecc",
     "eigenwise-eigenwise-atomic-agents",
     "eventual-inc-eventual-inc-daft",
     "everyinc-compound-engineering-plugin-coding-tutor",
@@ -990,7 +993,7 @@
     "yuan1z0825-nature-skills-nature-skills",
     "zarazhangrui-frontend-slides-frontend-slides"
   ],
-  "last_committed_at": "2026-06-15T10:15:42.194822+00:00",
+  "last_committed_at": "2026-06-16T15:39:42.720422+00:00",
   "remaining_entry_ids": [],
   "rubric_version": "2.85974ec3",
   "started_at": "2026-05-09T07:30:41.948272+00:00",

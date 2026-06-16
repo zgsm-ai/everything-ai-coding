@@ -1,6 +1,6 @@
 # 🧩 Plugins
 
-> 988 Claude Code plugin bundles packaging skills, agents, commands, and MCP servers from official and community marketplaces.
+> 991 Claude Code plugin bundles packaging skills, agents, commands, and MCP servers from official and community marketplaces.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=plugin)
 
@@ -77,9 +77,9 @@
 | 65 | [ruflo-agent](https://github.com/ruvnet/ruflo/tree/main/plugins/ruflo-agent) | A plugin providing two AI agent runtimes: local WASM-sandboxed agents and Anthro... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | tooling | — |
 | 66 | [ruflo-intelligence](https://github.com/ruvnet/ruflo/tree/main/plugins/ruflo-intelligence) | A self-learning neural intelligence plugin for AI-assisted coding with model rou... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | tooling | — |
 | 67 | [ruflo-plugin-creator](https://github.com/ruvnet/ruflo/tree/main/plugins/ruflo-plugin-creator) | A plugin for scaffolding, validating, and publishing Claude Code plugins with pr... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | tooling | — |
-| 68 | [antigravity-bundle-aas-qa-test-automation](https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-aas-qa-test-automation) | Comprehensive Claude Code plugin bundle with 9 specialized QA and test automatio... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-05 | testing | `claude-code-plugin`, `browser-automation`, `test-automation` |
-| 69 | [antigravity-bundle-integration-apis](https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-integration-apis) | A Claude Code plugin bundle providing expert coding patterns for integrating thi... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-05 | backend | `claude-code-plugin`, `api-integration`, `skills-bundle` |
-| 70 | [antigravity-bundle-odoo-erp](https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-odoo-erp) | A Claude Code skill bundle for Odoo ERP covering deployment, development, securi... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-05 | tooling | `claude-code`, `odoo-erp`, `docker-deployment` |
+| 68 | [antigravity-bundle-aas-qa-test-automation](https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-aas-qa-test-automation) | Comprehensive Claude Code plugin bundle with 9 specialized QA and test automatio... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-05 | testing | `claude-code`, `skills`, `bundle` |
+| 69 | [antigravity-bundle-integration-apis](https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-integration-apis) | A Claude Code plugin bundle providing expert coding patterns for integrating thi... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-05 | backend | `claude-code`, `skills`, `bundle` |
+| 70 | [antigravity-bundle-odoo-erp](https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-odoo-erp) | A Claude Code skill bundle for Odoo ERP covering deployment, development, securi... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-05 | tooling | `claude-code`, `skills`, `bundle` |
 | 71 | [accessibility-compliance](https://github.com/wshobson/agents/tree/main/plugins/accessibility-compliance) | A comprehensive system of 185 specialized AI agents and 80 plugins for Claude Co... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | testing | — |
 | 72 | [agent-orchestration](https://github.com/wshobson/agents/tree/main/plugins/agent-orchestration) | A comprehensive plugin system for Claude Code with 185 specialized AI agents, 16... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | ai-ml | — |
 | 73 | [agent-teams](https://github.com/wshobson/agents/tree/main/plugins/agent-teams) | Multi-agent orchestration system for Claude Code with 80 plugins, 185 agents, an... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-09 | tooling | — |
@@ -114,7 +114,7 @@
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>superpowers</strong> (228.3k★) — Teaches Claude Code systematic development workflows includi...</summary>
+<summary>⭐ <strong>superpowers</strong> (229.6k★) — Teaches Claude Code systematic development workflows includi...</summary>
 
 Teaches Claude Code systematic development workflows including TDD, debugging, code review, and subagent-driven development with detailed skill docume
 
@@ -126,7 +126,7 @@ Teaches Claude Code systematic development workflows including TDD, debugging, c
 </details>
 
 <details>
-<summary>⭐ <strong>chrome-devtools-mcp</strong> (43.6k★) — Chrome DevTools MCP server for AI coding agents to debug, au...</summary>
+<summary>⭐ <strong>chrome-devtools-mcp</strong> (43.8k★) — Chrome DevTools MCP server for AI coding agents to debug, au...</summary>
 
 Chrome DevTools MCP server for AI coding agents to debug, automate, and analyze web pages via CLI and MCP tools.
 
@@ -162,7 +162,7 @@ A Claude plugin for connecting to private MCP servers via Anthropic tunnels with
 </details>
 
 <details>
-<summary>⭐ <strong>hyperframes</strong> (27.8k★) — HyperFrames lets developers write HTML/CSS/JS to create dete...</summary>
+<summary>⭐ <strong>hyperframes</strong> (28.0k★) — HyperFrames lets developers write HTML/CSS/JS to create dete...</summary>
 
 HyperFrames lets developers write HTML/CSS/JS to create deterministic video compositions with GSAP animations, captions, TTS narration, and WebGL effe
 
@@ -245,4 +245,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-15*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-16*

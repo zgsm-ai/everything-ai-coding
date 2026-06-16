@@ -1,6 +1,6 @@
 # 🧩 Plugins 插件
 
-> 988 Claude Code 插件包，捆绑 skill、agent、command 与 MCP server，覆盖官方与社区 marketplace。
+> 991 Claude Code 插件包，捆绑 skill、agent、command 与 MCP server，覆盖官方与社区 marketplace。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=plugin)
 
@@ -77,9 +77,9 @@
 | 65 | [ruflo-agent](https://github.com/ruvnet/ruflo/tree/main/plugins/ruflo-agent) | 提供两种 AI 代理运行时：本地 WASM 沙箱代理和 Anthropic 云端托管代理，通过统一 MCP 接口支持编码工作流。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-22 | tooling | — |
 | 66 | [ruflo-intelligence](https://github.com/ruvnet/ruflo/tree/main/plugins/ruflo-intelligence) | 自学习神经智能插件，用于AI辅助编码，支持模型路由、模式训练和跨项目传输。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-22 | tooling | — |
 | 67 | [ruflo-plugin-creator](https://github.com/ruvnet/ruflo/tree/main/plugins/ruflo-plugin-creator) | 用于脚手架搭建、验证和发布Claude Code插件的工具，确保结构规范与MCP工具集成。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-22 | tooling | — |
-| 68 | [antigravity-bundle-aas-qa-test-automation](https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-aas-qa-test-automation) | Claude Code 插件包，包含 9 个专业 QA 和测试自动化技能，涵盖浏览器自动化、测试模式、调试和代码审查。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-06-05 | testing | `claude-code-plugin`, `browser-automation`, `test-automation` |
-| 69 | [antigravity-bundle-integration-apis](https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-integration-apis) | 为Claude Code提供的插件包，包含集成Algolia、Stripe、HubSpot等第三方API的专家编码模式。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-06-05 | backend | `claude-code-plugin`, `api-integration`, `skills-bundle` |
-| 70 | [antigravity-bundle-odoo-erp](https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-odoo-erp) | 针对Claude Code的Odoo ERP技能包，涵盖部署、开发、安全和优化。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-06-05 | tooling | `claude-code`, `odoo-erp`, `docker-deployment` |
+| 68 | [antigravity-bundle-aas-qa-test-automation](https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-aas-qa-test-automation) | Claude Code 插件包，包含 9 个专业 QA 和测试自动化技能，涵盖浏览器自动化、测试模式、调试和代码审查。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-06-05 | testing | `claude-code`, `skills`, `bundle` |
+| 69 | [antigravity-bundle-integration-apis](https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-integration-apis) | 为Claude Code提供的插件包，包含集成Algolia、Stripe、HubSpot等第三方API的专家编码模式。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-06-05 | backend | `claude-code`, `skills`, `bundle` |
+| 70 | [antigravity-bundle-odoo-erp](https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-bundle-odoo-erp) | 针对Claude Code的Odoo ERP技能包，涵盖部署、开发、安全和优化。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-06-05 | tooling | `claude-code`, `skills`, `bundle` |
 | 71 | [accessibility-compliance](https://github.com/wshobson/agents/tree/main/plugins/accessibility-compliance) | 为Claude Code提供185个专业AI代理和80个插件，自动化软件开发工作流。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | testing | — |
 | 72 | [agent-orchestration](https://github.com/wshobson/agents/tree/main/plugins/agent-orchestration) | Claude Code 的插件系统，包含 185 个专业 AI 代理、16 个工作流编排器和 153 个技能，用于软件开发自动化。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | ai-ml | — |
 | 73 | [agent-teams](https://github.com/wshobson/agents/tree/main/plugins/agent-teams) | Claude Code 多智能体编排系统，包含 80 个插件、185 个智能体和 153 个技能，支持并行代码审查、调试和开发。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | tooling | — |
@@ -114,7 +114,7 @@
 ## Top 10 安装指南
 
 <details>
-<summary>⭐ <strong>superpowers</strong> (228.3k★) — 教授 Claude Code 系统化开发工作流，包括测试驱动开发、调试、代码审查和子代理驱动开发的详细技能文档。</summary>
+<summary>⭐ <strong>superpowers</strong> (229.6k★) — 教授 Claude Code 系统化开发工作流，包括测试驱动开发、调试、代码审查和子代理驱动开发的详细技能文档。</summary>
 
 教授 Claude Code 系统化开发工作流，包括测试驱动开发、调试、代码审查和子代理驱动开发的详细技能文档。
 
@@ -126,7 +126,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>chrome-devtools-mcp</strong> (43.6k★) — Chrome DevTools MCP 服务器，供 AI 编程代理通过 CLI 和 MCP 工具调试、自动化和分析网页。</summary>
+<summary>⭐ <strong>chrome-devtools-mcp</strong> (43.8k★) — Chrome DevTools MCP 服务器，供 AI 编程代理通过 CLI 和 MCP 工具调试、自动化和分析网页。</summary>
 
 Chrome DevTools MCP 服务器，供 AI 编程代理通过 CLI 和 MCP 工具调试、自动化和分析网页。
 
@@ -162,7 +162,7 @@ Claude插件，通过Anthropic隧道连接私有MCP服务器，提供Docker Comp
 </details>
 
 <details>
-<summary>⭐ <strong>hyperframes</strong> (27.8k★) — HyperFrames 让开发者用 HTML/CSS/JS 编写确定性视频合成，支持 GSAP 动画、字幕、语音合成和 ...</summary>
+<summary>⭐ <strong>hyperframes</strong> (28.0k★) — HyperFrames 让开发者用 HTML/CSS/JS 编写确定性视频合成，支持 GSAP 动画、字幕、语音合成和 ...</summary>
 
 HyperFrames 让开发者用 HTML/CSS/JS 编写确定性视频合成，支持 GSAP 动画、字幕、语音合成和 WebGL 特效。
 
@@ -245,4 +245,4 @@ Claude Code 插件，通过 Markdown 规则文件和正则表达式模式创建�
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-15*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-16*

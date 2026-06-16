@@ -1,12 +1,12 @@
 <div align="center">
 <img src="assets/logo.png" alt="Everything AI Coding logo" width="600" />
-<p><strong><!-- README_APPROX_COUNT:START -->12100<!-- README_APPROX_COUNT:END -->+ curated AI coding resources — browse, evaluate, install</strong><br/>MCP Servers · Skills · Rules · Prompts · Plugins</p>
+<p><strong><!-- README_APPROX_COUNT:START -->12600<!-- README_APPROX_COUNT:END -->+ curated AI coding resources — browse, evaluate, install</strong><br/>MCP Servers · Skills · Rules · Prompts · Plugins</p>
 
 <p>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/stargazers"><img src="https://img.shields.io/github/stars/zgsm-ai/everything-ai-coding?style=flat-square&color=4A90D9" alt="Stars" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zgsm-ai/everything-ai-coding?style=flat-square" alt="License" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/commits/main"><img src="https://img.shields.io/github/last-commit/zgsm-ai/everything-ai-coding?style=flat-square" alt="Last Commit" /></a>
-  <img src="https://img.shields.io/badge/resources-12159-2ECC71?style=flat-square" alt="Resources" />
+  <img src="https://img.shields.io/badge/resources-12652-2ECC71?style=flat-square" alt="Resources" />
 </p>
 
 <p>
@@ -34,17 +34,17 @@ Everything AI Coding is a **curated knowledge base** that continuously collects,
 <a id="knowledge-base"></a>
 ## 📚 Knowledge Base
 
-### [🔌 MCP Servers](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->7226<!-- README_COUNT_MCP:END --> entries
+### [🔌 MCP Servers](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->7270<!-- README_COUNT_MCP:END --> entries
 
 Model Context Protocol servers that connect AI agents to external tools, databases, and services.
 
 <!-- README_TOP5_MCP:START -->
 | Name | ⭐ Stars | Score | Description |
 |------|----------|-------|-------------|
-| [upstash/context7](https://github.com/upstash/context7) | 57.4k | 98 | An MCP server that injects real-time, version-specific library docume… |
-| [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 43.6k | 98 | Official Google MCP server enabling AI coding agents to control Chrom… |
-| [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | 33.9k | 98 | Official Microsoft MCP server enabling AI to control web browsers via… |
-| [Headroom](https://github.com/chopratejas/headroom) | 28.1k | 98 | AI context compression layer for agents, reducing token usage 60-95%… |
+| [upstash/context7](https://github.com/upstash/context7) | 57.5k | 98 | An MCP server that injects real-time, version-specific library docume… |
+| [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 43.8k | 98 | Official Google MCP server enabling AI coding agents to control Chrom… |
+| [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | 34.0k | 98 | Official Microsoft MCP server enabling AI to control web browsers via… |
+| [Headroom](https://github.com/chopratejas/headroom) | 29.6k | 98 | AI context compression layer for agents, reducing token usage 60-95%… |
 | [googleapis/genai-toolbox](https://github.com/googleapis/genai-toolbox) | 15.6k | 98 | An open-source MCP server connecting AI agents and IDEs to enterprise… |
 <!-- README_TOP5_MCP:END -->
 
@@ -52,18 +52,18 @@ Model Context Protocol servers that connect AI agents to external tools, databas
 
 ---
 
-### [🎯 Skills](./catalog/skills/) — <!-- README_COUNT_SKILL:START -->3157<!-- README_COUNT_SKILL:END --> entries
+### [🎯 Skills](./catalog/skills/) — <!-- README_COUNT_SKILL:START -->3603<!-- README_COUNT_SKILL:END --> entries
 
 Reusable agent capabilities and workflows for AI coding assistants.
 
 <!-- README_TOP5_SKILL:START -->
 | Name | Source | Score | Description |
 |------|--------|-------|-------------|
-| [docx](https://github.com/anthropics/skills/tree/main/skills/docx) | Anthropic Official | 98 | A comprehensive skill for AI assistants to programmatically create, r… |
-| [slack-gif-creator](https://github.com/anthropics/skills/tree/main/skills/slack-gif-creator) | Anthropic Official | 98 | A Python toolkit for creating animated GIFs optimized for Slack, prov… |
-| [xlsx](https://github.com/anthropics/skills/tree/main/skills/xlsx) | Anthropic Official | 96 | A Python skill for programmatically creating, editing, and analyzing… |
 | [langsmith-fetch](https://github.com/ComposioHQ/awesome-claude-skills/tree/master/langsmith-fetch) | composio-office | 95 | CLI tool for debugging LangChain/LangGraph agents by fetching and ana… |
 | [agent-framework-azure-ai-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agent-framework-azure-ai-py) | Antigravity Skills | 95 | A Python SDK skill for building persistent AI agents on Azure AI Foun… |
+| [ai-engineering-toolkit](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ai-engineering-toolkit) | Antigravity Skills | 95 | A collection of 6 structured AI engineering workflows for prompt eval… |
+| [apify-actor-development](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/apify-actor-development) | Antigravity Skills | 95 | A comprehensive skill for AI-assisted development, testing, and deplo… |
+| [apify-actorization](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/apify-actorization) | Antigravity Skills | 95 | A skill for converting existing software into reusable, serverless Do… |
 <!-- README_TOP5_SKILL:END -->
 
 [Browse all skills →](./catalog/skills/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
@@ -106,7 +106,7 @@ Developer-focused prompt templates for common coding tasks.
 
 ---
 
-### [🧩 Plugins](./catalog/plugins/) — <!-- README_COUNT_PLUGIN:START -->988<!-- README_COUNT_PLUGIN:END --> entries
+### [🧩 Plugins](./catalog/plugins/) — <!-- README_COUNT_PLUGIN:START -->991<!-- README_COUNT_PLUGIN:END --> entries
 
 Bundled marketplace plugins (skills + commands + agents + MCP servers).
 

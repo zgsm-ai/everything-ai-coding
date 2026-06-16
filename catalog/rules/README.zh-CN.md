@@ -114,7 +114,7 @@
 ## Top 10 安装指南
 
 <details>
-<summary>⭐ <strong>Bug Fix (Rules 2.1)</strong> (168★) — 完整的Bug修复工作流规则，从问题创建到拉取请求，包含代码示例和最佳实践。</summary>
+<summary>⭐ <strong>Bug Fix (Rules 2.1)</strong> (169★) — 完整的Bug修复工作流规则，从问题创建到拉取请求，包含代码示例和最佳实践。</summary>
 
 完整的Bug修复工作流规则，从问题创建到拉取请求，包含代码示例和最佳实践。
 
@@ -127,7 +127,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Changelog Management (Rules 2.1)</strong> (168★) — 基于AI规则的自动变更日志生成与管理工具，从Git提交历史自动创建。</summary>
+<summary>⭐ <strong>Changelog Management (Rules 2.1)</strong> (169★) — 基于AI规则的自动变更日志生成与管理工具，从Git提交历史自动创建。</summary>
 
 基于AI规则的自动变更日志生成与管理工具，从Git提交历史自动创建。
 
@@ -140,7 +140,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>File Generation Safety Rules (Rules 2.1)</strong> (168★) — 强制AI在生成文件前必须获得用户确认，防止未经授权的代码、配置和文档创建。</summary>
+<summary>⭐ <strong>File Generation Safety Rules (Rules 2.1)</strong> (169★) — 强制AI在生成文件前必须获得用户确认，防止未经授权的代码、配置和文档创建。</summary>
 
 强制AI在生成文件前必须获得用户确认，防止未经授权的代码、配置和文档创建。
 
@@ -153,7 +153,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Context Loader (Rules 2.1)</strong> (168★) — AI驱动的项目上下文加载器，分析技术栈、代码结构并提供配置建议。</summary>
+<summary>⭐ <strong>Context Loader (Rules 2.1)</strong> (169★) — AI驱动的项目上下文加载器，分析技术栈、代码结构并提供配置建议。</summary>
 
 AI驱动的项目上下文加载器，分析技术栈、代码结构并提供配置建议。
 
@@ -166,7 +166,7 @@ AI驱动的项目上下文加载器，分析技术栈、代码结构并提供配
 </details>
 
 <details>
-<summary>⭐ <strong>Mcp Unified Management (Rules 2.1)</strong> (168★) — MCP统一管理策略，整合检测、推荐、配置、同步等所有MCP功能，支持跨平台AI工具。</summary>
+<summary>⭐ <strong>Mcp Unified Management (Rules 2.1)</strong> (169★) — MCP统一管理策略，整合检测、推荐、配置、同步等所有MCP功能，支持跨平台AI工具。</summary>
 
 MCP统一管理策略，整合检测、推荐、配置、同步等所有MCP功能，支持跨平台AI工具。
 
@@ -179,7 +179,7 @@ MCP统一管理策略，整合检测、推荐、配置、同步等所有MCP功�
 </details>
 
 <details>
-<summary>⭐ <strong>Systematic Debugging (Rules 2.1)</strong> (168★) — AI驱动的系统化调试规则，提供智能故障诊断、自动化工作流和工具集成。</summary>
+<summary>⭐ <strong>Systematic Debugging (Rules 2.1)</strong> (169★) — AI驱动的系统化调试规则，提供智能故障诊断、自动化工作流和工具集成。</summary>
 
 AI驱动的系统化调试规则，提供智能故障诊断、自动化工作流和工具集成。
 
@@ -192,7 +192,7 @@ AI驱动的系统化调试规则，提供智能故障诊断、自动化工作流
 </details>
 
 <details>
-<summary>⭐ <strong>Code Review (Rules 2.1)</strong> (168★) — 多角色拉取请求审查清单规则，用于代码质量、安全性和性能审查。</summary>
+<summary>⭐ <strong>Code Review (Rules 2.1)</strong> (169★) — 多角色拉取请求审查清单规则，用于代码质量、安全性和性能审查。</summary>
 
 多角色拉取请求审查清单规则，用于代码质量、安全性和性能审查。
 
@@ -205,7 +205,7 @@ AI驱动的系统化调试规则，提供智能故障诊断、自动化工作流
 </details>
 
 <details>
-<summary>⭐ <strong>Commit (Rules 2.1)</strong> (168★) — 统一Git提交工作流，支持标准、快速和AI模式，集成预提交检查与CI/CD。</summary>
+<summary>⭐ <strong>Commit (Rules 2.1)</strong> (169★) — 统一Git提交工作流，支持标准、快速和AI模式，集成预提交检查与CI/CD。</summary>
 
 统一Git提交工作流，支持标准、快速和AI模式，集成预提交检查与CI/CD。
 
@@ -218,7 +218,7 @@ AI驱动的系统化调试规则，提供智能故障诊断、自动化工作流
 </details>
 
 <details>
-<summary>⭐ <strong>Frontend Rules (Rules 2.1)</strong> (168★) — 一套用于配置AI助手的完整规则，使其专注于现代前端开发工作流、工具链和最佳实践。</summary>
+<summary>⭐ <strong>Frontend Rules (Rules 2.1)</strong> (169★) — 一套用于配置AI助手的完整规则，使其专注于现代前端开发工作流、工具链和最佳实践。</summary>
 
 一套用于配置AI助手的完整规则，使其专注于现代前端开发工作流、工具链和最佳实践。
 
@@ -231,7 +231,7 @@ AI驱动的系统化调试规则，提供智能故障诊断、自动化工作流
 </details>
 
 <details>
-<summary>⭐ <strong>Intelligent Project Management (Rules 2.1)</strong> (168★) — 智能项目管理系统，整合阶段管理、工作流编排、智能推荐和记忆系统，提升开发流程结构化与效率。</summary>
+<summary>⭐ <strong>Intelligent Project Management (Rules 2.1)</strong> (169★) — 智能项目管理系统，整合阶段管理、工作流编排、智能推荐和记忆系统，提升开发流程结构化与效率。</summary>
 
 智能项目管理系统，整合阶段管理、工作流编排、智能推荐和记忆系统，提升开发流程结构化与效率。
 
@@ -255,4 +255,4 @@ AI驱动的系统化调试规则，提供智能故障诊断、自动化工作流
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-15*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-16*
