@@ -204,25 +204,96 @@ def collect_candidates(queries, known_repos, min_stars=MIN_STARS,
 
 _MARKETPLACE_PATHS = {".claude-plugin/marketplace.json", "marketplace.json"}
 
+# Part 1 廉价预过滤：把"恰好捆了 skill 的巨型 app/agent/framework"挡在 LLM 之前。
+# 验证时整棵树已 fetch，total_files + SKILL.md 数是免费信号，密度(‰)无需额外 API。
+#
+# 阈值由实测样本校准（见 task PRD）：
+#   app   openclaw(20116 文件,113 SKILL.md,5.6‰) / hermes-agent(5122,174,34‰)
+#         / deer-flow(1323,25,18.9‰)
+#   skill graphify(579,1,1.7‰) / gstack(1162,59,50.8‰) / taste(41,13,317‰)
+#         / anthropics-skills(398,18,45.2‰)
+# 结论：openclaw 应丢，其余应保留 → 只在"文件极多 + 密度极低 + 无 skill/plugin topic"
+# 三条件全满足时才丢。hermes-agent(密度34‰)/deer-flow(文件1323)等模糊样本放行交 LLM。
+MEGAAPP_FILE_THRESHOLD = int(os.environ.get("TRENDING_MEGAAPP_FILES", "2000"))
+MEGAAPP_DENSITY_THRESHOLD = float(os.environ.get("TRENDING_MEGAAPP_DENSITY", "10.0"))  # ‰
+
+# 强 skill/plugin topic 正信号：命中任一则即便像 app 也不丢（topic override）。
+_SKILL_PLUGIN_TOPICS = {
+    "claude-skill", "claude-skills", "agent-skill", "agent-skills",
+    "claude-plugin", "claude-plugins", "claude-code-plugin", "skill", "skills",
+}
+
+# 次要负信号：仓库自述为 app/agent/harness/client/proxy/framework/IDE/desktop。
+# 仅作辅助记录（不单独触发丢弃；丢弃由"文件数+密度+无正 topic"三件套决定）。
+_APP_DESC_RE = re.compile(
+    r"\b("
+    r"application|app|agent|agentic|harness|framework|"
+    r"cli\b|client|proxy|gateway|server|daemon|"
+    r"ide\b|editor|desktop[- ]?app|platform|runtime|orchestrat\w*"
+    r")\b",
+    re.IGNORECASE,
+)
+
+
+def _skill_density_permille(total_files, skill_count):
+    """SKILL.md 在整棵树里的密度（‰）。total_files=0 视作 0 密度。"""
+    if not total_files:
+        return 0.0
+    return skill_count / total_files * 1000.0
+
+
+def _has_skill_plugin_topic(topics):
+    """topics 里是否有强 skill/plugin 正信号（用于 megaapp override）。"""
+    for tp in topics or []:
+        if (tp or "").strip().lower() in _SKILL_PLUGIN_TOPICS:
+            return True
+    return False
+
+
+def is_megaapp(total_files, skill_count, topics, description=""):
+    """判定是否"明显的巨型 app/agent（恰好捆了 skill）"——保守只丢明确样本。
+
+    丢弃条件（全满足）：
+      1. total_files > MEGAAPP_FILE_THRESHOLD（默认 2000）
+      2. 密度 < MEGAAPP_DENSITY_THRESHOLD ‰（默认 10）
+      3. 无强 skill/plugin topic（有则正信号 override，不丢）
+
+    description self-describe 为 app/agent 等只是辅助负信号，不单独触发——
+    避免把"description 含 framework 但其实是真 skill 集合"的仓误杀。
+    实测：openclaw 被丢；graphify/gstack/anthropics-skills/taste/hermes-agent/
+    deer-flow 全保留。
+    """
+    if _has_skill_plugin_topic(topics):
+        return False  # 强正信号 override
+    if total_files <= MEGAAPP_FILE_THRESHOLD:
+        return False
+    density = _skill_density_permille(total_files, skill_count)
+    if density >= MEGAAPP_DENSITY_THRESHOLD:
+        return False
+    return True
+
 
 def classify_repo(repo_slug, branch, api_list_files=list_repo_files):
     """用一次 Tree API 调用判定仓库结构属性。
 
-    返回 ``("plugin"|"skill"|None, skill_paths)``：
+    返回 ``("plugin"|"skill"|None, skill_paths, meta)``：
       - 含 .claude-plugin/marketplace.json（或根 marketplace.json）→ "plugin"（优先，
         其 bundled skill 由下游 merge 合成，避免与 standalone skill 双重收录）
       - 否则含任意 SKILL.md → "skill"
       - 都没有 → None（越界工具天然落此）
-    ``api_list_files`` 可注入便于测试。
+    ``meta`` = ``{"total_files": int, "skill_count": int}``，供 Part 1 megaapp
+    预过滤复用（树已 fetch，这些数字是免费的）。``api_list_files`` 可注入便于测试。
     """
     paths = api_list_files(repo_slug, branch) or []
+    total_files = len(paths)
+    skill_paths = [p for p in paths if os.path.basename(p).upper() == "SKILL.MD"]
+    meta = {"total_files": total_files, "skill_count": len(skill_paths)}
     has_marketplace = any(p in _MARKETPLACE_PATHS for p in paths)
     if has_marketplace:
-        return "plugin", []
-    skill_paths = [p for p in paths if os.path.basename(p).upper() == "SKILL.MD"]
+        return "plugin", [], meta
     if skill_paths:
-        return "skill", skill_paths
-    return None, []
+        return "skill", skill_paths, meta
+    return None, [], meta
 
 
 # --- skill entry 构造（复用 scan_repo_via_api + hard_filter）---------------
@@ -355,13 +426,15 @@ def discover(last_synced, api=github_api, list_files=list_repo_files):
     plugin_cfgs = []
     stats.update({
         "skill_repos": 0, "plugin_repos": 0, "discarded": 0,
-        "verify_failed": 0, "errored": 0,
+        "verify_failed": 0, "errored": 0, "megaapp_dropped": 0,
     })
 
     for full, item in candidates.items():
         repo_slug = item.get("full_name")
         branch = item.get("default_branch") or "main"
         pushed_at = item.get("pushed_at") or ""
+        topics = item.get("topics") or []
+        description = item.get("description") or ""
 
         # 单仓的结构验证 / SKILL.md 解析可能抛瞬时网络异常
         # （http.client.RemoteDisconnected 等）；隔离到 per-candidate try/except，
@@ -371,10 +444,15 @@ def discover(last_synced, api=github_api, list_files=list_repo_files):
             cached = verify_cache.get(full)
             if cached and cached.get("pushed_at") == pushed_at and cached.get("kind"):
                 kind, skill_paths = cached["kind"], []
+                meta = {
+                    "total_files": cached.get("total_files", 0),
+                    "skill_count": cached.get("skill_count", 0),
+                }
             else:
-                kind, skill_paths = classify_repo(repo_slug, branch, list_files)
+                kind, skill_paths, meta = classify_repo(repo_slug, branch, list_files)
 
             if kind == "plugin":
+                # plugin 仓有 marketplace.json（强结构正信号）→ 不跑 megaapp 过滤。
                 stats["plugin_repos"] += 1
                 plugin_cfgs.append({
                     "id": SOURCE_ID,
@@ -382,20 +460,49 @@ def discover(last_synced, api=github_api, list_files=list_repo_files):
                     "branch": branch,
                     "source_priority": PLUGIN_SOURCE_PRIORITY,
                 })
-                new_cache[full] = {"pushed_at": pushed_at, "kind": "plugin"}
+                new_cache[full] = {
+                    "pushed_at": pushed_at, "kind": "plugin",
+                    "total_files": meta["total_files"], "skill_count": meta["skill_count"],
+                }
             elif kind == "skill":
+                # Part 1 廉价预过滤：明显的巨型 app（恰好捆 skill）在扫描/LLM 之前丢弃。
+                if is_megaapp(meta["total_files"], meta["skill_count"], topics, description):
+                    stats["megaapp_dropped"] += 1
+                    density = _skill_density_permille(meta["total_files"], meta["skill_count"])
+                    logger.info(
+                        "MEGAAPP 丢弃 %s：%d 文件 / %d SKILL.md / 密度 %.1f‰（无 skill/plugin topic）",
+                        repo_slug, meta["total_files"], meta["skill_count"], density,
+                    )
+                    new_cache[full] = {
+                        "pushed_at": pushed_at, "kind": "megaapp",
+                        "total_files": meta["total_files"], "skill_count": meta["skill_count"],
+                    }
+                    continue
                 built = build_skill_entries(repo_slug, branch, item, last_synced)
                 if built:
                     stats["skill_repos"] += 1
                     skill_entries.extend(built)
-                    new_cache[full] = {"pushed_at": pushed_at, "kind": "skill"}
+                    new_cache[full] = {
+                        "pushed_at": pushed_at, "kind": "skill",
+                        "total_files": meta["total_files"], "skill_count": meta["skill_count"],
+                    }
                 else:
                     # 有 SKILL.md 但全被 hard_filter 刷掉 / 解析失败 → 不缓存空结果，下次重试
                     stats["verify_failed"] += 1
+            elif kind == "megaapp":
+                # cache 命中：上轮已判定为巨型 app → 保持丢弃，不重跑 build（省 API）。
+                stats["megaapp_dropped"] += 1
+                new_cache[full] = {
+                    "pushed_at": pushed_at, "kind": "megaapp",
+                    "total_files": meta["total_files"], "skill_count": meta["skill_count"],
+                }
             else:
                 stats["discarded"] += 1
                 # 越界仓（无 SKILL.md/marketplace.json）：缓存为 discarded 避免反复 Tree
-                new_cache[full] = {"pushed_at": pushed_at, "kind": "none"}
+                new_cache[full] = {
+                    "pushed_at": pushed_at, "kind": "none",
+                    "total_files": meta["total_files"], "skill_count": meta["skill_count"],
+                }
         except Exception as e:  # noqa: BLE001
             stats["errored"] += 1
             logger.warning("候选仓 %s 验证失败（跳过，下次重试）：%s", repo_slug, e)
@@ -461,10 +568,10 @@ def main(argv=None):
     # WARN 汇总：让一次发现的健康度在 CI 日志可见（不静默）。
     logger.warning(
         "GitHub trending 发现健康度：skill 仓=%d（%d 条 entry）｜plugin 仓=%d（%d 条 entry）"
-        "｜丢弃越界=%d｜验证未产出=%d｜验证异常=%d｜预过滤已知=%d",
+        "｜丢弃越界=%d｜丢弃巨型app=%d｜验证未产出=%d｜验证异常=%d｜预过滤已知=%d",
         stats["skill_repos"], len(skill_entries), stats["plugin_repos"],
-        len(plugin_entries), stats["discarded"], stats["verify_failed"],
-        stats["errored"], stats["prefiltered_known"],
+        len(plugin_entries), stats["discarded"], stats.get("megaapp_dropped", 0),
+        stats["verify_failed"], stats["errored"], stats["prefiltered_known"],
     )
 
     if args.dry_run:

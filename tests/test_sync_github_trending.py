@@ -123,16 +123,142 @@ def test_collect_candidates_skips_below_min_stars_and_dedups():
     ([], None),
 ])
 def test_classify_repo(paths, expected_kind):
-    kind, _ = t.classify_repo("o/r", "main", lambda r, b: paths)
+    kind, _, meta = t.classify_repo("o/r", "main", lambda r, b: paths)
     assert kind == expected_kind
+    # meta 报告整棵树规模 + SKILL.md 数（Part 1 megaapp 预过滤的免费信号）
+    assert meta["total_files"] == len(paths)
+    assert meta["skill_count"] == sum(
+        1 for p in paths if p.upper().endswith("SKILL.MD")
+    )
 
 
 def test_classify_plugin_wins_over_skill():
     """既含 marketplace.json 又含 SKILL.md → 路由 plugin（bundled skill 交下游合成）。"""
     paths = [".claude-plugin/marketplace.json", "skills/a/SKILL.md"]
-    kind, skill_paths = t.classify_repo("o/r", "main", lambda r, b: paths)
+    kind, skill_paths, meta = t.classify_repo("o/r", "main", lambda r, b: paths)
     assert kind == "plugin"
     assert skill_paths == []
+    # plugin 仍报告 skill_count（这里有 1 个 SKILL.md），但 plugin 路径不跑 megaapp 过滤
+    assert meta["skill_count"] == 1
+
+
+# --- Part 1：megaapp 廉价预过滤（实测样本校准）-----------------------------
+
+@pytest.mark.parametrize("name,total,skills,topics,expected_drop", [
+    # app：文件极多 + 密度极低 + 无 skill topic → 丢
+    ("openclaw", 20116, 113, [], True),
+    # 真 skill 集合：文件少 → 保留（即使密度低）
+    ("graphify", 579, 1, [], False),
+    ("gstack", 1162, 59, [], False),
+    ("anthropics-skills", 398, 18, [], False),
+    ("taste-skill", 41, 13, [], False),
+    # 模糊样本：文件多但密度不够低（hermes 34‰）/ 文件不够多（deer-flow 1323）→ 放行交 LLM
+    ("hermes-agent", 5122, 174, [], False),
+    ("deer-flow", 1323, 25, [], False),
+    # 文件极多但有强 skill topic → 正信号 override，不丢
+    ("big-but-tagged", 20116, 113, ["claude-skill"], False),
+    ("big-but-plugin-topic", 30000, 5, ["claude-plugin"], False),
+])
+def test_is_megaapp_empirical(name, total, skills, topics, expected_drop):
+    assert t.is_megaapp(total, skills, topics) is expected_drop
+
+
+def test_is_megaapp_firecrawl_like():
+    """firecrawl 这类巨型 app（很多文件、零/极少 SKILL.md、无 skill topic）→ 丢。"""
+    assert t.is_megaapp(8000, 2, ["scraping", "crawler"]) is True
+
+
+def test_is_megaapp_topic_override_case_insensitive():
+    """topic 大小写不敏感地 override。"""
+    assert t.is_megaapp(50000, 1, ["Claude-Skill"]) is False
+
+
+def test_skill_density_permille():
+    assert t._skill_density_permille(0, 5) == 0.0
+    assert t._skill_density_permille(1000, 50) == 50.0
+    assert round(t._skill_density_permille(20116, 113), 1) == 5.6
+
+
+def test_discover_drops_megaapp_before_build(monkeypatch):
+    """discover 对 megaapp 在 build_skill_entries 之前丢弃（省 API/LLM），计入 stats。"""
+    candidates = {
+        "openclaw/openclaw": {
+            "full_name": "openclaw/openclaw", "stargazers_count": 500,
+            "default_branch": "main", "pushed_at": "2026-06-01T00:00:00Z",
+            "topics": [], "description": "an autonomous agent framework",
+        },
+        "real/skill": {
+            "full_name": "real/skill", "stargazers_count": 200,
+            "default_branch": "main", "pushed_at": "2026-06-01T00:00:00Z",
+            "topics": [], "description": "a coding skill",
+        },
+    }
+    monkeypatch.setattr(t, "build_known_repos", lambda: set())
+    monkeypatch.setattr(t, "load_verify_cache", lambda: {})
+    saved = {}
+    monkeypatch.setattr(t, "save_verify_cache", lambda c: saved.update({"cache": c}))
+    monkeypatch.setattr(
+        t, "collect_candidates",
+        lambda *a, **k: (dict(candidates),
+                         {"raw": 2, "prefiltered_known": 0, "below_min_stars": 0}),
+    )
+
+    def fake_classify(repo_slug, branch, list_files):
+        if repo_slug == "openclaw/openclaw":
+            return "skill", ["a/SKILL.md"], {"total_files": 20116, "skill_count": 113}
+        return "skill", ["a/SKILL.md"], {"total_files": 300, "skill_count": 5}
+
+    monkeypatch.setattr(t, "classify_repo", fake_classify)
+
+    built_calls = []
+
+    def fake_build(repo, branch, item, ls):
+        built_calls.append(repo)
+        return [{"id": f"{repo.replace('/', '-')}-skill", "type": "skill",
+                 "source": t.SOURCE_ID,
+                 "source_url": f"https://github.com/{repo}/tree/{branch}/a"}]
+
+    monkeypatch.setattr(t, "build_skill_entries", fake_build)
+
+    skill_entries, plugin_cfgs, stats = t.discover("2026-06-16")
+
+    # megaapp 在 build 之前被丢，build_skill_entries 不为它调用（省 API）
+    assert "openclaw/openclaw" not in built_calls
+    assert built_calls == ["real/skill"]
+    assert stats["megaapp_dropped"] == 1
+    assert stats["skill_repos"] == 1
+    assert len(skill_entries) == 1
+    # megaapp 写入 cache（kind=megaapp）避免反复 Tree
+    assert saved["cache"]["openclaw/openclaw"]["kind"] == "megaapp"
+
+
+def test_discover_cached_megaapp_stays_dropped(monkeypatch):
+    """cache 命中 kind=megaapp 的仓：保持丢弃，不重跑 build，不误记为 discarded。"""
+    item = {"full_name": "openclaw/openclaw", "stargazers_count": 500,
+            "default_branch": "main", "pushed_at": "2026-06-01T00:00:00Z",
+            "topics": [], "description": "agent framework"}
+    monkeypatch.setattr(t, "build_known_repos", lambda: set())
+    # cache 上轮记的 megaapp（pushed_at 未变 → 命中）
+    monkeypatch.setattr(t, "load_verify_cache", lambda: {
+        "openclaw/openclaw": {"pushed_at": "2026-06-01T00:00:00Z", "kind": "megaapp",
+                              "total_files": 20116, "skill_count": 113},
+    })
+    saved = {}
+    monkeypatch.setattr(t, "save_verify_cache", lambda c: saved.update({"cache": c}))
+    monkeypatch.setattr(
+        t, "collect_candidates",
+        lambda *a, **k: ({"openclaw/openclaw": item},
+                         {"raw": 1, "prefiltered_known": 0, "below_min_stars": 0}),
+    )
+    # classify_repo 不应被调（cache 命中）；build_skill_entries 也不应被调
+    monkeypatch.setattr(t, "classify_repo", lambda *a, **k: pytest.fail("classify 不应被调"))
+    monkeypatch.setattr(t, "build_skill_entries", lambda *a, **k: pytest.fail("build 不应被调"))
+
+    skill_entries, plugin_cfgs, stats = t.discover("2026-06-16")
+    assert skill_entries == []
+    assert stats["megaapp_dropped"] == 1
+    assert stats["discarded"] == 0
+    assert saved["cache"]["openclaw/openclaw"]["kind"] == "megaapp"
 
 
 # --- merge-preserve --------------------------------------------------------
@@ -224,8 +350,8 @@ def test_discover_isolates_per_repo_exception(monkeypatch):
             import http.client
             raise http.client.RemoteDisconnected("Remote end closed connection")
         if repo_slug == "good/plugin":
-            return "plugin", []
-        return "skill", ["skills/x/SKILL.md"]
+            return "plugin", [], {"total_files": 50, "skill_count": 0}
+        return "skill", ["skills/x/SKILL.md"], {"total_files": 100, "skill_count": 1}
 
     saved = _setup_discover_env(monkeypatch, candidates, classify)
     # good/skill 的 skill entry 构造也要 stub（否则会真扫描）
@@ -257,7 +383,8 @@ def test_discover_build_skill_entries_exception_counts_errored(monkeypatch):
     """异常发生在 build_skill_entries（scan/fetch 阶段）也要被 per-candidate 捕获。"""
     candidates = {"boom/skill": _item("boom/skill", stars=120)}
     saved = _setup_discover_env(
-        monkeypatch, candidates, lambda r: ("skill", ["skills/x/SKILL.md"])
+        monkeypatch, candidates,
+        lambda r: ("skill", ["skills/x/SKILL.md"], {"total_files": 100, "skill_count": 1}),
     )
 
     def boom(repo, branch, item, ls):
