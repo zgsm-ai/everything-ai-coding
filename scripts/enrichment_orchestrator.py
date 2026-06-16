@@ -79,4 +79,28 @@ def enrich_entries(entries: list[dict[str, Any]]) -> None:
     else:
         logger.info("SECURITY_SCAN_ENABLED=false; skipping security scan stage")
 
+    # Resource authenticity stage (github-trending only; is_primary_skill judgment).
+    # Mirrors the security stage: scoped, independent cache namespace, failure-safe.
+    # ``AUTHENTICITY_SCAN_ENABLED=false`` skips it entirely.
+    authenticity_enabled = (
+        os.environ.get("AUTHENTICITY_SCAN_ENABLED", "true").lower() != "false"
+    )
+    if authenticity_enabled:
+        try:
+            from eval_bridge import authenticity_scan_and_map
+            logger.info("Running resource authenticity stage (github-trending only)...")
+            authenticity_scan_and_map(
+                entries,
+                cache_dir=cache_dir,
+                incremental=incremental,
+            )
+        except ImportError:
+            logger.warning(
+                "authenticity_scan_and_map not available; skipping authenticity stage"
+            )
+        except Exception as exc:  # noqa: BLE001 - never break the main pipeline
+            logger.warning("Resource authenticity stage raised but was suppressed: %s", exc)
+    else:
+        logger.info("AUTHENTICITY_SCAN_ENABLED=false; skipping resource authenticity stage")
+
     logger.info(f"Enrichment pipeline complete for {total_entries} entries")

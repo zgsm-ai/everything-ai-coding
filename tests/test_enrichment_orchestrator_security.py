@@ -19,10 +19,16 @@ if "enrichment_orchestrator" in sys.modules:
 import enrichment_orchestrator  # noqa: E402
 
 
-def _fake_bridge_module(eval_mock: MagicMock, security_mock: MagicMock):
+def _fake_bridge_module(
+    eval_mock: MagicMock,
+    security_mock: MagicMock,
+    authenticity_mock: MagicMock | None = None,
+):
     fake = types.ModuleType("eval_bridge")
     fake.eval_and_map = eval_mock
     fake.security_scan_and_map = security_mock
+    if authenticity_mock is not None:
+        fake.authenticity_scan_and_map = authenticity_mock
     return fake
 
 
@@ -117,6 +123,61 @@ class SecurityStageOrchestrationTests(unittest.TestCase):
         self.assertEqual(entries[0]["security"]["risk_level"], "low")
         self.assertEqual(entries[0]["security"]["scan_model"], "old-model")
         security_mock.assert_not_called()
+
+
+class AuthenticityStageOrchestrationTests(unittest.TestCase):
+    """Verify the resource_authenticity stage's placement and failure semantics."""
+
+    def test_authenticity_stage_called_after_security(self):
+        """Default: authenticity stage runs after eval + security."""
+        call_order: list[str] = []
+        eval_mock = MagicMock(side_effect=lambda *a, **k: call_order.append("eval"))
+        security_mock = MagicMock(side_effect=lambda *a, **k: call_order.append("security"))
+        authenticity_mock = MagicMock(
+            side_effect=lambda *a, **k: call_order.append("authenticity")
+        )
+        fake_bridge = _fake_bridge_module(eval_mock, security_mock, authenticity_mock)
+
+        entries = [{"id": "s1", "name": "x", "type": "skill"}]
+        with patch.dict("sys.modules", {"eval_bridge": fake_bridge}):
+            with patch.dict(os.environ, {}, clear=False):
+                os.environ.pop("SECURITY_SCAN_ENABLED", None)
+                os.environ.pop("AUTHENTICITY_SCAN_ENABLED", None)
+                enrichment_orchestrator.enrich_entries(entries)
+
+        self.assertEqual(call_order, ["eval", "security", "authenticity"])
+        authenticity_mock.assert_called_once()
+
+    def test_authenticity_stage_skipped_when_disabled(self):
+        """AUTHENTICITY_SCAN_ENABLED=false → authenticity skipped, eval still runs."""
+        eval_mock = MagicMock()
+        security_mock = MagicMock()
+        authenticity_mock = MagicMock()
+        fake_bridge = _fake_bridge_module(eval_mock, security_mock, authenticity_mock)
+
+        entries = [{"id": "s1", "name": "x", "type": "skill"}]
+        with patch.dict("sys.modules", {"eval_bridge": fake_bridge}):
+            with patch.dict(os.environ, {"AUTHENTICITY_SCAN_ENABLED": "false"}):
+                enrichment_orchestrator.enrich_entries(entries)
+
+        eval_mock.assert_called_once()
+        authenticity_mock.assert_not_called()
+
+    def test_authenticity_stage_failure_does_not_block_pipeline(self):
+        """If authenticity stage raises, orchestrator logs and continues silently."""
+        eval_mock = MagicMock()
+        security_mock = MagicMock()
+        authenticity_mock = MagicMock(side_effect=RuntimeError("auth boom"))
+        fake_bridge = _fake_bridge_module(eval_mock, security_mock, authenticity_mock)
+
+        entries = [{"id": "s1", "name": "x", "type": "skill"}]
+        with patch.dict("sys.modules", {"eval_bridge": fake_bridge}):
+            with patch.dict(os.environ, {}, clear=False):
+                os.environ.pop("SECURITY_SCAN_ENABLED", None)
+                os.environ.pop("AUTHENTICITY_SCAN_ENABLED", None)
+                enrichment_orchestrator.enrich_entries(entries)  # Should not raise
+
+        authenticity_mock.assert_called_once()
 
 
 if __name__ == "__main__":

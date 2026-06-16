@@ -75,6 +75,50 @@ def _apply_security_to_decision(entries: list[dict[str, Any]]) -> None:
         )
 
 
+def _apply_resource_authenticity_to_decision(entries: list[dict[str, Any]]) -> None:
+    """对 github-trending 源把 resource_authenticity 落进 decision（仅此源，原地修改）。
+
+    Part 2 的 LLM ``is_primary_skill`` 判断回答："这个仓**主体**是一个可复用的
+    Agent Skill / Claude plugin，还是恰好捆了 skill 的 application/agent/framework/
+    CLI？"——对自动发现源（github-trending），主体不是 skill/plugin 的越界仓
+    直接 reject，不让它污染收录。
+
+      - ``resource_authenticity.is_primary_skill == False`` → ``decision = "reject"``
+        （同时镜像进 ``evaluation.decision``）
+      - ``is_primary_skill == True`` 或缺 ``resource_authenticity`` 字段
+        （LLM 失败/未评估）→ 不动 decision（缺字段即"未判定"，保守放行交其他闸门）
+
+    仅作用于 ``source == "github-trending"``，不影响任何其他源。与
+    :func:`_apply_security_to_decision` 并行，先于 reject 过滤段执行。
+    """
+    adjusted = 0
+    for entry in entries:
+        if (entry.get("source") or "") != GITHUB_TRENDING_SOURCE:
+            continue
+        authenticity = entry.get("resource_authenticity")
+        if not isinstance(authenticity, dict):
+            continue  # 缺字段 = 未判定（LLM 失败 / 非本源）→ 不动
+        if authenticity.get("is_primary_skill") is False:
+            if entry.get("decision") != "reject":
+                entry["decision"] = "reject"
+                ev = entry.get("evaluation")
+                if isinstance(ev, dict):
+                    ev["decision"] = "reject"
+                adjusted += 1
+                logger.info(
+                    "AUTHENTICITY gate (github-trending): %s → reject "
+                    "(is_primary_skill=False, reason=%s)",
+                    entry.get("id"),
+                    authenticity.get("reason"),
+                )
+    if adjusted:
+        logger.info(
+            "AUTHENTICITY gate (github-trending): %d entries rejected "
+            "(not a primary skill/plugin)",
+            adjusted,
+        )
+
+
 def apply_governance(
     entries: list[dict[str, Any]],
     health_only: bool = False,
@@ -151,6 +195,9 @@ def apply_governance(
     # github-trending：security verdict 参与 decision（在 reject 过滤之前，
     # 这样被降级/置 reject 的条目能被下面的过滤段一并处理）。
     _apply_security_to_decision(entries)
+    # github-trending：resource_authenticity（LLM is_primary_skill 判断）参与 decision
+    # —— 主体不是 skill/plugin 的越界仓直接 reject（仅此源，与 security 并行）。
+    _apply_resource_authenticity_to_decision(entries)
 
     # Filter rejects
     result = []

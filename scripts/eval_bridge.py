@@ -1394,3 +1394,293 @@ def security_scan_and_map(
             mapped += 1
 
     logger.info("Security scan: mapped %d / %d entries", mapped, len(entries))
+
+
+# ---------------------------------------------------------------------------
+# Resource authenticity scan (github-trending only)
+# ---------------------------------------------------------------------------
+#
+# 镜像 security_scan 机制，平移一个并行的 LLM 判断，专门解决 github-trending
+# 主动发现源的"恰好捆了 SKILL.md 的巨型 app/agent/framework 污染收录"问题：
+#
+#   - 仅对 source == "github-trending" 的 entry 执行（像 security 那样 scope/
+#     短路；其他源不跑 → 零成本、不碰主 6 维 cache）。
+#   - 问题："这个仓**主体**是一个可复用的 Agent Skill / Claude plugin，还是
+#     恰好捆了 skill 的 application/agent/framework/CLI？"
+#   - 输出 {is_primary_skill: bool, reason: str} 写入 entry["resource_authenticity"]。
+#   - 独立 cache namespace "authenticity"（与质量 6 维 / security 的 cache 完全
+#     隔离，互不失效）。
+#   - 失败兜底（无 key / LLM 异常 / 解析失败）= 不写字段，下个周期重试
+#     （镜像 security 的失败处理；governor 对缺字段保守放行）。
+#
+# 设计取舍：security_scan 走的是 ai-resource-eval 包内 runner 的独立 task 分支
+# （需要包内 yaml + runner._eval_one_security）。本判断是 github-trending 专属
+# 的薄胶水层，不构成通用 task，故直接在 bridge 用现成 judge + GitHubFetcher +
+# EvalCache 自包含实现，**不侵入 ai-resource-eval 包**（避免为单源新增包内
+# task config / runner 分支的过度工程）。cache key 语义与包内 make_key 一致。
+# ---------------------------------------------------------------------------
+
+AUTHENTICITY_SOURCE = "github-trending"
+
+# 独立 rubric major version：本判断的 prompt 演进与质量 6 维 / security 互不
+# 失效 cache。prompt 文本的 sha8 会拼进完整 rubric_version。
+_AUTHENTICITY_RUBRIC_MAJOR = 1
+
+_AUTHENTICITY_SYSTEM_PROMPT = """\
+你是一位 AI 编程资源审查员。你的唯一任务是判定一个 GitHub 仓库的**主体定位**：
+它是不是一个「可复用的 Agent Skill / Claude plugin」本身，还是只是一个
+「恰好在仓库里捆了一两个 SKILL.md / plugin manifest 的 application / agent /
+framework / CLI 工具 / SDK / proxy / IDE / 桌面应用」。
+
+## 判定标准
+
+判 `is_primary_skill = true`（主体就是可复用 skill/plugin）当且仅当：
+- 仓库的**核心交付物**就是一个或一组 Agent Skill（SKILL.md 定义的能力）或
+  Claude plugin（marketplace/plugin manifest），用户安装它就是为了用这些 skill；
+- 仓库整体围绕 skill/plugin 组织（哪怕只有一个 skill，但它就是仓库的全部意义）。
+
+判 `is_primary_skill = false`（主体是 app/agent，skill 只是附带）当：
+- 仓库主体是一个可运行的应用 / 自治 agent / 框架 / CLI 工具 / SDK / 代理 /
+  编辑器 / 桌面应用，SKILL.md 只是它**附带**的一小部分配置或示例；
+- 用户来这个仓库主要是为了运行/部署这个应用，而不是为了取用其中的 skill。
+
+## 输出（严格 JSON，仅 2 个键）
+
+返回且仅返回一个顶层 JSON 对象：
+- `is_primary_skill`: bool —— 主体是否就是可复用 skill/plugin
+- `reason`: str —— 中文一句话说明判定依据（≤ 100 字）
+
+## 严格要求
+
+- 只输出一个顶层 JSON 对象，不要附加解释 / Markdown / 代码块围栏。
+- 拿不准时，若仓库内容明显围绕 skill/plugin 组织，倾向 true；
+  只有当证据明确指向"这是个应用/框架，skill 只是附带"时才判 false。
+- 不要返回错误、不要拒绝、不要要求更多信息。
+"""
+
+_AUTHENTICITY_OUTPUT_SCHEMA = {
+    "type": "object",
+    "required": ["is_primary_skill", "reason"],
+    "properties": {
+        "is_primary_skill": {"type": "boolean"},
+        "reason": {"type": "string"},
+    },
+    "additionalProperties": False,
+}
+
+_AUTHENTICITY_MAX_CONTENT_CHARS = 50_000
+
+
+def _build_authenticity_user_prompt(entry: dict[str, Any], content: str) -> str:
+    """Build the resource_authenticity user prompt (entry metadata + content)."""
+    parts: list[str] = [f"# 待判定仓库: {entry.get('name', '')}\n"]
+    if entry.get("type"):
+        parts.append(f"Type: {entry['type']}\n")
+    if entry.get("description"):
+        parts.append(f"Description: {entry['description']}\n")
+    if entry.get("source_url"):
+        parts.append(f"Source: {entry['source_url']}\n")
+    tags = entry.get("tags")
+    if tags:
+        parts.append(f"Tags: {', '.join(str(t) for t in tags)}\n")
+    parts.append("\n---\n\n## 仓库内容（SKILL.md / README）\n\n")
+    if content and len(content) > _AUTHENTICITY_MAX_CONTENT_CHARS:
+        parts.append(content[:_AUTHENTICITY_MAX_CONTENT_CHARS])
+        parts.append(
+            f"\n\n[...内容截断：原文 {len(content)} 字符，仅保留前 "
+            f"{_AUTHENTICITY_MAX_CONTENT_CHARS} 字符。请基于 description 与已提供片段判定。]"
+        )
+    else:
+        parts.append(content or "(no content provided)")
+    return "".join(parts)
+
+
+def _authenticity_rubric_version() -> str:
+    """``{major}.{sha8(system_prompt)}`` —— prompt 改了自动失效旧 cache。"""
+    import hashlib
+
+    sha8 = hashlib.sha256(_AUTHENTICITY_SYSTEM_PROMPT.encode()).hexdigest()[:8]
+    return f"{_AUTHENTICITY_RUBRIC_MAJOR}.{sha8}"
+
+
+def _run_authenticity_scan(
+    entries: list[dict[str, Any]],
+    cache_dir: str = ".eval_cache",
+    incremental: bool = True,
+) -> dict[str, dict[str, Any]]:
+    """Run the is_primary_skill judgment over github-trending entries.
+
+    Returns ``{entry_id: {"is_primary_skill": bool, "reason": str, ...audit}}``.
+    Scoped to ``source == "github-trending"``; all other entries are skipped
+    (zero cost). Cache namespace ``"authenticity"`` keeps these rows isolated
+    from quality / security cache. Any failure leaves the entry absent from
+    the result map (caller won't write the field → retry next cycle).
+    """
+    targets = [
+        e for e in entries
+        if (e.get("source") or "") == AUTHENTICITY_SOURCE and e.get("id")
+    ]
+    if not targets:
+        return {}
+
+    try:
+        from ai_resource_eval.cache import EvalCache, CacheEntry
+        from ai_resource_eval.fetcher import GitHubFetcher
+    except ImportError:
+        logger.warning(
+            "ai-resource-eval package not found; skipping resource authenticity stage"
+        )
+        return {}
+
+    judge = _build_judge()
+    if judge is None:
+        logger.warning("No LLM API key configured; skipping resource authenticity stage")
+        return {}
+
+    from pathlib import Path as _Path
+
+    cache_path = _Path(cache_dir)
+    cache_path.mkdir(parents=True, exist_ok=True)
+    cache = EvalCache(db_path=cache_path / "eval_cache.db")
+    rubric_version = _authenticity_rubric_version()
+    fetcher = GitHubFetcher(content_paths=["SKILL.md", "README.md"])
+
+    out: dict[str, dict[str, Any]] = {}
+    for e in targets:
+        eid = e["id"]
+        try:
+            result = _authenticity_one(
+                e, judge, fetcher, cache, rubric_version, incremental
+            )
+        except Exception as exc:  # noqa: BLE001 - never bubble up from this stage
+            logger.debug("Authenticity scan failed for %s: %s", eid, exc)
+            result = None
+        if result is not None:
+            out[eid] = result
+    return out
+
+
+def _authenticity_one(entry, judge, fetcher, cache, rubric_version, incremental):
+    """Single-entry authenticity judgment with cache lookup + write.
+
+    Returns the result dict on success, ``None`` on any failure (no content,
+    LLM error, unparseable / schema-violating response). On ``None`` the caller
+    leaves ``entry.resource_authenticity`` absent so the next cycle retries.
+    """
+    from ai_resource_eval.cache import EvalCache, CacheEntry
+
+    eid = entry["id"]
+
+    # 1. Fetch content (reuse the same raw.githubusercontent.com fetcher the
+    #    runner uses; falls back to description when no source_url / fetch fails).
+    content = ""
+    src = entry.get("source_url")
+    if src:
+        fetched = fetcher.fetch(src)
+        if fetched is not None:
+            content = fetched[0]
+    if not content:
+        content = entry.get("description") or ""
+    if not content:
+        # 内容不足以判定 → 不写字段（保守，交给 Part 1 廉价过滤 + governor 放行）
+        return None
+    content_hash = EvalCache.content_hash(content)
+
+    # 2. Cache lookup (authenticity namespace)
+    cache_key = EvalCache.make_key(
+        "__authenticity__", content_hash, rubric_version, namespace="authenticity"
+    )
+    if incremental:
+        cached = cache.get(cache_key)
+        if cached is not None:
+            try:
+                payload = json.loads(cached.result_json)
+                if isinstance(payload, dict) and "is_primary_skill" in payload:
+                    return payload
+            except (ValueError, TypeError):
+                pass  # 脏 cache row → 重新评
+
+    # 3. LLM call
+    user_prompt = _build_authenticity_user_prompt(entry, content)
+    try:
+        judge_result = judge.judge(
+            system_prompt=_AUTHENTICITY_SYSTEM_PROMPT,
+            user_prompt=user_prompt,
+            schema=_AUTHENTICITY_OUTPUT_SCHEMA,
+        )
+    except Exception:  # noqa: BLE001
+        logger.debug("Authenticity LLM call failed for %s", eid)
+        return None
+
+    structured = getattr(judge_result, "structured", None)
+    if not isinstance(structured, dict) or "is_primary_skill" not in structured:
+        logger.debug("Authenticity LLM returned unparseable response for %s", eid)
+        return None
+
+    is_primary = structured.get("is_primary_skill")
+    if not isinstance(is_primary, bool):
+        logger.debug("Authenticity is_primary_skill not bool for %s; skipping", eid)
+        return None
+
+    from datetime import datetime, timezone
+
+    payload = {
+        "is_primary_skill": is_primary,
+        "reason": str(structured.get("reason") or "")[:240],
+        "scan_model": getattr(judge_result, "model_id", None),
+        "rubric_version": rubric_version,
+        "content_hash": content_hash,
+        "scanned_at": datetime.now(timezone.utc).isoformat(),
+    }
+
+    # 4. Cache write (best-effort; failure to cache never fails the result)
+    try:
+        cache.put(
+            cache_key,
+            CacheEntry(
+                cache_key=cache_key,
+                entry_id=eid,
+                content_hash=content_hash,
+                rubric_version=rubric_version,
+                result_json=json.dumps(payload, ensure_ascii=False),
+                evaluated_at=datetime.now(timezone.utc).isoformat(),
+                expires_at=cache.make_expires_at(),
+                model_id=payload["scan_model"],
+            ),
+        )
+    except Exception as exc:  # noqa: BLE001
+        logger.debug("Authenticity cache write failed for %s: %s", eid, exc)
+
+    return payload
+
+
+def authenticity_scan_and_map(
+    entries: list[dict[str, Any]],
+    cache_dir: str = ".eval_cache",
+    incremental: bool = True,
+) -> None:
+    """Run is_primary_skill judgment over github-trending entries, map in-place.
+
+    Failure-safe: any exception is logged but never propagates to the main
+    pipeline. Entries whose judgment fails simply lack the
+    ``resource_authenticity`` block (the next cycle retries). Only
+    ``source == "github-trending"`` entries are ever touched.
+    """
+    try:
+        results = _run_authenticity_scan(
+            entries, cache_dir=cache_dir, incremental=incremental
+        )
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("Resource authenticity stage failed: %s", exc)
+        return
+
+    mapped = 0
+    for entry in entries:
+        result = results.get(entry.get("id"))
+        if result is None:
+            continue
+        entry["resource_authenticity"] = result
+        mapped += 1
+
+    if mapped:
+        logger.info("Resource authenticity: mapped %d entries (github-trending)", mapped)

@@ -308,5 +308,106 @@ class SecurityGateGithubTrendingTests(unittest.TestCase):
         self.assertEqual(result[0]["decision"], "accept")
 
 
+class AuthenticityGateGithubTrendingTests(unittest.TestCase):
+    """github-trending 源：resource_authenticity (is_primary_skill) 参与 decision（仅此源）。"""
+
+    def test_not_primary_skill_sets_decision_reject(self):
+        """is_primary_skill=False → decision 置 reject（镜像进 evaluation）。"""
+        entries = [
+            {
+                "id": "gt-app",
+                "type": "skill",
+                "source": "github-trending",
+                "evaluation": {"final_score": 80.0, "decision": "accept"},
+                "resource_authenticity": {
+                    "is_primary_skill": False,
+                    "reason": "主体是一个 agent framework，恰好捆了 skill",
+                },
+            },
+        ]
+        with unittest.mock.patch.dict(os.environ, {"EVAL_DRY_RUN": "true"}, clear=False):
+            result = scoring_governor.apply_governance(entries)
+        self.assertEqual(result[0]["decision"], "reject")
+        self.assertEqual(result[0]["evaluation"]["decision"], "reject")
+
+    def test_not_primary_skill_dropped_when_not_dry_run(self):
+        """is_primary_skill=False → 置 reject → 非 dry-run 下被 reject 过滤丢弃。"""
+        entries = [
+            {
+                "id": "gt-app",
+                "type": "skill",
+                "source": "github-trending",
+                "evaluation": {"final_score": 80.0, "decision": "accept"},
+                "resource_authenticity": {"is_primary_skill": False, "reason": "app"},
+            },
+        ]
+        with unittest.mock.patch.dict(os.environ, {"EVAL_DRY_RUN": "false"}, clear=False):
+            result = scoring_governor.apply_governance(entries)
+        self.assertEqual(len(result), 0)
+
+    def test_primary_skill_true_leaves_decision_untouched(self):
+        """is_primary_skill=True → 不动 decision。"""
+        entries = [
+            {
+                "id": "gt-real-skill",
+                "type": "skill",
+                "source": "github-trending",
+                "evaluation": {"final_score": 80.0, "decision": "accept"},
+                "resource_authenticity": {
+                    "is_primary_skill": True,
+                    "reason": "主体是一个可复用 skill",
+                },
+            },
+        ]
+        with unittest.mock.patch.dict(os.environ, {"EVAL_DRY_RUN": "true"}, clear=False):
+            result = scoring_governor.apply_governance(entries)
+        self.assertEqual(result[0]["decision"], "accept")
+
+    def test_missing_authenticity_field_no_change(self):
+        """github-trending 但无 resource_authenticity 字段（LLM 失败/未评估）→ decision 不动。"""
+        entries = [
+            {
+                "id": "gt-no-auth",
+                "type": "skill",
+                "source": "github-trending",
+                "evaluation": {"final_score": 80.0, "decision": "accept"},
+            },
+        ]
+        with unittest.mock.patch.dict(os.environ, {"EVAL_DRY_RUN": "true"}, clear=False):
+            result = scoring_governor.apply_governance(entries)
+        self.assertEqual(result[0]["decision"], "accept")
+
+    def test_other_source_authenticity_does_not_affect_decision(self):
+        """非 github-trending 源即便 is_primary_skill=False 也不改 decision（仅本源生效）。"""
+        entries = [
+            {
+                "id": "official-app",
+                "type": "skill",
+                "source": "anthropics-skills",
+                "evaluation": {"final_score": 80.0, "decision": "accept"},
+                "resource_authenticity": {"is_primary_skill": False, "reason": "app"},
+            },
+        ]
+        with unittest.mock.patch.dict(os.environ, {"EVAL_DRY_RUN": "false"}, clear=False):
+            result = scoring_governor.apply_governance(entries)
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]["decision"], "accept")
+
+    def test_authenticity_field_not_dict_no_change(self):
+        """resource_authenticity 非 dict（脏数据）→ 保守不动 decision，不崩。"""
+        entries = [
+            {
+                "id": "gt-dirty",
+                "type": "skill",
+                "source": "github-trending",
+                "evaluation": {"final_score": 80.0, "decision": "accept"},
+                "resource_authenticity": "not-a-dict",
+            },
+        ]
+        with unittest.mock.patch.dict(os.environ, {"EVAL_DRY_RUN": "true"}, clear=False):
+            result = scoring_governor.apply_governance(entries)
+        self.assertEqual(result[0]["decision"], "accept")
+
+
 if __name__ == "__main__":
     unittest.main()
