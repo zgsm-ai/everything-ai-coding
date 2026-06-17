@@ -66,6 +66,8 @@ CACHE_DIR = os.path.join(REPO_ROOT, ".github_trending_cache")
 VERIFY_CACHE_PATH = os.path.join(CACHE_DIR, "verify_cache.json")
 # Stage A 产物：候选表（中间表），由 triage_github_trending.py 消费。
 CANDIDATES_PATH = os.path.join(CACHE_DIR, "candidates.json")
+# 手工 seed 仓清单：收"高星但无 topic、被 GitHub Search 漏掉"的好仓，走同一 triage。
+SEED_REPOS_PATH = os.path.join(SCRIPTS_DIR, "trending_seed_repos.json")
 
 # 预过滤要覆盖的现有索引（全 type/source）。catalog/index.json 是上周全量超集；
 # 各 per-type index.json 是本周新鲜产物（CI 中 skills/plugins sync 先于本源）。
@@ -212,6 +214,87 @@ def collect_candidates(queries, known_repos, min_stars=MIN_STARS,
                 continue
             candidates[full] = it
     return candidates, stats
+
+
+# --- 手工 seed 仓清单（补搜索盲区）----------------------------------------
+
+def load_seed_repos(path=SEED_REPOS_PATH):
+    """加载手工 seed 仓清单，返回 ``list[dict]``：``{"repo": owner/repo, "branch": str|None}``。
+
+    文件结构：顶层 dict 含 ``repos`` 数组（``_comment`` 等其他键忽略），数组元素
+    既可是 ``"owner/repo"`` 字符串，也可是 ``{"repo": ..., "branch": ...}`` 对象。
+    文件缺失 / 损坏 / 空 → 返回空列表，**不崩**（seed 是可选增强，不该卡死 Stage A）。
+    """
+    if not os.path.exists(path):
+        return []
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (OSError, json.JSONDecodeError) as e:
+        logger.warning("seed 清单读取失败，跳过：%s", e)
+        return []
+    raw = data.get("repos") if isinstance(data, dict) else data
+    if not isinstance(raw, list):
+        return []
+    seeds = []
+    for item in raw:
+        if isinstance(item, str):
+            slug = item.strip()
+            branch = None
+        elif isinstance(item, dict):
+            slug = (item.get("repo") or "").strip()
+            branch = item.get("branch") or None
+        else:
+            continue
+        if not slug or "/" not in slug:
+            continue
+        seeds.append({"repo": slug, "branch": branch})
+    return seeds
+
+
+def fetch_seed_candidate(slug, branch=None, api=github_api):
+    """拉一个 seed 仓的元数据，组装成与搜索 item **同构**的候选 dict。
+
+    返回 ``{full_name/stargazers_count/default_branch/pushed_at/topics/description}``，
+    字段对齐 search item 以便候选表写入 + 下游 triage 一致消费。拉取失败 → 返回 None
+    （调用方 WARN 跳过）。``branch`` 非空时覆盖 repo 元数据里的 default_branch。
+    """
+    meta = api(f"repos/{slug}")
+    if not meta or not isinstance(meta, dict):
+        return None
+    full = meta.get("full_name") or slug
+    return {
+        "full_name": full,
+        "stargazers_count": int(meta.get("stargazers_count") or 0),
+        "default_branch": branch or meta.get("default_branch") or "main",
+        "pushed_at": meta.get("pushed_at") or "",
+        "topics": meta.get("topics") or [],
+        "description": meta.get("description") or "",
+    }
+
+
+def collect_seed_candidates(seeds, known_repos, api=github_api):
+    """对 seed 清单逐个拉元数据，跳过已收录的，返回 ``(list[item], stats)``。
+
+    stats 记录 ``{loaded, skipped_known, fetch_failed}``，供健康度日志汇总。
+    seed item 与搜索 item 同构（供并入候选表后下游 triage 一致消费）。
+    """
+    items = []
+    stats = {"loaded": len(seeds), "skipped_known": 0, "fetch_failed": 0}
+    for seed in seeds:
+        slug = seed["repo"]
+        lower = slug.lower()
+        canon = _KNOWN_MIRRORS.get(lower, lower)
+        if canon in known_repos:
+            stats["skipped_known"] += 1
+            continue
+        item = fetch_seed_candidate(slug, seed.get("branch"), api=api)
+        if item is None:
+            stats["fetch_failed"] += 1
+            logger.warning("seed 仓元数据拉取失败，跳过：%s", slug)
+            continue
+        items.append(item)
+    return items, stats
 
 
 # --- 结构验证（一次 Tree 调用同时判 skill / plugin）------------------------
@@ -462,6 +545,26 @@ def discover_candidates(api=github_api, max_verify=None):
         )
         ranked = ranked[:max_verify]
 
+    # 手工 seed 仓：在限量**之后**并入，**豁免 MAX_VERIFY 截断**（手工挑的必须每轮处理）。
+    # 已在候选表（搜索命中重叠）的按 full_name 去重；已在 catalog 的由 known_repos 跳过。
+    seeds = load_seed_repos()
+    seed_items, seed_stats = collect_seed_candidates(seeds, known, api=api)
+    stats["seed_loaded"] = seed_stats["loaded"]
+    stats["seed_skipped_known"] = seed_stats["skipped_known"]
+    stats["seed_fetch_failed"] = seed_stats["fetch_failed"]
+    existing_full = {(it.get("full_name") or "").lower() for it in ranked}
+    seed_injected = 0
+    for it in seed_items:
+        full = (it.get("full_name") or "").lower()
+        if not full or full in existing_full:
+            continue
+        existing_full.add(full)
+        ranked.append(it)
+        seed_injected += 1
+    stats["seed_injected"] = seed_injected
+    if seed_injected:
+        logger.info("seed 注入 %d 个候选（豁免 MAX_VERIFY）", seed_injected)
+
     # 候选表只保留 triage 需要的零成本字段（不拉任何 Tree）。
     candidates = [
         {
@@ -560,10 +663,11 @@ def main(argv=None):
     # WARN 汇总：让一次发现的健康度在 CI 日志可见（不静默）。
     logger.warning(
         "GitHub trending Stage A 发现健康度：raw=%d｜预过滤已知=%d｜低于%dstar=%d"
-        "｜本轮候选=%d｜推迟=%d",
+        "｜本轮候选=%d｜推迟=%d｜seed 注入=%d（已收录跳过=%d，拉取失败=%d）",
         stats["raw"], stats["prefiltered_known"], MIN_STARS,
         stats["below_min_stars"], stats.get("candidates", 0),
-        stats.get("deferred", 0),
+        stats.get("deferred", 0), stats.get("seed_injected", 0),
+        stats.get("seed_skipped_known", 0), stats.get("seed_fetch_failed", 0),
     )
 
     if args.dry_run:

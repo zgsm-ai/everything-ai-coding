@@ -202,6 +202,8 @@ def _setup_stage_a(monkeypatch, candidates_map, known=None):
     # classify_repo / build_skill_entries / sync_plugins 也不该在 Stage A 调用
     monkeypatch.setattr(t, "classify_repo", lambda *a, **k: pytest.fail("Stage A 不许 classify"))
     monkeypatch.setattr(t, "build_skill_entries", lambda *a, **k: pytest.fail("Stage A 不许 build"))
+    # 默认无 seed（避免读真实 seed 文件触发网络）；seed 专项测试单独注入。
+    monkeypatch.setattr(t, "load_seed_repos", lambda *a, **k: [])
     return tree_calls
 
 
@@ -252,6 +254,172 @@ def test_discover_candidates_max_verify_zero_unlimited(monkeypatch):
     candidates, stats = t.discover_candidates(max_verify=0)
     assert stats["deferred"] == 0
     assert stats["candidates"] == 5
+
+
+# --- 手工 seed 仓清单 ------------------------------------------------------
+
+def test_load_seed_repos_string_and_object(tmp_path):
+    """seed 元素支持 'owner/repo' 字符串 + {repo, branch} 对象两种形式。"""
+    p = tmp_path / "seed.json"
+    p.write_text(json.dumps({
+        "_comment": "ignore me",
+        "repos": [
+            "mattpocock/skills",
+            {"repo": "foo/bar", "branch": "dev"},
+            {"repo": "baz/qux"},          # 对象无 branch → None
+            "   spaced/repo   ",          # 前后空白被 strip
+            "notaslug",                   # 无 / → 丢
+            {"repo": ""},                 # 空 repo → 丢
+            123,                          # 非 str/dict → 丢
+        ],
+    }), encoding="utf-8")
+    seeds = t.load_seed_repos(str(p))
+    assert seeds == [
+        {"repo": "mattpocock/skills", "branch": None},
+        {"repo": "foo/bar", "branch": "dev"},
+        {"repo": "baz/qux", "branch": None},
+        {"repo": "spaced/repo", "branch": None},
+    ]
+
+
+def test_load_seed_repos_bare_array(tmp_path):
+    """顶层直接是数组（无 repos 包裹）也能解析。"""
+    p = tmp_path / "seed.json"
+    p.write_text(json.dumps(["a/b", {"repo": "c/d"}]), encoding="utf-8")
+    assert t.load_seed_repos(str(p)) == [
+        {"repo": "a/b", "branch": None},
+        {"repo": "c/d", "branch": None},
+    ]
+
+
+def test_load_seed_repos_missing_or_broken(tmp_path):
+    """文件缺失 / 损坏 / 空 → 返回空列表，不崩。"""
+    assert t.load_seed_repos(str(tmp_path / "nope.json")) == []
+    bad = tmp_path / "bad.json"
+    bad.write_text("{not json", encoding="utf-8")
+    assert t.load_seed_repos(str(bad)) == []
+    empty = tmp_path / "empty.json"
+    empty.write_text(json.dumps({"repos": []}), encoding="utf-8")
+    assert t.load_seed_repos(str(empty)) == []
+
+
+def test_fetch_seed_candidate_isomorphic_to_search_item():
+    """seed 元数据组装成与 search item 同构的候选 dict。"""
+    def api(path):
+        assert path == "repos/mattpocock/skills"
+        return {"full_name": "mattpocock/skills", "stargazers_count": 132733,
+                "default_branch": "main", "pushed_at": "2026-06-01T00:00:00Z",
+                "topics": [], "description": "Skills for Real Engineers"}
+    item = t.fetch_seed_candidate("mattpocock/skills", api=api)
+    assert item == {
+        "full_name": "mattpocock/skills", "stargazers_count": 132733,
+        "default_branch": "main", "pushed_at": "2026-06-01T00:00:00Z",
+        "topics": [], "description": "Skills for Real Engineers",
+    }
+
+
+def test_fetch_seed_candidate_branch_override():
+    """seed 显式 branch 覆盖 repo 元数据的 default_branch。"""
+    api = lambda path: {"full_name": "o/r", "stargazers_count": 5,
+                        "default_branch": "main", "pushed_at": "",
+                        "topics": [], "description": ""}
+    item = t.fetch_seed_candidate("o/r", branch="dev", api=api)
+    assert item["default_branch"] == "dev"
+
+
+def test_fetch_seed_candidate_failure_returns_none():
+    """元数据拉取失败（None / 非 dict）→ 返回 None，不崩。"""
+    assert t.fetch_seed_candidate("o/r", api=lambda path: None) is None
+    assert t.fetch_seed_candidate("o/r", api=lambda path: []) is None
+
+
+def test_collect_seed_candidates_skips_known_and_failures():
+    """已收录的 seed 被 known_repos 跳过；拉取失败的 WARN 跳过、不崩。"""
+    def api(path):
+        if "o/good" in path:
+            return {"full_name": "o/good", "stargazers_count": 10,
+                    "default_branch": "main", "pushed_at": "", "topics": [],
+                    "description": ""}
+        return None  # o/dead 拉取失败
+    seeds = [
+        {"repo": "o/good", "branch": None},
+        {"repo": "Already/Known", "branch": None},   # 大小写归一后命中 known
+        {"repo": "o/dead", "branch": None},          # 拉取失败
+    ]
+    items, stats = t.collect_seed_candidates(seeds, {"already/known"}, api=api)
+    assert [it["full_name"] for it in items] == ["o/good"]
+    assert stats == {"loaded": 3, "skipped_known": 1, "fetch_failed": 1}
+
+
+def test_discover_candidates_seed_exempt_from_cap(monkeypatch):
+    """seed 候选豁免 MAX_VERIFY 截断：小 cap 下搜索候选被砍，seed 仍在候选表。"""
+    cmap = {f"o/r{s}": {"full_name": f"o/r{s}", "stargazers_count": s,
+                        "default_branch": "main", "pushed_at": "", "topics": [],
+                        "description": ""}
+            for s in (900, 500, 100)}
+    _setup_stage_a(monkeypatch, cmap)
+    # 注入 seed：一个低星仓（远低于被保留的搜索候选），仍必须进候选表。
+    monkeypatch.setattr(t, "load_seed_repos",
+                        lambda *a, **k: [{"repo": "seed/low", "branch": None}])
+    monkeypatch.setattr(t, "fetch_seed_candidate",
+                        lambda slug, branch=None, api=None: {
+                            "full_name": "seed/low", "stargazers_count": 3,
+                            "default_branch": "main", "pushed_at": "",
+                            "topics": [], "description": ""})
+    candidates, stats = t.discover_candidates(max_verify=1)
+    names = {c["full_name"] for c in candidates}
+    # cap=1 只保留 stars 最高 o/r900；seed/low 豁免 cap 仍进
+    assert names == {"o/r900", "seed/low"}
+    assert stats["seed_injected"] == 1
+    assert stats["deferred"] == 2  # o/r500, o/r100 被推迟
+
+
+def test_discover_candidates_seed_dedup_with_search(monkeypatch):
+    """seed 与搜索结果重叠 → 按 full_name 去重，不重复进候选表。"""
+    cmap = {"o/dup": {"full_name": "o/dup", "stargazers_count": 500,
+                      "default_branch": "main", "pushed_at": "", "topics": [],
+                      "description": "from search"}}
+    _setup_stage_a(monkeypatch, cmap)
+    monkeypatch.setattr(t, "load_seed_repos",
+                        lambda *a, **k: [{"repo": "O/Dup", "branch": None}])
+    monkeypatch.setattr(t, "fetch_seed_candidate",
+                        lambda slug, branch=None, api=None: {
+                            "full_name": "o/dup", "stargazers_count": 500,
+                            "default_branch": "main", "pushed_at": "",
+                            "topics": [], "description": "from seed"})
+    candidates, stats = t.discover_candidates(max_verify=0)
+    assert [c["full_name"] for c in candidates] == ["o/dup"]
+    assert stats["seed_injected"] == 0  # 已在搜索候选表，去重
+
+
+def test_discover_candidates_seed_known_skipped(monkeypatch):
+    """已在 catalog（known_repos）的 seed 被 collect_seed_candidates 跳过、不注入。"""
+    _setup_stage_a(monkeypatch, {}, known={"seed/known"})
+    monkeypatch.setattr(t, "load_seed_repos",
+                        lambda *a, **k: [{"repo": "Seed/Known", "branch": None}])
+    # 已在 known，不该 fetch
+    monkeypatch.setattr(t, "fetch_seed_candidate",
+                        lambda *a, **k: pytest.fail("known seed 不该 fetch"))
+    candidates, stats = t.discover_candidates(max_verify=0)
+    assert candidates == []
+    assert stats["seed_injected"] == 0
+    assert stats["seed_skipped_known"] == 1
+
+
+def test_discover_candidates_seed_fetch_failure_no_crash(monkeypatch):
+    """seed 元数据拉取失败 → 跳过该 seed、不崩，其余候选正常。"""
+    cmap = {"o/r": {"full_name": "o/r", "stargazers_count": 100,
+                    "default_branch": "main", "pushed_at": "", "topics": [],
+                    "description": ""}}
+    _setup_stage_a(monkeypatch, cmap)
+    monkeypatch.setattr(t, "load_seed_repos",
+                        lambda *a, **k: [{"repo": "seed/dead", "branch": None}])
+    monkeypatch.setattr(t, "fetch_seed_candidate",
+                        lambda *a, **k: None)  # 拉取失败
+    candidates, stats = t.discover_candidates(max_verify=0)
+    assert {c["full_name"] for c in candidates} == {"o/r"}
+    assert stats["seed_injected"] == 0
+    assert stats["seed_fetch_failed"] == 1
 
 
 def test_save_load_candidates_roundtrip(tmp_path):

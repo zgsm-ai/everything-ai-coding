@@ -1,0 +1,6 @@
+{
+  "_comment": "手工 seed 仓清单：收『高星但无 topic / desc 通用、被 GitHub Search 查询漏掉』的好仓。每个 seed 仓走 github-trending 同一 triage（LLM is_primary_skill 判别 + 深拉），无特殊路径。元素可以是 \"owner/repo\" 字符串，也可以是 {\"repo\":\"owner/repo\",\"branch\":\"main\"} 对象（branch 可选）。已在 catalog 的 seed 仓会被 known_repos 自动跳过。",
+  "repos": [
+    "mattpocock/skills"
+  ]
+}
