@@ -1,23 +1,31 @@
 #!/usr/bin/env python3
-"""GitHub Search 主动发现源 —— 把"按 stars 从 GitHub 搜索发现热门 skill/plugin 仓"
-固化成一个 sync 源，补上"发现完全依赖上游 curated 白名单/registry 先收录"的盲区。
+"""GitHub Search 主动发现源（Stage A：纯搜索）—— 把"按 stars 从 GitHub 搜索发现
+热门 skill/plugin 仓"固化成一个 sync 源，补上"发现完全依赖上游 curated 白名单/
+registry 先收录"的盲区。
 
-数据流：
+**分阶段架构（防 CI 超时）**：本脚本只做 Stage A（纯搜索，**零 Tree API**），把候选表
+落到 .github_trending_cache/candidates.json，交给 scripts/triage_github_trending.py
+做 Stage B（拉树前的 plugin 探测 + LLM 真伪判别）+ Stage C（仅存活者深拉构造 entry）。
+
+根因：旧版 discover() 对**每个**候选拉整棵递归 Tree（含 openclaw 2 万文件巨型 app），
+21 分钟全耗在"拉巨树只为丢掉它"，写盘在最后被 kill → 全丢。Stage A 退化为纯搜索后
+不拉任何 Tree，秒级完成；昂贵的判别 + 深拉移到 triage（带 LLM、独立 timeout、
+增量写 + wall-clock 预算）。
+
+Stage A 数据流：
     GitHub Search (repo) 按 stars 召回候选仓
-      → known_repos 预过滤（扫描/构造之前就挡掉已存在于任意 type/source 的仓）
-      → 一次 Tree API 同时判定结构：含 .claude-plugin/marketplace.json → plugin；
-        含 SKILL.md → skill；都没有 → 丢弃（天然剔除越界工具）
-      → skill 复用 skill_registry.scan_repo_via_api + hard_filter
-        plugin 复用 sync_plugins_official.sync_one_source（_entry_from_plugin）
-      → merge-preserve 写 catalog/{skills,plugins}/index.json
-      → 由 merge_index 的 deduplicate() 作正确性兜底
+      → known_repos 预过滤（已存在于任意 type/source 的仓直接挡掉）
+      → MIN_STARS 过滤 + 按 stars 降序 + 每轮限量 MAX_VERIFY
+      → 写候选表 candidates.json（每条含 full_name/stars/default_branch/
+        pushed_at/topics/description），**不拉任何 Tree**
 
 去重设计：repo 级 known_repos 预过滤是主防线（既省 API/LLM，又物理杜绝
 deduplicate() 因 type 分命名空间而抓不住的跨类型重复）；merge 阶段 deduplicate() 兜底。
 详见 .trellis/tasks/06-16-.../research/dedup-analysis.md。
 
-依赖：仅标准库 + 本仓 utils/skill_registry/sync_plugins_official（后者的 plugin
-bundle 字段依赖可选的 ai-resource-eval，未装时 bundle 置零，不阻塞）。
+依赖：**仅标准库** + 本仓 utils/skill_registry/sync_plugins_official。Stage C 深拉所需
+的构造器（classify_repo / build_skill_entries / merge_preserve / sync_plugins）仍定义
+在本模块，供 triage_github_trending.py import 复用；本脚本 main() 不再调用它们。
 """
 
 import argparse
@@ -36,7 +44,6 @@ from utils import (  # noqa: E402
     github_api,
     list_repo_files,
     load_index,
-    save_index,
     normalize_source_url,
     to_kebab_case,
     categorize,
@@ -57,6 +64,8 @@ SKILLS_INDEX = os.path.join(CATALOG_DIR, "skills", "index.json")
 PLUGINS_INDEX = os.path.join(CATALOG_DIR, "plugins", "index.json")
 CACHE_DIR = os.path.join(REPO_ROOT, ".github_trending_cache")
 VERIFY_CACHE_PATH = os.path.join(CACHE_DIR, "verify_cache.json")
+# Stage A 产物：候选表（中间表），由 triage_github_trending.py 消费。
+CANDIDATES_PATH = os.path.join(CACHE_DIR, "candidates.json")
 
 # 预过滤要覆盖的现有索引（全 type/source）。catalog/index.json 是上周全量超集；
 # 各 per-type index.json 是本周新鲜产物（CI 中 skills/plugins sync 先于本源）。
@@ -77,13 +86,10 @@ MIN_STARS = int(os.environ.get("TRENDING_MIN_STARS", "50"))
 MAX_PAGES = int(os.environ.get("TRENDING_MAX_PAGES", "3"))          # 每查询翻几页（按 stars 排序，尾部价值低）
 SEARCH_THROTTLE = float(os.environ.get("TRENDING_THROTTLE", "2.0"))  # search 桶 authed 30/min ≈ 1 次/2s
 RECENCY_DAYS = int(os.environ.get("TRENDING_RECENCY_DAYS", "90"))    # trending 切片：近 N 天新仓
-# 每轮限量：本轮只对 stars 最高的前 N 个 net-new 候选做昂贵的结构验证 + build。
-# 单轮能在 CI timeout 内跑完 → 正常写 index → known_repos 下轮自动跳过它们、推进
-# backlog。~1191 候选几轮内排空，新爆款每周补入。env 可覆盖。
+# 每轮限量：Stage A 本轮只把 stars 最高的前 N 个 net-new 候选写进候选表交 triage。
+# 单轮 triage 能在 CI timeout 内跑完 → 正常写 index → known_repos 下轮自动跳过它们、
+# 推进 backlog。~1191 候选几轮内排空，新爆款每周补入。env 可覆盖。
 MAX_VERIFY = int(os.environ.get("TRENDING_MAX_VERIFY", "300"))
-# verify_cache 增量保存间隔：每验证 N 个候选落盘一次（二级保险）。即便单轮仍被 kill，
-# 已验证进度也持久化，下轮 cache 命中跳过。
-VERIFY_CACHE_FLUSH_EVERY = int(os.environ.get("TRENDING_CACHE_FLUSH_EVERY", "25"))
 SOURCE_ID = "github-trending"
 PLUGIN_SOURCE_PRIORITY = 600  # 低于 official/superpowers/ECC/dev，碰撞时让既有源胜出
 
@@ -408,19 +414,19 @@ def save_verify_cache(cache):
         logger.debug("verify cache 写入失败：%s", e)
 
 
-# --- 主发现流程 ------------------------------------------------------------
+# --- Stage A：纯搜索发现（零 Tree）-----------------------------------------
 
-def discover(last_synced, api=github_api, list_files=list_repo_files,
-             max_verify=None):
-    """跑完整发现流程，返回 ``(skill_entries, plugin_repo_cfgs, stats)``。
+def discover_candidates(api=github_api, max_verify=None):
+    """Stage A：纯搜索发现候选表，**零 Tree API**。返回 ``(candidates, stats)``。
 
-    plugin 不在此构造 entry（schema 复杂，交给 sync_one_source），仅返回待同步的
-    source_cfg 列表。
+    candidates 是 ``list[dict]``，每条含 search item 自带的零成本字段
+    （``full_name`` / ``stargazers_count`` / ``default_branch`` / ``pushed_at`` /
+    ``topics`` / ``description``），按 stars 降序、每轮限量到前 ``max_verify``。
+    昂贵的结构验证 + LLM 判别 + 深拉全部移到 triage_github_trending.py。
 
-    **每轮限量**（主修超时）：net-new 候选按 stars 降序排序，本轮只对前 ``max_verify``
-    （默认 ``MAX_VERIFY``=300）个做昂贵的结构验证 + build，其余推迟到后续轮次。
-    高星优先；单轮在 CI timeout 内完成 → 正常写 index → 持久化 → 下轮 known_repos
-    跳过它们、自动推进 backlog。``max_verify=0`` 表示不限量（全量）。
+    **每轮限量**（主修超时）：net-new 候选按 stars 降序，本轮只交前 ``max_verify``
+    （默认 ``MAX_VERIFY``=300）给 triage。高星优先；下轮 known_repos 已含本轮入库的，
+    自动推进 backlog。``max_verify=0`` 表示不限量（全量）。
     """
     if max_verify is None:
         max_verify = MAX_VERIFY
@@ -431,20 +437,19 @@ def discover(last_synced, api=github_api, list_files=list_repo_files,
     recency_query = f"topic:claude-code created:>{cutoff} stars:>{MIN_STARS}"
     skill_queries = SKILL_QUERIES + [recency_query]
 
-    candidates, stats = collect_candidates(
+    candidates_map, stats = collect_candidates(
         skill_queries + PLUGIN_QUERIES, known, api=api
     )
     logger.info(
-        "发现：raw=%d，预过滤命中已知=%d，低于 %d star=%d，待验证唯一候选=%d",
+        "Stage A 发现：raw=%d，预过滤命中已知=%d，低于 %d star=%d，唯一候选=%d",
         stats["raw"], stats["prefiltered_known"], MIN_STARS,
-        stats["below_min_stars"], len(candidates),
+        stats["below_min_stars"], len(candidates_map),
     )
 
-    # 每轮限量（主修）：按 stars 降序排序后只取前 max_verify 个。高星优先入库，
-    # 其余推迟到后续轮次（下轮 known_repos 已含本轮入库的，自动推进 backlog）。
+    # 按 stars 降序排序后只取前 max_verify 个。高星优先交 triage，其余推迟到后续轮次。
     ranked = sorted(
-        candidates.items(),
-        key=lambda kv: (kv[1].get("stargazers_count") or 0),
+        candidates_map.values(),
+        key=lambda it: (it.get("stargazers_count") or 0),
         reverse=True,
     )
     total_candidates = len(ranked)
@@ -457,107 +462,40 @@ def discover(last_synced, api=github_api, list_files=list_repo_files,
         )
         ranked = ranked[:max_verify]
 
-    verify_cache = load_verify_cache()
-    new_cache = {}
-    skill_entries = []
-    plugin_cfgs = []
-    stats.update({
-        "skill_repos": 0, "plugin_repos": 0, "discarded": 0,
-        "verify_failed": 0, "errored": 0, "megaapp_dropped": 0,
-    })
+    # 候选表只保留 triage 需要的零成本字段（不拉任何 Tree）。
+    candidates = [
+        {
+            "full_name": it.get("full_name"),
+            "stars": int(it.get("stargazers_count") or 0),
+            "default_branch": it.get("default_branch") or "main",
+            "pushed_at": it.get("pushed_at") or "",
+            "topics": it.get("topics") or [],
+            "description": it.get("description") or "",
+        }
+        for it in ranked
+        if it.get("full_name")
+    ]
+    stats["candidates"] = len(candidates)
+    return candidates, stats
 
-    # verify_cache 增量保存（二级保险）：把上轮 cache 里仍命中的条目先并入 new_cache，
-    # 避免增量落盘把"本轮没碰到的旧 cache 条目"丢掉。
-    new_cache.update(verify_cache)
-    processed = 0
 
-    for full, item in ranked:
-        repo_slug = item.get("full_name")
-        branch = item.get("default_branch") or "main"
-        pushed_at = item.get("pushed_at") or ""
-        topics = item.get("topics") or []
-        description = item.get("description") or ""
+def save_candidates(candidates, path=CANDIDATES_PATH):
+    """把候选表落盘为 JSON（中间表，供 triage 消费）。"""
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(candidates, f, ensure_ascii=False, indent=2)
 
-        # 单仓的结构验证 / SKILL.md 解析可能抛瞬时网络异常
-        # （http.client.RemoteDisconnected 等）；隔离到 per-candidate try/except，
-        # 单仓失败 → WARN + 计入 errored + 不写 new_cache（下次重试，不缓存失败结果），
-        # 绝不让一个坏仓拖垮整个 discover()。
-        try:
-            cached = verify_cache.get(full)
-            if cached and cached.get("pushed_at") == pushed_at and cached.get("kind"):
-                kind, skill_paths = cached["kind"], []
-                meta = {
-                    "total_files": cached.get("total_files", 0),
-                    "skill_count": cached.get("skill_count", 0),
-                }
-            else:
-                kind, skill_paths, meta = classify_repo(repo_slug, branch, list_files)
 
-            if kind == "plugin":
-                # plugin 仓有 marketplace.json（强结构正信号）→ 不跑 megaapp 过滤。
-                stats["plugin_repos"] += 1
-                plugin_cfgs.append({
-                    "id": SOURCE_ID,
-                    "repo_slug": repo_slug,
-                    "branch": branch,
-                    "source_priority": PLUGIN_SOURCE_PRIORITY,
-                })
-                new_cache[full] = {
-                    "pushed_at": pushed_at, "kind": "plugin",
-                    "total_files": meta["total_files"], "skill_count": meta["skill_count"],
-                }
-            elif kind == "skill":
-                # Part 1 廉价预过滤：明显的巨型 app（恰好捆 skill）在扫描/LLM 之前丢弃。
-                if is_megaapp(meta["total_files"], meta["skill_count"], topics, description):
-                    stats["megaapp_dropped"] += 1
-                    density = _skill_density_permille(meta["total_files"], meta["skill_count"])
-                    logger.info(
-                        "MEGAAPP 丢弃 %s：%d 文件 / %d SKILL.md / 密度 %.1f‰（无 skill/plugin topic）",
-                        repo_slug, meta["total_files"], meta["skill_count"], density,
-                    )
-                    new_cache[full] = {
-                        "pushed_at": pushed_at, "kind": "megaapp",
-                        "total_files": meta["total_files"], "skill_count": meta["skill_count"],
-                    }
-                    continue
-                built = build_skill_entries(repo_slug, branch, item, last_synced)
-                if built:
-                    stats["skill_repos"] += 1
-                    skill_entries.extend(built)
-                    new_cache[full] = {
-                        "pushed_at": pushed_at, "kind": "skill",
-                        "total_files": meta["total_files"], "skill_count": meta["skill_count"],
-                    }
-                else:
-                    # 有 SKILL.md 但全被 hard_filter 刷掉 / 解析失败 → 不缓存空结果，下次重试
-                    stats["verify_failed"] += 1
-            elif kind == "megaapp":
-                # cache 命中：上轮已判定为巨型 app → 保持丢弃，不重跑 build（省 API）。
-                stats["megaapp_dropped"] += 1
-                new_cache[full] = {
-                    "pushed_at": pushed_at, "kind": "megaapp",
-                    "total_files": meta["total_files"], "skill_count": meta["skill_count"],
-                }
-            else:
-                stats["discarded"] += 1
-                # 越界仓（无 SKILL.md/marketplace.json）：缓存为 discarded 避免反复 Tree
-                new_cache[full] = {
-                    "pushed_at": pushed_at, "kind": "none",
-                    "total_files": meta["total_files"], "skill_count": meta["skill_count"],
-                }
-        except Exception as e:  # noqa: BLE001
-            stats["errored"] += 1
-            logger.warning("候选仓 %s 验证失败（跳过，下次重试）：%s", repo_slug, e)
-            # 不写 new_cache → 不缓存失败结果，下个周期重新验证
-        finally:
-            # verify_cache 增量保存（二级保险）：每验证 N 个落盘一次，即便本轮仍被
-            # kill，已验证进度也持久化、下轮 cache 命中跳过。写失败 best-effort 不崩。
-            processed += 1
-            if VERIFY_CACHE_FLUSH_EVERY and processed % VERIFY_CACHE_FLUSH_EVERY == 0:
-                save_verify_cache(new_cache)
-
-    save_verify_cache(new_cache)
-    return skill_entries, plugin_cfgs, stats
+def load_candidates(path=CANDIDATES_PATH):
+    """读取 Stage A 产出的候选表；缺失 / 损坏返回空列表。"""
+    if not os.path.exists(path):
+        return []
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return []
+    return data if isinstance(data, list) else []
 
 
 # --- plugin 同步（复用 sync_plugins_official.sync_one_source）---------------
@@ -595,14 +533,16 @@ def sync_plugins(plugin_cfgs, last_synced):
 # --- main ------------------------------------------------------------------
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--skills-output", default=SKILLS_INDEX)
-    parser.add_argument("--plugins-output", default=PLUGINS_INDEX)
-    parser.add_argument("--dry-run", action="store_true",
-                        help="只发现+打印统计，不写 index")
-    args = parser.parse_args(argv)
+    """Stage A 入口：纯搜索 → 写候选表 candidates.json。**不拉任何 Tree、不写 index。**
 
-    last_synced = date.today().isoformat()
+    昂贵的判别 + 深拉 + 写 index 由 scripts/triage_github_trending.py 承接。
+    """
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--candidates-output", default=CANDIDATES_PATH,
+                        help="候选表落盘路径（中间表，供 triage 消费）")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="只发现+打印统计，不写候选表")
+    args = parser.parse_args(argv)
 
     # 提前建 cache 目录：即便发现流程早退（如 build_known_repos raise），CI 的
     # cache save step 也有目录可存，避免 "Cache save failed" annotation。
@@ -612,43 +552,26 @@ def main(argv=None):
         logger.debug("cache 目录创建失败：%s", e)
 
     try:
-        skill_entries, plugin_cfgs, stats = discover(last_synced)
+        candidates, stats = discover_candidates()
     except RuntimeError as e:
-        logger.error("发现流程中止：%s", e)
+        logger.error("Stage A 发现流程中止：%s", e)
         return 1
-
-    plugin_entries = sync_plugins(plugin_cfgs, last_synced)
 
     # WARN 汇总：让一次发现的健康度在 CI 日志可见（不静默）。
     logger.warning(
-        "GitHub trending 发现健康度：skill 仓=%d（%d 条 entry）｜plugin 仓=%d（%d 条 entry）"
-        "｜丢弃越界=%d｜丢弃巨型app=%d｜验证未产出=%d｜验证异常=%d｜预过滤已知=%d｜本轮推迟=%d",
-        stats["skill_repos"], len(skill_entries), stats["plugin_repos"],
-        len(plugin_entries), stats["discarded"], stats.get("megaapp_dropped", 0),
-        stats["verify_failed"], stats["errored"], stats["prefiltered_known"],
+        "GitHub trending Stage A 发现健康度：raw=%d｜预过滤已知=%d｜低于%dstar=%d"
+        "｜本轮候选=%d｜推迟=%d",
+        stats["raw"], stats["prefiltered_known"], MIN_STARS,
+        stats["below_min_stars"], stats.get("candidates", 0),
         stats.get("deferred", 0),
     )
 
     if args.dry_run:
-        logger.info("--dry-run：跳过写入")
+        logger.info("--dry-run：跳过写候选表")
         return 0
 
-    # merge-preserve 写 skills
-    if skill_entries:
-        existing = load_index(args.skills_output) if os.path.exists(args.skills_output) else []
-        combined, accepted = merge_preserve(skill_entries, existing, dedup_url=True)
-        if accepted:
-            save_index(combined, args.skills_output)
-        logger.info("skills：合并写入 %d 条新 entry（共 %d）", accepted, len(combined))
-
-    # merge-preserve 写 plugins（id-only dedup）
-    if plugin_entries:
-        existing = load_index(args.plugins_output) if os.path.exists(args.plugins_output) else []
-        combined, accepted = merge_preserve(plugin_entries, existing, dedup_url=False)
-        if accepted:
-            save_index(combined, args.plugins_output)
-        logger.info("plugins：合并写入 %d 条新 entry（共 %d）", accepted, len(combined))
-
+    save_candidates(candidates, args.candidates_output)
+    logger.info("Stage A：候选表写入 %d 条 → %s", len(candidates), args.candidates_output)
     return 0
 
 

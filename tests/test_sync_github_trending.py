@@ -179,86 +179,91 @@ def test_skill_density_permille():
     assert round(t._skill_density_permille(20116, 113), 1) == 5.6
 
 
-def test_discover_drops_megaapp_before_build(monkeypatch):
-    """discover 对 megaapp 在 build_skill_entries 之前丢弃（省 API/LLM），计入 stats。"""
-    candidates = {
-        "openclaw/openclaw": {
-            "full_name": "openclaw/openclaw", "stargazers_count": 500,
-            "default_branch": "main", "pushed_at": "2026-06-01T00:00:00Z",
-            "topics": [], "description": "an autonomous agent framework",
-        },
-        "real/skill": {
-            "full_name": "real/skill", "stargazers_count": 200,
-            "default_branch": "main", "pushed_at": "2026-06-01T00:00:00Z",
-            "topics": [], "description": "a coding skill",
-        },
+# --- Stage A：discover_candidates 纯搜索（零 Tree）-------------------------
+
+def _setup_stage_a(monkeypatch, candidates_map, known=None):
+    """注入 Stage A 依赖：known_repos + collect_candidates（纯搜索，无 Tree）。
+
+    candidates_map: {full_name: search_item}。返回记录已发起的 Tree 调用列表
+    （应始终为空 —— Stage A 不许拉任何 Tree）。
+    """
+    monkeypatch.setattr(t, "build_known_repos", lambda: known or set())
+    monkeypatch.setattr(
+        t, "collect_candidates",
+        lambda *a, **k: (dict(candidates_map),
+                         {"raw": len(candidates_map), "prefiltered_known": 0,
+                          "below_min_stars": 0}),
+    )
+    tree_calls = []
+    monkeypatch.setattr(
+        t, "list_repo_files",
+        lambda *a, **k: tree_calls.append(a) or pytest.fail("Stage A 不许拉 Tree"),
+    )
+    # classify_repo / build_skill_entries / sync_plugins 也不该在 Stage A 调用
+    monkeypatch.setattr(t, "classify_repo", lambda *a, **k: pytest.fail("Stage A 不许 classify"))
+    monkeypatch.setattr(t, "build_skill_entries", lambda *a, **k: pytest.fail("Stage A 不许 build"))
+    return tree_calls
+
+
+def test_discover_candidates_search_only_no_tree(monkeypatch):
+    """Stage A 只产候选表，零 Tree / 零 classify / 零 build。候选含零成本字段。"""
+    cmap = {
+        "a/s500": {"full_name": "a/s500", "stargazers_count": 500,
+                   "default_branch": "main", "pushed_at": "2026-06-01T00:00:00Z",
+                   "topics": ["claude-skill"], "description": "a coding skill"},
+        "b/s100": {"full_name": "b/s100", "stargazers_count": 100,
+                   "default_branch": "master", "pushed_at": "2026-05-01T00:00:00Z",
+                   "topics": [], "description": "another"},
     }
-    monkeypatch.setattr(t, "build_known_repos", lambda: set())
-    monkeypatch.setattr(t, "load_verify_cache", lambda: {})
-    saved = {}
-    monkeypatch.setattr(t, "save_verify_cache", lambda c: saved.update({"cache": c}))
-    monkeypatch.setattr(
-        t, "collect_candidates",
-        lambda *a, **k: (dict(candidates),
-                         {"raw": 2, "prefiltered_known": 0, "below_min_stars": 0}),
-    )
-
-    def fake_classify(repo_slug, branch, list_files):
-        if repo_slug == "openclaw/openclaw":
-            return "skill", ["a/SKILL.md"], {"total_files": 20116, "skill_count": 113}
-        return "skill", ["a/SKILL.md"], {"total_files": 300, "skill_count": 5}
-
-    monkeypatch.setattr(t, "classify_repo", fake_classify)
-
-    built_calls = []
-
-    def fake_build(repo, branch, item, ls):
-        built_calls.append(repo)
-        return [{"id": f"{repo.replace('/', '-')}-skill", "type": "skill",
-                 "source": t.SOURCE_ID,
-                 "source_url": f"https://github.com/{repo}/tree/{branch}/a"}]
-
-    monkeypatch.setattr(t, "build_skill_entries", fake_build)
-
-    skill_entries, plugin_cfgs, stats = t.discover("2026-06-16")
-
-    # megaapp 在 build 之前被丢，build_skill_entries 不为它调用（省 API）
-    assert "openclaw/openclaw" not in built_calls
-    assert built_calls == ["real/skill"]
-    assert stats["megaapp_dropped"] == 1
-    assert stats["skill_repos"] == 1
-    assert len(skill_entries) == 1
-    # megaapp 写入 cache（kind=megaapp）避免反复 Tree
-    assert saved["cache"]["openclaw/openclaw"]["kind"] == "megaapp"
+    _setup_stage_a(monkeypatch, cmap)
+    candidates, stats = t.discover_candidates()
+    # 按 stars 降序
+    assert [c["full_name"] for c in candidates] == ["a/s500", "b/s100"]
+    # 候选表只带零成本字段
+    top = candidates[0]
+    assert top == {
+        "full_name": "a/s500", "stars": 500, "default_branch": "main",
+        "pushed_at": "2026-06-01T00:00:00Z", "topics": ["claude-skill"],
+        "description": "a coding skill",
+    }
+    assert stats["candidates"] == 2
+    assert stats["deferred"] == 0
 
 
-def test_discover_cached_megaapp_stays_dropped(monkeypatch):
-    """cache 命中 kind=megaapp 的仓：保持丢弃，不重跑 build，不误记为 discarded。"""
-    item = {"full_name": "openclaw/openclaw", "stargazers_count": 500,
-            "default_branch": "main", "pushed_at": "2026-06-01T00:00:00Z",
-            "topics": [], "description": "agent framework"}
-    monkeypatch.setattr(t, "build_known_repos", lambda: set())
-    # cache 上轮记的 megaapp（pushed_at 未变 → 命中）
-    monkeypatch.setattr(t, "load_verify_cache", lambda: {
-        "openclaw/openclaw": {"pushed_at": "2026-06-01T00:00:00Z", "kind": "megaapp",
-                              "total_files": 20116, "skill_count": 113},
-    })
-    saved = {}
-    monkeypatch.setattr(t, "save_verify_cache", lambda c: saved.update({"cache": c}))
-    monkeypatch.setattr(
-        t, "collect_candidates",
-        lambda *a, **k: ({"openclaw/openclaw": item},
-                         {"raw": 1, "prefiltered_known": 0, "below_min_stars": 0}),
-    )
-    # classify_repo 不应被调（cache 命中）；build_skill_entries 也不应被调
-    monkeypatch.setattr(t, "classify_repo", lambda *a, **k: pytest.fail("classify 不应被调"))
-    monkeypatch.setattr(t, "build_skill_entries", lambda *a, **k: pytest.fail("build 不应被调"))
+def test_discover_candidates_limits_to_top_n_by_stars(monkeypatch):
+    """候选超过 max_verify → 只保留 stars 最高的前 N，其余推迟（deferred），零 Tree。"""
+    cmap = {f"o/r{s}": {"full_name": f"o/r{s}", "stargazers_count": s,
+                        "default_branch": "main", "pushed_at": "", "topics": [],
+                        "description": ""}
+            for s in (10, 500, 50, 900, 100)}
+    _setup_stage_a(monkeypatch, cmap)
+    candidates, stats = t.discover_candidates(max_verify=2)
+    assert [c["full_name"] for c in candidates] == ["o/r900", "o/r500"]
+    assert stats["deferred"] == 3
+    assert stats["candidates"] == 2
 
-    skill_entries, plugin_cfgs, stats = t.discover("2026-06-16")
-    assert skill_entries == []
-    assert stats["megaapp_dropped"] == 1
-    assert stats["discarded"] == 0
-    assert saved["cache"]["openclaw/openclaw"]["kind"] == "megaapp"
+
+def test_discover_candidates_max_verify_zero_unlimited(monkeypatch):
+    cmap = {f"o/r{i}": {"full_name": f"o/r{i}", "stargazers_count": 100 + i,
+                        "default_branch": "main", "pushed_at": "", "topics": [],
+                        "description": ""}
+            for i in range(5)}
+    _setup_stage_a(monkeypatch, cmap)
+    candidates, stats = t.discover_candidates(max_verify=0)
+    assert stats["deferred"] == 0
+    assert stats["candidates"] == 5
+
+
+def test_save_load_candidates_roundtrip(tmp_path):
+    path = str(tmp_path / "candidates.json")
+    cands = [{"full_name": "o/r", "stars": 100, "default_branch": "main",
+              "pushed_at": "", "topics": [], "description": "x"}]
+    t.save_candidates(cands, path)
+    assert t.load_candidates(path) == cands
+
+
+def test_load_candidates_missing_returns_empty(tmp_path):
+    assert t.load_candidates(str(tmp_path / "nope.json")) == []
 
 
 # --- merge-preserve --------------------------------------------------------
@@ -310,277 +315,6 @@ def test_build_skill_entries_hard_filter_drops_low_stars(monkeypatch):
     ])
     item = _item("foo/bar", stars=10)  # ≤50 → hard_filter 刷掉
     assert t.build_skill_entries("foo/bar", "main", item, "2026-06-16") == []
-
-
-# --- discover() 健壮性：单仓异常不拖垮整个流程 -----------------------------
-
-def _setup_discover_env(monkeypatch, candidates, classify_side_effect):
-    """注入 discover() 的所有外部依赖（known_repos / cache / search），
-    candidates 为 {full_name: item}，classify_side_effect(repo_slug)->kind 或抛异常。"""
-    monkeypatch.setattr(t, "build_known_repos", lambda: set())
-    monkeypatch.setattr(t, "load_verify_cache", lambda: {})
-    saved = {}
-    monkeypatch.setattr(t, "save_verify_cache", lambda c: saved.update({"cache": c}))
-    monkeypatch.setattr(
-        t, "collect_candidates",
-        lambda *a, **k: (dict(candidates),
-                         {"raw": len(candidates), "prefiltered_known": 0,
-                          "below_min_stars": 0}),
-    )
-
-    def fake_classify(repo_slug, branch, list_files):
-        return classify_side_effect(repo_slug)
-
-    monkeypatch.setattr(t, "classify_repo", fake_classify)
-    return saved
-
-
-def test_discover_isolates_per_repo_exception(monkeypatch):
-    """某个候选仓在结构验证 / 解析处抛异常 → discover() 不崩，
-    其他候选照常产出，errored 计数正确，崩溃仓不写 cache（下次重试）。"""
-    candidates = {
-        "good/skill": _item("good/skill", stars=120),
-        "boom/repo": _item("boom/repo", stars=200),
-        "good/plugin": _item("good/plugin", stars=300),
-    }
-
-    def classify(repo_slug):
-        if repo_slug == "boom/repo":
-            # 模拟 fetch_raw_content 抛 http.client.RemoteDisconnected 那类瞬时网络断
-            import http.client
-            raise http.client.RemoteDisconnected("Remote end closed connection")
-        if repo_slug == "good/plugin":
-            return "plugin", [], {"total_files": 50, "skill_count": 0}
-        return "skill", ["skills/x/SKILL.md"], {"total_files": 100, "skill_count": 1}
-
-    saved = _setup_discover_env(monkeypatch, candidates, classify)
-    # good/skill 的 skill entry 构造也要 stub（否则会真扫描）
-    monkeypatch.setattr(
-        t, "build_skill_entries",
-        lambda repo, branch, item, ls: [
-            {"id": "x-skill", "type": "skill", "source": t.SOURCE_ID,
-             "source_url": f"https://github.com/{repo}/tree/{branch}/skills/x"},
-        ],
-    )
-
-    skill_entries, plugin_cfgs, stats = t.discover("2026-06-16")
-
-    # 没崩；好仓照常产出
-    assert len(skill_entries) == 1
-    assert stats["skill_repos"] == 1
-    assert len(plugin_cfgs) == 1
-    assert stats["plugin_repos"] == 1
-    # 崩溃仓被计入 errored
-    assert stats["errored"] == 1
-    # 崩溃仓不写 new_cache（下次重试），好仓写了
-    cache = saved["cache"]
-    assert "boom/repo" not in cache
-    assert "good/skill" in cache
-    assert "good/plugin" in cache
-
-
-def test_discover_build_skill_entries_exception_counts_errored(monkeypatch):
-    """异常发生在 build_skill_entries（scan/fetch 阶段）也要被 per-candidate 捕获。"""
-    candidates = {"boom/skill": _item("boom/skill", stars=120)}
-    saved = _setup_discover_env(
-        monkeypatch, candidates,
-        lambda r: ("skill", ["skills/x/SKILL.md"], {"total_files": 100, "skill_count": 1}),
-    )
-
-    def boom(repo, branch, item, ls):
-        import http.client
-        raise http.client.RemoteDisconnected("boom")
-
-    monkeypatch.setattr(t, "build_skill_entries", boom)
-
-    skill_entries, plugin_cfgs, stats = t.discover("2026-06-16")
-    assert skill_entries == []
-    assert stats["errored"] == 1
-    assert "boom/skill" not in saved["cache"]
-
-
-# --- 每轮限量（主修超时）：只处理 top-N，按 stars 降序优先 -------------------
-
-def test_discover_limits_to_top_n_by_stars(monkeypatch):
-    """net-new 候选超过 max_verify 时，本轮只对 stars 最高的前 N 个做结构验证 + build，
-    其余推迟（stats['deferred']），高星优先。"""
-    # 5 个候选，stars 各不同；max_verify=2 → 只处理 stars 最高的两个
-    candidates = {
-        "a/s10": _item("a/s10", stars=10),
-        "b/s500": _item("b/s500", stars=500),
-        "c/s50": _item("c/s50", stars=50),
-        "d/s900": _item("d/s900", stars=900),
-        "e/s100": _item("e/s100", stars=100),
-    }
-    saved = _setup_discover_env(
-        monkeypatch, candidates,
-        lambda r: ("skill", ["skills/x/SKILL.md"], {"total_files": 100, "skill_count": 1}),
-    )
-
-    classified = []
-
-    def fake_classify(repo_slug, branch, list_files):
-        classified.append(repo_slug)
-        return "skill", ["skills/x/SKILL.md"], {"total_files": 100, "skill_count": 1}
-
-    monkeypatch.setattr(t, "classify_repo", fake_classify)
-
-    built = []
-
-    def fake_build(repo, branch, item, ls):
-        built.append(repo)
-        return [{"id": f"{repo.replace('/', '-')}-skill", "type": "skill",
-                 "source": t.SOURCE_ID,
-                 "source_url": f"https://github.com/{repo}/tree/{branch}/x"}]
-
-    monkeypatch.setattr(t, "build_skill_entries", fake_build)
-
-    skill_entries, plugin_cfgs, stats = t.discover("2026-06-16", max_verify=2)
-
-    # 只处理 stars 最高的两个：d/s900, b/s500（按 stars 降序）
-    assert classified == ["d/s900", "b/s500"]
-    assert built == ["d/s900", "b/s500"]
-    assert stats["skill_repos"] == 2
-    assert len(skill_entries) == 2
-    # 其余 3 个推迟到后续轮次（下轮 known_repos 自动推进 backlog）
-    assert stats["deferred"] == 3
-    # 推迟的仓不进 cache（本轮根本没验证）
-    assert "a/s10" not in saved["cache"]
-    assert "c/s50" not in saved["cache"]
-    assert "e/s100" not in saved["cache"]
-
-
-def test_discover_no_limit_when_under_max_verify(monkeypatch):
-    """候选数不超过 max_verify 时全量处理，deferred=0。"""
-    candidates = {
-        "a/s1": _item("a/s1", stars=100),
-        "b/s2": _item("b/s2", stars=200),
-    }
-    _setup_discover_env(
-        monkeypatch, candidates,
-        lambda r: ("skill", ["skills/x/SKILL.md"], {"total_files": 100, "skill_count": 1}),
-    )
-    monkeypatch.setattr(
-        t, "build_skill_entries",
-        lambda repo, branch, item, ls: [
-            {"id": f"{repo.replace('/', '-')}-skill", "type": "skill",
-             "source": t.SOURCE_ID,
-             "source_url": f"https://github.com/{repo}/tree/{branch}/x"},
-        ],
-    )
-    skill_entries, plugin_cfgs, stats = t.discover("2026-06-16", max_verify=10)
-    assert stats["deferred"] == 0
-    assert stats["skill_repos"] == 2
-
-
-def test_discover_max_verify_zero_means_unlimited(monkeypatch):
-    """max_verify=0 视作不限量（全量验证），不推迟任何候选。"""
-    candidates = {f"o/r{i}": _item(f"o/r{i}", stars=100 + i) for i in range(5)}
-    _setup_discover_env(
-        monkeypatch, candidates,
-        lambda r: ("skill", ["skills/x/SKILL.md"], {"total_files": 100, "skill_count": 1}),
-    )
-    monkeypatch.setattr(
-        t, "build_skill_entries",
-        lambda repo, branch, item, ls: [
-            {"id": f"{repo.replace('/', '-')}-skill", "type": "skill",
-             "source": t.SOURCE_ID,
-             "source_url": f"https://github.com/{repo}/tree/{branch}/x"},
-        ],
-    )
-    skill_entries, plugin_cfgs, stats = t.discover("2026-06-16", max_verify=0)
-    assert stats["deferred"] == 0
-    assert stats["skill_repos"] == 5
-
-
-# --- verify_cache 增量写（二级保险）：中途落盘，被 kill 也持久化 -------------
-
-def test_discover_flushes_verify_cache_incrementally(monkeypatch):
-    """验证循环里每 N 个落盘一次 verify_cache（而非只在末尾），即便中途被 kill
-    已验证进度也持久化。"""
-    # 6 个候选，FLUSH_EVERY=2 → 第 2、4、6 个之后各落盘一次（含末尾）
-    candidates = {f"o/r{i}": _item(f"o/r{i}", stars=200 - i) for i in range(6)}
-    monkeypatch.setattr(t, "build_known_repos", lambda: set())
-    monkeypatch.setattr(t, "load_verify_cache", lambda: {})
-    monkeypatch.setattr(t, "VERIFY_CACHE_FLUSH_EVERY", 2)
-    monkeypatch.setattr(
-        t, "collect_candidates",
-        lambda *a, **k: (dict(candidates),
-                         {"raw": 6, "prefiltered_known": 0, "below_min_stars": 0}),
-    )
-    monkeypatch.setattr(
-        t, "classify_repo",
-        lambda r, b, ls: ("skill", ["skills/x/SKILL.md"], {"total_files": 100, "skill_count": 1}),
-    )
-    monkeypatch.setattr(
-        t, "build_skill_entries",
-        lambda repo, branch, item, ls: [
-            {"id": f"{repo.replace('/', '-')}-skill", "type": "skill",
-             "source": t.SOURCE_ID,
-             "source_url": f"https://github.com/{repo}/tree/{branch}/x"},
-        ],
-    )
-
-    # 记录每次 save_verify_cache 调用时 cache 的大小，验证是"中途渐增"而非只末尾一次
-    flush_sizes = []
-    monkeypatch.setattr(
-        t, "save_verify_cache",
-        lambda c: flush_sizes.append(len(c)),
-    )
-
-    t.discover("2026-06-16", max_verify=0)
-
-    # 6 个候选 / 每 2 个 flush 一次 = 3 次中途 flush + 1 次末尾 = 4 次（末尾与第 3 次 size 相同）
-    assert len(flush_sizes) >= 3            # 至少中途落盘多次（非只末尾一次）
-    assert flush_sizes[0] == 2              # 第一次 flush 时已有 2 条
-    assert flush_sizes[-1] == 6             # 末尾全部落盘
-    # 大小单调不减（增量积累）
-    assert flush_sizes == sorted(flush_sizes)
-
-
-def test_discover_flush_survives_kill_midway(monkeypatch):
-    """模拟"中途被 kill"：在处理第 3 个候选时抛 KeyboardInterrupt，
-    断言前 2 个已 flush 持久化（不丢进度）。"""
-    candidates = {f"o/r{i}": _item(f"o/r{i}", stars=300 - i) for i in range(5)}
-    monkeypatch.setattr(t, "build_known_repos", lambda: set())
-    monkeypatch.setattr(t, "load_verify_cache", lambda: {})
-    monkeypatch.setattr(t, "VERIFY_CACHE_FLUSH_EVERY", 2)
-    monkeypatch.setattr(
-        t, "collect_candidates",
-        lambda *a, **k: (dict(candidates),
-                         {"raw": 5, "prefiltered_known": 0, "below_min_stars": 0}),
-    )
-    monkeypatch.setattr(
-        t, "classify_repo",
-        lambda r, b, ls: ("skill", ["skills/x/SKILL.md"], {"total_files": 100, "skill_count": 1}),
-    )
-
-    n_built = {"count": 0}
-
-    def fake_build(repo, branch, item, ls):
-        n_built["count"] += 1
-        if n_built["count"] == 3:
-            raise KeyboardInterrupt("simulated CI kill")  # 第 3 个时被 kill
-        return [{"id": f"{repo.replace('/', '-')}-skill", "type": "skill",
-                 "source": t.SOURCE_ID,
-                 "source_url": f"https://github.com/{repo}/tree/{branch}/x"}]
-
-    monkeypatch.setattr(t, "build_skill_entries", fake_build)
-
-    last_flush = {"cache": None}
-    monkeypatch.setattr(
-        t, "save_verify_cache",
-        lambda c: last_flush.update({"cache": dict(c)}),
-    )
-
-    # KeyboardInterrupt 不被 per-candidate except 吞（BaseException 非 Exception），
-    # 会向上冒泡，但前 2 个的进度已通过增量 flush 持久化
-    with pytest.raises(KeyboardInterrupt):
-        t.discover("2026-06-16", max_verify=0)
-
-    # 被 kill 前已 flush（处理完前 2 个时触发了一次 FLUSH_EVERY=2 的落盘）
-    assert last_flush["cache"] is not None
-    assert len(last_flush["cache"]) == 2    # 前 2 个的进度已持久化
 
 
 def test_save_verify_cache_best_effort_on_write_failure(monkeypatch, tmp_path):

@@ -131,6 +131,22 @@ jobs:
           restore-keys: |
             github-trending-cache-${{ steps.week.outputs.stamp }}-
 
+      # Triage's is_primary_skill LLM cache (authenticity namespace). Isolated
+      # key so it does not collide with the enrich matrix per-type eval caches.
+      # The .github_trending_cache verify_cache already short-circuits re-judged
+      # repos by pushed_at across rounds; this persists the LLM results too so a
+      # cache hit avoids re-paying the LLM cost when verify_cache misses.
+      - name: Restore triage authenticity eval cache
+        id: cache-restore-triage-eval
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            .eval_cache/
+          key: triage-authenticity-cache-${{ steps.week.outputs.stamp }}-${{ github.run_number }}
+          restore-keys: |
+            triage-authenticity-cache-${{ steps.week.outputs.stamp }}-
+            triage-authenticity-cache-
+
       - name: Crawl mcp.so (incremental)
         run: python -u scripts/crawl_mcp_so.py --mode incremental
         env:
@@ -217,21 +233,47 @@ jobs:
         timeout-minutes: 5
         continue-on-error: true
 
-      # Active discovery: GitHub Search by stars → structure-verify (SKILL.md /
-      # marketplace.json) → merge-preserve into skills + plugins indexes. Runs
-      # after all curated/registry syncs so its repo-level known_repos pre-filter
-      # sees the freshest indexes (dedup main line; merge deduplicate() backstops).
-      - name: Sync GitHub trending (skills + plugins)
+      # Stage A — active discovery (pure search, ZERO Tree API). GitHub Search
+      # by stars → known_repos pre-filter → write candidate table
+      # (.github_trending_cache/candidates.json). Runs after all curated/registry
+      # syncs so its repo-level pre-filter sees the freshest indexes. Stays
+      # stdlib-only; the expensive structure-verify + LLM triage + deep-pull is
+      # done by the next step (triage_github_trending.py).
+      - name: Discover GitHub trending candidates (Stage A, search only)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PYTHONUNBUFFERED: "1"
         run: python -u scripts/sync_github_trending.py
-        timeout-minutes: 25
+        timeout-minutes: 10
+        continue-on-error: true
+
+      # Stage B + C — triage the candidate table: cheap plugin probe
+      # (marketplace.json raw GET, no Tree) → else LLM is_primary_skill judgment
+      # (README only, no Tree; app/framework → dropped) → survivors deep-pull
+      # (skill: scan_repo_via_api; plugin: sync_one_source) → merge-preserve into
+      # catalog/{skills,plugins}/index.json. Non-stdlib (imports ai_resource_eval)
+      # → needs LLM secrets, same as the enrich matrix. Wall-clock budget
+      # (TRIAGE_WALL_BUDGET=1800s) flushes done entries before the runner kills
+      # it, so a timeout still keeps completed work. MUST run BEFORE the merge
+      # step below so its new entries land in catalog/index.json this cycle.
+      - name: Triage GitHub trending (Stage B+C, LLM + deep-pull)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+          # Flush done entries ~10min before the 40min step timeout (kill margin).
+          TRIAGE_WALL_BUDGET: "1800"
+          EVAL_INCREMENTAL: "true"
+          PYTHONUNBUFFERED: "1"
+        run: python -u scripts/triage_github_trending.py
+        timeout-minutes: 40
         continue-on-error: true
 
       # Rewrite monorepo plugins' source_url to their declared subdir (dev sync
       # leaves them at the repo root, which makes the marketplace re-bundle the
-      # whole monorepo once per plugin). Runs after all plugin syncs.
+      # whole monorepo once per plugin). Runs after all plugin syncs (incl.
+      # trending triage) so newly-discovered monorepo plugins are backfilled too.
       - name: Backfill monorepo plugin subdirs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -331,6 +373,14 @@ jobs:
           path: |
             .github_trending_cache/
           key: github-trending-cache-${{ steps.week.outputs.stamp }}-${{ github.run_number }}
+
+      - name: Save triage authenticity eval cache
+        uses: actions/cache/save@v4
+        if: always() && steps.cache-restore-triage-eval.outputs.cache-hit != 'true'
+        with:
+          path: |
+            .eval_cache/
+          key: triage-authenticity-cache-${{ steps.week.outputs.stamp }}-${{ github.run_number }}
 
   # ---------------------------------------------------------------------------
   # Job 2: enrich (matrix per type)
