@@ -1,0 +1,1829 @@
+[
+  {
+    "id": "cospowers-integration-verification-template-branch-finish-template",
+    "name": "branch-finish-template",
+    "type": "template",
+    "description": "Bundled template branch-finish-template from plugin cospowers-integration-verification",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/templates/branch-finish-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-integration-verification-plugin/templates/branch-finish-template.md",
+      "files": [
+        "cospowers-integration-verification-plugin/templates/branch-finish-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-integration-verification",
+    "source_path": "templates/branch-finish-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-integration-verification-template-commit-message-examples",
+    "name": "commit-message-examples",
+    "type": "template",
+    "description": "Bundled template commit-message-examples from plugin cospowers-integration-verification",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/templates/commit-message-examples.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-integration-verification-plugin/templates/commit-message-examples.md",
+      "files": [
+        "cospowers-integration-verification-plugin/templates/commit-message-examples.md"
+      ]
+    },
+    "bundled_in": "cospowers-integration-verification",
+    "source_path": "templates/commit-message-examples.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-integration-verification-template-commit-message-template",
+    "name": "commit-message-template",
+    "type": "template",
+    "description": "Bundled template commit-message-template from plugin cospowers-integration-verification",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/templates/commit-message-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-integration-verification-plugin/templates/commit-message-template.md",
+      "files": [
+        "cospowers-integration-verification-plugin/templates/commit-message-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-integration-verification",
+    "source_path": "templates/commit-message-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-integration-verification-template-contract-verification-report-template",
+    "name": "contract-verification-report-template",
+    "type": "template",
+    "description": "Bundled template contract-verification-report-template from plugin cospowers-integration-verification",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/templates/contract-verification-report-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-integration-verification-plugin/templates/contract-verification-report-template.md",
+      "files": [
+        "cospowers-integration-verification-plugin/templates/contract-verification-report-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-integration-verification",
+    "source_path": "templates/contract-verification-report-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-integration-verification-template-integration-test-report-template",
+    "name": "integration-test-report-template",
+    "type": "template",
+    "description": "Bundled template integration-test-report-template from plugin cospowers-integration-verification",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/templates/integration-test-report-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "testing",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-integration-verification-plugin/templates/integration-test-report-template.md",
+      "files": [
+        "cospowers-integration-verification-plugin/templates/integration-test-report-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-integration-verification",
+    "source_path": "templates/integration-test-report-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-integration-verification-template-regression-report-template",
+    "name": "regression-report-template",
+    "type": "template",
+    "description": "Bundled template regression-report-template from plugin cospowers-integration-verification",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/templates/regression-report-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-integration-verification-plugin/templates/regression-report-template.md",
+      "files": [
+        "cospowers-integration-verification-plugin/templates/regression-report-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-integration-verification",
+    "source_path": "templates/regression-report-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-integration-verification-template-release-readiness-template",
+    "name": "release-readiness-template",
+    "type": "template",
+    "description": "Bundled template release-readiness-template from plugin cospowers-integration-verification",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/templates/release-readiness-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-integration-verification-plugin/templates/release-readiness-template.md",
+      "files": [
+        "cospowers-integration-verification-plugin/templates/release-readiness-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-integration-verification",
+    "source_path": "templates/release-readiness-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-integration-verification-template-verification-report-template",
+    "name": "verification-report-template",
+    "type": "template",
+    "description": "Bundled template verification-report-template from plugin cospowers-integration-verification",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/templates/verification-report-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-integration-verification-plugin/templates/verification-report-template.md",
+      "files": [
+        "cospowers-integration-verification-plugin/templates/verification-report-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-integration-verification",
+    "source_path": "templates/verification-report-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-requirements-template-init-aireq-template",
+    "name": "init-aireq-template",
+    "type": "template",
+    "description": "Bundled template init-aireq-template from plugin cospowers-requirements",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin/templates/init-aireq-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "ai-ml",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-requirements-plugin/templates/init-aireq-template.md",
+      "files": [
+        "cospowers-requirements-plugin/templates/init-aireq-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-requirements",
+    "source_path": "templates/init-aireq-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-requirements-template-init-sysreq-template",
+    "name": "init-sysreq-template",
+    "type": "template",
+    "description": "Bundled template init-sysreq-template from plugin cospowers-requirements",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin/templates/init-sysreq-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-requirements-plugin/templates/init-sysreq-template.md",
+      "files": [
+        "cospowers-requirements-plugin/templates/init-sysreq-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-requirements",
+    "source_path": "templates/init-sysreq-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-requirements-template-requirements-change-impact-template",
+    "name": "requirements-change-impact-template",
+    "type": "template",
+    "description": "Bundled template requirements-change-impact-template from plugin cospowers-requirements",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin/templates/requirements-change-impact-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-requirements-plugin/templates/requirements-change-impact-template.md",
+      "files": [
+        "cospowers-requirements-plugin/templates/requirements-change-impact-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-requirements",
+    "source_path": "templates/requirements-change-impact-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-requirements-template-requirements-review-template",
+    "name": "requirements-review-template",
+    "type": "template",
+    "description": "Bundled template requirements-review-template from plugin cospowers-requirements",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin/templates/requirements-review-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-requirements-plugin/templates/requirements-review-template.md",
+      "files": [
+        "cospowers-requirements-plugin/templates/requirements-review-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-requirements",
+    "source_path": "templates/requirements-review-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-requirements-template-system-requirement-template",
+    "name": "system-requirement-template",
+    "type": "template",
+    "description": "Bundled template system-requirement-template from plugin cospowers-requirements",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin/templates/system-requirement-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-requirements-plugin/templates/system-requirement-template.md",
+      "files": [
+        "cospowers-requirements-plugin/templates/system-requirement-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-requirements",
+    "source_path": "templates/system-requirement-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-requirements-template-user-requirement-template",
+    "name": "user-requirement-template",
+    "type": "template",
+    "description": "Bundled template user-requirement-template from plugin cospowers-requirements",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin/templates/user-requirement-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-requirements-plugin/templates/user-requirement-template.md",
+      "files": [
+        "cospowers-requirements-plugin/templates/user-requirement-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-requirements",
+    "source_path": "templates/user-requirement-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-architecture-review-template",
+    "name": "architecture-review-template",
+    "type": "template",
+    "description": "Bundled template architecture-review-template from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/architecture-review-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/architecture-review-template.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/architecture-review-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/architecture-review-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-design-change-impact-template",
+    "name": "design-change-impact-template",
+    "type": "template",
+    "description": "Bundled template design-change-impact-template from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design-change-impact-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design-change-impact-template.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design-change-impact-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design-change-impact-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-designsubsystem-designch02-responsibilities",
+    "name": "ch02-responsibilities",
+    "type": "template",
+    "description": "Bundled template ch02-responsibilities from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design/subsystem-design/ch02-responsibilities.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design/subsystem-design/ch02-responsibilities.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design/subsystem-design/ch02-responsibilities.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design/subsystem-design/ch02-responsibilities.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-designsubsystem-designch03-interfaces",
+    "name": "ch03-interfaces",
+    "type": "template",
+    "description": "Bundled template ch03-interfaces from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design/subsystem-design/ch03-interfaces.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design/subsystem-design/ch03-interfaces.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design/subsystem-design/ch03-interfaces.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design/subsystem-design/ch03-interfaces.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-designsubsystem-designch04-internal-design",
+    "name": "ch04-internal-design",
+    "type": "template",
+    "description": "Bundled template ch04-internal-design from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design/subsystem-design/ch04-internal-design.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design/subsystem-design/ch04-internal-design.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design/subsystem-design/ch04-internal-design.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design/subsystem-design/ch04-internal-design.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-designsubsystem-designch05-exceptions",
+    "name": "ch05-exceptions",
+    "type": "template",
+    "description": "Bundled template ch05-exceptions from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design/subsystem-design/ch05-exceptions.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design/subsystem-design/ch05-exceptions.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design/subsystem-design/ch05-exceptions.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design/subsystem-design/ch05-exceptions.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-designsubsystem-designch06-test-design",
+    "name": "ch06-test-design",
+    "type": "template",
+    "description": "Bundled template ch06-test-design from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design/subsystem-design/ch06-test-design.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "testing",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design/subsystem-design/ch06-test-design.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design/subsystem-design/ch06-test-design.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design/subsystem-design/ch06-test-design.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-designsubsystem-designch07-dfx",
+    "name": "ch07-dfx",
+    "type": "template",
+    "description": "Bundled template ch07-dfx from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design/subsystem-design/ch07-dfx.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design/subsystem-design/ch07-dfx.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design/subsystem-design/ch07-dfx.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design/subsystem-design/ch07-dfx.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-designsubsystem-designch08-code-standards",
+    "name": "ch08-code-standards",
+    "type": "template",
+    "description": "Bundled template ch08-code-standards from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design/subsystem-design/ch08-code-standards.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design/subsystem-design/ch08-code-standards.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design/subsystem-design/ch08-code-standards.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design/subsystem-design/ch08-code-standards.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-designsubsystem-designch09-deployment",
+    "name": "ch09-deployment",
+    "type": "template",
+    "description": "Bundled template ch09-deployment from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design/subsystem-design/ch09-deployment.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design/subsystem-design/ch09-deployment.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design/subsystem-design/ch09-deployment.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design/subsystem-design/ch09-deployment.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-designsubsystem-designch10-summary",
+    "name": "ch10-summary",
+    "type": "template",
+    "description": "Bundled template ch10-summary from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design/subsystem-design/ch10-summary.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design/subsystem-design/ch10-summary.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design/subsystem-design/ch10-summary.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design/subsystem-design/ch10-summary.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-designsubsystem-designch11-appendix",
+    "name": "ch11-appendix",
+    "type": "template",
+    "description": "Bundled template ch11-appendix from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design/subsystem-design/ch11-appendix.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design/subsystem-design/ch11-appendix.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design/subsystem-design/ch11-appendix.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design/subsystem-design/ch11-appendix.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-designsubsystem-designch12-revision-history",
+    "name": "ch12-revision-history",
+    "type": "template",
+    "description": "Bundled template ch12-revision-history from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design/subsystem-design/ch12-revision-history.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design/subsystem-design/ch12-revision-history.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design/subsystem-design/ch12-revision-history.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design/subsystem-design/ch12-revision-history.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-designsystem-designch02-system-architecture",
+    "name": "ch02-system-architecture",
+    "type": "template",
+    "description": "Bundled template ch02-system-architecture from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design/system-design/ch02-system-architecture.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design/system-design/ch02-system-architecture.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design/system-design/ch02-system-architecture.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design/system-design/ch02-system-architecture.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-designsystem-designch03-working-principles",
+    "name": "ch03-working-principles",
+    "type": "template",
+    "description": "Bundled template ch03-working-principles from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design/system-design/ch03-working-principles.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design/system-design/ch03-working-principles.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design/system-design/ch03-working-principles.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design/system-design/ch03-working-principles.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-designsystem-designch04-design-spec",
+    "name": "ch04-design-spec",
+    "type": "template",
+    "description": "Bundled template ch04-design-spec from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design/system-design/ch04-design-spec.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design/system-design/ch04-design-spec.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design/system-design/ch04-design-spec.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design/system-design/ch04-design-spec.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-designsystem-designch05-dfx",
+    "name": "ch05-dfx",
+    "type": "template",
+    "description": "Bundled template ch05-dfx from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design/system-design/ch05-dfx.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design/system-design/ch05-dfx.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design/system-design/ch05-dfx.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design/system-design/ch05-dfx.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-designsystem-designch06-architecture-impact",
+    "name": "ch06-architecture-impact",
+    "type": "template",
+    "description": "Bundled template ch06-architecture-impact from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design/system-design/ch06-architecture-impact.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design/system-design/ch06-architecture-impact.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design/system-design/ch06-architecture-impact.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design/system-design/ch06-architecture-impact.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-designsystem-designch07-risk",
+    "name": "ch07-risk",
+    "type": "template",
+    "description": "Bundled template ch07-risk from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design/system-design/ch07-risk.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design/system-design/ch07-risk.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design/system-design/ch07-risk.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design/system-design/ch07-risk.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-designsystem-designch08-deployment",
+    "name": "ch08-deployment",
+    "type": "template",
+    "description": "Bundled template ch08-deployment from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design/system-design/ch08-deployment.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design/system-design/ch08-deployment.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design/system-design/ch08-deployment.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design/system-design/ch08-deployment.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-designsystem-designch09-summary",
+    "name": "ch09-summary",
+    "type": "template",
+    "description": "Bundled template ch09-summary from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design/system-design/ch09-summary.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design/system-design/ch09-summary.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design/system-design/ch09-summary.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design/system-design/ch09-summary.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-designsystem-designch10-revision-history",
+    "name": "ch10-revision-history",
+    "type": "template",
+    "description": "Bundled template ch10-revision-history from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/design/system-design/ch10-revision-history.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/design/system-design/ch10-revision-history.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/design/system-design/ch10-revision-history.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/design/system-design/ch10-revision-history.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-fmea-template",
+    "name": "fmea-template",
+    "type": "template",
+    "description": "Bundled template fmea-template from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/fmea-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/fmea-template.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/fmea-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/fmea-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-init-subsystem-template",
+    "name": "init-subsystem-template",
+    "type": "template",
+    "description": "Bundled template init-subsystem-template from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/init-subsystem-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/init-subsystem-template.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/init-subsystem-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/init-subsystem-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-init-sysdesign-template",
+    "name": "init-sysdesign-template",
+    "type": "template",
+    "description": "Bundled template init-sysdesign-template from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/init-sysdesign-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/init-sysdesign-template.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/init-sysdesign-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/init-sysdesign-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-micro-design-template",
+    "name": "micro-design-template",
+    "type": "template",
+    "description": "Bundled template micro-design-template from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/micro-design-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/micro-design-template.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/micro-design-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/micro-design-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-subsystem-design-template",
+    "name": "subsystem-design-template",
+    "type": "template",
+    "description": "Bundled template subsystem-design-template from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/subsystem-design-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/subsystem-design-template.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/subsystem-design-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/subsystem-design-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-solution-design-template-system-design-template",
+    "name": "system-design-template",
+    "type": "template",
+    "description": "Bundled template system-design-template from plugin cospowers-solution-design",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/templates/system-design-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-solution-design-plugin/templates/system-design-template.md",
+      "files": [
+        "cospowers-solution-design-plugin/templates/system-design-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-solution-design",
+    "source_path": "templates/system-design-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-task-planning-template-execution-strategy-template",
+    "name": "execution-strategy-template",
+    "type": "template",
+    "description": "Bundled template execution-strategy-template from plugin cospowers-task-planning",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-task-planning-plugin/templates/execution-strategy-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-task-planning-plugin/templates/execution-strategy-template.md",
+      "files": [
+        "cospowers-task-planning-plugin/templates/execution-strategy-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-task-planning",
+    "source_path": "templates/execution-strategy-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-task-planning-template-implementation-plan-template",
+    "name": "implementation-plan-template",
+    "type": "template",
+    "description": "Bundled template implementation-plan-template from plugin cospowers-task-planning",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-task-planning-plugin/templates/implementation-plan-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-task-planning-plugin/templates/implementation-plan-template.md",
+      "files": [
+        "cospowers-task-planning-plugin/templates/implementation-plan-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-task-planning",
+    "source_path": "templates/implementation-plan-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-task-planning-template-milestone-plan-template",
+    "name": "milestone-plan-template",
+    "type": "template",
+    "description": "Bundled template milestone-plan-template from plugin cospowers-task-planning",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-task-planning-plugin/templates/milestone-plan-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-task-planning-plugin/templates/milestone-plan-template.md",
+      "files": [
+        "cospowers-task-planning-plugin/templates/milestone-plan-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-task-planning",
+    "source_path": "templates/milestone-plan-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-task-planning-template-subagent-task-template",
+    "name": "subagent-task-template",
+    "type": "template",
+    "description": "Bundled template subagent-task-template from plugin cospowers-task-planning",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-task-planning-plugin/templates/subagent-task-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-task-planning-plugin/templates/subagent-task-template.md",
+      "files": [
+        "cospowers-task-planning-plugin/templates/subagent-task-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-task-planning",
+    "source_path": "templates/subagent-task-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-task-planning-template-task-graph-template",
+    "name": "task-graph-template",
+    "type": "template",
+    "description": "Bundled template task-graph-template from plugin cospowers-task-planning",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-task-planning-plugin/templates/task-graph-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-task-planning-plugin/templates/task-graph-template.md",
+      "files": [
+        "cospowers-task-planning-plugin/templates/task-graph-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-task-planning",
+    "source_path": "templates/task-graph-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-task-planning-template-worktree-plan-template",
+    "name": "worktree-plan-template",
+    "type": "template",
+    "description": "Bundled template worktree-plan-template from plugin cospowers-task-planning",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-task-planning-plugin/templates/worktree-plan-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-task-planning-plugin/templates/worktree-plan-template.md",
+      "files": [
+        "cospowers-task-planning-plugin/templates/worktree-plan-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-task-planning",
+    "source_path": "templates/worktree-plan-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-tdd-development-template-code-compliance-report-template",
+    "name": "code-compliance-report-template",
+    "type": "template",
+    "description": "Bundled template code-compliance-report-template from plugin cospowers-tdd-development",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/templates/code-compliance-report-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-tdd-development-plugin/templates/code-compliance-report-template.md",
+      "files": [
+        "cospowers-tdd-development-plugin/templates/code-compliance-report-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-tdd-development",
+    "source_path": "templates/code-compliance-report-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-tdd-development-template-code-review-request-template",
+    "name": "code-review-request-template",
+    "type": "template",
+    "description": "Bundled template code-review-request-template from plugin cospowers-tdd-development",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/templates/code-review-request-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-tdd-development-plugin/templates/code-review-request-template.md",
+      "files": [
+        "cospowers-tdd-development-plugin/templates/code-review-request-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-tdd-development",
+    "source_path": "templates/code-review-request-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-tdd-development-template-commit-message-examples",
+    "name": "commit-message-examples",
+    "type": "template",
+    "description": "Bundled template commit-message-examples from plugin cospowers-tdd-development",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/templates/commit-message-examples.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-tdd-development-plugin/templates/commit-message-examples.md",
+      "files": [
+        "cospowers-tdd-development-plugin/templates/commit-message-examples.md"
+      ]
+    },
+    "bundled_in": "cospowers-tdd-development",
+    "source_path": "templates/commit-message-examples.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-tdd-development-template-commit-message-template",
+    "name": "commit-message-template",
+    "type": "template",
+    "description": "Bundled template commit-message-template from plugin cospowers-tdd-development",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/templates/commit-message-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-tdd-development-plugin/templates/commit-message-template.md",
+      "files": [
+        "cospowers-tdd-development-plugin/templates/commit-message-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-tdd-development",
+    "source_path": "templates/commit-message-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-tdd-development-template-debugging-report-template",
+    "name": "debugging-report-template",
+    "type": "template",
+    "description": "Bundled template debugging-report-template from plugin cospowers-tdd-development",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/templates/debugging-report-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-tdd-development-plugin/templates/debugging-report-template.md",
+      "files": [
+        "cospowers-tdd-development-plugin/templates/debugging-report-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-tdd-development",
+    "source_path": "templates/debugging-report-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-tdd-development-template-tdd-cycle-template",
+    "name": "tdd-cycle-template",
+    "type": "template",
+    "description": "Bundled template tdd-cycle-template from plugin cospowers-tdd-development",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/templates/tdd-cycle-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-tdd-development-plugin/templates/tdd-cycle-template.md",
+      "files": [
+        "cospowers-tdd-development-plugin/templates/tdd-cycle-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-tdd-development",
+    "source_path": "templates/tdd-cycle-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-test-generation-template-contract-test-template",
+    "name": "contract-test-template",
+    "type": "template",
+    "description": "Bundled template contract-test-template from plugin cospowers-test-generation",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-test-generation-plugin/templates/contract-test-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "testing",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-test-generation-plugin/templates/contract-test-template.md",
+      "files": [
+        "cospowers-test-generation-plugin/templates/contract-test-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-test-generation",
+    "source_path": "templates/contract-test-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-test-generation-template-grpc-test-template",
+    "name": "grpc_test_template",
+    "type": "template",
+    "description": "Bundled template grpc_test_template from plugin cospowers-test-generation",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-test-generation-plugin/templates/grpc_test_template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "testing",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-test-generation-plugin/templates/grpc_test_template.md",
+      "files": [
+        "cospowers-test-generation-plugin/templates/grpc_test_template.md"
+      ]
+    },
+    "bundled_in": "cospowers-test-generation",
+    "source_path": "templates/grpc_test_template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-test-generation-template-integration-test-template",
+    "name": "integration-test-template",
+    "type": "template",
+    "description": "Bundled template integration-test-template from plugin cospowers-test-generation",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-test-generation-plugin/templates/integration-test-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "testing",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-test-generation-plugin/templates/integration-test-template.md",
+      "files": [
+        "cospowers-test-generation-plugin/templates/integration-test-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-test-generation",
+    "source_path": "templates/integration-test-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-test-generation-template-regression-test-template",
+    "name": "regression-test-template",
+    "type": "template",
+    "description": "Bundled template regression-test-template from plugin cospowers-test-generation",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-test-generation-plugin/templates/regression-test-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "testing",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-test-generation-plugin/templates/regression-test-template.md",
+      "files": [
+        "cospowers-test-generation-plugin/templates/regression-test-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-test-generation",
+    "source_path": "templates/regression-test-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-test-generation-template-test-case-template",
+    "name": "test-case-template",
+    "type": "template",
+    "description": "Bundled template test-case-template from plugin cospowers-test-generation",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-test-generation-plugin/templates/test-case-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "testing",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-test-generation-plugin/templates/test-case-template.md",
+      "files": [
+        "cospowers-test-generation-plugin/templates/test-case-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-test-generation",
+    "source_path": "templates/test-case-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-test-generation-template-test-coverage-review-template",
+    "name": "test-coverage-review-template",
+    "type": "template",
+    "description": "Bundled template test-coverage-review-template from plugin cospowers-test-generation",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-test-generation-plugin/templates/test-coverage-review-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "testing",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-test-generation-plugin/templates/test-coverage-review-template.md",
+      "files": [
+        "cospowers-test-generation-plugin/templates/test-coverage-review-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-test-generation",
+    "source_path": "templates/test-coverage-review-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-test-generation-template-test-strategy-template",
+    "name": "test-strategy-template",
+    "type": "template",
+    "description": "Bundled template test-strategy-template from plugin cospowers-test-generation",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-test-generation-plugin/templates/test-strategy-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "testing",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-test-generation-plugin/templates/test-strategy-template.md",
+      "files": [
+        "cospowers-test-generation-plugin/templates/test-strategy-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-test-generation",
+    "source_path": "templates/test-strategy-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-test-generation-template-unit-test-template",
+    "name": "unit-test-template",
+    "type": "template",
+    "description": "Bundled template unit-test-template from plugin cospowers-test-generation",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-test-generation-plugin/templates/unit-test-template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "testing",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-test-generation-plugin/templates/unit-test-template.md",
+      "files": [
+        "cospowers-test-generation-plugin/templates/unit-test-template.md"
+      ]
+    },
+    "bundled_in": "cospowers-test-generation",
+    "source_path": "templates/unit-test-template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  },
+  {
+    "id": "cospowers-test-generation-template-universal-test-template",
+    "name": "universal_test_template",
+    "type": "template",
+    "description": "Bundled template universal_test_template from plugin cospowers-test-generation",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-test-generation-plugin/templates/universal_test_template.md",
+    "stars": 0,
+    "pushed_at": "2026-06-09T02:09:13Z",
+    "category": "testing",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yhangf/csc-plugins.git",
+      "branch": "main",
+      "path": "cospowers-test-generation-plugin/templates/universal_test_template.md",
+      "files": [
+        "cospowers-test-generation-plugin/templates/universal_test_template.md"
+      ]
+    },
+    "bundled_in": "cospowers-test-generation",
+    "source_path": "templates/universal_test_template.md",
+    "final_score": 0,
+    "source": "plugin-bundled-template",
+    "last_synced": "2026-06-17",
+    "evaluation": {},
+    "decision": "review",
+    "weak_dims": []
+  }
+]

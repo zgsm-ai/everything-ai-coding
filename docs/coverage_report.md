@@ -1,15 +1,15 @@
 # Catalog 热门资源覆盖率审计
 
-报告生成时间：2026-06-16
-catalog 版本：catalog/index.json 总条目 12652
+报告生成时间：2026-06-17
+catalog 版本：catalog/index.json 总条目 15948
 
 ## Skills 覆盖
 
 ### 状态摘要
 
-- ✅ 直接源：3 / 7
+- ✅ 直接源：4 / 7
 - ⚠️ 仅镜像：0 / 7
-- ❌ 未收录：4 / 7
+- ❌ 未收录：3 / 7
 
 ### 详细列表
 
@@ -19,7 +19,7 @@ catalog 版本：catalog/index.json 总条目 12652
 | agent-skills | vercel-labs/agent-skills | ✅ 直接源 | 69,954 | 26K stars, Vercel 官方旗舰 skill 集合（React/Next.js/web design） |
 | agent-browser | vercel-labs/agent-browser | ✅ 直接源 | 14,925 | 14K stars, 浏览器自动化 skill |
 | supermemory | supermemoryai/supermemory | ❌ 未收录 | - | 17K stars, 跨 agent 记忆引擎 |
-| taste-skill | leonxlnx/taste-skill | ❌ 未收录 | - | 44K stars, 第三方设计 skill 标杆（原 Leonxlnx/taste 已 404，改名为 taste-skill） |
+| taste-skill | leonxlnx/taste-skill | ✅ 直接源 | - | 44K stars, 第三方设计 skill 标杆（原 Leonxlnx/taste 已 404，改名为 taste-skill） |
 | interface-design | Dammyjay93/interface-design | ❌ 未收录 | - | 4.7K stars, UI 一致性 skill |
 | skills | anthropics/skills | ✅ 直接源 | 25,571 | Anthropic 官方 skill 库（含 frontend-design 等 65K stars 级 skill） |
 
@@ -61,6 +61,6 @@ catalog 版本：catalog/index.json 总条目 12652
 
 ## 状态摘要总览
 
-- ✅ 直接源：12 / 19
+- ✅ 直接源：13 / 19
 - ⚠️ 仅镜像：0 / 19
-- ❌ 未收录：7 / 19
+- ❌ 未收录：6 / 19
