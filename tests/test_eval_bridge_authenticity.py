@@ -102,6 +102,45 @@ def test_only_github_trending_scanned(monkeypatch, tmp_path):
     assert len(judge.calls) == 1
 
 
+def test_plugin_route_skipped_no_llm_call(monkeypatch, tmp_path):
+    """github-trending 的 plugin 条目不进 target 筛选 → 不调 LLM、不写字段。
+
+    plugin 由 marketplace_verified 把关，is_primary_skill 的"单一 skill"框架不
+    适用——这里 plugin 即便同源也跳过，避免误杀 ECC-like 合法 plugin bundle。
+    """
+    judge = _FakeJudge({"is_primary_skill": False, "reason": "haiku 误判 bundle 为 app"})
+    fetcher = _FakeFetcher()
+    _patch_judge_and_fetcher(monkeypatch, judge, fetcher)
+
+    entries = [
+        _gt_entry("gt-skill"),  # type=skill → 跑判断
+        _gt_entry("gt-plugin", type="plugin"),  # type=plugin → 跳过
+    ]
+    eval_bridge.authenticity_scan_and_map(entries, cache_dir=str(tmp_path), incremental=False)
+
+    # skill 条目被判定并写字段
+    assert entries[0]["resource_authenticity"]["is_primary_skill"] is False
+    # plugin 条目完全不碰（无字段）
+    assert "resource_authenticity" not in entries[1]
+    # judge 只被 skill 那一条调用（plugin 零 LLM 成本）
+    assert len(judge.calls) == 1
+
+
+def test_no_github_trending_skill_entries_no_judge_built(monkeypatch, tmp_path):
+    """只有 plugin 路由的 github-trending entry 时连 _build_judge 都不被调（短路省成本）。"""
+    built = {"n": 0}
+
+    def _spy():
+        built["n"] += 1
+        return _FakeJudge({"is_primary_skill": True, "reason": "r"})
+
+    monkeypatch.setattr(eval_bridge, "_build_judge", _spy)
+    entries = [_gt_entry("gt-plugin", type="plugin")]
+    eval_bridge.authenticity_scan_and_map(entries, cache_dir=str(tmp_path), incremental=False)
+    assert built["n"] == 0
+    assert "resource_authenticity" not in entries[0]
+
+
 def test_no_github_trending_entries_no_judge_built(monkeypatch, tmp_path):
     """没有 github-trending entry 时连 _build_judge 都不应被调（短路省成本）。"""
     built = {"n": 0}

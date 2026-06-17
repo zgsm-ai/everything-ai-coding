@@ -1508,17 +1508,31 @@ def _run_authenticity_scan(
     cache_dir: str = ".eval_cache",
     incremental: bool = True,
 ) -> dict[str, dict[str, Any]]:
-    """Run the is_primary_skill judgment over github-trending entries.
+    """Run the is_primary_skill judgment over github-trending skill entries.
 
     Returns ``{entry_id: {"is_primary_skill": bool, "reason": str, ...audit}}``.
-    Scoped to ``source == "github-trending"``; all other entries are skipped
-    (zero cost). Cache namespace ``"authenticity"`` keeps these rows isolated
-    from quality / security cache. Any failure leaves the entry absent from
-    the result map (caller won't write the field → retry next cycle).
+    Scoped to ``source == "github-trending" AND type == "skill"``; all other
+    entries are skipped (zero cost / zero LLM call).
+
+    Why ``type == "skill"`` only: the is_primary_skill prompt frames the
+    judgment as "is this repo a single reusable skill, or an app that merely
+    ships a skill?". That framing does not apply to plugin-route entries —
+    a plugin is *by design* a bundle (skills + commands + agents + MCP), so a
+    legitimate plugin marketplace (e.g. ECC, a harness that also ships
+    ``marketplace.json``) would be mis-judged as ``is_primary_skill=false``
+    and wrongly rejected. The authoritative signal for plugins is
+    ``marketplace_verified`` (see ``marketplace_verifier``), not this scan, so
+    plugins are excluded here and never trigger an LLM call.
+
+    Cache namespace ``"authenticity"`` keeps these rows isolated from quality /
+    security cache. Any failure leaves the entry absent from the result map
+    (caller won't write the field → retry next cycle).
     """
     targets = [
         e for e in entries
-        if (e.get("source") or "") == AUTHENTICITY_SOURCE and e.get("id")
+        if (e.get("source") or "") == AUTHENTICITY_SOURCE
+        and (e.get("type") or "") == "skill"
+        and e.get("id")
     ]
     if not targets:
         return {}
@@ -1659,12 +1673,15 @@ def authenticity_scan_and_map(
     cache_dir: str = ".eval_cache",
     incremental: bool = True,
 ) -> None:
-    """Run is_primary_skill judgment over github-trending entries, map in-place.
+    """Run is_primary_skill judgment over github-trending skill entries, map in-place.
 
     Failure-safe: any exception is logged but never propagates to the main
     pipeline. Entries whose judgment fails simply lack the
     ``resource_authenticity`` block (the next cycle retries). Only
-    ``source == "github-trending"`` entries are ever touched.
+    ``source == "github-trending" AND type == "skill"`` entries are ever
+    touched — plugin-route entries are gated by ``marketplace_verified``, not
+    by this is_primary_skill scan (a plugin is a bundle, so the single-skill
+    framing does not apply).
     """
     try:
         results = _run_authenticity_scan(
@@ -1683,4 +1700,6 @@ def authenticity_scan_and_map(
         mapped += 1
 
     if mapped:
-        logger.info("Resource authenticity: mapped %d entries (github-trending)", mapped)
+        logger.info(
+            "Resource authenticity: mapped %d entries (github-trending skill)", mapped
+        )

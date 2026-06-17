@@ -408,6 +408,32 @@ class AuthenticityGateGithubTrendingTests(unittest.TestCase):
             result = scoring_governor.apply_governance(entries)
         self.assertEqual(result[0]["decision"], "accept")
 
+    def test_plugin_route_not_rejected_even_if_not_primary_skill(self):
+        """plugin 路由的 github-trending 条目即便带 is_primary_skill=False 也不被 reject。
+
+        plugin 本就是 bundle（捆 skills+commands+agents+mcp），is_primary_skill
+        的"单一 skill"框架不适用——权威信号是 marketplace_verified。避免误杀
+        ECC-like 合法 plugin（harness 又 ships marketplace.json）。
+        """
+        entries = [
+            {
+                "id": "gt-plugin",
+                "type": "plugin",
+                "source": "github-trending",
+                "evaluation": {"final_score": 80.0, "decision": "accept"},
+                "install": {"marketplace_verified": True},
+                "resource_authenticity": {
+                    "is_primary_skill": False,
+                    "reason": "haiku 把 harness-but-ships-marketplace.json 判 false",
+                },
+            },
+        ]
+        with unittest.mock.patch.dict(os.environ, {"EVAL_DRY_RUN": "false"}, clear=False):
+            result = scoring_governor.apply_governance(entries)
+        # plugin 条目不被 authenticity gate 否决 → 保留 + decision 不变
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]["decision"], "accept")
+
 
 if __name__ == "__main__":
     unittest.main()

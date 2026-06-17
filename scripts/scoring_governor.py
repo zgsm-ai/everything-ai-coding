@@ -76,25 +76,33 @@ def _apply_security_to_decision(entries: list[dict[str, Any]]) -> None:
 
 
 def _apply_resource_authenticity_to_decision(entries: list[dict[str, Any]]) -> None:
-    """对 github-trending 源把 resource_authenticity 落进 decision（仅此源，原地修改）。
+    """对 github-trending 源的 **skill 路由**把 resource_authenticity 落进 decision。
 
     Part 2 的 LLM ``is_primary_skill`` 判断回答："这个仓**主体**是一个可复用的
-    Agent Skill / Claude plugin，还是恰好捆了 skill 的 application/agent/framework/
-    CLI？"——对自动发现源（github-trending），主体不是 skill/plugin 的越界仓
-    直接 reject，不让它污染收录。
+    Agent Skill，还是恰好捆了 skill 的 application/agent/framework/CLI？"——对
+    自动发现源（github-trending）的 skill 条目，主体不是 skill 的越界仓直接
+    reject，不让它污染收录。
 
       - ``resource_authenticity.is_primary_skill == False`` → ``decision = "reject"``
         （同时镜像进 ``evaluation.decision``）
       - ``is_primary_skill == True`` 或缺 ``resource_authenticity`` 字段
         （LLM 失败/未评估）→ 不动 decision（缺字段即"未判定"，保守放行交其他闸门）
 
-    仅作用于 ``source == "github-trending"``，不影响任何其他源。与
-    :func:`_apply_security_to_decision` 并行，先于 reject 过滤段执行。
+    仅作用于 ``source == "github-trending" AND type == "skill"``，不影响任何其他源
+    或类型。**plugin 路由刻意排除**：plugin 本就是 bundle（捆 skills+commands+
+    agents+mcp），"是不是单一 skill"的框架会把合法 plugin marketplace（如 ECC 这种
+    既是 harness 又 ships marketplace.json 的仓）误判成 ``is_primary_skill=false``
+    而错杀。plugin 的权威信号是 ``install.marketplace_verified``
+    （``marketplace.json`` = 可安装 plugin 的权威信号），不该被 is_primary_skill
+    二次否决——即便历史遗留的 plugin 条目带了 resource_authenticity 字段也不被它
+    reject。与 :func:`_apply_security_to_decision` 并行，先于 reject 过滤段执行。
     """
     adjusted = 0
     for entry in entries:
         if (entry.get("source") or "") != GITHUB_TRENDING_SOURCE:
             continue
+        if (entry.get("type") or "") != "skill":
+            continue  # plugin 等非 skill 由 marketplace_verified 把关，不受此闸门
         authenticity = entry.get("resource_authenticity")
         if not isinstance(authenticity, dict):
             continue  # 缺字段 = 未判定（LLM 失败 / 非本源）→ 不动
