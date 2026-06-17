@@ -22,6 +22,7 @@ import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Optional
+from urllib.parse import quote
 
 # Reuse project utilities
 sys.path.insert(0, os.path.dirname(__file__))
@@ -46,6 +47,23 @@ _prompt_csv_cache: dict[str, list[dict]] = {}
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+
+def _quote_repo_path(path: str) -> str:
+    """Percent-encode a repo-relative path for use in a raw.githubusercontent URL.
+
+    raw.githubusercontent.com (and urllib/http.client, which require the HTTP
+    request line to be ASCII) reject non-ASCII bytes in the path. Cospower rules
+    carry CJK filenames (e.g. ``rules/dfx/安全.md``) → without encoding,
+    ``request.encode("ascii")`` raises UnicodeEncodeError and the fetch crashes.
+
+    ``safe="/"`` keeps the directory separators literal while percent-encoding
+    every path segment (CJK, spaces, etc.). The ENCODED form is only used to
+    build the fetch URL; the ORIGINAL path is still used for on-disk basenames so
+    files land under their real (non-ASCII) names. Idempotent for already-ASCII
+    paths (they pass through unchanged).
+    """
+    return quote(path, safe="/")
+
 
 def _write_file(path: str, content: str) -> None:
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -220,7 +238,12 @@ def _download_skill(
                 downloaded += 1
                 continue
 
-            raw = fetch_raw_content(repo, repo_path, branch, quiet_404=True)
+            # Percent-encode the repo path for the raw URL — a skill dir may
+            # carry non-ASCII sibling filenames; repo_path stays raw for the
+            # local_path written above.
+            raw = fetch_raw_content(
+                repo, _quote_repo_path(repo_path), branch, quiet_404=True
+            )
             if raw is not None:
                 _write_file(local_path, raw)
                 downloaded += 1
@@ -304,7 +327,20 @@ def _download_mcp(entry: dict, output_dir: str, force: bool = False) -> tuple[st
 # ---------------------------------------------------------------------------
 
 def _download_rule(entry: dict, output_dir: str, force: bool = False) -> tuple[str, bool, Optional[str]]:
-    """Download a single rule. Returns (kebab_name, success, error_msg)."""
+    """Download a single rule. Returns (kebab_name, success, error_msg).
+
+    Two install shapes are supported:
+      - Plugin-bundled rule (``install.repo`` + ``install.files=[<repo-path>]``):
+        fetched via the repo single-file downloader (path-faithful, frontmatter
+        injected) so the work tree mirrors ``rules/<group>/<file>.md``.
+      - Legacy rule (``install.files=[<raw-url>]`` only): fetched as a raw URL
+        into ``.cursorrules`` + a wrapping RULE.md (original behaviour).
+    """
+    install = entry.get("install", {}) or {}
+    if install.get("repo"):
+        td, fn = _SINGLE_FILE_TYPE_SPEC["rule"]
+        return _download_repo_single_file(entry, output_dir, td, fn, force)
+
     name = _kebab_name(entry)
     rule_dir = os.path.join(output_dir, "rules", name)
     rule_md_path = os.path.join(rule_dir, "RULE.md")
@@ -313,7 +349,6 @@ def _download_rule(entry: dict, output_dir: str, force: bool = False) -> tuple[s
     if not force and _file_exists(rule_md_path):
         return name, True, None
 
-    install = entry.get("install", {})
     files = install.get("files", [])
     raw_content: Optional[str] = None
     if files:
@@ -340,6 +375,93 @@ def _download_rule(entry: dict, output_dir: str, force: bool = False) -> tuple[s
         _write_file(rule_md_path, md_content)
 
     return name, True, None
+
+
+# ---------------------------------------------------------------------------
+# Single-file plugin children (commands / subagents / templates / repo-based rules)
+# ---------------------------------------------------------------------------
+
+# type → (type-dir, primary filename). The primary file mirrors the per-type
+# convention costrict-web ingest expects (typeDirAndFile). Keep aligned with
+# _PRIMARY_FILE_BY_TYPE / build_catalog_bundle.TYPE_DIR_AND_FILE and the merge
+# _SOURCE_TO_TYPE_DIR table.
+_SINGLE_FILE_TYPE_SPEC = {
+    "command":  ("commands",  "COMMAND.md"),
+    "subagent": ("subagents", "AGENT.md"),
+    "template": ("templates", "TEMPLATE.md"),
+    "rule":     ("rules",     "RULE.md"),
+}
+
+
+def _download_repo_single_file(
+    entry: dict, output_dir: str, type_dir: str, filename: str, force: bool = False
+) -> tuple[str, bool, Optional[str]]:
+    """Fetch one repo-relative file for a synthesized plugin child.
+
+    Writes ``<type_dir>/<id>/<filename>`` with frontmatter injected, plus the
+    original file preserved verbatim at its real basename so the work tree
+    keeps the authentic content. Returns (kebab_name, success, error_msg).
+    """
+    name = _kebab_name(entry)
+    out_dir = os.path.join(output_dir, type_dir, name)
+    primary_path = os.path.join(out_dir, filename)
+
+    if not force and _file_exists(primary_path):
+        return name, True, None
+
+    repo, branch, file_path = _repo_branch_and_dir(entry)
+    raw_content: Optional[str] = None
+    if repo and file_path:
+        # Percent-encode the path for the raw URL (CJK rule filenames otherwise
+        # crash urllib's ASCII request line). file_path itself stays raw for the
+        # on-disk basename below.
+        raw_content = fetch_raw_content(
+            repo, _quote_repo_path(file_path), branch, quiet_404=True
+        )
+
+    if raw_content is None:
+        # Minimal placeholder so the entry still materializes (and survives the
+        # reconciliation filter) even when the upstream file 404s.
+        content = _build_frontmatter(
+            name=entry.get("name", name),
+            description=entry.get("description", ""),
+            category=entry.get("category", ""),
+        )
+        content += f"\n# {entry.get('name', name)}\n\n{entry.get('description', '')}\n"
+        _write_file(primary_path, content)
+        return name, True, "source file unavailable; wrote placeholder"
+
+    # Preserve the verbatim file under its real basename (so SKILL.md-style
+    # sibling content is faithful), and write the canonical primary file with
+    # frontmatter for downstream parsers.
+    if file_path:
+        basename = file_path.rstrip("/").rsplit("/", 1)[-1]
+        if basename and basename != filename:
+            _write_file(os.path.join(out_dir, basename), raw_content)
+
+    primary_content = _inject_frontmatter(
+        raw_content,
+        name=entry.get("name", name),
+        description=entry.get("description", ""),
+        category=entry.get("category", ""),
+    )
+    _write_file(primary_path, primary_content)
+    return name, True, None
+
+
+def _download_command(entry, output_dir, force=False):
+    td, fn = _SINGLE_FILE_TYPE_SPEC["command"]
+    return _download_repo_single_file(entry, output_dir, td, fn, force)
+
+
+def _download_subagent(entry, output_dir, force=False):
+    td, fn = _SINGLE_FILE_TYPE_SPEC["subagent"]
+    return _download_repo_single_file(entry, output_dir, td, fn, force)
+
+
+def _download_template(entry, output_dir, force=False):
+    td, fn = _SINGLE_FILE_TYPE_SPEC["template"]
+    return _download_repo_single_file(entry, output_dir, td, fn, force)
 
 
 # ---------------------------------------------------------------------------
@@ -524,6 +646,11 @@ DOWNLOADERS = {
     "rule": _download_rule,
     "prompt": _download_prompt,
     "plugin": _download_plugin,
+    # Plugin-bundled single-file children (commands/agents/templates). evaluators
+    # are synthesized as type=skill and reuse _download_skill (directory fetch).
+    "command": _download_command,
+    "subagent": _download_subagent,
+    "template": _download_template,
 }
 
 
@@ -566,11 +693,14 @@ def _download_batch(
 # catalog-download/. Mirrors TYPE_DIR_AND_FILE in scripts/build_catalog_bundle.py
 # — keep the two in sync if either changes.
 _PRIMARY_FILE_BY_TYPE = {
-    "skill":  ("skills",  "SKILL.md"),
-    "mcp":    ("mcp",     ".mcp.json"),
-    "rule":   ("rules",   "RULE.md"),
-    "prompt": ("prompts", "PROMPT.md"),
-    "plugin": ("plugins", ".plugin.json"),
+    "skill":    ("skills",    "SKILL.md"),
+    "mcp":      ("mcp",       ".mcp.json"),
+    "rule":     ("rules",     "RULE.md"),
+    "prompt":   ("prompts",   "PROMPT.md"),
+    "plugin":   ("plugins",   ".plugin.json"),
+    "command":  ("commands",  "COMMAND.md"),
+    "subagent": ("subagents", "AGENT.md"),
+    "template": ("templates", "TEMPLATE.md"),
 }
 
 
@@ -641,7 +771,13 @@ def run(
 ) -> None:
     """Main entry point."""
     os.makedirs(output_dir, exist_ok=True)
-    types = types or ["skills", "mcp", "rules", "prompts", "plugins"]
+    # Plugin-bundled single-file children live in their own type dirs
+    # (commands/subagents/templates); evaluators ride inside skills/ as
+    # type=skill, rules inside the existing rules/ dir.
+    types = types or [
+        "skills", "mcp", "rules", "prompts", "plugins",
+        "commands", "subagents", "templates",
+    ]
 
     all_successes: list[str] = []
     all_errors: list[str] = []
@@ -711,7 +847,7 @@ def main():
     )
     parser.add_argument(
         "--types", "-t",
-        default="skills,mcp,rules,prompts,plugins",
+        default="skills,mcp,rules,prompts,plugins,commands,subagents,templates",
         help="Comma-separated list of types to download (default: all)",
     )
     parser.add_argument(

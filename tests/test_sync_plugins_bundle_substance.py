@@ -224,12 +224,26 @@ def test_official_sync_fills_bundle_from_layout(monkeypatch, tmp_path):
     assert foo["bundle"]["commands_count"] == 1
     assert foo["bundle"]["agents_count"] == 0
     assert foo["bundle"]["skills_namespaces"] == ["foo:bar"]
+    # NEW: command_paths + commands_namespaces emitted, position-aligned, and
+    # carrying the source coordinates merge_index needs to synthesize children.
+    assert foo["bundle"]["command_paths"] == ["plugins/foo/commands/run.md"]
+    assert foo["bundle"]["commands_namespaces"] == ["foo:run"]
+    assert foo["bundle"]["agent_paths"] == []
+    assert foo["bundle"]["agents_namespaces"] == []
+    assert foo["bundle"]["source_repo"] == "anthropics/claude-plugins-official"
+    assert foo["bundle"]["plugin_root"] == "plugins/foo"
 
     baz = by_id["anthropic-baz"]
     assert baz["bundle"]["skills_count"] == 0
     assert baz["bundle"]["agents_count"] == 1
     assert baz["bundle"]["commands_count"] == 0
     assert baz["bundle"]["skills_namespaces"] == []
+    # NEW: agent_paths + agents_namespaces emitted (no skills → prefix falls back
+    # to the layout-derived plugin name "baz").
+    assert baz["bundle"]["agent_paths"] == ["plugins/baz/agents/x.md"]
+    assert baz["bundle"]["agents_namespaces"] == ["baz:x"]
+    assert baz["bundle"]["command_paths"] == []
+    assert baz["bundle"]["commands_namespaces"] == []
 
     # Legacy shell — no plugin.json marker → bundle stays at zeros.
     legacy = by_id["anthropic-legacy"]

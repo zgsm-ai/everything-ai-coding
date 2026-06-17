@@ -27,6 +27,14 @@ FAKE_TREE = [
     "cospowers-requirements-plugin/skills/aireq-evaluator/SKILL.md",
     "cospowers-requirements-plugin/skills/sysreq-evaluator/SKILL.md",
     "cospowers-requirements-plugin/skills/aireq-evaluator/README.zh.md",  # not a SKILL.md
+    # evaluators (directory type — like skills, different dir)
+    "cospowers-requirements-plugin/evaluators/aireq-evaluator/SKILL.md",
+    "cospowers-requirements-plugin/evaluators/aireq-evaluator/README.zh.md",
+    # rules: NESTED under groups, with non-ASCII filenames (path-faithful)
+    "cospowers-requirements-plugin/rules/dfx/安全.md",
+    "cospowers-requirements-plugin/rules/requirement-checklists/baseline-checklist.md",
+    # templates: flat single files
+    "cospowers-requirements-plugin/templates/user-requirement-template.md",
     "cospowers-tdd-development-plugin/.claude-plugin/plugin.json",
     "cospowers-tdd-development-plugin/.claude-plugin/marketplace.json",
     "cospowers-tdd-development-plugin/skills/tdd-loop/SKILL.md",
@@ -103,6 +111,81 @@ def test_compute_bundle_counts_skills_namespaces_and_agents():
     assert b2["skills_count"] == 1
     assert b2["agents_count"] == 1
     assert b2["commands_count"] == 1
+
+
+def test_compute_bundle_captures_evaluators_as_directory_paths():
+    """evaluators/<name>/SKILL.md → position-aligned namespaces + verbatim paths
+    (directory type, same shape as skills)."""
+    b = scp.compute_bundle(
+        FAKE_TREE, "cospowers-requirements-plugin", "cospowers-requirements"
+    )
+    assert b["evaluators_count"] == 1
+    assert b["evaluators_namespaces"] == ["cospowers-requirements:aireq-evaluator"]
+    assert b["evaluator_paths"] == [
+        "cospowers-requirements-plugin/evaluators/aireq-evaluator/SKILL.md"
+    ]
+    # README.zh.md siblings must NOT spawn an extra evaluator.
+    assert len(b["evaluator_paths"]) == b["evaluators_count"] == 1
+
+
+def test_compute_bundle_captures_nested_rules_path_faithful():
+    """rules/<group>/<file>.md are NESTED and may carry non-ASCII filenames.
+    Paths must be VERBATIM (path-faithful) and namespaces keep the <group>/<file>
+    shape so the synthesized id round-trips."""
+    b = scp.compute_bundle(
+        FAKE_TREE, "cospowers-requirements-plugin", "cospowers-requirements"
+    )
+    assert b["rules_count"] == 2
+    # sorted by name; non-ASCII first under dfx/, then requirement-checklists/
+    assert b["rule_paths"] == [
+        "cospowers-requirements-plugin/rules/dfx/安全.md",
+        "cospowers-requirements-plugin/rules/requirement-checklists/baseline-checklist.md",
+    ]
+    assert b["rules_namespaces"] == [
+        "cospowers-requirements:dfx/安全",
+        "cospowers-requirements:requirement-checklists/baseline-checklist",
+    ]
+    # position alignment: namespaces[i] ↔ rule_paths[i]
+    assert len(b["rules_namespaces"]) == len(b["rule_paths"]) == b["rules_count"]
+
+
+def test_compute_bundle_captures_templates_flat():
+    b = scp.compute_bundle(
+        FAKE_TREE, "cospowers-requirements-plugin", "cospowers-requirements"
+    )
+    assert b["templates_count"] == 1
+    assert b["templates_namespaces"] == [
+        "cospowers-requirements:user-requirement-template"
+    ]
+    assert b["template_paths"] == [
+        "cospowers-requirements-plugin/templates/user-requirement-template.md"
+    ]
+
+
+def test_compute_bundle_captures_commands_and_agents_paths():
+    """commands/agents now also carry position-aligned *_paths (not just counts)."""
+    b = scp.compute_bundle(
+        FAKE_TREE, "cospowers-tdd-development-plugin", "cospowers-tdd-development"
+    )
+    assert b["commands_count"] == 1
+    assert b["command_paths"] == ["cospowers-tdd-development-plugin/commands/run.md"]
+    assert b["commands_namespaces"] == ["cospowers-tdd-development:run"]
+    assert b["agents_count"] == 1
+    assert b["agent_paths"] == [
+        "cospowers-tdd-development-plugin/agents/code-reviewer.md"
+    ]
+    assert b["agents_namespaces"] == ["cospowers-tdd-development:code-reviewer"]
+
+
+def test_compute_bundle_source_coordinates_present_for_all_kinds():
+    """source_repo/source_ref/plugin_root must be present so merge_index can
+    synthesize a working git_clone install for EVERY kind."""
+    b = scp.compute_bundle(
+        FAKE_TREE, "cospowers-requirements-plugin", "cospowers-requirements"
+    )
+    assert b["source_repo"] == scp.CSC_REPO
+    assert b["source_ref"] == scp.CSC_BRANCH
+    assert b["plugin_root"] == "cospowers-requirements-plugin"
 
 
 # ---------------------------------------------------------------------------

@@ -24,15 +24,31 @@ def _load_entries(path: Path) -> list[dict]:
     return data
 
 
+# Per-type primary file under catalog-download/. Mirrors
+# download_catalog._PRIMARY_FILE_BY_TYPE / build_catalog_bundle.TYPE_DIR_AND_FILE.
+_PRIMARY_FILE_BY_TYPE = {
+    "skill":    ("skills",    "SKILL.md"),
+    "mcp":      ("mcp",       ".mcp.json"),
+    "rule":     ("rules",     "RULE.md"),
+    "command":  ("commands",  "COMMAND.md"),
+    "subagent": ("subagents", "AGENT.md"),
+    "template": ("templates", "TEMPLATE.md"),
+}
+
+
+def _is_child_type(entry: dict) -> bool:
+    return entry.get("type") in _PRIMARY_FILE_BY_TYPE
+
+
 def _primary_file(download_dir: Path, entry: dict) -> Path | None:
     entry_id = entry.get("id")
     if not isinstance(entry_id, str) or not entry_id:
         return None
-    if entry.get("type") == "skill":
-        return download_dir / "skills" / entry_id / "SKILL.md"
-    if entry.get("type") == "mcp":
-        return download_dir / "mcp" / entry_id / ".mcp.json"
-    return None
+    spec = _PRIMARY_FILE_BY_TYPE.get(entry.get("type") or "")
+    if spec is None:
+        return None
+    type_dir, filename = spec
+    return download_dir / type_dir / entry_id / filename
 
 
 def validate(index_path: Path, download_dir: Path) -> int:
@@ -54,37 +70,36 @@ def validate(index_path: Path, download_dir: Path) -> int:
             plugin_declares_mcp += 1
             declared_mcp_slots += len(mcps)
 
-    child_skills = [
+    # Every entry carrying bundled_in whose type has a known primary file is a
+    # plugin child we expect on disk (skill/mcp + command/subagent/rule/template).
+    children = [
         e for e in entries
-        if e.get("type") == "skill" and isinstance(e.get("bundled_in"), str) and e.get("bundled_in")
-    ]
-    child_mcps = [
-        e for e in entries
-        if e.get("type") == "mcp" and isinstance(e.get("bundled_in"), str) and e.get("bundled_in")
+        if isinstance(e.get("bundled_in"), str) and e.get("bundled_in")
+        and _is_child_type(e)
     ]
 
     missing: list[tuple[str, str, str]] = []
-    present_skill_files = 0
-    present_mcp_files = 0
-    for entry in child_skills + child_mcps:
+    present_by_type: dict[str, int] = {}
+    for entry in children:
         target = _primary_file(download_dir, entry)
         if target is not None and target.is_file() and target.stat().st_size > 0:
-            if entry.get("type") == "skill":
-                present_skill_files += 1
-            else:
-                present_mcp_files += 1
+            present_by_type[entry.get("type", "")] = (
+                present_by_type.get(entry.get("type", ""), 0) + 1
+            )
             continue
         missing.append((entry.get("type", ""), entry.get("id", ""), str(target or "")))
+
+    entries_by_type: dict[str, int] = {}
+    for e in children:
+        entries_by_type[e.get("type", "")] = entries_by_type.get(e.get("type", ""), 0) + 1
 
     print(f"plugins_total={len(plugins)}")
     print(f"plugin_declares_skills={plugin_declares_skills}")
     print(f"declared_skill_slots={declared_skill_slots}")
     print(f"plugin_declares_mcp={plugin_declares_mcp}")
     print(f"declared_mcp_slots={declared_mcp_slots}")
-    print(f"bundled_skill_entries={len(child_skills)}")
-    print(f"bundled_mcp_entries={len(child_mcps)}")
-    print(f"bundled_skill_files_present={present_skill_files}")
-    print(f"bundled_mcp_files_present={present_mcp_files}")
+    print(f"bundled_child_entries_by_type={entries_by_type}")
+    print(f"bundled_child_files_present_by_type={present_by_type}")
     print(f"bundled_child_files_missing={len(missing)}")
     for item_type, entry_id, path in missing[:20]:
         print(f"missing {item_type} {entry_id}: {path}")

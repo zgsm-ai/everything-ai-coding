@@ -50,12 +50,19 @@ def sha256_file(path: Path) -> str:
     return h.hexdigest()
 
 
+# Per-type primary file under catalog-download/. MUST stay aligned with
+# download_catalog._PRIMARY_FILE_BY_TYPE and the merge _SOURCE_TO_TYPE_DIR table
+# — a type missing here is silently dropped from the bundle as ``unknown_type``
+# even when its file exists on disk.
 TYPE_DIR_AND_FILE = {
-    "mcp":    ("mcp",     ".mcp.json"),
-    "skill":  ("skills",  "SKILL.md"),
-    "plugin": ("plugins", ".plugin.json"),
-    "prompt": ("prompts", "PROMPT.md"),
-    "rule":   ("rules",   "RULE.md"),
+    "mcp":      ("mcp",       ".mcp.json"),
+    "skill":    ("skills",    "SKILL.md"),
+    "plugin":   ("plugins",   ".plugin.json"),
+    "prompt":   ("prompts",   "PROMPT.md"),
+    "rule":     ("rules",     "RULE.md"),
+    "command":  ("commands",  "COMMAND.md"),
+    "subagent": ("subagents", "AGENT.md"),
+    "template": ("templates", "TEMPLATE.md"),
 }
 
 

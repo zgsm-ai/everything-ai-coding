@@ -109,6 +109,203 @@ def _synthetic_mcp_id(plugin_id: str, server_name: str, existing_ids: set[str]) 
     return f"{base}-{digest[:8]}-{counter}"
 
 
+# ---------------------------------------------------------------------------
+# Generic plugin-bundled child kinds
+#
+# Every functional component a plugin ships (beyond skills + MCP) is synthesized
+# into a standalone, path-faithful catalog entry via the same machinery the
+# orphan-skill / bundled-mcp paths already use. The table below is the single
+# source of truth tying together: the bundle fields the sync stage emits
+# (``<ns_field>`` / ``<paths_field>``), the catalog entry ``type``, the
+# ``source`` provenance tag (used by score-backfill / prune / type-index sync),
+# whether the on-disk component is a DIRECTORY (skill-style, all sibling files
+# travel) or a single FILE, and the per-type download dir.
+#
+# NOTE: ``type`` values MUST stay aligned with three other layers (or children
+# get dropped / mistyped):
+#   - catalog/schema.json  ``type`` enum  (mcp/skill/rule/prompt/plugin + template/command/subagent)
+#   - download_catalog.py  DOWNLOADERS / _PRIMARY_FILE_BY_TYPE
+#   - costrict-web         parser_service.InferItemType + catalog_ingest_service.typeDirAndFile
+# ---------------------------------------------------------------------------
+
+class _ChildKind:
+    __slots__ = ("kind", "ns_field", "paths_field", "type", "source", "is_dir", "type_dir")
+
+    def __init__(self, kind, ns_field, paths_field, type, source, is_dir, type_dir):
+        self.kind = kind
+        self.ns_field = ns_field
+        self.paths_field = paths_field
+        self.type = type
+        self.source = source
+        self.is_dir = is_dir
+        self.type_dir = type_dir
+
+
+# Skills keep their dedicated match-or-synthesize path (they can match an
+# existing catalog skill). The kinds below are ALWAYS synthesized fresh from
+# the plugin bundle — they have no standalone catalog source to match against.
+_BUNDLED_CHILD_KINDS: list[_ChildKind] = [
+    # evaluators ship as a skill (directory with SKILL.md + siblings).
+    _ChildKind("evaluator", "evaluators_namespaces", "evaluator_paths",
+               "skill", "plugin-bundled-evaluator", True, "skills"),
+    _ChildKind("command", "commands_namespaces", "command_paths",
+               "command", "plugin-bundled-command", False, "commands"),
+    _ChildKind("agent", "agents_namespaces", "agent_paths",
+               "subagent", "plugin-bundled-subagent", False, "subagents"),
+    _ChildKind("rule", "rules_namespaces", "rule_paths",
+               "rule", "plugin-bundled-rule", False, "rules"),
+    _ChildKind("template", "templates_namespaces", "template_paths",
+               "template", "plugin-bundled-template", False, "templates"),
+]
+
+# All synthesized child provenance tags (skill + mcp + the generic kinds).
+# Anything that filters/keys on "is this a synthesized plugin child" must use
+# this set so a newly-added kind is picked up everywhere automatically.
+_PLUGIN_BUNDLED_SOURCES: set[str] = {"plugin-bundled-skill", "plugin-bundled-mcp"} | {
+    k.source for k in _BUNDLED_CHILD_KINDS
+}
+
+# source tag → per-type catalog dir, for _sync_synthesized_children_to_type_indexes.
+# Skills (incl. evaluators) land in skills/, mcp in mcp/, and each new kind in
+# its own dir. MISSING A BUCKET HERE = synthesized children never reach a type
+# index → download_catalog skips them → bundle drops them as orphans (silent).
+_SOURCE_TO_TYPE_DIR: dict[str, str] = {
+    "plugin-bundled-skill": "skills",
+    "plugin-bundled-mcp": "mcp",
+    **{k.source: k.type_dir for k in _BUNDLED_CHILD_KINDS},
+}
+
+
+def _synthetic_child_id(
+    plugin_id: str, kind: str, name: str, existing_ids: set[str]
+) -> str:
+    """Build a kebab-safe, collision-free id for a synthesized plugin child.
+
+    Mirrors ``_synthetic_skill_id`` (idempotent under ``to_kebab_case`` so the
+    on-disk download folder == the raw id the web hub looks up) but namespaces
+    the id with ``-<kind>-`` so a command and a rule of the same name don't
+    collide. ``name`` may carry a nested ``<group>/<file>`` prefix (rules);
+    ``to_kebab_case`` flattens the slash into a hyphen.
+    """
+    base = f"{to_kebab_case(plugin_id)}-{kind}-{to_kebab_case(name)}"
+    base = to_kebab_case(base)
+    if base not in existing_ids:
+        return base
+    digest = hashlib.sha1(f"{plugin_id}:{kind}:{name}".encode("utf-8")).hexdigest()
+    for length in (8, 12, 40):
+        candidate = f"{base}-{digest[:length]}"
+        if candidate not in existing_ids:
+            return candidate
+    counter = 2
+    while f"{base}-{digest[:8]}-{counter}" in existing_ids:
+        counter += 1
+    return f"{base}-{digest[:8]}-{counter}"
+
+
+def _plugin_root_relative(repo_path: str | None, plugin_root: str | None) -> str | None:
+    """Strip the ``<plugin_root>/`` prefix from a repo-relative path.
+
+    The outward ``source_path`` (consumed by costrict-web as item.SourcePath and
+    used by the frontend to build the work tree) MUST be **plugin-root relative**
+    so it matches the archive-upload path root exactly (e.g. ``rules/dfx/安全.md``,
+    ``skills/<n>/SKILL.md``). Otherwise the tree gains a spurious top-level
+    plugin-dir layer and catalog ↔ archive children diverge.
+
+    Download/content fetch still uses the FULL repo-relative path (install.path /
+    install.files); only this outward field is rebased. Defensive: if the path
+    does not start with the plugin_root prefix, it is returned unchanged.
+    """
+    if not isinstance(repo_path, str) or not repo_path:
+        return repo_path
+    root = (plugin_root or "").strip().strip("/")
+    if root:
+        prefix = root + "/"
+        if repo_path.startswith(prefix):
+            return repo_path[len(prefix):]
+    return repo_path
+
+
+def _synthesize_bundled_child_entry(
+    plugin: dict,
+    spec: "_ChildKind",
+    child_name: str,
+    child_path: str,
+    source_repo: str | None,
+    source_ref: str | None,
+    synthetic_id: str,
+    plugin_root: str | None = None,
+) -> dict:
+    """Construct a standalone catalog entry of ``spec.type`` for one plugin-bundled
+    component (command / subagent / evaluator / rule / template).
+
+    The entry carries an ``install.git_clone`` block whose ``path`` is the
+    FULL repo-relative path of the component (``<plugin_root>/...``) so
+    ``download_catalog`` fetches the right raw URL; ``files=[<path>]`` is set for
+    single-file kinds so it fetches just that file; directory kinds (evaluators)
+    set ``path`` to the directory so all siblings travel (skill-style download).
+
+    ``source_path`` (the OUTWARD field downstream web ingest stores as
+    item.SourcePath and the frontend builds the work tree from) is rebased to be
+    **plugin-root relative** — identical to the archive-upload path root — so the
+    GitHub-style tree has no spurious plugin-dir layer and the catalog/archive
+    children agree.
+    """
+    plugin_id = plugin.get("id") or ""
+    repo = (source_repo or "").strip()
+    branch = (source_ref or "").strip() or "HEAD"
+
+    install: dict[str, Any] = {"method": "git_clone"}
+    install_path = child_path
+    if spec.is_dir and isinstance(child_path, str) and child_path:
+        # Directory kind: install.path is the parent dir (drop /SKILL.md).
+        install_path = child_path.rsplit("/SKILL.md", 1)[0].strip("/")
+    if repo:
+        install["repo"] = f"https://github.com/{repo}.git"
+        install["branch"] = branch
+    if install_path:
+        install["path"] = install_path
+    if not spec.is_dir and child_path:
+        # Single-file kind: pin the exact (full repo-relative) file so download
+        # fetches just it.
+        install["files"] = [child_path]
+
+    if repo and install_path:
+        source_url = f"https://github.com/{repo}/tree/{branch}/{install_path}"
+    else:
+        source_url = plugin.get("source_url") or _PLACEHOLDER_SOURCE_URL
+
+    display_name = child_name.rsplit("/", 1)[-1]
+    description = (
+        f"Bundled {spec.kind} {display_name} from plugin "
+        f"{plugin.get('name') or plugin_id}"
+    ).strip()
+    tags = extract_tags(display_name, description)
+    category = categorize(display_name, description, tags)
+
+    entry: dict[str, Any] = {
+        "id": synthetic_id,
+        "name": display_name,
+        "type": spec.type,
+        "description": description,
+        "source_url": source_url,
+        "stars": plugin.get("stars"),
+        "pushed_at": plugin.get("pushed_at"),
+        "category": category,
+        "tags": tags,
+        "tech_stack": [],
+        "install": install,
+        "bundled_in": plugin_id,
+        # Plugin-root-relative (NOT repo-relative): matches the archive-upload
+        # path root so the work tree mirrors the real layout WITHOUT a spurious
+        # <plugin_root>/ level, and catalog ↔ archive children stay identical.
+        "source_path": _plugin_root_relative(child_path, plugin_root),
+        "final_score": plugin.get("final_score", 0) or 0,
+        "source": spec.source,
+        "last_synced": TODAY,
+    }
+    return entry
+
+
 def _synthesize_orphan_skill_entry(
     plugin: dict,
     skill_name: str,
@@ -116,16 +313,26 @@ def _synthesize_orphan_skill_entry(
     source_repo: str | None,
     source_ref: str | None,
     synthetic_id: str,
+    plugin_root: str | None = None,
 ) -> dict:
     """Construct a standalone ``type=skill`` catalog entry for an orphan
-    sub-skill declared by ``plugin`` but absent from the catalog.
+    sub-skill bundled by ``plugin`` but absent from the catalog (the common
+    cospower case — their 9–15 skills live only inside the plugin).
 
     The entry carries an ``install.git_clone`` block pointing at the skill's
-    directory so ``download_catalog._download_skill`` can fetch SKILL.md (and
-    siblings) into ``catalog-download/skills/<synthetic_id>/SKILL.md`` — exactly
-    the path costrict-web ingest reads. ``final_score`` is inherited from the
-    parent later (after governance promotes it); here it is initialized so the
-    field is present even if backfill is skipped.
+    directory (FULL repo-relative) so ``download_catalog._download_skill`` can
+    fetch SKILL.md (and siblings) into ``catalog-download/skills/<synthetic_id>/SKILL.md``.
+
+    The OUTWARD ``source_path`` is set to the **plugin-root-relative real path**
+    (e.g. ``skills/<name>/SKILL.md`` / ``evaluators/<name>/SKILL.md``) — identical
+    to the archive-upload root and to the generic child kinds — so the web hub
+    work tree mirrors GitHub at the real path, not a synthetic-id stub. This
+    only affects BUNDLED sub-skills (the entry always carries ``bundled_in`` +
+    ``source=plugin-bundled-skill``); independent catalog skills are never touched
+    by this factory.
+
+    ``final_score`` is inherited from the parent later (after governance promotes
+    it); here it is initialized so the field is present even if backfill is skipped.
     """
     plugin_id = plugin.get("id") or ""
     repo = (source_repo or "").strip()
@@ -171,6 +378,9 @@ def _synthesize_orphan_skill_entry(
         "tech_stack": [],
         "install": install,
         "bundled_in": plugin_id,
+        # Plugin-root-relative real path (matches archive root + generic kinds),
+        # so the work tree shows skills/<name>/SKILL.md not skills/<synthetic-id>/.
+        "source_path": _plugin_root_relative(skill_path, plugin_root),
         # Inherited from the parent plugin after governance promotes its
         # top-level final_score (see merge() final_score backfill). Seeded to 0
         # so the field is always present and schema-valid.
@@ -192,6 +402,12 @@ def _synthesize_bundled_mcp_entry(
     The entry carries ``install.config`` directly so download_catalog._download_mcp
     can write a valid ``catalog-download/mcp/<id>/.mcp.json`` without cloning the
     full plugin repository.
+
+    NOTE: deliberately NO ``source_path``. An MCP child is a server keyed inside a
+    shared ``.mcp.json`` (``mcpServers.<name>``), not a faithful single file —
+    downstream costrict-web identifies it as ``<path>#<server-key>`` (synthetic,
+    capability_item.go:2874), and the frontend tree normalizes that ``#key`` form
+    specially. Forcing a plain path-faithful source_path here would be wrong.
     """
     plugin_id = plugin.get("id") or ""
     description = f"Bundled MCP server {server_name} from plugin {plugin.get('name') or plugin_id}".strip()
@@ -320,6 +536,7 @@ def _apply_bundled_in_annotations(entries: list[dict], log=logger) -> list[dict]
             skill_paths = []
         bundle_source_repo = bundle.get("source_repo")
         bundle_source_ref = bundle.get("source_ref")
+        bundle_plugin_root = bundle.get("plugin_root")
         if not namespaces:
             log.debug(
                 "post-merge: plugin %s has no skills_namespaces; skipping",
@@ -419,6 +636,7 @@ def _apply_bundled_in_annotations(entries: list[dict], log=logger) -> list[dict]
                         bundle_source_repo,
                         bundle_source_ref,
                         synthetic_id,
+                        bundle_plugin_root,
                     )
                     synthesized.append(synthetic_entry)
                     bundled_skill_ids.append(synthetic_id)
@@ -445,6 +663,18 @@ def _apply_bundled_in_annotations(entries: list[dict], log=logger) -> list[dict]
             if plugin_id:
                 target["bundled_in"] = plugin_id
                 annotated += 1
+                # Backfill the plugin-root-relative real source_path on the
+                # MATCHED/REUSED skill from THIS bundle's skill_paths, even if the
+                # existing entry already had a (None/stale) source_path. Without
+                # this, cospower skills already present in catalog/skills/index.json
+                # from an earlier (pre-P3) synthesis keep source_path=None and the
+                # web work tree never mirrors their real path. install/source_url
+                # on the existing entry are left untouched.
+                skill_path = skill_paths[i] if i < len(skill_paths) else None
+                if isinstance(skill_path, str) and skill_path:
+                    target["source_path"] = _plugin_root_relative(
+                        skill_path, bundle_plugin_root
+                    )
         # Write reverse mapping back onto the plugin entry. We only reach this
         # point when ``namespaces`` was a non-empty list (the earlier guards
         # ``continue`` for empty/missing/non-list cases), so per-spec we are
@@ -504,6 +734,104 @@ def _apply_bundled_in_annotations(entries: list[dict], log=logger) -> list[dict]
         if bundled_mcp_ids:
             plugin.setdefault("bundle", {})["bundled_mcp_ids"] = bundled_mcp_ids
 
+    # --- Generic plugin-bundled children: commands / subagents / evaluators /
+    # rules / templates. Unlike skills these never match a STANDALONE catalog
+    # entry, but a prior merge run may have already synthesized them (they get
+    # re-loaded from their type index into this pass). To stay idempotent we
+    # REUSE the existing synthesized child (keyed by parent + source + repo
+    # path) instead of minting a colliding duplicate. ---
+    # Path-keyed index: matches re-loaded children that already carry the
+    # correct plugin-root-relative source_path.
+    existing_child_by_key: dict[tuple[str, str, str], dict] = {}
+    # Id-keyed index: also matches re-loaded children whose source_path is
+    # None/missing/stale (e.g. pre-P3 synthesized cospower children). Their id
+    # is deterministic, so we re-derive the prospective id and reuse + backfill.
+    existing_child_by_id: dict[str, dict] = {}
+    for e in entries:
+        src = e.get("source")
+        parent = e.get("bundled_in")
+        sp = e.get("source_path")
+        eid = e.get("id")
+        if src in _PLUGIN_BUNDLED_SOURCES and isinstance(parent, str) and parent:
+            if isinstance(sp, str) and sp:
+                existing_child_by_key.setdefault((parent, src, sp), e)
+            if isinstance(eid, str) and eid:
+                existing_child_by_id.setdefault(eid, e)
+
+    synthesized_child_counts: dict[str, int] = {}
+    for plugin in plugin_entries:
+        plugin_id = plugin.get("id") or ""
+        bundle = plugin.get("bundle") or {}
+        if not plugin_id:
+            continue
+        source_repo = bundle.get("source_repo")
+        source_ref = bundle.get("source_ref")
+        plugin_root = bundle.get("plugin_root")
+        for spec in _BUNDLED_CHILD_KINDS:
+            namespaces = bundle.get(spec.ns_field)
+            paths = bundle.get(spec.paths_field)
+            if not isinstance(namespaces, list) or not namespaces:
+                continue
+            if not isinstance(paths, list):
+                paths = []
+            reverse_ids: list[str | None] = []
+            for i, ns in enumerate(namespaces):
+                child_path = paths[i] if i < len(paths) else None
+                child_name = ns.split(":", 1)[1] if isinstance(ns, str) and ":" in ns else ns
+                if not isinstance(child_name, str) or not child_name or not child_path or not source_repo:
+                    # No usable path/repo → cannot materialize content; record
+                    # None to keep position alignment (matches skill behaviour).
+                    reverse_ids.append(None)
+                    if not (isinstance(child_name, str) and child_name and child_path and source_repo):
+                        log.warning(
+                            "post-merge: plugin %s declares %s %r but cannot "
+                            "synthesize (missing path/source_repo in bundle)",
+                            plugin_id, spec.kind, ns,
+                        )
+                    continue
+                # Idempotent reuse: a prior run already synthesized this exact
+                # child → keep its id, don't duplicate. Match first by the OUTWARD
+                # (plugin-root-relative) source_path; then fall back to the
+                # deterministic synthetic id so we ALSO catch re-loaded children
+                # whose persisted source_path is None/stale (pre-P3 entries).
+                outward_path = _plugin_root_relative(child_path, plugin_root)
+                existing_child = existing_child_by_key.get(
+                    (plugin_id, spec.source, outward_path)
+                )
+                if existing_child is None:
+                    prospective_id = _synthetic_child_id(
+                        plugin_id, spec.kind, child_name, set()
+                    )
+                    candidate = existing_child_by_id.get(prospective_id)
+                    if candidate is not None and candidate.get("source") == spec.source:
+                        existing_child = candidate
+                if existing_child is not None:
+                    # ALWAYS backfill the plugin-root-relative source_path from
+                    # the current bundle (even if the existing entry's was
+                    # None/stale) so re-used children stay path-faithful.
+                    existing_child["source_path"] = outward_path
+                    existing_id = existing_child.get("id")
+                    reverse_ids.append(existing_id if isinstance(existing_id, str) else None)
+                    # Keep both indexes consistent for subsequent lookups.
+                    existing_child_by_key[(plugin_id, spec.source, outward_path)] = existing_child
+                    continue
+                synthetic_id = _synthetic_child_id(
+                    plugin_id, spec.kind, child_name, existing_ids
+                )
+                existing_ids.add(synthetic_id)
+                synthetic_entry = _synthesize_bundled_child_entry(
+                    plugin, spec, child_name, child_path,
+                    source_repo, source_ref, synthetic_id, plugin_root,
+                )
+                synthesized.append(synthetic_entry)
+                existing_child_by_key[(plugin_id, spec.source, outward_path)] = synthetic_entry
+                existing_child_by_id[synthetic_id] = synthetic_entry
+                reverse_ids.append(synthetic_id)
+                synthesized_child_counts[spec.kind] = (
+                    synthesized_child_counts.get(spec.kind, 0) + 1
+                )
+            plugin.setdefault("bundle", {})[f"bundled_{spec.kind}_ids"] = reverse_ids
+
     # Append synthesized child entries last so they don't participate in this
     # pass's matching indexes (they already carry bundled_in; re-matching them
     # against plugins would be redundant and could double-attribute).
@@ -513,12 +841,13 @@ def _apply_bundled_in_annotations(entries: list[dict], log=logger) -> list[dict]
     log.info(
         "post-merge: scanned %d plugins, annotated %d skills with bundled_in, "
         "found %d orphan namespaces, synthesized %d standalone skills, "
-        "synthesized %d standalone MCP servers",
+        "synthesized %d standalone MCP servers, synthesized children by kind %s",
         len(plugin_entries),
         annotated,
         orphan_count,
         synthesized_count,
         synthesized_mcp_count,
+        synthesized_child_counts,
     )
     return entries
 
@@ -529,11 +858,10 @@ def _backfill_bundled_child_final_scores(entries: list[dict], log=logger) -> Non
 
     Runs after governance has promoted ``final_score`` to the top level on all
     entries, so the parent plugin's score is now available. Only touches
-    entries we synthesized (``source == "plugin-bundled-skill"`` or
-    ``plugin-bundled-mcp``) so a real standalone child that happens to carry
-    ``bundled_in`` keeps its own score.
-    Survives parent plugins that were filtered out by governance (no parent →
-    leave the seeded score unchanged).
+    entries we synthesized (any ``source`` in ``_PLUGIN_BUNDLED_SOURCES``) so a
+    real standalone child that happens to carry ``bundled_in`` keeps its own
+    score. Survives parent plugins that were filtered out by governance (no
+    parent → leave the seeded score unchanged).
     """
     plugin_score_by_id: dict[str, Any] = {}
     for e in entries:
@@ -544,7 +872,7 @@ def _backfill_bundled_child_final_scores(entries: list[dict], log=logger) -> Non
 
     backfilled = 0
     for e in entries:
-        if e.get("source") not in ("plugin-bundled-skill", "plugin-bundled-mcp"):
+        if e.get("source") not in _PLUGIN_BUNDLED_SOURCES:
             continue
         parent_id = e.get("bundled_in")
         if not isinstance(parent_id, str) or parent_id not in plugin_score_by_id:
@@ -581,7 +909,7 @@ def _prune_invalid_plugin_child_refs(entries: list[dict], log=logger) -> list[di
     kept: list[dict] = []
     dropped_children = 0
     for entry in entries:
-        if entry.get("source") in ("plugin-bundled-skill", "plugin-bundled-mcp"):
+        if entry.get("source") in _PLUGIN_BUNDLED_SOURCES:
             parent_id = entry.get("bundled_in")
             if not isinstance(parent_id, str) or parent_id not in plugin_ids:
                 dropped_children += 1
@@ -593,6 +921,11 @@ def _prune_invalid_plugin_child_refs(entries: list[dict], log=logger) -> list[di
             e["id"] for e in kept if isinstance(e.get("id"), str) and e.get("id")
         }
 
+    # Reverse-ref fields written by the synthesis pass: the original two plus
+    # one per generic kind (bundled_command_ids / bundled_rule_ids / ...).
+    reverse_ref_fields = ["bundled_skill_ids", "bundled_mcp_ids"] + [
+        f"bundled_{k.kind}_ids" for k in _BUNDLED_CHILD_KINDS
+    ]
     cleared_refs = 0
     for plugin in kept:
         if plugin.get("type") != "plugin":
@@ -600,7 +933,7 @@ def _prune_invalid_plugin_child_refs(entries: list[dict], log=logger) -> list[di
         bundle = plugin.get("bundle")
         if not isinstance(bundle, dict):
             continue
-        for field in ("bundled_skill_ids", "bundled_mcp_ids"):
+        for field in reverse_ref_fields:
             ids = bundle.get(field)
             if not isinstance(ids, list):
                 continue
@@ -628,25 +961,33 @@ def _prune_invalid_plugin_child_refs(entries: list[dict], log=logger) -> list[di
 def _sync_synthesized_children_to_type_indexes(entries: list[dict], log=logger) -> None:
     """Write final synthesized plugin children back to type indexes.
 
-    download_catalog.py downloads from catalog/{skills,mcp}/index.json, then
+    download_catalog.py downloads from catalog/<type-dir>/index.json, then
     reconciles catalog/index.json against files on disk. Synthetic children are
     created during merge, so they must be present in the type indexes as final
     entries before the download step runs.
+
+    CRITICAL: every synthesized child ``source`` MUST map to a type-dir bucket
+    via ``_SOURCE_TO_TYPE_DIR``. A missing bucket silently strands its children
+    OUT of every type index → download_catalog never fetches them → the bundle
+    drops them as orphans. ``_SOURCE_TO_TYPE_DIR`` is derived from
+    ``_BUNDLED_CHILD_KINDS`` so a new kind is wired here automatically.
     """
-    children_by_dir: dict[str, list[dict]] = {"skills": [], "mcp": []}
+    # Seed all known type-dir buckets so a dir with zero synthesized children
+    # this run still gets its stale prior children scrubbed.
+    children_by_dir: dict[str, list[dict]] = {
+        td: [] for td in set(_SOURCE_TO_TYPE_DIR.values())
+    }
     for entry in entries:
-        source = entry.get("source")
-        if source == "plugin-bundled-skill" and entry.get("type") == "skill":
-            children_by_dir["skills"].append(entry)
-        elif source == "plugin-bundled-mcp" and entry.get("type") == "mcp":
-            children_by_dir["mcp"].append(entry)
+        type_dir = _SOURCE_TO_TYPE_DIR.get(entry.get("source"))
+        if type_dir is not None:
+            children_by_dir.setdefault(type_dir, []).append(entry)
 
     for type_dir, children in children_by_dir.items():
         index_path = os.path.join(CATALOG_DIR, type_dir, "index.json")
         original = load_index(index_path)
         existing = [
             e for e in original
-            if e.get("source") not in ("plugin-bundled-skill", "plugin-bundled-mcp")
+            if e.get("source") not in _PLUGIN_BUNDLED_SOURCES
         ]
         if not children:
             if len(existing) != len(original):

@@ -376,5 +376,167 @@ def test_zero_plugins_exits_nonzero(monkeypatch, tmp_path):
     assert not output_path.exists()
 
 
+# ---------------------------------------------------------------------------
+# command_paths / agent_paths bundle emission (so official plugins' commands &
+# agents flow into the work tree via the catalog path, not just cospowers)
+# ---------------------------------------------------------------------------
+
+
+class _FakeLayout:
+    """Minimal stand-in for PluginLayout (the fields _build_bundle_from_layout
+    reads). Mirrors what detect_plugin_layout returns for a real plugin."""
+
+    def __init__(
+        self,
+        plugin_root,
+        skill_paths=None,
+        command_paths=None,
+        agent_paths=None,
+        skills_namespaces=None,
+        plugin_json_path="",
+        is_marketplace_repo=False,
+    ):
+        self.is_plugin = True
+        self.fetch_error = None
+        self.plugin_root = plugin_root
+        self.skill_paths = skill_paths or []
+        self.command_paths = command_paths or []
+        self.agent_paths = agent_paths or []
+        self.skills_namespaces = skills_namespaces or []
+        self.plugin_json_path = plugin_json_path
+        self.hooks_count = 0
+        self.hook_events = []
+        self.mcp_server_names = []
+        self.mcp_server_configs = {}
+        self.is_marketplace_repo = is_marketplace_repo
+
+
+class _FakeFetcher:
+    def __init__(self, layout):
+        self._layout = layout
+
+    def detect_plugin_layout(self, repo, plugin_root, ref="HEAD"):
+        return self._layout
+
+
+def test_component_namespaces_helper_aligns_and_strips_md():
+    paths = [
+        "plugins/foo/commands/run.md",
+        "plugins/foo/.commands/deep/nested.md",  # dot-dir variant + nested
+    ]
+    ns = spo._component_namespaces(paths, "plugins/foo", "foo")
+    assert ns == ["foo:run", "foo:deep/nested"]
+    assert len(ns) == len(paths)  # position-aligned
+
+
+def test_namespace_prefix_prefers_skills_namespace_then_fallback():
+    with_skills = _FakeLayout("plugins/foo", skills_namespaces=["realname:bar"])
+    assert spo._namespace_prefix_from_layout(with_skills, "marketplace-name") == "realname"
+    no_skills = _FakeLayout("plugins/baz", skills_namespaces=[])
+    assert spo._namespace_prefix_from_layout(no_skills, "baz") == "baz"
+
+
+def test_build_bundle_from_layout_emits_command_and_agent_paths():
+    """The bundle MUST carry command_paths/agent_paths + aligned namespaces +
+    the source coordinates (source_repo/source_ref/plugin_root) merge_index needs
+    — field names/shape identical to the merge_index consumption contract."""
+    layout = _FakeLayout(
+        plugin_root="plugins/foo",
+        skill_paths=["plugins/foo/skills/bar/SKILL.md"],
+        skills_namespaces=["foo:bar"],
+        command_paths=["plugins/foo/commands/run.md"],
+        agent_paths=["plugins/foo/agents/reviewer.md"],
+    )
+    bundle = spo._build_bundle_from_layout(
+        _FakeFetcher(layout),
+        repo="anthropics/claude-plugins-official",
+        plugin_root="plugins/foo",
+        manifest=None,
+        plugin_name="foo",
+        ref="HEAD",
+    )
+    # path arrays present + verbatim repo-relative
+    assert bundle["command_paths"] == ["plugins/foo/commands/run.md"]
+    assert bundle["agent_paths"] == ["plugins/foo/agents/reviewer.md"]
+    # namespaces position-aligned with paths, prefixed by the skills prefix
+    assert bundle["commands_namespaces"] == ["foo:run"]
+    assert bundle["agents_namespaces"] == ["foo:reviewer"]
+    assert len(bundle["commands_namespaces"]) == len(bundle["command_paths"])
+    assert len(bundle["agents_namespaces"]) == len(bundle["agent_paths"])
+    # merge-required coordinates
+    assert bundle["source_repo"] == "anthropics/claude-plugins-official"
+    assert bundle["source_ref"] == "HEAD"
+    assert bundle["plugin_root"] == "plugins/foo"
+    # skill logic untouched
+    assert bundle["skill_paths"] == ["plugins/foo/skills/bar/SKILL.md"]
+    assert bundle["skills_namespaces"] == ["foo:bar"]
+
+
+def test_build_bundle_from_layout_no_commands_agents_emits_empty_lists():
+    """A plugin with neither commands nor agents still emits the (empty) fields
+    so downstream consumers never KeyError."""
+    layout = _FakeLayout(
+        plugin_root="plugins/skillonly",
+        skill_paths=["plugins/skillonly/skills/x/SKILL.md"],
+        skills_namespaces=["skillonly:x"],
+    )
+    bundle = spo._build_bundle_from_layout(
+        _FakeFetcher(layout),
+        repo="anthropics/claude-plugins-official",
+        plugin_root="plugins/skillonly",
+        manifest=None,
+        plugin_name="skillonly",
+        ref="HEAD",
+    )
+    assert bundle["command_paths"] == []
+    assert bundle["agent_paths"] == []
+    assert bundle["commands_namespaces"] == []
+    assert bundle["agents_namespaces"] == []
+
+
+def test_official_command_agent_bundle_synthesizes_children_via_merge():
+    """End-to-end: an official-plugin bundle (as _build_bundle_from_layout emits)
+    drives merge_index to synthesize a type=command and a type=subagent child,
+    each with a plugin-root-relative source_path (parity with cospowers)."""
+    import merge_index  # noqa: E402
+
+    layout = _FakeLayout(
+        plugin_root="plugins/foo",
+        command_paths=["plugins/foo/commands/run.md"],
+        agent_paths=["plugins/foo/agents/reviewer.md"],
+        skills_namespaces=["foo:ignored"],  # only used for prefix
+    )
+    bundle = spo._build_bundle_from_layout(
+        _FakeFetcher(layout),
+        repo="anthropics/claude-plugins-official",
+        plugin_root="plugins/foo",
+        manifest=None,
+        plugin_name="foo",
+        ref="HEAD",
+    )
+    plugin = {
+        "id": "anthropic-foo", "name": "foo", "type": "plugin",
+        "description": "d",
+        "source_url": "https://github.com/anthropics/claude-plugins-official",
+        "stars": 1, "category": "tooling", "tags": [], "tech_stack": [],
+        "install": {"method": "plugin_marketplace"},
+        "source": "claude-plugins-official", "last_synced": "2026-06-17",
+        "final_score": 80, "bundle": bundle,
+    }
+    entries = [plugin]
+    merge_index._apply_bundled_in_annotations(entries)
+
+    cmd = next(e for e in entries if e.get("source") == "plugin-bundled-command")
+    assert cmd["type"] == "command"
+    assert cmd["bundled_in"] == "anthropic-foo"
+    assert cmd["source_path"] == "commands/run.md"  # plugin-root relative
+    assert cmd["install"]["path"] == "plugins/foo/commands/run.md"  # full repo-rel
+
+    agent = next(e for e in entries if e.get("source") == "plugin-bundled-subagent")
+    assert agent["type"] == "subagent"
+    assert agent["source_path"] == "agents/reviewer.md"
+    assert agent["install"]["files"] == ["plugins/foo/agents/reviewer.md"]
+
+
 if __name__ == "__main__":
     pytest.main([__file__, "-v"])

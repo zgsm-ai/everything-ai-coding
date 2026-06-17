@@ -7,7 +7,7 @@
     "properties": {
       "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
       "name": { "type": "string" },
-      "type": { "type": "string", "enum": ["mcp", "skill", "rule", "prompt", "plugin"] },
+      "type": { "type": "string", "enum": ["mcp", "skill", "rule", "prompt", "plugin", "template", "command", "subagent"] },
       "description": { "type": "string" },
       "source_url": { "type": "string", "format": "uri" },
       "stars": { "type": ["integer", "null"] },
@@ -212,6 +212,84 @@
             "type": "array",
             "description": "与 mcp_server_names 同序的反向映射：每个 MCP server 对应的 catalog mcp id，或 null（无可用 config）；merge_index.py post-merge 写入；optional",
             "items": { "type": ["string", "null"] }
+          },
+          "evaluators_count": { "type": "integer", "minimum": 0 },
+          "rules_count": { "type": "integer", "minimum": 0 },
+          "templates_count": { "type": "integer", "minimum": 0 },
+          "evaluators_namespaces": {
+            "type": "array",
+            "description": "<plugin>:<name> 形式的 evaluator namespace 列表（evaluators/<name>/SKILL.md，目录型，合成为 type=skill）；optional",
+            "items": { "type": "string" }
+          },
+          "commands_namespaces": {
+            "type": "array",
+            "description": "<plugin>:<name> 形式的 command namespace 列表（commands/<file>，单文件，合成为 type=command）；optional",
+            "items": { "type": "string" }
+          },
+          "agents_namespaces": {
+            "type": "array",
+            "description": "<plugin>:<name> 形式的 agent namespace 列表（agents/<file>.md，单文件，合成为 type=subagent）；optional",
+            "items": { "type": "string" }
+          },
+          "rules_namespaces": {
+            "type": "array",
+            "description": "<plugin>:<group>/<file> 形式的 rule namespace 列表（rules/<group>/<file>.md，嵌套单文件，合成为 type=rule）；optional",
+            "items": { "type": "string" }
+          },
+          "templates_namespaces": {
+            "type": "array",
+            "description": "<plugin>:<name> 形式的 template namespace 列表（templates/<file>.md，单文件，合成为 type=template）；optional",
+            "items": { "type": "string" }
+          },
+          "evaluator_paths": {
+            "type": "array",
+            "description": "每个 evaluator 的 repo 相对 SKILL.md 路径，与 evaluators_namespaces 同序；optional",
+            "items": { "type": "string" }
+          },
+          "command_paths": {
+            "type": "array",
+            "description": "每个 command 的 repo 相对路径，与 commands_namespaces 同序；optional",
+            "items": { "type": "string" }
+          },
+          "agent_paths": {
+            "type": "array",
+            "description": "每个 agent 的 repo 相对路径，与 agents_namespaces 同序；optional",
+            "items": { "type": "string" }
+          },
+          "rule_paths": {
+            "type": "array",
+            "description": "每个 rule 的 repo 相对路径（嵌套保真），与 rules_namespaces 同序；optional",
+            "items": { "type": "string" }
+          },
+          "template_paths": {
+            "type": "array",
+            "description": "每个 template 的 repo 相对路径，与 templates_namespaces 同序；optional",
+            "items": { "type": "string" }
+          },
+          "bundled_evaluator_ids": {
+            "type": "array",
+            "description": "与 evaluators_namespaces 同序的反向映射：合成的 skill id 或 null；optional",
+            "items": { "type": ["string", "null"] }
+          },
+          "bundled_command_ids": {
+            "type": "array",
+            "description": "与 commands_namespaces 同序的反向映射：合成的 command id 或 null；optional",
+            "items": { "type": ["string", "null"] }
+          },
+          "bundled_agent_ids": {
+            "type": "array",
+            "description": "与 agents_namespaces 同序的反向映射：合成的 subagent id 或 null；optional",
+            "items": { "type": ["string", "null"] }
+          },
+          "bundled_rule_ids": {
+            "type": "array",
+            "description": "与 rules_namespaces 同序的反向映射：合成的 rule id 或 null；optional",
+            "items": { "type": ["string", "null"] }
+          },
+          "bundled_template_ids": {
+            "type": "array",
+            "description": "与 templates_namespaces 同序的反向映射：合成的 template id 或 null；optional",
+            "items": { "type": ["string", "null"] }
           }
         }
       },
@@ -224,6 +302,10 @@
       "bundled_in": {
         "type": "string",
         "description": "若该 skill/mcp entry 被某 plugin 打包，写入对应的 plugin id；merge_index.py post-merge 标注或合成，optional"
+      },
+      "source_path": {
+        "type": "string",
+        "description": "合成的 plugin 子项（command/subagent/rule/template/evaluator）的真实 repo 相对路径（路径保真）；download_catalog 用 install 块定位内容，下游 ingest 可据此在工作树镜像真实路径；optional"
       }
     }
   }

@@ -678,11 +678,46 @@ class TestOrphanSubSkillSynthesis(unittest.TestCase):
         )
         self.assertEqual(s["install"]["branch"], "main")
         self.assertEqual(s["install"]["path"], "skills/secret-skill")
+        # OUTWARD source_path = real path (no plugin_root here → verbatim)
+        self.assertEqual(s["source_path"], "skills/secret-skill/SKILL.md")
         # reverse mapping backfilled with the synthetic id (not None)
         ids = plugin["bundle"]["bundled_skill_ids"]
         self.assertEqual(ids[0], "superpowers-brainstorming")
         self.assertEqual(ids[1], s["id"])
         self.assertIsNone(None if ids[1] else True)
+
+    def test_orphan_skill_source_path_is_plugin_root_relative_real_path(self):
+        """cospower case: bundled skills live under <plugin_root>/skills/<name>/.
+        The synthesized child's OUTWARD source_path must be the plugin-root
+        relative REAL path (skills/<name>/SKILL.md) — same shape as evaluators
+        and archive uploads — so the work tree mirrors GitHub at the real name,
+        NOT a synthetic-id stub. install.path stays FULL repo-relative."""
+        plugin = _make_entry(
+            "cos-req",
+            type="plugin",
+            source_url="https://github.com/yhangf/csc-plugins/tree/main/cos-req",
+        )
+        plugin["bundle"] = {
+            "skills_namespaces": ["cos-req:requirement-analysis"],
+            "skill_paths": [
+                "cospowers-requirements-plugin/skills/requirement-analysis/SKILL.md"
+            ],
+            "plugin_root": "cospowers-requirements-plugin",
+            "source_repo": "yhangf/csc-plugins",
+            "source_ref": "main",
+        }
+        entries = [plugin]
+        merge_index._apply_bundled_in_annotations(entries)
+
+        s = next(e for e in entries if e.get("source") == "plugin-bundled-skill")
+        # plugin-root relative real path, no <plugin_root>/ prefix
+        self.assertEqual(s["source_path"], "skills/requirement-analysis/SKILL.md")
+        self.assertFalse(s["source_path"].startswith("cospowers-requirements-plugin/"))
+        # install.path stays FULL repo-relative for the directory download
+        self.assertEqual(
+            s["install"]["path"],
+            "cospowers-requirements-plugin/skills/requirement-analysis",
+        )
 
     def test_orphan_without_skill_paths_falls_back_to_none(self):
         """Legacy bundle without skill_paths/source_repo → orphan stays None,
@@ -722,6 +757,89 @@ class TestOrphanSubSkillSynthesis(unittest.TestCase):
 
         synth = next(e for e in entries if e.get("source") == "plugin-bundled-skill")
         self.assertEqual(synth["install"]["branch"], "HEAD")
+
+    def test_reused_existing_bundled_skill_gets_source_path_backfilled(self):
+        """REGRESSION: a bundled skill already present in catalog/skills/index.json
+        from an earlier (pre-P3) synthesis carries source_path=None. The reuse/
+        match path must BACKFILL the plugin-root-relative real source_path from
+        the current bundle's skill_paths (NOT keep the stale None), and must NOT
+        create a duplicate. This is the exact path unit tests missed (they only
+        synthesized into an empty catalog)."""
+        plugin = _make_entry(
+            "cos-req",
+            type="plugin",
+            source_url="https://github.com/yhangf/csc-plugins/tree/main/cos-req",
+        )
+        plugin["bundle"] = {
+            "skills_namespaces": ["cos-req:requirement-analysis"],
+            "skill_paths": [
+                "cos-req-plugin/skills/requirement-analysis/SKILL.md"
+            ],
+            "plugin_root": "cos-req-plugin",
+            "source_repo": "yhangf/csc-plugins",
+            "source_ref": "main",
+        }
+        # Pre-existing entry (id == the deterministic synthetic id) WITHOUT a
+        # source_path — exactly what HEAD's catalog/skills/index.json holds.
+        old_child = _make_entry(
+            "cos-req-requirement-analysis",
+            name="requirement-analysis",
+            type="skill",
+            source_url="https://github.com/yhangf/csc-plugins/tree/main/cos-req-plugin/skills/requirement-analysis",
+        )
+        old_child["bundled_in"] = "cos-req"
+        old_child["source"] = "plugin-bundled-skill"
+        old_child["install"] = {
+            "method": "git_clone",
+            "repo": "https://github.com/yhangf/csc-plugins.git",
+            "branch": "main",
+            "path": "cos-req-plugin/skills/requirement-analysis",
+        }
+        # NOTE: deliberately no "source_path" key (None/missing).
+        self.assertNotIn("source_path", old_child)
+
+        entries = [plugin, old_child]
+        merge_index._apply_bundled_in_annotations(entries)
+
+        bundled = [e for e in entries if e.get("source") == "plugin-bundled-skill"]
+        # no duplicate created
+        self.assertEqual(len(bundled), 1)
+        reused = bundled[0]
+        self.assertIs(reused, old_child)  # same object reused
+        # source_path BACKFILLED to the plugin-root-relative real path
+        self.assertEqual(reused["source_path"], "skills/requirement-analysis/SKILL.md")
+        # install untouched (still full repo-relative)
+        self.assertEqual(
+            reused["install"]["path"], "cos-req-plugin/skills/requirement-analysis"
+        )
+
+    def test_reused_bundled_skill_overwrites_stale_source_path(self):
+        """If a re-loaded entry has an explicit-None / stale source_path it is
+        OVERWRITTEN with the fresh plugin-root-relative path."""
+        plugin = _make_entry(
+            "cos-req", type="plugin",
+            source_url="https://github.com/yhangf/csc-plugins/tree/main/cos-req",
+        )
+        plugin["bundle"] = {
+            "skills_namespaces": ["cos-req:session-context"],
+            "skill_paths": ["cos-req-plugin/skills/session-context/SKILL.md"],
+            "plugin_root": "cos-req-plugin",
+            "source_repo": "yhangf/csc-plugins",
+            "source_ref": "main",
+        }
+        old_child = _make_entry(
+            "cos-req-session-context", name="session-context", type="skill",
+            source_url="https://github.com/yhangf/csc-plugins/tree/main/cos-req-plugin/skills/session-context",
+        )
+        old_child["bundled_in"] = "cos-req"
+        old_child["source"] = "plugin-bundled-skill"
+        old_child["source_path"] = None  # explicit stale None
+
+        entries = [plugin, old_child]
+        merge_index._apply_bundled_in_annotations(entries)
+        self.assertEqual(
+            old_child["source_path"], "skills/session-context/SKILL.md"
+        )
 
     def test_final_score_inherited_from_parent_plugin(self):
         """Synthesized plugin children inherit the parent plugin's score."""
@@ -788,6 +906,9 @@ class TestBundledMcpSynthesis(unittest.TestCase):
             {"method": "mcp_config", "config": {"command": "npx", "args": ["zoom-mcp"]}},
         )
         self.assertRegex(by_name["zoom-mcp"]["id"], r"^[a-z0-9-]+$")
+        # MCP children intentionally carry NO source_path: their downstream
+        # identity is <path>#<server-key> (synthetic), not a faithful file path.
+        self.assertNotIn("source_path", by_name["zoom-mcp"])
         self.assertEqual(
             plugin["bundle"]["bundled_mcp_ids"],
             [by_name["zoom-mcp"]["id"], by_name["zoom-docs-mcp"]["id"], None],
@@ -997,6 +1118,405 @@ class TestSearchIndex(unittest.TestCase):
         result = self._read_search_index()
         self.assertEqual(result[0]["id"], "high")
         self.assertEqual(result[1]["id"], "low")
+
+
+class TestGenericBundledChildSynthesis(unittest.TestCase):
+    """Tests for synthesizing standalone command/subagent/evaluator/rule/template
+    entries from a plugin bundle's position-aligned (<kind>_namespaces,
+    <kind>_paths) pairs (merge_index._apply_bundled_in_annotations generic loop).
+    """
+
+    def _plugin_with_all_kinds(self):
+        plugin = _make_entry(
+            "cos-req",
+            type="plugin",
+            source_url="https://github.com/yhangf/csc-plugins/tree/main/cos-req",
+        )
+        plugin["final_score"] = 100
+        plugin["bundle"] = {
+            "evaluators_namespaces": ["cos-req:aireq-evaluator"],
+            "evaluator_paths": ["cos-req-plugin/evaluators/aireq-evaluator/SKILL.md"],
+            "commands_namespaces": ["cos-req:run"],
+            "command_paths": ["cos-req-plugin/commands/run.md"],
+            "agents_namespaces": ["cos-req:code-reviewer"],
+            "agent_paths": ["cos-req-plugin/agents/code-reviewer.md"],
+            "rules_namespaces": ["cos-req:dfx/安全"],
+            "rule_paths": ["cos-req-plugin/rules/dfx/安全.md"],
+            "templates_namespaces": ["cos-req:user-requirement-template"],
+            "template_paths": ["cos-req-plugin/templates/user-requirement-template.md"],
+            "plugin_root": "cos-req-plugin",
+            "source_repo": "yhangf/csc-plugins",
+            "source_ref": "main",
+        }
+        return plugin
+
+    def test_synthesizes_one_entry_per_kind_with_correct_type(self):
+        plugin = self._plugin_with_all_kinds()
+        entries = [plugin]
+        merge_index._apply_bundled_in_annotations(entries)
+
+        by_source = {}
+        for e in entries:
+            src = e.get("source")
+            if src and src.startswith("plugin-bundled-") and src != "plugin-bundled-skill":
+                by_source.setdefault(src, []).append(e)
+
+        # one of each generic kind
+        self.assertEqual(set(by_source), {
+            "plugin-bundled-evaluator",
+            "plugin-bundled-command",
+            "plugin-bundled-subagent",
+            "plugin-bundled-rule",
+            "plugin-bundled-template",
+        })
+        # catalog types map 1:1 (evaluator → skill, agent → subagent)
+        self.assertEqual(by_source["plugin-bundled-evaluator"][0]["type"], "skill")
+        self.assertEqual(by_source["plugin-bundled-command"][0]["type"], "command")
+        self.assertEqual(by_source["plugin-bundled-subagent"][0]["type"], "subagent")
+        self.assertEqual(by_source["plugin-bundled-rule"][0]["type"], "rule")
+        self.assertEqual(by_source["plugin-bundled-template"][0]["type"], "template")
+        # every synthesized child links back to the parent plugin
+        for kids in by_source.values():
+            self.assertEqual(kids[0]["bundled_in"], "cos-req")
+
+    def test_source_path_is_plugin_root_relative_incl_nested_non_ascii(self):
+        """OUTWARD source_path MUST be plugin-root relative (NO <plugin_root>/
+        prefix) so it matches the archive-upload path root exactly; while
+        install.path/files keep the FULL repo-relative path for content fetch."""
+        plugin = self._plugin_with_all_kinds()
+        entries = [plugin]
+        merge_index._apply_bundled_in_annotations(entries)
+
+        rule = next(e for e in entries if e.get("source") == "plugin-bundled-rule")
+        # source_path: plugin-root relative, nested non-ASCII preserved, no prefix
+        self.assertEqual(rule["source_path"], "rules/dfx/安全.md")
+        self.assertNotIn("cos-req-plugin/", rule["source_path"])
+        # install: still FULL repo-relative (download uses it for the raw URL)
+        self.assertEqual(rule["install"]["method"], "git_clone")
+        self.assertEqual(rule["install"]["path"], "cos-req-plugin/rules/dfx/安全.md")
+        self.assertEqual(rule["install"]["files"], ["cos-req-plugin/rules/dfx/安全.md"])
+        self.assertEqual(
+            rule["install"]["repo"], "https://github.com/yhangf/csc-plugins.git"
+        )
+        self.assertEqual(rule["install"]["branch"], "main")
+
+    def test_all_kinds_source_path_plugin_root_relative(self):
+        """Every generic kind's source_path matches its archive-upload root."""
+        plugin = self._plugin_with_all_kinds()
+        entries = [plugin]
+        merge_index._apply_bundled_in_annotations(entries)
+
+        expected = {
+            "plugin-bundled-evaluator": "evaluators/aireq-evaluator/SKILL.md",
+            "plugin-bundled-command": "commands/run.md",
+            "plugin-bundled-subagent": "agents/code-reviewer.md",
+            "plugin-bundled-rule": "rules/dfx/安全.md",
+            "plugin-bundled-template": "templates/user-requirement-template.md",
+        }
+        for src, want in expected.items():
+            child = next(e for e in entries if e.get("source") == src)
+            self.assertEqual(child["source_path"], want, src)
+            self.assertFalse(
+                child["source_path"].startswith("cos-req-plugin/"),
+                f"{src} source_path still carries plugin_root prefix",
+            )
+
+    def test_evaluator_is_directory_install_like_skill(self):
+        plugin = self._plugin_with_all_kinds()
+        entries = [plugin]
+        merge_index._apply_bundled_in_annotations(entries)
+
+        ev = next(e for e in entries if e.get("source") == "plugin-bundled-evaluator")
+        # directory kind: install.path is the parent dir (no /SKILL.md), no files
+        # pin — and stays FULL repo-relative for the directory download.
+        self.assertEqual(
+            ev["install"]["path"], "cos-req-plugin/evaluators/aireq-evaluator"
+        )
+        self.assertNotIn("files", ev["install"])
+        # OUTWARD source_path is plugin-root relative (matches archive root)
+        self.assertEqual(
+            ev["source_path"], "evaluators/aireq-evaluator/SKILL.md"
+        )
+
+    def test_synthetic_ids_kebab_round_trip_and_namespaced_by_kind(self):
+        from utils import to_kebab_case
+
+        # source tag → internal kind (note subagent's source tag != kind "agent").
+        kind_by_source = {k.source: k.kind for k in merge_index._BUNDLED_CHILD_KINDS}
+
+        plugin = self._plugin_with_all_kinds()
+        entries = [plugin]
+        merge_index._apply_bundled_in_annotations(entries)
+
+        for e in entries:
+            src = e.get("source") or ""
+            if src not in kind_by_source:
+                continue
+            # id MUST round-trip under to_kebab_case (download writes folder =
+            # to_kebab_case(id); web hub looks up by raw id).
+            self.assertEqual(to_kebab_case(e["id"]), e["id"], e["id"])
+            # kind is namespaced into the id so command/rule of same name differ
+            self.assertIn(f"-{kind_by_source[src]}-", e["id"])
+
+    def test_reverse_id_maps_written_per_kind(self):
+        plugin = self._plugin_with_all_kinds()
+        entries = [plugin]
+        merge_index._apply_bundled_in_annotations(entries)
+
+        bundle = plugin["bundle"]
+        for field in (
+            "bundled_evaluator_ids",
+            "bundled_command_ids",
+            "bundled_agent_ids",
+            "bundled_rule_ids",
+            "bundled_template_ids",
+        ):
+            self.assertIn(field, bundle)
+            self.assertEqual(len(bundle[field]), 1)
+            self.assertIsNotNone(bundle[field][0])
+
+    def test_plugin_root_relative_helper(self):
+        f = merge_index._plugin_root_relative
+        # strips the <root>/ prefix (incl. nested non-ASCII tail)
+        self.assertEqual(
+            f("cos-req-plugin/rules/dfx/安全.md", "cos-req-plugin"),
+            "rules/dfx/安全.md",
+        )
+        # tolerant of trailing/leading slashes on the root
+        self.assertEqual(
+            f("cos-req-plugin/templates/x.md", "/cos-req-plugin/"),
+            "templates/x.md",
+        )
+        # defensive: path that doesn't start with root → unchanged
+        self.assertEqual(f("rules/x.md", "cos-req-plugin"), "rules/x.md")
+        # no/empty root → unchanged
+        self.assertEqual(f("a/b.md", None), "a/b.md")
+        self.assertEqual(f("a/b.md", ""), "a/b.md")
+        # empty/None path passes through
+        self.assertIsNone(f(None, "cos-req-plugin"))
+
+    def test_synthesis_without_plugin_root_leaves_path_unchanged(self):
+        """Defensive: if a bundle has no plugin_root, source_path is the repo
+        path verbatim (back-compat; better than crashing)."""
+        plugin = self._plugin_with_all_kinds()
+        del plugin["bundle"]["plugin_root"]
+        entries = [plugin]
+        merge_index._apply_bundled_in_annotations(entries)
+        rule = next(e for e in entries if e.get("source") == "plugin-bundled-rule")
+        self.assertEqual(rule["source_path"], "cos-req-plugin/rules/dfx/安全.md")
+
+    def test_missing_path_or_repo_records_none_and_does_not_synthesize(self):
+        plugin = _make_entry("p", type="plugin", source_url="https://github.com/x/p")
+        # rules declared but no rule_paths AND no source_repo → cannot synthesize
+        plugin["bundle"] = {
+            "rules_namespaces": ["p:ghost"],
+            "rule_paths": [],
+        }
+        entries = [plugin]
+        merge_index._apply_bundled_in_annotations(entries)
+
+        self.assertEqual(
+            [e for e in entries if e.get("source") == "plugin-bundled-rule"], []
+        )
+        self.assertEqual(plugin["bundle"]["bundled_rule_ids"], [None])
+
+    def test_reused_generic_child_with_none_source_path_is_backfilled(self):
+        """REGRESSION: a generic bundled child (rule/template/...) re-loaded from
+        a prior index with source_path=None must be MATCHED (via the id fallback,
+        since the path-key index skips None source_paths), BACKFILLED with the
+        plugin-root-relative real path, and NOT duplicated."""
+        plugin = self._plugin_with_all_kinds()
+        # Pre-existing rule child WITHOUT source_path (id == deterministic
+        # synthetic id for this plugin+kind+name).
+        old_rule = _make_entry(
+            "cos-req-rule-dfx安全", name="安全", type="rule",
+            source_url="https://github.com/yhangf/csc-plugins/tree/main/cos-req-plugin/rules/dfx/安全.md",
+        )
+        old_rule["bundled_in"] = "cos-req"
+        old_rule["source"] = "plugin-bundled-rule"
+        old_rule["install"] = {
+            "method": "git_clone",
+            "repo": "https://github.com/yhangf/csc-plugins.git",
+            "branch": "main",
+            "path": "cos-req-plugin/rules/dfx/安全.md",
+            "files": ["cos-req-plugin/rules/dfx/安全.md"],
+        }
+        # confirm the id matches what synthesis would derive
+        self.assertEqual(
+            old_rule["id"],
+            merge_index._synthetic_child_id("cos-req", "rule", "dfx/安全", set()),
+        )
+        self.assertNotIn("source_path", old_rule)
+
+        entries = [plugin, old_rule]
+        merge_index._apply_bundled_in_annotations(entries)
+
+        rules = [e for e in entries if e.get("source") == "plugin-bundled-rule"]
+        # reused, not duplicated
+        self.assertEqual(len(rules), 1)
+        self.assertIs(rules[0], old_rule)
+        # backfilled to the plugin-root-relative real (nested non-ASCII) path
+        self.assertEqual(old_rule["source_path"], "rules/dfx/安全.md")
+        # reverse map points at the reused id (not None / not a new id)
+        self.assertEqual(plugin["bundle"]["bundled_rule_ids"], ["cos-req-rule-dfx安全"])
+
+
+class TestSynthesizedChildrenReachTypeIndexes(unittest.TestCase):
+    """CRITICAL regression guard for merge_index._sync_synthesized_children_to_type_indexes.
+
+    The historical bug: the type-index sync hardcoded {"skills","mcp"} buckets,
+    so any newly-synthesized child kind never reached its type index → the
+    downloader skipped it → the bundle dropped it as an orphan, SILENTLY.
+    These tests run the full merge() and assert every kind lands in its
+    per-type index on disk.
+    """
+
+    def setUp(self):
+        self.tmpdir = tempfile.mkdtemp()
+        for t in merge_index.TYPES:
+            os.makedirs(os.path.join(self.tmpdir, t), exist_ok=True)
+        self._orig_catalog_dir = merge_index.CATALOG_DIR
+        merge_index.CATALOG_DIR = self.tmpdir
+
+    def tearDown(self):
+        merge_index.CATALOG_DIR = self._orig_catalog_dir
+
+    def _write_index(self, type_name, entries, filename="index.json"):
+        os.makedirs(os.path.join(self.tmpdir, type_name), exist_ok=True)
+        path = os.path.join(self.tmpdir, type_name, filename)
+        with open(path, "w") as f:
+            json.dump(entries, f)
+
+    def _read_type_index(self, type_dir):
+        path = os.path.join(self.tmpdir, type_dir, "index.json")
+        if not os.path.exists(path):
+            return []
+        with open(path) as f:
+            return json.load(f)
+
+    def test_each_synthesized_kind_lands_in_its_type_index(self):
+        plugin = _make_entry(
+            "cos-req",
+            type="plugin",
+            source_url="https://github.com/yhangf/csc-plugins/tree/main/cos-req",
+        )
+        plugin["install"] = {
+            "method": "plugin_marketplace",
+            "marketplace_repo": "yhangf/csc-plugins",
+            "marketplace_verified": True,
+        }
+        plugin["bundle"] = {
+            "evaluators_namespaces": ["cos-req:aireq-evaluator"],
+            "evaluator_paths": ["cos-req-plugin/evaluators/aireq-evaluator/SKILL.md"],
+            "commands_namespaces": ["cos-req:run"],
+            "command_paths": ["cos-req-plugin/commands/run.md"],
+            "agents_namespaces": ["cos-req:code-reviewer"],
+            "agent_paths": ["cos-req-plugin/agents/code-reviewer.md"],
+            "rules_namespaces": ["cos-req:dfx/安全"],
+            "rule_paths": ["cos-req-plugin/rules/dfx/安全.md"],
+            "templates_namespaces": ["cos-req:user-requirement-template"],
+            "template_paths": ["cos-req-plugin/templates/user-requirement-template.md"],
+            "plugin_root": "cos-req-plugin",
+            "source_repo": "yhangf/csc-plugins",
+            "source_ref": "main",
+        }
+        self._write_index("plugins", [plugin])
+
+        with unittest.mock.patch("merge_index.enrich_entries") as mock_enrich, \
+             unittest.mock.patch("merge_index.apply_governance") as mock_gov:
+            mock_enrich.side_effect = lambda x: x
+            mock_gov.side_effect = lambda x: x
+            merge_index.merge()
+
+        # evaluators are type=skill → skills/ index
+        skills = self._read_type_index("skills")
+        evaluator_ids = {
+            e["id"] for e in skills if e.get("source") == "plugin-bundled-evaluator"
+        }
+        self.assertEqual(len(evaluator_ids), 1, "evaluator missing from skills/ index")
+
+        # each single-file kind lands in its OWN type dir
+        for type_dir, source_tag in (
+            ("commands", "plugin-bundled-command"),
+            ("subagents", "plugin-bundled-subagent"),
+            ("rules", "plugin-bundled-rule"),
+            ("templates", "plugin-bundled-template"),
+        ):
+            idx = self._read_type_index(type_dir)
+            ids = {e["id"] for e in idx if e.get("source") == source_tag}
+            self.assertEqual(
+                len(ids), 1,
+                f"{source_tag} child did not reach {type_dir}/index.json "
+                f"(type-index bucket missing → would be silently dropped)",
+            )
+
+    def test_source_to_type_dir_covers_every_child_kind(self):
+        """Static guard: every synthesized source tag has a type-dir bucket, so
+        adding a kind to _BUNDLED_CHILD_KINDS without a bucket fails loudly."""
+        for source in merge_index._PLUGIN_BUNDLED_SOURCES:
+            self.assertIn(
+                source, merge_index._SOURCE_TO_TYPE_DIR,
+                f"source {source!r} has no type-dir bucket → children stranded",
+            )
+
+    def _plugin_index_payload(self):
+        return {
+            "id": "cos-req", "name": "cos-req", "type": "plugin",
+            "description": "d",
+            "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cos-req",
+            "stars": 1, "category": "tooling", "tags": [], "tech_stack": [],
+            "install": {
+                "method": "plugin_marketplace",
+                "marketplace_repo": "yhangf/csc-plugins",
+                "marketplace_verified": True,
+            },
+            "source": "csc-plugins", "last_synced": "2026-06-17", "final_score": 100,
+            "bundle": {
+                "rules_namespaces": ["cos-req:dfx/安全"],
+                "rule_paths": ["cos-req-plugin/rules/dfx/安全.md"],
+                "templates_namespaces": ["cos-req:tpl"],
+                "template_paths": ["cos-req-plugin/templates/tpl.md"],
+                "plugin_root": "cos-req-plugin",
+                "source_repo": "yhangf/csc-plugins", "source_ref": "main",
+            },
+        }
+
+    def test_rerunning_merge_does_not_duplicate_synthesized_children(self):
+        """Re-running merge() re-loads the prior synthesized children from their
+        type indexes; the synthesis pass MUST reuse (not re-mint) them, or each
+        run accumulates duplicates."""
+        os.environ["MERGE_INDEX_SKIP_PUSHED_AT_BACKFILL"] = "true"
+        try:
+            ids_per_run = []
+            for _ in range(3):
+                self._write_index("plugins", [self._plugin_index_payload()])
+                with unittest.mock.patch("merge_index.enrich_entries") as me, \
+                     unittest.mock.patch("merge_index.apply_governance") as mg:
+                    me.side_effect = lambda x: x
+                    mg.side_effect = lambda x: x
+                    merge_index.merge()
+                top_path = os.path.join(self.tmpdir, "index.json")
+                with open(top_path) as f:
+                    top = json.load(f)
+                ids = sorted(
+                    e["id"] for e in top
+                    if str(e.get("source", "")).startswith("plugin-bundled-")
+                )
+                ids_per_run.append(ids)
+            # stable id set across runs
+            self.assertEqual(ids_per_run[0], ids_per_run[1])
+            self.assertEqual(ids_per_run[1], ids_per_run[2])
+            # exactly one rule + one template synthesized, no accumulation
+            self.assertEqual(len(ids_per_run[2]), 2)
+            for td in ("rules", "templates"):
+                idx = self._read_type_index(td)
+                synth = [
+                    e for e in idx
+                    if str(e.get("source", "")).startswith("plugin-bundled-")
+                ]
+                self.assertEqual(len(synth), 1, f"{td} accumulated duplicates")
+        finally:
+            os.environ.pop("MERGE_INDEX_SKIP_PUSHED_AT_BACKFILL", None)
 
 
 if __name__ == "__main__":

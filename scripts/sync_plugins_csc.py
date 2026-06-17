@@ -192,6 +192,9 @@ def _empty_bundle() -> dict:
         "skills_count": 0,
         "commands_count": 0,
         "agents_count": 0,
+        "evaluators_count": 0,
+        "rules_count": 0,
+        "templates_count": 0,
         "mcp_servers_count": 0,
         "skills_namespaces": [],
         "hooks_count": 0,
@@ -201,12 +204,37 @@ def _empty_bundle() -> dict:
     }
 
 
-def compute_bundle(tree_paths: list[str], subdir: str, plugin_name: str) -> dict:
-    """Derive bundle counts for one plugin subdir from the repo tree.
+def _strip_md(rel: str) -> str:
+    """Drop a trailing ``.md`` from a repo-relative path used as a child name.
 
-    - skills:   `<subdir>/skills/<name>/SKILL.md`  → count + `<plugin>:<name>` namespaces
-    - commands: `<subdir>/commands/<file>`         → count
-    - agents:   `<subdir>/agents/<file>.md`        → count
+    Single-file components (commands/agents/rules/templates) name themselves
+    after their repo-relative path; stripping the extension keeps the name
+    readable while preserving any nested group prefix (e.g. ``dfx/安全``).
+    """
+    return rel[:-3] if rel.endswith(".md") else rel
+
+
+def compute_bundle(tree_paths: list[str], subdir: str, plugin_name: str) -> dict:
+    """Derive bundle counts + child paths for one plugin subdir from the repo tree.
+
+    Every functional component directory is captured as a position-aligned
+    ``(<kind>_namespaces, <kind>_paths)`` pair so ``merge_index`` can synthesize
+    a standalone, path-faithful catalog entry per file/dir (``bundled_in`` →
+    this plugin):
+
+    - skills:     ``<subdir>/skills/<name>/SKILL.md``        DIRECTORY → type=skill
+    - evaluators: ``<subdir>/evaluators/<name>/SKILL.md``    DIRECTORY → type=skill
+    - commands:   ``<subdir>/commands/<file>``               FILE      → type=command
+    - agents:     ``<subdir>/agents/<file>.md``              FILE      → type=subagent
+    - rules:      ``<subdir>/rules/<group>/<file>.md`` (nested!) FILE  → type=rule
+    - templates:  ``<subdir>/templates/<file>.md``           FILE      → type=template
+
+    ``*_paths`` are repo-relative and verbatim (path-faithful — the web hub's
+    work tree mirrors the real on-disk layout). ``*_namespaces`` are
+    ``<plugin>:<name>`` where ``<name>`` is a stable per-component identifier
+    (directory name for dir-type, repo-relative-minus-extension for files;
+    rules keep their ``<group>/<file>`` shape so nested groups round-trip).
+    Both lists share the same sorted order so ``element[i]`` align.
     """
     bundle = _empty_bundle()
     # name -> repo-relative SKILL.md path. merge_index orphan synthesis needs
@@ -214,39 +242,68 @@ def compute_bundle(tree_paths: list[str], subdir: str, plugin_name: str) -> dict
     # to materialize each bundled skill as a standalone catalog entry; without
     # them cospowers children silently stay un-synthesized (warn + None).
     skill_paths_by_name: dict[str, str] = {}
-    command_files: set[str] = set()
-    agent_files: set[str] = set()
+    evaluator_paths_by_name: dict[str, str] = {}
+    command_paths_by_name: dict[str, str] = {}
+    agent_paths_by_name: dict[str, str] = {}
+    rule_paths_by_name: dict[str, str] = {}
+    template_paths_by_name: dict[str, str] = {}
     skills_prefix = f"{subdir}/skills/"
+    evaluators_prefix = f"{subdir}/evaluators/"
     commands_prefix = f"{subdir}/commands/"
     agents_prefix = f"{subdir}/agents/"
+    rules_prefix = f"{subdir}/rules/"
+    templates_prefix = f"{subdir}/templates/"
 
     for path in tree_paths:
         if path.startswith(skills_prefix) and path.endswith("/SKILL.md"):
+            # Directory-type child: name = first segment under skills/.
             rel = path[len(skills_prefix):]
             name = rel.split("/", 1)[0]
             if name:
                 skill_paths_by_name.setdefault(name, path)
+        elif path.startswith(evaluators_prefix) and path.endswith("/SKILL.md"):
+            # Directory-type child (same shape as a skill, different dir).
+            rel = path[len(evaluators_prefix):]
+            name = rel.split("/", 1)[0]
+            if name:
+                evaluator_paths_by_name.setdefault(name, path)
         elif path.startswith(commands_prefix):
+            # Single-file child: name = repo-relative path under commands/
+            # minus a trailing .md (keeps nested command groups distinct).
             rel = path[len(commands_prefix):]
-            top = rel.split("/", 1)[0]
-            if top:
-                command_files.add(top)
+            if rel and not rel.endswith("/"):
+                command_paths_by_name.setdefault(_strip_md(rel), path)
         elif path.startswith(agents_prefix) and path.endswith(".md"):
             rel = path[len(agents_prefix):]
-            top = rel.split("/", 1)[0]
-            if top:
-                agent_files.add(top)
+            if rel:
+                agent_paths_by_name.setdefault(_strip_md(rel), path)
+        elif path.startswith(rules_prefix) and path.endswith(".md"):
+            # Nested: rules/<group>/<file>.md — keep <group>/<file> so the id
+            # carries the group and stays collision-free across groups.
+            rel = path[len(rules_prefix):]
+            if rel:
+                rule_paths_by_name.setdefault(_strip_md(rel), path)
+        elif path.startswith(templates_prefix) and path.endswith(".md"):
+            rel = path[len(templates_prefix):]
+            if rel:
+                template_paths_by_name.setdefault(_strip_md(rel), path)
 
-    skill_names = sorted(skill_paths_by_name)
-    bundle["skills_count"] = len(skill_names)
-    bundle["skills_namespaces"] = [f"{plugin_name}:{s}" for s in skill_names]
-    # Position-aligned with skills_namespaces (same sorted order).
-    bundle["skill_paths"] = [skill_paths_by_name[s] for s in skill_names]
+    def _emit(kind_count: str, kind_ns: str, kind_paths: str, by_name: dict[str, str]) -> None:
+        names = sorted(by_name)
+        bundle[kind_count] = len(names)
+        bundle[kind_ns] = [f"{plugin_name}:{n}" for n in names]
+        bundle[kind_paths] = [by_name[n] for n in names]
+
+    _emit("skills_count", "skills_namespaces", "skill_paths", skill_paths_by_name)
+    _emit("evaluators_count", "evaluators_namespaces", "evaluator_paths", evaluator_paths_by_name)
+    _emit("commands_count", "commands_namespaces", "command_paths", command_paths_by_name)
+    _emit("agents_count", "agents_namespaces", "agent_paths", agent_paths_by_name)
+    _emit("rules_count", "rules_namespaces", "rule_paths", rule_paths_by_name)
+    _emit("templates_count", "templates_namespaces", "template_paths", template_paths_by_name)
+
     bundle["source_repo"] = CSC_REPO
     bundle["source_ref"] = CSC_BRANCH
     bundle["plugin_root"] = subdir
-    bundle["commands_count"] = len(command_files)
-    bundle["agents_count"] = len(agent_files)
     return bundle
 
 

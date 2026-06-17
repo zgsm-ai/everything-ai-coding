@@ -394,6 +394,56 @@ def _resolve_layout_repo_and_root(
     return (marketplace_repo, "HEAD", "")
 
 
+def _namespace_prefix_from_layout(layout, fallback_name: str) -> str:
+    """Pick the ``<plugin>`` prefix used in ``<plugin>:<name>`` namespaces.
+
+    ``layout.skills_namespaces`` is built by the layout detector with its OWN
+    derived plugin name (``_derive_plugin_name``), which may differ from the
+    marketplace-supplied ``plugin_name``. To keep command/agent namespaces
+    consistent with skills_namespaces (so the merge stage groups them under the
+    same plugin), reuse that exact prefix when any skill namespace exists; else
+    fall back to ``fallback_name``.
+    """
+    for ns in getattr(layout, "skills_namespaces", None) or []:
+        if isinstance(ns, str) and ":" in ns:
+            return ns.split(":", 1)[0]
+    return fallback_name
+
+
+def _component_namespaces(paths: list[str], plugin_root: str, prefix: str) -> list[str]:
+    """Build ``<prefix>:<name>`` namespaces position-aligned with ``paths``.
+
+    ``<name>`` is the repo-relative path under the component dir
+    (``commands/`` / ``.commands/`` / ``agents/`` / ``.agents/``) with the
+    plugin_root prefix and the component-dir segment stripped and the trailing
+    ``.md`` removed — mirroring sync_plugins_csc.compute_bundle so both sync
+    paths feed merge_index identically. Falls back to the file stem when the
+    expected component dir isn't found (robust to nested/odd layouts).
+    """
+    component_dirs = ("commands", ".commands", "agents", ".agents")
+    namespaces: list[str] = []
+    for p in paths:
+        rel = (
+            p[len(plugin_root) + 1:]
+            if plugin_root and p.startswith(plugin_root + "/")
+            else p
+        )
+        name = None
+        segs = rel.split("/")
+        for i, seg in enumerate(segs[:-1]):
+            if seg in component_dirs:
+                # everything AFTER the component dir, minus a trailing .md
+                tail = "/".join(segs[i + 1:])
+                name = tail[:-3] if tail.endswith(".md") else tail
+                break
+        if not name:
+            # Fallback: file stem (drop dir + .md).
+            stem = segs[-1]
+            name = stem[:-3] if stem.endswith(".md") else stem
+        namespaces.append(f"{prefix}:{name}")
+    return namespaces
+
+
 def _build_bundle_from_layout(
     fetcher,
     repo: Optional[str],
@@ -454,6 +504,7 @@ def _build_bundle_from_layout(
                 bundle = dict(zero_bundle)
                 bundle["is_marketplace_repo"] = True
                 return bundle
+            ns_prefix = _namespace_prefix_from_layout(layout, plugin_name)
             return {
                 "skills_count": len(layout.skill_paths),
                 "commands_count": len(layout.command_paths),
@@ -467,6 +518,22 @@ def _build_bundle_from_layout(
                 # ``install.git_clone`` block pointing at the skill directory.
                 # See merge_index._apply_bundled_in_annotations orphan branch.
                 "skill_paths": list(layout.skill_paths),
+                # Commands / agents path arrays + position-aligned namespaces.
+                # The layout detector already classified these (it counts them);
+                # carrying the PATHS through lets merge_index synthesize
+                # standalone type=command / type=subagent children for official
+                # plugins too (not just cospowers). Field names/shape mirror
+                # sync_plugins_csc.compute_bundle and merge_index's
+                # _BUNDLED_CHILD_KINDS consumption contract
+                # (commands_namespaces↔command_paths, agents_namespaces↔agent_paths).
+                "command_paths": list(layout.command_paths),
+                "agent_paths": list(layout.agent_paths),
+                "commands_namespaces": _component_namespaces(
+                    layout.command_paths, layout.plugin_root, ns_prefix
+                ),
+                "agents_namespaces": _component_namespaces(
+                    layout.agent_paths, layout.plugin_root, ns_prefix
+                ),
                 # Source coordinates used to construct the orphan skill's
                 # install block (repo + branch). ``ref`` may be "HEAD"; the
                 # downloader defaults to "main" when no usable branch is given.
