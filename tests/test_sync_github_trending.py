@@ -485,6 +485,113 @@ def test_build_skill_entries_hard_filter_drops_low_stars(monkeypatch):
     assert t.build_skill_entries("foo/bar", "main", item, "2026-06-16") == []
 
 
+# --- 促升清单：加载 + schema 校验 + per-repo source 覆盖 --------------------
+
+def test_load_promoted_repos_valid(tmp_path):
+    """促升清单正常加载：合法字段全保留，label/url 缺省回填。"""
+    p = tmp_path / "promote.json"
+    p.write_text(json.dumps({
+        "_comment": "ignore me",
+        "repos": [
+            {"repo": "ComposioHQ/awesome-codex-skills",
+             "source_slug": "composiohq/awesome-codex-skills",
+             "label": "Composio Codex", "url": "https://github.com/ComposioHQ/awesome-codex-skills",
+             "type": "skill", "trust": 3},
+            {"repo": "browserbase/skills", "source_slug": "browserbase/skills",
+             "type": "plugin"},  # label/url/trust 缺省
+        ],
+    }), encoding="utf-8")
+    promoted = t.load_promoted_repos(str(p))
+    assert promoted == [
+        {"repo": "ComposioHQ/awesome-codex-skills",
+         "source_slug": "composiohq/awesome-codex-skills",
+         "label": "Composio Codex",
+         "url": "https://github.com/ComposioHQ/awesome-codex-skills",
+         "type": "skill", "trust": 3},
+        {"repo": "browserbase/skills", "source_slug": "browserbase/skills",
+         "label": "browserbase/skills",                       # label 缺省 → source_slug
+         "url": "https://github.com/browserbase/skills",       # url 缺省 → 拼 repo
+         "type": "plugin", "trust": 3},                        # trust 缺省 → 3
+    ]
+
+
+def test_load_promoted_repos_schema_validation(tmp_path):
+    """schema 校验：缺 repo/source_slug/type、type 非法、非 owner/repo 的条目被丢。"""
+    p = tmp_path / "promote.json"
+    p.write_text(json.dumps({"repos": [
+        {"repo": "o/r", "source_slug": "o/r", "type": "skill"},     # 合法
+        {"source_slug": "x/y", "type": "skill"},                    # 缺 repo
+        {"repo": "a/b", "type": "skill"},                           # 缺 source_slug
+        {"repo": "a/b", "source_slug": "a/b"},                      # 缺 type
+        {"repo": "a/b", "source_slug": "a/b", "type": "mcp"},       # type 非法
+        {"repo": "noslug", "source_slug": "a/b", "type": "skill"},  # repo 非 owner/repo
+        {"repo": "a/b", "source_slug": "noslug", "type": "skill"},  # slug 非 owner/repo
+        "not-a-dict",                                               # 非 dict
+    ]}), encoding="utf-8")
+    promoted = t.load_promoted_repos(str(p))
+    assert [pr["repo"] for pr in promoted] == ["o/r"]
+
+
+def test_load_promoted_repos_missing_or_broken(tmp_path):
+    """文件缺失 / 损坏 / 空 → 返回空列表，不崩。"""
+    assert t.load_promoted_repos(str(tmp_path / "nope.json")) == []
+    bad = tmp_path / "bad.json"
+    bad.write_text("{not json", encoding="utf-8")
+    assert t.load_promoted_repos(str(bad)) == []
+    empty = tmp_path / "empty.json"
+    empty.write_text(json.dumps({"repos": []}), encoding="utf-8")
+    assert t.load_promoted_repos(str(empty)) == []
+
+
+def test_build_promoted_map_lowercases_full_name(tmp_path):
+    """promote map 的 key 是小写 full_name，值是清单里的（小写）source_slug。"""
+    p = tmp_path / "promote.json"
+    p.write_text(json.dumps({"repos": [
+        {"repo": "ComposioHQ/Awesome-Codex-Skills",
+         "source_slug": "composiohq/awesome-codex-skills", "type": "skill"},
+    ]}), encoding="utf-8")
+    m = t.build_promoted_map(str(p))
+    assert m == {"composiohq/awesome-codex-skills": "composiohq/awesome-codex-skills"}
+
+
+def test_build_skill_entries_default_source(monkeypatch):
+    """未传 source_id → 默认 github-trending（向后兼容）。"""
+    monkeypatch.setattr(t.skill_registry, "scan_repo_via_api", lambda repo, branch: [
+        {"name": "S", "description": "a coding skill long enough description here",
+         "category": "", "tags": [], "skill_dir": "s"},
+    ])
+    entries = t.build_skill_entries("foo/bar", "main", _item("foo/bar", stars=120), "2026-06-16")
+    assert entries[0]["source"] == "github-trending"
+
+
+def test_build_skill_entries_per_repo_source_override(monkeypatch):
+    """促升仓：build_skill_entries 接受 source_id → entry 带专属 per-repo slug。"""
+    monkeypatch.setattr(t.skill_registry, "scan_repo_via_api", lambda repo, branch: [
+        {"name": "S", "description": "a coding skill long enough description here",
+         "category": "", "tags": [], "skill_dir": "s"},
+    ])
+    entries = t.build_skill_entries(
+        "google/skills", "main", _item("google/skills", stars=13800),
+        "2026-06-16", source_id="google/skills",
+    )
+    assert entries[0]["source"] == "google/skills"
+
+
+def test_real_promoted_repos_json_loads():
+    """仓内真实促升清单加载正确（含 mattpocock/skills、browserbase plugin）。"""
+    promoted = t.load_promoted_repos()
+    slugs = {pr["source_slug"] for pr in promoted}
+    assert "mattpocock/skills" in slugs                    # 首次入库即带专属 slug
+    assert "composiohq/awesome-codex-skills" in slugs
+    # browserbase 走 plugin 路由，登记 type=plugin
+    bb = next(pr for pr in promoted if pr["repo"] == "browserbase/skills")
+    assert bb["type"] == "plugin"
+    # 全部 trust=3、source_slug 全小写
+    for pr in promoted:
+        assert pr["trust"] == 3
+        assert pr["source_slug"] == pr["source_slug"].lower()
+
+
 def test_save_verify_cache_best_effort_on_write_failure(monkeypatch, tmp_path):
     """cache 写失败要 best-effort 不崩（OSError 被吞）。"""
     bad_dir = tmp_path / "nope"

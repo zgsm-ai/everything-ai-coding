@@ -68,6 +68,8 @@ VERIFY_CACHE_PATH = os.path.join(CACHE_DIR, "verify_cache.json")
 CANDIDATES_PATH = os.path.join(CACHE_DIR, "candidates.json")
 # 手工 seed 仓清单：收"高星但无 topic、被 GitHub Search 漏掉"的好仓，走同一 triage。
 SEED_REPOS_PATH = os.path.join(SCRIPTS_DIR, "trending_seed_repos.json")
+# 促升清单：把知名出品方的优质 monorepo 仓从统一 github-trending 切到专属 per-repo source。
+PROMOTED_REPOS_PATH = os.path.join(SCRIPTS_DIR, "trending_promoted_repos.json")
 
 # 预过滤要覆盖的现有索引（全 type/source）。catalog/index.json 是上周全量超集；
 # 各 per-type index.json 是本周新鲜产物（CI 中 skills/plugins sync 先于本源）。
@@ -297,6 +299,70 @@ def collect_seed_candidates(seeds, known_repos, api=github_api):
     return items, stats
 
 
+# --- 促升清单（per-repo source 覆盖 + 跳过 LLM 判别）-----------------------
+
+# 促升清单元素必填字段（schema 校验）：缺一即 WARN 跳过该条。
+_PROMOTE_REQUIRED_FIELDS = ("repo", "source_slug", "type")
+# 促升仓允许的 type（必须落在 source_registry.TYPE_ORDER 已知值，否则 About 页报错）。
+_PROMOTE_TYPES = {"skill", "plugin"}
+
+
+def load_promoted_repos(path=PROMOTED_REPOS_PATH):
+    """加载促升清单，返回 ``list[dict]``：``{repo, source_slug, label, url, type, trust}``。
+
+    文件结构：顶层 dict 含 ``repos`` 数组（``_comment`` 等其他键忽略），元素是
+    ``{repo, source_slug, label, url, type, trust}`` 对象。schema 校验：``repo`` /
+    ``source_slug`` / ``type`` 必填，``type`` ∈ {skill, plugin}，``repo`` 须含 ``/``；
+    任一不满足则 WARN 跳过该条（不崩）。文件缺失 / 损坏 / 空 → 返回空列表，**不崩**
+    （促升是可选增强，不该卡死 Stage A / triage）。
+    """
+    if not os.path.exists(path):
+        return []
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (OSError, json.JSONDecodeError) as e:
+        logger.warning("促升清单读取失败，跳过：%s", e)
+        return []
+    raw = data.get("repos") if isinstance(data, dict) else data
+    if not isinstance(raw, list):
+        return []
+    promoted = []
+    for item in raw:
+        if not isinstance(item, dict):
+            continue
+        if any(not (item.get(k) or "").strip() for k in _PROMOTE_REQUIRED_FIELDS):
+            logger.warning("促升清单条目缺必填字段，跳过：%r", item)
+            continue
+        repo = item["repo"].strip()
+        source_slug = item["source_slug"].strip()
+        rtype = item["type"].strip()
+        if "/" not in repo or "/" not in source_slug:
+            logger.warning("促升清单 repo/source_slug 非法（需 owner/repo），跳过：%r", item)
+            continue
+        if rtype not in _PROMOTE_TYPES:
+            logger.warning("促升清单 type 非法（需 skill/plugin），跳过：%r", item)
+            continue
+        promoted.append({
+            "repo": repo,
+            "source_slug": source_slug,
+            "label": (item.get("label") or "").strip() or source_slug,
+            "url": (item.get("url") or "").strip() or f"https://github.com/{repo}",
+            "type": rtype,
+            "trust": int(item.get("trust") or 3),
+        })
+    return promoted
+
+
+def build_promoted_map(path=PROMOTED_REPOS_PATH):
+    """构建 ``{full_name.lower(): source_slug}`` map，供 triage 大小写不敏感命中查询。
+
+    同 seed/known_repos 一样对 ``full_name`` 做小写归一，写入值永远是清单里的
+    （已小写的）``source_slug``。文件缺失 / 损坏 → 空 map（无促升，退回 github-trending）。
+    """
+    return {p["repo"].lower(): p["source_slug"] for p in load_promoted_repos(path)}
+
+
 # --- 结构验证（一次 Tree 调用同时判 skill / plugin）------------------------
 
 _MARKETPLACE_PATHS = {".claude-plugin/marketplace.json", "marketplace.json"}
@@ -399,11 +465,14 @@ def classify_repo(repo_slug, branch, api_list_files=list_repo_files):
 
 # --- skill entry 构造（复用 scan_repo_via_api + hard_filter）---------------
 
-def build_skill_entries(repo_slug, branch, item, last_synced):
+def build_skill_entries(repo_slug, branch, item, last_synced, source_id=SOURCE_ID):
     """对一个 skill 仓扫描 SKILL.md 并构造 catalog skill entry 列表（已过 hard_filter）。
 
     复用 skill_registry.scan_repo_via_api（Tree+raw 解析 SKILL.md）与 hard_filter；
     entry schema 对齐 skill_registry.discover_skills（:269-308）。
+
+    ``source_id`` 默认 ``SOURCE_ID``（github-trending）；促升仓由 triage 传入专属
+    per-repo source slug（与 Tier-2 skill_registry per-repo source 同款语义）。
     """
     parsed = skill_registry.scan_repo_via_api(repo_slug, branch)
     stars = int(item.get("stargazers_count") or 0)
@@ -431,7 +500,7 @@ def build_skill_entries(repo_slug, branch, item, last_synced):
                 "branch": branch,
                 "path": sk["skill_dir"],
             },
-            "source": SOURCE_ID,
+            "source": source_id,
             "last_synced": last_synced,
         }
         # 预过滤已挡掉 Tier1 重复，这里 tier1 集合传空即可；只做 stars/spam/non-coding 把关。

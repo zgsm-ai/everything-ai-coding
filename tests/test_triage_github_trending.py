@@ -40,10 +40,10 @@ def _setup_stage_c(monkeypatch):
     skill_built = []
     plugin_built = []
 
-    def fake_build_skill(repo, branch, item, last_synced):
+    def fake_build_skill(repo, branch, item, last_synced, source_id=sgt.SOURCE_ID):
         skill_built.append(repo)
         return [{"id": f"{repo.replace('/', '-')}-skill", "type": "skill",
-                 "source": sgt.SOURCE_ID,
+                 "source": source_id,
                  "source_url": f"https://github.com/{repo}/tree/{branch}/x"}]
 
     def fake_sync_plugins(cfgs, last_synced):
@@ -239,12 +239,12 @@ def test_triage_isolates_per_repo_exception(monkeypatch):
     _, _, saved = _setup_stage_c(monkeypatch)
     _capture_writes(monkeypatch)
 
-    def build(repo, branch, item, last_synced):
+    def build(repo, branch, item, last_synced, source_id=sgt.SOURCE_ID):
         if repo == "boom/repo":
             import http.client
             raise http.client.RemoteDisconnected("boom")
         return [{"id": f"{repo.replace('/', '-')}-skill", "type": "skill",
-                 "source": sgt.SOURCE_ID,
+                 "source": source_id,
                  "source_url": f"https://github.com/{repo}/tree/{branch}/x"}]
 
     monkeypatch.setattr(sgt, "build_skill_entries", build)
@@ -257,6 +257,103 @@ def test_triage_isolates_per_repo_exception(monkeypatch):
     assert stats["skill_repos"] == 1
     assert "boom/repo" not in saved["cache"]
     assert "good/skill" in saved["cache"]
+
+
+# --- 促升清单：per-repo source 覆盖 + 跳过 is_primary_skill ------------------
+
+def _setup_stage_c_capture_source(monkeypatch):
+    """注入 Stage C 深拉构造器，记录 build_skill_entries 收到的 source_id +
+    sync_plugins 收到的 cfg["id"]。"""
+    captured = {"skill_source": [], "plugin_cfg_id": []}
+
+    def fake_build_skill(repo, branch, item, last_synced, source_id=sgt.SOURCE_ID):
+        captured["skill_source"].append((repo, source_id))
+        return [{"id": f"{repo.replace('/', '-')}-skill", "type": "skill",
+                 "source": source_id,
+                 "source_url": f"https://github.com/{repo}/tree/{branch}/x"}]
+
+    def fake_sync_plugins(cfgs, last_synced):
+        out = []
+        for c in cfgs:
+            captured["plugin_cfg_id"].append((c["repo_slug"], c["id"]))
+            out.append({"id": f"{c['repo_slug'].replace('/', '-')}-plugin",
+                        "type": "plugin", "source": c["id"],
+                        "source_url": f"https://github.com/{c['repo_slug']}.git"})
+        return out
+
+    monkeypatch.setattr(sgt, "build_skill_entries", fake_build_skill)
+    monkeypatch.setattr(sgt, "sync_plugins", fake_sync_plugins)
+    monkeypatch.setattr(sgt, "load_verify_cache", lambda: {})
+    monkeypatch.setattr(sgt, "save_verify_cache", lambda c: None)
+    return captured
+
+
+def test_triage_promoted_skill_per_repo_source(monkeypatch):
+    """促升仓 skill：带专属 per-repo source slug（非 github-trending），不调 LLM 判别。"""
+    captured = _setup_stage_c_capture_source(monkeypatch)
+    written = _capture_writes(monkeypatch)
+    judge = _FakeJudge()
+    stats = tr.triage(
+        [_cand("Google/Skills")], "2026-06-16", judge=judge,
+        plugin_probe=lambda full: False, wall_budget=999,
+        promoted_map={"google/skills": "google/skills"},
+    )
+    # source_id 传入专属 slug；entry 的 source == slug
+    assert captured["skill_source"] == [("Google/Skills", "google/skills")]
+    assert written["skills"][0]["source"] == "google/skills"
+    # 促升仓**跳过** is_primary_skill（手工精选可信）
+    assert judge.calls == []
+    assert stats["promoted"] == 1
+    assert stats["skill_repos"] == 1
+
+
+def test_triage_promoted_plugin_per_repo_source(monkeypatch):
+    """促升仓 plugin：cfg id 换成专属 slug → entry source == slug，不调 LLM。"""
+    captured = _setup_stage_c_capture_source(monkeypatch)
+    written = _capture_writes(monkeypatch)
+    judge = _FakeJudge()
+    stats = tr.triage(
+        [_cand("Browserbase/Skills")], "2026-06-16", judge=judge,
+        plugin_probe=lambda full: True, wall_budget=999,
+        promoted_map={"browserbase/skills": "browserbase/skills"},
+    )
+    assert captured["plugin_cfg_id"] == [("Browserbase/Skills", "browserbase/skills")]
+    assert written["plugins"][0]["source"] == "browserbase/skills"
+    assert judge.calls == []
+    assert stats["promoted"] == 1
+    assert stats["plugin_repos"] == 1
+
+
+def test_triage_non_promoted_still_github_trending(monkeypatch):
+    """非促升仓不受影响：仍走 LLM 判别 + 默认 github-trending source。"""
+    captured = _setup_stage_c_capture_source(monkeypatch)
+    _capture_writes(monkeypatch)
+    judge = _FakeJudge(verdicts={"random/repo": True})
+    tr.triage(
+        [_cand("random/repo")], "2026-06-16", judge=judge,
+        plugin_probe=lambda full: False, wall_budget=999,
+        promoted_map={"google/skills": "google/skills"},  # 不含 random/repo
+    )
+    # 非促升仓：source_id 用默认 SOURCE_ID，LLM 判别被调用
+    assert captured["skill_source"] == [("random/repo", sgt.SOURCE_ID)]
+    assert judge.calls == ["random/repo"]
+
+
+def test_triage_promoted_skips_llm_even_if_app_verdict(monkeypatch):
+    """促升仓即便 LLM 会判 app，也不调 LLM（白名单豁免）→ 不被丢弃，照常深拉。"""
+    captured = _setup_stage_c_capture_source(monkeypatch)
+    _capture_writes(monkeypatch)
+    # judge 配置 verdict=False（若被调用会丢弃）；促升仓应根本不调它
+    judge = _FakeJudge(verdicts={"google/skills": False})
+    judge.is_primary_skill = lambda c: pytest.fail("促升仓不该调 is_primary_skill")
+    stats = tr.triage(
+        [_cand("google/skills")], "2026-06-16", judge=judge,
+        plugin_probe=lambda full: False, wall_budget=999,
+        promoted_map={"google/skills": "google/skills"},
+    )
+    assert stats["llm_dropped"] == 0
+    assert stats["skill_repos"] == 1
+    assert captured["skill_source"] == [("google/skills", "google/skills")]
 
 
 def test_triage_llm_unavailable_conservative_pass(monkeypatch):

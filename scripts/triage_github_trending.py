@@ -172,13 +172,18 @@ def flush_plugins(plugin_entries, path):
 def triage(candidates, last_synced, judge=None, plugin_probe=probe_plugin,
            skills_output=sgt.SKILLS_INDEX, plugins_output=sgt.PLUGINS_INDEX,
            wall_budget=WALL_BUDGET_SECONDS, flush_every=FLUSH_EVERY,
-           now=time.monotonic):
+           now=time.monotonic, promoted_map=None):
     """对候选表逐条 Stage B 判别 + Stage C 深拉，增量写 index。返回 stats。
 
     judge：``_LLMJudge`` 实例（None 则内部构造）。``now`` 注入便于测试 wall-clock。
+    ``promoted_map``：``{full_name.lower(): source_slug}``（None 则从清单加载）。命中
+    促升清单的仓 → 用专属 per-repo source slug 覆盖 github-trending，且**跳过 LLM
+    is_primary_skill 判别**（手工精选可信，等同 Tier-1/2 白名单待遇）。
     """
     if judge is None:
         judge = _LLMJudge()
+    if promoted_map is None:
+        promoted_map = sgt.build_promoted_map()
 
     verify_cache = sgt.load_verify_cache()
     new_cache = dict(verify_cache)  # 先并入旧 cache，增量落盘不丢未碰条目
@@ -188,6 +193,7 @@ def triage(candidates, last_synced, judge=None, plugin_probe=probe_plugin,
         "plugin_repos": 0, "skill_repos": 0,
         "llm_dropped": 0, "skill_no_entry": 0, "errored": 0,
         "cache_hit": 0, "budget_exhausted": False, "llm_unavailable": 0,
+        "promoted": 0,
     }
     pending_skills = []  # 累计待 flush 的 skill entry
     pending_plugin_cfgs = []  # 累计待 build 的 plugin source_cfg
@@ -221,6 +227,8 @@ def triage(candidates, last_synced, judge=None, plugin_probe=probe_plugin,
             continue
         branch = cand.get("default_branch") or "main"
         pushed_at = cand.get("pushed_at") or ""
+        # 促升命中（大小写不敏感）：拿到专属 per-repo source slug，跳过 LLM 判别。
+        promoted_slug = promoted_map.get(full.lower())
 
         try:
             # 增量 cache：pushed_at 未变且有终态 kind → 跳过昂贵判别/深拉。
@@ -235,8 +243,12 @@ def triage(candidates, last_synced, judge=None, plugin_probe=probe_plugin,
             # Stage B-1：plugin 探测（廉价，不拉树）
             if plugin_probe(full):
                 stats["plugin_repos"] += 1
+                # 促升仓用专属 slug 覆盖 source（sync_plugins_official 用 cfg["id"] 写 source）。
+                source_id = promoted_slug or sgt.SOURCE_ID
+                if promoted_slug:
+                    stats["promoted"] += 1
                 pending_plugin_cfgs.append({
-                    "id": sgt.SOURCE_ID,
+                    "id": source_id,
                     "repo_slug": full,
                     "branch": branch,
                     "source_priority": sgt.PLUGIN_SOURCE_PRIORITY,
@@ -247,24 +259,31 @@ def triage(candidates, last_synced, judge=None, plugin_probe=probe_plugin,
                     _do_flush()
                 continue
 
-            # Stage B-2：LLM is_primary_skill 判别（拉 README，不拉树）
-            verdict, reason = judge.is_primary_skill(cand)
-            if reason in ("llm-unavailable", "llm-error", "llm-no-result"):
-                stats["llm_unavailable"] += 1
-            if verdict is False:
-                # app/framework → 丢弃，不进 Stage C。缓存为 app 避免反复判别。
-                stats["llm_dropped"] += 1
-                logger.info("LLM 判 app 丢弃 %s：%s", full, reason)
-                new_cache[full] = {"pushed_at": pushed_at, "kind": "app"}
-                stats["processed"] += 1
-                continue
+            # Stage B-2：LLM is_primary_skill 判别（拉 README，不拉树）。
+            # 促升仓手工精选可信，**跳过 LLM 判别**（省 LLM、避免误杀），直接当存活者深拉。
+            if promoted_slug:
+                stats["promoted"] += 1
+            else:
+                verdict, reason = judge.is_primary_skill(cand)
+                if reason in ("llm-unavailable", "llm-error", "llm-no-result"):
+                    stats["llm_unavailable"] += 1
+                if verdict is False:
+                    # app/framework → 丢弃，不进 Stage C。缓存为 app 避免反复判别。
+                    stats["llm_dropped"] += 1
+                    logger.info("LLM 判 app 丢弃 %s：%s", full, reason)
+                    new_cache[full] = {"pushed_at": pushed_at, "kind": "app"}
+                    stats["processed"] += 1
+                    continue
 
-            # Stage C：skill 深拉（仅存活者）
+            # Stage C：skill 深拉（仅存活者）。促升仓带专属 per-repo source slug。
             item = {
                 "stargazers_count": cand.get("stars") or 0,
                 "pushed_at": pushed_at,
             }
-            built = sgt.build_skill_entries(full, branch, item, last_synced)
+            built = sgt.build_skill_entries(
+                full, branch, item, last_synced,
+                source_id=promoted_slug or sgt.SOURCE_ID,
+            )
             if built:
                 stats["skill_repos"] += 1
                 pending_skills.extend(built)
@@ -312,12 +331,13 @@ def main(argv=None):
     # WARN 汇总：一轮 triage 健康度在 CI 日志可见（不静默）。
     logger.warning(
         "GitHub trending triage 健康度：候选=%d｜已处理=%d｜plugin 仓=%d｜skill 仓=%d"
-        "（写入 skill=%d / plugin=%d）｜LLM 判 app 丢弃=%d｜skill 无产出=%d｜异常=%d"
+        "（写入 skill=%d / plugin=%d）｜促升=%d｜LLM 判 app 丢弃=%d｜skill 无产出=%d｜异常=%d"
         "｜cache 命中=%d｜LLM 不可用降级=%d｜预算耗尽=%s",
         stats["total"], stats["processed"], stats["plugin_repos"], stats["skill_repos"],
         stats.get("written_skills", 0), stats.get("written_plugins", 0),
-        stats["llm_dropped"], stats["skill_no_entry"], stats["errored"],
-        stats["cache_hit"], stats["llm_unavailable"], stats["budget_exhausted"],
+        stats.get("promoted", 0), stats["llm_dropped"], stats["skill_no_entry"],
+        stats["errored"], stats["cache_hit"], stats["llm_unavailable"],
+        stats["budget_exhausted"],
     )
     return 0
 

@@ -20,10 +20,22 @@ join ``catalog/index.json`` 实时聚合的 entry 计数，产出
   仍登记在册，``count == 0`` 时不输出，数据回来后自动出现。
 """
 
+import json
+import logging
+import os
 from collections import Counter
+
+logger = logging.getLogger("source_registry")
 
 # 类型展示顺序（对齐 About 页原排版）
 TYPE_ORDER = ["MCP", "Skills", "Rules", "Prompts", "Plugins"]
+
+# 促升清单 entry 的小写 type（skill/plugin）→ About 页 TYPE_ORDER 展示 type。
+_PROMOTE_TYPE_TO_DISPLAY = {"skill": "Skills", "plugin": "Plugins"}
+# 促升清单路径（与 sync_github_trending.PROMOTED_REPOS_PATH 同一文件，DRY 单一真相）。
+_PROMOTED_REPOS_PATH = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "trending_promoted_repos.json"
+)
 
 # trust 分值 → 信任分级展示元数据（颜色沿用前端 TRUST_LEVELS 原值）
 TIER_META = {
@@ -175,6 +187,44 @@ SOURCE_REGISTRY: dict[str, dict] = {
         "trust": 2,
     },
 }
+
+
+def _register_promoted_sources(registry: dict[str, dict], path: str = _PROMOTED_REPOS_PATH) -> None:
+    """把 ``trending_promoted_repos.json`` 里每个促升仓登记进 ``registry``（DRY）。
+
+    促升仓从统一 github-trending 切到专属 per-repo source slug；为了 About 页能展示
+    它们，每个 slug 必须登记进 ``SOURCE_REGISTRY``，key **逐字等于** entry 写入的
+    ``source`` 值（清单里的小写 ``source_slug``）。直接读促升清单生成 entry，避免与
+    清单两处漂移。文件缺失 / 损坏 → 跳过（不崩，About 页仅少展示几个源）。
+    """
+    if not os.path.exists(path):
+        return
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (OSError, json.JSONDecodeError) as e:  # noqa: BLE001
+        logger.warning("促升清单读取失败，跳过登记：%s", e)
+        return
+    raw = data.get("repos") if isinstance(data, dict) else data
+    if not isinstance(raw, list):
+        return
+    for item in raw:
+        if not isinstance(item, dict):
+            continue
+        slug = (item.get("source_slug") or "").strip()
+        rtype = (item.get("type") or "").strip()
+        if not slug or rtype not in _PROMOTE_TYPE_TO_DISPLAY:
+            continue  # schema 校验由 sync_github_trending.load_promoted_repos 兜底
+        registry[slug] = {
+            "label": (item.get("label") or "").strip() or slug,
+            "url": (item.get("url") or "").strip() or f"https://github.com/{item.get('repo', slug)}",
+            "type": _PROMOTE_TYPE_TO_DISPLAY[rtype],
+            "trust": int(item.get("trust") or 3),
+        }
+
+
+# 促升仓批量登记（key 逐字等于促升清单的小写 source_slug，与 entry 写入值对齐）。
+_register_promoted_sources(SOURCE_REGISTRY)
 
 
 def build_sources_payload(items: list[dict]) -> dict:

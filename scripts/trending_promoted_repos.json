@@ -1,0 +1,85 @@
+{
+  "_comment": "促升清单（promote）：把 github-trending 主动发现源里『质量稳定、出品方知名』的 monorepo 仓『毕业』成各自独立的一等上游源。命中本清单的仓在 triage/sync 时拿到专属 per-repo source slug（而非统一 github-trending），跳过 LLM is_primary_skill 判别（手工精选可信，等同 Tier-1/2 白名单待遇），并登记进 source_registry.SOURCE_REGISTRY 以便 About 页展示。与 seed 清单（trending_seed_repos.json）正交：seed=强行把仓塞进候选池；promote=给候选/已入库仓专属 source。一个仓可只 seed / 只 promote / 两者皆是。元素 schema：{repo, source_slug, label, url, type, trust}。repo 用候选 full_name（owner/repo，大小写不敏感匹配）；source_slug 用统一小写 owner/repo，必须三处逐字相同（新 entry 写入值 / SOURCE_REGISTRY 的 key / 迁移脚本写入值）；type ∈ skill|plugin（必须是 source_registry.TYPE_ORDER 已知值，browserbase 走 plugin 路由用 plugin）；trust=3 表示『自动发现但知名出品方』，高于 github-trending 的 2。",
+  "repos": [
+    {
+      "repo": "ComposioHQ/awesome-codex-skills",
+      "source_slug": "composiohq/awesome-codex-skills",
+      "label": "Composio Awesome Codex Skills",
+      "url": "https://github.com/ComposioHQ/awesome-codex-skills",
+      "type": "skill",
+      "trust": 3
+    },
+    {
+      "repo": "thedaviddias/Front-End-Checklist",
+      "source_slug": "thedaviddias/front-end-checklist",
+      "label": "Front-End Checklist",
+      "url": "https://github.com/thedaviddias/Front-End-Checklist",
+      "type": "skill",
+      "trust": 3
+    },
+    {
+      "repo": "k-dense-ai/scientific-agent-skills",
+      "source_slug": "k-dense-ai/scientific-agent-skills",
+      "label": "K-Dense Scientific Agent Skills",
+      "url": "https://github.com/k-dense-ai/scientific-agent-skills",
+      "type": "skill",
+      "trust": 3
+    },
+    {
+      "repo": "wanshuiyin/auto-claude-code-research-in-sleep",
+      "source_slug": "wanshuiyin/auto-claude-code-research-in-sleep",
+      "label": "Auto Claude Code Research",
+      "url": "https://github.com/wanshuiyin/auto-claude-code-research-in-sleep",
+      "type": "skill",
+      "trust": 3
+    },
+    {
+      "repo": "opensensenova/sensenova-skills",
+      "source_slug": "opensensenova/sensenova-skills",
+      "label": "SenseNova Skills",
+      "url": "https://github.com/opensensenova/sensenova-skills",
+      "type": "skill",
+      "trust": 3
+    },
+    {
+      "repo": "Dimillian/skills",
+      "source_slug": "dimillian/skills",
+      "label": "Dimillian Skills",
+      "url": "https://github.com/Dimillian/skills",
+      "type": "skill",
+      "trust": 3
+    },
+    {
+      "repo": "iofficeai/officecli",
+      "source_slug": "iofficeai/officecli",
+      "label": "OfficeCLI Skills",
+      "url": "https://github.com/iofficeai/officecli",
+      "type": "skill",
+      "trust": 3
+    },
+    {
+      "repo": "google/skills",
+      "source_slug": "google/skills",
+      "label": "Google Skills",
+      "url": "https://github.com/google/skills",
+      "type": "skill",
+      "trust": 3
+    },
+    {
+      "repo": "browserbase/skills",
+      "source_slug": "browserbase/skills",
+      "label": "Browserbase Skills",
+      "url": "https://github.com/browserbase/skills",
+      "type": "plugin",
+      "trust": 3
+    },
+    {
+      "repo": "mattpocock/skills",
+      "source_slug": "mattpocock/skills",
+      "label": "Matt Pocock Skills",
+      "url": "https://github.com/mattpocock/skills",
+      "type": "skill",
+      "trust": 3
+    }
+  ]
+}
