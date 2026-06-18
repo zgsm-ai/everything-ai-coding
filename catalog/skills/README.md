@@ -1,6 +1,6 @@
 # 🎯 Skills
 
-> 6169 Reusable agent capabilities and workflows for AI coding assistants.
+> 5451 Reusable agent capabilities and workflows for AI coding assistants.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
@@ -20,19 +20,19 @@
 | 8 | [Writing Hookify Rules](https://github.com/anthropics/claude-code/tree/main/plugins/hookify/skills/writing-rules) | A skill for creating hookify rules that monitor coding patterns in Claude Code a... | Anthropic Official | 🟢 Active | 97 | 2026-05-09 | tooling | — |
 | 9 | [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) | A comprehensive skill for creating, testing, and optimizing AI assistant skills ... | Anthropic Official | 🟢 Active | 96 | 2026-05-09 | testing | `anthropic`, `official` |
 | 10 | [xlsx](https://github.com/anthropics/skills/tree/main/skills/xlsx) | A Python skill for programmatically creating, editing, and analyzing Excel and t... | Anthropic Official | 🟢 Active | 96 | 2026-05-09 | tooling | `anthropic`, `official` |
-| 11 | [notebooklm](https://github.com/teng-lin/notebooklm-py/tree/main/) | A CLI tool for programmatic access to Google NotebookLM, enabling AI agents to a... | github-trending | 🟢 Active | 96 | 2026-06-17 | backend | `notebooklm`, `cli`, `automation` |
-| 12 | [agent-payment-x402](https://github.com/affaan-m/ECC/tree/HEAD/skills/agent-payment-x402) | A skill enabling AI agents to make policy-gated payments using the x402 protocol... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
-| 13 | [codehealth-mcp](https://github.com/affaan-m/ECC/tree/HEAD/skills/codehealth-mcp) | MCP server providing real-time structural code health scores and regression gate... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
-| 14 | [configure-ecc](https://github.com/affaan-m/ECC/tree/HEAD/skills/configure-ecc) | Interactive installer for configuring Everything Claude Code skills and rules in... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
-| 15 | [continuous-learning-v2](https://github.com/affaan-m/ECC/tree/HEAD/skills/continuous-learning-v2) | A skill for Claude Code that learns coding patterns from sessions via hooks, cre... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
-| 16 | [django-tdd](https://github.com/affaan-m/ECC/tree/HEAD/skills/django-tdd) | A comprehensive guide to Django test-driven development with pytest, factory_boy... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | backend | `go`, `django` |
-| 17 | [inherit-legacy-style](https://github.com/affaan-m/ECC/tree/HEAD/skills/inherit-legacy-style) | An AI coding skill that scans legacy codebases to extract and enforce consistent... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
-| 18 | [java-coding-standards](https://github.com/affaan-m/ECC/tree/HEAD/skills/java-coding-standards) | A comprehensive set of Java coding standards for Spring Boot and Quarkus service... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | backend | `java` |
-| 19 | [kotlin-exposed-patterns](https://github.com/affaan-m/ECC/tree/HEAD/skills/kotlin-exposed-patterns) | Comprehensive Kotlin patterns for JetBrains Exposed ORM covering DSL queries, DA... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | mobile | `kotlin` |
-| 20 | [motion-ui](https://github.com/affaan-m/ECC/tree/HEAD/skills/motion-ui) | A production-ready UI motion system for React/Next.js focused on performance, ac... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
-| 21 | [plankton-code-quality](https://github.com/affaan-m/ECC/tree/HEAD/skills/plankton-code-quality) | Plankton Code Quality enforces write-time code quality via auto-formatting, lint... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
-| 22 | [quarkus-tdd](https://github.com/affaan-m/ECC/tree/HEAD/skills/quarkus-tdd) | A comprehensive TDD workflow guide for Quarkus 3.x LTS using JUnit 5, Mockito, R... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
-| 23 | [windows-desktop-e2e](https://github.com/affaan-m/ECC/tree/HEAD/skills/windows-desktop-e2e) | A comprehensive skill for end-to-end testing of Windows native desktop applicati... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
+| 11 | [agent-payment-x402](https://github.com/affaan-m/ECC/tree/HEAD/skills/agent-payment-x402) | A skill enabling AI agents to make policy-gated payments using the x402 protocol... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
+| 12 | [codehealth-mcp](https://github.com/affaan-m/ECC/tree/HEAD/skills/codehealth-mcp) | MCP server providing real-time structural code health scores and regression gate... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
+| 13 | [configure-ecc](https://github.com/affaan-m/ECC/tree/HEAD/skills/configure-ecc) | Interactive installer for configuring Everything Claude Code skills and rules in... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
+| 14 | [continuous-learning-v2](https://github.com/affaan-m/ECC/tree/HEAD/skills/continuous-learning-v2) | A skill for Claude Code that learns coding patterns from sessions via hooks, cre... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
+| 15 | [django-tdd](https://github.com/affaan-m/ECC/tree/HEAD/skills/django-tdd) | A comprehensive guide to Django test-driven development with pytest, factory_boy... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | backend | `go`, `django` |
+| 16 | [inherit-legacy-style](https://github.com/affaan-m/ECC/tree/HEAD/skills/inherit-legacy-style) | An AI coding skill that scans legacy codebases to extract and enforce consistent... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
+| 17 | [java-coding-standards](https://github.com/affaan-m/ECC/tree/HEAD/skills/java-coding-standards) | A comprehensive set of Java coding standards for Spring Boot and Quarkus service... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | backend | `java` |
+| 18 | [kotlin-exposed-patterns](https://github.com/affaan-m/ECC/tree/HEAD/skills/kotlin-exposed-patterns) | Comprehensive Kotlin patterns for JetBrains Exposed ORM covering DSL queries, DA... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | mobile | `kotlin` |
+| 19 | [motion-ui](https://github.com/affaan-m/ECC/tree/HEAD/skills/motion-ui) | A production-ready UI motion system for React/Next.js focused on performance, ac... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
+| 20 | [plankton-code-quality](https://github.com/affaan-m/ECC/tree/HEAD/skills/plankton-code-quality) | Plankton Code Quality enforces write-time code quality via auto-formatting, lint... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
+| 21 | [quarkus-tdd](https://github.com/affaan-m/ECC/tree/HEAD/skills/quarkus-tdd) | A comprehensive TDD workflow guide for Quarkus 3.x LTS using JUnit 5, Mockito, R... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
+| 22 | [windows-desktop-e2e](https://github.com/affaan-m/ECC/tree/HEAD/skills/windows-desktop-e2e) | A comprehensive skill for end-to-end testing of Windows native desktop applicati... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
+| 23 | [setup-pre-commit](https://github.com/mattpocock/skills/tree/main/skills/misc/setup-pre-commit) | Sets up Husky pre-commit hooks with lint-staged for Prettier, type checking, and... | mattpocock/skills | 🟢 Active | 95 | 2026-06-17 | testing | `pre-commit-hooks`, `husky`, `lint-staged` |
 | 24 | [Agent Development](https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev/skills/agent-development) | A comprehensive guide for developing autonomous agents as plugins for the Claude... | Anthropic Official | 🟢 Active | 95 | 2026-05-09 | tooling | — |
 | 25 | [Command Development](https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev/skills/command-development) | Guide for creating slash commands in Claude Code, covering structure, arguments,... | Anthropic Official | 🟢 Active | 95 | 2026-05-09 | tooling | — |
 | 26 | [langsmith-fetch](https://github.com/ComposioHQ/awesome-claude-skills/tree/master/langsmith-fetch) | CLI tool for debugging LangChain/LangGraph agents by fetching and analyzing exec... | composio-office | 🟢 Active | 95 | 2026-05-22 | documentation | `langchain`, `office`, `documentation` |
@@ -114,7 +114,7 @@
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>docx</strong> (151.9k★) — A comprehensive skill for AI assistants to programmatically ...</summary>
+<summary>⭐ <strong>docx</strong> (152.2k★) — A comprehensive skill for AI assistants to programmatically ...</summary>
 
 A comprehensive skill for AI assistants to programmatically create, read, edit, and manipulate .docx Word documents using JavaScript and XML.
 
@@ -129,7 +129,7 @@ Files: `skills/docx/`
 </details>
 
 <details>
-<summary>⭐ <strong>slack-gif-creator</strong> (151.9k★) — A Python toolkit for creating animated GIFs optimized for Sl...</summary>
+<summary>⭐ <strong>slack-gif-creator</strong> (152.2k★) — A Python toolkit for creating animated GIFs optimized for Sl...</summary>
 
 A Python toolkit for creating animated GIFs optimized for Slack, providing constraints, utilities, and animation concepts.
 
@@ -144,7 +144,7 @@ Files: `skills/slack-gif-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>Hook Development</strong> (132.9k★) — A comprehensive guide for developing event-driven hooks in C...</summary>
+<summary>⭐ <strong>Hook Development</strong> (133.1k★) — A comprehensive guide for developing event-driven hooks in C...</summary>
 
 A comprehensive guide for developing event-driven hooks in Claude Code plugins to validate, modify, and automate AI-assisted coding workflows.
 
@@ -158,7 +158,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>MCP Integration</strong> (132.9k★) — Comprehensive guide for integrating Model Context Protocol (...</summary>
+<summary>⭐ <strong>MCP Integration</strong> (133.1k★) — Comprehensive guide for integrating Model Context Protocol (...</summary>
 
 Comprehensive guide for integrating Model Context Protocol (MCP) servers into Claude Code plugins to connect external services as tools.
 
@@ -172,7 +172,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Plugin Settings</strong> (132.9k★) — A skill pattern for Claude Code plugins to store per-project...</summary>
+<summary>⭐ <strong>Plugin Settings</strong> (133.1k★) — A skill pattern for Claude Code plugins to store per-project...</summary>
 
 A skill pattern for Claude Code plugins to store per-project configuration using YAML frontmatter in .local.md files.
 
@@ -186,7 +186,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Plugin Structure</strong> (132.9k★) — A skill for creating and organizing Claude Code plugins with...</summary>
+<summary>⭐ <strong>Plugin Structure</strong> (133.1k★) — A skill for creating and organizing Claude Code plugins with...</summary>
 
 A skill for creating and organizing Claude Code plugins with standardized directory structure and manifest configuration.
 
@@ -200,7 +200,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Skill Development</strong> (132.9k★) — A comprehensive guide for creating modular skills for Claude...</summary>
+<summary>⭐ <strong>Skill Development</strong> (133.1k★) — A comprehensive guide for creating modular skills for Claude...</summary>
 
 A comprehensive guide for creating modular skills for Claude Code plugins, covering structure, best practices, and progressive disclosure.
 
@@ -214,7 +214,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Writing Hookify Rules</strong> (132.9k★) — A skill for creating hookify rules that monitor coding patte...</summary>
+<summary>⭐ <strong>Writing Hookify Rules</strong> (133.1k★) — A skill for creating hookify rules that monitor coding patte...</summary>
 
 A skill for creating hookify rules that monitor coding patterns in Claude Code and trigger warnings or blocks.
 
@@ -228,7 +228,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>skill-creator</strong> (151.9k★) — A comprehensive skill for creating, testing, and optimizing ...</summary>
+<summary>⭐ <strong>skill-creator</strong> (152.2k★) — A comprehensive skill for creating, testing, and optimizing ...</summary>
 
 A comprehensive skill for creating, testing, and optimizing AI assistant skills through an iterative workflow with evaluation and benchmarking.
 
@@ -243,7 +243,7 @@ Files: `skills/skill-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>xlsx</strong> (151.9k★) — A Python skill for programmatically creating, editing, and a...</summary>
+<summary>⭐ <strong>xlsx</strong> (152.2k★) — A Python skill for programmatically creating, editing, and a...</summary>
 
 A Python skill for programmatically creating, editing, and analyzing Excel and tabular files with strict formatting and formula standards.
 
@@ -269,4 +269,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-17*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-18*

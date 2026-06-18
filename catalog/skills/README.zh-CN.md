@@ -1,6 +1,6 @@
 # 🎯 Skills 技能
 
-> 6169 AI 编程助手的可复用能力和工作流。
+> 5451 AI 编程助手的可复用能力和工作流。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
@@ -20,19 +20,19 @@
 | 8 | [Writing Hookify Rules](https://github.com/anthropics/claude-code/tree/main/plugins/hookify/skills/writing-rules) | 用于创建 Hookify 规则的技能，监控 Claude Code 中的编码模式并触发警告或阻止。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-05-09 | tooling | — |
 | 9 | [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) | 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。 | Anthropic 官方 | 🟢 活跃 | 96 | 2026-05-09 | testing | `anthropic`, `official` |
 | 10 | [xlsx](https://github.com/anthropics/skills/tree/main/skills/xlsx) | 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。 | Anthropic 官方 | 🟢 活跃 | 96 | 2026-05-09 | tooling | `anthropic`, `official` |
-| 11 | [notebooklm](https://github.com/teng-lin/notebooklm-py/tree/main/) | CLI工具，提供对Google NotebookLM的程序化访问，支持自动化创建笔记本、添加源、生成制品及下载。 | github-trending | 🟢 活跃 | 96 | 2026-06-17 | backend | `notebooklm`, `cli`, `automation` |
-| 12 | [agent-payment-x402](https://github.com/affaan-m/ECC/tree/HEAD/skills/agent-payment-x402) | 一项技能，使AI代理能够使用x402协议进行策略门控支付，具备支出控制和非托管钱包功能。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
-| 13 | [codehealth-mcp](https://github.com/affaan-m/ECC/tree/HEAD/skills/codehealth-mcp) | 通过 CodeScene MCP 提供实时结构化代码健康评分和回归检查，辅助 AI 编码工作流。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
-| 14 | [configure-ecc](https://github.com/affaan-m/ECC/tree/HEAD/skills/configure-ecc) | 用于配置 Everything Claude Code 技能和规则的交互式安装程序。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
-| 15 | [continuous-learning-v2](https://github.com/affaan-m/ECC/tree/HEAD/skills/continuous-learning-v2) | 为Claude Code设计的技能，通过钩子从会话中学习编码模式，创建项目范围内的直觉并演化为可重用技能。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
-| 16 | [django-tdd](https://github.com/affaan-m/ECC/tree/HEAD/skills/django-tdd) | Django TDD 全面指南，包含 pytest、factory_boy 和 DRF 测试模式。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | backend | `go`, `django` |
-| 17 | [inherit-legacy-style](https://github.com/affaan-m/ECC/tree/HEAD/skills/inherit-legacy-style) | 扫描旧代码库以提取并强制执行统一编码风格规则，防止AI生成代码风格漂移。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
-| 18 | [java-coding-standards](https://github.com/affaan-m/ECC/tree/HEAD/skills/java-coding-standards) | 适用于Spring Boot和Quarkus服务的Java编码标准，涵盖命名、不可变性、响应式模式等。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | backend | `java` |
-| 19 | [kotlin-exposed-patterns](https://github.com/affaan-m/ECC/tree/HEAD/skills/kotlin-exposed-patterns) | JetBrains Exposed ORM 的 Kotlin 数据库访问模式大全，涵盖 DSL 查询、DAO、事务、HikariCP 连接池和 Flyway 迁... | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | mobile | `kotlin` |
-| 20 | [motion-ui](https://github.com/affaan-m/ECC/tree/HEAD/skills/motion-ui) | 面向React/Next.js的生产级UI动效系统，专注于性能、无障碍和实用性。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
-| 21 | [plankton-code-quality](https://github.com/affaan-m/ECC/tree/HEAD/skills/plankton-code-quality) | Plankton Code Quality 通过自动格式化、Linting 和 AI 修复，在 Claude Code 编写时强制执行代码质量。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
-| 22 | [quarkus-tdd](https://github.com/affaan-m/ECC/tree/HEAD/skills/quarkus-tdd) | 为Quarkus 3.x LTS提供全面的TDD工作流指南，涵盖JUnit 5、Mockito、REST Assured、Camel测试和JaCoCo，包含详细... | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
-| 23 | [windows-desktop-e2e](https://github.com/affaan-m/ECC/tree/HEAD/skills/windows-desktop-e2e) | 使用 pywinauto 和 Windows UI Automation 对 Windows 原生桌面应用 (WPF, WinForms, Qt) 进行端到端测... | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
+| 11 | [agent-payment-x402](https://github.com/affaan-m/ECC/tree/HEAD/skills/agent-payment-x402) | 一项技能，使AI代理能够使用x402协议进行策略门控支付，具备支出控制和非托管钱包功能。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
+| 12 | [codehealth-mcp](https://github.com/affaan-m/ECC/tree/HEAD/skills/codehealth-mcp) | 通过 CodeScene MCP 提供实时结构化代码健康评分和回归检查，辅助 AI 编码工作流。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
+| 13 | [configure-ecc](https://github.com/affaan-m/ECC/tree/HEAD/skills/configure-ecc) | 用于配置 Everything Claude Code 技能和规则的交互式安装程序。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
+| 14 | [continuous-learning-v2](https://github.com/affaan-m/ECC/tree/HEAD/skills/continuous-learning-v2) | 为Claude Code设计的技能，通过钩子从会话中学习编码模式，创建项目范围内的直觉并演化为可重用技能。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
+| 15 | [django-tdd](https://github.com/affaan-m/ECC/tree/HEAD/skills/django-tdd) | Django TDD 全面指南，包含 pytest、factory_boy 和 DRF 测试模式。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | backend | `go`, `django` |
+| 16 | [inherit-legacy-style](https://github.com/affaan-m/ECC/tree/HEAD/skills/inherit-legacy-style) | 扫描旧代码库以提取并强制执行统一编码风格规则，防止AI生成代码风格漂移。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
+| 17 | [java-coding-standards](https://github.com/affaan-m/ECC/tree/HEAD/skills/java-coding-standards) | 适用于Spring Boot和Quarkus服务的Java编码标准，涵盖命名、不可变性、响应式模式等。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | backend | `java` |
+| 18 | [kotlin-exposed-patterns](https://github.com/affaan-m/ECC/tree/HEAD/skills/kotlin-exposed-patterns) | JetBrains Exposed ORM 的 Kotlin 数据库访问模式大全，涵盖 DSL 查询、DAO、事务、HikariCP 连接池和 Flyway 迁... | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | mobile | `kotlin` |
+| 19 | [motion-ui](https://github.com/affaan-m/ECC/tree/HEAD/skills/motion-ui) | 面向React/Next.js的生产级UI动效系统，专注于性能、无障碍和实用性。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
+| 20 | [plankton-code-quality](https://github.com/affaan-m/ECC/tree/HEAD/skills/plankton-code-quality) | Plankton Code Quality 通过自动格式化、Linting 和 AI 修复，在 Claude Code 编写时强制执行代码质量。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
+| 21 | [quarkus-tdd](https://github.com/affaan-m/ECC/tree/HEAD/skills/quarkus-tdd) | 为Quarkus 3.x LTS提供全面的TDD工作流指南，涵盖JUnit 5、Mockito、REST Assured、Camel测试和JaCoCo，包含详细... | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
+| 22 | [windows-desktop-e2e](https://github.com/affaan-m/ECC/tree/HEAD/skills/windows-desktop-e2e) | 使用 pywinauto 和 Windows UI Automation 对 Windows 原生桌面应用 (WPF, WinForms, Qt) 进行端到端测... | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
+| 23 | [setup-pre-commit](https://github.com/mattpocock/skills/tree/main/skills/misc/setup-pre-commit) | 为 JavaScript/TypeScript 项目设置 Husky 预提交钩子，集成 Prettier 格式化、类型检查和测试。 | mattpocock/skills | 🟢 活跃 | 95 | 2026-06-17 | testing | `pre-commit-hooks`, `husky`, `lint-staged` |
 | 24 | [Agent Development](https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev/skills/agent-development) | 为Claude Code AI编程助手开发自主代理插件的完整指南。 | Anthropic 官方 | 🟢 活跃 | 95 | 2026-05-09 | tooling | — |
 | 25 | [Command Development](https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev/skills/command-development) | Claude Code 斜杠命令开发指南，涵盖结构、参数和最佳实践。 | Anthropic 官方 | 🟢 活跃 | 95 | 2026-05-09 | tooling | — |
 | 26 | [langsmith-fetch](https://github.com/ComposioHQ/awesome-claude-skills/tree/master/langsmith-fetch) | 用于调试LangChain/LangGraph代理的CLI工具，可从LangSmith Studio获取和分析执行跟踪。 | composio-office | 🟢 活跃 | 95 | 2026-05-22 | documentation | `langchain`, `office`, `documentation` |
@@ -114,7 +114,7 @@
 ## Top 10 安装指南
 
 <details>
-<summary>⭐ <strong>docx</strong> (151.9k★) — 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。</summary>
+<summary>⭐ <strong>docx</strong> (152.2k★) — 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。</summary>
 
 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。
 
@@ -129,7 +129,7 @@ Files: `skills/docx/`
 </details>
 
 <details>
-<summary>⭐ <strong>slack-gif-creator</strong> (151.9k★) — 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。</summary>
+<summary>⭐ <strong>slack-gif-creator</strong> (152.2k★) — 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。</summary>
 
 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。
 
@@ -144,7 +144,7 @@ Files: `skills/slack-gif-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>Hook Development</strong> (132.9k★) — Claude Code 插件钩子开发指南，用于验证、修改和自动化 AI 辅助编码工作流。</summary>
+<summary>⭐ <strong>Hook Development</strong> (133.1k★) — Claude Code 插件钩子开发指南，用于验证、修改和自动化 AI 辅助编码工作流。</summary>
 
 Claude Code 插件钩子开发指南，用于验证、修改和自动化 AI 辅助编码工作流。
 
@@ -158,7 +158,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>MCP Integration</strong> (132.9k★) — 全面指南，用于将模型上下文协议（MCP）服务器集成到Claude Code插件中，以连接外部服务作为工具。</summary>
+<summary>⭐ <strong>MCP Integration</strong> (133.1k★) — 全面指南，用于将模型上下文协议（MCP）服务器集成到Claude Code插件中，以连接外部服务作为工具。</summary>
 
 全面指南，用于将模型上下文协议（MCP）服务器集成到Claude Code插件中，以连接外部服务作为工具。
 
@@ -172,7 +172,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Plugin Settings</strong> (132.9k★) — Claude Code 插件技能模式，通过 .local.md 文件中的 YAML 前置数据存储项目配置。</summary>
+<summary>⭐ <strong>Plugin Settings</strong> (133.1k★) — Claude Code 插件技能模式，通过 .local.md 文件中的 YAML 前置数据存储项目配置。</summary>
 
 Claude Code 插件技能模式，通过 .local.md 文件中的 YAML 前置数据存储项目配置。
 
@@ -186,7 +186,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Plugin Structure</strong> (132.9k★) — 用于创建和组织 Claude Code 插件的技能，提供标准化目录结构和清单配置。</summary>
+<summary>⭐ <strong>Plugin Structure</strong> (133.1k★) — 用于创建和组织 Claude Code 插件的技能，提供标准化目录结构和清单配置。</summary>
 
 用于创建和组织 Claude Code 插件的技能，提供标准化目录结构和清单配置。
 
@@ -200,7 +200,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Skill Development</strong> (132.9k★) — 为 Claude Code 插件创建模块化技能的全面指南，涵盖结构、最佳实践和渐进式披露。</summary>
+<summary>⭐ <strong>Skill Development</strong> (133.1k★) — 为 Claude Code 插件创建模块化技能的全面指南，涵盖结构、最佳实践和渐进式披露。</summary>
 
 为 Claude Code 插件创建模块化技能的全面指南，涵盖结构、最佳实践和渐进式披露。
 
@@ -214,7 +214,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Writing Hookify Rules</strong> (132.9k★) — 用于创建 Hookify 规则的技能，监控 Claude Code 中的编码模式并触发警告或阻止。</summary>
+<summary>⭐ <strong>Writing Hookify Rules</strong> (133.1k★) — 用于创建 Hookify 规则的技能，监控 Claude Code 中的编码模式并触发警告或阻止。</summary>
 
 用于创建 Hookify 规则的技能，监控 Claude Code 中的编码模式并触发警告或阻止。
 
@@ -228,7 +228,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>skill-creator</strong> (151.9k★) — 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。</summary>
+<summary>⭐ <strong>skill-creator</strong> (152.2k★) — 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。</summary>
 
 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。
 
@@ -243,7 +243,7 @@ Files: `skills/skill-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>xlsx</strong> (151.9k★) — 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。</summary>
+<summary>⭐ <strong>xlsx</strong> (152.2k★) — 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。</summary>
 
 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。
 
@@ -269,4 +269,4 @@ Files: `skills/xlsx/`
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-17*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-18*
