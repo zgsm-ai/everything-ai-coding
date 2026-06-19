@@ -106,6 +106,8 @@ README.md + README.zh-CN.md                    ← 自动更新统计与精选�
 - `merge_index.py` — 调用 `enrichment_orchestrator.py`（评估+富化）→ `scoring_governor.py`（reject 过滤）→ `catalog_lifecycle.py`（生命周期字段 + 增量复抓候选）
 - `eval_bridge.py` — 胶水层：按资源类型分组，调用 ai-resource-eval harness，将评分 + enrichment 字段映射回 catalog entry，转换 health 格式
 
+**active-discovery 外来 entry 保护（防回归，`06-18-fix-trending-entry-persistence`）**：`sync_skills.py` / `sync_plugins_official.py` 覆盖写 `catalog/{skills,plugins}/index.json` 时**必须保留** existing 里属于 **active-discovery 域**（`source == github-trending` 或 `source ∈ 促升 slug 集`）的外来 entry——这些 entry 由 `triage_github_trending.py` 写入（它跑在 sync 之后，且因 `known_repos` 跳过已入库仓不会重新产出），blanket `save_index(all_entries)` 会每轮把它们抹掉、永不补回。判据复用 `sync_github_trending.load_promoted_repos()` 得到的促升 slug 集，按 id 去重并入（skills 额外按归一 url 去重，plugins 仅按 id——同 monorepo 多 plugin 合法共享 URL）。`sync_plugins_official` 是 plugins per-type index 唯一的 blanket 覆盖者（dev/csc 都 merge-preserve、只 prune 各自 SOURCE_ID），故只需 official 保留 foreign，下游 dev/csc 即原样保留。一次性恢复已丢失的历史 entry：`scripts/recover_trending_entries.py`（从 git 历史 `git show <sha>:...` 取 active-discovery entry merge-preserve 进**三个目标**——`catalog/skills/index.json`（id+url 去重）、`catalog/plugins/index.json`（id-only）、`catalog/index.json`（merged final、costrict-web bundle 源，id-only 去重避免误删同 monorepo 多 plugin），dry-run 默认且分别报三文件命中/回灌数、幂等）。
+
 ### 评分引擎（ai-resource-eval）
 
 嵌入在 `ai-resource-eval/` 的独立评估包（同时有独立 GitHub 仓库 `papysans/ai-resource-eval`，两边各自演化）。

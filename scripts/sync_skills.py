@@ -25,6 +25,7 @@ try:
         load_plugin_sources,
         logger,
         list_repo_files,
+        normalize_source_url,
     )
     from .skill_registry import (
         discover_skills,
@@ -33,6 +34,7 @@ try:
         parse_skill_content,
     )
     from .catalog_lifecycle import overlay_added_at, backfill_missing_added_at
+    from .sync_github_trending import load_promoted_repos
 except ImportError:
     from utils import (
         fetch_raw_content,
@@ -48,6 +50,7 @@ except ImportError:
         load_plugin_sources,
         logger,
         list_repo_files,
+        normalize_source_url,
     )
     from skill_registry import (
         discover_skills,
@@ -56,6 +59,7 @@ except ImportError:
         parse_skill_content,
     )
     from catalog_lifecycle import overlay_added_at, backfill_missing_added_at
+    from sync_github_trending import load_promoted_repos
 
 CATALOG_DIR = os.path.join(os.path.dirname(__file__), "..", "catalog", "skills")
 TODAY = date.today().isoformat()
@@ -168,6 +172,61 @@ VASILYU_CATEGORY_MAP = {
     "ops": "devops",
     "product": "tooling",
 }
+
+
+# --- active-discovery (github-trending + 促升 slug) 域识别 ------------------
+# triage_github_trending.py 是 catalog/{skills,plugins}/index.json 的最后写入者，
+# 但它跑在 sync_skills/sync_plugins_official 之后。这两个 sync 脚本覆盖写 per-type
+# index 时，必须保留上一轮 triage 写入的 active-discovery 外来 entry（它们自己不产
+# 出这些 source），否则 known_repos 跳过已入库仓后这些 entry 永远补不回来。
+
+def _load_promoted_slugs() -> set[str]:
+    """促升清单的 source_slug 集（已小写归一），文件缺失/损坏 → 空集（不崩）。"""
+    try:
+        return {r["source_slug"] for r in load_promoted_repos()}
+    except Exception as e:  # noqa: BLE001 - 促升是可选增强，不该卡死 sync
+        logger.warning("加载促升清单失败，active-discovery 保留退回仅 github-trending：%s", e)
+        return set()
+
+
+def _is_trending_owned(entry: dict, promoted_slugs: set[str]) -> bool:
+    """entry 是否属于 active-discovery 域（triage 唯一写入的 source 集）。"""
+    s = entry.get("source")
+    return s == "github-trending" or (s is not None and s in promoted_slugs)
+
+
+def _merge_keep_foreign(
+    primary: list[dict], foreign: list[dict], dedup_url: bool = True
+) -> list[dict]:
+    """把 foreign 中不与 primary 撞 id（+可选归一 url）的 entry 并入。
+
+    primary 优先（先入为主）。skills 按 id+url 去重；plugins 同 monorepo 多 plugin
+    合法共享 URL，应传 ``dedup_url=False`` 仅按 id 去重。
+    """
+    seen_ids: set[str] = set()
+    seen_urls: set[str] = set()
+    for e in primary:
+        if e.get("id"):
+            seen_ids.add(e["id"])
+        if dedup_url:
+            nu = normalize_source_url(e.get("source_url") or "")
+            if nu:
+                seen_urls.add(nu)
+    result = list(primary)
+    for e in foreign:
+        eid = e.get("id") or ""
+        if eid and eid in seen_ids:
+            continue
+        if dedup_url:
+            nu = normalize_source_url(e.get("source_url") or "")
+            if nu and nu in seen_urls:
+                continue
+            if nu:
+                seen_urls.add(nu)
+        if eid:
+            seen_ids.add(eid)
+        result.append(e)
+    return result
 
 
 def parse_antigravity_skills() -> list[dict[str, Any]]:
@@ -1000,6 +1059,23 @@ def sync():
         logger.info(f"Retained {len(existing_entries)} skills from existing index")
         return
     all_entries = overlay_added_at(all_entries, existing_entries, today=TODAY)
+    # Preserve active-discovery (github-trending + 促升 slug) entries written by
+    # triage_github_trending.py last cycle — sync_skills doesn't produce them, and
+    # triage skips already-ingested repos (known_repos), so a blanket overwrite here
+    # would erase them permanently. Merge by id+url (skills); all_entries wins.
+    promoted_slugs = _load_promoted_slugs()
+    preserved_foreign = [
+        e for e in existing_entries if _is_trending_owned(e, promoted_slugs)
+    ]
+    if preserved_foreign:
+        before = len(all_entries)
+        all_entries = _merge_keep_foreign(all_entries, preserved_foreign, dedup_url=True)
+        logger.info(
+            "Preserved %d active-discovery skill entries from existing index "
+            "(github-trending + 促升 slug); added %d after dedup",
+            len(preserved_foreign),
+            len(all_entries) - before,
+        )
     save_index(all_entries, output_path)
     logger.info(
         f"Final skills count: {len(all_entries)} (Tier 1: {len(tier1_entries)}, Tier 2: {len(tier2_entries)})"

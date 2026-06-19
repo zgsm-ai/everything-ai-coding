@@ -47,6 +47,7 @@ try:
         categorize,
         extract_tags,
         is_plugin_blacklisted,
+        load_index,
         load_plugin_blacklist,
         save_index,
     )
@@ -56,6 +57,7 @@ except ImportError:  # pragma: no cover - script-style invocation
         categorize,
         extract_tags,
         is_plugin_blacklisted,
+        load_index,
         load_plugin_blacklist,
         save_index,
     )
@@ -116,6 +118,60 @@ MANIFEST_COMPLETENESS_NONE = 0.3
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger("sync_plugins_official")
+
+
+# ---------------------------------------------------------------------------
+# active-discovery (github-trending + 促升 slug) 域识别
+# ---------------------------------------------------------------------------
+# triage_github_trending.py 是 catalog/plugins/index.json 的最后写入者，但它跑在
+# sync_plugins_official 之后；CI 顺序是 official → dev → csc → trending → triage。
+# official 是唯一对 plugins index 做 blanket save_index 覆盖的脚本（dev/csc 都 merge-
+# preserve，只 prune 各自 SOURCE_ID），所以只要 official 保留上一轮 triage 写入的
+# active-discovery plugin entry，下游 dev/csc 就会原样保留。否则 known_repos 跳过已
+# 入库仓后，被抹掉的 github-trending/促升 plugin 永远补不回来。
+
+def _load_promoted_slugs() -> set:
+    """促升清单的 source_slug 集，文件缺失/损坏 → 空集（不崩，促升是可选增强）。
+
+    ``load_promoted_repos`` 走 **延迟 import**：sync_github_trending 在模块加载期
+    会 ``import sync_plugins_official``，若此处在 top-level import 它就会形成循环
+    import；放进函数体内只在调用时解析，断开环。
+    """
+    try:
+        try:
+            from sync_github_trending import load_promoted_repos  # type: ignore
+        except ImportError:  # pragma: no cover - module-style invocation
+            from .sync_github_trending import load_promoted_repos  # type: ignore
+        return {r["source_slug"] for r in load_promoted_repos()}
+    except Exception as e:  # noqa: BLE001 - 促升加载失败不该卡死 sync
+        logger.warning(
+            "加载促升清单失败，active-discovery 保留退回仅 github-trending：%s", e
+        )
+        return set()
+
+
+def _is_trending_owned(entry: dict, promoted_slugs: set) -> bool:
+    """entry 是否属于 active-discovery 域（triage 唯一写入的 source 集）。"""
+    s = entry.get("source")
+    return s == "github-trending" or (s is not None and s in promoted_slugs)
+
+
+def _merge_keep_foreign(primary: list, foreign: list) -> list:
+    """把 foreign 中不与 primary 撞 id 的 entry 并入（primary 优先）。
+
+    plugins 仅按 id 去重——同 monorepo 多 plugin 合法共享 source_url，绝不能按 url
+    去重（对齐 merge_preserve(dedup_url=False) 与 _merge_into_existing 的 id-only 语义）。
+    """
+    seen_ids = {e["id"] for e in primary if e.get("id")}
+    result = list(primary)
+    for e in foreign:
+        eid = e.get("id") or ""
+        if eid and eid in seen_ids:
+            continue
+        if eid:
+            seen_ids.add(eid)
+        result.append(e)
+    return result
 
 
 # ---------------------------------------------------------------------------
@@ -1060,6 +1116,29 @@ def main(argv: Optional[list[str]] = None) -> int:
             ", ".join(failed_sources) or "<none>",
         )
         return 1
+
+    # Preserve active-discovery (github-trending + 促升 slug) plugin entries
+    # written by triage_github_trending.py last cycle. sync_plugins_official is the
+    # only blanket-overwrite writer of the per-type plugins index (dev/csc both
+    # merge-preserve), so without this the foreign entries get erased every cycle
+    # and known_repos prevents triage from re-discovering them. Merge by id only —
+    # same-monorepo plugins legitimately share a source_url.
+    existing_entries = load_index(args.output)
+    promoted_slugs = _load_promoted_slugs()
+    preserved_foreign = [
+        e for e in existing_entries if _is_trending_owned(e, promoted_slugs)
+    ]
+    if preserved_foreign:
+        before = len(all_entries)
+        all_entries = _merge_keep_foreign(all_entries, preserved_foreign)
+        # Keep the by-id ordering stable after the merge for readable git diffs.
+        all_entries.sort(key=lambda e: e.get("id", ""))
+        logger.info(
+            "Preserved %d active-discovery plugin entries from existing index "
+            "(github-trending + 促升 slug); added %d after id dedup",
+            len(preserved_foreign),
+            len(all_entries) - before,
+        )
 
     save_index(all_entries, args.output)
     logger.info(
