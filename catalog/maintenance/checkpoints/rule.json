@@ -1,5 +1,5 @@
 {
-  "completed_count": 243,
+  "completed_count": 245,
   "completed_entry_ids": [
     "ai-agent-intelligence-core-rule21",
     "ai-ethical-boundaries-rule21",
@@ -47,6 +47,7 @@
     "cospowers-integration-verification-rule-design-reviewdesign-03-overall-design-checklist",
     "cospowers-integration-verification-rule-design-reviewdesign-04-high-level-design-checklist",
     "cospowers-integration-verification-rule-design-reviewdesign-05-i18n-design-checklist",
+    "cospowers-integration-verification-rule-design-reviewdesign-06-never-again-principles-checklist",
     "cospowers-integration-verification-rule-design-review模块设计规范",
     "cospowers-integration-verification-rule-dfx安全",
     "cospowers-integration-verification-rule-dfx安全需求识别检视表",
@@ -63,6 +64,7 @@
     "cospowers-requirements-rule-dfx性能",
     "cospowers-requirements-rule-requirement-checklistsai-native-doc-adaptation-checklist",
     "cospowers-requirements-rule-requirement-checklistsuser-requirement-dfx-baseline-checklist",
+    "cospowers-requirements-rule-requirement-checklistsuser-requirement-experience-guide-checklist",
     "cospowers-requirements-rule-requirement-checklistsuser-requirement-planning-principles-checklist",
     "cospowers-requirements-rule-requirement-checklistsuser-requirement-quality-standard-checklist",
     "cospowers-solution-design-rule-business01-openapi开发规范",
@@ -245,11 +247,8 @@
     "webassembly-z80-cellular-automata-cursorrules-prom-schneidersam",
     "wordpress-php-guzzle-gutenberg-cursorrules-prompt-schneidersam"
   ],
-  "last_committed_at": "2026-06-18T03:12:29.352690+00:00",
-  "remaining_entry_ids": [
-    "cospowers-integration-verification-rule-design-reviewdesign-06-never-again-principles-checklist",
-    "cospowers-requirements-rule-requirement-checklistsuser-requirement-experience-guide-checklist"
-  ],
+  "last_committed_at": "2026-06-21T10:26:02.603465+00:00",
+  "remaining_entry_ids": [],
   "rubric_version": "2.85974ec3",
   "started_at": "2026-05-09T07:30:39.562075+00:00",
   "type": "rule"

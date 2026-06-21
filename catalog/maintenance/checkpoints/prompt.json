@@ -1,5 +1,5 @@
 {
-  "completed_count": 616,
+  "completed_count": 614,
   "completed_entry_ids": [
     "12-month-ai-and-computer-vision-roadmap-for-defense-applications-prompt",
     "2046-puzzle-game-challenge-prompt",
@@ -229,6 +229,7 @@
     "fantasy-dataset-creator-for-machine-learning-prompt",
     "feature-coding-template-prompt",
     "feedback-synthesizer-prompt",
+    "fieldwork-analysis-for-observational-participant-studies-prompt",
     "file-analysis-api-with-nodejs-and-express-prompt",
     "file-encryption-tool-prompt",
     "finance-tracker-app-development-plan-prompt",
@@ -237,7 +238,6 @@
     "fix-latex-dollars-prompt",
     "flashcard-study-system-prompt",
     "flight-tracker-desktop-application-prompt",
-    "for-rally-prompt",
     "frontend-developer-agent-role-prompt",
     "frontend-developer-prompt",
     "frontend-developer-skill-prompt",
@@ -476,7 +476,6 @@
     "seo-diagnosis-prompt",
     "seo-fundamentals-prompt",
     "seo-prompt-prompt",
-    "session-continuity-engine-prompt",
     "set-up-wb-and-run-pod-during-training-prompt",
     "setting-up-a-new-ios-app-in-xcode-prompt",
     "setup-and-bootstrap-a-flutter-development-environment-prompt",
@@ -609,7 +608,6 @@
     "x-twitter-scraper-prompt",
     "xcode-mcp-for-pi-agent-prompt",
     "xiaomi-company-self-service-management-system-frontend-development-prompt",
-    "yapper-twitter-strategist-2026-prompt",
     "zero-to-one-solo-founder-launch-system-prompt",
     "担任go语言开发者-prompt",
     "模拟-linux-终端-wprompt",
@@ -618,7 +616,7 @@
     "编写正则表达式-wprompt",
     "资深编程专家-can-wprompt"
   ],
-  "last_committed_at": "2026-06-18T03:15:24.601898+00:00",
+  "last_committed_at": "2026-06-21T10:33:08.813450+00:00",
   "remaining_entry_ids": [
     "claude-proje-çalışma-promptu-prompt",
     "plataforma-escopo-bugbouty-cyber-hunter-lab-prompt",

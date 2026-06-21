@@ -1,12 +1,12 @@
 <div align="center">
 <img src="assets/logo.png" alt="Everything AI Coding logo" width="600" />
-<p><strong><!-- README_APPROX_COUNT:START -->15800<!-- README_APPROX_COUNT:END -->+ curated AI coding resources — browse, evaluate, install</strong><br/>MCP Servers · Skills · Rules · Prompts · Plugins</p>
+<p><strong><!-- README_APPROX_COUNT:START -->22300<!-- README_APPROX_COUNT:END -->+ curated AI coding resources — browse, evaluate, install</strong><br/>MCP Servers · Skills · Rules · Prompts · Plugins</p>
 
 <p>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/stargazers"><img src="https://img.shields.io/github/stars/zgsm-ai/everything-ai-coding?style=flat-square&color=4A90D9" alt="Stars" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zgsm-ai/everything-ai-coding?style=flat-square" alt="License" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/commits/main"><img src="https://img.shields.io/github/last-commit/zgsm-ai/everything-ai-coding?style=flat-square" alt="Last Commit" /></a>
-  <img src="https://img.shields.io/badge/resources-15868-2ECC71?style=flat-square" alt="Resources" />
+  <img src="https://img.shields.io/badge/resources-22330-2ECC71?style=flat-square" alt="Resources" />
 </p>
 
 <p>
@@ -34,36 +34,36 @@ Everything AI Coding is a **curated knowledge base** that continuously collects,
 <a id="knowledge-base"></a>
 ## 📚 Knowledge Base
 
-### [🔌 MCP Servers](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->7346<!-- README_COUNT_MCP:END --> entries
+### [🔌 MCP Servers](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->7539<!-- README_COUNT_MCP:END --> entries
 
 Model Context Protocol servers that connect AI agents to external tools, databases, and services.
 
 <!-- README_TOP5_MCP:START -->
 | Name | ⭐ Stars | Score | Description |
 |------|----------|-------|-------------|
-| [upstash/context7](https://github.com/upstash/context7) | 57.6k | 98 | An MCP server that injects real-time, version-specific library docume… |
-| [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 43.9k | 98 | Official Google MCP server enabling AI coding agents to control Chrom… |
-| [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | 34.1k | 98 | Official Microsoft MCP server enabling AI to control web browsers via… |
-| [Headroom](https://github.com/chopratejas/headroom) | 31.7k | 98 | AI context compression layer for agents, reducing token usage 60-95%… |
-| [googleapis/genai-toolbox](https://github.com/googleapis/genai-toolbox) | 15.6k | 98 | An open-source MCP server connecting AI agents and IDEs to enterprise… |
+| [upstash/context7](https://github.com/upstash/context7) | 57.8k | 98 | An MCP server that injects real-time, version-specific library docume… |
+| [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 44.1k | 98 | Official Google MCP server enabling AI coding agents to control Chrom… |
+| [Headroom](https://github.com/chopratejas/headroom) | 42.6k | 98 | AI context compression layer for agents, reducing token usage 60-95%… |
+| [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | 34.2k | 98 | Official Microsoft MCP server enabling AI to control web browsers via… |
+| [googleapis/genai-toolbox](https://github.com/googleapis/genai-toolbox) | 15.7k | 98 | An open-source MCP server connecting AI agents and IDEs to enterprise… |
 <!-- README_TOP5_MCP:END -->
 
 [Browse all MCP servers →](./catalog/mcp/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=mcp)
 
 ---
 
-### [🎯 Skills](./catalog/skills/) — <!-- README_COUNT_SKILL:START -->5451<!-- README_COUNT_SKILL:END --> entries
+### [🎯 Skills](./catalog/skills/) — <!-- README_COUNT_SKILL:START -->10409<!-- README_COUNT_SKILL:END --> entries
 
 Reusable agent capabilities and workflows for AI coding assistants.
 
 <!-- README_TOP5_SKILL:START -->
 | Name | Source | Score | Description |
 |------|--------|-------|-------------|
+| [a-stock-data](https://github.com/simonlin1212/a-stock-data/tree/main/) | github-trending | 96 | A comprehensive Python toolkit for A-share financial data covering 7… |
+| [make-latex-model](https://github.com/huangwb8/ChineseResearchLaTeX/tree/main/skills/make-latex-model) | github-trending | 96 | A specialized AI skill for optimizing and aligning LaTeX templates in… |
 | [setup-pre-commit](https://github.com/mattpocock/skills/tree/main/skills/misc/setup-pre-commit) | mattpocock/skills | 95 | Sets up Husky pre-commit hooks with lint-staged for Prettier, type ch… |
 | [langsmith-fetch](https://github.com/ComposioHQ/awesome-claude-skills/tree/master/langsmith-fetch) | composio-office | 95 | CLI tool for debugging LangChain/LangGraph agents by fetching and ana… |
 | [agent-framework-azure-ai-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agent-framework-azure-ai-py) | Antigravity Skills | 95 | A Python SDK skill for building persistent AI agents on Azure AI Foun… |
-| [ai-engineering-toolkit](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ai-engineering-toolkit) | Antigravity Skills | 95 | A collection of 6 structured AI engineering workflows for prompt eval… |
-| [apify-actor-development](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/apify-actor-development) | Antigravity Skills | 95 | A comprehensive skill for AI-assisted development, testing, and deplo… |
 <!-- README_TOP5_SKILL:END -->
 
 [Browse all skills →](./catalog/skills/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
@@ -88,7 +88,7 @@ Coding conventions and AI behavior guidelines for consistent development.
 
 ---
 
-### [💡 Prompts](./catalog/prompts/) — <!-- README_COUNT_PROMPT:START -->621<!-- README_COUNT_PROMPT:END --> entries
+### [💡 Prompts](./catalog/prompts/) — <!-- README_COUNT_PROMPT:START -->619<!-- README_COUNT_PROMPT:END --> entries
 
 Developer-focused prompt templates for common coding tasks.
 
@@ -106,7 +106,7 @@ Developer-focused prompt templates for common coding tasks.
 
 ---
 
-### [🧩 Plugins](./catalog/plugins/) — <!-- README_COUNT_PLUGIN:START -->1063<!-- README_COUNT_PLUGIN:END --> entries
+### [🧩 Plugins](./catalog/plugins/) — <!-- README_COUNT_PLUGIN:START -->1527<!-- README_COUNT_PLUGIN:END --> entries
 
 Bundled marketplace plugins (skills + commands + agents + MCP servers).
 
@@ -119,7 +119,7 @@ Bundled marketplace plugins (skills + commands + agents + MCP servers).
 | [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp.git) | Anthropic Official | 100 | Chrome DevTools MCP server for AI coding agents to debug, automate, a… |
 | [claude-code-setup](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/claude-code-setup) | Anthropic Official | 100 | A Claude Code plugin that analyzes codebases to recommend tailored au… |
 | [mcp-tunnels](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/mcp-tunnels) | Anthropic Official | 100 | A Claude plugin for connecting to private MCP servers via Anthropic t… |
-| [hyperframes](https://github.com/heygen-com/hyperframes.git) | Anthropic Official | 100 | HyperFrames lets developers write HTML/CSS/JS to create deterministic… |
+| [project-artifact](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/project-artifact) | Anthropic Official | 100 | Generates and publishes a shareable, living project status page as a… |
 <!-- README_TOP5_PLUGIN:END -->
 
 [Browse all plugins →](./catalog/plugins/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=plugin)
