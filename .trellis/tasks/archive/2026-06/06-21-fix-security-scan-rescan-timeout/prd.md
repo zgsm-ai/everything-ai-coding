@@ -35,6 +35,15 @@
 * CLAUDE.md security 段补"认 entry 已有 security 字段短路 + aggregate 拆分"说明
 * （效果需一轮 CI 带 security 验证不再 6h 超时；代码层可单测）
 
+## B2 追加（验证 run 27925184833 后发现，2026-06-22）
+
+B1（commit 前置）验证生效——run success、没撞 6h、catalog+bundle 落地。但实测暴露副作用：**security 在 commit 之后才写结果 → 永远进不了提交**。`f057a92` 只有 13322/23470 带 security，这轮新算的 10148 块只进了 SQLite cache、被丢弃；推给 costrict-web 的 bundle 缺这 10148 条的风险信息，security scan 等于白算。
+
+**B2 修法**：保留 commit-before-security 作超时安全网，**再加一道 security 跑完后的第二次 commit**（+ bundle 用最新）捕获新 security 块：
+- security 6h 内跑完（A 短路 + 暖 cache，常态）→ 第二次 commit 落地 23467 块、bundle 重发；
+- security 又超时被 cancel → 第二次 commit 不执行，第一次已保住 catalog（降级不丢）。
+- 第二次 commit 仅当 security step 成功完成时执行；与第一次 commit 的 `catalog_changed` / push（`git pull --rebase --strategy-option=theirs`）/ bundle-trigger 语义对齐，避免空提交。
+
 ## Out of Scope
 
 * 不改 6 维质量评分 / enrich 路径（同类 SQLite cache 但本任务聚焦 security）
