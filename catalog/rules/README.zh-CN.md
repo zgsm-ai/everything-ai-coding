@@ -92,7 +92,7 @@
 | 80 | [ai-native-doc-adaptation-checklist](https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin/rules/requirement-checklists/ai-native-doc-adaptation-checklist.md) | 定义编写AI原生文档的16条核心要求与快速检查清单，确保文档可为人、AI及自动化流程协同使用。 | plugin-bundled-rule | 🟢 活跃 | 70 | 2026-06-09 | ai-ml | — |
 | 81 | [Context Recorder Templates (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/global-rules/context-recorder-templates.mdc) | 为项目上下文记录系统提供备用模板和归档配置规则。 | Rules 2.1 | 🟡 停滞 | 69 | 2025-11-07 | tooling | `global rules` |
 | 82 | [Nextjs15 React19 Vercelai Tailwind Cursorrules Prompt File (Windsurf)](https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs15-react19-vercelai-tailwind-cursorrules-prompt-file/README.md) | 一个用于 Cursor IDE 的 .cursorrules 提示文件，通过 Next.js 15、React 19、Vercel AI SDK 和 Tailw... | awesome-windsurfrules | 🔴 停更 | 69 | 2025-01-10 | frontend | `react`, `nextjs`, `tailwind` |
-| 83 | [design-06-never-again-principles-checklist](https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/design-review/design-06-never-again-principles-checklist.md) | 基于严重事故复盘的“不贰过”可靠性设计准则检查清单，包含15项系统设计检查项，用于设计文档审查。 | plugin-bundled-rule | 🟢 活跃 | 69 | 2026-06-09 | ai-ml | `design-review`, `reliability`, `checklist` |
+| 83 | [design-06-never-again-principles-checklist](https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/design-review/design-06-never-again-principles-checklist.md) | 基于严重事故复盘的“不贰过”可靠性设计准则检查清单，包含15项系统设计检查项，用于设计文档审查。 | plugin-bundled-rule | 🟢 活跃 | 69 | 2026-06-09 | ai-ml | — |
 | 84 | [iteration-exit-checklist](https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/process/iteration-exit-checklist.md) | 一个详细的软件迭代准出质量检查清单，定义了测试、代码、安全和文档评审的16项标准。 | plugin-bundled-rule | 🟢 活跃 | 69 | 2026-06-09 | tooling | — |
 | 85 | [design-04-high-level-design-checklist](https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/design-review/design-04-high-level-design-checklist.md) | 一份包含27个检查项的中文概要设计审查清单，用于评估软件项目的高层设计文档。 | plugin-bundled-rule | 🟢 活跃 | 68 | 2026-06-09 | tooling | — |
 | 86 | [性能](https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/dfx/性能.md) | 面向AI的代码审查与需求设计性能规范规则集，包含基线、决策树和检查清单。 | plugin-bundled-rule | 🟢 活跃 | 68 | 2026-06-09 | tooling | — |
@@ -219,7 +219,7 @@ Files: `cospowers-tdd-development-plugin/rules/testing-standards/高级代码分
 </details>
 
 <details>
-<summary>⭐ <strong>Bug Fix (Rules 2.1)</strong> (169★) — 完整的Bug修复工作流规则，从问题创建到拉取请求，包含代码示例和最佳实践。</summary>
+<summary>⭐ <strong>Bug Fix (Rules 2.1)</strong> (168★) — 完整的Bug修复工作流规则，从问题创建到拉取请求，包含代码示例和最佳实践。</summary>
 
 完整的Bug修复工作流规则，从问题创建到拉取请求，包含代码示例和最佳实践。
 
@@ -232,7 +232,7 @@ Files: `cospowers-tdd-development-plugin/rules/testing-standards/高级代码分
 </details>
 
 <details>
-<summary>⭐ <strong>Changelog Management (Rules 2.1)</strong> (169★) — 基于AI规则的自动变更日志生成与管理工具，从Git提交历史自动创建。</summary>
+<summary>⭐ <strong>Changelog Management (Rules 2.1)</strong> (168★) — 基于AI规则的自动变更日志生成与管理工具，从Git提交历史自动创建。</summary>
 
 基于AI规则的自动变更日志生成与管理工具，从Git提交历史自动创建。
 
@@ -271,4 +271,4 @@ Files: `cospowers-integration-verification-plugin/rules/coding-standards/python-
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-21*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-22*

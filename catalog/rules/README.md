@@ -92,7 +92,7 @@
 | 80 | [ai-native-doc-adaptation-checklist](https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin/rules/requirement-checklists/ai-native-doc-adaptation-checklist.md) | A rule-based checklist defining 16 core requirements for writing documents that ... | plugin-bundled-rule | 🟢 Active | 70 | 2026-06-09 | ai-ml | — |
 | 81 | [Context Recorder Templates (Rules 2.1)](https://github.com/Mr-chen-05/rules-2.1-optimized/blob/master/global-rules/context-recorder-templates.mdc) | Provides fallback templates and archive configuration rules for a project contex... | Rules 2.1 | 🟡 Stale | 69 | 2025-11-07 | tooling | `global rules` |
 | 82 | [Nextjs15 React19 Vercelai Tailwind Cursorrules Prompt File (Windsurf)](https://github.com/SchneiderSam/awesome-windsurfrules/blob/main/rules/windsurfrules/nextjs15-react19-vercelai-tailwind-cursorrules-prompt-file/README.md) | A .cursorrules prompt file for Cursor IDE that enhances AI-assisted coding with ... | awesome-windsurfrules | 🔴 Abandoned | 69 | 2025-01-10 | frontend | `react`, `nextjs`, `tailwind` |
-| 83 | [design-06-never-again-principles-checklist](https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/design-review/design-06-never-again-principles-checklist.md) | A mandatory design review checklist based on 'no-repeat-mistake' reliability pri... | plugin-bundled-rule | 🟢 Active | 69 | 2026-06-09 | ai-ml | `design-review`, `reliability`, `checklist` |
+| 83 | [design-06-never-again-principles-checklist](https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/design-review/design-06-never-again-principles-checklist.md) | A mandatory design review checklist based on 'no-repeat-mistake' reliability pri... | plugin-bundled-rule | 🟢 Active | 69 | 2026-06-09 | ai-ml | — |
 | 84 | [iteration-exit-checklist](https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/process/iteration-exit-checklist.md) | A detailed software iteration exit quality checklist defining 16 standards for t... | plugin-bundled-rule | 🟢 Active | 69 | 2026-06-09 | tooling | — |
 | 85 | [design-04-high-level-design-checklist](https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/design-review/design-04-high-level-design-checklist.md) | A Chinese-language checklist with 27 items for reviewing high-level design docum... | plugin-bundled-rule | 🟢 Active | 68 | 2026-06-09 | tooling | — |
 | 86 | [性能](https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/dfx/性能.md) | An AI-oriented performance specification rule set for code review and requiremen... | plugin-bundled-rule | 🟢 Active | 68 | 2026-06-09 | tooling | — |
@@ -219,7 +219,7 @@ Files: `cospowers-tdd-development-plugin/rules/testing-standards/高级代码分
 </details>
 
 <details>
-<summary>⭐ <strong>Bug Fix (Rules 2.1)</strong> (169★) — A structured workflow rule for complete bug-fixing from issu...</summary>
+<summary>⭐ <strong>Bug Fix (Rules 2.1)</strong> (168★) — A structured workflow rule for complete bug-fixing from issu...</summary>
 
 A structured workflow rule for complete bug-fixing from issue creation to pull request, with code examples and best practices.
 
@@ -232,7 +232,7 @@ A structured workflow rule for complete bug-fixing from issue creation to pull r
 </details>
 
 <details>
-<summary>⭐ <strong>Changelog Management (Rules 2.1)</strong> (169★) — An AI-driven rule for automatically generating and managing ...</summary>
+<summary>⭐ <strong>Changelog Management (Rules 2.1)</strong> (168★) — An AI-driven rule for automatically generating and managing ...</summary>
 
 An AI-driven rule for automatically generating and managing project changelogs from Git commit history.
 
@@ -271,4 +271,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-21*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-22*
