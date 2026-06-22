@@ -137,12 +137,13 @@ README.md + README.zh-CN.md                    ← 自动更新统计与精选�
 
 **Security 评估 task**（`add-security-risk-eval` change 引入）：与 6 维质量评分**完全解耦**的独立 LLM 通道，由 `security_scan` task 配置驱动（`ai-resource-eval/ai_resource_eval/tasks/security_scan.yaml`）。
 - **输出 6 字段**：`risk_level`（clean / low / medium / high / extreme）、`verdict`（safe / caution / reject）、`red_flags`、`permissions`（files / network / commands）、`summary`、`recommendations`；语义对齐 costrict-web `SecurityScan` 模型，去掉 `category` 与 `builtin_tags`。`verdict` 与 `risk_level` 有强约束映射（clean/low→safe、medium→caution、high/extreme→reject），不匹配视为评估失败。
-- **独立 `rubric_major_version`**：security prompt 演进与质量评分 rubric 互相不失效 cache。当前 `rubric_major_version: 1`。
+- **独立 `rubric_major_version`**：security prompt 演进与质量评分 rubric 互相不失效 cache。当前 `rubric_major_version: 2`（完整 `rubric_version = f"{major}.{sha8(SECURITY_SCAN_SYSTEM_PROMPT)}"`，如 `"2.bd55efd5"`）；bump major version 是强制全库 security 重扫的总闸。
 - **独立 cache namespace**：`EvalCache.make_key(namespace="security")` 把 security cache row 与质量评分 row 隔离开（同一 SQLite 文件，无新增 cache key 需要）。
+- **认 entry 已有 `security` 块短路**（`fix-security-scan-rescan-timeout` change 引入）：`eval_bridge._run_security_scan` 在构建 EvalItem / 进 runner **之前**，剔除"已带合法 `security` 块（结构完整 + verdict/risk_level 枚举合法）且 `security.rubric_version == 当前 rubric_version`"的 entry——既省 GitHub raw fetch（429 源），也省 LLM 调用。采 **rubric-only 短路**：bridge 预筛阶段未 fetch、拿不到当前 content_hash，不校 content_hash（要校就得 fetch，等于没省 429），代价是上游内容变了这一轮 security 不重扫——可接受，因 security 不参与 accept/reject 决策、强制重扫靠 bump major version。这条短路不依赖 SQLite cache、不依赖 entry_id 稳定，所以促升/恢复改了 `id`/`source`/`source_url` 也不影响"已扫过就跳过"（比 SQLite cache 短路更鲁棒）。无 security 块或 rubric 不匹配照常进 runner；rubric_version 复算失败 → 不短路（保守，绝不误跳）。
 - **MCP 类型特殊处理**：`eval_bridge.security_scan_and_map` 为 type=mcp 的 entry 序列化 `install.config` 作合成 content，不走远端 fetcher；其他类型复用 GitHubFetcher / PluginContentFetcher 已拉取的内容。
 - **失败兜底**：LLM 调用失败、JSON 解析失败、verdict↔risk_level 校验失败 → entry 不写 `security` 字段，下个周期重试（不引入 status/error 占位）。
-- **管线插入位置**：`enrichment_orchestrator.enrich_entries` 在质量评分之后调用 `eval_bridge.security_scan_and_map`，CI 中由 aggregate job 的 "Run security scan" step 触发（独立 `security-eval-cache-...` cache）。
-- **开关**：环境变量 `SECURITY_SCAN_ENABLED`（默认 true）控制执行；workflow_dispatch 提供 `security_scan_enabled` 手动开关。
+- **管线插入位置 + aggregate commit 前置**（`fix-security-scan-rescan-timeout` change 引入）：`enrichment_orchestrator.enrich_entries` 在质量评分之后调用 `eval_bridge.security_scan_and_map`，CI 中由 aggregate job 的 "Run security scan" step 触发（独立 `security-eval-cache-...` cache）。aggregate job 把 README 生成 + **commit + push** + bundle 触发整块挪到 security scan **之前**，让 security 殿后（仍 `continue-on-error`）。这样 security 再超时被 job-level cancel，catalog/README 已提交、bundle 已触发，不再连累主提交（修复 security 跑满 6h 撞 GitHub job timeout → 整轮 cancel → merge+commit 没执行 → 复发死循环）。security 殿后这轮算出的新结果不进本轮 commit，随下轮带（A 短路让批量趋近 0，"延后一轮"实际无感）。
+- **开关**：环境变量 `SECURITY_SCAN_ENABLED`（默认 true）控制执行；workflow_dispatch 提供 `security_scan_enabled` 手动开关。`SECURITY_SCAN_DRY_RUN` 控制 dry-run。
 
 ### MCP 上游源
 

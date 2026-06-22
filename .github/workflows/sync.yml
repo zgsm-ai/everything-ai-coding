@@ -740,7 +740,89 @@ jobs:
           PY
 
       # ----------------------------------------------------------------------
-      # Security scan stage (spec add-security-risk-eval)
+      # README + commit + bundle trigger run BEFORE the security scan
+      # (B1, fix-security-scan-rescan-timeout)
+      # ----------------------------------------------------------------------
+      # The security scan can run for hours (LLM-bound) and, on a runaway
+      # cycle, hit the 600min job timeout -> GitHub cancels the whole job ->
+      # any step AFTER security (incl. commit) never runs -> catalog never
+      # gets committed -> the same cold entries stay cold next cycle ->
+      # recurring 6h timeout loop. Moving README generation + commit + push to
+      # BEFORE the security scan decouples the catalog commit from a security
+      # timeout: even if security later runs out the clock and the job is
+      # cancelled, the catalog/READMEs are already committed and the bundle is
+      # already triggered. The security results computed this round simply land
+      # in the NEXT round's commit (the entry-field short-circuit, item A, keeps
+      # that increment tiny, so "one round late" is effectively invisible).
+      #
+      # Catalog already carries last round's `security` blocks here because
+      # catalog_lifecycle.PRESERVED_TOP_LEVEL_FIELDS=("security",) survives the
+      # rebuild — so committing before this round's security scan does not drop
+      # existing security data.
+      - name: Generate catalog sub-directory READMEs
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: |
+          if [ -s catalog/index.json ]; then
+            python -u scripts/generate_catalog_readme.py
+          else
+            echo "Skipping: catalog/index.json missing or empty"
+          fi
+
+      - name: Update bilingual README files
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: python -u scripts/update_readme.py
+
+      - name: Audit popular skill coverage
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: |
+          if [ -f scripts/audit_popular_coverage.py ]; then
+            python -u scripts/audit_popular_coverage.py
+          else
+            echo "INFO: scripts/audit_popular_coverage.py 尚未实现，跳过覆盖率审计"
+          fi
+        continue-on-error: true
+
+      - name: Commit and push if changed
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add catalog/ README.md README.zh-CN.md
+          # docs/coverage_report.md 在 gitignore 中，需要 -f 才能纳入 commit
+          git add -f docs/coverage_report.md 2>/dev/null || true
+          if git diff --staged --name-only | grep -qx 'catalog/index.json'; then
+            echo "catalog_changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "catalog_changed=false" >> "$GITHUB_OUTPUT"
+          fi
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            echo "committed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "[chore] 每周自动同步上游资源 $(date +%Y-%m-%d)"
+            echo "committed=true" >> "$GITHUB_OUTPUT"
+            git stash --include-untracked
+            # Use `-X theirs` so our newly-aggregated catalog wins on conflict
+            # when a previous aggregate (e.g. from a cancelled / overlapping
+            # run) raced to push first. Note: in rebase context, "theirs" =
+            # the commit being replayed (this aggregate), NOT upstream.
+            # Catalog / README / search-index / maintenance/eval_failures.json
+            # are deterministic outputs of this run's enrichment artifacts +
+            # union with the base ledger seeded from sync-data; the newer run
+            # has strictly fresher data, so always-prefer-ours is safe.
+            git pull --rebase --strategy-option=theirs
+            # Retry push once in case another aggregate pushed between our
+            # pull --rebase and our push (rare but possible with overlapping
+            # runs).
+            git push || (git pull --rebase --strategy-option=theirs && git push)
+            git stash pop || true
+          fi
+
+      # ----------------------------------------------------------------------
+      # Security scan stage (spec add-security-risk-eval) — runs LAST
       # ----------------------------------------------------------------------
       # Runs an independent LLM call per entry to populate the top-level
       # `security` block (risk_level / verdict / red_flags / permissions /
@@ -748,6 +830,14 @@ jobs:
       # namespace ("security") so quality eval cache is untouched. Entries
       # whose evaluation fails simply lack the security field this cycle and
       # will be retried on the next run.
+      #
+      # Placed AFTER commit/push (B1): a security timeout/cancel no longer
+      # blocks the catalog commit. The entry-field short-circuit (item A) skips
+      # entries that already carry a valid `security` block for the current
+      # rubric, so each cycle only rescans the handful of genuinely new entries
+      # — keeping this stage well under the job timeout. The fresh security
+      # results land in next round's commit; the "Save security eval cache"
+      # step below persists chunk progress so the next run continues from cache.
       - name: Restore security eval cache
         id: cache-restore-security
         if: ${{ github.event.inputs.security_scan_enabled != 'false' }}
@@ -877,71 +967,16 @@ jobs:
             .eval_cache/
           key: security-eval-cache-${{ steps.week.outputs.stamp }}-${{ github.run_number }}
 
-      - name: Generate catalog sub-directory READMEs
-        env:
-          PYTHONUNBUFFERED: "1"
-        run: |
-          if [ -s catalog/index.json ]; then
-            python -u scripts/generate_catalog_readme.py
-          else
-            echo "Skipping: catalog/index.json missing or empty"
-          fi
-
-      - name: Update bilingual README files
-        env:
-          PYTHONUNBUFFERED: "1"
-        run: python -u scripts/update_readme.py
-
-      - name: Audit popular skill coverage
-        env:
-          PYTHONUNBUFFERED: "1"
-        run: |
-          if [ -f scripts/audit_popular_coverage.py ]; then
-            python -u scripts/audit_popular_coverage.py
-          else
-            echo "INFO: scripts/audit_popular_coverage.py 尚未实现，跳过覆盖率审计"
-          fi
-        continue-on-error: true
-
-      - name: Commit and push if changed
-        id: commit
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add catalog/ README.md README.zh-CN.md
-          # docs/coverage_report.md 在 gitignore 中，需要 -f 才能纳入 commit
-          git add -f docs/coverage_report.md 2>/dev/null || true
-          if git diff --staged --name-only | grep -qx 'catalog/index.json'; then
-            echo "catalog_changed=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "catalog_changed=false" >> "$GITHUB_OUTPUT"
-          fi
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-            echo "committed=false" >> "$GITHUB_OUTPUT"
-          else
-            git commit -m "[chore] 每周自动同步上游资源 $(date +%Y-%m-%d)"
-            echo "committed=true" >> "$GITHUB_OUTPUT"
-            git stash --include-untracked
-            # Use `-X theirs` so our newly-aggregated catalog wins on conflict
-            # when a previous aggregate (e.g. from a cancelled / overlapping
-            # run) raced to push first. Note: in rebase context, "theirs" =
-            # the commit being replayed (this aggregate), NOT upstream.
-            # Catalog / README / search-index / maintenance/eval_failures.json
-            # are deterministic outputs of this run's enrichment artifacts +
-            # union with the base ledger seeded from sync-data; the newer run
-            # has strictly fresher data, so always-prefer-ours is safe.
-            git pull --rebase --strategy-option=theirs
-            # Retry push once in case another aggregate pushed between our
-            # pull --rebase and our push (rare but possible with overlapping
-            # runs).
-            git push || (git pull --rebase --strategy-option=theirs && git push)
-            git stash pop || true
-          fi
-
   trigger-catalog-bundle-release:
     needs: aggregate
-    if: ${{ needs.aggregate.result == 'success' && needs.aggregate.outputs.catalog_changed == 'true' }}
+    # catalog_changed=='true' is the authoritative signal that the commit step
+    # ran AND pushed a catalog change. Because commit now runs BEFORE the
+    # security scan (B1), a security timeout that cancels the aggregate job
+    # leaves result=='cancelled' even though the commit already succeeded — so
+    # we trigger the bundle on success OR cancelled as long as catalog_changed
+    # is true. (A genuine pre-commit failure leaves catalog_changed empty/false,
+    # so the bundle is still correctly suppressed.)
+    if: ${{ always() && (needs.aggregate.result == 'success' || needs.aggregate.result == 'cancelled') && needs.aggregate.outputs.catalog_changed == 'true' }}
     runs-on: ubuntu-latest
     permissions:
       actions: write

@@ -1270,6 +1270,85 @@ def _map_security_to_entry(entry: dict[str, Any], result: dict[str, Any] | None)
     }
 
 
+# Valid enum values for a complete security block (mirror security_scan_prompt
+# schema). Used by the entry-field short-circuit to reject half-written / dirty
+# blocks before treating an entry as "already scanned".
+_SECURITY_VALID_RISK_LEVELS = frozenset(
+    {"clean", "low", "medium", "high", "extreme"}
+)
+_SECURITY_VALID_VERDICTS = frozenset({"safe", "caution", "reject"})
+
+# verdict ↔ risk_level 强约束映射（与 api/types.py:_VERDICT_FOR_RISK 同款，
+# 也是 SecurityScanResult model_validator 对 LLM 输出强校验/coerce 的规则）。
+# 一条合法已扫块的 verdict 必须与其 risk_level 匹配；否则视为脏块、照常重扫。
+_SECURITY_VERDICT_FOR_RISK = {
+    "clean": "safe",
+    "low": "safe",
+    "medium": "caution",
+    "high": "reject",
+    "extreme": "reject",
+}
+
+
+def _compute_security_rubric_version() -> str | None:
+    """复算 security_scan task 当前的 rubric_version（与 runner 内部计算一致）。
+
+    runner 在 __init__ 时对 security task 算
+    ``rubric_version = f"{rubric_major_version}.{sha8(SECURITY_SCAN_SYSTEM_PROMPT)}"``
+    （runner.py:146-148），其 system prompt 是 ``SECURITY_SCAN_SYSTEM_PROMPT``
+    而非普通 task 的 ``build_system_prompt`` 输出。因此**不能**复用
+    :func:`_compute_rubric_version_for_task`，这里专门为 security 复算。
+
+    失败返回 None → 调用方不短路，全量走老路（保守，绝不误跳）。
+    """
+    try:
+        import hashlib
+
+        from ai_resource_eval.metrics.security_scan_prompt import (
+            SECURITY_SCAN_SYSTEM_PROMPT,
+        )
+        from ai_resource_eval.tasks.loader import load_task_config
+    except ImportError:
+        return None
+
+    try:
+        cfg = load_task_config("security_scan")
+        sha8 = hashlib.sha256(SECURITY_SCAN_SYSTEM_PROMPT.encode()).hexdigest()[:8]
+        return f"{cfg.rubric_major_version}.{sha8}"
+    except Exception as exc:  # noqa: BLE001
+        logger.debug("Failed to compute security rubric_version: %s", exc)
+        return None
+
+
+def _is_security_block_complete(sec: Any) -> bool:
+    """判定 entry 的 ``security`` 块是否是一条**合法已扫**结果。
+
+    用于 A 方案的 entry-field 短路：只有结构完整 + verdict/risk_level 枚举合法
+    + verdict↔risk_level 映射一致的块才算"已扫过、可跳过"，避免半截 / 脏块 /
+    verdict 与 risk_level 不匹配的块被误判为已扫而漏掉真正的扫描。
+    """
+    if not isinstance(sec, dict):
+        return False
+    for key in ("risk_level", "verdict", "red_flags", "permissions", "summary",
+                "recommendations"):
+        if key not in sec:
+            return False
+    risk_level = sec.get("risk_level")
+    if risk_level not in _SECURITY_VALID_RISK_LEVELS:
+        return False
+    verdict = sec.get("verdict")
+    if verdict not in _SECURITY_VALID_VERDICTS:
+        return False
+    # verdict 必须与 risk_level 强约束映射一致（与 runner 写回时的 model 校验
+    # 同款）；不一致 = 脏块，照常重扫而非误判已扫。
+    if _SECURITY_VERDICT_FOR_RISK.get(risk_level) != verdict:
+        return False
+    perms = sec.get("permissions")
+    if not isinstance(perms, dict):
+        return False
+    return True
+
+
 def _run_security_scan(
     entries: list[dict[str, Any]],
     cache_dir: str = ".eval_cache",
@@ -1310,6 +1389,51 @@ def _run_security_scan(
     if judge is None:
         logger.warning("No LLM API key configured; skipping security scan stage")
         return {}
+
+    # ------------------------------------------------------------------
+    # A 方案：entry-field 短路（在构建 EvalItem / 进 runner 之前剔除）
+    # ------------------------------------------------------------------
+    # entry 已带一条合法 security 块（结构完整 + verdict/risk_level 枚举合法）
+    # 且其 rubric_version 与当前 security_scan task 的 rubric_version 一致 →
+    # 视为"本 rubric 已扫过"，不进 runner（既省 GitHub raw fetch=429 源，也省
+    # LLM 调用）。被剔除 entry 原样保留它已有的 ``security`` 块。
+    #
+    # 取舍（rubric-only 短路，见 research §1.4 (a)）：bridge 预筛阶段尚未
+    # fetch README/SKILL.md，拿不到"当前 content_hash"，因此不校 content_hash，
+    # 只认 rubric_version。代价是上游内容变了这一轮 security 不重扫；可接受，
+    # 因为 (1) security 不参与 accept/reject 决策（过期块不会错杀/错收 entry），
+    # (2) 强制全库重扫由 ``rubric_major_version`` bump 这一总闸控制。要校
+    # content_hash 必须先 fetch，等于没省下 429，自相矛盾。
+    current_security_rubric = _compute_security_rubric_version()
+    if current_security_rubric is not None:
+        kept: list[dict[str, Any]] = []
+        skipped = 0
+        for e in entries:
+            sec = e.get("security")
+            if (
+                isinstance(sec, dict)
+                and sec.get("rubric_version") == current_security_rubric
+                and _is_security_block_complete(sec)
+            ):
+                skipped += 1
+                continue
+            kept.append(e)
+        logger.info(
+            "Security scan: %d entries already have a valid security block "
+            "(rubric %s) — skipping; %d entries to scan",
+            skipped,
+            current_security_rubric,
+            len(kept),
+        )
+        entries = kept
+        if not entries:
+            return {}
+    else:
+        logger.warning(
+            "Security scan: could not compute current rubric_version; "
+            "no entry-field short-circuit (scanning all %d entries)",
+            len(entries),
+        )
 
     eval_items: list[Any] = []
     id_for_item: list[str] = []
