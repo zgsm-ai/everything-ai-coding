@@ -494,8 +494,16 @@ jobs:
     if: always() && needs.sync-data.result == 'success'
     runs-on: ubuntu-latest
     outputs:
-      catalog_changed: ${{ steps.commit.outputs.catalog_changed }}
-      committed: ${{ steps.commit.outputs.committed }}
+      # catalog_changed must reflect EITHER commit (B2): the pre-security commit
+      # (#1, id=commit) OR the post-security commit (#2, id=commit_security).
+      # When the security scan runs in time and writes new security blocks, #2
+      # pushes the freshest catalog — so the bundle trigger must fire on #2's
+      # change too. When security is cancelled by the job timeout, #2 never runs
+      # and we fall back to #1's value (the pre-security commit already pushed
+      # the catalog, so the bundle still fires once). `&& 'true' ||` short-circuit
+      # promotes #2's change when present, else inherits #1's result string.
+      catalog_changed: ${{ steps.commit_security.outputs.catalog_changed == 'true' && 'true' || steps.commit.outputs.catalog_changed }}
+      committed: ${{ steps.commit_security.outputs.committed == 'true' && 'true' || steps.commit.outputs.committed }}
     # 30min 是非 security 路径的预算；add-security-risk-eval 后 aggregate 多了
     # 一个 Run security scan step：首跑约 13k entries × 6.8s / concurrency=6
     # ≈ 250min wall clock，且 LLM provider 偶发 transient timeout 会把实际时长
@@ -959,6 +967,63 @@ jobs:
           )
           PY
 
+      # ----------------------------------------------------------------------
+      # Second commit (#2, B2) — captures the security blocks written into
+      # catalog/index.json by the scan above.
+      # ----------------------------------------------------------------------
+      # B1 moved commit #1 BEFORE the security scan as a timeout safety net, but
+      # that means the security blocks this round computes land in catalog AFTER
+      # commit #1 — so they would never be committed (verified on run
+      # 27925184833: only ~13322/23470 entries carried security; the ~10148
+      # freshly-scanned blocks were dropped and the costrict-web bundle shipped
+      # without them). This second commit re-runs the exact same commit logic as
+      # #1 to push the security-enriched catalog.
+      #
+      # Degradation: this step is gated on the security scan having COMPLETED
+      # (success()). If the security scan runs out the clock and GitHub cancels
+      # the whole job, no subsequent step runs, so #2 simply never executes —
+      # commit #1 already saved the catalog (without this round's new security),
+      # so we degrade without data loss. When security finishes in time (the
+      # normal case once item A's short-circuit + warm cache keep the rescan
+      # tiny), #2 lands the new security blocks and the bundle re-sends with the
+      # freshest catalog.
+      #
+      # catalog_changed: same staged-diff detection as #1. Only the NEW security
+      # blocks make catalog/index.json differ from what #1 pushed, so an
+      # all-cache-hit / all-skipped round produces no diff here and this step
+      # skips the empty commit (committed=false). The job-level
+      # outputs.catalog_changed promotes this step's 'true' over #1's value (see
+      # the aggregate outputs block), so the bundle trigger fires on #2's change.
+      - name: Commit and push security results
+        id: commit_security
+        if: ${{ success() && github.event.inputs.security_scan_enabled != 'false' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add catalog/ README.md README.zh-CN.md
+          # docs/coverage_report.md 在 gitignore 中，需要 -f 才能纳入 commit
+          git add -f docs/coverage_report.md 2>/dev/null || true
+          if git diff --staged --name-only | grep -qx 'catalog/index.json'; then
+            echo "catalog_changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "catalog_changed=false" >> "$GITHUB_OUTPUT"
+          fi
+          if git diff --staged --quiet; then
+            echo "No security changes to commit"
+            echo "committed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "[chore] 回填 security 风险评估 $(date +%Y-%m-%d)"
+            echo "committed=true" >> "$GITHUB_OUTPUT"
+            git stash --include-untracked
+            # Same `-X theirs` rebase strategy as #1: this run's security-enriched
+            # catalog wins on conflict against any racing aggregate push.
+            git pull --rebase --strategy-option=theirs
+            # Retry push once in case another aggregate pushed between our
+            # pull --rebase and our push (rare but possible with overlapping runs).
+            git push || (git pull --rebase --strategy-option=theirs && git push)
+            git stash pop || true
+          fi
+
       - name: Save security eval cache
         if: ${{ always() && github.event.inputs.security_scan_enabled != 'false' && steps.cache-restore-security.outputs.cache-hit != 'true' }}
         uses: actions/cache/save@v4
@@ -969,13 +1034,21 @@ jobs:
 
   trigger-catalog-bundle-release:
     needs: aggregate
-    # catalog_changed=='true' is the authoritative signal that the commit step
-    # ran AND pushed a catalog change. Because commit now runs BEFORE the
-    # security scan (B1), a security timeout that cancels the aggregate job
-    # leaves result=='cancelled' even though the commit already succeeded — so
-    # we trigger the bundle on success OR cancelled as long as catalog_changed
-    # is true. (A genuine pre-commit failure leaves catalog_changed empty/false,
-    # so the bundle is still correctly suppressed.)
+    # catalog_changed=='true' is the authoritative signal that a commit step
+    # ran AND pushed a catalog change. The aggregate output is the OR of both
+    # commits (B2): commit #1 (pre-security, B1 safety net) and commit #2
+    # (post-security, captures this round's new security blocks).
+    #   - Security finishes in time → result=='success', #2 pushes the freshest
+    #     security-enriched catalog, output is 'true' → bundle fires once and,
+    #     because it dispatches against the latest `main`, ships the catalog with
+    #     the new security blocks.
+    #   - Security runs out the clock and the job is cancelled → result==
+    #     'cancelled', #2 never runs, output falls back to #1's value; #1 already
+    #     pushed the (pre-security) catalog, so the bundle still fires once.
+    # A genuine pre-commit failure leaves catalog_changed empty/false, so the
+    # bundle is still correctly suppressed. The bundle runs once per aggregate
+    # regardless of which commit changed the catalog — it always re-downloads
+    # the freshest `main`, so #2's update is never missed.
     if: ${{ always() && (needs.aggregate.result == 'success' || needs.aggregate.result == 'cancelled') && needs.aggregate.outputs.catalog_changed == 'true' }}
     runs-on: ubuntu-latest
     permissions:
