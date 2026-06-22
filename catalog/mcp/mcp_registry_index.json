@@ -1682,9 +1682,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "3.37.2",
+    "version": "3.38.1",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-21T22:32:10.593546Z",
+    "mcp_registry_published_at": "2026-06-22T05:16:01.705393Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -5971,16 +5971,16 @@
       "config": {
         "registry_type": "pypi",
         "identifier": "nauro",
-        "version": "1.0.0",
-        "command": "pipx run nauro==1.0.0"
+        "version": "1.0.1",
+        "command": "pipx run nauro==1.0.1"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-20T18:15:09.336254Z",
+    "mcp_registry_published_at": "2026-06-22T04:07:00.724077Z",
     "mcp_remotes": [],
     "website_url": "https://nauro.ai"
   },
@@ -27336,9 +27336,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "1.30.3",
+    "version": "1.30.4",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-15T03:08:08.539699Z",
+    "mcp_registry_published_at": "2026-06-22T03:04:29.630677Z",
     "mcp_remotes": [
       {
         "type": "sse",
@@ -42945,7 +42945,7 @@
     "id": "com-lionx402-lion-x402-f61c55b6",
     "name": "LION - keyless attested compliance & data for AI agents",
     "type": "mcp",
-    "description": "Keyless x402 compliance for agents: screen a counterparty, get a portable signed compliance receipt.",
+    "description": "Keyless x402 OFAC sanctions + counterparty compliance screening for agents; portable signed receipt",
     "source_url": "https://github.com/8dp6brm9hp-svg/lion-mcp-public",
     "stars": null,
     "category": "tooling",
@@ -42962,9 +42962,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "1.11.0",
+    "version": "1.11.1",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-21T21:43:17.472603Z",
+    "mcp_registry_published_at": "2026-06-22T03:13:18.562963Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -43262,7 +43262,7 @@
     "id": "com-lowvyn-mcp-4e509229",
     "name": "Lowvyn",
     "type": "mcp",
-    "description": "Canadian price intelligence: cross-retailer prices, Lowvyn Score, deal verification.",
+    "description": "Verify Canadian deals, find the same product cheaper across .ca retailers, track CAD price history.",
     "source_url": "https://registry.modelcontextprotocol.io/v0/servers/com.lowvyn%2Fmcp",
     "stars": null,
     "category": "tooling",
@@ -43279,9 +43279,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-04-29T03:54:11.400112Z",
+    "mcp_registry_published_at": "2026-06-22T02:30:37.956837Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -62073,10 +62073,10 @@
   },
   {
     "id": "com-truealter-identity-0d38d409",
-    "name": "ALTER Identity",
+    "name": "~alter",
     "type": "mcp",
-    "description": "Psychometric identity verification for humans, queryable by AI agents over MCP. x402 micropayments.",
-    "source_url": "https://registry.modelcontextprotocol.io/v0/servers/com.truealter%2Fidentity",
+    "description": "Identity infrastructure for the AI economy. Verify humans, query traits, earn USDC via x402.",
+    "source_url": "https://github.com/true-alter/alter-identity",
     "stars": null,
     "category": "tooling",
     "tags": [],
@@ -62092,9 +62092,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.3.2",
+    "version": "0.5.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-04-27T11:58:27.349409Z",
+    "mcp_registry_published_at": "2026-06-22T07:01:18.296363Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -68597,6 +68597,34 @@
     ]
   },
   {
+    "id": "dev-safeprompt-mcp-147da084",
+    "name": "dev.safeprompt/mcp",
+    "type": "mcp",
+    "description": "Detect prompt injection, jailbreaks, and code injection in untrusted text before it reaches an LLM.",
+    "source_url": "https://github.com/ianreboot/safeprompt/tree/HEAD/packages/mcp",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "npm",
+        "identifier": "@safeprompt.dev/mcp",
+        "version": "0.1.0",
+        "command": "npx -y @safeprompt.dev/mcp@0.1.0"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T05:11:07.264343Z",
+    "mcp_remotes": [],
+    "website_url": "https://safeprompt.dev"
+  },
+  {
     "id": "dev-satrank-mcp-c9452cdb",
     "name": "SatRank — Lightning trust + audit oracle",
     "type": "mcp",
@@ -72213,16 +72241,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "alterlab-mcp-server",
-        "version": "1.5.0",
-        "command": "npx -y alterlab-mcp-server@1.5.0"
+        "version": "1.6.1",
+        "command": "npx -y alterlab-mcp-server@1.6.1"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "1.5.0",
+    "version": "1.6.1",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-03T11:58:55.850677Z",
+    "mcp_registry_published_at": "2026-06-22T04:02:31.047428Z",
     "mcp_remotes": []
   },
   {
@@ -75895,16 +75923,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "remote-agents",
-        "version": "0.1.27",
-        "command": "npx -y remote-agents@0.1.27"
+        "version": "0.1.29",
+        "command": "npx -y remote-agents@0.1.29"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.1.27",
+    "version": "0.1.29",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-22T01:50:47.54637Z",
+    "mcp_registry_published_at": "2026-06-22T06:47:18.015495Z",
     "mcp_remotes": []
   },
   {
@@ -77480,16 +77508,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "projscan",
-        "version": "4.11.0",
-        "command": "npx -y projscan@4.11.0"
+        "version": "4.11.1",
+        "command": "npx -y projscan@4.11.1"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "4.11.0",
+    "version": "4.11.1",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-21T21:06:44.414346Z",
+    "mcp_registry_published_at": "2026-06-22T06:59:03.538757Z",
     "mcp_remotes": []
   },
   {
@@ -81418,6 +81446,34 @@
     "website_url": "https://tradeos.tech"
   },
   {
+    "id": "io-github-agentkitai-agentgate-585d8805",
+    "name": "AgentGate",
+    "type": "mcp",
+    "description": "Human-in-the-loop approval gateway for AI agents over MCP: request, decide, approve.",
+    "source_url": "https://github.com/agentkitai/agentgate",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "npm",
+        "identifier": "@agentgate/mcp",
+        "version": "0.0.2",
+        "command": "npx -y @agentgate/mcp@0.0.2"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.0.2",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T05:47:19.50065Z",
+    "mcp_remotes": [],
+    "website_url": "https://github.com/agentkitai/agentgate"
+  },
+  {
     "id": "io-github-agentkitai-agentlens-1bb4bb74",
     "name": "AgentLens",
     "type": "mcp",
@@ -81444,6 +81500,34 @@
     "mcp_registry_published_at": "2026-06-21T05:16:55.388371Z",
     "mcp_remotes": [],
     "website_url": "https://github.com/agentkitai/agentlens"
+  },
+  {
+    "id": "io-github-agentkitai-lore-038635dc",
+    "name": "Lore",
+    "type": "mcp",
+    "description": "Cross-agent memory over MCP: hybrid recall, knowledge graph, private/shared visibility, redaction.",
+    "source_url": "https://github.com/agentkitai/lore",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "pypi",
+        "identifier": "lore-sdk",
+        "version": "1.2.1",
+        "command": "pipx run lore-sdk==1.2.1"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "1.2.1",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T05:47:08.781804Z",
+    "mcp_remotes": [],
+    "website_url": "https://github.com/agentkitai/lore"
   },
   {
     "id": "io-github-agentled-mcp-server-61ebf4a0",
@@ -83638,6 +83722,60 @@
     "version": "1.0.6",
     "mcp_registry_status": "active",
     "mcp_registry_published_at": "2026-06-06T03:42:23.424292Z",
+    "mcp_remotes": []
+  },
+  {
+    "id": "io-github-aiops-tools-proxmox-aiops-cc308ecd",
+    "name": "Proxmox AIops",
+    "type": "mcp",
+    "description": "Governed Proxmox VE VM/container ops — 23 MCP tools with audit, budget, undo & risk-tier guards.",
+    "source_url": "https://github.com/AIops-tools/Proxmox-AIops",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "pypi",
+        "identifier": "proxmox-aiops",
+        "version": "0.1.0",
+        "command": "pipx run proxmox-aiops==0.1.0"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T06:01:05.208897Z",
+    "mcp_remotes": []
+  },
+  {
+    "id": "io-github-aiops-tools-veeam-aiops-c0d76bd8",
+    "name": "Veeam AIops",
+    "type": "mcp",
+    "description": "Governed Veeam Backup & Replication ops — 12 MCP tools with audit, budget, undo guards.",
+    "source_url": "https://github.com/AIops-tools/Veeam-AIops",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "pypi",
+        "identifier": "veeam-aiops",
+        "version": "0.1.0",
+        "command": "pipx run veeam-aiops==0.1.0"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T06:44:38.576388Z",
     "mcp_remotes": []
   },
   {
@@ -91435,16 +91573,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "appium-mcp",
-        "version": "1.86.3",
-        "command": "npx -y appium-mcp@1.86.3"
+        "version": "1.86.4",
+        "command": "npx -y appium-mcp@1.86.4"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "1.86.3",
+    "version": "1.86.4",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-20T19:27:06.200354Z",
+    "mcp_registry_published_at": "2026-06-22T06:52:42.668135Z",
     "mcp_remotes": []
   },
   {
@@ -112561,16 +112699,16 @@
       "config": {
         "registry_type": "pypi",
         "identifier": "finops-mcp",
-        "version": "0.8.86",
-        "command": "pipx run finops-mcp==0.8.86"
+        "version": "0.8.87",
+        "command": "pipx run finops-mcp==0.8.87"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.8.86",
+    "version": "0.8.87",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-22T01:31:40.212131Z",
+    "mcp_registry_published_at": "2026-06-22T02:37:22.103699Z",
     "mcp_remotes": [],
     "website_url": "https://getnable.com"
   },
@@ -134841,8 +134979,8 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@cyanheads/ensembl-mcp-server",
-        "version": "0.1.5",
-        "command": "npx -y @cyanheads/ensembl-mcp-server@0.1.5"
+        "version": "0.2.0",
+        "command": "npx -y @cyanheads/ensembl-mcp-server@0.2.0"
       },
       "remotes": [
         {
@@ -134853,9 +134991,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.1.5",
+    "version": "0.2.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-20T11:12:00.933515Z",
+    "mcp_registry_published_at": "2026-06-22T03:35:57.517456Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -135982,6 +136120,43 @@
     ]
   },
   {
+    "id": "io-github-cyanheads-noaa-climate-mcp-server-b7e934a8",
+    "name": "io.github.cyanheads/noaa-climate-mcp-server",
+    "type": "mcp",
+    "description": "Search NOAA climate stations and datasets, fetch historical weather observations.",
+    "source_url": "https://github.com/cyanheads/noaa-climate-mcp-server",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "npm",
+        "identifier": "@cyanheads/noaa-climate-mcp-server",
+        "version": "0.2.0",
+        "command": "npx -y @cyanheads/noaa-climate-mcp-server@0.2.0"
+      },
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://noaa-climate.caseyjhand.com/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.2.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:23:46.219989Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://noaa-climate.caseyjhand.com/mcp"
+      }
+    ]
+  },
+  {
     "id": "io-github-cyanheads-noaa-marine-mcp-server-655c9a0d",
     "name": "io.github.cyanheads/noaa-marine-mcp-server",
     "type": "mcp",
@@ -136033,8 +136208,8 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@cyanheads/noaa-spaceweather-mcp-server",
-        "version": "0.1.6",
-        "command": "npx -y @cyanheads/noaa-spaceweather-mcp-server@0.1.6"
+        "version": "0.1.7",
+        "command": "npx -y @cyanheads/noaa-spaceweather-mcp-server@0.1.7"
       },
       "remotes": [
         {
@@ -136045,9 +136220,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-20T12:12:44.171132Z",
+    "mcp_registry_published_at": "2026-06-22T03:32:55.289427Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -136632,8 +136807,8 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@cyanheads/openstates-mcp-server",
-        "version": "0.1.9",
-        "command": "npx -y @cyanheads/openstates-mcp-server@0.1.9"
+        "version": "0.1.10",
+        "command": "npx -y @cyanheads/openstates-mcp-server@0.1.10"
       },
       "remotes": [
         {
@@ -136644,9 +136819,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.1.9",
+    "version": "0.1.10",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-20T17:44:20.826381Z",
+    "mcp_registry_published_at": "2026-06-22T03:34:33.118767Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -137558,8 +137733,8 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@cyanheads/usgs-water-mcp-server",
-        "version": "0.1.6",
-        "command": "npx -y @cyanheads/usgs-water-mcp-server@0.1.6"
+        "version": "0.1.7",
+        "command": "npx -y @cyanheads/usgs-water-mcp-server@0.1.7"
       },
       "remotes": [
         {
@@ -137570,9 +137745,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-20T18:28:38.522411Z",
+    "mcp_registry_published_at": "2026-06-22T03:26:37.934033Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -147074,7 +147249,7 @@
     "id": "io-github-diagrammo-dgmo-mcp-70ed360e",
     "name": "io.github.diagrammo/dgmo-mcp",
     "type": "mcp",
-    "description": "Render diagrams (sequence, flowchart, ER, C4, gantt, +more) to SVG/PNG with browser preview",
+    "description": "Generate 40+ diagram types from text; render locally to SVG/PNG, open in the Diagrammo editor",
     "source_url": "https://github.com/diagrammo/dgmo-mcp",
     "stars": null,
     "category": "tooling",
@@ -147085,16 +147260,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@diagrammo/dgmo-mcp",
-        "version": "0.1.21",
-        "command": "npx -y @diagrammo/dgmo-mcp@0.1.21"
+        "version": "0.3.1",
+        "command": "npx -y @diagrammo/dgmo-mcp@0.3.1"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.1.21",
+    "version": "0.3.1",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-05-21T02:18:13.110568Z",
+    "mcp_registry_published_at": "2026-06-22T02:52:28.054225Z",
     "mcp_remotes": []
   },
   {
@@ -153978,6 +154153,37 @@
     "mcp_remotes": []
   },
   {
+    "id": "io-github-edgarfloresguerra2011-a11y-marketnow-mcp-22c32f93",
+    "name": "MarketNow MCP",
+    "type": "mcp",
+    "description": "Agent skill marketplace with 13,800+ MCP skills for AI agents.",
+    "source_url": "https://github.com/edgarfloresguerra2011-a11y/marketnow",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "sse",
+          "url": "https://marketnow.site/api/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "1.0.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T03:16:10.674504Z",
+    "mcp_remotes": [
+      {
+        "type": "sse",
+        "url": "https://marketnow.site/api/mcp"
+      }
+    ]
+  },
+  {
     "id": "io-github-edge-claw-mood-booster-agent-271a2d61",
     "name": "Mood Booster Agent",
     "type": "mcp",
@@ -156044,6 +156250,34 @@
     "mcp_registry_status": "active",
     "mcp_registry_published_at": "2026-05-18T16:43:07.496248Z",
     "mcp_remotes": []
+  },
+  {
+    "id": "io-github-engr-faizanali-text-to-speech-c48bbee7",
+    "name": "Text to Speech",
+    "type": "mcp",
+    "description": "Open-source local Windows text-to-speech through SAPI; no API key or cloud service required.",
+    "source_url": "https://github.com/engr-faizanali/text-to-speech-mcp",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "pypi",
+        "identifier": "text-to-speech-mcp",
+        "version": "0.2.1",
+        "command": "pipx run text-to-speech-mcp==0.2.1"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.2.1",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:28:08.095887Z",
+    "mcp_remotes": [],
+    "website_url": "https://github.com/engr-faizanali/text-to-speech-mcp#readme"
   },
   {
     "id": "io-github-engrmaziz-git-archaeologist-39f433c6",
@@ -169060,7 +169294,7 @@
     "id": "io-github-gareth1953-agent-services-mcp-23e53876",
     "name": "io.github.Gareth1953/agent-services-mcp",
     "type": "mcp",
-    "description": "Thin MCP wrapper exposing content-provenance, quality-scoring and action-audit as 7 tools.",
+    "description": "MCP server: x402-paid & free tools for AI agents — provenance, quality scoring, action audit.",
     "source_url": "https://github.com/Gareth1953/agent-services-mcp",
     "stars": null,
     "category": "tooling",
@@ -169071,16 +169305,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "agent-services-mcp",
-        "version": "0.2.0",
-        "command": "npx -y agent-services-mcp@0.2.0"
+        "version": "0.2.1",
+        "command": "npx -y agent-services-mcp@0.2.1"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-15T20:36:23.131776Z",
+    "mcp_registry_published_at": "2026-06-22T06:00:38.195822Z",
     "mcp_remotes": []
   },
   {
@@ -181483,17 +181717,17 @@
       "method": "manual",
       "config": {
         "registry_type": "oci",
-        "identifier": "ghcr.io/hrrodan/agent-workspace-mcp:1.4.48",
+        "identifier": "ghcr.io/hrrodan/agent-workspace-mcp:1.4.49",
         "version": "",
-        "command": "docker run ghcr.io/hrrodan/agent-workspace-mcp:1.4.48"
+        "command": "docker run ghcr.io/hrrodan/agent-workspace-mcp:1.4.49"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "1.4.48",
+    "version": "1.4.49",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-21T17:45:23.115407Z",
+    "mcp_registry_published_at": "2026-06-22T07:19:19.465117Z",
     "mcp_remotes": [],
     "website_url": "https://github.com/HrRodan/agent-workspace-mcp"
   },
@@ -192202,16 +192436,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "pincushion-mcp",
-        "version": "1.4.1",
-        "command": "npx -y pincushion-mcp@1.4.1"
+        "version": "1.4.2",
+        "command": "npx -y pincushion-mcp@1.4.2"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "1.4.1",
+    "version": "1.4.2",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-22T01:17:49.969954Z",
+    "mcp_registry_published_at": "2026-06-22T06:21:46.857234Z",
     "mcp_remotes": [],
     "website_url": "https://pincushion.io"
   },
@@ -192518,17 +192752,17 @@
       "method": "manual",
       "config": {
         "registry_type": "oci",
-        "identifier": "ghcr.io/jeeftor/abs-mcp:0.3.0",
+        "identifier": "ghcr.io/jeeftor/abs-mcp:0.4.2",
         "version": "",
-        "command": "docker run ghcr.io/jeeftor/abs-mcp:0.3.0"
+        "command": "docker run ghcr.io/jeeftor/abs-mcp:0.4.2"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.3.0",
+    "version": "0.4.2",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-16T19:31:44.792752Z",
+    "mcp_registry_published_at": "2026-06-22T03:50:18.226488Z",
     "mcp_remotes": []
   },
   {
@@ -202437,6 +202671,37 @@
     "website_url": "https://call-for-me.fly.dev/register"
   },
   {
+    "id": "io-github-kimnchai-airport-transit-mcp-f4c6b49d",
+    "name": "Incheon Airport Transit MCP",
+    "type": "mcp",
+    "description": "Incheon Airport (ICN) transit: limo buses, internal shuttles, taxi queues, AREX train schedule.",
+    "source_url": "https://registry.modelcontextprotocol.io/v0/servers/io.github.kimnchai%2Fairport-transit-mcp",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://airport-transit-mcp.fly.dev/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "1.0.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T02:22:37.933482Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://airport-transit-mcp.fly.dev/mcp"
+      }
+    ]
+  },
+  {
     "id": "io-github-kimnchai-korea-flight-mcp-0cdb35d2",
     "name": "Korea Flight MCP",
     "type": "mcp",
@@ -209894,16 +210159,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@leadbay/mcp",
-        "version": "0.22.0",
-        "command": "npx -y @leadbay/mcp@0.22.0"
+        "version": "0.23.0",
+        "command": "npx -y @leadbay/mcp@0.23.0"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.22.0",
+    "version": "0.23.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-22T01:12:36.703293Z",
+    "mcp_registry_published_at": "2026-06-22T04:23:15.904396Z",
     "mcp_remotes": [],
     "website_url": "https://leadbay.ai"
   },
@@ -210147,16 +210412,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "lema-mcp",
-        "version": "0.9.1",
-        "command": "npx -y lema-mcp@0.9.1"
+        "version": "0.11.0",
+        "command": "npx -y lema-mcp@0.11.0"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.9.1",
+    "version": "0.11.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-17T21:02:05.941867Z",
+    "mcp_registry_published_at": "2026-06-22T04:40:35.387214Z",
     "mcp_remotes": [],
     "website_url": "https://lema.sh"
   },
@@ -222464,16 +222729,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "iwantmymtg-mcp",
-        "version": "0.5.0",
-        "command": "npx -y iwantmymtg-mcp@0.5.0"
+        "version": "0.6.0",
+        "command": "npx -y iwantmymtg-mcp@0.6.0"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.5.0",
+    "version": "0.6.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-16T21:35:50.739345Z",
+    "mcp_registry_published_at": "2026-06-22T03:50:05.494831Z",
     "mcp_remotes": []
   },
   {
@@ -228280,6 +228545,34 @@
     "mcp_remotes": []
   },
   {
+    "id": "io-github-medelin-bashdog-mcp-e59e3812",
+    "name": "io.github.medelin/bashdog-mcp",
+    "type": "mcp",
+    "description": "Submit & browse funny AI quotes on bash.dog — bash.org for the AI age. Agents self-register.",
+    "source_url": "https://github.com/medelin/mcp-server",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "npm",
+        "identifier": "bashdog-mcp",
+        "version": "1.1.1",
+        "command": "npx -y bashdog-mcp@1.1.1"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "1.1.1",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T07:11:43.069156Z",
+    "mcp_remotes": [],
+    "website_url": "https://bash.dog"
+  },
+  {
     "id": "io-github-mediaeater-swarm-at-bce43eb0",
     "name": "io.github.Mediaeater/swarm-at",
     "type": "mcp",
@@ -230761,17 +231054,17 @@
       "method": "manual",
       "config": {
         "registry_type": "oci",
-        "identifier": "ghcr.io/microsoft/mcp-dotnet-samples/awesome-copilot:1.0.2026062201",
+        "identifier": "ghcr.io/microsoft/mcp-dotnet-samples/awesome-copilot:1.0.2026062203",
         "version": "",
-        "command": "docker run ghcr.io/microsoft/mcp-dotnet-samples/awesome-copilot:1.0.2026062201"
+        "command": "docker run ghcr.io/microsoft/mcp-dotnet-samples/awesome-copilot:1.0.2026062203"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "1.0.2026062201",
+    "version": "1.0.2026062203",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-22T01:11:23.243274Z",
+    "mcp_registry_published_at": "2026-06-22T03:19:25.22271Z",
     "mcp_remotes": [],
     "website_url": "https://aka.ms/awesome-copilot/mcp"
   },
@@ -235885,6 +236178,34 @@
     "mcp_remotes": []
   },
   {
+    "id": "io-github-moin105-karst-a35bd920",
+    "name": "karst",
+    "type": "mcp",
+    "description": "Code context for AI dev tools: pack-scoped, cited code retrieval over MCP.",
+    "source_url": "https://github.com/Moin105/upgraded-garbanzo",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "pypi",
+        "identifier": "karst",
+        "version": "0.2.6",
+        "command": "pipx run karst==0.2.6"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.2.6",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T06:53:03.662274Z",
+    "mcp_remotes": [],
+    "website_url": "https://pypi.org/project/karst/"
+  },
+  {
     "id": "io-github-moira-mcp-moira-503f7b59",
     "name": "Moira",
     "type": "mcp",
@@ -237391,33 +237712,6 @@
     "mcp_remotes": []
   },
   {
-    "id": "io-github-mrslbt-nankai-f548ade4",
-    "name": "io.github.mrslbt/nankai",
-    "type": "mcp",
-    "description": "Nankai Trough earthquake hazard & building-safety, from official Japan data. No verdicts.",
-    "source_url": "https://github.com/mrslbt/nankai-mcp",
-    "stars": null,
-    "category": "tooling",
-    "tags": [],
-    "tech_stack": [],
-    "install": {
-      "method": "manual",
-      "config": {
-        "registry_type": "npm",
-        "identifier": "nankai-mcp",
-        "version": "0.1.0",
-        "command": "npx -y nankai-mcp@0.1.0"
-      },
-      "remotes": []
-    },
-    "source": "registry.modelcontextprotocol.io",
-    "last_synced": "2026-06-22",
-    "version": "0.1.0",
-    "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-12T08:13:01.973071Z",
-    "mcp_remotes": []
-  },
-  {
     "id": "io-github-mrslbt-nankai-trough-fcbeb30d",
     "name": "io.github.mrslbt/nankai-trough",
     "type": "mcp",
@@ -237442,6 +237736,33 @@
     "version": "0.1.0",
     "mcp_registry_status": "active",
     "mcp_registry_published_at": "2026-06-12T14:22:44.458823Z",
+    "mcp_remotes": []
+  },
+  {
+    "id": "io-github-mrslbt-paypay-mcp-fcbed300",
+    "name": "io.github.mrslbt/paypay-mcp",
+    "type": "mcp",
+    "description": "MCP for PayPay (Japan's QR wallet): QR codes, payments, refunds, cancels. Bilingual JP/EN.",
+    "source_url": "https://github.com/mrslbt/paypay-mcp",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "npm",
+        "identifier": "paypay-mcp",
+        "version": "0.1.3",
+        "command": "npx -y paypay-mcp@0.1.3"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.3",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T07:16:31.712946Z",
     "mcp_remotes": []
   },
   {
@@ -237556,7 +237877,7 @@
     "id": "io-github-mrslbt-xendit-mcp-dfe6012f",
     "name": "io.github.mrslbt/xendit-mcp",
     "type": "mcp",
-    "description": "Xendit payment APIs for AI agents. Invoices, disbursements, balances.",
+    "description": "Xendit payment APIs for AI agents. Payment links, payouts, balances, and transactions.",
     "source_url": "https://github.com/mrslbt/xendit-mcp",
     "stars": null,
     "category": "tooling",
@@ -237567,16 +237888,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "xendit-mcp",
-        "version": "0.1.2",
-        "command": "npx -y xendit-mcp@0.1.2"
+        "version": "0.2.0",
+        "command": "npx -y xendit-mcp@0.2.0"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.1.2",
+    "version": "0.2.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-04-14T18:34:15.29472Z",
+    "mcp_registry_published_at": "2026-06-22T06:59:04.570461Z",
     "mcp_remotes": []
   },
   {
@@ -240589,16 +240910,16 @@
       "config": {
         "registry_type": "pypi",
         "identifier": "recon-kit-mcp",
-        "version": "0.8.4",
-        "command": "pipx run recon-kit-mcp==0.8.4"
+        "version": "0.10.0",
+        "command": "pipx run recon-kit-mcp==0.10.0"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.8.4",
+    "version": "0.10.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-18T04:41:29.172135Z",
+    "mcp_registry_published_at": "2026-06-22T07:05:23.524117Z",
     "mcp_remotes": []
   },
   {
@@ -242161,9 +242482,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "1.1.7",
+    "version": "1.2.3",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-17T06:56:29.468759Z",
+    "mcp_registry_published_at": "2026-06-22T07:07:04.999891Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -249879,6 +250200,33 @@
     "mcp_remotes": []
   },
   {
+    "id": "io-github-oleksiijko-pmb-ai-3d36b693",
+    "name": "PMB AI",
+    "type": "mcp",
+    "description": "Local-first persistent memory for AI coding agents.",
+    "source_url": "https://github.com/oleksiijko/pmb",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "pypi",
+        "identifier": "pmb-ai",
+        "version": "1.0.0",
+        "command": "pipx run pmb-ai==1.0.0"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "1.0.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:02:08.888167Z",
+    "mcp_remotes": []
+  },
+  {
     "id": "io-github-olgasafonova-gleif-mcp-server-e91c742e",
     "name": "GLEIF MCP Server",
     "type": "mcp",
@@ -251336,16 +251684,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@oomkapwn/enquire-mcp",
-        "version": "3.9.1",
-        "command": "npx -y @oomkapwn/enquire-mcp@3.9.1"
+        "version": "3.10.0",
+        "command": "npx -y @oomkapwn/enquire-mcp@3.10.0"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "3.9.1",
+    "version": "3.10.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-01T19:56:24.137179Z",
+    "mcp_registry_published_at": "2026-06-22T07:27:28.272764Z",
     "mcp_remotes": []
   },
   {
@@ -251878,6 +252226,33 @@
     "version": "0.2.3",
     "mcp_registry_status": "active",
     "mcp_registry_published_at": "2026-06-18T07:03:04.393663Z",
+    "mcp_remotes": []
+  },
+  {
+    "id": "io-github-openfateaicom-wq-openfateai-mcp-2a570825",
+    "name": "OpenFateAI Assistant MCP",
+    "type": "mcp",
+    "description": "Local MCP tools for decisions, reflection, action plans, and digital report outlines.",
+    "source_url": "https://github.com/openfateaicom-wq/openfateai-mcp",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "npm",
+        "identifier": "openfateai-mcp",
+        "version": "0.1.0",
+        "command": "npx -y openfateai-mcp@0.1.0"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T06:24:43.198612Z",
     "mcp_remotes": []
   },
   {
@@ -263754,9 +264129,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-09T21:54:39.049812Z",
+    "mcp_registry_published_at": "2026-06-22T04:39:48.205097Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",
@@ -263990,6 +264365,198 @@
     "website_url": "https://pipeworx.io/packs/dane-gov-pl"
   },
   {
+    "id": "io-github-pipeworx-io-data-austin-4a424c4f",
+    "name": "Data Austin",
+    "type": "mcp",
+    "description": "DataAustin MCP — Austin, TX open data (data.austintexas.gov, Socrata SODA API).",
+    "source_url": "https://github.com/pipeworx-io/mcp-data-austin",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/data-austin/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:39:42.702576Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/data-austin/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/data-austin"
+  },
+  {
+    "id": "io-github-pipeworx-io-data-baltimore-18b65ed6",
+    "name": "Data Baltimore",
+    "type": "mcp",
+    "description": "DataBaltimore MCP — Baltimore open data (data.baltimorecity.gov, ArcGIS REST API).",
+    "source_url": "https://github.com/pipeworx-io/mcp-data-baltimore",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/data-baltimore/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:39:42.95189Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/data-baltimore/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/data-baltimore"
+  },
+  {
+    "id": "io-github-pipeworx-io-data-boston-a1b7f4bf",
+    "name": "Data Boston",
+    "type": "mcp",
+    "description": "DataBoston MCP — City of Boston open data (data.boston.gov, CKAN API).",
+    "source_url": "https://github.com/pipeworx-io/mcp-data-boston",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/data-boston/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:39:43.231761Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/data-boston/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/data-boston"
+  },
+  {
+    "id": "io-github-pipeworx-io-data-calgary-af8fa973",
+    "name": "Data Calgary",
+    "type": "mcp",
+    "description": "DataCalgary MCP — Calgary open data (data.calgary.ca, Socrata SODA API).",
+    "source_url": "https://github.com/pipeworx-io/mcp-data-calgary",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/data-calgary/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:39:43.480436Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/data-calgary/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/data-calgary"
+  },
+  {
+    "id": "io-github-pipeworx-io-data-cambridge-a08f49a0",
+    "name": "Data Cambridge",
+    "type": "mcp",
+    "description": "DataCambridge MCP — Cambridge open data (data.cambridgema.gov, Socrata SODA API).",
+    "source_url": "https://github.com/pipeworx-io/mcp-data-cambridge",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/data-cambridge/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:39:43.783703Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/data-cambridge/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/data-cambridge"
+  },
+  {
+    "id": "io-github-pipeworx-io-data-cincinnati-86408ed8",
+    "name": "Data Cincinnati",
+    "type": "mcp",
+    "description": "DataCincinnati MCP — Cincinnati open data (data.cincinnati-oh.gov, Socrata SODA API).",
+    "source_url": "https://github.com/pipeworx-io/mcp-data-cincinnati",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/data-cincinnati/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:39:44.012967Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/data-cincinnati/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/data-cincinnati"
+  },
+  {
     "id": "io-github-pipeworx-io-data-cityofchicago-eaef732a",
     "name": "Data Cityofchicago",
     "type": "mcp",
@@ -264020,6 +264587,166 @@
       }
     ],
     "website_url": "https://pipeworx.io/packs/data-cityofchicago"
+  },
+  {
+    "id": "io-github-pipeworx-io-data-dallas-79c1c683",
+    "name": "Data Dallas",
+    "type": "mcp",
+    "description": "DataDallas MCP — Dallas open data (www.dallasopendata.com, Socrata SODA API).",
+    "source_url": "https://github.com/pipeworx-io/mcp-data-dallas",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/data-dallas/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:39:44.27609Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/data-dallas/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/data-dallas"
+  },
+  {
+    "id": "io-github-pipeworx-io-data-dc-ba542183",
+    "name": "Data Dc",
+    "type": "mcp",
+    "description": "DataDC MCP — Washington, DC open data (opendata.dc.gov, ArcGIS REST API).",
+    "source_url": "https://github.com/pipeworx-io/mcp-data-dc",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/data-dc/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:39:44.509624Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/data-dc/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/data-dc"
+  },
+  {
+    "id": "io-github-pipeworx-io-data-denver-42a3d1c2",
+    "name": "Data Denver",
+    "type": "mcp",
+    "description": "DataDenver MCP — Denver open data (opendata-geospatialdenver.hub.arcgis.com, ArcGIS REST API).",
+    "source_url": "https://github.com/pipeworx-io/mcp-data-denver",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/data-denver/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:39:44.786992Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/data-denver/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/data-denver"
+  },
+  {
+    "id": "io-github-pipeworx-io-data-detroit-b9f68843",
+    "name": "Data Detroit",
+    "type": "mcp",
+    "description": "DataDetroit MCP — Detroit open data (data.detroitmi.gov, ArcGIS REST API).",
+    "source_url": "https://github.com/pipeworx-io/mcp-data-detroit",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/data-detroit/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:39:45.015953Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/data-detroit/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/data-detroit"
+  },
+  {
+    "id": "io-github-pipeworx-io-data-edmonton-67bcfabd",
+    "name": "Data Edmonton",
+    "type": "mcp",
+    "description": "DataEdmonton MCP — Edmonton open data (data.edmonton.ca, Socrata SODA API).",
+    "source_url": "https://github.com/pipeworx-io/mcp-data-edmonton",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/data-edmonton/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:39:45.257623Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/data-edmonton/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/data-edmonton"
   },
   {
     "id": "io-github-pipeworx-io-data-europa-b016a13f",
@@ -264150,6 +264877,198 @@
     "website_url": "https://pipeworx.io/packs/data-govt-nz"
   },
   {
+    "id": "io-github-pipeworx-io-data-kcmo-a0ff3068",
+    "name": "Data Kcmo",
+    "type": "mcp",
+    "description": "DataKansasCityMO MCP — Kansas City, MO open data (data.kcmo.org, Socrata SODA API).",
+    "source_url": "https://github.com/pipeworx-io/mcp-data-kcmo",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/data-kcmo/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:39:45.469136Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/data-kcmo/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/data-kcmo"
+  },
+  {
+    "id": "io-github-pipeworx-io-data-la-d17f1067",
+    "name": "Data La",
+    "type": "mcp",
+    "description": "DataLA MCP — Los Angeles open data (data.lacity.org, Socrata SODA API).",
+    "source_url": "https://github.com/pipeworx-io/mcp-data-la",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/data-la/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:39:45.716032Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/data-la/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/data-la"
+  },
+  {
+    "id": "io-github-pipeworx-io-data-montgomery-3fc0f0d7",
+    "name": "Data Montgomery",
+    "type": "mcp",
+    "description": "Montgomery County, MD open data (Socrata) — crime, 311, permits by name + SoQL.",
+    "source_url": "https://github.com/pipeworx-io/mcp-data-montgomery",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/data-montgomery/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:40:10.052748Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/data-montgomery/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/data-montgomery"
+  },
+  {
+    "id": "io-github-pipeworx-io-data-montreal-3a9ebea9",
+    "name": "Data Montreal",
+    "type": "mcp",
+    "description": "DataMontreal MCP — City of Montreal open data (donnees.montreal.ca, CKAN API).",
+    "source_url": "https://github.com/pipeworx-io/mcp-data-montreal",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/data-montreal/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:39:46.301902Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/data-montreal/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/data-montreal"
+  },
+  {
+    "id": "io-github-pipeworx-io-data-nashville-27eb6fe9",
+    "name": "Data Nashville",
+    "type": "mcp",
+    "description": "DataNashville MCP — Nashville open data (data.nashville.gov, ArcGIS REST API).",
+    "source_url": "https://github.com/pipeworx-io/mcp-data-nashville",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/data-nashville/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:39:46.513614Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/data-nashville/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/data-nashville"
+  },
+  {
+    "id": "io-github-pipeworx-io-data-nola-98059e4d",
+    "name": "Data Nola",
+    "type": "mcp",
+    "description": "DataNewOrleans MCP — New Orleans open data (data.nola.gov, Socrata SODA API).",
+    "source_url": "https://github.com/pipeworx-io/mcp-data-nola",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/data-nola/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:39:46.761799Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/data-nola/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/data-nola"
+  },
+  {
     "id": "io-github-pipeworx-io-data-ny-0279f6db",
     "name": "Data Ny",
     "type": "mcp",
@@ -264180,6 +265099,102 @@
       }
     ],
     "website_url": "https://pipeworx.io/packs/data-ny"
+  },
+  {
+    "id": "io-github-pipeworx-io-data-seattle-afabe1a3",
+    "name": "Data Seattle",
+    "type": "mcp",
+    "description": "DataSeattle MCP — Seattle open data (data.seattle.gov, Socrata SODA API).",
+    "source_url": "https://github.com/pipeworx-io/mcp-data-seattle",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/data-seattle/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:39:46.976842Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/data-seattle/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/data-seattle"
+  },
+  {
+    "id": "io-github-pipeworx-io-data-sf-1e1d414c",
+    "name": "Data Sf",
+    "type": "mcp",
+    "description": "DataSF MCP — San Francisco open data (data.sfgov.org, Socrata SODA API).",
+    "source_url": "https://github.com/pipeworx-io/mcp-data-sf",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/data-sf/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:30:33.715955Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/data-sf/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/data-sf"
+  },
+  {
+    "id": "io-github-pipeworx-io-data-toronto-17d54450",
+    "name": "Data Toronto",
+    "type": "mcp",
+    "description": "DataToronto MCP — City of Toronto open data (open.toronto.ca, CKAN API).",
+    "source_url": "https://github.com/pipeworx-io/mcp-data-toronto",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/data-toronto/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:39:47.434527Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/data-toronto/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/data-toronto"
   },
   {
     "id": "io-github-pipeworx-io-data360-a8aad3a0",
@@ -270966,6 +271981,38 @@
     "website_url": "https://pipeworx.io/packs/itis"
   },
   {
+    "id": "io-github-pipeworx-io-japan-law-f15ccc5e",
+    "name": "Japan Law",
+    "type": "mcp",
+    "description": "Japan Law MCP — Japanese national laws & ordinances via the e-Gov Law API.",
+    "source_url": "https://github.com/pipeworx-io/mcp-japan-law",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/japan-law/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:39:47.949588Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/japan-law/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/japan-law"
+  },
+  {
     "id": "io-github-pipeworx-io-jargon-translator-8e1a0b25",
     "name": "Jargon Translator",
     "type": "mcp",
@@ -272468,6 +273515,38 @@
       }
     ],
     "website_url": "https://pipeworx.io/packs/mastodon"
+  },
+  {
+    "id": "io-github-pipeworx-io-materials-ed666b5a",
+    "name": "Materials",
+    "type": "mcp",
+    "description": "Materials MCP — computed (DFT) materials structures & thermodynamic properties.",
+    "source_url": "https://github.com/pipeworx-io/mcp-materials",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://gateway.pipeworx.io/materials/mcp"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T04:39:47.656226Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://gateway.pipeworx.io/materials/mcp"
+      }
+    ],
+    "website_url": "https://pipeworx.io/packs/materials"
   },
   {
     "id": "io-github-pipeworx-io-mathjs-7019c1c6",
@@ -288781,16 +289860,16 @@
       "config": {
         "registry_type": "pypi",
         "identifier": "build123d-mcp",
-        "version": "0.3.51",
-        "command": "pipx run build123d-mcp==0.3.51"
+        "version": "0.3.54",
+        "command": "pipx run build123d-mcp==0.3.54"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.3.51",
+    "version": "0.3.54",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-19T05:58:40.643562Z",
+    "mcp_registry_published_at": "2026-06-22T05:14:19.978031Z",
     "mcp_remotes": []
   },
   {
@@ -292235,6 +293314,33 @@
     "mcp_remotes": []
   },
   {
+    "id": "io-github-ravicha2-lit-review-council-9f3feb14",
+    "name": "Literature Review Council",
+    "type": "mcp",
+    "description": "Multi-agent literature review: research, peer review, and synthesize grounded reports.",
+    "source_url": "https://github.com/Ravicha2/lit-review-council",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "pypi",
+        "identifier": "lit-review-council",
+        "version": "0.1.4",
+        "command": "pipx run lit-review-council==0.1.4"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.4",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T03:19:56.268927Z",
+    "mcp_remotes": []
+  },
+  {
     "id": "io-github-ravikant1918-sharepoint-mcp-cbdf3c5e",
     "name": "SharePoint MCP Server",
     "type": "mcp",
@@ -295574,6 +296680,34 @@
     "mcp_remotes": []
   },
   {
+    "id": "io-github-riv-lc-areacode-mcp-b8cf67d8",
+    "name": "AreaCode.fyi MCP Server",
+    "type": "mcp",
+    "description": "North American (NANP) area-code & phone-number intelligence for AI agents, by areacode.fyi.",
+    "source_url": "https://github.com/riv-lc/areacode-mcp",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "npm",
+        "identifier": "@riv-lc/areacode-mcp",
+        "version": "0.2.2",
+        "command": "npx -y @riv-lc/areacode-mcp@0.2.2"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.2.2",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T03:11:04.915184Z",
+    "mcp_remotes": [],
+    "website_url": "https://areacode.fyi/mcp"
+  },
+  {
     "id": "io-github-rival-intelligence-rival-regulatory-toolkit-aff335a6",
     "name": "Rival Regulatory Toolkit",
     "type": "mcp",
@@ -295909,6 +297043,33 @@
     "version": "0.4.2",
     "mcp_registry_status": "active",
     "mcp_registry_published_at": "2026-05-18T18:00:37.487492Z",
+    "mcp_remotes": []
+  },
+  {
+    "id": "io-github-rmeadomavic-ardupilot-mavlink-mcp-1861dd15",
+    "name": "io.github.rmeadomavic/ardupilot-mavlink-mcp",
+    "type": "mcp",
+    "description": "Live ArduPilot control over MAVLink: state, params, modes, prearm diagnosis, gated arm. SITL-first.",
+    "source_url": "https://github.com/rmeadomavic/ardupilot-mcp",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "pypi",
+        "identifier": "ardupilot-mavlink-mcp",
+        "version": "0.1.0",
+        "command": "pipx run ardupilot-mavlink-mcp==0.1.0"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T02:37:32.462062Z",
     "mcp_remotes": []
   },
   {
@@ -299390,16 +300551,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "@rotifer/mcp-server",
-        "version": "0.8.6",
-        "command": "npx -y @rotifer/mcp-server@0.8.6"
+        "version": "0.9.1",
+        "command": "npx -y @rotifer/mcp-server@0.9.1"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.8.6",
+    "version": "0.9.1",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-04-25T17:36:10.303921Z",
+    "mcp_registry_published_at": "2026-06-22T06:17:03.566584Z",
     "mcp_remotes": []
   },
   {
@@ -312052,16 +313213,16 @@
       "config": {
         "registry_type": "pypi",
         "identifier": "keycloak-mcp",
-        "version": "0.8.0",
-        "command": "pipx run keycloak-mcp==0.8.0"
+        "version": "0.9.0",
+        "command": "pipx run keycloak-mcp==0.9.0"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.8.0",
+    "version": "0.9.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-19T08:08:09.950708Z",
+    "mcp_registry_published_at": "2026-06-22T04:57:35.607447Z",
     "mcp_remotes": []
   },
   {
@@ -315265,9 +316426,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.43.0",
+    "version": "0.44.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-19T20:00:01.962324Z",
+    "mcp_registry_published_at": "2026-06-22T06:29:51.394447Z",
     "mcp_remotes": [],
     "website_url": "https://mcpproxy.app"
   },
@@ -318849,6 +320010,52 @@
     "mcp_remotes": []
   },
   {
+    "id": "io-github-sravanmodugula-solved-nexatron-mcp-c793929a",
+    "name": "Nexatron",
+    "type": "mcp",
+    "description": "Ask your enterprise data in plain English. Governed analytics over MCP, from dotSolved.",
+    "source_url": "https://github.com/sravanmodugula-solved/nexatron/tree/HEAD/packages/mcp-server",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "pypi",
+        "identifier": "nexatron-mcp",
+        "version": "1.0.0",
+        "command": "pipx run nexatron-mcp==1.0.0"
+      },
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://api.nexatron.io/api/v1/mcp"
+        },
+        {
+          "type": "sse",
+          "url": "https://api.nexatron.io/api/v1/mcp/stream"
+        }
+      ]
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "1.0.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T02:58:28.283041Z",
+    "mcp_remotes": [
+      {
+        "type": "streamable-http",
+        "url": "https://api.nexatron.io/api/v1/mcp"
+      },
+      {
+        "type": "sse",
+        "url": "https://api.nexatron.io/api/v1/mcp/stream"
+      }
+    ],
+    "website_url": "https://nexatron.io"
+  },
+  {
     "id": "io-github-srbryant86-mcp-server-99f16cf4",
     "name": "io.github.srbryant86/mcp-server",
     "type": "mcp",
@@ -321834,7 +323041,7 @@
     "id": "io-github-starloghq-starlog-a0380d41",
     "name": "io.github.starloghq/starlog",
     "type": "mcp",
-    "description": "Local capability index so AI coding agents pick libraries by fit, not popularity. No account.",
+    "description": "Vet a package (CVEs, license, maintenance) before your AI agent uses it, plus capability discovery.",
     "source_url": "https://github.com/starloghq/index",
     "stars": null,
     "category": "tooling",
@@ -321845,16 +323052,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "starloghq",
-        "version": "0.1.9",
-        "command": "npx -y starloghq@0.1.9"
+        "version": "0.6.0",
+        "command": "npx -y starloghq@0.6.0"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "0.1.9",
+    "version": "0.6.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-02T02:08:09.402559Z",
+    "mcp_registry_published_at": "2026-06-22T04:38:50.820965Z",
     "mcp_remotes": []
   },
   {
@@ -325824,16 +327031,16 @@
       "config": {
         "registry_type": "pypi",
         "identifier": "zaxy-memory",
-        "version": "2.6.0",
-        "command": "pipx run zaxy-memory==2.6.0"
+        "version": "2.6.1",
+        "command": "pipx run zaxy-memory==2.6.1"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "2.6.0",
+    "version": "2.6.1",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-18T02:54:42.284704Z",
+    "mcp_registry_published_at": "2026-06-22T05:52:31.020497Z",
     "mcp_remotes": []
   },
   {
@@ -360439,6 +361646,87 @@
     ]
   },
   {
+    "id": "io-github-zayansalman-gmail-attachments-mcp-b2e62d34",
+    "name": "io.github.zayansalman/gmail-attachments-mcp",
+    "type": "mcp",
+    "description": "Minimal MCP server for downloading Gmail attachments to disk. Read-only OAuth by default.",
+    "source_url": "https://github.com/zayansalman/gmail-attachments-mcp",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "pypi",
+        "identifier": "gmail-attachments-mcp",
+        "version": "0.1.0",
+        "command": "pipx run gmail-attachments-mcp==0.1.0"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T05:49:07.698165Z",
+    "mcp_remotes": []
+  },
+  {
+    "id": "io-github-zayansalman-google-drive-comments-mcp-0a08a316",
+    "name": "io.github.zayansalman/google-drive-comments-mcp",
+    "type": "mcp",
+    "description": "Minimal MCP server for reading comments on Google Drive files (Docs, Sheets, Slides). Read-only.",
+    "source_url": "https://github.com/zayansalman/google-drive-comments-mcp",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "pypi",
+        "identifier": "google-drive-comments-mcp",
+        "version": "0.1.0",
+        "command": "pipx run google-drive-comments-mcp==0.1.0"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.1.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T05:49:06.826608Z",
+    "mcp_remotes": []
+  },
+  {
+    "id": "io-github-zayansalman-google-drive-files-mcp-9bf5c55b",
+    "name": "io.github.zayansalman/google-drive-files-mcp",
+    "type": "mcp",
+    "description": "Minimal MCP server for Google Drive file management and Google Sheets editing.",
+    "source_url": "https://github.com/zayansalman/google-drive-files-mcp",
+    "stars": null,
+    "category": "tooling",
+    "tags": [],
+    "tech_stack": [],
+    "install": {
+      "method": "manual",
+      "config": {
+        "registry_type": "pypi",
+        "identifier": "google-drive-files-mcp",
+        "version": "0.3.0",
+        "command": "pipx run google-drive-files-mcp==0.3.0"
+      },
+      "remotes": []
+    },
+    "source": "registry.modelcontextprotocol.io",
+    "last_synced": "2026-06-22",
+    "version": "0.3.0",
+    "mcp_registry_status": "active",
+    "mcp_registry_published_at": "2026-06-22T05:50:20.975333Z",
+    "mcp_remotes": []
+  },
+  {
     "id": "io-github-zazencodes-random-number-mcp-9e6a6404",
     "name": "io.github.zazencodes/random-number-mcp",
     "type": "mcp",
@@ -374515,16 +375803,16 @@
       "config": {
         "registry_type": "npm",
         "identifier": "claude-faf-mcp",
-        "version": "5.11.0",
-        "command": "npx -y claude-faf-mcp@5.11.0"
+        "version": "5.12.0",
+        "command": "npx -y claude-faf-mcp@5.12.0"
       },
       "remotes": []
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "5.11.0",
+    "version": "5.12.0",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-17T22:56:03.730996Z",
+    "mcp_registry_published_at": "2026-06-22T04:11:51.522023Z",
     "mcp_remotes": [],
     "website_url": "https://faf.one"
   },
@@ -380209,7 +381497,7 @@
     "name": "Rubin Exchange",
     "type": "mcp",
     "description": "Rubin: self-custody DEX for crypto perpetuals & spot - trade, read positions, orders, balances.",
-    "source_url": "https://registry.modelcontextprotocol.io/v0/servers/trade.rubin%2Fexchange",
+    "source_url": "https://github.com/rubin-trade/rubin-mainnet-mcp",
     "stars": null,
     "category": "tooling",
     "tags": [],
@@ -380225,9 +381513,9 @@
     },
     "source": "registry.modelcontextprotocol.io",
     "last_synced": "2026-06-22",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "mcp_registry_status": "active",
-    "mcp_registry_published_at": "2026-06-21T21:27:58.063607Z",
+    "mcp_registry_published_at": "2026-06-22T05:18:01.387205Z",
     "mcp_remotes": [
       {
         "type": "streamable-http",

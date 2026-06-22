@@ -2099,11 +2099,11 @@
     },
     "claude-proje-çalışma-promptu-prompt": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-22T02:52:09.170675+00:00",
+      "first_failed_at": "2026-06-22T07:51:27.686719+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-22T02:52:09.170675+00:00",
-      "next_retry_after": "2026-06-22T02:52:09.170675+00:00",
+      "last_failed_at": "2026-06-22T07:51:27.686719+00:00",
+      "next_retry_after": "2026-06-22T07:51:27.686719+00:00",
       "type": "prompt"
     },
     "claudepost": {
@@ -2421,24 +2421,6 @@
       "next_retry_after": "2026-06-11T11:22:39.959598+00:00",
       "type": "mcp"
     },
-    "com-dropwatchhq-govcon-feed-72fe8d08": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-22T02:52:48.699724+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-22T02:52:48.699724+00:00",
-      "next_retry_after": "2026-06-22T02:52:48.699724+00:00",
-      "type": "mcp"
-    },
-    "com-dropwatchhq-social-pulse-552d58ee": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-22T02:52:48.701224+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-22T02:52:48.701224+00:00",
-      "next_retry_after": "2026-06-22T02:52:48.701224+00:00",
-      "type": "mcp"
-    },
     "com-gitsim-chat-c6b3a5f2": {
       "attempt_count": 1,
       "first_failed_at": "2026-06-11T11:33:07.109234+00:00",
@@ -2455,15 +2437,6 @@
       "last_error_message": "runner returned no result for entry",
       "last_failed_at": "2026-06-11T11:37:38.096831+00:00",
       "next_retry_after": "2026-06-11T11:37:38.096831+00:00",
-      "type": "mcp"
-    },
-    "com-kaicalls-kaicalls-e90a1899": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-22T02:52:48.701713+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-22T02:52:48.701713+00:00",
-      "next_retry_after": "2026-06-22T02:52:48.701713+00:00",
       "type": "mcp"
     },
     "com-olyport-irs-990-6ebbb193": {
@@ -3060,87 +3033,6 @@
       "next_retry_after": "2026-06-11T09:50:09.685435+00:00",
       "type": "mcp"
     },
-    "github-trending-arckit-mcp-govreposcrape": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-22T02:52:48.697523+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-22T02:52:48.697523+00:00",
-      "next_retry_after": "2026-06-22T02:52:48.697523+00:00",
-      "type": "mcp"
-    },
-    "github-trending-backend-architect": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-22T02:55:54.661999+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-22T02:55:54.661999+00:00",
-      "next_retry_after": "2026-06-22T02:55:54.661999+00:00",
-      "type": "plugin"
-    },
-    "github-trending-commit-commands": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-22T02:55:54.662346+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-22T02:55:54.662346+00:00",
-      "next_retry_after": "2026-06-22T02:55:54.662346+00:00",
-      "type": "plugin"
-    },
-    "github-trending-experiment-tracker": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-22T03:02:10.797914+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-22T03:02:10.797914+00:00",
-      "next_retry_after": "2026-06-22T03:02:10.797914+00:00",
-      "type": "plugin"
-    },
-    "github-trending-gcp-helper": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-22T03:02:10.798175+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-22T03:02:10.798175+00:00",
-      "next_retry_after": "2026-06-22T03:02:10.798175+00:00",
-      "type": "plugin"
-    },
-    "github-trending-research-tools": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-22T02:55:54.661606+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-22T02:55:54.661606+00:00",
-      "next_retry_after": "2026-06-22T02:55:54.661606+00:00",
-      "type": "plugin"
-    },
-    "github-trending-ruflo-core-witness": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-22T02:52:43.598040+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-22T02:52:43.598040+00:00",
-      "next_retry_after": "2026-06-22T02:52:43.598040+00:00",
-      "type": "skill"
-    },
-    "github-trending-ruflo-docs-api-docs": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-22T03:00:35.989643+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-22T03:00:35.989643+00:00",
-      "next_retry_after": "2026-06-22T03:00:35.989643+00:00",
-      "type": "skill"
-    },
-    "github-trending-specialized-tools": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-22T02:55:54.661626+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-22T02:55:54.661626+00:00",
-      "next_retry_after": "2026-06-22T02:55:54.661626+00:00",
-      "type": "plugin"
-    },
     "gmail-headless": {
       "attempt_count": 1,
       "first_failed_at": "2026-06-11T08:06:09.003130+00:00",
@@ -3483,15 +3375,6 @@
       "next_retry_after": "2026-05-18T07:27:44.274485+00:00",
       "type": "mcp"
     },
-    "io-github-cybort360-cairn-mcp-c998e662": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-22T03:00:20.338844+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-22T03:00:20.338844+00:00",
-      "next_retry_after": "2026-06-22T03:00:20.338844+00:00",
-      "type": "mcp"
-    },
     "io-github-philipand-mkdshare-db629dd5": {
       "attempt_count": 1,
       "first_failed_at": "2026-05-18T07:52:15.340880+00:00",
@@ -3526,15 +3409,6 @@
       "last_error_message": "runner returned no result for entry",
       "last_failed_at": "2026-05-25T09:17:54.874760+00:00",
       "next_retry_after": "2026-05-25T09:17:54.874760+00:00",
-      "type": "mcp"
-    },
-    "io-github-waqarulwahab-llm-cost-estimator-78114ee3": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-06-22T03:00:20.346020+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-22T03:00:20.346020+00:00",
-      "next_retry_after": "2026-06-22T03:00:20.346020+00:00",
       "type": "mcp"
     },
     "irahulpandey-mlflowagent": {
@@ -4880,11 +4754,11 @@
     },
     "plataforma-escopo-bugbouty-cyber-hunter-lab-prompt": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-22T02:52:09.170738+00:00",
+      "first_failed_at": "2026-06-22T07:51:27.686763+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-22T02:52:09.170738+00:00",
-      "next_retry_after": "2026-06-22T02:52:09.170738+00:00",
+      "last_failed_at": "2026-06-22T07:51:27.686763+00:00",
+      "next_retry_after": "2026-06-22T07:51:27.686763+00:00",
       "type": "prompt"
     },
     "playcanvas-editor-mcp-server": {
@@ -4988,11 +4862,11 @@
     },
     "quantum-topology-matcher-prompt": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-22T02:52:09.170722+00:00",
+      "first_failed_at": "2026-06-22T07:51:27.686753+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-22T02:52:09.170722+00:00",
-      "next_retry_after": "2026-06-22T02:52:09.170722+00:00",
+      "last_failed_at": "2026-06-22T07:51:27.686753+00:00",
+      "next_retry_after": "2026-06-22T07:51:27.686753+00:00",
       "type": "prompt"
     },
     "quarkiverse-quarkus-mcp-server": {
@@ -6104,24 +5978,24 @@
     },
     "فريق-العمل-prompt": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-22T02:52:09.170730+00:00",
+      "first_failed_at": "2026-06-22T07:51:27.686759+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-22T02:52:09.170730+00:00",
-      "next_retry_after": "2026-06-22T02:52:09.170730+00:00",
+      "last_failed_at": "2026-06-22T07:51:27.686759+00:00",
+      "next_retry_after": "2026-06-22T07:51:27.686759+00:00",
       "type": "prompt"
     },
     "算法比赛教练-prompt": {
       "attempt_count": 1,
-      "first_failed_at": "2026-06-22T02:52:09.170711+00:00",
+      "first_failed_at": "2026-06-22T07:51:27.686745+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-06-22T02:52:09.170711+00:00",
-      "next_retry_after": "2026-06-22T02:52:09.170711+00:00",
+      "last_failed_at": "2026-06-22T07:51:27.686745+00:00",
+      "next_retry_after": "2026-06-22T07:51:27.686745+00:00",
       "type": "prompt"
     }
   },
   "rubric_version": "3.b46c05b2",
   "schema_version": 1,
-  "updated_at": "2026-06-22T03:45:01.996192+00:00"
+  "updated_at": "2026-06-22T08:14:03.330335+00:00"
 }

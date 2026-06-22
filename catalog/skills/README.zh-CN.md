@@ -1,6 +1,6 @@
 # 🎯 Skills 技能
 
-> 10915 AI 编程助手的可复用能力和工作流。
+> 11000 AI 编程助手的可复用能力和工作流。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
@@ -22,8 +22,8 @@
 | 10 | [xlsx](https://github.com/anthropics/skills/tree/main/skills/xlsx) | 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。 | Anthropic 官方 | 🟢 活跃 | 96 | 2026-05-09 | tooling | `anthropic`, `official` |
 | 11 | [a-stock-data](https://github.com/simonlin1212/a-stock-data/tree/main/) | A股全栈数据工具包，覆盖行情、研报、信号、资金面等七层数据，内嵌全部调用代码。 | github-trending | 🟢 活跃 | 96 | 2026-06-20 | ai-ml | — |
 | 12 | [make-latex-model](https://github.com/huangwb8/ChineseResearchLaTeX/tree/main/skills/make-latex-model) | 用于 ChineseResearchLaTeX 项目中 LaTeX 模板的高保真对齐、样式优化和像素级比对的专业 AI 技能。 | github-trending | 🟢 活跃 | 96 | 2026-06-21 | documentation | — |
-| 13 | [pi-subagents](https://github.com/nicobailon/pi-subagents/tree/main/skills/pi-subagents) | 一个用于编排 AI 辅助编码工作流的技能，通过子代理实现委派、审查、实现和协调。 | github-trending | 🟢 活跃 | 96 | 2026-06-21 | ai-ml | `subagent-orchestration`, `ai-coding`, `workflow-management` |
-| 14 | [agents-best-practices](https://github.com/DenisSergeevitch/agents-best-practices/tree/main/) | 一套全面的技能与参考指南，用于构建中立于服务商的AI智能体，涵盖架构、工具、安全与评估。 | github-trending | 🟢 活跃 | 96 | 2026-06-14 | backend | `agent-architecture`, `ai-safety`, `llm-tools` |
+| 13 | [pi-subagents](https://github.com/nicobailon/pi-subagents/tree/main/skills/pi-subagents) | 一个用于编排 AI 辅助编码工作流的技能，通过子代理实现委派、审查、实现和协调。 | github-trending | 🟢 活跃 | 96 | 2026-06-21 | ai-ml | — |
+| 14 | [agents-best-practices](https://github.com/DenisSergeevitch/agents-best-practices/tree/main/) | 一套全面的技能与参考指南，用于构建中立于服务商的AI智能体，涵盖架构、工具、安全与评估。 | github-trending | 🟢 活跃 | 96 | 2026-06-14 | backend | `go`, `openai` |
 | 15 | [agent-payment-x402](https://github.com/affaan-m/ECC/tree/HEAD/skills/agent-payment-x402) | 一项技能，使AI代理能够使用x402协议进行策略门控支付，具备支出控制和非托管钱包功能。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
 | 16 | [codehealth-mcp](https://github.com/affaan-m/ECC/tree/HEAD/skills/codehealth-mcp) | 通过 CodeScene MCP 提供实时结构化代码健康评分和回归检查，辅助 AI 编码工作流。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
 | 17 | [configure-ecc](https://github.com/affaan-m/ECC/tree/HEAD/skills/configure-ecc) | 用于配置 Everything Claude Code 技能和规则的交互式安装程序。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
@@ -114,7 +114,7 @@
 ## Top 10 安装指南
 
 <details>
-<summary>⭐ <strong>docx</strong> (153.5k★) — 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。</summary>
+<summary>⭐ <strong>docx</strong> (153.7k★) — 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。</summary>
 
 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。
 
@@ -129,7 +129,7 @@ Files: `skills/docx/`
 </details>
 
 <details>
-<summary>⭐ <strong>slack-gif-creator</strong> (153.5k★) — 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。</summary>
+<summary>⭐ <strong>slack-gif-creator</strong> (153.7k★) — 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。</summary>
 
 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。
 
@@ -144,7 +144,7 @@ Files: `skills/slack-gif-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>Hook Development</strong> (133.6k★) — Claude Code 插件钩子开发指南，用于验证、修改和自动化 AI 辅助编码工作流。</summary>
+<summary>⭐ <strong>Hook Development</strong> (133.7k★) — Claude Code 插件钩子开发指南，用于验证、修改和自动化 AI 辅助编码工作流。</summary>
 
 Claude Code 插件钩子开发指南，用于验证、修改和自动化 AI 辅助编码工作流。
 
@@ -158,7 +158,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>MCP Integration</strong> (133.6k★) — 全面指南，用于将模型上下文协议（MCP）服务器集成到Claude Code插件中，以连接外部服务作为工具。</summary>
+<summary>⭐ <strong>MCP Integration</strong> (133.7k★) — 全面指南，用于将模型上下文协议（MCP）服务器集成到Claude Code插件中，以连接外部服务作为工具。</summary>
 
 全面指南，用于将模型上下文协议（MCP）服务器集成到Claude Code插件中，以连接外部服务作为工具。
 
@@ -172,7 +172,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Plugin Settings</strong> (133.6k★) — Claude Code 插件技能模式，通过 .local.md 文件中的 YAML 前置数据存储项目配置。</summary>
+<summary>⭐ <strong>Plugin Settings</strong> (133.7k★) — Claude Code 插件技能模式，通过 .local.md 文件中的 YAML 前置数据存储项目配置。</summary>
 
 Claude Code 插件技能模式，通过 .local.md 文件中的 YAML 前置数据存储项目配置。
 
@@ -186,7 +186,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Plugin Structure</strong> (133.6k★) — 用于创建和组织 Claude Code 插件的技能，提供标准化目录结构和清单配置。</summary>
+<summary>⭐ <strong>Plugin Structure</strong> (133.7k★) — 用于创建和组织 Claude Code 插件的技能，提供标准化目录结构和清单配置。</summary>
 
 用于创建和组织 Claude Code 插件的技能，提供标准化目录结构和清单配置。
 
@@ -200,7 +200,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Skill Development</strong> (133.6k★) — 为 Claude Code 插件创建模块化技能的全面指南，涵盖结构、最佳实践和渐进式披露。</summary>
+<summary>⭐ <strong>Skill Development</strong> (133.7k★) — 为 Claude Code 插件创建模块化技能的全面指南，涵盖结构、最佳实践和渐进式披露。</summary>
 
 为 Claude Code 插件创建模块化技能的全面指南，涵盖结构、最佳实践和渐进式披露。
 
@@ -214,7 +214,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Writing Hookify Rules</strong> (133.6k★) — 用于创建 Hookify 规则的技能，监控 Claude Code 中的编码模式并触发警告或阻止。</summary>
+<summary>⭐ <strong>Writing Hookify Rules</strong> (133.7k★) — 用于创建 Hookify 规则的技能，监控 Claude Code 中的编码模式并触发警告或阻止。</summary>
 
 用于创建 Hookify 规则的技能，监控 Claude Code 中的编码模式并触发警告或阻止。
 
@@ -228,7 +228,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>skill-creator</strong> (153.5k★) — 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。</summary>
+<summary>⭐ <strong>skill-creator</strong> (153.7k★) — 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。</summary>
 
 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。
 
@@ -243,7 +243,7 @@ Files: `skills/skill-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>xlsx</strong> (153.5k★) — 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。</summary>
+<summary>⭐ <strong>xlsx</strong> (153.7k★) — 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。</summary>
 
 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。
 

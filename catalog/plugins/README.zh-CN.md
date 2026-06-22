@@ -1,6 +1,6 @@
 # 🧩 Plugins 插件
 
-> 1727 Claude Code 插件包，捆绑 skill、agent、command 与 MCP server，覆盖官方与社区 marketplace。
+> 1791 Claude Code 插件包，捆绑 skill、agent、command 与 MCP server，覆盖官方与社区 marketplace。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=plugin)
 
@@ -49,7 +49,7 @@
 | 37 | [beads](https://github.com/gastownhall/beads/tree/main/plugins/beads) | 基于Dolt的分布式图问题跟踪器，专为AI编码代理设计，支持依赖跟踪和持久化记忆。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-04-24 | ai-ml | — |
 | 38 | [planning-with-files](https://github.com/OthmanAdi/planning-with-files/tree/master/) | 为AI编程助手设计的插件，使用持久化Markdown文件进行结构化任务规划、进度跟踪和知识存储。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-05-01 | tooling | — |
 | 39 | [pua](https://github.com/tanweai/pua/tree/main/) | Claude Code 插件，通过企业压力策略、系统化调试和多智能体团队管理增强 AI 编码工作流。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-05-09 | ai-ml | — |
-| 40 | [compound-engineering](https://github.com/EveryInc/compound-engineering-plugin/tree/main/plugins/compound-engineering) | AI编程助手插件，通过结构化的头脑风暴、规划、代码审查和调试工作流积累工程知识。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-04-16 | ai-ml | `ai-powered`, `compound-engineering`, `workflow-automation` |
+| 40 | [compound-engineering](https://github.com/EveryInc/compound-engineering-plugin/tree/main/) | AI编程助手插件，通过结构化的头脑风暴、规划、代码审查和调试工作流积累工程知识。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-04-16 | ai-ml | `ai-powered`, `compound-engineering`, `workflow-automation` |
 | 41 | [agentmemory](https://github.com/rohitg00/agentmemory/tree/main/plugin) | AI编码代理持久化记忆引擎，通过LLM压缩工具使用记录并在未来会话中注入上下文。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-05-13 | tooling | — |
 | 42 | [tambo](https://github.com/tambo-ai/tambo/tree/main/plugins/tambo) | 一个React工具包，用于构建能生成和交互UI组件的AI代理，支持流式传输和MCP集成。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-04-16 | frontend | `ai`, `react`, `generative-ui` |
 | 43 | [skypilot](https://github.com/skypilot-org/skypilot/tree/master/agent) | 跨25+云平台的统一AI工作负载启动器，支持Kubernetes和Slurm，具备成本优化和自动扩缩容能力。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-06-03 | devops | `ai infrastructure`, `multi-cloud`, `gpu` |
@@ -66,7 +66,7 @@
 | 54 | [md2wechat](https://github.com/geekjourneyx/md2wechat-skill/tree/main/) | 一个CLI工具和AI Agent技能，用于将Markdown转换为微信公众号风格HTML，管理草稿并生成图片。 | github-trending | 🟢 活跃 | 97 | 2026-06-16 | frontend | — |
 | 55 | [freya](https://github.com/marc2332/freya/tree/main/plugins/freya) | Claude Code 插件，提供 Freya Rust GUI 框架的最佳实践和开发模式指南。 | github-trending | 🟢 活跃 | 97 | 2026-06-17 | backend | `rust` |
 | 56 | [claude-bughunter](https://github.com/elementalsouls/Claude-BugHunter/tree/main/) | 全面的71技能AI驱动漏洞猎捕和红队自动化工具包，用于Claude Code，涵盖Web/移动/云漏洞，支持自动化侦察和验证。 | github-trending | 🟢 活跃 | 97 | 2026-06-16 | security | `security`, `offensive-security`, `bug-bounty` |
-| 57 | [pro-workflow](https://github.com/rohitg00/pro-workflow/tree/main/) | Claude Code 全面工作流插件，含 33 技能、8 智能体、37 钩子，支持上下文工程、自我纠正和跨智能体协作。 | github-trending | 🟢 活跃 | 97 | 2026-06-15 | ai-ml | `claude-code-plugin`, `workflow-orchestration`, `context-engineering` |
+| 57 | [pro-workflow](https://github.com/rohitg00/pro-workflow/tree/main/) | Claude Code 全面工作流插件，含 33 技能、8 智能体、37 钩子，支持上下文工程、自我纠正和跨智能体协作。 | github-trending | 🟢 活跃 | 97 | 2026-06-15 | ai-ml | `workflow`, `hooks`, `agents` |
 | 58 | [sanity](https://github.com/sanity-io/agent-toolkit.git) | Sanity 的 Claude Code 插件，提供 MCP 服务器、代理技能和命令，用于内容管理和开发最佳实践。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-06-10 | security | — |
 | 59 | [dataverse](https://github.com/microsoft/Dataverse-skills.git) | 用于通过 MCP、CLI 和 Python SDK 构建、查询和管理 Microsoft Dataverse 的 AI 编码代理插件。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-06-10 | backend | `python` |
 | 60 | [resend](https://github.com/resend/resend-skills.git) | Resend 技能用于 AI 代理邮件集成，包括 API、CLI、React Email 组件及安全邮件工作流最佳实践。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-06-09 | frontend | `react` |
@@ -84,37 +84,37 @@
 | 72 | [togetherai-skills](https://github.com/togethercomputer/skills.git) | 为 Together AI 平台提供的代理技能插件，涵盖推理、训练、嵌入、音频、视频、图像和基础设施 API。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-06-10 | ai-ml | — |
 | 73 | [datahub-skills](https://github.com/datahub-project/datahub-skills.git) | 一个用于 DataHub 的全面 AI 编码插件套件，提供连接器开发、PR 审查、元数据管理、数据血缘追踪、质量检查和前端应用脚手架技能。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-06-04 | tooling | — |
 | 74 | [fastly-agent-toolkit](https://github.com/fastly/fastly-agent-toolkit.git) | 为 Fastly VCL 开发、Compute WASM 测试、CLI 操作和 NGWAF 审计提供技能的 Claude 插件。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-05-06 | tooling | — |
-| 75 | [ruflo-cost-tracker](https://github.com/ruvnet/ruflo/tree/main/plugins/ruflo-cost-tracker) | AI代理token成本追踪插件，支持模型路由优化、预算告警、零成本WASM代码变换，适用于claude-flow生态系统。 | github-trending | 🟢 活跃 | 96 | 2026-06-21 | tooling | `cost-tracking`, `token-optimization`, `budget-alerts` |
-| 76 | [ruflo-intelligence](https://github.com/ruvnet/ruflo/tree/main/plugins/ruflo-intelligence) | 自学习神经智能插件，用于AI辅助编码，支持模型路由、模式训练和跨项目传输。 | github-trending | 🟢 活跃 | 96 | 2026-06-21 | tooling | `mcp-plugin`, `neural-learning`, `model-routing` |
-| 77 | [ruflo-plugin-creator](https://github.com/ruvnet/ruflo/tree/main/plugins/ruflo-plugin-creator) | 用于脚手架搭建、验证和发布Claude Code插件的工具，确保结构规范与MCP工具集成。 | github-trending | 🟢 活跃 | 96 | 2026-06-21 | tooling | `claude-code-plugin`, `plugin-scaffolding`, `mcp-tools` |
-| 78 | [accessibility-compliance](https://github.com/wshobson/agents/tree/main/plugins/accessibility-compliance) | 为Claude Code提供185个专业AI代理和80个插件，自动化软件开发工作流。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | testing | — |
-| 79 | [agent-orchestration](https://github.com/wshobson/agents/tree/main/plugins/agent-orchestration) | Claude Code 的插件系统，包含 185 个专业 AI 代理、16 个工作流编排器和 153 个技能，用于软件开发自动化。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | ai-ml | — |
-| 80 | [agent-teams](https://github.com/wshobson/agents/tree/main/plugins/agent-teams) | Claude Code 多智能体编排系统，包含 80 个插件、185 个智能体和 153 个技能，支持并行代码审查、调试和开发。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | tooling | — |
-| 81 | [api-scaffolding](https://github.com/wshobson/agents/tree/main/plugins/api-scaffolding) | 为Claude Code设计的185个AI代理和80个插件的综合系统，用于自动化软件开发工作流，包括API脚手架、测试和部署。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | backend | `graphql`, `rest-api` |
-| 82 | [backend-development](https://github.com/wshobson/agents/tree/main/plugins/backend-development) | Claude Code 的多智能体插件系统，提供 80 个专用插件，涵盖后端开发、安全、测试等领域。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | testing | `graphql` |
-| 83 | [cicd-automation](https://github.com/wshobson/agents/tree/main/plugins/cicd-automation) | 全面的CI/CD自动化插件，提供GitHub Actions/GitLab CI模板、部署管道和专业DevOps代理。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-22 | devops | `git` |
-| 84 | [comprehensive-review](https://github.com/wshobson/agents/tree/main/plugins/comprehensive-review) | Claude Code 插件系统，包含 185 个专业 AI 代理，用于多角度代码分析和开发自动化。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | security | — |
-| 85 | [conductor](https://github.com/wshobson/agents/tree/main/plugins/conductor) | Claude Code 的插件系统，包含 185 个专业 AI 代理、153 个技能和 100 个命令，用于软件开发自动化。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | tooling | — |
-| 86 | [content-marketing](https://github.com/wshobson/agents/tree/main/plugins/content-marketing) | 为Claude Code提供185个专业AI代理和80个插件的综合系统，实现智能自动化和多代理编排。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | documentation | — |
-| 87 | [data-engineering](https://github.com/wshobson/agents/tree/main/plugins/data-engineering) | 为Claude Code提供185个专业AI代理和80个插件的综合系统，用于增强软件开发工作流。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | tooling | — |
-| 88 | [database-design](https://github.com/wshobson/agents/tree/main/plugins/database-design) | Claude Code 的插件生态系统，包含 185 个专业 AI 代理、153 个技能和 100 个命令，用于软件开发自动化。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | database | — |
-| 89 | [developer-essentials](https://github.com/wshobson/agents/tree/main/plugins/developer-essentials) | 为Claude Code提供185个AI代理和80个插件的综合系统，实现多代理编排和专业开发工作流。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | database | `git` |
-| 90 | [documentation-generation](https://github.com/wshobson/agents/tree/main/plugins/documentation-generation) | 为Claude Code提供185个AI代理和80个插件的综合系统，实现软件开发工作流中的多代理编排和自动化。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | documentation | — |
-| 91 | [documentation-standards](https://github.com/wshobson/agents/tree/main/plugins/documentation-standards) | 为Claude Code提供185个AI代理、153个技能和100个命令的综合系统，组织成80个插件以增强软件开发工作流。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | documentation | — |
-| 92 | [error-debugging](https://github.com/wshobson/agents/tree/main/plugins/error-debugging) | 为Claude Code提供185个AI代理和80个插件的综合系统，支持多代理编排和软件开发自动化。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | tooling | — |
-| 93 | [framework-migration](https://github.com/wshobson/agents/tree/main/plugins/framework-migration) | Claude Code 的插件系统，包含 80+ 专业代理、技能和命令，用于 AI 辅助软件开发工作流。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | tooling | — |
-| 94 | [frontend-mobile-security](https://github.com/wshobson/agents/tree/main/plugins/frontend-mobile-security) | 为Claude Code提供185个AI代理和80个插件的综合系统，用于自动化软件开发工作流。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | security | — |
-| 95 | [julia-development](https://github.com/wshobson/agents/tree/main/plugins/julia-development) | 为Claude Code提供185个专业AI代理和80个插件的综合系统，涵盖全栈开发、安全、基础设施等领域。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | tooling | — |
-| 96 | [qa-orchestra](https://github.com/wshobson/agents) | 一个包含10个专业代理的多代理QA工具包，覆盖完整QA生命周期，专为Claude Code设计，支持Chrome MCP验证。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | testing | — |
-| 97 | [quantitative-trading](https://github.com/wshobson/agents/tree/main/plugins/quantitative-trading) | 为Claude Code提供185个专业AI代理和80个插件的综合系统，增强软件开发工作流。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | backend | `go` |
-| 98 | [security-scanning](https://github.com/wshobson/agents/tree/main/plugins/security-scanning) | Claude Code 的全面插件系统，包含 185 个专业 AI 代理、153 个技能和 100 个命令，用于软件开发中的多代理编排。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | security | — |
-| 99 | [ship-mate](https://github.com/wshobson/agents/tree/main/plugins/ship-mate) | AI驱动的开发流水线，通过专业代理自动完成从故事到功能的全流程，包括规划、编码、评审、测试和部署。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-22 | testing | `pipeline`, `automation`, `orchestration` |
-| 100 | [signed-audit-trails](https://github.com/wshobson/agents/tree/main/plugins/signed-audit-trails) | Claude Code 工具调用的加密签名审计追踪教程，使用 Cedar 策略和 Ed25519 收据。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-22 | backend | `tutorial`, `skill`, `recipe` |
+| 75 | [ruflo-agent](https://github.com/ruvnet/ruflo/tree/main/plugins/ruflo-agent) | 提供两种 AI 代理运行时：本地 WASM 沙箱代理和 Anthropic 云端托管代理，通过统一 MCP 接口支持编码工作流。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-22 | tooling | `agent-runtime`, `wasm-sandbox`, `mcp-server` |
+| 76 | [ruflo-cost-tracker](https://github.com/ruvnet/ruflo/tree/main/plugins/ruflo-cost-tracker) | AI代理token成本追踪插件，支持模型路由优化、预算告警、零成本WASM代码变换，适用于claude-flow生态系统。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-22 | tooling | `cost-tracking`, `token-optimization`, `budget-alerts` |
+| 77 | [ruflo-intelligence](https://github.com/ruvnet/ruflo/tree/main/plugins/ruflo-intelligence) | 自学习神经智能插件，用于AI辅助编码，支持模型路由、模式训练和跨项目传输。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-22 | tooling | `mcp-plugin`, `neural-learning`, `model-routing` |
+| 78 | [ruflo-plugin-creator](https://github.com/ruvnet/ruflo/tree/main/plugins/ruflo-plugin-creator) | 用于脚手架搭建、验证和发布Claude Code插件的工具，确保结构规范与MCP工具集成。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-22 | tooling | `claude-code-plugin`, `plugin-scaffolding`, `mcp-tools` |
+| 79 | [accessibility-compliance](https://github.com/wshobson/agents/tree/main/plugins/accessibility-compliance) | 为Claude Code提供185个专业AI代理和80个插件，自动化软件开发工作流。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | testing | — |
+| 80 | [agent-orchestration](https://github.com/wshobson/agents/tree/main/plugins/agent-orchestration) | Claude Code 的插件系统，包含 185 个专业 AI 代理、16 个工作流编排器和 153 个技能，用于软件开发自动化。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | ai-ml | — |
+| 81 | [agent-teams](https://github.com/wshobson/agents/tree/main/plugins/agent-teams) | Claude Code 多智能体编排系统，包含 80 个插件、185 个智能体和 153 个技能，支持并行代码审查、调试和开发。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | tooling | — |
+| 82 | [api-scaffolding](https://github.com/wshobson/agents/tree/main/plugins/api-scaffolding) | 为Claude Code设计的185个AI代理和80个插件的综合系统，用于自动化软件开发工作流，包括API脚手架、测试和部署。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | backend | `graphql`, `rest-api` |
+| 83 | [backend-development](https://github.com/wshobson/agents/tree/main/plugins/backend-development) | Claude Code 的多智能体插件系统，提供 80 个专用插件，涵盖后端开发、安全、测试等领域。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | testing | `graphql` |
+| 84 | [cicd-automation](https://github.com/wshobson/agents/tree/main/plugins/cicd-automation) | 全面的CI/CD自动化插件，提供GitHub Actions/GitLab CI模板、部署管道和专业DevOps代理。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-22 | devops | `git` |
+| 85 | [comprehensive-review](https://github.com/wshobson/agents/tree/main/plugins/comprehensive-review) | Claude Code 插件系统，包含 185 个专业 AI 代理，用于多角度代码分析和开发自动化。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | security | — |
+| 86 | [conductor](https://github.com/wshobson/agents/tree/main/plugins/conductor) | Claude Code 的插件系统，包含 185 个专业 AI 代理、153 个技能和 100 个命令，用于软件开发自动化。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | tooling | — |
+| 87 | [content-marketing](https://github.com/wshobson/agents/tree/main/plugins/content-marketing) | 为Claude Code提供185个专业AI代理和80个插件的综合系统，实现智能自动化和多代理编排。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | documentation | — |
+| 88 | [data-engineering](https://github.com/wshobson/agents/tree/main/plugins/data-engineering) | 为Claude Code提供185个专业AI代理和80个插件的综合系统，用于增强软件开发工作流。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | tooling | — |
+| 89 | [database-design](https://github.com/wshobson/agents/tree/main/plugins/database-design) | Claude Code 的插件生态系统，包含 185 个专业 AI 代理、153 个技能和 100 个命令，用于软件开发自动化。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | database | — |
+| 90 | [developer-essentials](https://github.com/wshobson/agents/tree/main/plugins/developer-essentials) | 为Claude Code提供185个AI代理和80个插件的综合系统，实现多代理编排和专业开发工作流。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | database | `git` |
+| 91 | [documentation-generation](https://github.com/wshobson/agents/tree/main/plugins/documentation-generation) | 为Claude Code提供185个AI代理和80个插件的综合系统，实现软件开发工作流中的多代理编排和自动化。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | documentation | — |
+| 92 | [documentation-standards](https://github.com/wshobson/agents/tree/main/plugins/documentation-standards) | 为Claude Code提供185个AI代理、153个技能和100个命令的综合系统，组织成80个插件以增强软件开发工作流。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | documentation | — |
+| 93 | [error-debugging](https://github.com/wshobson/agents/tree/main/plugins/error-debugging) | 为Claude Code提供185个AI代理和80个插件的综合系统，支持多代理编排和软件开发自动化。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | tooling | — |
+| 94 | [framework-migration](https://github.com/wshobson/agents/tree/main/plugins/framework-migration) | Claude Code 的插件系统，包含 80+ 专业代理、技能和命令，用于 AI 辅助软件开发工作流。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | tooling | — |
+| 95 | [frontend-mobile-security](https://github.com/wshobson/agents/tree/main/plugins/frontend-mobile-security) | 为Claude Code提供185个AI代理和80个插件的综合系统，用于自动化软件开发工作流。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | security | — |
+| 96 | [julia-development](https://github.com/wshobson/agents/tree/main/plugins/julia-development) | 为Claude Code提供185个专业AI代理和80个插件的综合系统，涵盖全栈开发、安全、基础设施等领域。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | tooling | — |
+| 97 | [qa-orchestra](https://github.com/wshobson/agents) | 一个包含10个专业代理的多代理QA工具包，覆盖完整QA生命周期，专为Claude Code设计，支持Chrome MCP验证。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | testing | — |
+| 98 | [quantitative-trading](https://github.com/wshobson/agents/tree/main/plugins/quantitative-trading) | 为Claude Code提供185个专业AI代理和80个插件的综合系统，增强软件开发工作流。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | backend | `go` |
+| 99 | [security-scanning](https://github.com/wshobson/agents/tree/main/plugins/security-scanning) | Claude Code 的全面插件系统，包含 185 个专业 AI 代理、153 个技能和 100 个命令，用于软件开发中的多代理编排。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-09 | security | — |
+| 100 | [ship-mate](https://github.com/wshobson/agents/tree/main/plugins/ship-mate) | AI驱动的开发流水线，通过专业代理自动完成从故事到功能的全流程，包括规划、编码、评审、测试和部署。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-05-22 | testing | `pipeline`, `automation`, `orchestration` |
 
 ## Top 10 安装指南
 
 <details>
-<summary>⭐ <strong>superpowers</strong> (235.1k★) — 教授 Claude Code 系统化开发工作流，包括测试驱动开发、调试、代码审查和子代理驱动开发的详细技能文档。</summary>
+<summary>⭐ <strong>superpowers</strong> (235.4k★) — 教授 Claude Code 系统化开发工作流，包括测试驱动开发、调试、代码审查和子代理驱动开发的详细技能文档。</summary>
 
 教授 Claude Code 系统化开发工作流，包括测试驱动开发、调试、代码审查和子代理驱动开发的详细技能文档。
 
@@ -126,7 +126,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>chrome-devtools-mcp</strong> (44.1k★) — Chrome DevTools MCP 服务器，供 AI 编程代理通过 CLI 和 MCP 工具调试、自动化和分析网页。</summary>
+<summary>⭐ <strong>chrome-devtools-mcp</strong> (44.2k★) — Chrome DevTools MCP 服务器，供 AI 编程代理通过 CLI 和 MCP 工具调试、自动化和分析网页。</summary>
 
 Chrome DevTools MCP 服务器，供 AI 编程代理通过 CLI 和 MCP 工具调试、自动化和分析网页。
 
@@ -174,7 +174,7 @@ Claude插件，通过Anthropic隧道连接私有MCP服务器，提供Docker Comp
 </details>
 
 <details>
-<summary>⭐ <strong>hyperframes</strong> (29.5k★) — HyperFrames 让开发者用 HTML/CSS/JS 编写确定性视频合成，支持 GSAP 动画、字幕、语音合成和 ...</summary>
+<summary>⭐ <strong>hyperframes</strong> (29.6k★) — HyperFrames 让开发者用 HTML/CSS/JS 编写确定性视频合成，支持 GSAP 动画、字幕、语音合成和 ...</summary>
 
 HyperFrames 让开发者用 HTML/CSS/JS 编写确定性视频合成，支持 GSAP 动画、字幕、语音合成和 WebGL 特效。
 

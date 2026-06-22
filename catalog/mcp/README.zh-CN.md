@@ -1,6 +1,6 @@
 # 🔌 MCP 服务器
 
-> 7584 模型上下文协议服务器，将 AI Agent 连接到外部工具、数据库和服务。
+> 7598 模型上下文协议服务器，将 AI Agent 连接到外部工具、数据库和服务。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=mcp)
 
@@ -11,8 +11,8 @@
 | # | 名称 | 描述 | ⭐ Stars | 状态 | 评分 | 最近更新 | 分类 | 标签 |
 |---|---|---|---|---|---|---|---|---|
 | 1 | [upstash/context7](https://github.com/upstash/context7) | 实时注入最新库文档和代码示例到 LLM 上下文的 MCP 服务器，消除 API 幻觉。 | 57.8k | 🟢 活跃 | 98 | 2026-05-26 | ai-ml | `llm`, `mcp`, `mcp-server` |
-| 2 | [Headroom](https://github.com/chopratejas/headroom) | AI 智能体上下文压缩层，减少 60-95% token 使用，支持可逆压缩与跨智能体内存共享。 | 44.6k | 🟢 活跃 | 98 | 2026-06-15 | frontend | `agent`, `ai`, `anthropic` |
-| 3 | [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 谷歌官方 MCP 服务器，让 AI 编程代理直接操控 Chrome DevTools 进行调试、性能分析和浏览器自动化。 | 44.1k | 🟢 活跃 | 98 | 2026-05-31 | ai-ml | `browser`, `chrome`, `chrome-devtools` |
+| 2 | [Headroom](https://github.com/chopratejas/headroom) | AI 智能体上下文压缩层，减少 60-95% token 使用，支持可逆压缩与跨智能体内存共享。 | 45.4k | 🟢 活跃 | 98 | 2026-06-15 | frontend | `agent`, `ai`, `anthropic` |
+| 3 | [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 谷歌官方 MCP 服务器，让 AI 编程代理直接操控 Chrome DevTools 进行调试、性能分析和浏览器自动化。 | 44.2k | 🟢 活跃 | 98 | 2026-05-31 | ai-ml | `browser`, `chrome`, `chrome-devtools` |
 | 4 | [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | 微软官方 MCP 服务器，通过 Playwright 让 AI 精确控制浏览器进行网页自动化和数据抓取。 | 34.2k | 🟢 活跃 | 98 | 2026-05-09 | testing | `playwright`, `mcp`, `browser` |
 | 5 | [googleapis/genai-toolbox](https://github.com/googleapis/genai-toolbox) | 一款开源MCP服务器，可将AI代理和IDE连接至企业数据库，助力AI辅助编程工作流。 | 15.7k | 🟢 活跃 | 98 | 2026-06-11 | backend | `go`, `agent`, `agents` |
 | 6 | [MCP Inspector](https://github.com/modelcontextprotocol/inspector) | 用于通过 Web UI 或 CLI 可视化测试和调试 MCP 服务器的开发者工具。 | 9.2k | 🟢 活跃 | 98 | 2026-04-14 | testing | — |
@@ -64,7 +64,7 @@
 | 52 | [Swiss Army Knife for MCP Servers](https://github.com/f/mcptools) | 一个功能全面的命令行工具，用于与MCP服务器交互，支持多种传输方式、输出格式和服务器模式。 | 1.5k | 🟡 停滞 | 96 | 2025-12-18 | tooling | `mcp`, `mcp-server`, `modelcontextprotocol` |
 | 53 | [caol64/wenyan-mcp](https://github.com/caol64/wenyan-mcp) | 文颜 MCP 服务器，让 AI 助手自动排版 Markdown 并发布至微信公众号。 | 1.3k | 🟢 活跃 | 96 | 2026-04-29 | ai-ml | `mcp-server`, `wechat`, `wenyan` |
 | 54 | [Neon](https://github.com/neondatabase/mcp-server-neon) | Neon 官方 MCP 服务器，支持在 AI 编程环境中通过自然语言管理 Neon Postgres 数据库。 | 611 | 🟢 活跃 | 96 | 2026-06-05 | database | `postgres` |
-| 55 | [Bernstein](https://github.com/sipyourdrink-ltd/bernstein) | 确定性多智能体编排器，在并行 Git 工作树中运行 44 个 CLI 编码代理，内置 HMAC 审计链。 | 579 | 🟢 活跃 | 96 | 2026-06-10 | backend | `git`, `agent-framework`, `agent-orchestrator` |
+| 55 | [Bernstein](https://github.com/sipyourdrink-ltd/bernstein) | 确定性多智能体编排器，在并行 Git 工作树中运行 44 个 CLI 编码代理，内置 HMAC 审计链。 | 581 | 🟢 活跃 | 96 | 2026-06-10 | backend | `git`, `agent-framework`, `agent-orchestrator` |
 | 56 | [n8n Workflow Builder MCP Server](https://github.com/makafeli/n8n-workflow-builder) | MCP服务器使AI助手能通过自然语言命令以编程方式管理n8n工作流。 | 502 | 🟢 活跃 | 96 | 2026-03-19 | tooling | — |
 | 57 | [Muvon/octocode](https://github.com/Muvon/octocode) | Rust编写的语义代码索引器，构建GraphRAG知识图谱并通过MCP暴露给AI，支持13+语言的代码理解与搜索。 | 406 | 🟢 活跃 | 96 | 2026-06-09 | backend | `rust`, `ai`, `ai-tools` |
 | 58 | [FreePeak/db-mcp-server](https://github.com/FreePeak/db-mcp-server) | 基于 Go 的 MCP 服务器，支持 AI 助手通过统一接口操作多种数据库（MySQL、PostgreSQL、SQLite、Oracle、TimescaleDB... | 393 | 🟢 活跃 | 96 | 2026-04-19 | backend | `go`, `mysql`, `database-mcp-server` |
@@ -77,7 +77,7 @@
 | 65 | [Elasticsearch/OpenSearch MCP Server](https://github.com/cr7258/elasticsearch-mcp-server) | MCP服务器，使AI助手能够与Elasticsearch和OpenSearch集群交互，执行搜索、索引和管理操作。 | 259 | 🟢 活跃 | 96 | 2026-02-02 | tooling | — |
 | 66 | [OpenAPI MCP Server](https://github.com/ivo-toby/mcp-openapi-server) | 将OpenAPI规范转换为MCP工具的服务器，使LLM能够通过模型上下文协议与REST API交互。 | 243 | 🟢 活跃 | 96 | 2026-03-11 | backend | — |
 | 67 | [Razorpay MCP Server (Official)](https://github.com/razorpay/razorpay-mcp-server) | Razorpay 官方 MCP 服务器，提供 40+ 支付处理工具，支持订单、退款、结账集成，可与 AI 编程助手配合使用。 | 216 | 🟢 活跃 | 96 | 2026-03-26 | tooling | `mcp`, `razorpay`, `mcp-server` |
-| 68 | [crw](https://github.com/us/crw) | 自托管 Rust 网页抓取工具，内置 MCP 服务器，兼容 Firecrawl API，专为 AI 代理设计。 | 203 | 🟢 活跃 | 96 | 2026-06-10 | frontend | `rust`, `ai`, `ai-agents` |
+| 68 | [crw](https://github.com/us/crw) | 自托管 Rust 网页抓取工具，内置 MCP 服务器，兼容 Firecrawl API，专为 AI 代理设计。 | 204 | 🟢 活跃 | 96 | 2026-06-10 | frontend | `rust`, `ai`, `ai-agents` |
 | 69 | [mcp-server-jdbc](https://github.com/quarkiverse/quarkus-mcp-servers/tree/main/jdbc) | MCP 服务器，使大语言模型能够通过 JDBC 连接数据库并执行查询、建表、数据操作。 | 191 | 🟢 活跃 | 96 | 2026-04-07 | tooling | `mcp`, `quarkus-app` |
 | 70 | [OpenAPI-MCP: Dockerized MCP Server to allow your AI agent to access any API with existing api docs](https://github.com/ckanthony/openapi-mcp) | Docker化MCP服务器，从OpenAPI/Swagger规范自动生成AI工具定义，实现无缝API集成。 | 178 | 🟢 活跃 | 96 | 2026-03-21 | devops | — |
 | 71 | [MCP Access Point](https://github.com/sxhxliang/mcp-access-point) | 轻量级网关，无需修改代码即可将HTTP API转换为MCP服务器，供AI编程助手使用。 | 169 | 🟢 活跃 | 96 | 2026-03-11 | tooling | — |
@@ -99,7 +99,7 @@
 | 87 | [modelcontextprotocol/server-filesystem](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) | 官方MCP服务器，提供安全的本地文件系统访问，支持可配置目录权限和多种集成方式。 | 87.5k | 🟢 活跃 | 95 | 2026-06-07 | tooling | `mcp-server`, `official`, `filesystem` |
 | 88 | [github/github-mcp-server](https://github.com/github/github-mcp-server) | GitHub 官方 MCP 服务器，让 AI 工具深度集成 GitHub 平台，支持仓库管理、Issue/PR 自动化、CI/CD、代码安全等。 | 30.9k | 🟢 活跃 | 95 | 2026-06-10 | ai-ml | `git`, `github`, `mcp` |
 | 89 | [chrishayuk/mcp-cli](https://github.com/chrishayuk/mcp-cli) | 功能强大的 MCP 服务器命令行客户端，支持多 LLM 提供商、执行计划和交互式浏览器 UI。 | 2.0k | 🟢 活跃 | 95 | 2026-06-08 | tooling | — |
-| 90 | [Golang Filesystem Server](https://github.com/mark3labs/mcp-filesystem-server) | MCP 文件系统服务器，为 AI 助手提供带目录限制的安全文件操作。 | 657 | 🟡 停滞 | 95 | 2025-11-24 | backend | `go` |
+| 90 | [Golang Filesystem Server](https://github.com/mark3labs/mcp-filesystem-server) | MCP 文件系统服务器，为 AI 助手提供带目录限制的安全文件操作。 | 658 | 🟡 停滞 | 95 | 2025-11-24 | backend | `go` |
 | 91 | [Shell and Coding agent for Claude and other mcp clients](https://github.com/rusiaaman/wcgw) | 一个MCP服务器，为AI代理提供集成的Shell和代码编辑工具，可在本地执行命令和编辑文件。 | 651 | 🟢 活跃 | 95 | 2026-04-07 | ai-ml | `shell`, `agent`, `terminal` |
 | 92 | [chrome](https://github.com/obra/superpowers-chrome.git) | 基于Chrome DevTools协议的浏览器自动化工具，提供CLI和MCP模式用于AI辅助编程工作流。 | 318 | 🟢 活跃 | 95 | 2026-06-01 | tooling | — |
 | 93 | [Neovim MCP Server](https://github.com/bigcodegen/mcp-neovim-server) | MCP服务器，让Claude桌面版通过原生Vim命令控制Neovim，实现AI辅助文本编辑和编码。 | 301 | 🟡 停滞 | 95 | 2025-10-11 | frontend | `neovim`, `mcp`, `claude` |
@@ -126,7 +126,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Headroom</strong> (44.6k★) — AI 智能体上下文压缩层，减少 60-95% token 使用，支持可逆压缩与跨智能体内存共享。</summary>
+<summary>⭐ <strong>Headroom</strong> (45.4k★) — AI 智能体上下文压缩层，减少 60-95% token 使用，支持可逆压缩与跨智能体内存共享。</summary>
 
 AI 智能体上下文压缩层，减少 60-95% token 使用，支持可逆压缩与跨智能体内存共享。
 
@@ -138,7 +138,7 @@ AI 智能体上下文压缩层，减少 60-95% token 使用，支持可逆压缩
 </details>
 
 <details>
-<summary>⭐ <strong>ChromeDevTools/chrome-devtools-mcp</strong> (44.1k★) — 谷歌官方 MCP 服务器，让 AI 编程代理直接操控 Chrome DevTools 进行调试、性能分析和浏览器自动化。</summary>
+<summary>⭐ <strong>ChromeDevTools/chrome-devtools-mcp</strong> (44.2k★) — 谷歌官方 MCP 服务器，让 AI 编程代理直接操控 Chrome DevTools 进行调试、性能分析和浏览器自动化。</summary>
 
 谷歌官方 MCP 服务器，让 AI 编程代理直接操控 Chrome DevTools 进行调试、性能分析和浏览器自动化。
 

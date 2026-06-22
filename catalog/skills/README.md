@@ -1,6 +1,6 @@
 # 🎯 Skills
 
-> 10915 Reusable agent capabilities and workflows for AI coding assistants.
+> 11000 Reusable agent capabilities and workflows for AI coding assistants.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
@@ -22,8 +22,8 @@
 | 10 | [xlsx](https://github.com/anthropics/skills/tree/main/skills/xlsx) | A Python skill for programmatically creating, editing, and analyzing Excel and t... | Anthropic Official | 🟢 Active | 96 | 2026-05-09 | tooling | `anthropic`, `official` |
 | 11 | [a-stock-data](https://github.com/simonlin1212/a-stock-data/tree/main/) | A comprehensive Python toolkit for A-share financial data covering 7 layers with... | github-trending | 🟢 Active | 96 | 2026-06-20 | ai-ml | — |
 | 12 | [make-latex-model](https://github.com/huangwb8/ChineseResearchLaTeX/tree/main/skills/make-latex-model) | A specialized AI skill for optimizing and aligning LaTeX templates in the Chines... | github-trending | 🟢 Active | 96 | 2026-06-21 | documentation | — |
-| 13 | [pi-subagents](https://github.com/nicobailon/pi-subagents/tree/main/skills/pi-subagents) | A skill for orchestrating AI-assisted coding workflows with subagents for delega... | github-trending | 🟢 Active | 96 | 2026-06-21 | ai-ml | `subagent-orchestration`, `ai-coding`, `workflow-management` |
-| 14 | [agents-best-practices](https://github.com/DenisSergeevitch/agents-best-practices/tree/main/) | A comprehensive skill and reference for building provider-neutral AI agent harne... | github-trending | 🟢 Active | 96 | 2026-06-14 | backend | `agent-architecture`, `ai-safety`, `llm-tools` |
+| 13 | [pi-subagents](https://github.com/nicobailon/pi-subagents/tree/main/skills/pi-subagents) | A skill for orchestrating AI-assisted coding workflows with subagents for delega... | github-trending | 🟢 Active | 96 | 2026-06-21 | ai-ml | — |
+| 14 | [agents-best-practices](https://github.com/DenisSergeevitch/agents-best-practices/tree/main/) | A comprehensive skill and reference for building provider-neutral AI agent harne... | github-trending | 🟢 Active | 96 | 2026-06-14 | backend | `go`, `openai` |
 | 15 | [agent-payment-x402](https://github.com/affaan-m/ECC/tree/HEAD/skills/agent-payment-x402) | A skill enabling AI agents to make policy-gated payments using the x402 protocol... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
 | 16 | [codehealth-mcp](https://github.com/affaan-m/ECC/tree/HEAD/skills/codehealth-mcp) | MCP server providing real-time structural code health scores and regression gate... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
 | 17 | [configure-ecc](https://github.com/affaan-m/ECC/tree/HEAD/skills/configure-ecc) | Interactive installer for configuring Everything Claude Code skills and rules in... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
@@ -114,7 +114,7 @@
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>docx</strong> (153.5k★) — A comprehensive skill for AI assistants to programmatically ...</summary>
+<summary>⭐ <strong>docx</strong> (153.7k★) — A comprehensive skill for AI assistants to programmatically ...</summary>
 
 A comprehensive skill for AI assistants to programmatically create, read, edit, and manipulate .docx Word documents using JavaScript and XML.
 
@@ -129,7 +129,7 @@ Files: `skills/docx/`
 </details>
 
 <details>
-<summary>⭐ <strong>slack-gif-creator</strong> (153.5k★) — A Python toolkit for creating animated GIFs optimized for Sl...</summary>
+<summary>⭐ <strong>slack-gif-creator</strong> (153.7k★) — A Python toolkit for creating animated GIFs optimized for Sl...</summary>
 
 A Python toolkit for creating animated GIFs optimized for Slack, providing constraints, utilities, and animation concepts.
 
@@ -144,7 +144,7 @@ Files: `skills/slack-gif-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>Hook Development</strong> (133.6k★) — A comprehensive guide for developing event-driven hooks in C...</summary>
+<summary>⭐ <strong>Hook Development</strong> (133.7k★) — A comprehensive guide for developing event-driven hooks in C...</summary>
 
 A comprehensive guide for developing event-driven hooks in Claude Code plugins to validate, modify, and automate AI-assisted coding workflows.
 
@@ -158,7 +158,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>MCP Integration</strong> (133.6k★) — Comprehensive guide for integrating Model Context Protocol (...</summary>
+<summary>⭐ <strong>MCP Integration</strong> (133.7k★) — Comprehensive guide for integrating Model Context Protocol (...</summary>
 
 Comprehensive guide for integrating Model Context Protocol (MCP) servers into Claude Code plugins to connect external services as tools.
 
@@ -172,7 +172,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Plugin Settings</strong> (133.6k★) — A skill pattern for Claude Code plugins to store per-project...</summary>
+<summary>⭐ <strong>Plugin Settings</strong> (133.7k★) — A skill pattern for Claude Code plugins to store per-project...</summary>
 
 A skill pattern for Claude Code plugins to store per-project configuration using YAML frontmatter in .local.md files.
 
@@ -186,7 +186,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Plugin Structure</strong> (133.6k★) — A skill for creating and organizing Claude Code plugins with...</summary>
+<summary>⭐ <strong>Plugin Structure</strong> (133.7k★) — A skill for creating and organizing Claude Code plugins with...</summary>
 
 A skill for creating and organizing Claude Code plugins with standardized directory structure and manifest configuration.
 
@@ -200,7 +200,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Skill Development</strong> (133.6k★) — A comprehensive guide for creating modular skills for Claude...</summary>
+<summary>⭐ <strong>Skill Development</strong> (133.7k★) — A comprehensive guide for creating modular skills for Claude...</summary>
 
 A comprehensive guide for creating modular skills for Claude Code plugins, covering structure, best practices, and progressive disclosure.
 
@@ -214,7 +214,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>Writing Hookify Rules</strong> (133.6k★) — A skill for creating hookify rules that monitor coding patte...</summary>
+<summary>⭐ <strong>Writing Hookify Rules</strong> (133.7k★) — A skill for creating hookify rules that monitor coding patte...</summary>
 
 A skill for creating hookify rules that monitor coding patterns in Claude Code and trigger warnings or blocks.
 
@@ -228,7 +228,7 @@ git clone anthropics/claude-code
 </details>
 
 <details>
-<summary>⭐ <strong>skill-creator</strong> (153.5k★) — A comprehensive skill for creating, testing, and optimizing ...</summary>
+<summary>⭐ <strong>skill-creator</strong> (153.7k★) — A comprehensive skill for creating, testing, and optimizing ...</summary>
 
 A comprehensive skill for creating, testing, and optimizing AI assistant skills through an iterative workflow with evaluation and benchmarking.
 
@@ -243,7 +243,7 @@ Files: `skills/skill-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>xlsx</strong> (153.5k★) — A Python skill for programmatically creating, editing, and a...</summary>
+<summary>⭐ <strong>xlsx</strong> (153.7k★) — A Python skill for programmatically creating, editing, and a...</summary>
 
 A Python skill for programmatically creating, editing, and analyzing Excel and tabular files with strict formatting and formula standards.
 
