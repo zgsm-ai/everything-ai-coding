@@ -1,0 +1,2 @@
+{"file": ".trellis/tasks/06-16-github-search-sync-github-trending-skill-plugin/research/plugin-route-and-staging.md", "reason": "github-trending Stage A/B/C 结构 + 候选表落点"}
+{"file": ".trellis/spec/guides/code-reuse-thinking-guide.md", "reason": "复用 github_api/build_known_repos/triage，不新建路径"}
