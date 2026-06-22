@@ -1,6 +1,6 @@
 # 🔌 MCP Servers
 
-> 7598 Model Context Protocol servers that connect AI agents to external tools, databases, and services.
+> 7604 Model Context Protocol servers that connect AI agents to external tools, databases, and services.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=mcp)
 
@@ -11,7 +11,7 @@
 | # | Name | Description | ⭐ Stars | Status | Score | Updated | Category | Tags |
 |---|---|---|---|---|---|---|---|---|
 | 1 | [upstash/context7](https://github.com/upstash/context7) | An MCP server that injects real-time, version-specific library documentation and... | 57.8k | 🟢 Active | 98 | 2026-05-26 | ai-ml | `llm`, `mcp`, `mcp-server` |
-| 2 | [Headroom](https://github.com/chopratejas/headroom) | AI context compression layer for agents, reducing token usage 60-95% with revers... | 45.4k | 🟢 Active | 98 | 2026-06-15 | frontend | `agent`, `ai`, `anthropic` |
+| 2 | [Headroom](https://github.com/chopratejas/headroom) | AI context compression layer for agents, reducing token usage 60-95% with revers... | 45.7k | 🟢 Active | 98 | 2026-06-15 | frontend | `agent`, `ai`, `anthropic` |
 | 3 | [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | Official Google MCP server enabling AI coding agents to control Chrome DevTools ... | 44.2k | 🟢 Active | 98 | 2026-05-31 | ai-ml | `browser`, `chrome`, `chrome-devtools` |
 | 4 | [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | Official Microsoft MCP server enabling AI to control web browsers via Playwright... | 34.2k | 🟢 Active | 98 | 2026-05-09 | testing | `playwright`, `mcp`, `browser` |
 | 5 | [googleapis/genai-toolbox](https://github.com/googleapis/genai-toolbox) | An open-source MCP server connecting AI agents and IDEs to enterprise databases ... | 15.7k | 🟢 Active | 98 | 2026-06-11 | backend | `go`, `agent`, `agents` |
@@ -33,8 +33,8 @@
 | 21 | [CoderGamester/mcp-unity](https://github.com/CoderGamester/mcp-unity) | MCP server enabling AI coding assistants to interact with Unity Editor for game ... | 1.8k | 🟢 Active | 97 | 2026-04-26 | ai-ml | `claudecode`, `codex-cli`, `copilot` |
 | 22 | [Kubernetes and OpenShift](https://github.com/manusa/kubernetes-mcp-server) | A Go-based MCP server for Kubernetes and OpenShift providing CRUD operations, po... | 1.7k | 🟢 Active | 97 | 2026-05-08 | devops | `kubernetes`, `containers`, `context` |
 | 23 | [Stripe](https://github.com/stripe/agent-toolkit) | Official Stripe integration for AI agents, enabling LLMs to interact with Stripe... | 1.6k | 🟢 Active | 97 | 2026-05-08 | frontend | `ai`, `llm`, `llm-agents` |
-| 24 | [Aas-ee/open-webSearch](https://github.com/Aas-ee/open-webSearch) | MCP server for free multi-engine web search without API keys, supporting AI agen... | 1.5k | 🟢 Active | 97 | 2026-05-16 | backend | — |
-| 25 | [webclaw](https://github.com/0xMassi/webclaw) | A local-first web extraction tool that converts websites into clean markdown, JS... | 1.5k | 🟢 Active | 97 | 2026-05-31 | frontend | `ai`, `ai-agents`, `ai-scraping` |
+| 24 | [webclaw](https://github.com/0xMassi/webclaw) | A local-first web extraction tool that converts websites into clean markdown, JS... | 1.5k | 🟢 Active | 97 | 2026-05-31 | frontend | `ai`, `ai-agents`, `ai-scraping` |
+| 25 | [Aas-ee/open-webSearch](https://github.com/Aas-ee/open-webSearch) | MCP server for free multi-engine web search without API keys, supporting AI agen... | 1.5k | 🟢 Active | 97 | 2026-05-16 | backend | — |
 | 26 | [Qdrant](https://github.com/qdrant/mcp-server-qdrant/) | Official MCP server for semantic memory layer using Qdrant vector search engine,... | 1.4k | 🟢 Active | 97 | 2026-04-27 | ai-ml | `claude`, `cursor`, `llm` |
 | 27 | [Terraform MCP Server](https://github.com/hashicorp/terraform-mcp-server) | MCP server enabling AI assistants to interact with Terraform Registry and HCP Te... | 1.3k | 🟢 Active | 97 | 2026-04-14 | devops | — |
 | 28 | [npcpy](https://github.com/NPC-Worldwide/npcpy) | A Python library for building AI agents, multi-agent teams, and knowledge graphs... | 1.3k | 🟢 Active | 97 | 2026-04-15 | backend | `python`, `yaml`, `sql` |
@@ -77,7 +77,7 @@
 | 65 | [Elasticsearch/OpenSearch MCP Server](https://github.com/cr7258/elasticsearch-mcp-server) | MCP server enabling AI assistants to interact with Elasticsearch and OpenSearch ... | 259 | 🟢 Active | 96 | 2026-02-02 | tooling | — |
 | 66 | [OpenAPI MCP Server](https://github.com/ivo-toby/mcp-openapi-server) | MCP server that converts OpenAPI specifications into tools for LLMs to interact ... | 243 | 🟢 Active | 96 | 2026-03-11 | backend | — |
 | 67 | [Razorpay MCP Server (Official)](https://github.com/razorpay/razorpay-mcp-server) | Official Razorpay MCP server providing 40+ tools for payment processing, orders,... | 216 | 🟢 Active | 96 | 2026-03-26 | tooling | `mcp`, `razorpay`, `mcp-server` |
-| 68 | [crw](https://github.com/us/crw) | Self-hosted Rust web scraper with built-in MCP server, Firecrawl-compatible API,... | 204 | 🟢 Active | 96 | 2026-06-10 | frontend | `rust`, `ai`, `ai-agents` |
+| 68 | [crw](https://github.com/us/crw) | Self-hosted Rust web scraper with built-in MCP server, Firecrawl-compatible API,... | 205 | 🟢 Active | 96 | 2026-06-10 | frontend | `rust`, `ai`, `ai-agents` |
 | 69 | [mcp-server-jdbc](https://github.com/quarkiverse/quarkus-mcp-servers/tree/main/jdbc) | MCP server enabling LLMs to interact with JDBC databases via queries, schema ins... | 191 | 🟢 Active | 96 | 2026-04-07 | tooling | `mcp`, `quarkus-app` |
 | 70 | [OpenAPI-MCP: Dockerized MCP Server to allow your AI agent to access any API with existing api docs](https://github.com/ckanthony/openapi-mcp) | Dockerized MCP server that auto-generates AI tool definitions from OpenAPI/Swagg... | 178 | 🟢 Active | 96 | 2026-03-21 | devops | — |
 | 71 | [MCP Access Point](https://github.com/sxhxliang/mcp-access-point) | A lightweight gateway that converts HTTP APIs into MCP servers for AI coding ass... | 169 | 🟢 Active | 96 | 2026-03-11 | tooling | — |
@@ -126,7 +126,7 @@ An MCP server that injects real-time, version-specific library documentation and
 </details>
 
 <details>
-<summary>⭐ <strong>Headroom</strong> (45.4k★) — AI context compression layer for agents, reducing token usag...</summary>
+<summary>⭐ <strong>Headroom</strong> (45.7k★) — AI context compression layer for agents, reducing token usag...</summary>
 
 AI context compression layer for agents, reducing token usage 60-95% with reversible compression and cross-agent memory.
 

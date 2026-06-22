@@ -1,6 +1,6 @@
 # 🎯 Skills 技能
 
-> 11000 AI 编程助手的可复用能力和工作流。
+> 10270 AI 编程助手的可复用能力和工作流。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 

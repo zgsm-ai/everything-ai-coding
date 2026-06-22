@@ -1,6 +1,6 @@
 # 🎯 Skills
 
-> 11000 Reusable agent capabilities and workflows for AI coding assistants.
+> 10270 Reusable agent capabilities and workflows for AI coding assistants.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
