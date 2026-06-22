@@ -1,0 +1,6 @@
+{"file": ".trellis/tasks/06-16-github-search-sync-github-trending-skill-plugin/research/dedup-analysis.md", "reason": "去重设计：repo级预过滤是去重主防线，跨类型重复地雷清单"}
+{"file": ".trellis/tasks/06-16-github-search-sync-github-trending-skill-plugin/research/github-search-api.md", "reason": "GitHub Search 查询集/限流/分页/调用预算，github_api 复用方式"}
+{"file": ".trellis/tasks/06-16-github-search-sync-github-trending-skill-plugin/research/integration-point.md", "reason": "独立 sync_github_trending.py 设计 + 复用 _entry_from_plugin/scan_repo_via_api + CI 插入点"}
+{"file": ".trellis/spec/guides/code-reuse-thinking-guide.md", "reason": "本任务高度复用现有扫描/构造/去重，遵循复用准则"}
+{"file": ".trellis/spec/backend/error-handling.md", "reason": "失败可见/不静默：rate-limit/网络失败的处理约定"}
+{"file": ".trellis/spec/backend/logging-guidelines.md", "reason": "WARN 汇总/发现健康度日志规范"}
