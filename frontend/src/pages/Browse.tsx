@@ -1,9 +1,10 @@
-import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import { useSearchParams } from 'react-router'
 import { useI18n } from '../hooks/useI18n'
 import { useSearch } from '../hooks/useSearch'
 import ResourceCard from '../components/ResourceCard'
 import CardSkeleton from '../components/CardSkeleton'
+import VirtualGrid from '../components/VirtualGrid'
 import type { CatalogItem } from '../types'
 
 const TYPES = ['all', 'mcp', 'skill', 'rule', 'prompt', 'plugin'] as const
@@ -11,15 +12,12 @@ const CATEGORIES = [
   'all', 'tooling', 'ai-ml', 'backend', 'frontend', 'devops',
   'security', 'documentation', 'testing', 'database', 'mobile', 'fullstack'
 ]
-const BATCH_SIZE = 30
 
 export default function Browse() {
   const { t } = useI18n()
   const [searchParams, setSearchParams] = useSearchParams()
   const [items, setItems] = useState<CatalogItem[]>([])
   const [loading, setLoading] = useState(true)
-  const [visibleCount, setVisibleCount] = useState(BATCH_SIZE)
-  const sentinelRef = useRef<HTMLDivElement>(null)
 
   const composingRef = useRef(false)
 
@@ -62,24 +60,32 @@ export default function Browse() {
       .catch(() => setLoading(false))
   }, [activeType])
 
-  // Reset scroll position on filter change
+  // Scroll back to top when the filter/search context changes, so a new result
+  // set always starts from its first card (the virtualized grid renders into
+  // the window scroll, which otherwise keeps the previous offset).
   useEffect(() => {
-    setVisibleCount(BATCH_SIZE)
+    window.scrollTo({ top: 0 })
   }, [activeType, activeCat, activeSort, searchQuery])
+
+  const isSearching = !!(searchQuery && searchResults)
 
   // Filter and sort
   const filtered = useMemo(() => {
     let result: CatalogItem[]
 
     if (searchQuery && searchResults) {
+      // Search results are slim search-index cards (no category field — that
+      // heavy field now lives in the per-entry shards). MiniSearch already
+      // ranked them by relevance, so we preserve that order and only narrow by
+      // the type tab; category filtering is unavailable in search mode.
       result = searchResults
-      // Apply type filter on search results too
       if (activeType !== 'all') {
         result = result.filter(i => i.type === activeType)
       }
-    } else {
-      result = items
+      return result
     }
+
+    result = items
 
     if (activeCat !== 'all') {
       result = result.filter(i => i.category === activeCat)
@@ -93,23 +99,6 @@ export default function Browse() {
 
     return result
   }, [items, searchResults, searchQuery, activeType, activeCat, activeSort])
-
-  const visible = filtered.slice(0, visibleCount)
-
-  // Infinite scroll observer
-  const handleObserver = useCallback((entries: IntersectionObserverEntry[]) => {
-    if (entries[0]?.isIntersecting && visibleCount < filtered.length) {
-      setVisibleCount(c => Math.min(c + BATCH_SIZE, filtered.length))
-    }
-  }, [visibleCount, filtered.length])
-
-  useEffect(() => {
-    const el = sentinelRef.current
-    if (!el) return
-    const observer = new IntersectionObserver(handleObserver, { rootMargin: '200px' })
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [handleObserver])
 
   const setParam = (key: string, value: string) => {
     const next = new URLSearchParams(searchParams)
@@ -170,11 +159,12 @@ export default function Browse() {
           ))}
         </div>
 
-        {/* Category dropdown */}
+        {/* Category dropdown — disabled during search (slim results lack category) */}
         <select
-          value={activeCat}
+          value={isSearching ? 'all' : activeCat}
+          disabled={isSearching}
           onChange={e => setParam('cat', e.target.value)}
-          className="glass rounded-xl px-3 py-2 text-sm text-gray-600 dark:text-gray-300 border-none cursor-pointer outline-none"
+          className="glass rounded-xl px-3 py-2 text-sm text-gray-600 dark:text-gray-300 border-none cursor-pointer outline-none disabled:opacity-40 disabled:cursor-not-allowed"
         >
           {CATEGORIES.map(cat => (
             <option key={cat} value={cat}>
@@ -201,7 +191,8 @@ export default function Browse() {
         </div>
       </div>
 
-      {/* Results grid */}
+      {/* Results grid — virtualized (window scroll) so large result sets keep
+          the DOM node count bounded to the visible rows + overscan. */}
       {loading ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {Array.from({ length: 9 }).map((_, i) => <CardSkeleton key={i} />)}
@@ -209,16 +200,13 @@ export default function Browse() {
       ) : filtered.length === 0 ? (
         <div className="text-center py-16 text-gray-400 dark:text-gray-500">{t('search.noResults')}</div>
       ) : (
-        <>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {visible.map(item => (
-              <ResourceCard key={item.id} item={item} highlight={searchQuery} />
-            ))}
-          </div>
-          {visibleCount < filtered.length && (
-            <div ref={sentinelRef} className="h-10" />
+        <VirtualGrid
+          items={filtered}
+          getKey={item => item.id}
+          renderItem={item => (
+            <ResourceCard item={item} highlight={searchQuery} />
           )}
-        </>
+        />
       )}
     </div>
   )

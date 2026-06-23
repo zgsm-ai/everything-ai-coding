@@ -7,6 +7,38 @@ import SecurityBanner from '../components/SecurityBanner'
 import type { CatalogItem, SearchIndexItem } from '../types'
 import { buildInstallGuidance } from '../lib/installGuidance'
 
+/**
+ * Normalize a slim search-index entry into a render-safe CatalogItem. Used only
+ * when the per-entry shard fetch could not supply the full record (missing
+ * shard file / id not in shard). Every heavy field the Detail render path
+ * touches (tags / tech_stack / description / category …) is defaulted so the
+ * page renders a minimal card instead of crashing.
+ */
+function slimToFallbackItem(slim: SearchIndexItem): CatalogItem {
+  return {
+    id: slim.id,
+    name: slim.name,
+    type: slim.type as CatalogItem['type'],
+    description: slim.snippet ?? '',
+    source_url: '',
+    stars: slim.stars,
+    category: '',
+    tags: [],
+    tech_stack: [],
+    source: slim.source ?? '',
+    last_synced: '',
+    final_score: slim.final_score ?? 0,
+    decision: '',
+    health: slim.freshness_label
+      ? {
+          score: 0,
+          signals: { freshness: 0, popularity: 0, source_trust: 0 },
+          freshness_label: slim.freshness_label,
+        }
+      : undefined,
+  }
+}
+
 export default function Detail() {
   const { id } = useParams<{ id: string }>()
   const { t, lang } = useI18n()
@@ -15,47 +47,68 @@ export default function Detail() {
   const [copied, setCopied] = useState(false)
 
   useEffect(() => {
-    let cancelled = false
-    // Phase 1: search across the 5 per-type files (fast path)
-    Promise.all(
-      ['mcp.json', 'skills.json', 'rules.json', 'prompts.json', 'plugins.json'].map(f =>
-        fetch(`./api/${f}`).then(r => r.ok ? r.json() : []).catch(() => [])
-      )
-    ).then(async arrays => {
-      if (cancelled) return
-      const all: CatalogItem[] = arrays.flat()
-      const found = all.find(i => i.id === id)
-      if (found) {
-        setItem(found)
-        setLoading(false)
-        return
-      }
-      // Phase 2: fallback to full search-index.json (covers bundled-only entries)
-      try {
-        const res = await fetch('./api/search-index.json')
-        if (cancelled) return
-        if (res.ok) {
-          const index: SearchIndexItem[] = await res.json()
-          if (cancelled) return
-          const hit = index.find(i => i.id === id)
-          if (hit) {
-            // SearchIndexItem is a slimmer shape; cast into CatalogItem for the
-            // existing render path (missing fields like install/health are all
-            // optional and the render path tolerates their absence).
-            setItem(hit as unknown as CatalogItem)
-            setLoading(false)
-            return
-          }
-        }
-      } catch {
-        // swallow — falls through to not-found below
-      }
-      if (cancelled) return
+    if (!id) {
       setItem(null)
       setLoading(false)
-    }).catch(() => {
-      if (!cancelled) setLoading(false)
-    })
+      return
+    }
+    let cancelled = false
+    setLoading(true)
+    setItem(null)
+
+    // 06-22 search-index perf refactor: Detail no longer pulls all 5 per-type
+    // JSON files. Instead it reads the slim search-index once to learn this
+    // id's shard, then fetches exactly that one per-entry shard
+    // (api/entries/<shard>.json) and renders its full field set.
+    //   1. search-index.json → slim entry (has `shard`)
+    //   2. api/entries/<shard>.json → full entry by id (all heavy fields)
+    //   3. fallback: if the shard is missing the id, render the slim entry's
+    //      minimal fields (preserves the old "always show something" behavior).
+    ;(async () => {
+      try {
+        const siRes = await fetch('./api/search-index.json')
+        if (cancelled) return
+        const index: SearchIndexItem[] = siRes.ok ? await siRes.json() : []
+        if (cancelled) return
+        const slim = index.find(i => i.id === id)
+
+        if (!slim) {
+          setItem(null)
+          setLoading(false)
+          return
+        }
+
+        // Fetch only the one shard this entry lives in.
+        try {
+          const shardRes = await fetch(`./api/entries/${slim.shard}.json`)
+          if (cancelled) return
+          if (shardRes.ok) {
+            const shard: Record<string, CatalogItem> = await shardRes.json()
+            if (cancelled) return
+            const full = shard[id]
+            if (full) {
+              setItem(full)
+              setLoading(false)
+              return
+            }
+          }
+        } catch {
+          // shard fetch failed — fall through to slim fallback below
+        }
+
+        // Fallback: render the slim entry's minimal fields. Normalize into a
+        // valid CatalogItem so the render path (which reads item.tags.length,
+        // item.description, …) never hits an undefined heavy field.
+        setItem(slimToFallbackItem(slim))
+        setLoading(false)
+      } catch {
+        if (!cancelled) {
+          setItem(null)
+          setLoading(false)
+        }
+      }
+    })()
+
     return () => {
       cancelled = true
     }

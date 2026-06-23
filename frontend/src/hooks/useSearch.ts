@@ -2,74 +2,67 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import MiniSearch from 'minisearch'
 import type { CatalogItem, SearchIndexItem } from '../types'
 
-let cachedIndex: MiniSearch | null = null
+let cachedIndex: MiniSearch<SearchIndexItem> | null = null
 let cachedItems: Map<string, SearchIndexItem> | null = null
+let loadPromise: Promise<MiniSearch<SearchIndexItem>> | null = null
 
-const TOKEN_RE = /[\p{L}\p{N}]+/gu
-
-function normalizeText(value: string | undefined) {
-  return (value ?? '').toLowerCase().trim()
+// Field boosts mirror the previous hand-rolled ranker: name dominates, the
+// description snippet is the mid-weight signal, and search_text (tags + source
+// provenance + search_terms) is recall-only so a bare owner token like
+// "mattpocock" surfaces every entry from that source without those expansion
+// hits drowning out direct name/desc matches.
+export const SEARCH_OPTIONS = {
+  boost: { name: 3, snippet: 1, search_text: 0.8 },
+  prefix: true,
+  fuzzy: 0.2,
+  combineWith: 'AND' as const,
 }
 
-function extractTokens(query: string) {
-  const normalized = normalizeText(query)
-  const tokenMatches = normalized.match(TOKEN_RE) ?? []
-  const tokens = tokenMatches.filter(token => token.length >= 2)
-  return tokens.length > 0 ? Array.from(new Set(tokens)) : [normalized].filter(Boolean)
+/** MiniSearch index fields — exported so tests build an identical index. */
+export const INDEX_FIELDS = ['name', 'snippet', 'search_text'] as const
+
+/** Build a MiniSearch index over slim search-index entries (shared by hook + tests). */
+export function buildSearchIndex(items: SearchIndexItem[]): MiniSearch<SearchIndexItem> {
+  const ms = new MiniSearch<SearchIndexItem>({
+    fields: [...INDEX_FIELDS],
+    storeFields: ['id'],
+    searchOptions: SEARCH_OPTIONS,
+  })
+  ms.addAll(items)
+  return ms
 }
 
-function countCoveredTokens(text: string, tokens: string[]) {
-  return tokens.reduce((count, token) => count + (text.includes(token) ? 1 : 0), 0)
-}
-
-function rerankResult(item: SearchIndexItem, query: string, baseScore: number) {
-  const normalizedQuery = normalizeText(query)
-  const tokens = extractTokens(query)
-  const anchorToken = tokens.reduce((longest, token) => (
-    token.length > longest.length ? token : longest
-  ), '')
-  const nameText = normalizeText(item.name)
-  const descriptionText = normalizeText([item.description, item.description_zh].filter(Boolean).join(' '))
-  const metaText = normalizeText([...(item.tags ?? []), ...(item.tech_stack ?? [])].join(' '))
-  const searchText = normalizeText(item.search_text)
-
-  const nameCoverage = countCoveredTokens(nameText, tokens)
-  const descriptionCoverage = countCoveredTokens(descriptionText, tokens)
-  const metaCoverage = countCoveredTokens(metaText, tokens)
-  const directCoverage = Math.max(nameCoverage, descriptionCoverage, metaCoverage)
-  const expandedCoverage = countCoveredTokens(searchText, tokens)
-
-  let score = baseScore
-
-  if (nameText.includes(normalizedQuery)) score += 140
-  if (descriptionText.includes(normalizedQuery)) score += 90
-  if (metaText.includes(normalizedQuery)) score += 50
-
-  score += nameCoverage * 36
-  score += descriptionCoverage * 20
-  score += metaCoverage * 12
-  score += expandedCoverage * 4
-
-  if (tokens.length > 1) {
-    if (nameCoverage === tokens.length) score += 80
-    if (descriptionCoverage === tokens.length) score += 50
-    if (metaCoverage === tokens.length) score += 25
-    if (expandedCoverage === tokens.length) score += 10
-
-    const anchorInDirectField = [nameText, descriptionText, metaText].some(text => text.includes(anchorToken))
-    if (anchorToken) {
-      if (anchorInDirectField) score += 24
-      else if (searchText.includes(anchorToken)) score -= 12
-      else score -= 28
-    }
+/**
+ * Adapt a slim search-index entry into the partial ``CatalogItem`` shape the
+ * list cards render. The slim entry intentionally lacks the heavy fields
+ * (full description / category / tags / install / bundle …) — those now live in
+ * the per-entry shards and are only fetched on the Detail view. ResourceCard
+ * guards every heavy field with optional chaining, so the snippet-as-description
+ * mapping below is enough for a faithful card.
+ */
+function slimToCard(entry: SearchIndexItem): CatalogItem {
+  return {
+    id: entry.id,
+    name: entry.name,
+    type: entry.type as CatalogItem['type'],
+    description: entry.snippet ?? '',
+    source_url: '',
+    stars: entry.stars,
+    category: '',
+    tags: [],
+    tech_stack: [],
+    source: entry.source ?? '',
+    last_synced: '',
+    final_score: entry.final_score ?? 0,
+    decision: '',
+    health: entry.freshness_label
+      ? {
+          score: 0,
+          signals: { freshness: 0, popularity: 0, source_trust: 0 },
+          freshness_label: entry.freshness_label,
+        }
+      : undefined,
   }
-
-  // Keep search_text as recall expansion, but avoid letting expansion-only hits dominate.
-  if (directCoverage === 0 && expandedCoverage > 0) {
-    score -= 40
-  }
-
-  return score
 }
 
 export function useSearch(query: string) {
@@ -78,40 +71,29 @@ export function useSearch(query: string) {
   const [searchReady, setSearchReady] = useState(!!cachedIndex)
   const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined)
 
-  // Load and build index on first call with a query
+  // Load the slim search-index once and feed it straight into MiniSearch via
+  // addAll (the slim array is already addAll-ready). Building the index this
+  // way (rather than MiniSearch.loadJSON of a serialized index) keeps the
+  // build pipeline unchanged while still killing the old O(n) per-keystroke
+  // full-table scan — MiniSearch maintains an inverted index internally.
   const ensureIndex = useCallback(async () => {
     if (cachedIndex) return cachedIndex
+    if (loadPromise) return loadPromise
 
     setSearching(true)
-    const resp = await fetch('./api/search-index.json')
-    const rawItems: SearchIndexItem[] = await resp.json()
-    const items = rawItems.map(item => ({
-      ...item,
-      search_text: item.search_text ?? [
-        item.name,
-        item.description,
-        item.description_zh,
-        item.tags.join(' '),
-        item.tech_stack.join(' '),
-      ].filter(Boolean).join(' '),
-    }))
+    loadPromise = (async () => {
+      const resp = await fetch('./api/search-index.json')
+      const rawItems: SearchIndexItem[] = await resp.json()
 
-    const ms = new MiniSearch<SearchIndexItem>({
-      fields: ['name', 'description', 'description_zh', 'search_text'],
-      storeFields: ['id'],
-      searchOptions: {
-        boost: { name: 3, description: 1, description_zh: 1, search_text: 0.8 },
-        prefix: true,
-        fuzzy: 0.2,
-      },
-    })
-    ms.addAll(items)
+      const ms = buildSearchIndex(rawItems)
 
-    cachedItems = new Map(items.map(i => [i.id, i]))
-    cachedIndex = ms
-    setSearchReady(true)
-    setSearching(false)
-    return ms
+      cachedItems = new Map(rawItems.map(i => [i.id, i]))
+      cachedIndex = ms
+      setSearchReady(true)
+      setSearching(false)
+      return ms
+    })()
+    return loadPromise
   }, [])
 
   useEffect(() => {
@@ -123,19 +105,14 @@ export function useSearch(query: string) {
     clearTimeout(timerRef.current)
     timerRef.current = setTimeout(async () => {
       const ms = await ensureIndex()
-      const hits = ms.search(query).slice(0, 200)
+      const hits = ms.search(query)
       const ranked = hits
         .map(hit => {
-          const item = cachedItems?.get(hit.id)
-          if (!item) return null
-          return {
-            item: item as unknown as CatalogItem,
-            score: rerankResult(item, query, hit.score),
-          }
+          const entry = cachedItems?.get(hit.id)
+          return entry ? slimToCard(entry) : null
         })
-        .filter((result): result is { item: CatalogItem, score: number } => result !== null)
-        .sort((a, b) => b.score - a.score)
-        .map(result => result.item)
+        .filter((card): card is CatalogItem => card !== null)
+        .slice(0, 200)
       setResults(ranked)
     }, 200)
 

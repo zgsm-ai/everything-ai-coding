@@ -120,20 +120,22 @@ export interface FeaturedItem {
   final_score: number
 }
 
+// Slim search-index entry (06-22 search-index perf refactor). Only the minimal
+// fields a list card needs to render plus the MiniSearch recall blob. Heavy
+// fields (full description / description_zh / install / tags / tech_stack /
+// bundle …) were moved out to the per-entry shards (api/entries/<shard>.json),
+// fetched on demand by Detail. The `shard` integer points at the per-entry
+// shard file containing this id (precomputed build-side so the browser needs
+// no hashing).
 export interface SearchIndexItem {
   id: string
   name: string
   type: string
-  category: string
-  tags: string[]
-  tech_stack: string[]
+  source: string
   stars: number | null
-  description: string
-  description_zh?: string
-  source_url: string
   final_score: number
-  decision: string
-  source?: string
-  install_method?: string
-  search_text?: string
+  freshness_label?: string | null
+  snippet: string
+  search_text: string
+  shard: number
 }
