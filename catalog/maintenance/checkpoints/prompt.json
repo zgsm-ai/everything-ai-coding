@@ -1,5 +1,5 @@
 {
-  "completed_count": 613,
+  "completed_count": 615,
   "completed_entry_ids": [
     "12-month-ai-and-computer-vision-roadmap-for-defense-applications-prompt",
     "2046-puzzle-game-challenge-prompt",
@@ -66,7 +66,6 @@
     "ascii-artist-prompt",
     "ast-code-analysis-superpower-prompt",
     "astrojs-prompt",
-    "astrologer-prompt",
     "audio-routing-automation-engineer-prompt",
     "auditor-de-código-python-nivel-senior-salida-en-español-prompt",
     "automate-repository-management-with-opencode-cli-prompt",
@@ -259,6 +258,7 @@
     "github-enterprise-cloud-ghec-administrator-and-power-user-prompt",
     "github-expert-prompt",
     "github-repository-analysis-and-enhancement-prompt",
+    "github-repository-analyst-prompt",
     "github-ssh-setup-for-students-existing-repository-clone-push-ready-prompt",
     "githubtrends-prompt",
     "glados-prompt",
@@ -415,6 +415,7 @@
     "prompt-engineering-expert-prompt",
     "prompt-enhancer-prompt",
     "prompt-generator-for-claude-code-prompt",
+    "prompt-generator-prompt",
     "prompt-optimization-prompt",
     "prompt-optimization-review-prompt",
     "prompt-refiner-prompt",
@@ -546,6 +547,7 @@
     "the-pragmatic-architect-mastering-tech-with-humor-and-precision-prompt",
     "the-prd-mastermind-prompt",
     "the-quant-edge-engine-prompt",
+    "the-technical-co-founder-building-real-products-together-prompt",
     "the-ultimate-typescript-code-review-prompt",
     "ticket-to-pr-prompt",
     "tistory-blog-skin-uiux-enhancement-pipeline-prompt",
@@ -615,7 +617,7 @@
     "编写正则表达式-wprompt",
     "资深编程专家-can-wprompt"
   ],
-  "last_committed_at": "2026-06-22T10:01:47.222596+00:00",
+  "last_committed_at": "2026-06-23T12:36:42.476173+00:00",
   "remaining_entry_ids": [
     "claude-proje-çalışma-promptu-prompt",
     "plataforma-escopo-bugbouty-cyber-hunter-lab-prompt",
