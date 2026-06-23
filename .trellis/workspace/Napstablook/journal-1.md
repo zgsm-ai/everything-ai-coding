@@ -75,3 +75,36 @@
 ### Next Steps
 
 - None - task complete
+
+
+## Session 3: search-index + 前端搜索性能重构（瘦身/MiniSearch/分片/虚拟滚动）
+
+**Date**: 2026-06-23
+**Task**: search-index + 前端搜索性能重构（瘦身/MiniSearch/分片/虚拟滚动）
+**Branch**: `main`
+
+### Summary
+
+排查'搜 mattpocock 看不到'发现前端 search-index 21MB+客户端 O(n) 全表扫、search_text 不含来源、source 字段全空。重构：build_frontend_data 产 slim 索引（最小卡片字段+含source/owner的截断search_text+每条shard）+填source+per-entry 256分片；useSearch 换 MiniSearch；Detail 按 shard 拉单片；Browse 用 @tanstack/react-virtual 虚拟滚动。实测搜 mattpocock 召回整源(2→32)、raw 21→11MB/gzip 3.46→2.18MB。check 在真实23590条上验 shard契约零失配。已部署 Pages(run 27996266964 success)。
+
+### Main Changes
+
+(Add details)
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `54515a6` | (see git log) |
+
+### Testing
+
+- [OK] (Add test results)
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete

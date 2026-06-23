@@ -8,8 +8,8 @@
 
 <!-- @@@auto:current-status -->
 - **Active File**: `journal-1.md`
-- **Total Sessions**: 2
-- **Last Active**: 2026-06-22
+- **Total Sessions**: 3
+- **Last Active**: 2026-06-23
 <!-- @@@/auto:current-status -->
 
 ---
@@ -19,7 +19,7 @@
 <!-- @@@auto:active-documents -->
 | File | Lines | Status |
 |------|-------|--------|
-| `journal-1.md` | ~77 | Active |
+| `journal-1.md` | ~110 | Active |
 <!-- @@@/auto:active-documents -->
 
 ---
@@ -29,6 +29,7 @@
 <!-- @@@auto:session-history -->
 | # | Date | Title | Commits | Branch |
 |---|------|-------|---------|--------|
+| 3 | 2026-06-23 | search-index + 前端搜索性能重构（瘦身/MiniSearch/分片/虚拟滚动） | `54515a6` | `main` |
 | 2 | 2026-06-22 | security scan B2 回填 + 全链验证收口 | `0c20c67` | `main` |
 | 1 | 2026-06-22 | 促升一等源 + github-trending 跨轮持久化 + security scan 复发超时修复 | `af43a5f`, `798e6cf`, `8c26923`, `8739f9d`, `7df490d` | `main` |
 <!-- @@@/auto:session-history -->
