@@ -108,3 +108,36 @@
 ### Next Steps
 
 - None - task complete
+
+
+## Session 4: 已入库 monorepo 增量重扫
+
+**Date**: 2026-06-23
+**Task**: 已入库 monorepo 增量重扫
+**Branch**: `main`
+
+### Summary
+
+修覆盖盲区：github-trending/促升 skill monorepo 入库后进 known_repos 被 Stage A 跳过、triage 不再深拉 → 上游后续新增 skill 永不补回（mattpocock 入库 32 现 34，qa/review 漏）。实现：从 catalog 取 source∈{github-trending}∪促升slug 且 type=skill 的唯一 owner/repo（排除 Tier-2）；scanned_repos.json 存上次 pushed_at，变新/首见→需重扫；Stage A 豁免注入（即便在 known_repos）+ MAX_RESCAN(30)限量、推迟不写 baseline → backlog ~ceil(范围/30)轮收敛；triage 复用深拉 + merge_preserve 只加新 skill（促升 slug 照常）、仅实际重扫成功更新 cache；真实 stars 避免 hard_filter 误杀。check 修了首见策略(baseline-only→需重扫)。924 测试绿。CI 带 token 跑一轮验证实际增量。
+
+### Main Changes
+
+(Add details)
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `54aa508` | (see git log) |
+
+### Testing
+
+- [OK] (Add test results)
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
