@@ -1,0 +1,1 @@
+{"file": ".trellis/tasks/06-22-search-index-perf-refactor/prd.md", "reason": "本任务唯一 spec：含已拍板 ADR（静态路线/MiniSearch/激进瘦身/per-entry JSON/填 source）、实测诊断（21MB 体积、字段占比、useSearch 搜索字段、Detail 加载方式）、PR1→PR3 实现计划、AC。研究已内联进 PRD，无独立 research 文件。"}

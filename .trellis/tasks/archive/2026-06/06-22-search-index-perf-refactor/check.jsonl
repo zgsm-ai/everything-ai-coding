@@ -1,0 +1,1 @@
+{"file": ".trellis/tasks/06-22-search-index-perf-refactor/prd.md", "reason": "校验依据：ADR 决策 + AC（体积大幅下降、搜来源/作者命中全部条目、Detail 按需拉不破坏、source 字段填充）。验证瘦身后 Detail 仍能从 per-entry JSON 取全字段、MiniSearch 接入无回归。"}
