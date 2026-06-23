@@ -204,6 +204,13 @@ def _setup_stage_a(monkeypatch, candidates_map, known=None):
     monkeypatch.setattr(t, "build_skill_entries", lambda *a, **k: pytest.fail("Stage A 不许 build"))
     # 默认无 seed（避免读真实 seed 文件触发网络）；seed 专项测试单独注入。
     monkeypatch.setattr(t, "load_seed_repos", lambda *a, **k: [])
+    # 默认无增量重扫（避免读真实 catalog / 触发网络）；rescan 专项测试单独注入。
+    monkeypatch.setattr(t, "build_rescan_scope", lambda *a, **k: set())
+    monkeypatch.setattr(t, "load_scanned_repos", lambda *a, **k: {})
+    monkeypatch.setattr(t, "detect_rescan_repos",
+                        lambda *a, **k: ([], {"scope": 0, "changed": 0, "rescan": 0,
+                                              "deferred": 0, "first_seen": 0,
+                                              "fetch_failed": 0}))
     return tree_calls
 
 
@@ -420,6 +427,179 @@ def test_discover_candidates_seed_fetch_failure_no_crash(monkeypatch):
     assert {c["full_name"] for c in candidates} == {"o/r"}
     assert stats["seed_injected"] == 0
     assert stats["seed_fetch_failed"] == 1
+
+
+# --- 已入库 monorepo 增量重扫：scanned cache / 范围 / 变更检测 / 注入 ---------
+
+def test_scanned_repos_roundtrip_and_missing(tmp_path):
+    """scanned_repos.json 读写往返；缺失 / 损坏返回空 dict，不崩。"""
+    path = str(tmp_path / "scanned.json")
+    assert t.load_scanned_repos(path) == {}        # 缺失 → 空
+    t.save_scanned_repos({"o/r": "2026-06-01T00:00:00Z"}, path)
+    assert t.load_scanned_repos(path) == {"o/r": "2026-06-01T00:00:00Z"}
+    bad = tmp_path / "bad.json"
+    bad.write_text("{not json", encoding="utf-8")
+    assert t.load_scanned_repos(str(bad)) == {}    # 损坏 → 空
+    arr = tmp_path / "arr.json"
+    arr.write_text(json.dumps(["not", "a", "dict"]), encoding="utf-8")
+    assert t.load_scanned_repos(str(arr)) == {}    # 非 dict → 空
+
+
+def test_build_rescan_scope_only_trending_and_promoted_skills(tmp_path):
+    """范围 = source∈{github-trending}∪促升slug 且 type=skill 的唯一 owner/repo。
+    排除 Tier-2（其它 source）、plugin、非范围 source。"""
+    idx = _write_index(tmp_path, "index.json", [
+        # github-trending skill → 入范围
+        {"type": "skill", "source": "github-trending",
+         "source_url": "https://github.com/Matt/Skills/tree/main/skills/a"},
+        # 同仓另一 skill → 去重成同一 owner/repo
+        {"type": "skill", "source": "github-trending",
+         "source_url": "https://github.com/Matt/Skills/tree/main/skills/b"},
+        # 促升 slug skill → 入范围
+        {"type": "skill", "source": "google/skills",
+         "source_url": "https://github.com/Google/Skills/tree/main/skills/c"},
+        # Tier-2 源 skill → 排除（source 不在范围）
+        {"type": "skill", "source": "anthropics-skills",
+         "source_url": "https://github.com/anthropics/skills/tree/main/skills/d"},
+        # github-trending 但 type=plugin → 排除（plugin 不做增量重扫）
+        {"type": "plugin", "source": "github-trending",
+         "source_url": "https://github.com/some/plugin.git"},
+    ])
+    promoted_map = {"google/skills": "google/skills"}
+    scope = t.build_rescan_scope(promoted_map=promoted_map, index_paths=[idx])
+    assert scope == {"matt/skills", "google/skills"}
+
+
+def test_detect_rescan_changed_unchanged_and_first_seen():
+    """pushed_at 变新→需重扫；未变→不重扫；cache 无→首见也需重扫（不再只记基线）。"""
+    metas = {
+        "repos/a/changed": {"pushed_at": "2026-06-23T00:00:00Z",
+                            "default_branch": "main", "stargazers_count": 1200},
+        "repos/b/same": {"pushed_at": "2026-06-01T00:00:00Z", "default_branch": "main"},
+        "repos/c/firstseen": {"pushed_at": "2026-06-10T00:00:00Z",
+                              "default_branch": "dev", "stargazers_count": 900},
+    }
+    api = lambda path: metas.get(path)
+    scanned = {
+        "a/changed": "2026-06-01T00:00:00Z",  # 旧 < 当前 → 变更
+        "b/same": "2026-06-01T00:00:00Z",     # 相同 → 不变
+        # c/firstseen 不在 cache → 首见（现在也需重扫）
+    }
+    scope = {"a/changed", "b/same", "c/firstseen"}
+    items, stats = t.detect_rescan_repos(scope, scanned, api=api)
+    # changed + first_seen 都进重扫，按 pushed_at 降序：a/changed(06-23) > c/firstseen(06-10)
+    assert [it["full_name"] for it in items] == ["a/changed", "c/firstseen"]
+    assert items[0]["pushed_at"] == "2026-06-23T00:00:00Z"
+    assert items[0]["default_branch"] == "main"
+    # 真实 stars 必须带上（hard_filter stars<=50 闸）
+    assert items[0]["stargazers_count"] == 1200
+    # 首见仓也带真实字段
+    assert items[1]["full_name"] == "c/firstseen"
+    assert items[1]["default_branch"] == "dev"
+    assert items[1]["stargazers_count"] == 900
+    assert stats["changed"] == 1
+    assert stats["first_seen"] == 1
+    assert stats["rescan"] == 2   # changed + first_seen 都重扫
+
+
+def test_detect_rescan_fetch_failure_skipped():
+    """范围仓元数据拉取失败 → 跳过、计入 fetch_failed、不阻塞其余。"""
+    api = lambda path: None if "dead" in path else {
+        "pushed_at": "2026-06-23T00:00:00Z", "default_branch": "main"}
+    scanned = {"o/dead": "2026-06-01T00:00:00Z", "o/live": "2026-06-01T00:00:00Z"}
+    items, stats = t.detect_rescan_repos({"o/dead", "o/live"}, scanned, api=api)
+    assert [it["full_name"] for it in items] == ["o/live"]
+    assert stats["fetch_failed"] == 1
+
+
+def test_detect_rescan_max_rescan_caps_by_pushed_at():
+    """超 MAX_RESCAN → 按 pushed_at 最新优先保留，其余推迟（deferred）。"""
+    metas = {
+        "repos/o/old": {"pushed_at": "2026-06-01T00:00:00Z", "default_branch": "main"},
+        "repos/o/mid": {"pushed_at": "2026-06-10T00:00:00Z", "default_branch": "main"},
+        "repos/o/new": {"pushed_at": "2026-06-20T00:00:00Z", "default_branch": "main"},
+    }
+    api = lambda path: metas.get(path)
+    scanned = {"o/old": "x", "o/mid": "x", "o/new": "x"}  # 全变更
+    items, stats = t.detect_rescan_repos(
+        {"o/old", "o/mid", "o/new"}, scanned, api=api, max_rescan=2)
+    assert [it["full_name"] for it in items] == ["o/new", "o/mid"]  # 最新优先
+    assert stats["rescan"] == 2
+    assert stats["deferred"] == 1
+
+
+def test_detect_rescan_first_seen_capped_by_max_rescan():
+    """首见仓与变更仓一同受 MAX_RESCAN 限量；超出推迟下轮（不进候选）。"""
+    metas = {
+        "repos/o/fs1": {"pushed_at": "2026-06-20T00:00:00Z", "default_branch": "main"},
+        "repos/o/fs2": {"pushed_at": "2026-06-10T00:00:00Z", "default_branch": "main"},
+        "repos/o/fs3": {"pushed_at": "2026-06-05T00:00:00Z", "default_branch": "main"},
+    }
+    api = lambda path: metas.get(path)
+    # cache 全空 → 三个都首见、都需重扫；限量 2 → 推迟 1（最旧的 fs3）
+    items, stats = t.detect_rescan_repos(
+        {"o/fs1", "o/fs2", "o/fs3"}, {}, api=api, max_rescan=2)
+    assert [it["full_name"] for it in items] == ["o/fs1", "o/fs2"]
+    assert stats["first_seen"] == 3
+    assert stats["rescan"] == 2
+    assert stats["deferred"] == 1
+
+
+def test_discover_candidates_rescan_injected_exempt_known(monkeypatch, tmp_path):
+    """需重扫仓豁免 known_repos 跳过、作为候选注入；discover 不写 scanned cache。"""
+    # 搜索候选为空；known_repos 含被重扫仓（它本就在库，正常会被挡）。
+    monkeypatch.setattr(t, "build_known_repos", lambda: {"matt/skills"})
+    monkeypatch.setattr(t, "collect_candidates",
+                        lambda *a, **k: ({}, {"raw": 0, "prefiltered_known": 0,
+                                              "below_min_stars": 0}))
+    monkeypatch.setattr(t, "load_seed_repos", lambda *a, **k: [])
+    monkeypatch.setattr(t, "list_repo_files",
+                        lambda *a, **k: pytest.fail("Stage A 不许拉 Tree"))
+    monkeypatch.setattr(t, "build_skill_entries",
+                        lambda *a, **k: pytest.fail("Stage A 不许 build"))
+    # 范围含 matt/skills（已入库）；scanned 旧 pushed_at；当前更新 → 需重扫。
+    monkeypatch.setattr(t, "build_rescan_scope", lambda *a, **k: {"matt/skills"})
+    scanned_path = str(tmp_path / "scanned.json")
+    monkeypatch.setattr(t, "SCANNED_REPOS_PATH", scanned_path)
+    t.save_scanned_repos({"matt/skills": "2026-06-01T00:00:00Z"}, scanned_path)
+    api = lambda path: {"pushed_at": "2026-06-23T00:00:00Z",
+                        "default_branch": "main", "stargazers_count": 132000}
+
+    candidates, stats = t.discover_candidates(api=api, max_verify=0)
+    # 被重扫仓即便在 known_repos，也作为候选注入。
+    assert [c["full_name"] for c in candidates] == ["matt/skills"]
+    assert candidates[0]["pushed_at"] == "2026-06-23T00:00:00Z"
+    assert candidates[0]["stars"] == 132000  # 真实 stars 透传（hard_filter 需要）
+    assert stats["rescan_injected"] == 1
+    assert stats["rescan_changed"] == 1
+    # discover 不写 cache：旧 baseline 不被改动（只有 triage 实际重扫成功才写）。
+    assert t.load_scanned_repos(scanned_path) == {"matt/skills": "2026-06-01T00:00:00Z"}
+
+
+def test_discover_candidates_rescan_first_seen_injected_no_baseline(monkeypatch, tmp_path):
+    """首见范围仓（cache 无）→ 也作为候选注入（不再只记基线、不再跳过）；
+    discover 不写 scanned cache（baseline 由 triage 实际重扫成功才写）。"""
+    monkeypatch.setattr(t, "build_known_repos", lambda: {"matt/skills"})
+    monkeypatch.setattr(t, "collect_candidates",
+                        lambda *a, **k: ({}, {"raw": 0, "prefiltered_known": 0,
+                                              "below_min_stars": 0}))
+    monkeypatch.setattr(t, "load_seed_repos", lambda *a, **k: [])
+    monkeypatch.setattr(t, "list_repo_files", lambda *a, **k: pytest.fail("no Tree"))
+    monkeypatch.setattr(t, "build_skill_entries", lambda *a, **k: pytest.fail("no build"))
+    monkeypatch.setattr(t, "build_rescan_scope", lambda *a, **k: {"matt/skills"})
+    scanned_path = str(tmp_path / "scanned.json")
+    monkeypatch.setattr(t, "SCANNED_REPOS_PATH", scanned_path)
+    # cache 空 → matt/skills 首见 → 需重扫 → 注入候选
+    api = lambda path: {"pushed_at": "2026-06-23T00:00:00Z",
+                        "default_branch": "main", "stargazers_count": 132000}
+
+    candidates, stats = t.discover_candidates(api=api, max_verify=0)
+    assert [c["full_name"] for c in candidates] == ["matt/skills"]  # 首见也注入
+    assert candidates[0]["stars"] == 132000
+    assert stats["rescan_injected"] == 1
+    assert stats["rescan_first_seen"] == 1
+    # discover 不写 baseline：cache 仍为空（triage 实际重扫成功才写 pushed_at）。
+    assert t.load_scanned_repos(scanned_path) == {}
 
 
 def test_save_load_candidates_roundtrip(tmp_path):

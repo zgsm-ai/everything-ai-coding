@@ -13,6 +13,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
 
 import triage_github_trending as tr  # noqa: E402
 import sync_github_trending as sgt  # noqa: E402
+from utils import load_index, save_index  # noqa: E402
 
 
 def _cand(full, stars=100, branch="main", pushed_at="2026-06-01T00:00:00Z",
@@ -60,6 +61,10 @@ def _setup_stage_c(monkeypatch):
     monkeypatch.setattr(sgt, "load_verify_cache", lambda: {})
     saved = {}
     monkeypatch.setattr(sgt, "save_verify_cache", lambda c: saved.update({"cache": dict(c)}))
+    # 增量重扫状态表：默认空，捕获最后一次写入到 saved["scanned"]。
+    monkeypatch.setattr(sgt, "load_scanned_repos", lambda *a, **k: {})
+    monkeypatch.setattr(sgt, "save_scanned_repos",
+                        lambda s, *a, **k: saved.update({"scanned": dict(s)}))
     return skill_built, plugin_built, saved
 
 
@@ -285,6 +290,8 @@ def _setup_stage_c_capture_source(monkeypatch):
     monkeypatch.setattr(sgt, "sync_plugins", fake_sync_plugins)
     monkeypatch.setattr(sgt, "load_verify_cache", lambda: {})
     monkeypatch.setattr(sgt, "save_verify_cache", lambda c: None)
+    monkeypatch.setattr(sgt, "load_scanned_repos", lambda *a, **k: {})
+    monkeypatch.setattr(sgt, "save_scanned_repos", lambda s, *a, **k: None)
     return captured
 
 
@@ -370,3 +377,104 @@ def test_triage_llm_unavailable_conservative_pass(monkeypatch):
     assert skill_built == ["real/skill"]
     assert stats["llm_unavailable"] == 1
     assert stats["skill_repos"] == 1
+
+
+# --- 增量重扫：scanned_repos 状态更新 + merge_preserve 只加新 ----------------
+
+def test_triage_updates_scanned_repos_on_skill_success(monkeypatch):
+    """成功深拉出 skill entry → scanned_repos 记本仓（小写 full_name）当前 pushed_at。"""
+    _setup_stage_c(monkeypatch)
+    written = _capture_writes(monkeypatch)
+    monkeypatch.setattr(sgt, "load_scanned_repos", lambda *a, **k: {})
+    saved = {}
+    monkeypatch.setattr(sgt, "save_scanned_repos",
+                        lambda s, *a, **k: saved.update({"scanned": dict(s)}))
+    judge = _FakeJudge(verdicts={"Matt/Skills": True})
+    tr.triage([_cand("Matt/Skills", pushed_at="2026-06-23T00:00:00Z")],
+              "2026-06-16", judge=judge, plugin_probe=lambda full: False,
+              wall_budget=999)
+    # 小写归一 key，值是当前 pushed_at
+    assert saved["scanned"] == {"matt/skills": "2026-06-23T00:00:00Z"}
+
+
+def test_triage_does_not_update_scanned_on_empty_skill(monkeypatch):
+    """skill 深拉无产出 → scanned_repos 不更新（下轮重试）。"""
+    _setup_stage_c(monkeypatch)
+    _capture_writes(monkeypatch)
+    monkeypatch.setattr(sgt, "build_skill_entries", lambda *a, **k: [])
+    monkeypatch.setattr(sgt, "load_scanned_repos", lambda *a, **k: {})
+    saved = {}
+    monkeypatch.setattr(sgt, "save_scanned_repos",
+                        lambda s, *a, **k: saved.update({"scanned": dict(s)}))
+    judge = _FakeJudge(verdicts={"matt/skills": True})
+    tr.triage([_cand("matt/skills", pushed_at="2026-06-23T00:00:00Z")],
+              "2026-06-16", judge=judge, plugin_probe=lambda full: False,
+              wall_budget=999)
+    # 无产出 → 不记 scanned（保持空）
+    assert saved.get("scanned", {}) == {}
+
+
+def test_triage_does_not_update_scanned_on_plugin(monkeypatch):
+    """plugin 仓不入 scanned_repos（plugin 增量重扫暂不做）。"""
+    _setup_stage_c(monkeypatch)
+    _capture_writes(monkeypatch)
+    monkeypatch.setattr(sgt, "load_scanned_repos", lambda *a, **k: {})
+    saved = {}
+    monkeypatch.setattr(sgt, "save_scanned_repos",
+                        lambda s, *a, **k: saved.update({"scanned": dict(s)}))
+    judge = _FakeJudge()
+    tr.triage([_cand("o/plug")], "2026-06-16", judge=judge,
+              plugin_probe=lambda full: True, wall_budget=999)
+    assert saved.get("scanned", {}) == {}
+
+
+def test_triage_rescan_candidate_repulled_on_pushed_at_change(monkeypatch):
+    """重扫候选（pushed_at 比 verify_cache 新）→ cache miss → 重新深拉，更新 scanned。"""
+    skill_built, _, _ = _setup_stage_c(monkeypatch)
+    _capture_writes(monkeypatch)
+    # verify_cache 有旧 pushed_at（上轮入库），候选带新 pushed_at（上游新增触发重扫）。
+    monkeypatch.setattr(sgt, "load_verify_cache", lambda: {
+        "matt/skills": {"pushed_at": "2026-06-01T00:00:00Z", "kind": "skill"},
+    })
+    monkeypatch.setattr(sgt, "load_scanned_repos",
+                        lambda *a, **k: {"matt/skills": "2026-06-01T00:00:00Z"})
+    saved = {}
+    monkeypatch.setattr(sgt, "save_scanned_repos",
+                        lambda s, *a, **k: saved.update({"scanned": dict(s)}))
+    judge = _FakeJudge(verdicts={"matt/skills": True})
+    tr.triage([_cand("matt/skills", pushed_at="2026-06-23T00:00:00Z")],
+              "2026-06-16", judge=judge, plugin_probe=lambda full: False,
+              wall_budget=999)
+    # pushed_at 变 → 不命中 cache → 重新深拉
+    assert skill_built == ["matt/skills"]
+    # scanned 更新到新 pushed_at
+    assert saved["scanned"] == {"matt/skills": "2026-06-23T00:00:00Z"}
+
+
+def test_flush_skills_merge_preserve_only_adds_new(monkeypatch, tmp_path):
+    """flush_skills（merge_preserve）：库里已有 N skill + 仓现有 N+2 → 只加 2，
+    已有不重复、不重写。验证重扫『只加新』语义。"""
+    path = str(tmp_path / "skills.json")
+    # 库里已有 2 个 skill（mattpocock 入库时的）
+    save_index([
+        {"id": "a-skill", "type": "skill",
+         "source_url": "https://github.com/matt/skills/tree/main/skills/a"},
+        {"id": "b-skill", "type": "skill",
+         "source_url": "https://github.com/matt/skills/tree/main/skills/b"},
+    ], path)
+    # 重扫产出 N+2：a/b（已有）+ qa/review（新增）
+    new_entries = [
+        {"id": "a-skill", "type": "skill",
+         "source_url": "https://github.com/matt/skills/tree/main/skills/a"},
+        {"id": "b-skill", "type": "skill",
+         "source_url": "https://github.com/matt/skills/tree/main/skills/b"},
+        {"id": "qa-skill", "type": "skill",
+         "source_url": "https://github.com/matt/skills/tree/main/skills/deprecated/qa"},
+        {"id": "review-skill", "type": "skill",
+         "source_url": "https://github.com/matt/skills/tree/main/skills/in-progress/review"},
+    ]
+    accepted = tr.flush_skills(new_entries, path)
+    assert accepted == 2  # 只加 qa/review
+    final = load_index(path)
+    ids = sorted(e["id"] for e in final)
+    assert ids == ["a-skill", "b-skill", "qa-skill", "review-skill"]

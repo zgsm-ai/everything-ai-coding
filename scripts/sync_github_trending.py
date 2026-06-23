@@ -66,6 +66,8 @@ CACHE_DIR = os.path.join(REPO_ROOT, ".github_trending_cache")
 VERIFY_CACHE_PATH = os.path.join(CACHE_DIR, "verify_cache.json")
 # Stage A 产物：候选表（中间表），由 triage_github_trending.py 消费。
 CANDIDATES_PATH = os.path.join(CACHE_DIR, "candidates.json")
+# 已扫仓「上次扫描 pushed_at」状态表（增量重扫的变更检测门）。
+SCANNED_REPOS_PATH = os.path.join(CACHE_DIR, "scanned_repos.json")
 # 手工 seed 仓清单：收"高星但无 topic、被 GitHub Search 漏掉"的好仓，走同一 triage。
 SEED_REPOS_PATH = os.path.join(SCRIPTS_DIR, "trending_seed_repos.json")
 # 促升清单：把知名出品方的优质 monorepo 仓从统一 github-trending 切到专属 per-repo source。
@@ -96,6 +98,9 @@ RECENCY_DAYS = int(os.environ.get("TRENDING_RECENCY_DAYS", "90"))    # trending 
 MAX_VERIFY = int(os.environ.get("TRENDING_MAX_VERIFY", "300"))
 SOURCE_ID = "github-trending"
 PLUGIN_SOURCE_PRIORITY = 600  # 低于 official/superpowers/ECC/dev，碰撞时让既有源胜出
+# 已入库 monorepo 增量重扫每轮重拉树仓数上限（防 CI 超时）。超出按 pushed_at
+# 最新优先，其余推迟下轮（不更新它们的 scanned cache）。env 可覆盖。
+MAX_RESCAN = int(os.environ.get("TRENDING_MAX_RESCAN", "30"))
 
 # trending 日期切片在 main() 里基于运行日期动态拼，避免模块级求值。
 SKILL_QUERIES = [
@@ -361,6 +366,152 @@ def build_promoted_map(path=PROMOTED_REPOS_PATH):
     （已小写的）``source_slug``。文件缺失 / 损坏 → 空 map（无促升，退回 github-trending）。
     """
     return {p["repo"].lower(): p["source_slug"] for p in load_promoted_repos(path)}
+
+
+# --- 已入库 monorepo 增量重扫（pushed_at 门 + Stage A 豁免注入）-------------
+#
+# 病灶：一个发现源 monorepo（mattpocock/skills 等）一旦入库 → 进 known_repos →
+# Stage A 预过滤永久跳过 → triage 不再深拉 → 上游后续新增的 SKILL.md 永远收不进来。
+# 修复：对「源 ∈ github-trending ∪ 促升 slug 且 type=skill」的已入库仓，每轮拉一次仓
+# 元数据比 pushed_at；**变新或首见** → 豁免 known_repos 跳过、作为候选注入 → 走现有
+# triage 深拉 → merge_preserve 只加库里没有的新 skill。首见也需重扫（上游可能在基线时刻
+# 已新增 skill），由 MAX_RESCAN 限量分轮收敛。Tier-2（skill_registry.discover_skills 扫
+# skill_repos.json 白名单）每轮本就重扫、其 source 不在此集 → 天然排除。plugin 不做
+# （bundle 重检复杂，另起）。
+
+# 增量重扫的源范围：统一 github-trending + 全部促升 per-repo slug（运行时并入）。
+RESCAN_BASE_SOURCES = {SOURCE_ID}
+
+
+def load_scanned_repos(path=SCANNED_REPOS_PATH):
+    """加载已扫仓状态表 ``{owner/repo(lower): last_scanned_pushed_at}``。
+
+    缺失 / 损坏 / 结构非法 → 返回空 dict，**不崩**（对齐 verify_cache 风格）。
+    """
+    if not os.path.exists(path):
+        return {}
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def save_scanned_repos(scanned, path=SCANNED_REPOS_PATH):
+    """把已扫仓状态表落盘（best-effort，写失败只 DEBUG 不崩）。"""
+    try:
+        os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(scanned, f, ensure_ascii=False, indent=2)
+    except OSError as e:
+        logger.debug("scanned_repos cache 写入失败：%s", e)
+
+
+def build_rescan_scope(promoted_map=None, index_paths=KNOWN_INDEX_PATHS):
+    """构建增量重扫的范围仓集 ``set[str]``（小写 owner/repo）。
+
+    从现有 catalog index 取「``source`` ∈ {github-trending} ∪ 促升 source_slug 集
+    且 ``type == "skill"``」的 entry，从 ``source_url`` 反解唯一 owner/repo（镜像归一）。
+    Tier-2 等其它源的 entry 天然落不进此集（其 source 不在范围内）。``promoted_map``
+    缺省时从清单加载（取其值=source_slug 集）。读 index 失败的路径跳过（不崩）。
+    """
+    if promoted_map is None:
+        promoted_map = build_promoted_map()
+    scope_sources = set(RESCAN_BASE_SOURCES) | set(promoted_map.values())
+    scope = set()
+    for path in index_paths:
+        if not os.path.exists(path):
+            continue
+        try:
+            entries = load_index(path)
+        except Exception as e:  # noqa: BLE001
+            logger.warning("rescan scope: 读取 %s 失败：%s", path, e)
+            continue
+        for e in entries or []:
+            if e.get("type") != "skill":
+                continue
+            if e.get("source") not in scope_sources:
+                continue
+            slug = owner_repo_from_url(e.get("source_url") or "")
+            if slug:
+                scope.add(slug)
+    return scope
+
+
+def fetch_repo_meta(slug, api=github_api):
+    """拉仓库元数据，返回 ``(pushed_at, default_branch, stars)``；失败返回 ``(None, None, 0)``。
+
+    stars 必须带上 —— 重扫候选喂 build_skill_entries → hard_filter 有 ``stars <= 50``
+    硬闸，占位 0 会把仓里所有新 skill 误杀。已入库仓真实 stars 在元数据里现成。
+    """
+    meta = api(f"repos/{slug}")
+    if not meta or not isinstance(meta, dict):
+        return None, None, 0
+    return (meta.get("pushed_at") or "",
+            meta.get("default_branch") or "main",
+            int(meta.get("stargazers_count") or 0))
+
+
+def detect_rescan_repos(scope, scanned, api=github_api, max_rescan=None):
+    """对范围仓拉元数据比对 pushed_at，挑出需重扫的仓，组装成候选 item。
+
+    返回 ``(rescan_items, stats)``：
+      - ``rescan_items``：``list[dict]``，每条与 search item **同构**
+        （full_name / stargazers_count / default_branch / pushed_at / topics /
+        description）；按 pushed_at 降序、限到前 ``max_rescan`` 个。
+      - ``stats``：``{scope, changed, rescan, deferred, first_seen, fetch_failed}``。
+
+    变更检测语义：
+      - **cache 无此仓（首次见）→ 需重扫**。本任务动机正是抓回已入库 monorepo 上游
+        **已经新增**的 skill（如 mattpocock 的 qa/review）；它们在基线时刻已存在，
+        若首见只记基线则永远判不出"新"、永不抓回。首见与"pushed_at 变新"一视同仁，
+        由 ``MAX_RESCAN`` 限量兜底（首轮最多重扫 N 个、其余推迟下轮，~ceil(范围/N)
+        轮内 backlog 收敛）。
+      - cache 有此仓且当前 pushed_at != 缓存值 → **需重扫**（任意 push 触发，粗但最省）。
+      - cache 有此仓且 pushed_at 相同 → 不重扫。
+    拉元数据失败的仓跳过（不阻塞其余），计入 fetch_failed。
+
+    **cache 时序**：本函数**不写 baseline**。只有 triage **实际重扫成功**（产出
+    skill entry）的仓才把 pushed_at 写进 ``scanned_repos``；被 ``MAX_RESCAN`` 推迟
+    （未实际重扫）的仓不写 cache → 下轮继续作为候选，backlog 不丢。
+    """
+    if max_rescan is None:
+        max_rescan = MAX_RESCAN
+    stats = {"scope": len(scope), "changed": 0, "rescan": 0, "deferred": 0,
+             "first_seen": 0, "fetch_failed": 0}
+    changed_items = []
+    for slug in sorted(scope):
+        pushed_at, branch, stars = fetch_repo_meta(slug, api=api)
+        if pushed_at is None:
+            stats["fetch_failed"] += 1
+            continue
+        prev = scanned.get(slug)
+        if prev is None:
+            # 首次见：当作需重扫（上游可能在基线时刻已新增 skill，不能只记基线）。
+            stats["first_seen"] += 1
+        elif prev == pushed_at:
+            continue  # 未变，跳过
+        else:
+            stats["changed"] += 1
+        changed_items.append({
+            "full_name": slug,
+            # 真实 stars（已入库仓现成）：build_skill_entries → hard_filter 需要它，
+            # 占位 0 会触发 stars<=50 闸误杀本仓所有新 skill。
+            "stargazers_count": stars,
+            "default_branch": branch,
+            "pushed_at": pushed_at,
+            "topics": [],
+            "description": "",
+        })
+    # 限量：按 pushed_at 降序（最新优先），超出推迟下轮（不进候选、cache 不更新 →
+    # 下轮继续重扫，backlog 不丢）。
+    changed_items.sort(key=lambda it: it.get("pushed_at") or "", reverse=True)
+    if max_rescan and len(changed_items) > max_rescan:
+        stats["deferred"] = len(changed_items) - max_rescan
+        changed_items = changed_items[:max_rescan]
+    stats["rescan"] = len(changed_items)
+    return changed_items, stats
 
 
 # --- 结构验证（一次 Tree 调用同时判 skill / plugin）------------------------
@@ -634,6 +785,37 @@ def discover_candidates(api=github_api, max_verify=None):
     if seed_injected:
         logger.info("seed 注入 %d 个候选（豁免 MAX_VERIFY）", seed_injected)
 
+    # 已入库 monorepo 增量重扫：对范围仓（github-trending ∪ 促升 slug 的已入库 skill 仓）
+    # 比 pushed_at，**变新或首见**的**豁免 known_repos 跳过**作为候选注入 → 走现有 triage
+    # 深拉 → merge_preserve 只加新 skill。它们本就在 known_repos，正常会被挡，故在限量之后
+    # 注入、按 full_name 去重（避免与搜索/seed 命中重复）。**这里不写 scanned cache**：
+    # 只有 triage 实际重扫成功的仓才更新 pushed_at；被 MAX_RESCAN 推迟（未注入/未重扫）的
+    # 仓不写 baseline → 下轮继续重扫，backlog 不丢。
+    scope = build_rescan_scope(index_paths=KNOWN_INDEX_PATHS)
+    scanned = load_scanned_repos(SCANNED_REPOS_PATH)
+    rescan_items, rescan_stats = detect_rescan_repos(scope, scanned, api=api)
+    stats["rescan_scope"] = rescan_stats["scope"]
+    stats["rescan_changed"] = rescan_stats["changed"]
+    stats["rescan_injected"] = 0
+    stats["rescan_deferred"] = rescan_stats["deferred"]
+    stats["rescan_first_seen"] = rescan_stats["first_seen"]
+    stats["rescan_fetch_failed"] = rescan_stats["fetch_failed"]
+    rescan_injected = 0
+    for it in rescan_items:
+        full = (it.get("full_name") or "").lower()
+        if not full or full in existing_full:
+            continue
+        existing_full.add(full)
+        ranked.append(it)
+        rescan_injected += 1
+    stats["rescan_injected"] = rescan_injected
+    if rescan_injected:
+        logger.info(
+            "增量重扫注入 %d 个候选（范围 %d，变更 %d，首见 %d，推迟 %d，豁免 known_repos）",
+            rescan_injected, rescan_stats["scope"], rescan_stats["changed"],
+            rescan_stats["first_seen"], rescan_stats["deferred"],
+        )
+
     # 候选表只保留 triage 需要的零成本字段（不拉任何 Tree）。
     candidates = [
         {
@@ -732,11 +914,15 @@ def main(argv=None):
     # WARN 汇总：让一次发现的健康度在 CI 日志可见（不静默）。
     logger.warning(
         "GitHub trending Stage A 发现健康度：raw=%d｜预过滤已知=%d｜低于%dstar=%d"
-        "｜本轮候选=%d｜推迟=%d｜seed 注入=%d（已收录跳过=%d，拉取失败=%d）",
+        "｜本轮候选=%d｜推迟=%d｜seed 注入=%d（已收录跳过=%d，拉取失败=%d）"
+        "｜增量重扫：范围=%d，变更=%d，注入=%d，推迟=%d，首见=%d，拉取失败=%d",
         stats["raw"], stats["prefiltered_known"], MIN_STARS,
         stats["below_min_stars"], stats.get("candidates", 0),
         stats.get("deferred", 0), stats.get("seed_injected", 0),
         stats.get("seed_skipped_known", 0), stats.get("seed_fetch_failed", 0),
+        stats.get("rescan_scope", 0), stats.get("rescan_changed", 0),
+        stats.get("rescan_injected", 0), stats.get("rescan_deferred", 0),
+        stats.get("rescan_first_seen", 0), stats.get("rescan_fetch_failed", 0),
     )
 
     if args.dry_run:

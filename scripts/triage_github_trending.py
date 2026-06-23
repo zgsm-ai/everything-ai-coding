@@ -188,6 +188,11 @@ def triage(candidates, last_synced, judge=None, plugin_probe=probe_plugin,
     verify_cache = sgt.load_verify_cache()
     new_cache = dict(verify_cache)  # 先并入旧 cache，增量落盘不丢未碰条目
 
+    # 增量重扫状态表：成功深拉出 skill entry 的仓更新「上次扫描 pushed_at」，下轮
+    # Stage A 据此检测 monorepo 上游新增。只在产出 skill 时更新（失败/空不更新 →
+    # 下轮重试）；plugin 不入此表（plugin 增量重扫暂不做）。
+    scanned_repos = sgt.load_scanned_repos()
+
     stats = {
         "total": len(candidates), "processed": 0,
         "plugin_repos": 0, "skill_repos": 0,
@@ -211,6 +216,7 @@ def triage(candidates, last_synced, judge=None, plugin_probe=probe_plugin,
             written_plugins += flush_plugins(plugin_entries, plugins_output)
             pending_plugin_cfgs = []
         sgt.save_verify_cache(new_cache)
+        sgt.save_scanned_repos(scanned_repos)
 
     for cand in candidates:
         # wall-clock 预算：到点 flush 已完成的并退出，超时也保住进度。
@@ -288,6 +294,9 @@ def triage(candidates, last_synced, judge=None, plugin_probe=probe_plugin,
                 stats["skill_repos"] += 1
                 pending_skills.extend(built)
                 new_cache[full] = {"pushed_at": pushed_at, "kind": "skill"}
+                # 增量重扫状态：记本仓「上次扫描 pushed_at」，下轮据此检测新增 skill。
+                # 仅在产出 skill entry 时更新（成功）；失败/空不更新（下轮重试）。
+                scanned_repos[full.lower()] = pushed_at
             else:
                 # 无 SKILL.md / 全被 hard_filter 刷掉 → 不缓存空结果，下次重试。
                 stats["skill_no_entry"] += 1

@@ -121,6 +121,10 @@ jobs:
           restore-keys: |
             plugins-dev-cache-${{ steps.week.outputs.stamp }}-
 
+      # Whole-dir cache: covers candidates.json, verify_cache.json, AND
+      # scanned_repos.json (the monorepo-rescan pushed_at state — last-scanned
+      # pushed_at per already-indexed github-trending/promoted skill repo, so the
+      # next cycle can detect upstream-added skills and re-pull them).
       - name: Restore github-trending weekly cache
         id: cache-restore-github-trending
         uses: actions/cache/restore@v4
