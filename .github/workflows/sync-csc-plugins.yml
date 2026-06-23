@@ -19,12 +19,25 @@ name: Sync csc-plugins (cospowers, first-party)
 #      ADDED/REMOVED, or to refresh web hub visibility).
 #
 # Re-run anytime csc-plugins updates: the script + build re-read the live tree.
+#
+# PREVIEW MODE (csc_branch != 'main'): pull the cospowers from a csc-plugins
+# feature branch/tag to validate it BEFORE it merges to main. In this mode the
+# workflow force-publishes the marketplace repos from that ref (so
+# `csc plugin install <name>@costrict-plugins` and the web hub's install both
+# fetch the branch content) but does NOT commit the canonical catalog index or
+# trigger a full release — so the reviewed main catalog metadata stays clean.
+# Re-run with csc_branch=main to restore the marketplace repos to main content.
 
 on:
   workflow_dispatch:
     inputs:
+      csc_branch:
+        description: "csc-plugins ref (branch/tag) to sync from. Non-'main' = PREVIEW: force-publish marketplace repos from that ref WITHOUT committing the canonical catalog or full release. Re-run with 'main' to restore."
+        required: false
+        default: "main"
+        type: string
       trigger_full_release:
-        description: "Also trigger release-catalog-bundle (refresh marketplace.json index + web bundle). Needed when adding/removing a plugin."
+        description: "Also trigger release-catalog-bundle (refresh marketplace.json index + web bundle). Needed when adding/removing a plugin. IGNORED unless csc_branch is 'main'."
         required: false
         default: false
         type: boolean
@@ -59,9 +72,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PYTHONUNBUFFERED: "1"
-        run: python -u scripts/sync_plugins_csc.py --overlay-catalog-index
+        run: python -u scripts/sync_plugins_csc.py --overlay-catalog-index --branch "${{ inputs.csc_branch || 'main' }}"
 
+      # PREVIEW guard: only main writes the canonical catalog. A feature-branch
+      # run keeps the dev source_url in the local checkout (so force-publish
+      # below clones the branch) but never commits it to the reviewed catalog.
       - name: Commit & push index changes
+        if: ${{ (inputs.csc_branch || 'main') == 'main' }}
         run: |
           git config user.name  "costrict-build"
           git config user.email "build@costrict.local"
@@ -72,6 +89,13 @@ jobs:
             git commit -m "chore(catalog): sync cospowers plugins from yhangf/csc-plugins"
             git push
           fi
+
+      - name: Preview-mode notice (catalog commit skipped)
+        if: ${{ (inputs.csc_branch || 'main') != 'main' }}
+        run: |
+          echo "::notice title=Preview mode::csc_branch='${{ inputs.csc_branch }}' (not main) —"
+          echo "skipping canonical catalog commit & full release; only force-publishing the"
+          echo "marketplace repos from this ref. Re-run with csc_branch=main to restore."
 
       - name: Check out marketplace repo
         uses: actions/checkout@v4
@@ -111,10 +135,21 @@ jobs:
             --skip-marketplace \
             --yes
 
+      # Only on main: a full release rebuilds the bundle + marketplace.json from
+      # the COMMITTED catalog (main), which would re-publish main content over
+      # the preview force-publish above and undo the preview. So it is force-
+      # skipped for any non-main ref even if the box was ticked.
       - name: (optional) Trigger Release Catalog Bundle
-        if: ${{ inputs.trigger_full_release }}
+        if: ${{ inputs.trigger_full_release && (inputs.csc_branch || 'main') == 'main' }}
         env:
           GH_TOKEN: ${{ secrets.MARKETPLACE_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
           gh workflow run release-catalog-bundle.yaml --ref main -f publish_plugin_marketplace=true
           echo "Dispatched release-catalog-bundle (index + web bundle refresh)."
+
+      - name: Full release skipped in preview mode
+        if: ${{ inputs.trigger_full_release && (inputs.csc_branch || 'main') != 'main' }}
+        run: |
+          echo "::warning title=Full release skipped::trigger_full_release was requested but"
+          echo "csc_branch='${{ inputs.csc_branch }}' is not main. A full release rebuilds from"
+          echo "the main catalog and would overwrite the preview content — skipped on purpose."

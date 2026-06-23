@@ -66,6 +66,9 @@ def fake_http(monkeypatch):
     """Route scp's HTTP helpers to the in-memory fixtures above."""
 
     def fake_get_json(url, timeout=30):
+        # Slash-containing branch → resolved to a SHA first via git/ref/heads/<b>.
+        if url.startswith("https://api.github.com/repos/yhangf/csc-plugins/git/ref/heads/"):
+            return {"ref": "refs/heads/x", "object": {"sha": "d" * 40, "type": "commit"}}
         if url.startswith("https://api.github.com/repos/yhangf/csc-plugins/git/trees/"):
             return {"tree": [{"type": "blob", "path": p} for p in FAKE_TREE]}
         if url == "https://api.github.com/repos/yhangf/csc-plugins":
@@ -297,3 +300,96 @@ def test_merge_sort_false_preserves_order_and_appends():
     merged = scp.merge_into_index(existing, fresh, sort=False)
     assert [e["id"] for e in merged] == ["z-foo", "a-bar", "cospowers-requirements"]
     assert merged == scp.merge_into_index(merged, fresh, sort=False)
+
+
+# ---------------------------------------------------------------------------
+# Branch parameterization (--branch / $CSC_BRANCH)
+# ---------------------------------------------------------------------------
+
+def test_default_branch_is_main():
+    # Guard the default so an un-parameterized run keeps the historical behaviour.
+    assert scp.CSC_BRANCH == "main"
+
+
+def test_compute_bundle_uses_given_branch():
+    b = scp.compute_bundle(
+        FAKE_TREE, "cospowers-requirements-plugin", "cospowers-requirements",
+        "feat/new-prompt",
+    )
+    assert b["source_ref"] == "feat/new-prompt"
+    assert b["source_repo"] == scp.CSC_REPO  # repo unchanged, only the ref moves
+
+
+def test_collect_entries_threads_branch_to_source_url_and_ref(fake_http):
+    # A non-default ref must flow into BOTH source_url (so marketplace build.py
+    # clones it) and bundle.source_ref (the authoritative ref build.py prefers).
+    entries = scp.collect_entries("feat/new-prompt")
+    req = {e["id"]: e for e in entries}["cospowers-requirements"]
+    assert req["source_url"] == (
+        "https://github.com/yhangf/csc-plugins"
+        "/tree/feat/new-prompt/cospowers-requirements-plugin"
+    )
+    assert req["bundle"]["source_ref"] == "feat/new-prompt"
+
+
+def test_collect_entries_default_is_main(fake_http):
+    # AC2/AC5 regression: no branch arg → identical to the pre-change main path.
+    req = {e["id"]: e for e in scp.collect_entries()}["cospowers-requirements"]
+    assert req["source_url"] == (
+        "https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin"
+    )
+    assert req["bundle"]["source_ref"] == "main"
+
+
+def test_slash_branch_resolved_to_sha_for_reads(monkeypatch, fake_http):
+    # A slash-containing branch must be resolved to a SHA (git/trees + raw take a
+    # single path segment), and that SHA must be what content reads use — while
+    # source_url / source_ref keep the human-readable branch.
+    read_refs: list[str] = []
+    orig = scp.fetch_tree_paths
+
+    def spy_tree(repo, ref):
+        read_refs.append(ref)
+        return orig(repo, ref)
+
+    monkeypatch.setattr(scp, "fetch_tree_paths", spy_tree)
+    entries = scp.collect_entries("feat/new-prompt")
+    assert read_refs == ["d" * 40]  # tree fetched by resolved SHA, not "feat/new-prompt"
+    req = {e["id"]: e for e in entries}["cospowers-requirements"]
+    assert "/tree/feat/new-prompt/" in req["source_url"]  # display ref kept
+    assert req["bundle"]["source_ref"] == "feat/new-prompt"
+
+
+def test_unresolvable_slash_branch_aborts(monkeypatch):
+    # If a slash branch can't be resolved to a SHA, abort with no entries rather
+    # than silently reading the wrong/default tree.
+    monkeypatch.setattr(scp, "_http_get_json", lambda url, timeout=30: None)
+    assert scp.collect_entries("feat/does-not-exist") == []
+
+
+def test_non_slash_branch_skips_resolution(monkeypatch, fake_http):
+    # main / dev (no slash) must NOT hit the ref-resolution endpoint — zero extra
+    # call, byte-identical to the historical direct read.
+    hits: list[str] = []
+    real = scp._http_get_json
+
+    def spy(url, timeout=30):
+        if "/git/ref/heads/" in url:
+            hits.append(url)
+        return real(url, timeout)
+
+    monkeypatch.setattr(scp, "_http_get_json", spy)
+    scp.collect_entries("main")
+    assert hits == []
+
+
+def test_main_branch_flag_overrides(monkeypatch, tmp_path, fake_http):
+    # End-to-end: `--branch` reaches collect_entries and lands in the written index.
+    out = tmp_path / "plugins-index.json"
+    rc = scp.main(["--output", str(out), "--branch", "feat/x"])
+    assert rc == 0
+    import json
+    written = json.loads(out.read_text(encoding="utf-8"))
+    csc = [e for e in written if e.get("source") == "csc-plugins"]
+    assert csc and all("/tree/feat/x/" in e["source_url"] for e in csc)
+    assert all(e["bundle"]["source_ref"] == "feat/x" for e in csc)

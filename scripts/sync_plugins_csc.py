@@ -78,7 +78,7 @@ SOURCE_ID = "csc-plugins"
 SOURCE_PRIORITY = 1000
 
 CSC_REPO = "yhangf/csc-plugins"          # <owner>/<repo> — build/content source (not user-facing)
-CSC_BRANCH = "main"
+CSC_BRANCH = "main"                      # DEFAULT ref; override per-run via --branch / $CSC_BRANCH
 
 # User-facing home: each cospowers plugin is published as its own standard repo
 # under our org, which is what `csc plugin install <name>@costrict-plugins`
@@ -177,6 +177,24 @@ def fetch_tree_paths(repo: str, branch: str) -> list[str]:
     ]
 
 
+def resolve_branch_sha(repo: str, branch: str) -> Optional[str]:
+    """Resolve a branch name (which may contain ``/``) to its commit SHA.
+
+    ``git/trees`` and the ``raw.githubusercontent.com`` path both take the ref
+    as a single path segment, so a slash-containing branch like ``feat/x``
+    404s there. The ``git/ref/heads/<branch>`` endpoint captures the full ref
+    path, so resolve once and read content by the unambiguous SHA. Returns None
+    if the branch does not resolve to a single exact ref.
+    """
+    data = _http_get_json(f"https://api.github.com/repos/{repo}/git/ref/heads/{branch}")
+    # An exact match yields one ref object; a prefix match yields a list (reject).
+    if isinstance(data, dict):
+        sha = (data.get("object") or {}).get("sha")
+        if sha:
+            return sha
+    return None
+
+
 def discover_plugin_subdirs(tree_paths: list[str]) -> list[str]:
     """Top-level subdirs that carry a `.claude-plugin/plugin.json` (sorted)."""
     subdirs = set()
@@ -214,7 +232,7 @@ def _strip_md(rel: str) -> str:
     return rel[:-3] if rel.endswith(".md") else rel
 
 
-def compute_bundle(tree_paths: list[str], subdir: str, plugin_name: str) -> dict:
+def compute_bundle(tree_paths: list[str], subdir: str, plugin_name: str, branch: str = CSC_BRANCH) -> dict:
     """Derive bundle counts + child paths for one plugin subdir from the repo tree.
 
     Every functional component directory is captured as a position-aligned
@@ -302,7 +320,7 @@ def compute_bundle(tree_paths: list[str], subdir: str, plugin_name: str) -> dict
     _emit("templates_count", "templates_namespaces", "template_paths", template_paths_by_name)
 
     bundle["source_repo"] = CSC_REPO
-    bundle["source_ref"] = CSC_BRANCH
+    bundle["source_ref"] = branch
     bundle["plugin_root"] = subdir
     return bundle
 
@@ -316,15 +334,22 @@ def build_entry(
     tree_paths: list[str],
     repo_meta: dict,
     last_synced_iso: str,
+    branch: str = CSC_BRANCH,
+    read_ref: Optional[str] = None,
 ) -> Optional[dict]:
     """Build a catalog entry for one cospowers plugin subdir.
 
     Reads the subdir's `plugin.json` (canonical name/description/version) and
     `marketplace.json` (marketplace_name). Returns None if plugin.json is
     unreadable or nameless.
+
+    `read_ref` is the ref used for the raw content reads (a commit SHA when the
+    branch contains a slash); `branch` stays the human-readable ref baked into
+    source_url / source_ref. They denote the same commit.
     """
+    read_ref = read_ref or branch
     plugin_json = _http_get_json(
-        _raw_url(CSC_REPO, CSC_BRANCH, f"{subdir}/.claude-plugin/plugin.json")
+        _raw_url(CSC_REPO, read_ref, f"{subdir}/.claude-plugin/plugin.json")
     )
     if not isinstance(plugin_json, dict):
         logger.warning("Skipping %s: cannot read .claude-plugin/plugin.json", subdir)
@@ -339,7 +364,7 @@ def build_entry(
     version = (plugin_json.get("version") or "").strip() or "0.0.0"
 
     marketplace_json = _http_get_json(
-        _raw_url(CSC_REPO, CSC_BRANCH, f"{subdir}/.claude-plugin/marketplace.json")
+        _raw_url(CSC_REPO, read_ref, f"{subdir}/.claude-plugin/marketplace.json")
     )
     marketplace_name = None
     if isinstance(marketplace_json, dict):
@@ -355,13 +380,13 @@ def build_entry(
     # prefix already guarantees catalog-wide uniqueness.
     plugin_id = name
 
-    source_url = f"https://github.com/{CSC_REPO}/tree/{CSC_BRANCH}/{subdir}"
+    source_url = f"https://github.com/{CSC_REPO}/tree/{branch}/{subdir}"
     tags = ["cospowers", "ai-workers"] + extract_tags(name, description)
     seen: set[str] = set()
     tags = [t for t in tags if not (t in seen or seen.add(t))]
     category = categorize(name=name, description=description, tags=tags)
 
-    bundle = compute_bundle(tree_paths, subdir, name)
+    bundle = compute_bundle(tree_paths, subdir, name, branch)
 
     return {
         "id": plugin_id,
@@ -428,13 +453,25 @@ def merge_into_index(existing: list[dict], fresh: list[dict], sort: bool = True)
     return merged
 
 
-def collect_entries() -> list[dict]:
-    """Fetch the live csc-plugins tree and build all cospowers entries."""
+def collect_entries(branch: str = CSC_BRANCH) -> list[dict]:
+    """Fetch the live csc-plugins tree at `branch` and build all cospowers entries."""
     last_synced_iso = date.today().isoformat()
     repo_meta = fetch_repo_meta(CSC_REPO)
-    tree_paths = fetch_tree_paths(CSC_REPO, CSC_BRANCH)
+    # A slash-containing branch (feat/x) can't be read directly via git/trees or
+    # raw (single path segment), so resolve it to a commit SHA once and read all
+    # content by SHA, while keeping the human-readable `branch` for source_url /
+    # source_ref. Non-slash refs read directly (zero extra call, no regression).
+    read_ref = branch
+    if "/" in branch:
+        sha = resolve_branch_sha(CSC_REPO, branch)
+        if not sha:
+            logger.error("Cannot resolve branch %s@%s to a SHA — aborting", CSC_REPO, branch)
+            return []
+        logger.info("Resolved %s@%s → %s for content reads", CSC_REPO, branch, sha[:12])
+        read_ref = sha
+    tree_paths = fetch_tree_paths(CSC_REPO, read_ref)
     if not tree_paths:
-        logger.error("Empty/failed git tree for %s@%s — aborting", CSC_REPO, CSC_BRANCH)
+        logger.error("Empty/failed git tree for %s@%s — aborting", CSC_REPO, branch)
         return []
     subdirs = discover_plugin_subdirs(tree_paths)
     logger.info("Discovered %d plugin subdir(s): %s", len(subdirs), ", ".join(subdirs))
@@ -442,7 +479,7 @@ def collect_entries() -> list[dict]:
     entries: list[dict] = []
     for subdir in subdirs:
         try:
-            entry = build_entry(subdir, tree_paths, repo_meta, last_synced_iso)
+            entry = build_entry(subdir, tree_paths, repo_meta, last_synced_iso, branch, read_ref)
         except Exception as e:  # noqa: BLE001 - never let one plugin kill the run
             logger.warning("Failed to build entry for %s: %s", subdir, e)
             continue
@@ -477,9 +514,23 @@ def main(argv: Optional[list[str]] = None) -> int:
         default=CATALOG_INDEX_PATH,
         help=f"Top-level catalog index for --overlay-catalog-index (default: {CATALOG_INDEX_PATH})",
     )
+    parser.add_argument(
+        "--branch",
+        default=os.environ.get("CSC_BRANCH", "").strip() or CSC_BRANCH,
+        help=(
+            f"csc-plugins ref (branch/tag) to sync from (default: ${{CSC_BRANCH}} or "
+            f"{CSC_BRANCH!r}). A non-default ref pulls that branch's content into "
+            "every entry's source_url / source_ref so the marketplace build clones it; "
+            "use it to preview a branch before it merges to main."
+        ),
+    )
     args = parser.parse_args(argv)
 
-    fresh = collect_entries()
+    # A present-but-blank --branch (e.g. an empty manual workflow input) must not
+    # become an empty ref — fall back to the default branch.
+    branch = (args.branch or "").strip() or CSC_BRANCH
+    logger.info("Syncing cospowers from %s@%s", CSC_REPO, branch)
+    fresh = collect_entries(branch)
     if not fresh:
         logger.error("Zero cospowers plugins collected; exiting non-zero.")
         return 1
