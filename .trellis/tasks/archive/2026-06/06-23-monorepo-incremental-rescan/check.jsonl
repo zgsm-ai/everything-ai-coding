@@ -1,0 +1,1 @@
+{"file": ".trellis/tasks/06-23-monorepo-incremental-rescan/prd.md", "reason": "校验依据：AC（范围识别 / pushed_at 比对 / 豁免注入 / merge_preserve 只加新不重评 / 促升 slug 保留 / cache 更新 / MAX_RESCAN 限量 / 不回归）。重点核实只加新 skill 不重复不重评、促升仓重扫仍带专属 slug、cache 失败不更新。"}

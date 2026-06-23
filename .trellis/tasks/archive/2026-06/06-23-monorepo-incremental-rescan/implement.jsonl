@@ -1,0 +1,1 @@
+{"file": ".trellis/tasks/06-23-monorepo-incremental-rescan/prd.md", "reason": "本任务唯一 spec：含已拍板 ADR（pushed_at 门 / github-trending+促升 skill 范围 / Stage A 豁免注入 / MAX_RESCAN）、root cause（known_repos 跳过已入库仓 → 永不重扫）、PR1→PR3 计划、AC、关键文件落点。研究内联进 PRD，无独立 research 文件。"}
