@@ -1,6 +1,6 @@
 # 🎯 Skills
 
-> 11605 Reusable agent capabilities and workflows for AI coding assistants.
+> 11683 Reusable agent capabilities and workflows for AI coding assistants.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
@@ -14,7 +14,7 @@
 | 2 | [slack-gif-creator](https://github.com/anthropics/skills/tree/main/skills/slack-gif-creator) | A Python toolkit for creating animated GIFs optimized for Slack, providing const... | Anthropic Official | 🟢 Active | 98 | 2026-06-09 | ai-ml | `anthropic`, `official` |
 | 3 | [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) | A comprehensive skill for creating, testing, and optimizing AI assistant skills ... | Anthropic Official | 🟢 Active | 96 | 2026-05-09 | testing | `anthropic`, `official` |
 | 4 | [xlsx](https://github.com/anthropics/skills/tree/main/skills/xlsx) | A Python skill for programmatically creating, editing, and analyzing Excel and t... | Anthropic Official | 🟢 Active | 96 | 2026-05-09 | tooling | `anthropic`, `official` |
-| 5 | [bug-triage](https://github.com/AgentWrapper/agent-orchestrator/tree/main/skills/bug-triage) | A detailed skill for triaging bugs in the ReverbCode repository, including dupli... | github-trending | 🟢 Active | 96 | 2026-06-25 | tooling | `bug-triage`, `github-issues`, `go` |
+| 5 | [bug-triage](https://github.com/AgentWrapper/agent-orchestrator/tree/main/skills/bug-triage) | A detailed skill for triaging bugs in the ReverbCode repository, including dupli... | github-trending | 🟢 Active | 96 | 2026-06-25 | tooling | `git` |
 | 6 | [a-stock-data](https://github.com/simonlin1212/a-stock-data/tree/main/) | A comprehensive Python toolkit for A-share financial data covering 7 layers with... | github-trending | 🟢 Active | 96 | 2026-06-20 | ai-ml | — |
 | 7 | [acpx](https://github.com/openclaw/acpx/tree/main/skills/acpx) | A headless CLI for orchestrating AI coding agents via ACP, managing sessions, qu... | github-trending | 🟢 Active | 96 | 2026-06-23 | tooling | — |
 | 8 | [crabbox](https://github.com/openclaw/acpx/tree/main/.agents/skills/crabbox) | A CLI wrapper for orchestrating remote Linux validation across AWS, Blacksmith T... | github-trending | 🟢 Active | 96 | 2026-06-23 | testing | — |
@@ -114,7 +114,7 @@
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>docx</strong> (155.0k★) — A comprehensive skill for AI assistants to programmatically ...</summary>
+<summary>⭐ <strong>docx</strong> (155.1k★) — A comprehensive skill for AI assistants to programmatically ...</summary>
 
 A comprehensive skill for AI assistants to programmatically create, read, edit, and manipulate .docx Word documents using JavaScript and XML.
 
@@ -129,7 +129,7 @@ Files: `skills/docx/`
 </details>
 
 <details>
-<summary>⭐ <strong>slack-gif-creator</strong> (155.0k★) — A Python toolkit for creating animated GIFs optimized for Sl...</summary>
+<summary>⭐ <strong>slack-gif-creator</strong> (155.1k★) — A Python toolkit for creating animated GIFs optimized for Sl...</summary>
 
 A Python toolkit for creating animated GIFs optimized for Slack, providing constraints, utilities, and animation concepts.
 
@@ -144,7 +144,7 @@ Files: `skills/slack-gif-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>skill-creator</strong> (155.0k★) — A comprehensive skill for creating, testing, and optimizing ...</summary>
+<summary>⭐ <strong>skill-creator</strong> (155.1k★) — A comprehensive skill for creating, testing, and optimizing ...</summary>
 
 A comprehensive skill for creating, testing, and optimizing AI assistant skills through an iterative workflow with evaluation and benchmarking.
 
@@ -159,7 +159,7 @@ Files: `skills/skill-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>xlsx</strong> (155.0k★) — A Python skill for programmatically creating, editing, and a...</summary>
+<summary>⭐ <strong>xlsx</strong> (155.1k★) — A Python skill for programmatically creating, editing, and a...</summary>
 
 A Python skill for programmatically creating, editing, and analyzing Excel and tabular files with strict formatting and formula standards.
 
@@ -182,7 +182,7 @@ A detailed skill for triaging bugs in the ReverbCode repository, including dupli
 git clone AgentWrapper/agent-orchestrator
 ```
 
-📊 Score: 96 · 🏥 Health: 79 · 🏷️ Tags: `bug-triage`, `github-issues`, `go`
+📊 Score: 96 · 🏥 Health: 79 · 🏷️ Tags: `git`
 📅 Last active: 2026-06-25 · 📦 Source: github-trending
 
 </details>

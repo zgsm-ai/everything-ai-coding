@@ -1,6 +1,6 @@
 # 🎯 Skills 技能
 
-> 11605 AI 编程助手的可复用能力和工作流。
+> 11683 AI 编程助手的可复用能力和工作流。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
@@ -14,7 +14,7 @@
 | 2 | [slack-gif-creator](https://github.com/anthropics/skills/tree/main/skills/slack-gif-creator) | 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。 | Anthropic 官方 | 🟢 活跃 | 98 | 2026-06-09 | ai-ml | `anthropic`, `official` |
 | 3 | [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) | 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。 | Anthropic 官方 | 🟢 活跃 | 96 | 2026-05-09 | testing | `anthropic`, `official` |
 | 4 | [xlsx](https://github.com/anthropics/skills/tree/main/skills/xlsx) | 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。 | Anthropic 官方 | 🟢 活跃 | 96 | 2026-05-09 | tooling | `anthropic`, `official` |
-| 5 | [bug-triage](https://github.com/AgentWrapper/agent-orchestrator/tree/main/skills/bug-triage) | 针对 ReverbCode 仓库的错误分类技能，包含重复搜索、创建完整上下文的 GitHub issue 及推送修复 PR。 | github-trending | 🟢 活跃 | 96 | 2026-06-25 | tooling | `bug-triage`, `github-issues`, `go` |
+| 5 | [bug-triage](https://github.com/AgentWrapper/agent-orchestrator/tree/main/skills/bug-triage) | 针对 ReverbCode 仓库的错误分类技能，包含重复搜索、创建完整上下文的 GitHub issue 及推送修复 PR。 | github-trending | 🟢 活跃 | 96 | 2026-06-25 | tooling | `git` |
 | 6 | [a-stock-data](https://github.com/simonlin1212/a-stock-data/tree/main/) | A股全栈数据工具包，覆盖行情、研报、信号、资金面等七层数据，内嵌全部调用代码。 | github-trending | 🟢 活跃 | 96 | 2026-06-20 | ai-ml | — |
 | 7 | [acpx](https://github.com/openclaw/acpx/tree/main/skills/acpx) | 一个用于通过 ACP 编排 AI 编码代理的无头 CLI，支持会话管理、队列提示和定义多代理工作流。 | github-trending | 🟢 活跃 | 96 | 2026-06-23 | tooling | — |
 | 8 | [crabbox](https://github.com/openclaw/acpx/tree/main/.agents/skills/crabbox) | 用于远程Linux验证的CLI包装器，支持AWS、Blacksmith Testbox和SSH，用于CI/CD测试和端到端验证。 | github-trending | 🟢 活跃 | 96 | 2026-06-23 | testing | — |
@@ -114,7 +114,7 @@
 ## Top 10 安装指南
 
 <details>
-<summary>⭐ <strong>docx</strong> (155.0k★) — 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。</summary>
+<summary>⭐ <strong>docx</strong> (155.1k★) — 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。</summary>
 
 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。
 
@@ -129,7 +129,7 @@ Files: `skills/docx/`
 </details>
 
 <details>
-<summary>⭐ <strong>slack-gif-creator</strong> (155.0k★) — 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。</summary>
+<summary>⭐ <strong>slack-gif-creator</strong> (155.1k★) — 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。</summary>
 
 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。
 
@@ -144,7 +144,7 @@ Files: `skills/slack-gif-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>skill-creator</strong> (155.0k★) — 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。</summary>
+<summary>⭐ <strong>skill-creator</strong> (155.1k★) — 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。</summary>
 
 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。
 
@@ -159,7 +159,7 @@ Files: `skills/skill-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>xlsx</strong> (155.0k★) — 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。</summary>
+<summary>⭐ <strong>xlsx</strong> (155.1k★) — 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。</summary>
 
 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。
 
@@ -182,7 +182,7 @@ Files: `skills/xlsx/`
 git clone AgentWrapper/agent-orchestrator
 ```
 
-📊 评分: 96 · 🏥 健康度: 79 · 🏷️ 标签: `bug-triage`, `github-issues`, `go`
+📊 评分: 96 · 🏥 健康度: 79 · 🏷️ 标签: `git`
 📅 最近活跃: 2026-06-25 · 📦 来源: github-trending
 
 </details>
