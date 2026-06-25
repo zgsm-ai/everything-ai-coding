@@ -428,7 +428,10 @@ class TestMergeIndexSidecarLoading(unittest.TestCase):
              unittest.mock.patch("merge_index.apply_governance") as mg:
             me.side_effect = lambda x: x
             mg.side_effect = lambda x: x
-            merge_index.merge()
+            # Disable the plugin.json gate: this suite exercises dedup, not the
+            # manifest gate, and must never reach out to the GitHub Tree API
+            # even when a GITHUB_TOKEN happens to be present in CI.
+            merge_index.merge(verify_plugin_manifest=False)
 
     def test_mcp_registry_sidecar_loaded(self):
         """Lone registry entry shows up in catalog/index.json."""

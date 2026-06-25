@@ -192,13 +192,18 @@ class TestMergeIndexSkipEnrichment(unittest.TestCase):
         """CLI main(['--skip-enrichment']) propagates the flag to merge()."""
         with unittest.mock.patch("merge_index.merge") as mock_merge:
             merge_index.main(["--skip-enrichment"])
-        mock_merge.assert_called_once_with(skip_enrichment=True)
+        # main() also forwards the plugin-manifest gate flag (on by default).
+        mock_merge.assert_called_once_with(
+            skip_enrichment=True, verify_plugin_manifest=True
+        )
 
     def test_main_default_no_skip(self):
         """CLI main([]) calls merge with skip_enrichment=False."""
         with unittest.mock.patch("merge_index.merge") as mock_merge:
             merge_index.main([])
-        mock_merge.assert_called_once_with(skip_enrichment=False)
+        mock_merge.assert_called_once_with(
+            skip_enrichment=False, verify_plugin_manifest=True
+        )
 
     def test_cli_help_shows_flag(self):
         """`python scripts/merge_index.py --help` advertises --skip-enrichment."""

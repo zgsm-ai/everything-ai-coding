@@ -107,7 +107,7 @@ class TestMergeIndex(unittest.TestCase):
              unittest.mock.patch("merge_index.apply_governance") as mock_gov:
             mock_enrich.side_effect = lambda x: x
             mock_gov.side_effect = lambda x: x
-            merge_index.merge()
+            merge_index.merge(verify_plugin_manifest=False)
 
         top = self._read_output()
         top_children = {
@@ -458,7 +458,7 @@ class TestPluginMarketplaceValidator(unittest.TestCase):
              unittest.mock.patch("merge_index.apply_governance") as mock_gov:
             mock_enrich.side_effect = lambda x: x
             mock_gov.side_effect = lambda x: x
-            merge_index.merge()
+            merge_index.merge(verify_plugin_manifest=False)
         result = self._read_output()
 
         plugins = [r for r in result if r.get("type") == "plugin"]
@@ -485,7 +485,7 @@ class TestPluginMarketplaceValidator(unittest.TestCase):
              unittest.mock.patch("merge_index.apply_governance") as mock_gov:
             mock_enrich.side_effect = lambda x: x
             mock_gov.side_effect = lambda x: x
-            merge_index.merge()
+            merge_index.merge(verify_plugin_manifest=False)
         result = self._read_output()
 
         plugins = [r for r in result if r.get("type") == "plugin"]
@@ -509,7 +509,7 @@ class TestPluginMarketplaceValidator(unittest.TestCase):
              unittest.mock.patch("merge_index.apply_governance") as mock_gov:
             mock_enrich.side_effect = lambda x: x
             mock_gov.side_effect = lambda x: x
-            merge_index.merge()
+            merge_index.merge(verify_plugin_manifest=False)
         result = self._read_output()
         plugins = [r for r in result if r.get("type") == "plugin"]
         self.assertEqual(len(plugins), 1)
@@ -1426,7 +1426,7 @@ class TestSynthesizedChildrenReachTypeIndexes(unittest.TestCase):
              unittest.mock.patch("merge_index.apply_governance") as mock_gov:
             mock_enrich.side_effect = lambda x: x
             mock_gov.side_effect = lambda x: x
-            merge_index.merge()
+            merge_index.merge(verify_plugin_manifest=False)
 
         # evaluators are type=skill → skills/ index
         skills = self._read_type_index("skills")
@@ -1494,7 +1494,7 @@ class TestSynthesizedChildrenReachTypeIndexes(unittest.TestCase):
                      unittest.mock.patch("merge_index.apply_governance") as mg:
                     me.side_effect = lambda x: x
                     mg.side_effect = lambda x: x
-                    merge_index.merge()
+                    merge_index.merge(verify_plugin_manifest=False)
                 top_path = os.path.join(self.tmpdir, "index.json")
                 with open(top_path) as f:
                     top = json.load(f)
@@ -1517,6 +1517,283 @@ class TestSynthesizedChildrenReachTypeIndexes(unittest.TestCase):
                 self.assertEqual(len(synth), 1, f"{td} accumulated duplicates")
         finally:
             os.environ.pop("MERGE_INDEX_SKIP_PUSHED_AT_BACKFILL", None)
+
+
+class _FakeLayout:
+    """Minimal stand-in for ai_resource_eval.fetcher.plugin.PluginLayout.
+
+    Only the two fields the gate reads (``is_plugin`` / ``fetch_error``) are
+    modelled.
+    """
+
+    def __init__(self, is_plugin=True, fetch_error=None):
+        self.is_plugin = is_plugin
+        self.fetch_error = fetch_error
+
+
+class _FakeFetcher:
+    """Stand-in for PluginContentFetcher used by the manifest-gate tests.
+
+    ``layouts`` maps ``"owner/repo"`` → ``_FakeLayout`` (or an exception
+    instance to simulate ``detect_plugin_layout`` raising). Records each repo
+    probed in ``self.calls`` so tests can assert the per-repo cache collapses
+    duplicate probes. Never touches the network.
+    """
+
+    def __init__(self, layouts):
+        self._layouts = layouts
+        self.calls = []
+        self.closed = False
+
+    def detect_plugin_layout(self, repo, plugin_root="", ref="HEAD"):
+        self.calls.append((repo, plugin_root, ref))
+        result = self._layouts.get(repo)
+        if isinstance(result, Exception):
+            raise result
+        if result is None:
+            # Default: treat unknown repos as a clean "no plugin.json" detection.
+            return _FakeLayout(is_plugin=False, fetch_error=None)
+        return result
+
+    def close(self):
+        # Mirrors PluginContentFetcher.close(); the gate must call this to free
+        # the underlying httpx.Client.
+        self.closed = True
+
+
+class TestPluginManifestGate(unittest.TestCase):
+    """Tests for the central .claude-plugin/plugin.json existence gate added to
+    merge_index.merge() — drops type=plugin entries whose repo genuinely lacks
+    a plugin manifest, while failing open on Tree API wobble / no token /
+    disabled gate.
+    """
+
+    def setUp(self):
+        self.tmpdir = tempfile.mkdtemp()
+        for t in merge_index.TYPES:
+            os.makedirs(os.path.join(self.tmpdir, t), exist_ok=True)
+        self._orig_catalog_dir = merge_index.CATALOG_DIR
+        merge_index.CATALOG_DIR = self.tmpdir
+        # Ensure the no-token fail-open path is deterministic regardless of CI env.
+        self._orig_token = os.environ.pop("GITHUB_TOKEN", None)
+
+    def tearDown(self):
+        merge_index.CATALOG_DIR = self._orig_catalog_dir
+        if self._orig_token is not None:
+            os.environ["GITHUB_TOKEN"] = self._orig_token
+        else:
+            os.environ.pop("GITHUB_TOKEN", None)
+
+    def _write_plugins(self, entries):
+        path = os.path.join(self.tmpdir, "plugins", "index.json")
+        with open(path, "w") as f:
+            json.dump(entries, f)
+
+    def _read_output(self):
+        with open(os.path.join(self.tmpdir, "index.json")) as f:
+            return json.load(f)
+
+    @staticmethod
+    def _plugin(id, *, repo, sub="", verified=True):
+        """Build a fully install-valid plugin entry pointing at ``repo``.
+
+        ``sub`` appends a /tree/HEAD/<sub> monorepo sub-path to the source_url.
+        """
+        url = f"https://github.com/{repo}"
+        if sub:
+            url = f"{url}/tree/HEAD/{sub}"
+        e = _make_entry(id, type="plugin", source_url=url)
+        e["install"] = {
+            "method": "plugin_marketplace",
+            "plugin_name": id,
+            "marketplace_repo": repo,
+            "marketplace_name": id,
+            "marketplace_verified": verified,
+            "marketplace": repo,
+        }
+        return e
+
+    def _run(self, fetcher, *, verify=True):
+        """Run merge() with the manifest fetcher injected (or default path).
+
+        When ``fetcher`` is not None it's injected via patching
+        _build_plugin_manifest_fetcher (bypassing the token check). When None,
+        the real builder runs (no token in env → fail-open).
+        """
+        patches = [
+            unittest.mock.patch("merge_index.enrich_entries", side_effect=lambda x: x),
+            unittest.mock.patch("merge_index.apply_governance", side_effect=lambda x: x),
+        ]
+        if fetcher is not None:
+            patches.append(
+                unittest.mock.patch(
+                    "merge_index._build_plugin_manifest_fetcher",
+                    return_value=fetcher,
+                )
+            )
+        with patches[0], patches[1]:
+            if fetcher is not None:
+                with patches[2]:
+                    merge_index.merge(verify_plugin_manifest=verify)
+            else:
+                merge_index.merge(verify_plugin_manifest=verify)
+        return self._read_output()
+
+    def test_repo_with_plugin_json_kept(self):
+        """is_plugin=True, fetch_error=None → entry retained."""
+        fetcher = _FakeFetcher(
+            {"anthropics/claude-plugins-official": _FakeLayout(is_plugin=True)}
+        )
+        self._write_plugins(
+            [self._plugin("good", repo="anthropics/claude-plugins-official")]
+        )
+        result = self._run(fetcher)
+        ids = {r["id"] for r in result if r.get("type") == "plugin"}
+        self.assertEqual(ids, {"good"})
+
+    def test_repo_without_plugin_json_dropped(self):
+        """is_plugin=False, fetch_error=None → entry dropped."""
+        fetcher = _FakeFetcher(
+            {"someorg/skills-marketplace": _FakeLayout(is_plugin=False)}
+        )
+        self._write_plugins(
+            [self._plugin("phantom", repo="someorg/skills-marketplace")]
+        )
+        with self.assertLogs("utils", level="WARNING") as cm:
+            result = self._run(fetcher)
+        ids = {r["id"] for r in result if r.get("type") == "plugin"}
+        self.assertEqual(ids, set())
+        self.assertTrue(
+            any(
+                "no .claude-plugin/plugin.json" in line and "phantom" in line
+                for line in cm.output
+            ),
+            f"Expected drop WARNING for phantom; got: {cm.output}",
+        )
+
+    def test_tree_api_error_keeps_entry(self):
+        """is_plugin=False but fetch_error set (Tree API wobble) → keep for retry."""
+        fetcher = _FakeFetcher(
+            {"flaky/repo": _FakeLayout(is_plugin=False, fetch_error="503")}
+        )
+        self._write_plugins([self._plugin("flaky", repo="flaky/repo")])
+        result = self._run(fetcher)
+        ids = {r["id"] for r in result if r.get("type") == "plugin"}
+        self.assertEqual(ids, {"flaky"}, "Tree API error must NOT drop the entry")
+
+    def test_detect_raises_keeps_entry(self):
+        """detect_plugin_layout raising any exception → keep (fail-open)."""
+        fetcher = _FakeFetcher({"boom/repo": RuntimeError("kaboom")})
+        self._write_plugins([self._plugin("boom", repo="boom/repo")])
+        result = self._run(fetcher)
+        ids = {r["id"] for r in result if r.get("type") == "plugin"}
+        self.assertEqual(ids, {"boom"})
+
+    def test_verify_flag_false_skips_gate(self):
+        """verify_plugin_manifest=False → no fetcher built, all entries kept."""
+        # Even though this repo has no plugin.json, the gate is off so it stays.
+        self._write_plugins(
+            [self._plugin("kept", repo="someorg/skills-marketplace")]
+        )
+        # fetcher=None + verify=False: _build_plugin_manifest_fetcher is never
+        # even reached for fetch; assert the entry survives.
+        result = self._run(None, verify=False)
+        ids = {r["id"] for r in result if r.get("type") == "plugin"}
+        self.assertEqual(ids, {"kept"})
+
+    def test_no_github_token_fail_open(self):
+        """No GITHUB_TOKEN → fetcher is None → gate skipped, all entries kept."""
+        # GITHUB_TOKEN already popped in setUp; run the REAL builder path.
+        self._write_plugins(
+            [self._plugin("kept", repo="someorg/skills-marketplace")]
+        )
+        result = self._run(None, verify=True)
+        ids = {r["id"] for r in result if r.get("type") == "plugin"}
+        self.assertEqual(ids, {"kept"})
+
+    def test_non_github_source_url_kept(self):
+        """Unparseable / non-GitHub source_url → cannot verify → keep."""
+        fetcher = _FakeFetcher({})
+        e = self._plugin("gitlab", repo="someorg/thing")
+        e["source_url"] = "https://gitlab.com/someorg/thing"
+        self._write_plugins([e])
+        result = self._run(fetcher)
+        ids = {r["id"] for r in result if r.get("type") == "plugin"}
+        self.assertEqual(ids, {"gitlab"})
+        self.assertEqual(fetcher.calls, [], "Non-GitHub URL must not be probed")
+
+    def test_external_injected_entry_also_gated(self):
+        """A type=plugin entry with NO sync-stage stamp (mimicking the
+        github-trending external injection) is gated purely on source_url +
+        repo contents — the gate does not look at any sync marker."""
+        fetcher = _FakeFetcher(
+            {"trendyorg/cool-sdk": _FakeLayout(is_plugin=False)}
+        )
+        # No bundle / sync fields — just install-valid + source_url, like an
+        # entry merged in from the externally-injected github-trending source.
+        injected = self._plugin("injected", repo="trendyorg/cool-sdk")
+        injected.pop("source", None)
+        injected.pop("last_synced", None)
+        self._write_plugins([injected])
+        result = self._run(fetcher)
+        ids = {r["id"] for r in result if r.get("type") == "plugin"}
+        self.assertEqual(ids, set(), "Externally-injected non-plugin must be dropped")
+
+    def test_layout_cache_collapses_duplicate_repo_probes(self):
+        """Two entries from the same (repo, ref, sub) → detect called once."""
+        fetcher = _FakeFetcher(
+            {"dup/repo": _FakeLayout(is_plugin=True)}
+        )
+        self._write_plugins(
+            [
+                self._plugin("a", repo="dup/repo"),
+                self._plugin("b", repo="dup/repo"),
+            ]
+        )
+        result = self._run(fetcher)
+        ids = {r["id"] for r in result if r.get("type") == "plugin"}
+        self.assertEqual(ids, {"a", "b"})
+        probes = [c for c in fetcher.calls if c[0] == "dup/repo"]
+        self.assertEqual(
+            len(probes), 1,
+            f"Expected one Tree probe for dup/repo (cache hit on second); got {probes}",
+        )
+
+    def test_fetcher_closed_after_gate(self):
+        """The gate must close the fetcher (free its httpx.Client) when done."""
+        fetcher = _FakeFetcher({"some/repo": _FakeLayout(is_plugin=True)})
+        self._write_plugins([self._plugin("ok", repo="some/repo")])
+        self._run(fetcher)
+        self.assertTrue(
+            fetcher.closed, "Manifest fetcher must be closed after the gate runs"
+        )
+
+    def test_fetcher_closed_even_when_probe_raises_in_loop(self):
+        """A failure inside the validation loop still closes the fetcher.
+
+        ``_repo_has_plugin_manifest`` is itself fail-open, so to force the loop
+        to actually propagate an error we patch it to raise — the finally block
+        must still close the fetcher (no leaked httpx.Client).
+        """
+        fetcher = _FakeFetcher({"some/repo": _FakeLayout(is_plugin=True)})
+        self._write_plugins([self._plugin("ok", repo="some/repo")])
+
+        with unittest.mock.patch(
+            "merge_index.enrich_entries", side_effect=lambda x: x
+        ), unittest.mock.patch(
+            "merge_index.apply_governance", side_effect=lambda x: x
+        ), unittest.mock.patch(
+            "merge_index._build_plugin_manifest_fetcher", return_value=fetcher
+        ), unittest.mock.patch(
+            "merge_index._repo_has_plugin_manifest",
+            side_effect=RuntimeError("boom in loop"),
+        ):
+            with self.assertRaises(RuntimeError):
+                merge_index.merge(verify_plugin_manifest=True)
+        self.assertTrue(
+            fetcher.closed,
+            "Fetcher must be closed via finally even when the loop raises",
+        )
 
 
 if __name__ == "__main__":

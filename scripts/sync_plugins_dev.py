@@ -371,8 +371,13 @@ def _build_bundle_from_layout_dev(
         )
         return zero_bundle
 
-    # Legitimate "no plugin.json" → trust the API hint.
-    return fallback_bundle
+    # Legitimate "no plugin.json": the layout detector ran cleanly (no Tree API
+    # error) and found no .claude-plugin/plugin.json anywhere in the repo. The
+    # dev registry lists it as a "plugin", but with no installable manifest the
+    # downstream marketplace build (build.py) marks it invalid — it would become
+    # a phantom catalog entry: visible in the store, un-installable from the
+    # marketplace mirror. Mark it so the caller drops the entry entirely.
+    return {**fallback_bundle, "no_plugin_manifest": True}
 
 
 def _entry_from_plugin(
@@ -462,6 +467,21 @@ def _entry_from_plugin(
         logger.info(
             "Skipping marketplace shell %s (plugin=%s) — nested plugins must "
             "come through separate upstream entries.",
+            git_url, name,
+        )
+        return None
+
+    # No .claude-plugin/plugin.json anywhere in the repo — the layout detector
+    # confirmed this (distinct from a transient Tree API failure, which keeps a
+    # zero bundle for retry). The dev registry lists it as a "plugin", but it
+    # has no installable manifest, so it cannot be served by the marketplace
+    # mirror. Emitting it would create a phantom entry (visible in the store,
+    # un-installable). Drop it; skills shipped by such repos belong in the
+    # skills catalog, not here.
+    if bundle.get("no_plugin_manifest"):
+        logger.info(
+            "Skipping plugin %s (plugin=%s): no .claude-plugin/plugin.json in "
+            "repo — not an installable plugin.",
             git_url, name,
         )
         return None

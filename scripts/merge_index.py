@@ -1092,7 +1092,117 @@ def _load_queue_state(queue_state_path: str) -> dict[str, Any]:
         return {}
 
 
-def merge(skip_enrichment: bool = False):
+def _build_plugin_manifest_fetcher(log=logger):
+    """Construct a ``PluginContentFetcher`` for the central plugin.json gate.
+
+    Returns ``None`` (fail-open — the gate is then skipped) when:
+
+      * ``GITHUB_TOKEN`` is absent from the environment. The Tree API is rate
+        limited to 60 unauthenticated req/h, far too low for a full catalog
+        rebuild, so without a token we must not run the gate (every probe would
+        429 and we'd false-drop installable plugins).
+      * The fetcher module can't be imported or the constructor raises.
+
+    Any of these → log a warning and return ``None`` so the caller keeps all
+    plugin entries (defense-in-depth lives in the sync stage too).
+    """
+    if not os.environ.get("GITHUB_TOKEN"):
+        log.warning(
+            "Plugin manifest gate: GITHUB_TOKEN not set; skipping "
+            ".claude-plugin/plugin.json existence check (fail-open, keeping all "
+            "plugin entries)"
+        )
+        return None
+    try:
+        # merge_index already does sys.path.insert(0, dirname(__file__)) above,
+        # so the package and the sibling-script paths are both importable here.
+        # Mirror the try/except dual-import style used at the top of this module
+        # (package-relative first, flat script path second).
+        try:
+            from ai_resource_eval.fetcher.plugin import PluginContentFetcher
+        except ImportError:
+            from ai_resource_eval.fetcher import PluginContentFetcher
+        return PluginContentFetcher()
+    except Exception as exc:  # noqa: BLE001 - never let the gate break a rebuild
+        log.warning(
+            "Plugin manifest gate: could not construct PluginContentFetcher "
+            "(%s); skipping check (fail-open, keeping all plugin entries)",
+            exc,
+        )
+        return None
+
+
+def _parse_plugin_source_url(source_url: str):
+    """Parse ``source_url`` into ``(repo, ref, sub)`` via sync_plugins_dev.
+
+    Reuses ``sync_plugins_dev._parse_git_url_for_layout`` (handles
+    ``https://github.com/owner/repo[/tree/<ref>/<sub>]``). Returns ``None`` for
+    non-GitHub / unparseable URLs. The dual import mirrors merge_index's own
+    package-vs-flat import handling so it works both as ``python merge_index.py``
+    and as ``scripts.merge_index``.
+    """
+    try:
+        from .sync_plugins_dev import _parse_git_url_for_layout
+    except ImportError:
+        from sync_plugins_dev import _parse_git_url_for_layout
+    return _parse_git_url_for_layout(source_url)
+
+
+def _repo_has_plugin_manifest(entry, fetcher, cache, log=logger) -> bool:
+    """Return True if the entry's repo contains ``.claude-plugin/plugin.json``.
+
+    Fail-open at every uncertain step — only returns False when we have a clean
+    Tree fetch that confirmed the manifest is genuinely absent:
+
+      * ``fetcher is None`` (gate disabled / no token)        → True (keep)
+      * ``source_url`` not parseable as GitHub                → True (keep)
+      * ``detect_plugin_layout`` raises                       → True (keep)
+      * ``layout.fetch_error is not None`` (Tree API wobble)  → True (keep, retry next run)
+      * otherwise                                             → bool(layout.is_plugin)
+
+    Results are memoised in ``cache`` keyed by ``(repo, ref, sub)`` so a
+    monorepo / repeated repo is probed at most once.
+    """
+    if fetcher is None:
+        return True
+
+    source_url = entry.get("source_url") or ""
+    target = _parse_plugin_source_url(source_url)
+    if target is None:
+        # Non-GitHub or unparseable source — we can't verify, so keep it.
+        return True
+
+    repo, ref, sub = target
+    cache_key = (repo, ref, sub)
+    if cache_key in cache:
+        return cache[cache_key]
+
+    try:
+        layout = fetcher.detect_plugin_layout(repo, sub, ref=ref)
+    except Exception as exc:  # noqa: BLE001 - any detection error → keep (fail-open)
+        log.warning(
+            "Plugin manifest gate: detect_plugin_layout raised for %s "
+            "(repo=%s ref=%s sub=%s): %s; keeping entry id=%s (fail-open)",
+            source_url, repo, ref, sub, exc, entry.get("id"),
+        )
+        # Do NOT cache transient failures — let the next entry/run retry.
+        return True
+
+    if layout.fetch_error is not None:
+        log.warning(
+            "Plugin manifest gate: Tree API error for %s (repo=%s ref=%s "
+            "sub=%s, error=%s); keeping entry id=%s for retry",
+            source_url, repo, ref, sub, layout.fetch_error, entry.get("id"),
+        )
+        # Transient — not a confirmed "no manifest"; do not cache.
+        return True
+
+    result = bool(layout.is_plugin)
+    cache[cache_key] = result
+    return result
+
+
+def merge(skip_enrichment: bool = False, verify_plugin_manifest: bool = True):
     """Merge all source indexes into catalog/index.json.
 
     Args:
@@ -1103,6 +1213,14 @@ def merge(skip_enrichment: bool = False):
             placeholder from a missing field. Governance still runs in
             health-only mode (no LLM-derived final_score), assigning safe
             defaults (final_score=0, decision="review").
+        verify_plugin_manifest: When True (default), run the central
+            plugin.json existence gate — for every ``type=plugin`` entry that
+            already passed the install-field check, probe its repo via the
+            GitHub Tree API and drop it when ``.claude-plugin/plugin.json`` is
+            genuinely absent (some sources mis-tag skills-marketplace / MCP /
+            SDK repos as plugins). Fail-open: requires ``GITHUB_TOKEN`` and
+            keeps entries on any Tree API wobble. Pass False to disable
+            (tests / offline rebuilds).
     """
     all_entries = []
 
@@ -1190,28 +1308,69 @@ def merge(skip_enrichment: bool = False):
     # required by the install command (added by fix-plugin-marketplace-fields).
     # `marketplace_name` may be null (manifest had no `name` field), so it's not
     # required here — `marketplace_verified=False` covers that case.
+    #
+    # Central plugin.json existence gate: some upstream sources mis-tag repos
+    # that are NOT installable Claude-Code plugins (skills-marketplace repos /
+    # MCP servers / SDKs) as ``type=plugin``. Because the mis-tagging spans
+    # several sources — including github-trending, which is injected from
+    # outside this repo and carries no sync-stage stamp — the only place to
+    # catch them all uniformly is here, after every source has merged. This
+    # gate looks ONLY at source_url + actual repo contents, so it does not
+    # depend on any sync-stamped marker. Fail-open (see helpers above): runs
+    # only when a GITHUB_TOKEN-backed fetcher is available, and keeps any entry
+    # on a Tree API wobble.
+    manifest_fetcher = (
+        _build_plugin_manifest_fetcher(logger) if verify_plugin_manifest else None
+    )
+    layout_cache: dict[tuple, bool] = {}
     plugin_validated: list = []
     plugin_dropped = 0
-    for entry in deduped:
-        if entry.get("type") == "plugin":
-            install = entry.get("install") or {}
-            missing = []
-            if not isinstance(install.get("marketplace_repo"), str) or not install.get("marketplace_repo"):
-                missing.append("marketplace_repo")
-            if not isinstance(install.get("marketplace_verified"), bool):
-                missing.append("marketplace_verified")
-            if missing:
+    manifest_dropped = 0
+    try:
+        for entry in deduped:
+            if entry.get("type") == "plugin":
+                install = entry.get("install") or {}
+                missing = []
+                if not isinstance(install.get("marketplace_repo"), str) or not install.get("marketplace_repo"):
+                    missing.append("marketplace_repo")
+                if not isinstance(install.get("marketplace_verified"), bool):
+                    missing.append("marketplace_verified")
+                if missing:
+                    logger.warning(
+                        "Dropping plugin entry id=%s (missing install fields: %s)",
+                        entry.get("id"), ", ".join(missing),
+                    )
+                    plugin_dropped += 1
+                    continue
+                # Second, independent gate: confirm the repo actually ships a
+                # .claude-plugin/plugin.json (skipped when fetcher is None).
+                if not _repo_has_plugin_manifest(entry, manifest_fetcher, layout_cache, logger):
+                    logger.warning(
+                        "Dropping plugin entry id=%s (no .claude-plugin/plugin.json in repo)",
+                        entry.get("id"),
+                    )
+                    manifest_dropped += 1
+                    continue
+            plugin_validated.append(entry)
+    finally:
+        # Always release the fetcher's httpx.Client, even if the loop raised.
+        if manifest_fetcher is not None:
+            try:
+                manifest_fetcher.close()
+            except Exception as exc:  # noqa: BLE001 - cleanup must never raise
                 logger.warning(
-                    "Dropping plugin entry id=%s (missing install fields: %s)",
-                    entry.get("id"), ", ".join(missing),
+                    "Plugin manifest gate: error closing PluginContentFetcher: %s",
+                    exc,
                 )
-                plugin_dropped += 1
-                continue
-        plugin_validated.append(entry)
     if plugin_dropped:
         logger.info(
             "Plugin schema validator dropped %d entries missing required install fields",
             plugin_dropped,
+        )
+    if manifest_dropped:
+        logger.info(
+            "Plugin manifest gate dropped %d entries with no .claude-plugin/plugin.json in repo",
+            manifest_dropped,
         )
     deduped = plugin_validated
 
@@ -1513,8 +1672,22 @@ def main(argv: list[str] | None = None) -> None:
             "so a downstream aggregate job can fill it in."
         ),
     )
+    parser.add_argument(
+        "--no-verify-plugin-manifest",
+        action="store_true",
+        default=False,
+        help=(
+            "Disable the central plugin.json existence gate (which drops "
+            "type=plugin entries whose repo has no .claude-plugin/plugin.json). "
+            "The gate is on by default but already fails open when GITHUB_TOKEN "
+            "is absent; use this to force-skip it (e.g. offline rebuilds)."
+        ),
+    )
     args = parser.parse_args(argv)
-    merge(skip_enrichment=args.skip_enrichment)
+    merge(
+        skip_enrichment=args.skip_enrichment,
+        verify_plugin_manifest=not args.no_verify_plugin_manifest,
+    )
 
 
 if __name__ == "__main__":
