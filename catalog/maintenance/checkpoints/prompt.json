@@ -1,5 +1,5 @@
 {
-  "completed_count": 615,
+  "completed_count": 618,
   "completed_entry_ids": [
     "12-month-ai-and-computer-vision-roadmap-for-defense-applications-prompt",
     "2046-puzzle-game-challenge-prompt",
@@ -454,6 +454,8 @@
     "rpaagentic-ai-process-developer-portfolio-design-for-claude-prompt",
     "saas-analytics-dashboard-knowledge-anchored-frontend-prompt-prompt",
     "saas-security-audit-owasp-top-10-multi-tenant-isolation-review-prompt",
+    "sabarudin-instructions-framework-prompt",
+    "sabarudin-system-executive-architecture-prompt",
     "sap-abap-carbon-footprint-module-graduation-project-documentation-prompt",
     "school-report-management-system-for-smp-negeri-7-sentani-prompt",
     "scientific-calculator-prompt",
@@ -580,6 +582,7 @@
     "version-review-prompt",
     "vibe-coding-master-prompt",
     "vibe-coding-with-commands-and-skills-prompt",
+    "vibe-coding-with-modern-designs-and-seo-prompt",
     "video-extractor-prompt-prompt",
     "video-review-and-teacher-prompt",
     "visual-media-analysis-expert-agent-role-prompt",
@@ -617,7 +620,7 @@
     "编写正则表达式-wprompt",
     "资深编程专家-can-wprompt"
   ],
-  "last_committed_at": "2026-06-23T12:36:42.476173+00:00",
+  "last_committed_at": "2026-06-25T12:31:35.834443+00:00",
   "remaining_entry_ids": [
     "claude-proje-çalışma-promptu-prompt",
     "plataforma-escopo-bugbouty-cyber-hunter-lab-prompt",

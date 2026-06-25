@@ -1,12 +1,12 @@
 <div align="center">
 <img src="assets/logo.png" alt="Everything AI Coding logo" width="600" />
-<p><strong><!-- README_APPROX_COUNT:START -->23000<!-- README_APPROX_COUNT:END -->+ 精选 AI 编程资源 — 浏览、评估、安装</strong><br/>MCP Servers · Skills · Rules · Prompts · Plugins</p>
+<p><strong><!-- README_APPROX_COUNT:START -->23800<!-- README_APPROX_COUNT:END -->+ 精选 AI 编程资源 — 浏览、评估、安装</strong><br/>MCP Servers · Skills · Rules · Prompts · Plugins</p>
 
 <p>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/stargazers"><img src="https://img.shields.io/github/stars/zgsm-ai/everything-ai-coding?style=flat-square&color=4A90D9" alt="Stars" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zgsm-ai/everything-ai-coding?style=flat-square" alt="License" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/commits/main"><img src="https://img.shields.io/github/last-commit/zgsm-ai/everything-ai-coding?style=flat-square" alt="Last Commit" /></a>
-  <img src="https://img.shields.io/badge/resources-23031-2ECC71?style=flat-square" alt="Resources" />
+  <img src="https://img.shields.io/badge/resources-23806-2ECC71?style=flat-square" alt="Resources" />
 </p>
 
 <p>
@@ -34,17 +34,17 @@ Everything AI Coding 是一个**持续更新的知识库**，从 9+ 个上游源
 <a id="knowledge-base"></a>
 ## 📚 知识库
 
-### [🔌 MCP 服务器](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->7611<!-- README_COUNT_MCP:END --> 个条目
+### [🔌 MCP 服务器](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->7825<!-- README_COUNT_MCP:END --> 个条目
 
 将 AI Agent 连接到外部工具、数据库和服务的 Model Context Protocol 服务器。
 
 <!-- README_TOP5_MCP:START -->
 | 名称 | ⭐ Stars | 评分 | 描述 |
 |------|----------|------|------|
-| [upstash/context7](https://github.com/upstash/context7) | 57.9k | 98 | 实时注入最新库文档和代码示例到 LLM 上下文的 MCP 服务器，消除 API 幻觉。 |
-| [Headroom](https://github.com/chopratejas/headroom) | 47.8k | 98 | AI 智能体上下文压缩层，减少 60-95% token 使用，支持可逆压缩与跨智能体内存共享。 |
-| [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 44.2k | 98 | 谷歌官方 MCP 服务器，让 AI 编程代理直接操控 Chrome DevTools 进行调试、性能分析和浏览器自动化。 |
-| [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | 34.2k | 98 | 微软官方 MCP 服务器，通过 Playwright 让 AI 精确控制浏览器进行网页自动化和数据抓取。 |
+| [upstash/context7](https://github.com/upstash/context7) | 58.0k | 98 | 实时注入最新库文档和代码示例到 LLM 上下文的 MCP 服务器，消除 API 幻觉。 |
+| [Headroom](https://github.com/chopratejas/headroom) | 50.4k | 98 | AI 智能体上下文压缩层，减少 60-95% token 使用，支持可逆压缩与跨智能体内存共享。 |
+| [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 44.4k | 98 | 谷歌官方 MCP 服务器，让 AI 编程代理直接操控 Chrome DevTools 进行调试、性能分析和浏览器自动化。 |
+| [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | 34.3k | 98 | 微软官方 MCP 服务器，通过 Playwright 让 AI 精确控制浏览器进行网页自动化和数据抓取。 |
 | [googleapis/genai-toolbox](https://github.com/googleapis/genai-toolbox) | 15.7k | 98 | 一款开源MCP服务器，可将AI代理和IDE连接至企业数据库，助力AI辅助编程工作流。 |
 <!-- README_TOP5_MCP:END -->
 
@@ -52,18 +52,18 @@ Everything AI Coding 是一个**持续更新的知识库**，从 9+ 个上游源
 
 ---
 
-### [🎯 Skills 技能](./catalog/skills/) — <!-- README_COUNT_SKILL:START -->10360<!-- README_COUNT_SKILL:END --> 个条目
+### [🎯 Skills 技能](./catalog/skills/) — <!-- README_COUNT_SKILL:START -->11605<!-- README_COUNT_SKILL:END --> 个条目
 
 AI 编程助手的可复用能力和工作流。
 
 <!-- README_TOP5_SKILL:START -->
 | 名称 | 来源 | 评分 | 描述 |
 |------|------|------|------|
+| [bug-triage](https://github.com/AgentWrapper/agent-orchestrator/tree/main/skills/bug-triage) | github-trending | 96 | 针对 ReverbCode 仓库的错误分类技能，包含重复搜索、创建完整上下文的 GitHub issue 及推送修复 PR。 |
 | [a-stock-data](https://github.com/simonlin1212/a-stock-data/tree/main/) | github-trending | 96 | A股全栈数据工具包，覆盖行情、研报、信号、资金面等七层数据，内嵌全部调用代码。 |
 | [acpx](https://github.com/openclaw/acpx/tree/main/skills/acpx) | github-trending | 96 | 一个用于通过 ACP 编排 AI 编码代理的无头 CLI，支持会话管理、队列提示和定义多代理工作流。 |
 | [crabbox](https://github.com/openclaw/acpx/tree/main/.agents/skills/crabbox) | github-trending | 96 | 用于远程Linux验证的CLI包装器，支持AWS、Blacksmith Testbox和SSH，用于CI/CD测试和端到端验证。 |
 | [make-latex-model](https://github.com/huangwb8/ChineseResearchLaTeX/tree/main/skills/make-latex-model) | github-trending | 96 | 用于 ChineseResearchLaTeX 项目中 LaTeX 模板的高保真对齐、样式优化和像素级比对的专业 AI 技能。 |
-| [pi-subagents](https://github.com/nicobailon/pi-subagents/tree/main/skills/pi-subagents) | github-trending | 96 | 一个用于编排 AI 辅助编码工作流的技能，通过子代理实现委派、审查、实现和协调。 |
 <!-- README_TOP5_SKILL:END -->
 
 [浏览全部 Skills →](./catalog/skills/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
@@ -88,7 +88,7 @@ AI 编程助手的可复用能力和工作流。
 
 ---
 
-### [💡 Prompts 提示词](./catalog/prompts/) — <!-- README_COUNT_PROMPT:START -->620<!-- README_COUNT_PROMPT:END --> 个条目
+### [💡 Prompts 提示词](./catalog/prompts/) — <!-- README_COUNT_PROMPT:START -->623<!-- README_COUNT_PROMPT:END --> 个条目
 
 面向开发者的提示词模板，覆盖常见编码场景。
 
@@ -106,7 +106,7 @@ AI 编程助手的可复用能力和工作流。
 
 ---
 
-### [🧩 Plugins 插件](./catalog/plugins/) — <!-- README_COUNT_PLUGIN:START -->1855<!-- README_COUNT_PLUGIN:END --> 个条目
+### [🧩 Plugins 插件](./catalog/plugins/) — <!-- README_COUNT_PLUGIN:START -->1011<!-- README_COUNT_PLUGIN:END --> 个条目
 
 打包发布的市场插件（含 skills + commands + agents + MCP servers）。
 
@@ -117,9 +117,9 @@ AI 编程助手的可复用能力和工作流。
 |------|------|------|------|
 | [superpowers](https://github.com/obra/superpowers.git) | Anthropic 官方 | 100 | 教授 Claude Code 系统化开发工作流，包括测试驱动开发、调试、代码审查和子代理驱动开发的详细技能文档。 |
 | [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp.git) | Anthropic 官方 | 100 | Chrome DevTools MCP 服务器，供 AI 编程代理通过 CLI 和 MCP 工具调试、自动化和分析网页。 |
+| [hyperframes](https://github.com/heygen-com/hyperframes.git) | Anthropic 官方 | 100 | HyperFrames 让开发者用 HTML/CSS/JS 编写确定性视频合成，支持 GSAP 动画、字幕、语音合成和 WebGL 特效。 |
 | [claude-code-setup](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/claude-code-setup) | Anthropic 官方 | 100 | 分析代码库并推荐定制的 Claude Code 自动化，如钩子、技能、MCP 服务器和子代理。 |
 | [mcp-tunnels](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/mcp-tunnels) | Anthropic 官方 | 100 | Claude插件，通过Anthropic隧道连接私有MCP服务器，提供Docker Compose快速启动。 |
-| [project-artifact](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/project-artifact) | Anthropic 官方 | 100 | 生成并发布可共享的实时项目状态页面，支持增量更新，作为 claude.ai 工件。 |
 <!-- README_TOP5_PLUGIN:END -->
 
 [浏览全部 Plugins →](./catalog/plugins/) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=plugin)

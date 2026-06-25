@@ -19,7 +19,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "analyze-issue-rule21",
@@ -42,7 +42,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "backend-dev-rule21",
@@ -67,7 +67,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "bug-fix-rule21",
@@ -89,7 +89,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "changelog-management-rule21",
@@ -111,7 +111,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "code-quality-check-rule21",
@@ -133,7 +133,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "code-review-rule21",
@@ -155,7 +155,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "commit-rule21",
@@ -177,7 +177,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "context-loader-rule21",
@@ -199,7 +199,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "create-docs-rule21",
@@ -221,7 +221,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "custom-command-builder-rule21",
@@ -243,7 +243,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "feedback-enhanced-rule21",
@@ -265,7 +265,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "frontend-dev-rule21",
@@ -290,7 +290,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "implement-task-rule21",
@@ -312,7 +312,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "intelligent-project-management-rule21",
@@ -334,7 +334,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "intelligent-workflow-orchestration-rule21",
@@ -356,7 +356,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "mcp-debugging-enhanced-rule21",
@@ -378,7 +378,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "mcp-intelligent-strategy-rule21",
@@ -400,7 +400,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "mcp-unified-management-rule21",
@@ -422,7 +422,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "mcp-zero-config-detection-rule21",
@@ -444,7 +444,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "mermaid-rule21",
@@ -466,7 +466,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "root-cause-analysis-rule21",
@@ -488,7 +488,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "systematic-debugging-rule21",
@@ -510,7 +510,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "ai-agent-intelligence-core-rule21",
@@ -532,7 +532,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "ai-ethical-boundaries-rule21",
@@ -554,7 +554,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "ai-thinking-protocol-rule21",
@@ -576,7 +576,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "audit-logging-system-rule21",
@@ -598,7 +598,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "backend-rules-rule21",
@@ -620,7 +620,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "brain-recorder-integration-rule21",
@@ -642,7 +642,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "context-recorder-advanced-rule21",
@@ -664,7 +664,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "context-recorder-core-rule21",
@@ -686,7 +686,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "context-recorder-edge-cases-rule21",
@@ -708,7 +708,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "context-recorder-system-rule21",
@@ -730,7 +730,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "context-recorder-templates-rule21",
@@ -752,7 +752,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "context-systems-integration-rule21",
@@ -774,7 +774,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "context7-preload-standard-rule21",
@@ -796,7 +796,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "disaster-recovery-plan-rule21",
@@ -818,7 +818,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "dynamic-thinking-depth-regulation-rule21",
@@ -840,7 +840,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "error-recovery-system-rule21",
@@ -862,7 +862,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "file-generation-safety-rules-rule21",
@@ -884,7 +884,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "frontend-rules-rule21",
@@ -906,7 +906,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "human-ai-collaboration-optimization-rule21",
@@ -928,7 +928,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "intelligent-recommendation-engine-rule21",
@@ -950,7 +950,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "knowledge-creation-discovery-framework-rule21",
@@ -972,7 +972,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "memory-system-integration-rule21",
@@ -994,7 +994,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "multimodal-interaction-framework-rule21",
@@ -1016,7 +1016,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "performance-monitoring-system-rule21",
@@ -1038,7 +1038,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "permission-control-system-rule21",
@@ -1060,7 +1060,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "rule-conflict-resolution-rule21",
@@ -1082,7 +1082,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "rule-hot-reload-system-rule21",
@@ -1104,7 +1104,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "super-brain-system-rule21",
@@ -1126,7 +1126,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "system-diagnostics-rule21",
@@ -1148,7 +1148,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "system-integration-config-rule21",
@@ -1170,7 +1170,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "unified-rules-base-rule21",
@@ -1192,7 +1192,7 @@
       ]
     },
     "source": "rules-2.1-optimized",
-    "last_synced": "2026-06-23"
+    "last_synced": "2026-06-25"
   },
   {
     "id": "cospowers-integration-verification-rule-code-review-rulesreadme",
@@ -1201,7 +1201,7 @@
     "description": "Bundled rule README from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/code-review-rules/README.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1218,7 +1218,7 @@
     "source_path": "rules/code-review-rules/README.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1230,7 +1230,7 @@
     "description": "Bundled rule code-review-checklist from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/coding-standards/code-review-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1247,7 +1247,7 @@
     "source_path": "rules/coding-standards/code-review-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1259,7 +1259,7 @@
     "description": "Bundled rule code-review-error-rules from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/coding-standards/code-review-error-rules.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1276,7 +1276,7 @@
     "source_path": "rules/coding-standards/code-review-error-rules.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1288,7 +1288,7 @@
     "description": "Bundled rule go-checklist from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/coding-standards/go-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "backend",
     "tags": [
       "go"
@@ -1307,7 +1307,7 @@
     "source_path": "rules/coding-standards/go-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1319,7 +1319,7 @@
     "description": "Bundled rule python-checklist-py2-总规范 from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/coding-standards/python-checklist-py2-总规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "backend",
     "tags": [
       "python"
@@ -1338,7 +1338,7 @@
     "source_path": "rules/coding-standards/python-checklist-py2-总规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1350,7 +1350,7 @@
     "description": "Bundled rule python-checklist-py3-总规范 from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/coding-standards/python-checklist-py3-总规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "backend",
     "tags": [
       "python"
@@ -1369,7 +1369,7 @@
     "source_path": "rules/coding-standards/python-checklist-py3-总规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1381,7 +1381,7 @@
     "description": "Bundled rule shell_checklist from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/coding-standards/shell_checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1398,7 +1398,7 @@
     "source_path": "rules/coding-standards/shell_checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1410,7 +1410,7 @@
     "description": "Bundled rule 通用编码checklist from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/coding-standards/通用编码checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1427,7 +1427,7 @@
     "source_path": "rules/coding-standards/通用编码checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1439,7 +1439,7 @@
     "description": "Bundled rule README from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/commit-standards/README.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1456,7 +1456,7 @@
     "source_path": "rules/commit-standards/README.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1468,7 +1468,7 @@
     "description": "Bundled rule README from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/common/README.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1485,7 +1485,7 @@
     "source_path": "rules/common/README.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1497,7 +1497,7 @@
     "description": "Bundled rule design-01-doc-writing-standards-checklist from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/design-review/design-01-doc-writing-standards-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1514,7 +1514,7 @@
     "source_path": "rules/design-review/design-01-doc-writing-standards-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1526,7 +1526,7 @@
     "description": "Bundled rule design-02-tech-requirements-design-checklist from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/design-review/design-02-tech-requirements-design-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1543,7 +1543,7 @@
     "source_path": "rules/design-review/design-02-tech-requirements-design-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1555,7 +1555,7 @@
     "description": "Bundled rule design-03-overall-design-checklist from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/design-review/design-03-overall-design-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1572,7 +1572,7 @@
     "source_path": "rules/design-review/design-03-overall-design-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1584,7 +1584,7 @@
     "description": "Bundled rule design-04-high-level-design-checklist from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/design-review/design-04-high-level-design-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1601,7 +1601,7 @@
     "source_path": "rules/design-review/design-04-high-level-design-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1613,7 +1613,7 @@
     "description": "Bundled rule design-05-i18n-design-checklist from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/design-review/design-05-i18n-design-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1630,7 +1630,7 @@
     "source_path": "rules/design-review/design-05-i18n-design-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1642,7 +1642,7 @@
     "description": "Bundled rule design-06-never-again-principles-checklist from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/design-review/design-06-never-again-principles-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "ai-ml",
     "tags": [],
     "tech_stack": [],
@@ -1659,7 +1659,7 @@
     "source_path": "rules/design-review/design-06-never-again-principles-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1671,7 +1671,7 @@
     "description": "Bundled rule 模块设计规范 from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/design-review/模块设计规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1688,7 +1688,7 @@
     "source_path": "rules/design-review/模块设计规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1700,7 +1700,7 @@
     "description": "Bundled rule 安全 from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/dfx/安全.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1717,7 +1717,7 @@
     "source_path": "rules/dfx/安全.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1729,7 +1729,7 @@
     "description": "Bundled rule 安全需求识别检视表 from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/dfx/安全需求识别检视表.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1746,7 +1746,7 @@
     "source_path": "rules/dfx/安全需求识别检视表.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1758,7 +1758,7 @@
     "description": "Bundled rule 性能 from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/dfx/性能.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1775,7 +1775,7 @@
     "source_path": "rules/dfx/性能.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1787,7 +1787,7 @@
     "description": "Bundled rule iteration-entry-checklist from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/process/iteration-entry-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1804,7 +1804,7 @@
     "source_path": "rules/process/iteration-entry-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1816,7 +1816,7 @@
     "description": "Bundled rule iteration-exit-checklist from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/process/iteration-exit-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1833,7 +1833,7 @@
     "source_path": "rules/process/iteration-exit-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1845,7 +1845,7 @@
     "description": "Bundled rule Go单元测试规范 from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/testing-standards/Go单元测试规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "backend",
     "tags": [
       "go"
@@ -1864,7 +1864,7 @@
     "source_path": "rules/testing-standards/Go单元测试规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1876,7 +1876,7 @@
     "description": "Bundled rule Python单元测试规范 from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/testing-standards/Python单元测试规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "backend",
     "tags": [
       "python"
@@ -1895,7 +1895,7 @@
     "source_path": "rules/testing-standards/Python单元测试规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1907,7 +1907,7 @@
     "description": "Bundled rule 单元测试规范 from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/testing-standards/单元测试规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1924,7 +1924,7 @@
     "source_path": "rules/testing-standards/单元测试规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1936,7 +1936,7 @@
     "description": "Bundled rule 高级代码分析规则 from plugin cospowers-integration-verification",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin/rules/testing-standards/高级代码分析规则.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1953,7 +1953,7 @@
     "source_path": "rules/testing-standards/高级代码分析规则.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1965,7 +1965,7 @@
     "description": "Bundled rule README from plugin cospowers-requirements",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin/rules/common/README.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -1982,7 +1982,7 @@
     "source_path": "rules/common/README.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1994,7 +1994,7 @@
     "description": "Bundled rule 安全 from plugin cospowers-requirements",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin/rules/dfx/安全.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2011,7 +2011,7 @@
     "source_path": "rules/dfx/安全.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2023,7 +2023,7 @@
     "description": "Bundled rule 安全需求识别检视表 from plugin cospowers-requirements",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin/rules/dfx/安全需求识别检视表.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2040,7 +2040,7 @@
     "source_path": "rules/dfx/安全需求识别检视表.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2052,7 +2052,7 @@
     "description": "Bundled rule 性能 from plugin cospowers-requirements",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin/rules/dfx/性能.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2069,7 +2069,7 @@
     "source_path": "rules/dfx/性能.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2081,7 +2081,7 @@
     "description": "Bundled rule ai-native-doc-adaptation-checklist from plugin cospowers-requirements",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin/rules/requirement-checklists/ai-native-doc-adaptation-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "ai-ml",
     "tags": [],
     "tech_stack": [],
@@ -2098,7 +2098,7 @@
     "source_path": "rules/requirement-checklists/ai-native-doc-adaptation-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2110,7 +2110,7 @@
     "description": "Bundled rule user-requirement-dfx-baseline-checklist from plugin cospowers-requirements",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin/rules/requirement-checklists/user-requirement-dfx-baseline-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2127,7 +2127,7 @@
     "source_path": "rules/requirement-checklists/user-requirement-dfx-baseline-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2139,7 +2139,7 @@
     "description": "Bundled rule user-requirement-experience-guide-checklist from plugin cospowers-requirements",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin/rules/requirement-checklists/user-requirement-experience-guide-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2156,7 +2156,7 @@
     "source_path": "rules/requirement-checklists/user-requirement-experience-guide-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2168,7 +2168,7 @@
     "description": "Bundled rule user-requirement-planning-principles-checklist from plugin cospowers-requirements",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin/rules/requirement-checklists/user-requirement-planning-principles-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2185,7 +2185,7 @@
     "source_path": "rules/requirement-checklists/user-requirement-planning-principles-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2197,7 +2197,7 @@
     "description": "Bundled rule user-requirement-quality-standard-checklist from plugin cospowers-requirements",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin/rules/requirement-checklists/user-requirement-quality-standard-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2214,7 +2214,7 @@
     "source_path": "rules/requirement-checklists/user-requirement-quality-standard-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2226,7 +2226,7 @@
     "description": "Bundled rule 01-OPENAPI开发规范 from plugin cospowers-solution-design",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/rules/business/01-OPENAPI开发规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "backend",
     "tags": [],
     "tech_stack": [],
@@ -2243,7 +2243,7 @@
     "source_path": "rules/business/01-OPENAPI开发规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2255,7 +2255,7 @@
     "description": "Bundled rule 02-MySQL开发规范 from plugin cospowers-solution-design",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/rules/business/02-MySQL开发规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "database",
     "tags": [
       "mysql"
@@ -2274,7 +2274,7 @@
     "source_path": "rules/business/02-MySQL开发规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2286,7 +2286,7 @@
     "description": "Bundled rule API开发规范 from plugin cospowers-solution-design",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/rules/business/API开发规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "backend",
     "tags": [],
     "tech_stack": [],
@@ -2303,7 +2303,7 @@
     "source_path": "rules/business/API开发规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2315,7 +2315,7 @@
     "description": "Bundled rule I18N_规范 from plugin cospowers-solution-design",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/rules/business/I18N_规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2332,7 +2332,7 @@
     "source_path": "rules/business/I18N_规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2344,7 +2344,7 @@
     "description": "Bundled rule 日志规范 from plugin cospowers-solution-design",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/rules/business/日志规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2361,7 +2361,7 @@
     "source_path": "rules/business/日志规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2373,7 +2373,7 @@
     "description": "Bundled rule 错误码规范 from plugin cospowers-solution-design",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/rules/business/错误码规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2390,7 +2390,7 @@
     "source_path": "rules/business/错误码规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2402,7 +2402,7 @@
     "description": "Bundled rule README from plugin cospowers-solution-design",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/rules/common/README.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2419,7 +2419,7 @@
     "source_path": "rules/common/README.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2431,7 +2431,7 @@
     "description": "Bundled rule RESTful_API格式规范v3.0 from plugin cospowers-solution-design",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/rules/design-methods/RESTful_API格式规范v3.0.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "backend",
     "tags": [
       "rest-api"
@@ -2450,7 +2450,7 @@
     "source_path": "rules/design-methods/RESTful_API格式规范v3.0.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2462,7 +2462,7 @@
     "description": "Bundled rule design-01-doc-writing-standards-checklist from plugin cospowers-solution-design",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/rules/design-review/design-01-doc-writing-standards-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2479,7 +2479,7 @@
     "source_path": "rules/design-review/design-01-doc-writing-standards-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2491,7 +2491,7 @@
     "description": "Bundled rule design-02-tech-requirements-design-checklist from plugin cospowers-solution-design",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/rules/design-review/design-02-tech-requirements-design-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2508,7 +2508,7 @@
     "source_path": "rules/design-review/design-02-tech-requirements-design-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2520,7 +2520,7 @@
     "description": "Bundled rule design-03-overall-design-checklist from plugin cospowers-solution-design",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/rules/design-review/design-03-overall-design-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2537,7 +2537,7 @@
     "source_path": "rules/design-review/design-03-overall-design-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2549,7 +2549,7 @@
     "description": "Bundled rule design-04-high-level-design-checklist from plugin cospowers-solution-design",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/rules/design-review/design-04-high-level-design-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2566,7 +2566,7 @@
     "source_path": "rules/design-review/design-04-high-level-design-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2578,7 +2578,7 @@
     "description": "Bundled rule design-05-i18n-design-checklist from plugin cospowers-solution-design",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/rules/design-review/design-05-i18n-design-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2595,7 +2595,7 @@
     "source_path": "rules/design-review/design-05-i18n-design-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2607,7 +2607,7 @@
     "description": "Bundled rule design-06-never-again-principles-checklist from plugin cospowers-solution-design",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/rules/design-review/design-06-never-again-principles-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "ai-ml",
     "tags": [],
     "tech_stack": [],
@@ -2624,7 +2624,7 @@
     "source_path": "rules/design-review/design-06-never-again-principles-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2636,7 +2636,7 @@
     "description": "Bundled rule 模块设计规范 from plugin cospowers-solution-design",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/rules/design-review/模块设计规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2653,7 +2653,7 @@
     "source_path": "rules/design-review/模块设计规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2665,7 +2665,7 @@
     "description": "Bundled rule 安全 from plugin cospowers-solution-design",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/rules/dfx/安全.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2682,7 +2682,7 @@
     "source_path": "rules/dfx/安全.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2694,7 +2694,7 @@
     "description": "Bundled rule 安全需求识别检视表 from plugin cospowers-solution-design",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/rules/dfx/安全需求识别检视表.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2711,7 +2711,7 @@
     "source_path": "rules/dfx/安全需求识别检视表.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2723,7 +2723,7 @@
     "description": "Bundled rule 性能 from plugin cospowers-solution-design",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin/rules/dfx/性能.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2740,7 +2740,7 @@
     "source_path": "rules/dfx/性能.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2752,7 +2752,7 @@
     "description": "Bundled rule README from plugin cospowers-task-planning",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-task-planning-plugin/rules/common/README.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2769,7 +2769,7 @@
     "source_path": "rules/common/README.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2781,7 +2781,7 @@
     "description": "Bundled rule iteration-entry-checklist from plugin cospowers-task-planning",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-task-planning-plugin/rules/process/iteration-entry-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2798,7 +2798,7 @@
     "source_path": "rules/process/iteration-entry-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2810,7 +2810,7 @@
     "description": "Bundled rule iteration-exit-checklist from plugin cospowers-task-planning",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-task-planning-plugin/rules/process/iteration-exit-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2827,7 +2827,7 @@
     "source_path": "rules/process/iteration-exit-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2839,7 +2839,7 @@
     "description": "Bundled rule README from plugin cospowers-tdd-development",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/rules/code-review-rules/README.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2856,7 +2856,7 @@
     "source_path": "rules/code-review-rules/README.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2868,7 +2868,7 @@
     "description": "Bundled rule code-review-checklist from plugin cospowers-tdd-development",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/rules/coding-standards/code-review-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2885,7 +2885,7 @@
     "source_path": "rules/coding-standards/code-review-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2897,7 +2897,7 @@
     "description": "Bundled rule code-review-error-rules from plugin cospowers-tdd-development",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/rules/coding-standards/code-review-error-rules.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -2914,7 +2914,7 @@
     "source_path": "rules/coding-standards/code-review-error-rules.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2926,7 +2926,7 @@
     "description": "Bundled rule go-checklist from plugin cospowers-tdd-development",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/rules/coding-standards/go-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "backend",
     "tags": [
       "go"
@@ -2945,7 +2945,7 @@
     "source_path": "rules/coding-standards/go-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2957,7 +2957,7 @@
     "description": "Bundled rule python-checklist-py2-总规范 from plugin cospowers-tdd-development",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/rules/coding-standards/python-checklist-py2-总规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "backend",
     "tags": [
       "python"
@@ -2976,7 +2976,7 @@
     "source_path": "rules/coding-standards/python-checklist-py2-总规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -2988,7 +2988,7 @@
     "description": "Bundled rule python-checklist-py3-总规范 from plugin cospowers-tdd-development",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/rules/coding-standards/python-checklist-py3-总规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "backend",
     "tags": [
       "python"
@@ -3007,7 +3007,7 @@
     "source_path": "rules/coding-standards/python-checklist-py3-总规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -3019,7 +3019,7 @@
     "description": "Bundled rule shell_checklist from plugin cospowers-tdd-development",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/rules/coding-standards/shell_checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -3036,7 +3036,7 @@
     "source_path": "rules/coding-standards/shell_checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -3048,7 +3048,7 @@
     "description": "Bundled rule 通用编码checklist from plugin cospowers-tdd-development",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/rules/coding-standards/通用编码checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -3065,7 +3065,7 @@
     "source_path": "rules/coding-standards/通用编码checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -3077,7 +3077,7 @@
     "description": "Bundled rule README from plugin cospowers-tdd-development",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/rules/commit-standards/README.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -3094,7 +3094,7 @@
     "source_path": "rules/commit-standards/README.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -3106,7 +3106,7 @@
     "description": "Bundled rule README from plugin cospowers-tdd-development",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/rules/common/README.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -3123,7 +3123,7 @@
     "source_path": "rules/common/README.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -3135,7 +3135,7 @@
     "description": "Bundled rule iteration-entry-checklist from plugin cospowers-tdd-development",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/rules/process/iteration-entry-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -3152,7 +3152,7 @@
     "source_path": "rules/process/iteration-entry-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -3164,7 +3164,7 @@
     "description": "Bundled rule iteration-exit-checklist from plugin cospowers-tdd-development",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/rules/process/iteration-exit-checklist.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -3181,7 +3181,7 @@
     "source_path": "rules/process/iteration-exit-checklist.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -3193,7 +3193,7 @@
     "description": "Bundled rule Go单元测试规范 from plugin cospowers-tdd-development",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/rules/testing-standards/Go单元测试规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "backend",
     "tags": [
       "go"
@@ -3212,7 +3212,7 @@
     "source_path": "rules/testing-standards/Go单元测试规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -3224,7 +3224,7 @@
     "description": "Bundled rule Python单元测试规范 from plugin cospowers-tdd-development",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/rules/testing-standards/Python单元测试规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "backend",
     "tags": [
       "python"
@@ -3243,7 +3243,7 @@
     "source_path": "rules/testing-standards/Python单元测试规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -3255,7 +3255,7 @@
     "description": "Bundled rule 单元测试规范 from plugin cospowers-tdd-development",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/rules/testing-standards/单元测试规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -3272,7 +3272,7 @@
     "source_path": "rules/testing-standards/单元测试规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -3284,7 +3284,7 @@
     "description": "Bundled rule 高级代码分析规则 from plugin cospowers-tdd-development",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin/rules/testing-standards/高级代码分析规则.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "tooling",
     "tags": [],
     "tech_stack": [],
@@ -3301,7 +3301,7 @@
     "source_path": "rules/testing-standards/高级代码分析规则.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -3313,7 +3313,7 @@
     "description": "Bundled rule README from plugin cospowers-test-generation",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-test-generation-plugin/rules/common/README.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "testing",
     "tags": [],
     "tech_stack": [],
@@ -3330,7 +3330,7 @@
     "source_path": "rules/common/README.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -3342,7 +3342,7 @@
     "description": "Bundled rule Go单元测试规范 from plugin cospowers-test-generation",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-test-generation-plugin/rules/testing-standards/Go单元测试规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "backend",
     "tags": [
       "go"
@@ -3361,7 +3361,7 @@
     "source_path": "rules/testing-standards/Go单元测试规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -3373,7 +3373,7 @@
     "description": "Bundled rule Python单元测试规范 from plugin cospowers-test-generation",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-test-generation-plugin/rules/testing-standards/Python单元测试规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "backend",
     "tags": [
       "python"
@@ -3392,7 +3392,7 @@
     "source_path": "rules/testing-standards/Python单元测试规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -3404,7 +3404,7 @@
     "description": "Bundled rule 单元测试规范 from plugin cospowers-test-generation",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-test-generation-plugin/rules/testing-standards/单元测试规范.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "testing",
     "tags": [],
     "tech_stack": [],
@@ -3421,7 +3421,7 @@
     "source_path": "rules/testing-standards/单元测试规范.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -3433,7 +3433,7 @@
     "description": "Bundled rule 高级代码分析规则 from plugin cospowers-test-generation",
     "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-test-generation-plugin/rules/testing-standards/高级代码分析规则.md",
     "stars": 0,
-    "pushed_at": "2026-06-23T02:09:25Z",
+    "pushed_at": "2026-06-24T02:05:53Z",
     "category": "testing",
     "tags": [],
     "tech_stack": [],
@@ -3450,7 +3450,7 @@
     "source_path": "rules/testing-standards/高级代码分析规则.md",
     "final_score": 0,
     "source": "plugin-bundled-rule",
-    "last_synced": "2026-06-23",
+    "last_synced": "2026-06-25",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
