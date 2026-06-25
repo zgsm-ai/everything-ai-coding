@@ -483,17 +483,8 @@ def test_dev_sync_fills_bundle_from_layout(monkeypatch, tmp_path):
     assert "shaped:stale-hint" not in bundle["skills_namespaces"]
 
 
-def test_dev_sync_drops_entry_when_no_plugin_json(monkeypatch, tmp_path, caplog):
-    """No .claude-plugin/plugin.json anywhere → entry dropped, not emitted.
-
-    The dev registry lists such repos as "plugins", but with no installable
-    manifest they would become phantom catalog entries: visible in the store,
-    yet un-installable from the marketplace mirror (build.py marks them
-    invalid). The layout detector confirms the absence here (a clean Tree fetch
-    with no plugin.json marker — distinct from a transient Tree API failure), so
-    the sync skips the entry entirely instead of falling back to the API skills
-    hint.
-    """
+def test_dev_sync_falls_back_to_api_when_no_plugin_json(monkeypatch, tmp_path):
+    """No plugin.json at the repo root → trust the API ``skills`` hint."""
     repo = "acme/legacy"
     plugin = _make_dev_plugin(
         "legacy",
@@ -519,18 +510,16 @@ def test_dev_sync_drops_entry_when_no_plugin_json(monkeypatch, tmp_path, caplog)
     monkeypatch.setattr(spd, "PluginContentFetcher", _factory)
 
     output_path = tmp_path / "plugins" / "index.json"
-    with caplog.at_level("INFO", logger="sync_plugins_dev"):
-        rc = spd.main(["--output", str(output_path)])
+    rc = spd.main(["--output", str(output_path)])
     assert rc == 0
 
-    # The only candidate had no plugin.json → dropped → zero new entries, so the
-    # sync leaves the (never-created) output untouched.
-    entries = json.load(open(output_path)) if output_path.exists() else []
-    assert entries == []
-    assert any(
-        "no .claude-plugin/plugin.json" in rec.getMessage()
-        for rec in caplog.records
-    )
+    with open(output_path, encoding="utf-8") as f:
+        entries = json.load(f)
+    assert len(entries) == 1
+    bundle = entries[0]["bundle"]
+    # is_plugin=False → fallback to API skills hint.
+    assert bundle["skills_count"] == 2
+    assert sorted(bundle["skills_namespaces"]) == ["legacy:one", "legacy:two"]
 
 
 if __name__ == "__main__":
