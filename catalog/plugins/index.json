@@ -30503,7 +30503,7 @@
     "name": "cospowers-integration-verification",
     "type": "plugin",
     "description": "AI 驱动的集成验证插件：执行集成测试、回归验证、契约验证、发布前检查和分支收尾。",
-    "source_url": "https://github.com/costrict-plugins-repo/cospowers-integration-verification/tree/main/",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-integration-verification-plugin",
     "category": "ai-ml",
     "tags": [
       "cospowers",
@@ -30665,7 +30665,7 @@
       "plugin_root": "cospowers-integration-verification-plugin"
     },
     "manifest_completeness": 1.0,
-    "last_synced": "2026-06-25",
+    "last_synced": "2026-06-29",
     "stars": 0,
     "pushed_at": "2026-06-24T02:05:53Z",
     "version": "0.0.1",
@@ -30683,7 +30683,7 @@
     "name": "cospowers-requirements",
     "type": "plugin",
     "description": "AI 驱动的需求梳理插件：将原始想法、PRD、issue、需求变更转化为结构化需求和系统需求。",
-    "source_url": "https://github.com/costrict-plugins-repo/cospowers-requirements/tree/main/",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-requirements-plugin",
     "category": "ai-ml",
     "tags": [
       "cospowers",
@@ -30793,7 +30793,7 @@
       "plugin_root": "cospowers-requirements-plugin"
     },
     "manifest_completeness": 1.0,
-    "last_synced": "2026-06-25",
+    "last_synced": "2026-06-29",
     "stars": 0,
     "pushed_at": "2026-06-24T02:05:53Z",
     "version": "0.0.1",
@@ -30811,7 +30811,7 @@
     "name": "cospowers-solution-design",
     "type": "plugin",
     "description": "AI 驱动的方案设计插件：从需求、PRD 或现有系统上下文生成系统设计、子系统设计和 API 契约。",
-    "source_url": "https://github.com/costrict-plugins-repo/cospowers-solution-design/tree/main/",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-solution-design-plugin",
     "category": "ai-ml",
     "tags": [
       "cospowers",
@@ -30991,7 +30991,7 @@
       "plugin_root": "cospowers-solution-design-plugin"
     },
     "manifest_completeness": 1.0,
-    "last_synced": "2026-06-25",
+    "last_synced": "2026-06-29",
     "stars": 0,
     "pushed_at": "2026-06-24T02:05:53Z",
     "version": "0.0.1",
@@ -31009,7 +31009,7 @@
     "name": "cospowers-task-planning",
     "type": "plugin",
     "description": "AI 驱动的任务拆解插件：将需求或设计拆解为实现计划、任务图、里程碑和执行策略。",
-    "source_url": "https://github.com/costrict-plugins-repo/cospowers-task-planning/tree/main/",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-task-planning-plugin",
     "category": "ai-ml",
     "tags": [
       "cospowers",
@@ -31101,7 +31101,7 @@
       "plugin_root": "cospowers-task-planning-plugin"
     },
     "manifest_completeness": 1.0,
-    "last_synced": "2026-06-25",
+    "last_synced": "2026-06-29",
     "stars": 0,
     "pushed_at": "2026-06-24T02:05:53Z",
     "version": "0.0.1",
@@ -31119,7 +31119,7 @@
     "name": "cospowers-tdd-development",
     "type": "plugin",
     "description": "AI 驱动的 TDD 编码插件：基于任务、测试、issue 或 bug 执行测试优先开发、调试、代码检查和提交。",
-    "source_url": "https://github.com/costrict-plugins-repo/cospowers-tdd-development/tree/main/",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-tdd-development-plugin",
     "category": "ai-ml",
     "tags": [
       "cospowers",
@@ -31247,7 +31247,7 @@
       "plugin_root": "cospowers-tdd-development-plugin"
     },
     "manifest_completeness": 1.0,
-    "last_synced": "2026-06-25",
+    "last_synced": "2026-06-29",
     "stars": 0,
     "pushed_at": "2026-06-24T02:05:53Z",
     "version": "0.0.1",
@@ -31265,7 +31265,7 @@
     "name": "cospowers-test-generation",
     "type": "plugin",
     "description": "AI 驱动的测试生成插件：从需求、设计、计划、bug 或代码生成测试策略、测试用例和测试代码草稿。",
-    "source_url": "https://github.com/costrict-plugins-repo/cospowers-test-generation/tree/main/",
+    "source_url": "https://github.com/yhangf/csc-plugins/tree/main/cospowers-test-generation-plugin",
     "category": "testing",
     "tags": [
       "cospowers",
@@ -31369,7 +31369,7 @@
       "plugin_root": "cospowers-test-generation-plugin"
     },
     "manifest_completeness": 1.0,
-    "last_synced": "2026-06-25",
+    "last_synced": "2026-06-29",
     "stars": 0,
     "pushed_at": "2026-06-24T02:05:53Z",
     "version": "0.0.1",
