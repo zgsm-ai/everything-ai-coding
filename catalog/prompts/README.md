@@ -1,6 +1,6 @@
 # 💡 Prompts
 
-> 623 Developer-focused prompt templates for common coding tasks.
+> 629 Developer-focused prompt templates for common coding tasks.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=prompt)
 
@@ -114,7 +114,7 @@
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>Comprehensive repository analysis</strong> (164.3k★) — A structured prompt for AI-assisted comprehensive codebase a...</summary>
+<summary>⭐ <strong>Comprehensive repository analysis</strong> (164.5k★) — A structured prompt for AI-assisted comprehensive codebase a...</summary>
 
 A structured prompt for AI-assisted comprehensive codebase analysis, bug discovery, prioritization, fixing, and documentation across any technology st
 
@@ -127,7 +127,7 @@ A structured prompt for AI-assisted comprehensive codebase analysis, bug discove
 </details>
 
 <details>
-<summary>⭐ <strong>Frontend Developer Skill</strong> (164.3k★) — A detailed prompt template defining an AI persona as an elit...</summary>
+<summary>⭐ <strong>Frontend Developer Skill</strong> (164.5k★) — A detailed prompt template defining an AI persona as an elit...</summary>
 
 A detailed prompt template defining an AI persona as an elite frontend developer specializing in modern JS frameworks, responsive design, and performa
 
@@ -140,7 +140,7 @@ A detailed prompt template defining an AI persona as an elite frontend developer
 </details>
 
 <details>
-<summary>⭐ <strong>Backend Architect</strong> (164.3k★) — An AI agent prompt for designing scalable, secure backend sy...</summary>
+<summary>⭐ <strong>Backend Architect</strong> (164.5k★) — An AI agent prompt for designing scalable, secure backend sy...</summary>
 
 An AI agent prompt for designing scalable, secure backend systems, covering API design, databases, and DevOps.
 
@@ -153,7 +153,7 @@ An AI agent prompt for designing scalable, secure backend systems, covering API 
 </details>
 
 <details>
-<summary>⭐ <strong>Frontend Developer</strong> (164.3k★) — A detailed prompt to configure an AI agent as a frontend dev...</summary>
+<summary>⭐ <strong>Frontend Developer</strong> (164.5k★) — A detailed prompt to configure an AI agent as a frontend dev...</summary>
 
 A detailed prompt to configure an AI agent as a frontend development specialist for React, Vue, Angular, focusing on UI, performance, and accessibilit
 
@@ -166,7 +166,7 @@ A detailed prompt to configure an AI agent as a frontend development specialist 
 </details>
 
 <details>
-<summary>⭐ <strong>Mobile App Builder</strong> (164.3k★) — An expert AI agent prompt for building high-performance nati...</summary>
+<summary>⭐ <strong>Mobile App Builder</strong> (164.5k★) — An expert AI agent prompt for building high-performance nati...</summary>
 
 An expert AI agent prompt for building high-performance native and cross-platform mobile applications with React Native, Swift, and Kotlin.
 
@@ -179,7 +179,7 @@ An expert AI agent prompt for building high-performance native and cross-platfor
 </details>
 
 <details>
-<summary>⭐ <strong>Rapid Prototyper</strong> (164.3k★) — An AI agent prompt for rapidly building application prototyp...</summary>
+<summary>⭐ <strong>Rapid Prototyper</strong> (164.5k★) — An AI agent prompt for rapidly building application prototyp...</summary>
 
 An AI agent prompt for rapidly building application prototypes, MVPs, and demos within a 6-day cycle using modern web stacks.
 
@@ -192,7 +192,7 @@ An AI agent prompt for rapidly building application prototypes, MVPs, and demos 
 </details>
 
 <details>
-<summary>⭐ <strong>Test Automation Expert</strong> (164.3k★) — An AI agent prompt for writing, running, analyzing, and fixi...</summary>
+<summary>⭐ <strong>Test Automation Expert</strong> (164.5k★) — An AI agent prompt for writing, running, analyzing, and fixi...</summary>
 
 An AI agent prompt for writing, running, analyzing, and fixing tests after code changes to ensure suite integrity.
 
@@ -205,7 +205,7 @@ An AI agent prompt for writing, running, analyzing, and fixing tests after code 
 </details>
 
 <details>
-<summary>⭐ <strong>Production-Grade PostHog Integration for Next.js 15 (App Router)</strong> (164.3k★) — A detailed prompt for generating production-grade PostHog an...</summary>
+<summary>⭐ <strong>Production-Grade PostHog Integration for Next.js 15 (App Router)</strong> (164.5k★) — A detailed prompt for generating production-grade PostHog an...</summary>
 
 A detailed prompt for generating production-grade PostHog analytics integration code in a Next.js 15 App Router SaaS application.
 
@@ -218,7 +218,7 @@ A detailed prompt for generating production-grade PostHog analytics integration 
 </details>
 
 <details>
-<summary>⭐ <strong>Python Unit Test Generator — Comprehensive, Coverage-Mapped & Production-Ready</strong> (164.3k★) — A structured prompt template for generating comprehensive Py...</summary>
+<summary>⭐ <strong>Python Unit Test Generator — Comprehensive, Coverage-Mapped & Production-Ready</strong> (164.5k★) — A structured prompt template for generating comprehensive Py...</summary>
 
 A structured prompt template for generating comprehensive Python unit tests with coverage mapping, mocking strategies, and production-ready quality st
 
@@ -231,7 +231,7 @@ A structured prompt template for generating comprehensive Python unit tests with
 </details>
 
 <details>
-<summary>⭐ <strong>Dead Code Surgeon - Phased Codebase Audit & Cleanup Roadmap</strong> (164.3k★) — A structured prompt for an AI to conduct a phased dead-code ...</summary>
+<summary>⭐ <strong>Dead Code Surgeon - Phased Codebase Audit & Cleanup Roadmap</strong> (164.5k★) — A structured prompt for an AI to conduct a phased dead-code ...</summary>
 
 A structured prompt for an AI to conduct a phased dead-code audit, triage findings, and generate a cleanup roadmap.
 
@@ -255,4 +255,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-25*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-29*

@@ -1,6 +1,6 @@
 # 🎯 Skills
 
-> 11683 Reusable agent capabilities and workflows for AI coding assistants.
+> 12289 Reusable agent capabilities and workflows for AI coding assistants.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
@@ -114,7 +114,7 @@
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>docx</strong> (155.1k★) — A comprehensive skill for AI assistants to programmatically ...</summary>
+<summary>⭐ <strong>docx</strong> (156.4k★) — A comprehensive skill for AI assistants to programmatically ...</summary>
 
 A comprehensive skill for AI assistants to programmatically create, read, edit, and manipulate .docx Word documents using JavaScript and XML.
 
@@ -129,7 +129,7 @@ Files: `skills/docx/`
 </details>
 
 <details>
-<summary>⭐ <strong>slack-gif-creator</strong> (155.1k★) — A Python toolkit for creating animated GIFs optimized for Sl...</summary>
+<summary>⭐ <strong>slack-gif-creator</strong> (156.4k★) — A Python toolkit for creating animated GIFs optimized for Sl...</summary>
 
 A Python toolkit for creating animated GIFs optimized for Slack, providing constraints, utilities, and animation concepts.
 
@@ -144,7 +144,7 @@ Files: `skills/slack-gif-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>skill-creator</strong> (155.1k★) — A comprehensive skill for creating, testing, and optimizing ...</summary>
+<summary>⭐ <strong>skill-creator</strong> (156.4k★) — A comprehensive skill for creating, testing, and optimizing ...</summary>
 
 A comprehensive skill for creating, testing, and optimizing AI assistant skills through an iterative workflow with evaluation and benchmarking.
 
@@ -159,7 +159,7 @@ Files: `skills/skill-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>xlsx</strong> (155.1k★) — A Python skill for programmatically creating, editing, and a...</summary>
+<summary>⭐ <strong>xlsx</strong> (156.4k★) — A Python skill for programmatically creating, editing, and a...</summary>
 
 A Python skill for programmatically creating, editing, and analyzing Excel and tabular files with strict formatting and formula standards.
 
@@ -269,4 +269,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-25*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-29*

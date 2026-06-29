@@ -1,6 +1,6 @@
 # 💡 Prompts 提示词
 
-> 623 面向开发者的提示词模板，覆盖常见编码场景。
+> 629 面向开发者的提示词模板，覆盖常见编码场景。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=prompt)
 
@@ -114,7 +114,7 @@
 ## Top 10 安装指南
 
 <details>
-<summary>⭐ <strong>Comprehensive repository analysis</strong> (164.3k★) — 一个结构化提示，用于AI辅助的全面代码库分析、漏洞发现、优先级排序、修复和文档记录。</summary>
+<summary>⭐ <strong>Comprehensive repository analysis</strong> (164.5k★) — 一个结构化提示，用于AI辅助的全面代码库分析、漏洞发现、优先级排序、修复和文档记录。</summary>
 
 一个结构化提示，用于AI辅助的全面代码库分析、漏洞发现、优先级排序、修复和文档记录。
 
@@ -127,7 +127,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Frontend Developer Skill</strong> (164.3k★) — 一个详细的提示词模板，将AI定义为精通现代JS框架、响应式设计和性能优化的精英前端开发者。</summary>
+<summary>⭐ <strong>Frontend Developer Skill</strong> (164.5k★) — 一个详细的提示词模板，将AI定义为精通现代JS框架、响应式设计和性能优化的精英前端开发者。</summary>
 
 一个详细的提示词模板，将AI定义为精通现代JS框架、响应式设计和性能优化的精英前端开发者。
 
@@ -140,7 +140,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Backend Architect</strong> (164.3k★) — 用于设计可扩展、安全后端系统的AI代理提示，涵盖API设计、数据库和DevOps。</summary>
+<summary>⭐ <strong>Backend Architect</strong> (164.5k★) — 用于设计可扩展、安全后端系统的AI代理提示，涵盖API设计、数据库和DevOps。</summary>
 
 用于设计可扩展、安全后端系统的AI代理提示，涵盖API设计、数据库和DevOps。
 
@@ -153,7 +153,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Frontend Developer</strong> (164.3k★) — 一个详细的提示词，用于将AI代理配置为专注于React、Vue、Angular的前端开发专家，关注UI、性能和可访问性。</summary>
+<summary>⭐ <strong>Frontend Developer</strong> (164.5k★) — 一个详细的提示词，用于将AI代理配置为专注于React、Vue、Angular的前端开发专家，关注UI、性能和可访问性。</summary>
 
 一个详细的提示词，用于将AI代理配置为专注于React、Vue、Angular的前端开发专家，关注UI、性能和可访问性。
 
@@ -166,7 +166,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Mobile App Builder</strong> (164.3k★) — 一个用于构建高性能原生和跨平台移动应用的专家级AI代理提示，支持React Native、Swift和Kotlin。</summary>
+<summary>⭐ <strong>Mobile App Builder</strong> (164.5k★) — 一个用于构建高性能原生和跨平台移动应用的专家级AI代理提示，支持React Native、Swift和Kotlin。</summary>
 
 一个用于构建高性能原生和跨平台移动应用的专家级AI代理提示，支持React Native、Swift和Kotlin。
 
@@ -179,7 +179,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Rapid Prototyper</strong> (164.3k★) — 一个用于在6天内快速构建应用原型、MVP和演示的AI智能体提示词。</summary>
+<summary>⭐ <strong>Rapid Prototyper</strong> (164.5k★) — 一个用于在6天内快速构建应用原型、MVP和演示的AI智能体提示词。</summary>
 
 一个用于在6天内快速构建应用原型、MVP和演示的AI智能体提示词。
 
@@ -192,7 +192,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Test Automation Expert</strong> (164.3k★) — 一个用于在代码变更后编写、运行、分析和修复测试以确保测试套件完整性的AI代理提示。</summary>
+<summary>⭐ <strong>Test Automation Expert</strong> (164.5k★) — 一个用于在代码变更后编写、运行、分析和修复测试以确保测试套件完整性的AI代理提示。</summary>
 
 一个用于在代码变更后编写、运行、分析和修复测试以确保测试套件完整性的AI代理提示。
 
@@ -205,7 +205,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Production-Grade PostHog Integration for Next.js 15 (App Router)</strong> (164.3k★) — 一个用于在 Next.js 15 应用路由 SaaS 应用中生成生产级 PostHog 分析集成代码的详细提示。</summary>
+<summary>⭐ <strong>Production-Grade PostHog Integration for Next.js 15 (App Router)</strong> (164.5k★) — 一个用于在 Next.js 15 应用路由 SaaS 应用中生成生产级 PostHog 分析集成代码的详细提示。</summary>
 
 一个用于在 Next.js 15 应用路由 SaaS 应用中生成生产级 PostHog 分析集成代码的详细提示。
 
@@ -218,7 +218,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Python Unit Test Generator — Comprehensive, Coverage-Mapped & Production-Ready</strong> (164.3k★) — 结构化提示模板，用于生成全面的Python单元测试，包含覆盖率映射、Mock策略和生产级质量标准。</summary>
+<summary>⭐ <strong>Python Unit Test Generator — Comprehensive, Coverage-Mapped & Production-Ready</strong> (164.5k★) — 结构化提示模板，用于生成全面的Python单元测试，包含覆盖率映射、Mock策略和生产级质量标准。</summary>
 
 结构化提示模板，用于生成全面的Python单元测试，包含覆盖率映射、Mock策略和生产级质量标准。
 
@@ -231,7 +231,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>Dead Code Surgeon - Phased Codebase Audit & Cleanup Roadmap</strong> (164.3k★) — 一个结构化提示词，指导AI进行分阶段死代码审计、分类问题并生成清理路线图。</summary>
+<summary>⭐ <strong>Dead Code Surgeon - Phased Codebase Audit & Cleanup Roadmap</strong> (164.5k★) — 一个结构化提示词，指导AI进行分阶段死代码审计、分类问题并生成清理路线图。</summary>
 
 一个结构化提示词，指导AI进行分阶段死代码审计、分类问题并生成清理路线图。
 
@@ -255,4 +255,4 @@
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-25*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-29*

@@ -1,6 +1,6 @@
 # 🎯 Skills 技能
 
-> 11683 AI 编程助手的可复用能力和工作流。
+> 12289 AI 编程助手的可复用能力和工作流。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
@@ -114,7 +114,7 @@
 ## Top 10 安装指南
 
 <details>
-<summary>⭐ <strong>docx</strong> (155.1k★) — 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。</summary>
+<summary>⭐ <strong>docx</strong> (156.4k★) — 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。</summary>
 
 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。
 
@@ -129,7 +129,7 @@ Files: `skills/docx/`
 </details>
 
 <details>
-<summary>⭐ <strong>slack-gif-creator</strong> (155.1k★) — 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。</summary>
+<summary>⭐ <strong>slack-gif-creator</strong> (156.4k★) — 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。</summary>
 
 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。
 
@@ -144,7 +144,7 @@ Files: `skills/slack-gif-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>skill-creator</strong> (155.1k★) — 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。</summary>
+<summary>⭐ <strong>skill-creator</strong> (156.4k★) — 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。</summary>
 
 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。
 
@@ -159,7 +159,7 @@ Files: `skills/skill-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>xlsx</strong> (155.1k★) — 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。</summary>
+<summary>⭐ <strong>xlsx</strong> (156.4k★) — 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。</summary>
 
 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。
 
@@ -269,4 +269,4 @@ git clone nicobailon/pi-subagents
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-25*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-29*

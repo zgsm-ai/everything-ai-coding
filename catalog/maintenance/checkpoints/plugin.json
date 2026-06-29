@@ -1322,8 +1322,14 @@
     "ykdojo-ykdojo-dx",
     "zarazhangrui-frontend-slides-frontend-slides"
   ],
-  "last_committed_at": "2026-06-25T16:27:58.648679+00:00",
-  "remaining_entry_ids": [],
+  "last_committed_at": "2026-06-29T09:44:25.021542+00:00",
+  "remaining_entry_ids": [
+    "anthropic-sap-hana-cli",
+    "anthropic-sumup",
+    "anthropic-tavily",
+    "anthropic-unreal-engine-skills-for-claude-code",
+    "github-trending-aaron-marketing"
+  ],
   "rubric_version": "2.85974ec3",
   "started_at": "2026-05-09T07:30:41.948272+00:00",
   "type": "plugin"
