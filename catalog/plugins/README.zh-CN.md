@@ -1,6 +1,6 @@
 # 🧩 Plugins 插件
 
-> 1325 Claude Code 插件包，捆绑 skill、agent、command 与 MCP server，覆盖官方与社区 marketplace。
+> 1328 Claude Code 插件包，捆绑 skill、agent、command 与 MCP server，覆盖官方与社区 marketplace。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=plugin)
 
@@ -114,7 +114,7 @@
 ## Top 10 安装指南
 
 <details>
-<summary>⭐ <strong>superpowers</strong> (241.1k★) — 教授 Claude Code 系统化开发工作流，包括测试驱动开发、调试、代码审查和子代理驱动开发的详细技能文档。</summary>
+<summary>⭐ <strong>superpowers</strong> (241.9k★) — 教授 Claude Code 系统化开发工作流，包括测试驱动开发、调试、代码审查和子代理驱动开发的详细技能文档。</summary>
 
 教授 Claude Code 系统化开发工作流，包括测试驱动开发、调试、代码审查和子代理驱动开发的详细技能文档。
 
@@ -138,7 +138,7 @@ Chrome DevTools MCP 服务器，供 AI 编程代理通过 CLI 和 MCP 工具调�
 </details>
 
 <details>
-<summary>⭐ <strong>hyperframes</strong> (32.1k★) — HyperFrames 让开发者用 HTML/CSS/JS 编写确定性视频合成，支持 GSAP 动画、字幕、语音合成和 ...</summary>
+<summary>⭐ <strong>hyperframes</strong> (32.2k★) — HyperFrames 让开发者用 HTML/CSS/JS 编写确定性视频合成，支持 GSAP 动画、字幕、语音合成和 ...</summary>
 
 HyperFrames 让开发者用 HTML/CSS/JS 编写确定性视频合成，支持 GSAP 动画、字幕、语音合成和 WebGL 特效。
 
@@ -245,4 +245,4 @@ Claude插件，通过Anthropic隧道连接私有MCP服务器，提供Docker Comp
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-29*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-06-30*

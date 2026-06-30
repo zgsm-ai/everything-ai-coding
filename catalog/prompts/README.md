@@ -1,6 +1,6 @@
 # 💡 Prompts
 
-> 629 Developer-focused prompt templates for common coding tasks.
+> 628 Developer-focused prompt templates for common coding tasks.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=prompt)
 
@@ -38,7 +38,7 @@
 | 26 | [Codebase WIKI Documentation Skill](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#codebase-wiki-documentation-skill) | A prompt skill for generating comprehensive WIKI.md documentation for codebases ... | prompts.chat | 🟢 Active | 92 | 2026-05-09 | documentation | — |
 | 27 | [Comprehensive POS Application Development with FIFO and Reporting](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#comprehensive-pos-application-development-with-fifo-and-reporting) | A prompt to instruct an AI to generate a complete POS application with inventory... | prompts.chat | 🟢 Active | 92 | 2026-05-09 | ai-ml | — |
 | 28 | [Develop a UI Library for ESP32](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#develop-a-ui-library-for-esp32) | A detailed prompt instructing an AI to develop a generic, schema-driven UI libra... | prompts.chat | 🟢 Active | 92 | 2026-05-09 | tooling | — |
-| 29 | [Code Review Specialist 2](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#code-review-specialist-2) | A prompt template instructing an AI to act as a code review specialist, focusing... | prompts.chat | 🟢 Active | 92 | 2026-05-09 | ai-ml | `for-devs` |
+| 29 | [Code Review Specialist 2](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#code-review-specialist-2) | A prompt template instructing an AI to act as a code review specialist, focusing... | prompts.chat | 🟢 Active | 92 | 2026-05-09 | ai-ml | — |
 | 30 | [Auditor de Código Python: Nivel Senior (Salida en Español)](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#auditor-de-cdigo-python-nivel-senior-salida-en-espaol) | A prompt template for AI to audit and refactor Python code as a senior architect... | prompts.chat | 🟢 Active | 92 | 2026-05-09 | backend | `python`, `go` |
 | 31 | [Build a DDQN Snake Game with TensorFlow.js in a Single HTML File](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#build-a-ddqn-snake-game-with-tensorflowjs-in-a-single-html-file) | A prompt to generate a single HTML file implementing a DDQN Snake game using Ten... | prompts.chat | 🟢 Active | 92 | 2026-05-09 | frontend | — |
 | 32 | [Fix Blank Screen Issues After Deploy on Vercel (Angular, React, Vite)](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#fix-blank-screen-issues-after-deploy-on-vercel-angular-react-vite) | A prompt template for diagnosing and fixing blank screen issues in SPAs (Angular... | prompts.chat | 🟢 Active | 92 | 2026-06-11 | frontend | `react`, `angular` |
@@ -86,7 +86,7 @@
 | 74 | [App Store Submission Agent](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#app-store-submission-agent) | A prompt to pre-validate iOS builds against Apple's App Store Review Guidelines,... | prompts.chat | 🟢 Active | 86 | 2026-05-09 | mobile | `ios`, `automation`, `mobile` |
 | 75 | [Technical Codebase Discovery & Onboarding Prompt](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#technical-codebase-discovery--onboarding-prompt) | A prompt for AI coding assistants to analyze a codebase and generate a detailed ... | prompts.chat | 🟢 Active | 86 | 2026-06-11 | backend | `go` |
 | 76 | [AI-First Design Handoff Generator (Dev-Ready Spec)](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#ai-first-design-handoff-generator-dev-ready-spec) | A prompt to generate structured, implementation-ready design handoffs optimized ... | prompts.chat | 🟢 Active | 86 | 2026-06-11 | tooling | — |
-| 77 | [Code Review Assistant](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#code-review-assistant) | A structured prompt for an AI code review assistant focused on JavaScript/React ... | prompts.chat | 🟢 Active | 85 | 2026-05-09 | ai-ml | `for-devs` |
+| 77 | [Code Review Assistant](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#code-review-assistant) | A structured prompt for an AI code review assistant focused on JavaScript/React ... | prompts.chat | 🟢 Active | 85 | 2026-05-09 | security | `react`, `javascript`, `go` |
 | 78 | [AST Code Analysis Superpower](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#ast-code-analysis-superpower) | A prompt for using ast-grep to analyze code patterns for security, performance, ... | prompts.chat | 🟢 Active | 85 | 2026-05-09 | security | `react`, `code-analysis`, `security` |
 | 79 | [Bug Discovery Code Assistant](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#bug-discovery-code-assistant) | A prompt template for an AI assistant that analyzes code to identify bugs, ineff... | prompts.chat | 🟢 Active | 85 | 2026-05-09 | tooling | `for-devs` |
 | 80 | [ESP32 UI Library Development](https://github.com/f/prompts.chat/blob/HEAD/PROMPTS.md#esp32-ui-library-development) | A prompt for generating an ESP32 UI library with specific embedded systems requi... | prompts.chat | 🟢 Active | 85 | 2026-06-11 | tooling | `for-devs` |
@@ -255,4 +255,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-29*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-30*

@@ -271,4 +271,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-29*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-30*

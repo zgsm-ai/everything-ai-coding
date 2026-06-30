@@ -1,6 +1,6 @@
 # 🧩 Plugins
 
-> 1325 Claude Code plugin bundles packaging skills, agents, commands, and MCP servers from official and community marketplaces.
+> 1328 Claude Code plugin bundles packaging skills, agents, commands, and MCP servers from official and community marketplaces.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=plugin)
 
@@ -114,7 +114,7 @@
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>superpowers</strong> (241.1k★) — Teaches Claude Code systematic development workflows includi...</summary>
+<summary>⭐ <strong>superpowers</strong> (241.9k★) — Teaches Claude Code systematic development workflows includi...</summary>
 
 Teaches Claude Code systematic development workflows including TDD, debugging, code review, and subagent-driven development with detailed skill docume
 
@@ -138,7 +138,7 @@ Chrome DevTools MCP server for AI coding agents to debug, automate, and analyze 
 </details>
 
 <details>
-<summary>⭐ <strong>hyperframes</strong> (32.1k★) — HyperFrames lets developers write HTML/CSS/JS to create dete...</summary>
+<summary>⭐ <strong>hyperframes</strong> (32.2k★) — HyperFrames lets developers write HTML/CSS/JS to create dete...</summary>
 
 HyperFrames lets developers write HTML/CSS/JS to create deterministic video compositions with GSAP animations, captions, TTS narration, and WebGL effe
 
@@ -245,4 +245,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-29*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-30*
