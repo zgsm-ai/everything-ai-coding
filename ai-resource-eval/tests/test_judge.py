@@ -528,6 +528,47 @@ class TestOpenAICompatJudgeNormalResponse:
         assert sent_payload["response_format"]["type"] == "json_schema"
 
 
+class TestOpenAICompatJudgeExtraHeaders:
+    """Test that ``extra_headers`` are merged into every request.
+
+    Covers gateways (e.g. sangfor newapi-sre) that require a non-standard auth
+    header such as ``x-apikey`` alongside the bearer token.
+    """
+
+    @patch("ai_resource_eval.judges.openai_compat.httpx.post")
+    def test_extra_headers_sent_alongside_bearer(self, mock_post: MagicMock):
+        body = _make_openai_response(content='{"score": 4}')
+        mock_post.return_value = _make_mock_response(body)
+
+        judge = OpenAICompatJudge(
+            base_url="https://gateway.example.com/v1",
+            api_key="sk-test",
+            model="deepseek-v4-flash",
+            extra_headers={"x-apikey": "gateway-secret"},
+        )
+        judge.judge("system", "user")
+
+        sent_headers = mock_post.call_args.kwargs.get("headers", {})
+        assert sent_headers["Authorization"] == "Bearer sk-test"
+        assert sent_headers["x-apikey"] == "gateway-secret"
+
+    @patch("ai_resource_eval.judges.openai_compat.httpx.post")
+    def test_no_extra_headers_by_default(self, mock_post: MagicMock):
+        body = _make_openai_response(content='{"score": 4}')
+        mock_post.return_value = _make_mock_response(body)
+
+        judge = OpenAICompatJudge(
+            base_url="https://api.example.com",
+            api_key="sk-test",
+            model="gpt-test",
+        )
+        judge.judge("system", "user")
+
+        sent_headers = mock_post.call_args.kwargs.get("headers", {})
+        assert "x-apikey" not in sent_headers
+        assert sent_headers["Authorization"] == "Bearer sk-test"
+
+
 class TestResponseFormatFallback:
     """Test that _call_llm retries without response_format on 400."""
 

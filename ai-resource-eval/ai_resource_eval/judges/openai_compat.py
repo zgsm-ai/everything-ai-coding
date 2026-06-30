@@ -65,6 +65,7 @@ class OpenAICompatJudge(BaseJudge):
         cost_per_1k_completion: float = 0.0,
         timeout: float = 120.0,
         temperature: float = 0.0,
+        extra_headers: dict[str, str] | None = None,
     ) -> None:
         self.base_url = base_url.rstrip("/")
         self.api_key = api_key
@@ -73,6 +74,11 @@ class OpenAICompatJudge(BaseJudge):
         self.cost_per_1k_completion = cost_per_1k_completion
         self.timeout = timeout
         self.temperature = temperature
+        # Extra HTTP headers merged into every request. Needed for gateways
+        # that require a non-standard auth header alongside ``Authorization``
+        # (e.g. ``x-apikey`` on the sangfor newapi-sre gateway). Sourced from
+        # the ``LLM_EXTRA_HEADERS`` env var (JSON object) by the judge factory.
+        self.extra_headers = dict(extra_headers) if extra_headers else {}
 
     # ------------------------------------------------------------------
     # BaseJudge abstract implementations
@@ -133,6 +139,11 @@ class OpenAICompatJudge(BaseJudge):
             "Content-Type": "application/json",
             "Authorization": f"Bearer {self.api_key}",
         }
+        # Merge caller-supplied headers last so a gateway-specific auth header
+        # (e.g. ``x-apikey``) is always present. Callers may also override the
+        # defaults above if they intentionally pass those keys.
+        if self.extra_headers:
+            headers.update(self.extra_headers)
 
         start = time.monotonic()
         response = httpx.post(

@@ -273,6 +273,7 @@ merge_index.py
 **环境变量**：
 - `GITHUB_TOKEN`（自动提供）
 - `LLM_BASE_URL` / `LLM_API_KEY` / `LLM_MODEL`（评估引擎用，可选 — 无 key 则跳过评估）
+- `LLM_EXTRA_HEADERS`（可选，JSON 对象）— 给 OpenAI 兼容请求注入网关专属鉴权头，与标准 `Authorization: Bearer` 并存。例如 sangfor newapi-sre 网关要求 `{"x-apikey":"<key>"}`（缺则该网关返回 401）。仅 `api.deepseek.com` 之外的自定义 `base_url` 走 `OpenAICompatJudge` 时生效；解析失败 / 非对象自动降级为"无额外头"
 - `EVAL_DRY_RUN`（默认 `true`，reject 条目仅标记不删除）
 - `EVAL_INCREMENTAL`（CI 中硬编码 `true`，防止意外全量评估）
 - `SKILLS_SH_MIN_INSTALLS`（默认 `1000`，调节 skills.sh 阈值）

@@ -235,6 +235,26 @@ def run(
     )
 
 
+def _parse_extra_headers() -> dict[str, str]:
+    """Parse ``LLM_EXTRA_HEADERS`` (a JSON object) into a header dict.
+
+    Used to inject gateway-specific auth headers (e.g. ``x-apikey`` required by
+    the sangfor newapi-sre gateway) alongside the standard ``Authorization``
+    bearer token. Returns an empty dict when unset or malformed, so a bad value
+    degrades to "no extra headers" rather than crashing the run.
+    """
+    raw = os.environ.get("LLM_EXTRA_HEADERS")
+    if not raw:
+        return {}
+    try:
+        parsed = json.loads(raw)
+    except (json.JSONDecodeError, TypeError):
+        return {}
+    if not isinstance(parsed, dict):
+        return {}
+    return {str(k): str(v) for k, v in parsed.items()}
+
+
 def _create_judge(
     judge_name: str,
     api_key: str,
@@ -250,12 +270,20 @@ def _create_judge(
     # 全部 ReadTimeout。env 可覆盖（需要 cast 成 float）。仅 OpenAI-compatible
     # endpoint 支持；DeepSeekJudge 走自己的默认。
     timeout_env = os.environ.get("LLM_TIMEOUT")
-    timeout_kwargs: dict = {}
+    judge_kwargs: dict = {}
     if timeout_env:
         try:
-            timeout_kwargs["timeout"] = float(timeout_env)
+            judge_kwargs["timeout"] = float(timeout_env)
         except ValueError:
             pass
+
+    # Gateway-specific extra HTTP headers (LLM_EXTRA_HEADERS env hook, a JSON
+    # object). Injected into OpenAI-compatible requests so a gateway requiring
+    # a non-standard auth header (e.g. ``x-apikey``) works alongside the bearer
+    # token. Ignored for the deepseek/registry paths that manage their own.
+    extra_headers = _parse_extra_headers()
+    if extra_headers:
+        judge_kwargs["extra_headers"] = extra_headers
 
     if judge_name == "deepseek":
         kwargs: dict = {"api_key": api_key}
@@ -274,7 +302,7 @@ def _create_judge(
             base_url=base_url,
             api_key=api_key,
             model=model or "gpt-4o-mini",
-            **timeout_kwargs,
+            **judge_kwargs,
         )
 
     # Try the judge registry for custom providers
@@ -290,7 +318,7 @@ def _create_judge(
             base_url=base_url,
             api_key=api_key,
             model=model or judge_name,
-            **timeout_kwargs,
+            **judge_kwargs,
         )
 
     raise typer.BadParameter(

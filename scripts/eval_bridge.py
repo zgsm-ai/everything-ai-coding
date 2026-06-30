@@ -1124,6 +1124,28 @@ def run_eval(
     return all_results
 
 
+def _parse_extra_headers() -> dict[str, str]:
+    """Parse ``LLM_EXTRA_HEADERS`` (a JSON object) into a header dict.
+
+    Used to inject gateway-specific auth headers (e.g. ``x-apikey`` required by
+    the sangfor newapi-sre gateway) alongside the standard ``Authorization``
+    bearer token. Returns an empty dict when unset or malformed (logged), so a
+    bad value degrades to "no extra headers" rather than crashing the run.
+    """
+    raw = os.environ.get("LLM_EXTRA_HEADERS")
+    if not raw:
+        return {}
+    try:
+        parsed = json.loads(raw)
+    except (json.JSONDecodeError, TypeError) as exc:
+        logger.warning("LLM_EXTRA_HEADERS is not valid JSON, ignoring: %s", exc)
+        return {}
+    if not isinstance(parsed, dict):
+        logger.warning("LLM_EXTRA_HEADERS must be a JSON object, ignoring.")
+        return {}
+    return {str(k): str(v) for k, v in parsed.items()}
+
+
 def _build_judge():
     """Build a judge instance from environment variables."""
     api_key = os.environ.get("LLM_API_KEY") or os.environ.get("JUDGE_API_KEY")
@@ -1133,14 +1155,22 @@ def _build_judge():
     base_url = os.environ.get("LLM_BASE_URL") or os.environ.get("JUDGE_BASE_URL", "")
     model = os.environ.get("LLM_MODEL") or os.environ.get("JUDGE_MODEL", "")
 
-    # Try DeepSeek first (cheapest)
-    if not base_url or "deepseek" in base_url:
+    # Try DeepSeek first (cheapest). Match on the official api.deepseek.com host
+    # only — a model id like ``deepseek-v4-flash`` served behind a third-party
+    # gateway (custom base_url) must still go through the generic OpenAI-compat
+    # path so its ``LLM_EXTRA_HEADERS`` / base_url are honoured.
+    if not base_url or "api.deepseek.com" in base_url:
         from ai_resource_eval.judges.deepseek import DeepSeekJudge
         return DeepSeekJudge(api_key=api_key, model=model or "deepseek-chat")
 
     # Generic OpenAI-compatible
     from ai_resource_eval.judges.openai_compat import OpenAICompatJudge
-    return OpenAICompatJudge(base_url=base_url, api_key=api_key, model=model)
+    return OpenAICompatJudge(
+        base_url=base_url,
+        api_key=api_key,
+        model=model,
+        extra_headers=_parse_extra_headers(),
+    )
 
 
 # ---------------------------------------------------------------------------

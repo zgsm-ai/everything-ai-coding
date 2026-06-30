@@ -476,3 +476,74 @@ class TestBlendDerivedHealth:
         })
         assert "content_quality" not in entry["evaluation"]
         assert entry["health"]["effective_score"] == 100  # final == health
+
+
+class TestParseExtraHeaders:
+    """LLM_EXTRA_HEADERS → header dict (gateway x-apikey injection)."""
+
+    def test_unset_returns_empty(self):
+        from eval_bridge import _parse_extra_headers
+
+        with patch.dict(os.environ, {}, clear=False):
+            os.environ.pop("LLM_EXTRA_HEADERS", None)
+            assert _parse_extra_headers() == {}
+
+    def test_valid_json_object(self):
+        from eval_bridge import _parse_extra_headers
+
+        with patch.dict(os.environ, {"LLM_EXTRA_HEADERS": '{"x-apikey": "secret"}'}):
+            assert _parse_extra_headers() == {"x-apikey": "secret"}
+
+    def test_malformed_json_degrades_to_empty(self):
+        from eval_bridge import _parse_extra_headers
+
+        with patch.dict(os.environ, {"LLM_EXTRA_HEADERS": "not json"}):
+            assert _parse_extra_headers() == {}
+
+    def test_non_object_json_degrades_to_empty(self):
+        from eval_bridge import _parse_extra_headers
+
+        with patch.dict(os.environ, {"LLM_EXTRA_HEADERS": '["a", "b"]'}):
+            assert _parse_extra_headers() == {}
+
+
+class TestBuildJudge:
+    """_build_judge routing + extra_headers threading."""
+
+    def test_custom_gateway_with_deepseek_model_uses_openai_compat(self):
+        """A ``deepseek-*`` model behind a custom gateway must route to the
+        generic OpenAI-compat judge (so base_url + x-apikey are honoured),
+        not the hardcoded api.deepseek.com DeepSeekJudge."""
+        from eval_bridge import _build_judge
+
+        with patch.dict(os.environ, {
+            "LLM_API_KEY": "sk-test",
+            "LLM_BASE_URL": "https://gateway.example.com/newapi/v1",
+            "LLM_MODEL": "deepseek-v4-flash",
+            "LLM_EXTRA_HEADERS": '{"x-apikey": "gw-secret"}',
+        }):
+            judge = _build_judge()
+
+        assert type(judge).__name__ == "OpenAICompatJudge"
+        assert judge.base_url == "https://gateway.example.com/newapi/v1"
+        assert judge.model == "deepseek-v4-flash"
+        assert judge.extra_headers == {"x-apikey": "gw-secret"}
+
+    def test_official_deepseek_host_uses_deepseek_judge(self):
+        from eval_bridge import _build_judge
+
+        with patch.dict(os.environ, {
+            "LLM_API_KEY": "sk-test",
+            "LLM_BASE_URL": "https://api.deepseek.com",
+            "LLM_MODEL": "deepseek-chat",
+        }):
+            os.environ.pop("LLM_EXTRA_HEADERS", None)
+            judge = _build_judge()
+
+        assert type(judge).__name__ == "DeepSeekJudge"
+
+    def test_no_api_key_returns_none(self):
+        from eval_bridge import _build_judge
+
+        with patch.dict(os.environ, {}, clear=True):
+            assert _build_judge() is None
