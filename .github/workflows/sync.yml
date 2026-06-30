@@ -266,6 +266,9 @@ jobs:
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
+          # Gateway-specific auth headers (JSON object), e.g. the x-apikey the
+          # sangfor newapi-sre gateway requires alongside the bearer token.
+          LLM_EXTRA_HEADERS: ${{ secrets.LLM_EXTRA_HEADERS }}
           # Flush done entries ~10min before the 40min step timeout (kill margin).
           TRIAGE_WALL_BUDGET: "1800"
           EVAL_INCREMENTAL: "true"
@@ -455,6 +458,9 @@ jobs:
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
+          # Gateway-specific auth headers (JSON object), e.g. the x-apikey the
+          # sangfor newapi-sre gateway requires alongside the bearer token.
+          LLM_EXTRA_HEADERS: ${{ secrets.LLM_EXTRA_HEADERS }}
           # OQ4 实测结论（design.md）：sync-test 16 并发触发限流大批失败，
           # 保持默认 6 让单周完成度可控。可通过 vars.EVAL_CONCURRENCY 上调。
           EVAL_CONCURRENCY: ${{ vars.EVAL_CONCURRENCY || '6' }}
@@ -876,6 +882,9 @@ jobs:
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
+          # Gateway-specific auth headers (JSON object), e.g. the x-apikey the
+          # sangfor newapi-sre gateway requires alongside the bearer token.
+          LLM_EXTRA_HEADERS: ${{ secrets.LLM_EXTRA_HEADERS }}
           EVAL_CONCURRENCY: ${{ vars.EVAL_CONCURRENCY || '6' }}
           LLM_TIMEOUT: ${{ vars.LLM_TIMEOUT || '300' }}
           # Spec: SECURITY_SCAN_ENABLED defaults true; SECURITY_SCAN_DRY_RUN

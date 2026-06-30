@@ -46,6 +46,7 @@ jobs:
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
+          LLM_EXTRA_HEADERS: ${{ secrets.LLM_EXTRA_HEADERS }}
         run: |
           mkdir -p tests/_test_output
           python -u scripts/run_enrichment.py \
