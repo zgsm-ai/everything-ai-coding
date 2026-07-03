@@ -210,14 +210,28 @@ def resolve_branch_sha(repo: str, branch: str) -> Optional[str]:
     return None
 
 
+def _sub(subdir: str, rest: str) -> str:
+    """Join a plugin root (subdir, or "" for repo-root) with a repo-relative path."""
+    return f"{subdir}/{rest}" if subdir else rest
+
+
 def discover_plugin_subdirs(tree_paths: list[str]) -> list[str]:
-    """Top-level subdirs that carry a `.claude-plugin/plugin.json` (sorted)."""
-    subdirs = set()
+    """Plugin roots carrying a `.claude-plugin/plugin.json`, sorted.
+
+    Returns "" for a REPO-ROOT plugin (``.claude-plugin/plugin.json`` at the repo
+    root) and/or top-level subdir names for subdir plugins. cos-graph moved its
+    plugin to the repo root (2026-07-03 upstream refactor "move plugin to repo
+    root, remove original project files"), so the common result is now [""];
+    the subdir form is kept for backward compatibility / other layouts.
+    """
+    roots: set[str] = set()
     for path in tree_paths:
         parts = path.split("/")
-        if len(parts) >= 3 and parts[1] == ".claude-plugin" and parts[2] == "plugin.json":
-            subdirs.add(parts[0])
-    return sorted(subdirs)
+        if len(parts) == 2 and parts[0] == ".claude-plugin" and parts[1] == "plugin.json":
+            roots.add("")  # repo-root plugin
+        elif len(parts) >= 3 and parts[1] == ".claude-plugin" and parts[2] == "plugin.json":
+            roots.add(parts[0])
+    return sorted(roots)
 
 
 def _empty_bundle() -> dict:
@@ -280,12 +294,13 @@ def compute_bundle(tree_paths: list[str], subdir: str, plugin_name: str, branch:
     agent_paths_by_name: dict[str, str] = {}
     rule_paths_by_name: dict[str, str] = {}
     template_paths_by_name: dict[str, str] = {}
-    skills_prefix = f"{subdir}/skills/"
-    evaluators_prefix = f"{subdir}/evaluators/"
-    commands_prefix = f"{subdir}/commands/"
-    agents_prefix = f"{subdir}/agents/"
-    rules_prefix = f"{subdir}/rules/"
-    templates_prefix = f"{subdir}/templates/"
+    # subdir is "" for a repo-root plugin → prefixes become "skills/" etc.
+    skills_prefix = _sub(subdir, "skills/")
+    evaluators_prefix = _sub(subdir, "evaluators/")
+    commands_prefix = _sub(subdir, "commands/")
+    agents_prefix = _sub(subdir, "agents/")
+    rules_prefix = _sub(subdir, "rules/")
+    templates_prefix = _sub(subdir, "templates/")
 
     for path in tree_paths:
         if path.startswith(skills_prefix) and path.endswith("/SKILL.md"):
@@ -363,11 +378,12 @@ def build_entry(
     source_url / source_ref. They denote the same commit.
     """
     read_ref = read_ref or branch
+    # subdir is "" for a repo-root plugin (cos-graph's current layout).
     plugin_json = _http_get_json(
-        _raw_url(SOURCE_REPO, read_ref, f"{subdir}/.claude-plugin/plugin.json")
+        _raw_url(SOURCE_REPO, read_ref, _sub(subdir, ".claude-plugin/plugin.json"))
     )
     if not isinstance(plugin_json, dict):
-        logger.warning("Skipping %s: cannot read .claude-plugin/plugin.json", subdir)
+        logger.warning("Skipping %r: cannot read .claude-plugin/plugin.json", subdir)
         return None
 
     name = (plugin_json.get("name") or "").strip()
@@ -379,15 +395,14 @@ def build_entry(
     version = (plugin_json.get("version") or "").strip() or "0.0.0"
 
     marketplace_json = _http_get_json(
-        _raw_url(SOURCE_REPO, read_ref, f"{subdir}/.claude-plugin/marketplace.json")
+        _raw_url(SOURCE_REPO, read_ref, _sub(subdir, ".claude-plugin/marketplace.json"))
     )
     marketplace_name = None
     if isinstance(marketplace_json, dict):
         marketplace_name = (marketplace_json.get("name") or "").strip() or None
     # download_catalog._download_plugin requires marketplace_name; fall back to
-    # the plugin name so the gate never trips for a first-party plugin. cos-graph
-    # keeps its marketplace.json at the repo root (not the subdir), so the subdir
-    # read above 404s and this fallback is the normal path here.
+    # the plugin name so the gate never trips for a first-party plugin (cos-graph
+    # may not ship a marketplace.json at the plugin root → this fallback is normal).
     if not marketplace_name:
         marketplace_name = name
 
@@ -396,7 +411,10 @@ def build_entry(
     # `csc plugin install <name>@costrict-plugins`.
     plugin_id = name
 
-    source_url = f"https://github.com/{SOURCE_REPO}/tree/{branch}/{subdir}"
+    # Repo-root plugin (subdir="") → no trailing subdir segment on the tree URL.
+    source_url = f"https://github.com/{SOURCE_REPO}/tree/{branch}"
+    if subdir:
+        source_url += f"/{subdir}"
     tags = ["cos-graph", "knowledge-graph"] + extract_tags(name, description)
     seen: set[str] = set()
     tags = [t for t in tags if not (t in seen or seen.add(t))]
