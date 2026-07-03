@@ -440,6 +440,16 @@ def build_entry(
         # evaluators/, examples/, CLAUDE.md, …). costrict-plugin-marketplace/build.py
         # reads this and skips its size-pruning for these entries.
         "prune_content": False,
+        # cos-graph is published as a FULL-REPO mirror (the entire csc-plugin branch,
+        # incl. the graphify/ package, docs, tests that live OUTSIDE graphify-plugin/),
+        # maintained by the dedicated mirror step in sync-cosgraph-plugins.yml — NOT by
+        # build.py's subdir extraction. This flag tells costrict-plugin-marketplace's
+        # build.py to SKIP building/publishing this plugin's bare repo (its find_plugin_root
+        # would otherwise rglob to graphify-plugin/ and clobber the full mirror with the
+        # 11-file thin wrapper). The entry still flows into the catalog-bundle so graphify
+        # stays listed & scored in the web hub; install.marketplace_repo points at the
+        # externally-mirrored repo.
+        "external_mirror": True,
     }
 
 
