@@ -1,0 +1,190 @@
+name: Sync cos-graph (graphify FULL-REPO mirror, first-party)
+
+# cos-graph is published as a FULL-REPO MIRROR — the ENTIRE xixingde/cos-graph
+# `csc-plugin` branch (the graphify/ Python package, docs, tests, tools, AND the
+# graphify-plugin/ plugin) — NOT a cospower-style extracted plugin subdir.
+#
+# Why not the cospower/build.py path: cos-graph's real substance lives OUTSIDE
+# the graphify-plugin/ subdir. build.py's find_plugin_root would rglob to
+# graphify-plugin/.claude-plugin/plugin.json and publish only that thin 11-file
+# wrapper, dropping graphify/, docs/, tests/. So we mirror the whole branch
+# verbatim with a dedicated git-mirror step instead.
+#
+# This workflow does three things:
+#   1. sync_plugins_cosgraph.py --overlay-catalog-index → catalog entry so
+#      graphify stays LISTED & SCORED in the web hub (first-party, verified).
+#      The entry carries external_mirror=true so costrict-plugin-marketplace's
+#      build.py SKIPS extracting/publishing its repo (which would clobber the
+#      full mirror). install.marketplace_repo points at the mirrored repo.
+#   2. FULL MIRROR: clone xixingde/cos-graph@<source_branch> and force-push the
+#      whole branch to costrict-plugins-repo/graphify on GitHub AND self-hosted
+#      Gitea (gitea.costrict.ai).
+#   3. (optional) trigger release-catalog-bundle to refresh the hub bundle.
+#
+# CANONICAL ref is `csc-plugin`. A run with a different source_branch is PREVIEW:
+# it force-pushes that ref to GitHub under the SAME branch name (so you can eyeball
+# it) but does NOT commit the canonical catalog, does NOT mirror to Gitea, and does
+# NOT trigger a full release. Re-run with source_branch=csc-plugin to restore.
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_branch:
+        description: "cos-graph ref (branch/tag) to FULL-mirror. Non-'csc-plugin' = PREVIEW: push that ref to GitHub only, no Gitea/canonical-catalog/full-release. Re-run with 'csc-plugin' to restore."
+        required: false
+        default: "csc-plugin"
+        type: string
+      trigger_full_release:
+        description: "Also trigger release-catalog-bundle (refresh web hub bundle). IGNORED unless source_branch is 'csc-plugin'."
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write   # commit + push the updated catalog index files
+  actions: write    # dispatch release-catalog-bundle.yaml
+
+concurrency:
+  group: sync-cosgraph-plugins
+  cancel-in-progress: false
+
+env:
+  UPSTREAM_REPO: xixingde/cos-graph
+  TARGET_ORG: costrict-plugins-repo
+  TARGET_REPO: graphify
+  CANONICAL_REF: csc-plugin
+
+jobs:
+  sync-and-mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout catalog repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Sync cos-graph catalog entry (per-type + top-level overlay)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PYTHONUNBUFFERED: "1"
+        run: python -u scripts/sync_plugins_cosgraph.py --overlay-catalog-index --branch "${{ inputs.source_branch || 'csc-plugin' }}"
+
+      # PREVIEW guard: only the canonical ref writes the canonical catalog.
+      - name: Commit & push catalog changes
+        if: ${{ (inputs.source_branch || 'csc-plugin') == 'csc-plugin' }}
+        run: |
+          git config user.name  "costrict-build"
+          git config user.email "build@costrict.local"
+          git add catalog/plugins/index.json catalog/index.json
+          if git diff --cached --quiet; then
+            echo "No catalog changes — cos-graph already up to date."
+          else
+            git commit -m "chore(catalog): sync cos-graph (graphify) from xixingde/cos-graph"
+            git push
+          fi
+
+      - name: Preview-mode notice (catalog commit skipped)
+        if: ${{ (inputs.source_branch || 'csc-plugin') != 'csc-plugin' }}
+        run: |
+          echo "::notice title=Preview mode::source_branch='${{ inputs.source_branch }}' (not csc-plugin) —"
+          echo "mirroring that ref to GitHub only; skipping canonical catalog commit, Gitea mirror,"
+          echo "and full release. Re-run with source_branch=csc-plugin to restore."
+
+      - name: Full-mirror upstream branch → GitHub
+        env:
+          MARKETPLACE_GITHUB_TOKEN: ${{ secrets.MARKETPLACE_GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.MARKETPLACE_GITHUB_TOKEN }}
+          SOURCE_BRANCH: ${{ inputs.source_branch || 'csc-plugin' }}
+        run: |
+          set -euo pipefail
+          # Clone the WHOLE upstream branch (full history, verbatim). Single-branch
+          # keeps it to the ref we publish; the working tree is the full repo tree.
+          rm -rf /tmp/cg-mirror
+          git clone --single-branch --branch "$SOURCE_BRANCH" \
+            "https://github.com/${UPSTREAM_REPO}.git" /tmp/cg-mirror
+          echo ">> upstream ${UPSTREAM_REPO}@${SOURCE_BRANCH}: $(git -C /tmp/cg-mirror ls-files | wc -l) files, $(git -C /tmp/cg-mirror rev-list --count HEAD) commits"
+          # Create-if-missing (GitHub won't push-to-create). Idempotent — a no-op
+          # ("already exists") once the repo is onboarded; makes the first run
+          # self-sufficient without a manual pre-create.
+          gh repo create "${TARGET_ORG}/${TARGET_REPO}" --public --disable-issues --disable-wiki 2>&1 | tail -1 || echo "(repo already exists)"
+          # Force-push the full branch to our GitHub org repo under the SAME branch
+          # name (canonical csc-plugin, or the preview ref).
+          git -C /tmp/cg-mirror push --force \
+            "https://x-access-token:${MARKETPLACE_GITHUB_TOKEN}@github.com/${TARGET_ORG}/${TARGET_REPO}.git" \
+            "HEAD:refs/heads/${SOURCE_BRANCH}"
+          echo ">> pushed full mirror → github.com/${TARGET_ORG}/${TARGET_REPO}:${SOURCE_BRANCH}"
+
+      - name: Make csc-plugin the default branch on GitHub
+        if: ${{ (inputs.source_branch || 'csc-plugin') == 'csc-plugin' }}
+        env:
+          GH_TOKEN: ${{ secrets.MARKETPLACE_GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          gh api -X PATCH "repos/${TARGET_ORG}/${TARGET_REPO}" -f default_branch="${CANONICAL_REF}" --jq '.default_branch'
+
+      - name: Full-mirror → Gitea
+        # Only on canonical: Gitea is the production client-default marketplace
+        # source, so a preview ref must NOT be mirrored there. Skipped when
+        # GITEA_TOKEN is unset (GitHub mirror above is unaffected).
+        if: ${{ (inputs.source_branch || 'csc-plugin') == 'csc-plugin' }}
+        env:
+          # Same mechanism cospower uses (sync-csc-plugins.yml): the GITEA_TOKEN
+          # secret + GITEA_USER variable configured on this repo drive the Gitea push.
+          GITEA_TOKEN: ${{ secrets.GITEA_TOKEN }}
+          GITEA_USER: ${{ vars.GITEA_USER }}
+        run: |
+          set -euo pipefail
+          if [ -z "${GITEA_TOKEN:-}" ]; then
+            echo ">> GITEA_TOKEN not set — skipping Gitea mirror"
+            exit 0
+          fi
+          if [ -z "${GITEA_USER:-}" ]; then
+            echo "::error title=cos-graph Gitea mirror::GITEA_TOKEN set but GITEA_USER (repo variable) missing" >&2
+            exit 1
+          fi
+          # Large-push guards (same as cospower's Gitea step) — the full mirror is
+          # ~6MB with history, well within these.
+          git config --global http.lowSpeedLimit 1000
+          git config --global http.lowSpeedTime 60
+          git config --global http.postBuffer 524288000
+          API=https://gitea.costrict.ai/api/v1
+          # Pre-create the Gitea repo if missing (Gitea disables push-to-create; unlike
+          # cospower's repos, graphify is new). costrict-plugins-repo is the Gitea account
+          # the token authenticates as → create under /user/repos. 201/409 both OK.
+          code=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$API/user/repos" \
+            -H "Authorization: token $GITEA_TOKEN" -H "Content-Type: application/json" \
+            -d "{\"name\":\"${TARGET_REPO}\",\"private\":false,\"default_branch\":\"${CANONICAL_REF}\"}") || true
+          echo ">> gitea create HTTP $code (201=created / 409=exists)"
+          # Force-push the full branch (cospower-style URL creds: GITEA_USER:GITEA_TOKEN).
+          BASE="https://${GITEA_USER}:${GITEA_TOKEN}@gitea.costrict.ai/${TARGET_ORG}"
+          git -C /tmp/cg-mirror push --force "$BASE/${TARGET_REPO}.git" \
+            "HEAD:refs/heads/${CANONICAL_REF}"
+          # Ensure csc-plugin is the Gitea default branch too.
+          curl -s -o /dev/null -w "gitea set-default HTTP %{http_code}\n" -X PATCH \
+            "$API/repos/${TARGET_ORG}/${TARGET_REPO}" \
+            -H "Authorization: token $GITEA_TOKEN" -H "Content-Type: application/json" \
+            -d "{\"default_branch\":\"${CANONICAL_REF}\"}"
+          echo ">> pushed full mirror → gitea.costrict.ai/${TARGET_ORG}/${TARGET_REPO}:${CANONICAL_REF}"
+
+      - name: (optional) Trigger Release Catalog Bundle
+        # Refreshes the web hub bundle. publish_plugin_marketplace stays default
+        # (true) but graphify carries external_mirror=true so build.py skips its
+        # repo — the full mirror above is never clobbered.
+        if: ${{ inputs.trigger_full_release && (inputs.source_branch || 'csc-plugin') == 'csc-plugin' }}
+        env:
+          GH_TOKEN: ${{ secrets.MARKETPLACE_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
+        run: |
+          gh workflow run release-catalog-bundle.yaml --ref main -f publish_plugin_marketplace=true
+          echo "Dispatched release-catalog-bundle (web hub bundle refresh)."
+
+      - name: Full release skipped in preview mode
+        if: ${{ inputs.trigger_full_release && (inputs.source_branch || 'csc-plugin') != 'csc-plugin' }}
+        run: |
+          echo "::warning title=Full release skipped::trigger_full_release requested but"
+          echo "source_branch='${{ inputs.source_branch }}' is not csc-plugin — skipped on purpose."
