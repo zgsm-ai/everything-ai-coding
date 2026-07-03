@@ -98422,6 +98422,81 @@
     "version": "1.0.0"
   },
   {
+    "id": "graphify",
+    "name": "graphify",
+    "type": "plugin",
+    "description": "Any input to knowledge graph — turns code, docs, papers, images, and videos into a persistent knowledge graph with god nodes, community detection, and query/path/explain tools.",
+    "source_url": "https://github.com/xixingde/cos-graph/tree/csc-plugin/graphify-plugin",
+    "category": "backend",
+    "tags": [
+      "cos-graph",
+      "knowledge-graph",
+      "go",
+      "nodejs"
+    ],
+    "tech_stack": [],
+    "source": "cos-graph",
+    "source_priority": 1000,
+    "marketplace_url": "https://github.com/costrict-plugins-repo/graphify",
+    "platforms": [
+      "claude-code"
+    ],
+    "install": {
+      "method": "plugin_marketplace",
+      "plugin_name": "graphify",
+      "marketplace_repo": "costrict-plugins-repo/graphify",
+      "marketplace_name": "graphify",
+      "marketplace_verified": true,
+      "marketplace": "costrict-plugins-repo/graphify"
+    },
+    "bundle": {
+      "skills_count": 1,
+      "commands_count": 0,
+      "agents_count": 0,
+      "evaluators_count": 0,
+      "rules_count": 0,
+      "templates_count": 0,
+      "mcp_servers_count": 0,
+      "skills_namespaces": [
+        "graphify:graphify"
+      ],
+      "hooks_count": 0,
+      "hook_events": [],
+      "mcp_server_names": [],
+      "is_marketplace_repo": false,
+      "skill_paths": [
+        "graphify-plugin/skills/graphify/SKILL.md"
+      ],
+      "evaluators_namespaces": [],
+      "evaluator_paths": [],
+      "commands_namespaces": [],
+      "command_paths": [],
+      "agents_namespaces": [],
+      "agent_paths": [],
+      "rules_namespaces": [],
+      "rule_paths": [],
+      "templates_namespaces": [],
+      "template_paths": [],
+      "source_repo": "xixingde/cos-graph",
+      "source_ref": "csc-plugin",
+      "plugin_root": "graphify-plugin"
+    },
+    "manifest_completeness": 1.0,
+    "last_synced": "2026-07-03",
+    "stars": 0,
+    "pushed_at": "2026-07-03T02:25:30Z",
+    "version": "0.9.4",
+    "final_score": 100,
+    "health": {
+      "score": 100,
+      "freshness_label": "active",
+      "signals": {}
+    },
+    "verified": true,
+    "prune_content": false,
+    "external_mirror": true
+  },
+  {
     "id": "greensock-gsap-skills-gsap-skills",
     "name": "gsap-skills",
     "type": "plugin",
