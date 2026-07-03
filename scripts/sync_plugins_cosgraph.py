@@ -1,36 +1,43 @@
 #!/usr/bin/env python3
-"""First-party cos-graph plugin sync (xixingde/cos-graph @ csc-plugin).
+"""First-party cos-graph catalog entry (xixingde/cos-graph @ csc-plugin).
 
-Pulls the ``graphify`` plugin out of ``https://github.com/xixingde/cos-graph``
-(branch ``csc-plugin``) and merges it into ``catalog/plugins/index.json`` as a
-**first-party, marketplace-verified** plugin entry so it flows through the
-canonical pipeline:
+Emits the web-hub CATALOG ENTRY for the ``graphify`` plugin. The repo CONTENT is
+published separately as a FULL-REPO MIRROR (see below) — this script only makes
+graphify listed & scored in the hub:
 
-    catalog/plugins/index.json
+    catalog/plugins/index.json  (this script; entry carries external_mirror=true)
       → merge_index.py        → catalog/index.json
-      → download_catalog.py   → catalog-download/plugins/<id>/.plugin.json
+      → download_catalog.py   → catalog-download/plugins/graphify/.plugin.json
       → build_catalog_bundle  → catalog-bundle.tar.gz
-      → costrict-plugin-marketplace build.py --publish
-                              → costrict-plugins-repo/<id>.git + marketplace.git
       → costrict-web migrate ingest-upstream
-                              → capability_items (web hub)
+                              → capability_items (web hub: graphify listed, scored)
 
-This is the sibling of ``sync_plugins_csc.py`` (cospowers, yhangf/csc-plugins):
-same first-party recipe, different source repo/branch. A dedicated script per
-first-party source matches the existing per-source convention
-(``sync_plugins_official`` / ``sync_plugins_dev`` / ``sync_plugins_csc``) and
-keeps the proven cospowers path untouched.
+The plugin's marketplace repo (``costrict-plugins-repo/graphify``) is NOT built
+by ``costrict-plugin-marketplace/build.py`` for this entry. cos-graph's substance
+(the ``graphify/`` Python package, docs, tests) lives OUTSIDE the
+``graphify-plugin/`` subdir, so it is published as a FULL mirror of the whole
+``csc-plugin`` branch by the dedicated git-mirror step in
+``.github/workflows/sync-cosgraph-plugins.yml``. The ``external_mirror=true`` flag
+(set on the entry below) makes build.py SKIP extracting/publishing this plugin's
+bare repo — otherwise ``find_plugin_root`` would rglob to ``graphify-plugin/`` and
+the pushed 11-file wrapper would clobber the full mirror.
+
+Sibling of ``sync_plugins_csc.py`` (cospowers, yhangf/csc-plugins): same
+first-party CATALOG recipe (fixed ``marketplace_verified=true`` + perfect
+``final_score``, bypassing ai-resource-eval), different source and publish model
+(cospowers = subdir extraction; cos-graph = full-repo mirror). A dedicated script
+per first-party source matches the existing per-source convention
+(``sync_plugins_official`` / ``sync_plugins_dev`` / ``sync_plugins_csc``).
 
 Why a dedicated first-party script instead of ``sync_plugins_official``:
 
-  - These are *first-party* (curated) plugins: they get a fixed
-    ``marketplace_verified=true`` and a fixed perfect ``final_score`` rather than
-    going through the upstream ai-resource-eval scoring pipeline.
+  - First-party (curated): fixed ``marketplace_verified=true`` + perfect
+    ``final_score`` instead of the upstream ai-resource-eval scoring pipeline.
   - The plugin lives on a non-default branch (``csc-plugin``) of a repo whose
     default branch is unrelated product code; the official sync would not target
-    it. cos-graph *does* carry a repo-root ``.claude-plugin/marketplace.json``,
-    but discovery here is subdir-driven (scan ``<subdir>/.claude-plugin/
-    plugin.json``), so the root marketplace.json is neither required nor read.
+    it. Discovery here is subdir-driven (scan ``<subdir>/.claude-plugin/
+    plugin.json`` → ``graphify-plugin``) purely to derive the hub METADATA
+    (name/version/bundle counts); the repo content comes from the full mirror.
 
 Idempotency / "manual re-sync": this script **merge-preserves** —
 it loads the existing ``catalog/plugins/index.json``, drops any prior entries it
@@ -85,15 +92,15 @@ CATALOG_INDEX_PATH = os.path.join(REPO_ROOT, "catalog", "index.json")
 SOURCE_ID = "cos-graph"
 SOURCE_PRIORITY = 1000
 
-SOURCE_REPO = "xixingde/cos-graph"       # <owner>/<repo> — build/content source (not user-facing)
+SOURCE_REPO = "xixingde/cos-graph"       # <owner>/<repo> — upstream mirror source (not user-facing)
 SOURCE_BRANCH_DEFAULT = "csc-plugin"     # DEFAULT (canonical) ref; override per-run via --branch / $SOURCE_BRANCH
 
-# User-facing home: each cos-graph plugin is published as its own standard repo
-# under our org, which is what `csc plugin install <name>@costrict-plugins`
-# actually clones. install.marketplace_repo points here so the web hub's
-# "Upstream Source" link shows our repo, not the upstream product monorepo.
-# (source_url stays on SOURCE_REPO — it's the build clone source and is never
-# returned to the hub UI.)
+# User-facing home: the full-repo mirror is published under our org as
+# costrict-plugins-repo/<name>, which is what `csc plugin install
+# <name>@costrict-plugins` clones. install.marketplace_repo points here so the web
+# hub's "Upstream Source" link shows our repo, not the upstream product repo.
+# (source_url below stays on SOURCE_REPO/<subdir> — used only to derive the hub
+# METADATA counts; the actual repo content is the full mirror, not this subdir.)
 COSTRICT_ORG = "costrict-plugins-repo"
 
 # Self-own: first-party plugins get a fixed perfect score instead of the

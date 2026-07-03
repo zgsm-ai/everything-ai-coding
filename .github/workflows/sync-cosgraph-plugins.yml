@@ -109,10 +109,12 @@ jobs:
           git clone --single-branch --branch "$SOURCE_BRANCH" \
             "https://github.com/${UPSTREAM_REPO}.git" /tmp/cg-mirror
           echo ">> upstream ${UPSTREAM_REPO}@${SOURCE_BRANCH}: $(git -C /tmp/cg-mirror ls-files | wc -l) files, $(git -C /tmp/cg-mirror rev-list --count HEAD) commits"
+          # Create-if-missing (GitHub won't push-to-create). Idempotent — a no-op
+          # ("already exists") once the repo is onboarded; makes the first run
+          # self-sufficient without a manual pre-create.
+          gh repo create "${TARGET_ORG}/${TARGET_REPO}" --public --disable-issues --disable-wiki 2>&1 | tail -1 || echo "(repo already exists)"
           # Force-push the full branch to our GitHub org repo under the SAME branch
-          # name (canonical csc-plugin, or the preview ref). publish.sh's gh-create
-          # is not used here — GitHub also won't push-to-create, so the target repo
-          # must already exist (created once during onboarding).
+          # name (canonical csc-plugin, or the preview ref).
           git -C /tmp/cg-mirror push --force \
             "https://x-access-token:${MARKETPLACE_GITHUB_TOKEN}@github.com/${TARGET_ORG}/${TARGET_REPO}.git" \
             "HEAD:refs/heads/${SOURCE_BRANCH}"
