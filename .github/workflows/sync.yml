@@ -237,6 +237,18 @@ jobs:
         timeout-minutes: 5
         continue-on-error: true
 
+      # First-party cos-graph plugin(s) (xixingde/cos-graph @ csc-plugin). Same
+      # run-order rationale as the csc step above: runs AFTER official (full
+      # overwrite) + dev; this script merge-preserves too, so the cos-graph
+      # entries survive the weekly regen.
+      - name: Sync Plugins (cos-graph first-party)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PYTHONUNBUFFERED: "1"
+        run: python -u scripts/sync_plugins_cosgraph.py
+        timeout-minutes: 5
+        continue-on-error: true
+
       # Stage A — active discovery (pure search, ZERO Tree API). GitHub Search
       # by stars → known_repos pre-filter → write candidate table
       # (.github_trending_cache/candidates.json). Runs after all curated/registry
