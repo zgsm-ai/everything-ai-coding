@@ -98426,7 +98426,7 @@
     "name": "graphify",
     "type": "plugin",
     "description": "Any input to knowledge graph — turns code, docs, papers, images, and videos into a persistent knowledge graph with god nodes, community detection, and query/path/explain tools.",
-    "source_url": "https://github.com/xixingde/cos-graph/tree/csc-plugin/graphify-plugin",
+    "source_url": "https://github.com/xixingde/cos-graph/tree/csc-plugin",
     "category": "backend",
     "tags": [
       "cos-graph",
@@ -98445,7 +98445,7 @@
       "method": "plugin_marketplace",
       "plugin_name": "graphify",
       "marketplace_repo": "costrict-plugins-repo/graphify",
-      "marketplace_name": "graphify",
+      "marketplace_name": "cos-graph",
       "marketplace_verified": true,
       "marketplace": "costrict-plugins-repo/graphify"
     },
@@ -98465,7 +98465,7 @@
       "mcp_server_names": [],
       "is_marketplace_repo": false,
       "skill_paths": [
-        "graphify-plugin/skills/graphify/SKILL.md"
+        "skills/graphify/SKILL.md"
       ],
       "evaluators_namespaces": [],
       "evaluator_paths": [],
@@ -98479,13 +98479,13 @@
       "template_paths": [],
       "source_repo": "xixingde/cos-graph",
       "source_ref": "csc-plugin",
-      "plugin_root": "graphify-plugin"
+      "plugin_root": ""
     },
     "manifest_completeness": 1.0,
     "last_synced": "2026-07-03",
     "stars": 0,
-    "pushed_at": "2026-07-03T02:25:30Z",
-    "version": "0.9.4",
+    "pushed_at": "2026-07-03T03:36:25Z",
+    "version": "0.0.1",
     "final_score": 100,
     "health": {
       "score": 100,
