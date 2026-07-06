@@ -1,5 +1,5 @@
 {
-  "completed_count": 623,
+  "completed_count": 628,
   "completed_entry_ids": [
     "12-month-ai-and-computer-vision-roadmap-for-defense-applications-prompt",
     "2046-puzzle-game-challenge-prompt",
@@ -42,6 +42,7 @@
     "ai-powered-dynamic-ad-integration-system-for-live-ipl-broadcasts-prompt",
     "ai-powered-personal-compliment-coaching-engine-prompt",
     "ai-trying-to-escape-the-box-prompt",
+    "ai-web-search-customer-prompt",
     "ai2sql-sql-model-query-generator-prompt",
     "algorithm-analysis-and-improvement-advisor-prompt",
     "algorithm-quick-guide-prompt",
@@ -280,6 +281,7 @@
     "hccvn-ai-vn-pro-max-optimal-ai-system-design-prompt",
     "health-metrics-calculator-prompt",
     "high-conversion-cold-email-prompt",
+    "high-precision-research-and-performance-architecture-engine-prompt",
     "high-velocity-dogfight-prompt",
     "hts-veri-analiz-portalı-geliştirme-ve-hata-ayıklama-prompt",
     "http-benchmarking-tool-cli-prompt",
@@ -323,6 +325,7 @@
     "linux-monitoring-single-html-prompt",
     "linux-script-developer-prompt",
     "linux-terminal-prompt",
+    "lit-crit-prompt",
     "llm-researcher-prompt",
     "logic-builder-tool-prompt",
     "lost-in-country-with-chatgpt-image-2-prompt",
@@ -395,6 +398,7 @@
     "personal-knowledge-narrative-tool-prompt",
     "personalized-digital-avatar-generator-prompt",
     "photo-to-isometric-reality-slice-generator-prompt",
+    "photography-trip-planning-research-backed-itinerary-builder-prompt",
     "photovoltaic-and-energy-storage-system-engineer-prompt",
     "php-interpreter-prompt",
     "php-microscope-forensic-codebase-autopsy-protocol-prompt",
@@ -443,6 +447,7 @@
     "r-programming-interpreter-prompt",
     "rapid-prototyper-agent-role-prompt",
     "rapid-prototyper-prompt",
+    "react-nextjs-frontend-architect-prompt",
     "real-time-multiplayer-defense-game-prompt",
     "recipe-finder-prompt",
     "redesign-front-end-with-codex-prompt",
@@ -625,7 +630,7 @@
     "编写正则表达式-wprompt",
     "资深编程专家-can-wprompt"
   ],
-  "last_committed_at": "2026-06-30T08:43:14.513984+00:00",
+  "last_committed_at": "2026-07-06T09:26:04.531223+00:00",
   "remaining_entry_ids": [
     "claude-proje-çalışma-promptu-prompt",
     "plataforma-escopo-bugbouty-cyber-hunter-lab-prompt",

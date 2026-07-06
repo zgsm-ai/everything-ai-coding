@@ -1,6 +1,6 @@
 # 🎯 Skills
 
-> 12281 Reusable agent capabilities and workflows for AI coding assistants.
+> 12508 Reusable agent capabilities and workflows for AI coding assistants.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
@@ -34,17 +34,17 @@
 | 22 | [plankton-code-quality](https://github.com/affaan-m/ECC/tree/HEAD/skills/plankton-code-quality) | Plankton Code Quality enforces write-time code quality via auto-formatting, lint... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
 | 23 | [quarkus-tdd](https://github.com/affaan-m/ECC/tree/HEAD/skills/quarkus-tdd) | A comprehensive TDD workflow guide for Quarkus 3.x LTS using JUnit 5, Mockito, R... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
 | 24 | [windows-desktop-e2e](https://github.com/affaan-m/ECC/tree/HEAD/skills/windows-desktop-e2e) | A comprehensive skill for end-to-end testing of Windows native desktop applicati... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
-| 25 | [bioinformatics](https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/research/bioinformatics) | Gateway to 400+ bioinformatics skills fetched on demand for AI-assisted coding. | github-trending | 🟢 Active | 95 | 2026-06-29 | documentation | `bioinformatics`, `genomics`, `skill-gateway` |
+| 25 | [bioinformatics](https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/research/bioinformatics) | Gateway to 400+ bioinformatics skills fetched on demand for AI-assisted coding. | github-trending | 🟢 Active | 95 | 2026-06-29 | documentation | `bioinformatics`, `genomics`, `sequencing` |
 | 26 | [cloudflare-temporary-deploy](https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/web-development/cloudflare-temporary-deploy) | Deploy Cloudflare Workers to live URLs without an account using wrangler --tempo... | github-trending | 🟢 Active | 95 | 2026-06-29 | tooling | `cloudflare`, `workers`, `wrangler` |
-| 27 | [code-wiki](https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/software-development/code-wiki) | Generates comprehensive wiki documentation with Mermaid diagrams for any codebas... | github-trending | 🟢 Active | 95 | 2026-06-29 | ai-ml | `documentation`, `mermaid`, `code-analysis` |
+| 27 | [code-wiki](https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/software-development/code-wiki) | Generates comprehensive wiki documentation with Mermaid diagrams for any codebas... | github-trending | 🟢 Active | 95 | 2026-06-29 | ai-ml | `Documentation`, `Mermaid`, `Architecture` |
 | 28 | [darwinian-evolver](https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/research/darwinian-evolver) | Evolve prompts, regex, SQL, or code using an LLM-driven evolutionary search loop... | github-trending | 🟢 Active | 95 | 2026-06-29 | documentation | `evolution`, `optimization`, `prompt-engineering` |
-| 29 | [distributed-llm-pretraining-torchtitan](https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/mlops/torchtitan) | PyTorch-native distributed LLM pretraining with 4D parallelism using torchtitan. | github-trending | 🟢 Active | 95 | 2026-06-29 | ai-ml | `distributed-training`, `llm-pretraining`, `torchtitan` |
-| 30 | [hermes-agent](https://github.com/NousResearch/hermes-agent/tree/main/skills/autonomous-ai-agents/hermes-agent) | Open-source AI agent framework for autonomous coding, task execution, and multi-... | github-trending | 🟢 Active | 95 | 2026-06-29 | tooling | `ai-agent`, `autonomous-coding`, `multi-agent` |
-| 31 | [instructor](https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/mlops/instructor) | Extract structured data from LLM responses with Pydantic validation and automati... | github-trending | 🟢 Active | 95 | 2026-06-29 | testing | `structured-output`, `pydantic`, `data-extraction` |
+| 29 | [distributed-llm-pretraining-torchtitan](https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/mlops/torchtitan) | PyTorch-native distributed LLM pretraining with 4D parallelism using torchtitan. | github-trending | 🟢 Active | 95 | 2026-06-29 | ai-ml | `Model Architecture`, `Distributed Training`, `TorchTitan` |
+| 30 | [hermes-agent](https://github.com/NousResearch/hermes-agent/tree/main/skills/autonomous-ai-agents/hermes-agent) | Open-source AI agent framework for autonomous coding, task execution, and multi-... | github-trending | 🟢 Active | 95 | 2026-06-29 | tooling | `hermes`, `setup`, `configuration` |
+| 31 | [instructor](https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/mlops/instructor) | Extract structured data from LLM responses with Pydantic validation and automati... | github-trending | 🟢 Active | 95 | 2026-06-29 | testing | `Prompt Engineering`, `Instructor`, `Structured Output` |
 | 32 | [jupyter-live-kernel](https://github.com/NousResearch/hermes-agent/tree/main/skills/data-science/jupyter-live-kernel) | Stateful Python REPL via live Jupyter kernel for iterative data exploration. | github-trending | 🟢 Active | 95 | 2026-06-29 | backend | `jupyter`, `notebook`, `repl` |
-| 33 | [pinggy-tunnel](https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/devops/pinggy-tunnel) | Expose local services to the public internet using Pinggy SSH tunnels with zero ... | github-trending | 🟢 Active | 95 | 2026-06-29 | tooling | `pinggy`, `ssh`, `tunnel` |
+| 33 | [pinggy-tunnel](https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/devops/pinggy-tunnel) | Expose local services to the public internet using Pinggy SSH tunnels with zero ... | github-trending | 🟢 Active | 95 | 2026-06-29 | tooling | `Pinggy`, `Tunnel`, `Networking` |
 | 34 | [pretext](https://github.com/NousResearch/hermes-agent/tree/main/skills/creative/pretext) | AI skill for creative browser demos using @chenglou/pretext text layout, ASCII a... | github-trending | 🟢 Active | 95 | 2026-06-29 | frontend | `creative-coding`, `typography`, `pretext` |
-| 35 | [shopify](https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/productivity/shopify) | curl-based GraphQL bindings for Shopify Admin & Storefront APIs to manage produc... | github-trending | 🟢 Active | 95 | 2026-06-29 | backend | `shopify`, `graphql`, `e-commerce` |
+| 35 | [shopify](https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/productivity/shopify) | curl-based GraphQL bindings for Shopify Admin & Storefront APIs to manage produc... | github-trending | 🟢 Active | 95 | 2026-06-29 | backend | `Shopify`, `E-commerce`, `Commerce` |
 | 36 | [setup-pre-commit](https://github.com/mattpocock/skills/tree/main/skills/misc/setup-pre-commit) | Sets up Husky pre-commit hooks with lint-staged for Prettier, type checking, and... | mattpocock/skills | 🟢 Active | 95 | 2026-06-17 | testing | — |
 | 37 | [langsmith-fetch](https://github.com/ComposioHQ/awesome-claude-skills/tree/master/langsmith-fetch) | CLI tool for debugging LangChain/LangGraph agents by fetching and analyzing exec... | composio-office | 🟢 Active | 95 | 2026-05-22 | documentation | `langchain`, `office`, `documentation` |
 | 38 | [agent-framework-azure-ai-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agent-framework-azure-ai-py) | A Python SDK skill for building persistent AI agents on Azure AI Foundry with to... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `python`, `azure` |
@@ -91,30 +91,30 @@
 | 79 | [bun-development](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/bun-development) | A comprehensive guide for using the Bun runtime to develop fast JavaScript/TypeS... | Antigravity Skills | 🟢 Active | 95 | 2026-06-10 | frontend | `typescript`, `javascript`, `java` |
 | 80 | [circleci-automation](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/circleci-automation) | Automates CircleCI CI/CD tasks via Rube MCP, enabling pipeline triggering, workf... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | `ci-cd` |
 | 81 | [cirq](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/cirq) | Google Quantum AI's open-source Python framework for designing, simulating, and ... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `go` |
-| 82 | [claimable-postgres](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/claimable-postgres) | Provision instant, temporary Postgres databases for development and prototyping ... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | database | `postgres` |
+| 82 | [claimable-postgres](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/claimable-postgres) | Provision instant, temporary Postgres databases for development and prototyping ... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | `postgres`, `rest-api` |
 | 83 | [comfyui-gateway](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/comfyui-gateway) | A REST API gateway for ComfyUI servers providing workflow management, job queuin... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | backend | `rest-api` |
 | 84 | [constant-time-analysis](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/constant-time-analysis) | A static analysis tool to detect timing side-channels in cryptographic code acro... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | security | — |
 | 85 | [container-security-hardening](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/container-security-hardening) | A comprehensive skill for hardening Docker and Kubernetes deployments with secur... | Antigravity Skills | 🟢 Active | 95 | 2026-06-10 | security | `docker`, `kubernetes` |
-| 86 | [convex](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/convex) | Comprehensive guide to Convex, a TypeScript-first reactive backend platform with... | Antigravity Skills | 🟢 Active | 95 | 2026-06-10 | backend | `react`, `typescript` |
-| 87 | [copilot-sdk](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/copilot-sdk) | An SDK for programmatic interaction with GitHub Copilot, providing session manag... | Antigravity Skills | 🟢 Active | 95 | 2026-06-10 | backend | `python`, `go`, `nodejs` |
-| 88 | [dep](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agent-squad/dep) | An AI agent skill for DevOps that generates containerization, CI/CD pipelines, a... | Antigravity Skills | 🟢 Active | 95 | 2026-06-15 | devops | — |
-| 89 | [deploy-to-vercel](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/deploy-to-vercel) | A skill for AI agents to deploy projects to Vercel via CLI, git, or no-auth scri... | Antigravity Skills | 🟢 Active | 95 | 2026-06-10 | devops | — |
-| 90 | [dos-verify-done-claims](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/dos-verify-done-claims) | A skill to verify AI agent 'done' claims against git commit diffs and ancestry u... | Antigravity Skills | 🟢 Active | 95 | 2026-06-15 | ai-ml | `git` |
-| 91 | [gdb-cli](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gdb-cli) | An AI agent skill that uses GDB to debug C/C++ programs by analyzing core dumps,... | Antigravity Skills | 🟢 Active | 95 | 2026-06-10 | tooling | `linux` |
-| 92 | [gh-image](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gh-image) | Upload local images to GitHub via CLI and get embeddable Markdown URLs for PRs, ... | Antigravity Skills | 🟢 Active | 95 | 2026-06-30 | tooling | `github`, `gh-extension`, `image-upload` |
-| 93 | [git-hooks-automation](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/git-hooks-automation) | A comprehensive guide to automating Git hooks for code quality enforcement using... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | `git` |
-| 94 | [gitops-workflow](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gitops-workflow) | A comprehensive guide for implementing GitOps workflows on Kubernetes using Argo... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | devops | `go`, `kubernetes`, `git` |
-| 95 | [go-rod-master](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/go-rod-master) | A comprehensive Go guide for browser automation and web scraping using go-rod wi... | Antigravity Skills | 🟢 Active | 95 | 2026-06-10 | tooling | `go` |
-| 96 | [hierarchical-agent-memory](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hierarchical-agent-memory) | Scoped CLAUDE.md memory system that reduces context token spend by creating dire... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `claude`, `ai`, `llm` |
-| 97 | [hosted-agents-v2-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hosted-agents-v2-py) | A Python SDK guide for creating and managing container-based hosted agents in Az... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `azure` |
-| 98 | [hugging-face-model-trainer](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hugging-face-model-trainer) | A skill for training and fine-tuning TRL language models on Hugging Face Jobs wi... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `huggingface`, `llm`, `ml` |
-| 99 | [hugging-face-vision-trainer](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hugging-face-vision-trainer) | Train vision models (detection, classification, SAM/SAM2 segmentation) on Huggin... | Antigravity Skills | 🟢 Active | 95 | 2026-06-10 | ai-ml | `huggingface`, `ml` |
-| 100 | [javascript-typescript-typescript-scaffold](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/javascript-typescript-typescript-scaffold) | AI skill for scaffolding production-ready TypeScript projects with modern toolin... | Antigravity Skills | 🟢 Active | 95 | 2026-06-10 | tooling | `typescript`, `javascript`, `java` |
+| 86 | [context-engineering](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/context-engineering) | Optimizes AI coding agent context with structured rules files, task-specific con... | Antigravity Skills | 🟢 Active | 95 | 2026-07-06 | ai-ml | `context-engineering`, `ai-coding`, `rules-files` |
+| 87 | [convex](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/convex) | Comprehensive guide to Convex, a TypeScript-first reactive backend platform with... | Antigravity Skills | 🟢 Active | 95 | 2026-06-10 | backend | `react`, `typescript` |
+| 88 | [copilot-sdk](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/copilot-sdk) | An SDK for programmatic interaction with GitHub Copilot, providing session manag... | Antigravity Skills | 🟢 Active | 95 | 2026-06-10 | backend | `python`, `go`, `nodejs` |
+| 89 | [dep](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agent-squad/dep) | An AI agent skill for DevOps that generates containerization, CI/CD pipelines, a... | Antigravity Skills | 🟢 Active | 95 | 2026-06-15 | devops | — |
+| 90 | [deploy-to-vercel](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/deploy-to-vercel) | A skill for AI agents to deploy projects to Vercel via CLI, git, or no-auth scri... | Antigravity Skills | 🟢 Active | 95 | 2026-06-10 | devops | — |
+| 91 | [dos-verify-done-claims](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/dos-verify-done-claims) | A skill to verify AI agent 'done' claims against git commit diffs and ancestry u... | Antigravity Skills | 🟢 Active | 95 | 2026-06-15 | ai-ml | `git` |
+| 92 | [doubt-driven-development](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/doubt-driven-development) | A skill for adversarial review of non-trivial coding decisions using fresh-conte... | Antigravity Skills | 🟢 Active | 95 | 2026-07-06 | tooling | `adversarial-review`, `code-quality`, `decision-check` |
+| 93 | [frontend-ui-engineering](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/frontend-ui-engineering) | A skill for building production-quality, accessible, and performant frontend UIs... | Antigravity Skills | 🟢 Active | 95 | 2026-07-06 | frontend | `frontend`, `ui-engineering`, `react` |
+| 94 | [gdb-cli](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gdb-cli) | An AI agent skill that uses GDB to debug C/C++ programs by analyzing core dumps,... | Antigravity Skills | 🟢 Active | 95 | 2026-06-10 | tooling | `linux` |
+| 95 | [gh-image](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gh-image) | Upload local images to GitHub via CLI and get embeddable Markdown URLs for PRs, ... | Antigravity Skills | 🟢 Active | 95 | 2026-06-30 | tooling | `git` |
+| 96 | [git-hooks-automation](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/git-hooks-automation) | A comprehensive guide to automating Git hooks for code quality enforcement using... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | tooling | `git` |
+| 97 | [gitops-workflow](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gitops-workflow) | A comprehensive guide for implementing GitOps workflows on Kubernetes using Argo... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | devops | `go`, `kubernetes`, `git` |
+| 98 | [go-rod-master](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/go-rod-master) | A comprehensive Go guide for browser automation and web scraping using go-rod wi... | Antigravity Skills | 🟢 Active | 95 | 2026-06-10 | tooling | `go` |
+| 99 | [hierarchical-agent-memory](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hierarchical-agent-memory) | Scoped CLAUDE.md memory system that reduces context token spend by creating dire... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `claude`, `ai`, `llm` |
+| 100 | [hosted-agents-v2-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hosted-agents-v2-py) | A Python SDK guide for creating and managing container-based hosted agents in Az... | Antigravity Skills | 🟢 Active | 95 | 2026-05-09 | ai-ml | `azure` |
 
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>docx</strong> (156.8k★) — A comprehensive skill for AI assistants to programmatically ...</summary>
+<summary>⭐ <strong>docx</strong> (158.6k★) — A comprehensive skill for AI assistants to programmatically ...</summary>
 
 A comprehensive skill for AI assistants to programmatically create, read, edit, and manipulate .docx Word documents using JavaScript and XML.
 
@@ -129,7 +129,7 @@ Files: `skills/docx/`
 </details>
 
 <details>
-<summary>⭐ <strong>slack-gif-creator</strong> (156.8k★) — A Python toolkit for creating animated GIFs optimized for Sl...</summary>
+<summary>⭐ <strong>slack-gif-creator</strong> (158.6k★) — A Python toolkit for creating animated GIFs optimized for Sl...</summary>
 
 A Python toolkit for creating animated GIFs optimized for Slack, providing constraints, utilities, and animation concepts.
 
@@ -144,7 +144,7 @@ Files: `skills/slack-gif-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>skill-creator</strong> (156.8k★) — A comprehensive skill for creating, testing, and optimizing ...</summary>
+<summary>⭐ <strong>skill-creator</strong> (158.6k★) — A comprehensive skill for creating, testing, and optimizing ...</summary>
 
 A comprehensive skill for creating, testing, and optimizing AI assistant skills through an iterative workflow with evaluation and benchmarking.
 
@@ -159,7 +159,7 @@ Files: `skills/skill-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>xlsx</strong> (156.8k★) — A Python skill for programmatically creating, editing, and a...</summary>
+<summary>⭐ <strong>xlsx</strong> (158.6k★) — A Python skill for programmatically creating, editing, and a...</summary>
 
 A Python skill for programmatically creating, editing, and analyzing Excel and tabular files with strict formatting and formula standards.
 
@@ -269,4 +269,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-06-30*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-07-06*
