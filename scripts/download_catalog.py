@@ -679,7 +679,17 @@ def _download_batch(
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         future_to_name = {executor.submit(_task, e): _kebab_name(e) for e in entries}
         for future in as_completed(future_to_name):
-            name, ok, err = future.result()
+            name = future_to_name[future]
+            try:
+                name, ok, err = future.result()
+            except Exception as exc:
+                # Backstop: a downloader must never crash the whole batch. Any
+                # unexpected exception (e.g. a transient network error that
+                # slipped past fetch_raw_content's retry loop) is downgraded to
+                # a per-entry failure so the other ~12k downloads still finish.
+                errors.append(f"{name}: {exc!r}")
+                logger.warning(f"Download crashed for {name}: {exc!r}")
+                continue
             if ok:
                 successes.append(name)
             else:

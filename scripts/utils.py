@@ -4,6 +4,7 @@ import os
 import re
 import json
 import time
+import http.client
 import logging
 import urllib.parse
 from typing import Optional
@@ -518,7 +519,14 @@ def fetch_raw_content(repo: str, path: str, branch: str = "main",
                 continue
             logger.error(f"Failed to fetch {_safe_log_url(url)}: {e}")
             return None
-        except (URLError, TimeoutError) as e:
+        except (URLError, TimeoutError, ConnectionError,
+                http.client.HTTPException) as e:
+            # ConnectionError + http.client.HTTPException also catch
+            # http.client.RemoteDisconnected ("Remote end closed connection
+            # without response") — raised inside h.getresponse(), which urllib's
+            # do_open does NOT wrap in URLError, so it would otherwise escape the
+            # retry loop and crash a whole download batch on a single transient
+            # hiccup. Treat all of these as retryable transient failures.
             logger.error(f"Failed to fetch {_safe_log_url(url)}: {e}")
             if attempt < 2:
                 time.sleep(2 ** attempt)
