@@ -8,8 +8,8 @@
 
 <!-- @@@auto:current-status -->
 - **Active File**: `journal-1.md`
-- **Total Sessions**: 4
-- **Last Active**: 2026-06-23
+- **Total Sessions**: 5
+- **Last Active**: 2026-07-07
 <!-- @@@/auto:current-status -->
 
 ---
@@ -19,7 +19,7 @@
 <!-- @@@auto:active-documents -->
 | File | Lines | Status |
 |------|-------|--------|
-| `journal-1.md` | ~143 | Active |
+| `journal-1.md` | ~176 | Active |
 <!-- @@@/auto:active-documents -->
 
 ---
@@ -29,6 +29,7 @@
 <!-- @@@auto:session-history -->
 | # | Date | Title | Commits | Branch |
 |---|------|-------|---------|--------|
+| 5 | 2026-07-07 | download_catalog 抓取层加固 RemoteDisconnected | `8cb2a13` | `main` |
 | 4 | 2026-06-23 | 已入库 monorepo 增量重扫 | `54aa508` | `main` |
 | 3 | 2026-06-23 | search-index + 前端搜索性能重构（瘦身/MiniSearch/分片/虚拟滚动） | `54515a6` | `main` |
 | 2 | 2026-06-22 | security scan B2 回填 + 全链验证收口 | `0c20c67` | `main` |

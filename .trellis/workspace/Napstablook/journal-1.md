@@ -141,3 +141,36 @@
 ### Next Steps
 
 - None - task complete
+
+
+## Session 5: download_catalog 抓取层加固 RemoteDisconnected
+
+**Date**: 2026-07-07
+**Task**: download_catalog 抓取层加固 RemoteDisconnected
+**Branch**: `main`
+
+### Summary
+
+定位并修复 Release Catalog Bundle CI 失败：单个瞬时 RemoteDisconnected 拖垮整批 12k skill 下载。R1 fetch_raw_content except 扩为含 ConnectionError+http.client.HTTPException 走退避重试；R2 _download_batch 兜底单 entry 异常不杀整批；新增 3 例回归测试（tests/ 需 -f 强制入库）。
+
+### Main Changes
+
+(Add details)
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `8cb2a13` | (see git log) |
+
+### Testing
+
+- [OK] (Add test results)
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
