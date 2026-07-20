@@ -1,12 +1,12 @@
 <div align="center">
 <img src="assets/logo.png" alt="Everything AI Coding logo" width="600" />
-<p><strong><!-- README_APPROX_COUNT:START -->26100<!-- README_APPROX_COUNT:END -->+ curated AI coding resources — browse, evaluate, install</strong><br/>MCP Servers · Skills · Rules · Prompts · Plugins</p>
+<p><strong><!-- README_APPROX_COUNT:START -->28000<!-- README_APPROX_COUNT:END -->+ curated AI coding resources — browse, evaluate, install</strong><br/>MCP Servers · Skills · Rules · Prompts · Plugins</p>
 
 <p>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/stargazers"><img src="https://img.shields.io/github/stars/zgsm-ai/everything-ai-coding?style=flat-square&color=4A90D9" alt="Stars" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zgsm-ai/everything-ai-coding?style=flat-square" alt="License" /></a>
   <a href="https://github.com/zgsm-ai/everything-ai-coding/commits/main"><img src="https://img.shields.io/github/last-commit/zgsm-ai/everything-ai-coding?style=flat-square" alt="Last Commit" /></a>
-  <img src="https://img.shields.io/badge/resources-26182-2ECC71?style=flat-square" alt="Resources" />
+  <img src="https://img.shields.io/badge/resources-28061-2ECC71?style=flat-square" alt="Resources" />
 </p>
 
 <p>
@@ -34,25 +34,25 @@ Everything AI Coding is a **curated knowledge base** that continuously collects,
 <a id="knowledge-base"></a>
 ## 📚 Knowledge Base
 
-### [🔌 MCP Servers](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->8886<!-- README_COUNT_MCP:END --> entries
+### [🔌 MCP Servers](./catalog/mcp/) — <!-- README_COUNT_MCP:START -->9742<!-- README_COUNT_MCP:END --> entries
 
 Model Context Protocol servers that connect AI agents to external tools, databases, and services.
 
 <!-- README_TOP5_MCP:START -->
 | Name | ⭐ Stars | Score | Description |
 |------|----------|-------|-------------|
-| [upstash/context7](https://github.com/upstash/context7) | 58.6k | 98 | An MCP server that injects real-time, version-specific library docume… |
-| [Headroom](https://github.com/chopratejas/headroom) | 56.9k | 98 | AI context compression layer for agents, reducing token usage 60-95%… |
-| [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 46.0k | 98 | Official Google MCP server enabling AI coding agents to control Chrom… |
-| [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | 34.8k | 98 | Official Microsoft MCP server enabling AI to control web browsers via… |
-| [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 27.0k | 98 | Code intelligence MCP server that indexes codebases into a persistent… |
+| [Headroom](https://github.com/chopratejas/headroom) | 60.4k | 98 | AI context compression layer for agents, reducing token usage 60-95%… |
+| [upstash/context7](https://github.com/upstash/context7) | 59.5k | 98 | An MCP server that injects real-time, version-specific library docume… |
+| [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 47.2k | 98 | Official Google MCP server enabling AI coding agents to control Chrom… |
+| [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | 35.3k | 98 | Official Microsoft MCP server enabling AI to control web browsers via… |
+| [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 33.0k | 98 | Code intelligence MCP server that indexes codebases into a persistent… |
 <!-- README_TOP5_MCP:END -->
 
 [Browse all MCP servers →](./catalog/mcp/) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=mcp)
 
 ---
 
-### [🎯 Skills](./catalog/skills/) — <!-- README_COUNT_SKILL:START -->12508<!-- README_COUNT_SKILL:END --> entries
+### [🎯 Skills](./catalog/skills/) — <!-- README_COUNT_SKILL:START -->13194<!-- README_COUNT_SKILL:END --> entries
 
 Reusable agent capabilities and workflows for AI coding assistants.
 
@@ -88,7 +88,7 @@ Coding conventions and AI behavior guidelines for consistent development.
 
 ---
 
-### [💡 Prompts](./catalog/prompts/) — <!-- README_COUNT_PROMPT:START -->633<!-- README_COUNT_PROMPT:END --> entries
+### [💡 Prompts](./catalog/prompts/) — <!-- README_COUNT_PROMPT:START -->654<!-- README_COUNT_PROMPT:END --> entries
 
 Developer-focused prompt templates for common coding tasks.
 
@@ -106,7 +106,7 @@ Developer-focused prompt templates for common coding tasks.
 
 ---
 
-### [🧩 Plugins](./catalog/plugins/) — <!-- README_COUNT_PLUGIN:START -->1340<!-- README_COUNT_PLUGIN:END --> entries
+### [🧩 Plugins](./catalog/plugins/) — <!-- README_COUNT_PLUGIN:START -->1451<!-- README_COUNT_PLUGIN:END --> entries
 
 Bundled marketplace plugins (skills + commands + agents + MCP servers).
 

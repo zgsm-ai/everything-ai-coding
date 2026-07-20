@@ -219,7 +219,7 @@ Files: `cospowers-tdd-development-plugin/rules/testing-standards/高级代码分
 </details>
 
 <details>
-<summary>⭐ <strong>Bug Fix (Rules 2.1)</strong> (170★) — 完整的Bug修复工作流规则，从问题创建到拉取请求，包含代码示例和最佳实践。</summary>
+<summary>⭐ <strong>Bug Fix (Rules 2.1)</strong> (171★) — 完整的Bug修复工作流规则，从问题创建到拉取请求，包含代码示例和最佳实践。</summary>
 
 完整的Bug修复工作流规则，从问题创建到拉取请求，包含代码示例和最佳实践。
 
@@ -232,7 +232,7 @@ Files: `cospowers-tdd-development-plugin/rules/testing-standards/高级代码分
 </details>
 
 <details>
-<summary>⭐ <strong>Changelog Management (Rules 2.1)</strong> (170★) — 基于AI规则的自动变更日志生成与管理工具，从Git提交历史自动创建。</summary>
+<summary>⭐ <strong>Changelog Management (Rules 2.1)</strong> (171★) — 基于AI规则的自动变更日志生成与管理工具，从Git提交历史自动创建。</summary>
 
 基于AI规则的自动变更日志生成与管理工具，从Git提交历史自动创建。
 
@@ -271,4 +271,4 @@ Files: `cospowers-integration-verification-plugin/rules/coding-standards/python-
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-07-06*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-07-20*

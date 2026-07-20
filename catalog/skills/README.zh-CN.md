@@ -1,6 +1,6 @@
 # 🎯 Skills 技能
 
-> 12508 AI 编程助手的可复用能力和工作流。
+> 13194 AI 编程助手的可复用能力和工作流。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
@@ -92,29 +92,29 @@
 | 80 | [circleci-automation](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/circleci-automation) | 通过 Rube MCP 自动化 CircleCI CI/CD 任务，支持触发管道、监控工作流及获取构建产物和测试元数据。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | tooling | `ci-cd` |
 | 81 | [cirq](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/cirq) | 谷歌量子AI的开源Python框架，用于设计、模拟和在量子计算机及模拟器上运行量子电路。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | ai-ml | `go` |
 | 82 | [claimable-postgres](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/claimable-postgres) | 无需登录或信用卡，即时创建临时 Postgres 数据库，用于开发和原型设计。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | tooling | `postgres`, `rest-api` |
-| 83 | [comfyui-gateway](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/comfyui-gateway) | ComfyUI 服务器的 REST API 网关，提供工作流管理、作业队列、Webhook、缓存、认证和图像交付。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | backend | `rest-api` |
-| 84 | [constant-time-analysis](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/constant-time-analysis) | 静态分析工具，用于检测多种编程语言中密码代码的时序侧信道漏洞。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | security | — |
-| 85 | [container-security-hardening](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/container-security-hardening) | 全面的容器安全加固技能，涵盖安全基础镜像、非root用户、CVE扫描、SBOM/签名和运行时安全控制。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | security | `docker`, `kubernetes` |
-| 86 | [context-engineering](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/context-engineering) | 优化AI编码代理的上下文设置，通过结构化规则文件、任务特定上下文和混淆管理。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-07-06 | ai-ml | `context-engineering`, `ai-coding`, `rules-files` |
-| 87 | [convex](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/convex) | Convex 是一个 TypeScript 优先的响应式后端平台，提供 ACID 事务、实时更新和托管基础设施的完整指南。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | backend | `react`, `typescript` |
-| 88 | [copilot-sdk](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/copilot-sdk) | 用于与 GitHub Copilot 编程交互的 SDK，支持会话管理、自定义工具、钩子及 MCP 集成，覆盖 Node.js、Python、Go 和 .NET... | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | backend | `python`, `go`, `nodejs` |
-| 89 | [dep](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agent-squad/dep) | 一个用于DevOps的AI代理技能，负责为生产就绪代码生成容器化、CI/CD流水线和部署配置。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-15 | devops | — |
-| 90 | [deploy-to-vercel](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/deploy-to-vercel) | 一个AI技能，用于通过CLI、Git或无认证脚本将项目部署到Vercel，适应多种环境状态。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | devops | — |
-| 91 | [dos-verify-done-claims](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/dos-verify-done-claims) | 使用DOS内核工具验证AI代理的完成声明，基于git提交差异和历史记录。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-15 | ai-ml | `git` |
-| 92 | [doubt-driven-development](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/doubt-driven-development) | 对非平凡编码决策进行对抗性审查，通过新鲜上下文检查器及早发现错误。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-07-06 | tooling | `adversarial-review`, `code-quality`, `decision-check` |
-| 93 | [frontend-ui-engineering](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/frontend-ui-engineering) | 用于构建生产级别、可访问且高性能的前端 UI 的技能指南，强调设计系统遵循和组件最佳实践。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-07-06 | frontend | `frontend`, `ui-engineering`, `react` |
-| 94 | [gdb-cli](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gdb-cli) | 一个AI智能体技能，使用GDB调试C/C++程序，支持分析核心转储、调试实时进程、调查崩溃和死锁，并与源代码关联。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | `linux` |
-| 95 | [gh-image](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gh-image) | 从终端上传图片到GitHub，获取可嵌入的Markdown链接。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-30 | tooling | `git` |
-| 96 | [git-hooks-automation](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/git-hooks-automation) | 全面指南，使用 Husky、lint-staged、pre-commit 和 commitlint 自动化 Git 钩子以强制代码质量。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | tooling | `git` |
-| 97 | [gitops-workflow](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gitops-workflow) | 使用 ArgoCD 和 Flux CD 在 Kubernetes 上实现 GitOps 工作流的完整指南，涵盖安装、配置和高级部署策略。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | devops | `go`, `kubernetes`, `git` |
-| 98 | [go-rod-master](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/go-rod-master) | 全面指南，介绍使用 go-rod 进行浏览器自动化与网页抓取，包括反机器人检测隐身模式。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | `go` |
-| 99 | [hierarchical-agent-memory](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hierarchical-agent-memory) | 分层代理记忆系统，通过创建目录级上下文文件减少AI编码代理的上下文令牌消耗。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | ai-ml | `claude`, `ai`, `llm` |
-| 100 | [hosted-agents-v2-py](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hosted-agents-v2-py) | 使用 Azure AI Projects SDK 在 Azure AI Foundry 中创建和管理容器化托管代理的 Python 指南。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | ai-ml | `azure` |
+| 83 | [clean-code-guard](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/clean-code-guard) | 审查生成或变更的生产代码，应用Clean Code、SOLID、DRY、KISS、YAGNI及AI特定故障模式检查。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-07-19 | tooling | `code-quality`, `code-review`, `clean-code` |
+| 84 | [cmux](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/cmux) | 在 macOS 终端中安全控制 cmux 工作区、窗格、面板和代理会话。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-07-19 | tooling | `cmux`, `terminal-multiplexer`, `ai-agents` |
+| 85 | [comfyui-gateway](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/comfyui-gateway) | ComfyUI 服务器的 REST API 网关，提供工作流管理、作业队列、Webhook、缓存、认证和图像交付。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | backend | `rest-api` |
+| 86 | [constant-time-analysis](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/constant-time-analysis) | 静态分析工具，用于检测多种编程语言中密码代码的时序侧信道漏洞。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | security | — |
+| 87 | [container-security-hardening](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/container-security-hardening) | 全面的容器安全加固技能，涵盖安全基础镜像、非root用户、CVE扫描、SBOM/签名和运行时安全控制。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | security | `docker`, `kubernetes` |
+| 88 | [context-engineering](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/context-engineering) | 优化AI编码代理的上下文设置，通过结构化规则文件、任务特定上下文和混淆管理。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-07-06 | ai-ml | — |
+| 89 | [convex](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/convex) | Convex 是一个 TypeScript 优先的响应式后端平台，提供 ACID 事务、实时更新和托管基础设施的完整指南。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | backend | `react`, `typescript` |
+| 90 | [copilot-sdk](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/copilot-sdk) | 用于与 GitHub Copilot 编程交互的 SDK，支持会话管理、自定义工具、钩子及 MCP 集成，覆盖 Node.js、Python、Go 和 .NET... | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | backend | `python`, `go`, `nodejs` |
+| 91 | [dep](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agent-squad/dep) | 一个用于DevOps的AI代理技能，负责为生产就绪代码生成容器化、CI/CD流水线和部署配置。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-15 | devops | — |
+| 92 | [deploy-to-vercel](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/deploy-to-vercel) | 一个AI技能，用于通过CLI、Git或无认证脚本将项目部署到Vercel，适应多种环境状态。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | devops | — |
+| 93 | [dos-verify-done-claims](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/dos-verify-done-claims) | 使用DOS内核工具验证AI代理的完成声明，基于git提交差异和历史记录。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-15 | ai-ml | `git` |
+| 94 | [doubt-driven-development](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/doubt-driven-development) | 对非平凡编码决策进行对抗性审查，通过新鲜上下文检查器及早发现错误。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-07-06 | tooling | — |
+| 95 | [feature-tracking](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/feature-tracking) | 基于Markdown的轻量级工作流，帮助AI代理跨会话跟踪功能状态、决策和风险。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-07-19 | tooling | `feature-tracking`, `project-memory`, `ai-agents` |
+| 96 | [frontend-ui-engineering](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/frontend-ui-engineering) | 用于构建生产级别、可访问且高性能的前端 UI 的技能指南，强调设计系统遵循和组件最佳实践。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-07-06 | frontend | — |
+| 97 | [gdb-cli](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gdb-cli) | 一个AI智能体技能，使用GDB调试C/C++程序，支持分析核心转储、调试实时进程、调查崩溃和死锁，并与源代码关联。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-10 | tooling | `linux` |
+| 98 | [gh-image](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gh-image) | 从终端上传图片到GitHub，获取可嵌入的Markdown链接。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-06-30 | tooling | `git` |
+| 99 | [git-hooks-automation](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/git-hooks-automation) | 全面指南，使用 Husky、lint-staged、pre-commit 和 commitlint 自动化 Git 钩子以强制代码质量。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | tooling | `git` |
+| 100 | [gitops-workflow](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gitops-workflow) | 使用 ArgoCD 和 Flux CD 在 Kubernetes 上实现 GitOps 工作流的完整指南，涵盖安装、配置和高级部署策略。 | Antigravity Skills | 🟢 活跃 | 95 | 2026-05-09 | devops | `go`, `kubernetes`, `git` |
 
 ## Top 10 安装指南
 
 <details>
-<summary>⭐ <strong>docx</strong> (158.6k★) — 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。</summary>
+<summary>⭐ <strong>docx</strong> (162.8k★) — 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。</summary>
 
 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。
 
@@ -129,7 +129,7 @@ Files: `skills/docx/`
 </details>
 
 <details>
-<summary>⭐ <strong>slack-gif-creator</strong> (158.6k★) — 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。</summary>
+<summary>⭐ <strong>slack-gif-creator</strong> (162.8k★) — 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。</summary>
 
 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。
 
@@ -144,7 +144,7 @@ Files: `skills/slack-gif-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>skill-creator</strong> (158.6k★) — 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。</summary>
+<summary>⭐ <strong>skill-creator</strong> (162.8k★) — 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。</summary>
 
 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。
 
@@ -159,7 +159,7 @@ Files: `skills/skill-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>xlsx</strong> (158.6k★) — 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。</summary>
+<summary>⭐ <strong>xlsx</strong> (162.8k★) — 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。</summary>
 
 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。
 
@@ -269,4 +269,4 @@ git clone nicobailon/pi-subagents
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-07-06*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-07-20*
