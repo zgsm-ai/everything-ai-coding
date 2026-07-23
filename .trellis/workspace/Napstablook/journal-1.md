@@ -174,3 +174,37 @@
 ### Next Steps
 
 - None - task complete
+
+
+## Session 6: CosKnow 第一方同步链路接入（GitHub + Gitea 全仓镜像）
+
+**Date**: 2026-07-23
+**Task**: CosKnow 第一方同步链路接入（GitHub + Gitea 全仓镜像）
+**Branch**: `main`
+
+### Summary
+
+仿 cos-graph FULL-REPO mirror 模式接入私有仓 zgsm-sangfor/CosKnow@v2：新增 sync_plugins_cosknow.py（catalog entry，external_mirror=true）+ sync-cosknow-plugins.yml（GitHub+Gitea 全仓镜像）+ weekly sync.yml 存活 step。三处私有仓适配：MARKETPLACE_GITHUB_TOKEN 贯穿、对外指针改指 public 镜像 costrict-plugins-repo/cosknow、无 token fail-fast。CI 两次实跑验收：GitHub/Gitea 镜像 109 文件全历史、默认分支 v2、幂等无空提交。
+
+### Main Changes
+
+(Add details)
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `a4de41a` | (see git log) |
+| `bf66405` | (see git log) |
+
+### Testing
+
+- [OK] (Add test results)
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
