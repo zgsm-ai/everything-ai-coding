@@ -249,6 +249,20 @@ jobs:
         timeout-minutes: 5
         continue-on-error: true
 
+      # First-party CosKnow plugin (zgsm-sangfor/CosKnow @ v2, FULL-REPO mirror
+      # like cos-graph). Same run-order rationale: runs AFTER official (full
+      # overwrite) so the cosknow entry survives the weekly regen. PRIVATE
+      # upstream → needs the marketplace PAT (default GITHUB_TOKEN has no
+      # cross-repo read access; without it the script fails fast and this
+      # step's continue-on-error keeps the weekly sync alive).
+      - name: Sync Plugins (CosKnow first-party)
+        env:
+          GITHUB_TOKEN: ${{ secrets.MARKETPLACE_GITHUB_TOKEN }}
+          PYTHONUNBUFFERED: "1"
+        run: python -u scripts/sync_plugins_cosknow.py
+        timeout-minutes: 5
+        continue-on-error: true
+
       # Stage A — active discovery (pure search, ZERO Tree API). GitHub Search
       # by stars → known_repos pre-filter → write candidate table
       # (.github_trending_cache/candidates.json). Runs after all curated/registry
