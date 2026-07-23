@@ -1,0 +1,1 @@
+{"file": ".trellis/tasks/07-23-cosknow-github-gitea/prd.md", "reason": "校验依据：AC（脚本产出单条 cosknow entry 且 external_mirror=true / workflow 全仓镜像 GitHub+Gitea 且默认分支 v2 / PREVIEW 模式不写 canonical catalog 不碰 Gitea / 幂等无空提交）。重点核实私有仓 token 贯穿所有 fetch 与 clone、Gitea 步骤与 cosgraph 同款 guard。"}

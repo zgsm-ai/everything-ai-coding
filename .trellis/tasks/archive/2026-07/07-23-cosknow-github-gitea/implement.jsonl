@@ -1,0 +1,1 @@
+{"file": ".trellis/tasks/07-23-cosknow-github-gitea/prd.md", "reason": "本任务唯一 spec：含已拍板 ADR（MARKETPLACE_GITHUB_TOKEN 读私有仓 / Public 镜像 / FULL-REPO mirror 模式）、CosKnow 仓库实测事实（v2 默认分支、根 plugin、实质内容在子目录外）、既有 cosgraph/cospower 链路结构、AC 与关键文件落点。"}
