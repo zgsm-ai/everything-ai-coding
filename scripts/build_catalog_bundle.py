@@ -109,32 +109,60 @@ except ImportError:  # pragma: no cover - PyYAML always present in repo's venv
     yaml = None  # heuristic fallback enabled when missing
 
 
-def _has_broken_md_frontmatter(path: Path) -> bool:
-    """Return True when the PROMPT.md frontmatter cannot be YAML-parsed.
+def _parsed_yaml_has_nul(value) -> bool:
+    """Recursively report whether any string in a parsed YAML tree holds U+0000."""
+    if isinstance(value, str):
+        return "\x00" in value
+    if isinstance(value, dict):
+        return any(
+            _parsed_yaml_has_nul(k) or _parsed_yaml_has_nul(v) for k, v in value.items()
+        )
+    if isinstance(value, (list, tuple)):
+        return any(_parsed_yaml_has_nul(v) for v in value)
+    return False
 
-    Strategy: if PyYAML is available, actually try to parse the frontmatter
-    block — that catches every variant of YAML breakage (unquoted ':', EOF
-    mid-quote, control chars in identifiers, …). When PyYAML isn't
-    importable, fall back to a coarse heuristic that catches the common
-    ``description: text: with: colons`` shape only.
+
+def _md_frontmatter_defect(path: Path) -> str | None:
+    r"""Return None when the frontmatter is usable downstream, else a defect tag.
+
+    ``"broken"`` — the block is not parseable YAML at all. Catches every
+    variant of YAML breakage (unquoted ':', EOF mid-quote, control chars in
+    identifiers, …); downstream ``ParseSKILLMD`` fails outright.
+
+    ``"nul"`` — the block parses cleanly, but some value decodes to U+0000.
+    YAML's double-quoted style treats ``\0``, ``\x00`` and the six-character
+    backslash-u-0000 form as escapes for the NUL character, so the defect only
+    exists AFTER parsing — the file's raw bytes are perfectly clean, which is
+    why a byte-level scan (and costrict-web's own pre-parse
+    ``sanitizeSyncContent``, which runs before the YAML parse) misses it.
+    PostgreSQL refuses U+0000 inside jsonb with SQLSTATE 22P05, so the row
+    can never be inserted. Observed in security skills documenting null-byte
+    upload bypasses, e.g. a description containing ``shell.php\0.jpg``.
+
+    Inspecting the parsed tree instead of pattern-matching the source covers
+    every escape spelling at once, including ones not yet seen in the wild.
+
+    When PyYAML isn't importable both checks degrade: only a coarse
+    ``description: text: with: colons`` heuristic runs, and NUL cannot be
+    detected at all (it requires a real parse).
     """
     try:
         text = path.read_text(encoding="utf-8")
     except (OSError, UnicodeDecodeError):
-        return False
+        return None
     if not text.startswith("---"):
-        return False
+        return None
     end = text.find("\n---", 3)
     if end < 0:
-        return False
+        return None
     block = text[3:end]
 
     if yaml is not None:
         try:
-            yaml.safe_load(block)
-            return False
+            parsed = yaml.safe_load(block)
         except yaml.YAMLError:
-            return True
+            return "broken"
+        return "nul" if _parsed_yaml_has_nul(parsed) else None
 
     # Heuristic fallback — only the leading-':' shape.
     for line in block.splitlines():
@@ -152,8 +180,8 @@ def _has_broken_md_frontmatter(path: Path) -> bool:
         if value in ("|", ">", "|-", ">-", "|+", ">+"):
             continue
         if ": " in value:
-            return True
-    return False
+            return "broken"
+    return None
 
 
 def build(output: Path, *, compress: bool = True) -> dict:
@@ -173,15 +201,18 @@ def build(output: Path, *, compress: bool = True) -> dict:
     #
     #   1. unknown_type   — `type` not in TYPE_DIR_AND_FILE
     #   2. orphan_no_file — `download_catalog.py` produced no on-disk file
-    #   3. unusable_*     — file exists but content is a known-empty stub:
+    #   3. unusable_*     — file exists but content cannot survive ingest:
     #        • mcp .mcp.json with mcpServers.<name>: {} (no command/url) —
     #          registry.modelcontextprotocol.io listed the server but did
     #          not yield install info. ~63% of mcp/ today.
     #        • PROMPT.md with description containing an unquoted ':' in
     #          the YAML frontmatter (mapping parser barfs). ~33% of
     #          prompts/ today.
+    #        • SKILL.md whose frontmatter PARSES but yields a U+0000 in some
+    #          value (YAML double-quoted \0 / \x00 escapes). Postgres rejects
+    #          NUL inside jsonb (SQLSTATE 22P05) so the insert always fails.
     #
-    # Both unusable_* cases are upstream data-generator bugs. Filtering at
+    # All unusable_* cases are upstream data-generator bugs. Filtering at
     # bundle time means downstream's `incomplete` counter only fires when a
     # new variant slips through.
     entries: list[dict] = []
@@ -189,6 +220,7 @@ def build(output: Path, *, compress: bool = True) -> dict:
     unknown_type_count = 0
     unusable_mcp_stub = 0
     unusable_yaml = 0
+    unusable_nul = 0
     for entry in full_entries:
         target = _entry_file(entry)
         if target is None:
@@ -203,10 +235,16 @@ def build(output: Path, *, compress: bool = True) -> dict:
             continue
         # PROMPT.md / SKILL.md / RULE.md all share the same SKILLMD-style
         # YAML frontmatter parser downstream; any of them with broken
-        # frontmatter will fail at ingest.
-        if entry["type"] in ("prompt", "skill", "rule") and _has_broken_md_frontmatter(target):
-            unusable_yaml += 1
-            continue
+        # frontmatter — or with frontmatter that parses into a NUL-bearing
+        # value — will fail at ingest.
+        if entry["type"] in ("prompt", "skill", "rule"):
+            defect = _md_frontmatter_defect(target)
+            if defect == "broken":
+                unusable_yaml += 1
+                continue
+            if defect == "nul":
+                unusable_nul += 1
+                continue
         entries.append(entry)
 
     entries, missing_parent_child_count, stale_reverse_ref_count = (
@@ -214,7 +252,8 @@ def build(output: Path, *, compress: bool = True) -> dict:
     )
     print(f"index.json: {len(full_entries)} entries → bundled {len(entries)}")
     print(f"  dropped: orphan_no_file={orphan_count} unknown_type={unknown_type_count} "
-          f"mcp_empty_stub={unusable_mcp_stub} md_yaml_broken={unusable_yaml}")
+          f"mcp_empty_stub={unusable_mcp_stub} md_yaml_broken={unusable_yaml} "
+          f"md_yaml_nul={unusable_nul}")
     print(
         "  plugin child consistency: "
         f"missing_parent={missing_parent_child_count} "
@@ -238,6 +277,7 @@ def build(output: Path, *, compress: bool = True) -> dict:
         "filtered_from": len(full_entries),
         "orphan_dropped": orphan_count,
         "unknown_type_dropped": unknown_type_count,
+        "md_yaml_nul_dropped": unusable_nul,
         "plugin_child_missing_parent_dropped": missing_parent_child_count,
         "plugin_child_stale_reverse_refs_dropped": stale_reverse_ref_count,
     }
