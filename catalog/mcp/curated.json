@@ -750,5 +750,38 @@
     "source": "curated",
     "added_at": "2026-08-23",
     "last_synced": "2026-08-23"
+  },
+  {
+    "id": "jacobian",
+    "name": "Jacobian",
+    "type": "mcp",
+    "description": "面向可组合数学的 MCP 服务器、CLI 和 Python 库，支持多项式映射、线性代数与图算法的精确计算和猜想检验。",
+    "source_url": "https://github.com/morluto/jacobian",
+    "stars": 13,
+    "category": "tooling",
+    "tags": [
+      "math",
+      "linear-algebra",
+      "polynomial",
+      "graph-algorithms",
+      "mcp-server"
+    ],
+    "tech_stack": [
+      "python"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "jacobian",
+          "mcp"
+        ]
+      }
+    },
+    "source": "curated",
+    "last_synced": "2026-08-04",
+    "added_at": "2026-08-04"
   }
 ]
