@@ -31884,10 +31884,10 @@
       "plugin_root": ""
     },
     "manifest_completeness": 1.0,
-    "last_synced": "2026-08-01",
+    "last_synced": "2026-08-03",
     "stars": 2,
-    "pushed_at": "2026-07-31T09:57:45Z",
-    "version": "2.0.2",
+    "pushed_at": "2026-08-03T03:37:54Z",
+    "version": "2.0.3",
     "final_score": 100,
     "health": {
       "score": 100,
@@ -31975,10 +31975,10 @@
       "plugin_root": "cosknow-plugin"
     },
     "manifest_completeness": 1.0,
-    "last_synced": "2026-08-01",
+    "last_synced": "2026-08-03",
     "stars": 2,
-    "pushed_at": "2026-07-31T09:57:45Z",
-    "version": "2.0.2",
+    "pushed_at": "2026-08-03T03:37:54Z",
+    "version": "2.0.3",
     "final_score": 100,
     "health": {
       "score": 100,
