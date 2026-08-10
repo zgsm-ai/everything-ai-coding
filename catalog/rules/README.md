@@ -219,7 +219,7 @@ Files: `cospowers-tdd-development-plugin/rules/testing-standards/高级代码分
 </details>
 
 <details>
-<summary>⭐ <strong>Bug Fix (Rules 2.1)</strong> (171★) — A structured workflow rule for complete bug-fixing from issu...</summary>
+<summary>⭐ <strong>Bug Fix (Rules 2.1)</strong> (173★) — A structured workflow rule for complete bug-fixing from issu...</summary>
 
 A structured workflow rule for complete bug-fixing from issue creation to pull request, with code examples and best practices.
 
@@ -232,7 +232,7 @@ A structured workflow rule for complete bug-fixing from issue creation to pull r
 </details>
 
 <details>
-<summary>⭐ <strong>Changelog Management (Rules 2.1)</strong> (171★) — An AI-driven rule for automatically generating and managing ...</summary>
+<summary>⭐ <strong>Changelog Management (Rules 2.1)</strong> (173★) — An AI-driven rule for automatically generating and managing ...</summary>
 
 An AI-driven rule for automatically generating and managing project changelogs from Git commit history.
 
@@ -271,4 +271,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-07-20*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-08-10*

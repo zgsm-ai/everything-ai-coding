@@ -23,7 +23,7 @@
     "source_path": "templates/branch-finish-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -52,7 +52,7 @@
     "source_path": "templates/commit-message-examples.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -81,7 +81,7 @@
     "source_path": "templates/commit-message-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -110,7 +110,7 @@
     "source_path": "templates/contract-verification-report-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -139,7 +139,7 @@
     "source_path": "templates/integration-test-report-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -168,7 +168,7 @@
     "source_path": "templates/regression-report-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -197,7 +197,7 @@
     "source_path": "templates/release-readiness-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -226,7 +226,7 @@
     "source_path": "templates/verification-report-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -255,7 +255,7 @@
     "source_path": "templates/init-aireq-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -284,7 +284,7 @@
     "source_path": "templates/init-sysreq-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -313,7 +313,7 @@
     "source_path": "templates/requirements-change-impact-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -342,7 +342,7 @@
     "source_path": "templates/requirements-review-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -371,7 +371,7 @@
     "source_path": "templates/system-requirement-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -400,7 +400,7 @@
     "source_path": "templates/user-requirement-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -429,7 +429,7 @@
     "source_path": "templates/architecture-review-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -458,7 +458,7 @@
     "source_path": "templates/design-change-impact-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -487,7 +487,7 @@
     "source_path": "templates/design/subsystem-design/ch02-responsibilities.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -516,7 +516,7 @@
     "source_path": "templates/design/subsystem-design/ch03-interfaces.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -545,7 +545,7 @@
     "source_path": "templates/design/subsystem-design/ch04-internal-design.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -574,7 +574,7 @@
     "source_path": "templates/design/subsystem-design/ch05-exceptions.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -603,7 +603,7 @@
     "source_path": "templates/design/subsystem-design/ch06-test-design.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -632,7 +632,7 @@
     "source_path": "templates/design/subsystem-design/ch07-dfx.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -661,7 +661,7 @@
     "source_path": "templates/design/subsystem-design/ch08-code-standards.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -690,7 +690,7 @@
     "source_path": "templates/design/subsystem-design/ch09-deployment.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -719,7 +719,7 @@
     "source_path": "templates/design/subsystem-design/ch10-summary.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -748,7 +748,7 @@
     "source_path": "templates/design/subsystem-design/ch11-appendix.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -777,7 +777,7 @@
     "source_path": "templates/design/subsystem-design/ch12-revision-history.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -806,7 +806,7 @@
     "source_path": "templates/design/system-design/ch02-system-architecture.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -835,7 +835,7 @@
     "source_path": "templates/design/system-design/ch03-working-principles.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -864,7 +864,7 @@
     "source_path": "templates/design/system-design/ch04-design-spec.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -893,7 +893,7 @@
     "source_path": "templates/design/system-design/ch05-dfx.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -922,7 +922,7 @@
     "source_path": "templates/design/system-design/ch06-architecture-impact.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -951,7 +951,7 @@
     "source_path": "templates/design/system-design/ch07-risk.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -980,7 +980,7 @@
     "source_path": "templates/design/system-design/ch08-deployment.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1009,7 +1009,7 @@
     "source_path": "templates/design/system-design/ch09-summary.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1038,7 +1038,7 @@
     "source_path": "templates/design/system-design/ch10-revision-history.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1067,7 +1067,7 @@
     "source_path": "templates/fmea-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1096,7 +1096,7 @@
     "source_path": "templates/init-subsystem-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1125,7 +1125,7 @@
     "source_path": "templates/init-sysdesign-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1154,7 +1154,7 @@
     "source_path": "templates/micro-design-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1183,7 +1183,7 @@
     "source_path": "templates/subsystem-design-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1212,7 +1212,7 @@
     "source_path": "templates/system-design-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1241,7 +1241,7 @@
     "source_path": "templates/execution-strategy-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1270,7 +1270,7 @@
     "source_path": "templates/implementation-plan-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1299,7 +1299,7 @@
     "source_path": "templates/milestone-plan-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1328,7 +1328,7 @@
     "source_path": "templates/subagent-task-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1357,7 +1357,7 @@
     "source_path": "templates/task-graph-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1386,7 +1386,7 @@
     "source_path": "templates/worktree-plan-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1415,7 +1415,7 @@
     "source_path": "templates/code-compliance-report-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1444,7 +1444,7 @@
     "source_path": "templates/code-review-request-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1473,7 +1473,7 @@
     "source_path": "templates/commit-message-examples.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1502,7 +1502,7 @@
     "source_path": "templates/commit-message-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1531,7 +1531,7 @@
     "source_path": "templates/debugging-report-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1560,7 +1560,7 @@
     "source_path": "templates/tdd-cycle-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1589,7 +1589,7 @@
     "source_path": "templates/contract-test-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1618,7 +1618,7 @@
     "source_path": "templates/grpc_test_template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1647,7 +1647,7 @@
     "source_path": "templates/integration-test-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1676,7 +1676,7 @@
     "source_path": "templates/regression-test-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1705,7 +1705,7 @@
     "source_path": "templates/test-case-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1734,7 +1734,7 @@
     "source_path": "templates/test-coverage-review-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1763,7 +1763,7 @@
     "source_path": "templates/test-strategy-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1792,7 +1792,7 @@
     "source_path": "templates/unit-test-template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
@@ -1821,7 +1821,7 @@
     "source_path": "templates/universal_test_template.md",
     "final_score": 0,
     "source": "plugin-bundled-template",
-    "last_synced": "2026-07-20",
+    "last_synced": "2026-08-10",
     "evaluation": {},
     "decision": "review",
     "weak_dims": []
