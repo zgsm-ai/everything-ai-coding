@@ -36,7 +36,7 @@ on:
       services_to_download:
         description: "Comma-list passed to download_catalog.py --types. Default: all"
         required: false
-        default: "skills,mcp,rules,prompts,plugins"
+        default: "skills,mcp,rules,prompts,plugins,commands,subagents,templates"
       notes_extra:
         description: "Extra notes appended to the GitHub Release body"
         required: false
@@ -112,8 +112,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.MARKETPLACE_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           PYTHONUNBUFFERED: "1"
         run: |
-          TYPES="${{ inputs.services_to_download || 'skills,mcp,rules,prompts,plugins' }}"
-          python -u scripts/download_catalog.py --types "$TYPES"
+          rm -rf -- catalog-download
+          TYPES="${{ inputs.services_to_download || 'skills,mcp,rules,prompts,plugins,commands,subagents,templates' }}"
+          python -u scripts/download_catalog.py --force --types "$TYPES"
 
       - name: Build bundle
         run: |

@@ -22,7 +22,7 @@ import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Optional
-from urllib.parse import quote
+from urllib.parse import quote, urlsplit
 
 # Reuse project utilities
 sys.path.insert(0, os.path.dirname(__file__))
@@ -42,6 +42,10 @@ RAW_CSV_URLS = {
 
 # In-memory caches for shared remote resources
 _prompt_csv_cache: dict[str, list[dict]] = {}
+_prompt_markdown_cache: dict[str, str] = {}
+
+_GITHUB_COMPONENT_RE = re.compile(r"^[A-Za-z0-9_.-]+$")
+_GITHUB_REF_RE = re.compile(r"^[A-Za-z0-9._/-]+$")
 
 
 # ---------------------------------------------------------------------------
@@ -63,6 +67,92 @@ def _quote_repo_path(path: str) -> str:
     paths (they pass through unchanged).
     """
     return quote(path, safe="/")
+
+
+def _github_repo_slug(value: object) -> Optional[str]:
+    """Normalize a GitHub repository coordinate to ``owner/repo``.
+
+    Catalog producers currently emit both the canonical shorthand and an HTTPS
+    clone URL. Keep that compatibility explicit and reject ambiguous URL shapes
+    instead of letting them flow into API paths or raw download URLs.
+    """
+    if not isinstance(value, str):
+        return None
+    raw = value.strip()
+    if not raw or any(ord(char) < 32 for char in raw):
+        return None
+
+    parsed = urlsplit(raw)
+    if parsed.scheme or parsed.netloc:
+        if (
+            parsed.scheme != "https"
+            or parsed.hostname != "github.com"
+            or parsed.username is not None
+            or parsed.password is not None
+            or parsed.query
+            or parsed.fragment
+        ):
+            return None
+        try:
+            if parsed.port is not None:
+                return None
+        except ValueError:
+            return None
+        repo_path = parsed.path.rstrip("/").lstrip("/")
+    else:
+        if parsed.query or parsed.fragment or raw.startswith("/"):
+            return None
+        repo_path = raw.rstrip("/")
+
+    parts = repo_path.split("/")
+    if len(parts) != 2:
+        return None
+    owner, repo = parts
+    if repo.lower().endswith(".git"):
+        repo = repo[:-4]
+    if (
+        owner in {".", ".."}
+        or repo in {".", ".."}
+        or not _GITHUB_COMPONENT_RE.fullmatch(owner)
+        or not _GITHUB_COMPONENT_RE.fullmatch(repo)
+    ):
+        return None
+    return f"{owner}/{repo}"
+
+
+def _repo_relative_path(value: object, *, allow_empty: bool = True) -> Optional[str]:
+    """Validate and normalize a repository-relative POSIX path."""
+    if not isinstance(value, str):
+        return None
+    raw = value.rstrip("/")
+    if not raw:
+        return "" if allow_empty else None
+    if raw.startswith("/") or "\\" in raw or any(ord(char) < 32 for char in raw):
+        return None
+    parts = raw.split("/")
+    if any(part in {"", ".", ".."} for part in parts):
+        return None
+    return "/".join(parts)
+
+
+def _github_ref(value: object) -> Optional[str]:
+    """Validate the conservative Git ref subset used by current catalog data."""
+    normalized = _repo_relative_path(value, allow_empty=False)
+    if normalized is None or not _GITHUB_REF_RE.fullmatch(normalized):
+        return None
+    return normalized
+
+
+def _safe_output_path(root: str, repo_relative_path: str) -> str:
+    """Resolve a validated repo path below ``root`` or raise ``ValueError``."""
+    normalized = _repo_relative_path(repo_relative_path, allow_empty=False)
+    if normalized is None:
+        raise ValueError(f"unsafe repository path: {repo_relative_path!r}")
+    root_abs = os.path.abspath(root)
+    candidate = os.path.abspath(os.path.join(root_abs, *normalized.split("/")))
+    if os.path.commonpath((root_abs, candidate)) != root_abs:
+        raise ValueError(f"repository path escapes output directory: {repo_relative_path!r}")
+    return candidate
 
 
 def _write_file(path: str, content: str) -> None:
@@ -156,32 +246,35 @@ def _kebab_name(entry: dict) -> str:
 # ---------------------------------------------------------------------------
 
 def _repo_branch_and_dir(entry: dict) -> tuple[Optional[str], str, Optional[str]]:
-    """Extract raw GitHub repo slug, branch, and directory path from a skill install block."""
+    """Extract a validated GitHub repo slug, branch, and repository directory."""
     install = entry.get("install", {})
-    repo_url = install.get("repo", "")
-    branch = install.get("branch", "main")
+    if not isinstance(install, dict):
+        return None, "main", None
+
+    repo = _github_repo_slug(install.get("repo", ""))
+    branch = _github_ref(install.get("branch", "main"))
     files = install.get("files", [])
     path = install.get("path", "")
 
-    if not repo_url:
-        return None, branch, None
-
-    # Extract owner/repo from https://github.com/owner/repo.git
-    match = re.search(r"github\.com/([^/]+/[^/]+?)(?:\.git)?(?:/|$)", repo_url)
-    if not match:
-        return None, branch, None
-    repo = match.group(1)
+    if repo is None or branch is None:
+        return None, branch or "main", None
 
     if files:
-        return repo, branch, files[0].rstrip("/")
-    if path:
-        return repo, branch, path.rstrip("/")
-    return repo, branch, None
+        if not isinstance(files, list) or not isinstance(files[0], str):
+            return None, branch, None
+        directory = _repo_relative_path(files[0])
+    else:
+        directory = _repo_relative_path(path)
+    if directory is None:
+        return None, branch, None
+    return repo, branch, directory or None
 
 
-def _preload_repo_trees(entries: list[dict]) -> dict[tuple[str, str], list[str]]:
-    """Preload GitHub tree for all repos used by skills. Returns {(repo, branch): [paths]}."""
-    cache: dict[tuple[str, str], list[str]] = {}
+def _preload_repo_trees(
+    entries: list[dict],
+) -> dict[tuple[str, str], Optional[list[str]]]:
+    """Preload GitHub trees; ``None`` distinguishes API failure from an empty tree."""
+    cache: dict[tuple[str, str], Optional[list[str]]] = {}
     needed: set[tuple[str, str]] = set()
 
     for entry in entries:
@@ -192,12 +285,26 @@ def _preload_repo_trees(entries: list[dict]) -> dict[tuple[str, str], list[str]]
             needed.add((repo, branch))
 
     for repo, branch in needed:
-        data = github_api(f"repos/{repo}/git/trees/{branch}?recursive=1")
+        encoded_branch = quote(branch, safe="")
+        data = github_api(f"repos/{repo}/git/trees/{encoded_branch}?recursive=1")
         if not data or "tree" not in data:
-            cache[(repo, branch)] = []
+            cache[(repo, branch)] = None
             logger.warning(f"Failed to load tree for {repo}@{branch}")
             continue
-        paths = [item["path"] for item in data["tree"] if item.get("type") == "blob"]
+        tree_items = data.get("tree")
+        if not isinstance(tree_items, list):
+            cache[(repo, branch)] = None
+            logger.warning(f"Malformed tree response for {repo}@{branch}")
+            continue
+        paths = [
+            item["path"]
+            for item in tree_items
+            if (
+                isinstance(item, dict)
+                and item.get("type") == "blob"
+                and isinstance(item.get("path"), str)
+            )
+        ]
         cache[(repo, branch)] = paths
         logger.info(f"Loaded tree for {repo}@{branch}: {len(paths)} files")
 
@@ -220,65 +327,89 @@ def _download_skill(
 
     repo, branch, dir_path = _repo_branch_and_dir(entry)
 
-    # Determine files to download from preloaded tree
-    files_to_download: list[str] = []
-    if repo and dir_path and repo_tree_cache:
-        tree = repo_tree_cache.get((repo, branch), [])
+    if repo is None:
+        return name, False, "invalid or missing GitHub repository coordinate/path"
+
+    # Some producers express ``install.files`` as the SKILL.md itself rather
+    # than its containing directory. Accept both shapes without changing the
+    # single-file child downloader, where files[0] really is the target file.
+    if dir_path and dir_path.lower().endswith("/skill.md"):
+        dir_path = dir_path.rsplit("/", 1)[0] or None
+    elif dir_path and dir_path.lower() == "skill.md":
+        dir_path = None
+
+    primary_repo_path = f"{dir_path}/SKILL.md" if dir_path else "SKILL.md"
+    tree = repo_tree_cache.get((repo, branch)) if repo_tree_cache is not None else None
+    tree_warning: Optional[str] = None
+
+    # A tree gives us attachments, but the primary file is always fetched by its
+    # known path. This keeps a transient/truncated tree response from turning a
+    # real skill into generated metadata while still preserving sibling assets
+    # when the tree is available.
+    files_to_download = [primary_repo_path]
+    if tree is None:
+        tree_warning = "repository tree unavailable; downloaded primary file only"
+    elif dir_path:
         prefix = dir_path + "/"
-        files_to_download = [p for p in tree if p.startswith(prefix)]
+        siblings = [
+            path for path in tree
+            if isinstance(path, str) and path.startswith(prefix)
+        ]
+        files_to_download.extend(
+            path for path in siblings if path != primary_repo_path
+        )
 
-    if files_to_download:
-        downloaded = 0
-        failed = 0
-        for repo_path in files_to_download:
-            rel_path = repo_path[len(dir_path) + 1 :]
-            local_path = os.path.join(skill_dir, rel_path)
-
-            if not force and _file_exists(local_path):
-                downloaded += 1
-                continue
-
-            # Percent-encode the repo path for the raw URL — a skill dir may
-            # carry non-ASCII sibling filenames; repo_path stays raw for the
-            # local_path written above.
-            raw = fetch_raw_content(
-                repo, _quote_repo_path(repo_path), branch, quiet_404=True
-            )
-            if raw is not None:
-                _write_file(local_path, raw)
-                downloaded += 1
-            else:
+    failed = 0
+    for repo_path in files_to_download:
+        if dir_path:
+            prefix = dir_path + "/"
+            if not repo_path.startswith(prefix):
                 failed += 1
+                continue
+            rel_path = repo_path[len(prefix):]
+        else:
+            rel_path = repo_path
+        try:
+            local_path = _safe_output_path(skill_dir, rel_path)
+        except ValueError:
+            failed += 1
+            if repo_path == primary_repo_path:
+                return name, False, f"unsafe primary file path: {repo_path}"
+            continue
 
-        # Ensure SKILL.md has frontmatter if it exists
-        if os.path.exists(skill_md_path):
-            with open(skill_md_path, "r", encoding="utf-8") as f:
-                content = f.read()
-            content = _inject_frontmatter(
-                content,
-                name=entry.get("name", name),
-                description=entry.get("description", ""),
-                category=entry.get("category", ""),
-            )
-            with open(skill_md_path, "w", encoding="utf-8") as f:
-                f.write(content)
+        if not force and _file_exists(local_path):
+            continue
 
-        if failed > 0:
-            return name, True, f"{failed}/{len(files_to_download)} files failed"
-        return name, True, None
+        raw = fetch_raw_content(
+            repo, _quote_repo_path(repo_path), branch, quiet_404=True
+        )
+        if raw is None:
+            if repo_path == primary_repo_path:
+                return name, False, f"source SKILL.md unavailable: {repo}@{branch}:{repo_path}"
+            failed += 1
+            continue
+        _write_file(local_path, raw)
 
-    # Fallback: generate minimal SKILL.md when no tree info available
-    if not force and _file_exists(skill_md_path):
-        return name, True, None
+    if not _file_exists(skill_md_path):
+        return name, False, f"source SKILL.md missing: {repo}@{branch}:{primary_repo_path}"
 
-    content = _build_frontmatter(
+    with open(skill_md_path, "r", encoding="utf-8") as f:
+        content = f.read()
+    content = _inject_frontmatter(
+        content,
         name=entry.get("name", name),
         description=entry.get("description", ""),
         category=entry.get("category", ""),
     )
-    content += f"\n# {entry.get('name', name)}\n\n{entry.get('description', '')}\n"
-    _write_file(skill_md_path, content)
-    return name, True, None
+    with open(skill_md_path, "w", encoding="utf-8") as f:
+        f.write(content)
+
+    warnings = []
+    if tree_warning:
+        warnings.append(tree_warning)
+    if failed > 0:
+        warnings.append(f"{failed}/{len(files_to_download)} attachment files failed")
+    return name, True, "; ".join(warnings) or None
 
 
 # ---------------------------------------------------------------------------
@@ -354,25 +485,18 @@ def _download_rule(entry: dict, output_dir: str, force: bool = False) -> tuple[s
     if files:
         raw_content = _fetch_raw_with_backoff(files[0])
 
-    if raw_content:
-        _write_file(rule_raw_path, raw_content)
-        # Also write a RULE.md with frontmatter for readability
-        md_content = _build_frontmatter(
-            name=entry.get("name", name),
-            description=entry.get("description", ""),
-            category=entry.get("category", ""),
-        )
-        md_content += f"\n# {entry.get('name', name)}\n\n```\n{raw_content}\n```\n"
-        _write_file(rule_md_path, md_content)
-    else:
-        # Minimal RULE.md if download failed
-        md_content = _build_frontmatter(
-            name=entry.get("name", name),
-            description=entry.get("description", ""),
-            category=entry.get("category", ""),
-        )
-        md_content += f"\n# {entry.get('name', name)}\n\n{entry.get('description', '')}\n"
-        _write_file(rule_md_path, md_content)
+    if not raw_content:
+        return name, False, "source rule content unavailable"
+
+    _write_file(rule_raw_path, raw_content)
+    # Also write a RULE.md with frontmatter for readability
+    md_content = _build_frontmatter(
+        name=entry.get("name", name),
+        description=entry.get("description", ""),
+        category=entry.get("category", ""),
+    )
+    md_content += f"\n# {entry.get('name', name)}\n\n```\n{raw_content}\n```\n"
+    _write_file(rule_md_path, md_content)
 
     return name, True, None
 
@@ -419,17 +543,8 @@ def _download_repo_single_file(
             repo, _quote_repo_path(file_path), branch, quiet_404=True
         )
 
-    if raw_content is None:
-        # Minimal placeholder so the entry still materializes (and survives the
-        # reconciliation filter) even when the upstream file 404s.
-        content = _build_frontmatter(
-            name=entry.get("name", name),
-            description=entry.get("description", ""),
-            category=entry.get("category", ""),
-        )
-        content += f"\n# {entry.get('name', name)}\n\n{entry.get('description', '')}\n"
-        _write_file(primary_path, content)
-        return name, True, "source file unavailable; wrote placeholder"
+    if not raw_content:
+        return name, False, "source file unavailable"
 
     # Preserve the verbatim file under its real basename (so SKILL.md-style
     # sibling content is faithful), and write the canonical primary file with
@@ -508,6 +623,60 @@ def _find_prompt_text(rows: list[dict], entry_name: str) -> Optional[str]:
     return None
 
 
+def _load_prompt_markdown(source: str) -> str:
+    """Load a shared Markdown prompt source once per process."""
+    if source in _prompt_markdown_cache:
+        return _prompt_markdown_cache[source]
+    url = RAW_CSV_URLS.get(source)
+    if not url:
+        return ""
+    raw = _fetch_raw_with_backoff(url, timeout=120) or ""
+    if raw:
+        _prompt_markdown_cache[source] = raw
+    return raw
+
+
+def _find_markdown_section(markdown: str, heading: str) -> Optional[str]:
+    """Return the body under an exact ATX heading, stopping at its next peer."""
+    wanted = " ".join(heading.casefold().split())
+    lines = markdown.splitlines()
+    start: Optional[int] = None
+    level = 0
+    fence: Optional[str] = None
+    heading_re = re.compile(r"^(#{1,6})[ \t]+(.+?)[ \t]*$")
+
+    for index, line in enumerate(lines):
+        stripped = line.lstrip()
+        fence_match = re.match(r"^(`{3,}|~{3,})", stripped)
+        if fence_match:
+            marker = fence_match.group(1)[0]
+            if fence is None:
+                fence = marker
+            elif fence == marker:
+                fence = None
+            continue
+        if fence is not None:
+            continue
+        match = heading_re.match(line)
+        if not match:
+            continue
+        title_text = re.sub(r"[ \t]+#+[ \t]*$", "", match.group(2))
+        title = " ".join(title_text.casefold().split())
+        if start is None:
+            if title == wanted:
+                start = index + 1
+                level = len(match.group(1))
+            continue
+        if len(match.group(1)) <= level:
+            body = "\n".join(lines[start:index]).strip()
+            return body or None
+
+    if start is None:
+        return None
+    body = "\n".join(lines[start:]).strip()
+    return body or None
+
+
 def _download_prompt(entry: dict, output_dir: str, force: bool = False) -> tuple[str, bool, Optional[str]]:
     """Download/generate a single prompt. Returns (kebab_name, success, error_msg)."""
     name = _kebab_name(entry)
@@ -524,26 +693,19 @@ def _download_prompt(entry: dict, output_dir: str, force: bool = False) -> tuple
         rows = _load_prompts_csv("prompts-chat")
         prompt_text = _find_prompt_text(rows, entry.get("name", ""))
     elif source == "wonderful-prompts":
-        # For wonderful-prompts, the README.md is shared; we fall back to description
-        prompt_text = None
+        markdown = _load_prompt_markdown("wonderful-prompts")
+        prompt_text = _find_markdown_section(markdown, entry.get("name", ""))
 
-    if prompt_text:
-        content = _build_frontmatter(
-            name=entry.get("name", name),
-            description=entry.get("description", ""),
-            category=entry.get("category", ""),
-        )
-        content += f"\n# {entry.get('name', name)}\n\n{prompt_text}\n"
-        _write_file(prompt_path, content)
-    else:
-        # Minimal PROMPT.md from catalog metadata
-        content = _build_frontmatter(
-            name=entry.get("name", name),
-            description=entry.get("description", ""),
-            category=entry.get("category", ""),
-        )
-        content += f"\n# {entry.get('name', name)}\n\n{entry.get('description', '')}\n"
-        _write_file(prompt_path, content)
+    if not prompt_text:
+        return name, False, "source prompt content unavailable"
+
+    content = _build_frontmatter(
+        name=entry.get("name", name),
+        description=entry.get("description", ""),
+        category=entry.get("category", ""),
+    )
+    content += f"\n# {entry.get('name', name)}\n\n{prompt_text}\n"
+    _write_file(prompt_path, content)
 
     return name, True, None
 
@@ -682,16 +844,18 @@ def _download_batch(
             name = future_to_name[future]
             try:
                 name, ok, err = future.result()
-            except Exception as exc:
+            except Exception as err:
                 # Backstop: a downloader must never crash the whole batch. Any
                 # unexpected exception (e.g. a transient network error that
                 # slipped past fetch_raw_content's retry loop) is downgraded to
                 # a per-entry failure so the other ~12k downloads still finish.
-                errors.append(f"{name}: {exc!r}")
-                logger.warning(f"Download crashed for {name}: {exc!r}")
+                errors.append(f"{name}: unexpected downloader error: {err}")
+                logger.exception(f"Download crashed for {name}")
                 continue
             if ok:
                 successes.append(name)
+                if err:
+                    logger.warning(f"Download incomplete for {name}: {err}")
             else:
                 errors.append(f"{name}: {err}")
                 logger.warning(f"Download failed for {name}: {err}")
@@ -713,8 +877,18 @@ _PRIMARY_FILE_BY_TYPE = {
     "template": ("templates", "TEMPLATE.md"),
 }
 
+_ENTRY_TYPE_BY_CATALOG_DIR = {
+    type_dir: entry_type
+    for entry_type, (type_dir, _filename) in _PRIMARY_FILE_BY_TYPE.items()
+}
 
-def _filter_top_index_to_downloaded(output_dir: str) -> tuple[int, int]:
+
+def _filter_top_index_to_downloaded(
+    output_dir: str,
+    *,
+    processed_types: Optional[set[str]] = None,
+    successful_names_by_type: Optional[dict[str, set[str]]] = None,
+) -> tuple[int, int]:
     """Rewrite catalog/index.json to drop entries whose primary file did
     not survive the download pass.
 
@@ -726,6 +900,11 @@ def _filter_top_index_to_downloaded(output_dir: str) -> tuple[int, int]:
     tree is a strict subset of index.json, and every downstream consumer
     (build_catalog_bundle.py, aggregate_enrichment.py, costrict-web
     ingest) has to re-discover the same orphan set independently.
+
+    When ``processed_types`` is supplied, entries of every other type are
+    preserved. When ``successful_names_by_type`` is supplied, a processed
+    entry survives only if its downloader succeeded in this run; an old file
+    left on disk cannot mask a refresh failure.
 
     Returns (kept_count, dropped_count). Best-effort: silently no-ops if
     the top-level index does not exist (e.g. running download in isolation
@@ -753,9 +932,26 @@ def _filter_top_index_to_downloaded(output_dir: str) -> tuple[int, int]:
             # don't accidentally drop schema additions made elsewhere.
             kept.append(entry)
             continue
+        if processed_types is not None and etype not in processed_types:
+            kept.append(entry)
+            continue
         type_dir, filename = spec
-        primary_path = os.path.join(output_dir, type_dir, eid, filename)
-        if os.path.isfile(primary_path):
+        folder_name = _kebab_name(entry)
+        try:
+            primary_path = _safe_output_path(
+                output_dir, f"{type_dir}/{folder_name}/{filename}"
+            )
+        except ValueError:
+            downloaded = False
+        else:
+            if successful_names_by_type is not None:
+                downloaded = (
+                    folder_name in successful_names_by_type.get(etype, set())
+                    and os.path.isfile(primary_path)
+                )
+            else:
+                downloaded = os.path.isfile(primary_path)
+        if downloaded:
             kept.append(entry)
         else:
             dropped += 1
@@ -791,6 +987,8 @@ def run(
 
     all_successes: list[str] = []
     all_errors: list[str] = []
+    processed_types: set[str] = set()
+    successful_names_by_type: dict[str, set[str]] = {}
 
     for typ in types:
         index_path = os.path.join(CATALOG_DIR, typ, "index.json")
@@ -801,6 +999,10 @@ def run(
         with open(index_path, "r", encoding="utf-8") as f:
             entries = json.load(f)
 
+        requested_entry_type = _ENTRY_TYPE_BY_CATALOG_DIR.get(typ)
+        if requested_entry_type:
+            processed_types.add(requested_entry_type)
+
         # Plugins need de-duplication + verified gating before download so the
         # output set lines up 1:1 with the merged catalog/index.json (see
         # _prepare_plugin_entries doc for why).
@@ -808,6 +1010,11 @@ def run(
             before = len(entries)
             entries = _prepare_plugin_entries(entries)
             logger.info(f"plugins: filtered {before} → {len(entries)} after verified gate + (repo, plugin_name) dedupe")
+
+        for entry in entries:
+            entry_type = entry.get("type")
+            if entry_type in _PRIMARY_FILE_BY_TYPE:
+                processed_types.add(entry_type)
 
         # Preload repo trees for skills to avoid duplicate API calls
         repo_tree_cache: Optional[dict] = None
@@ -820,6 +1027,14 @@ def run(
         )
         all_successes.extend(successes)
         all_errors.extend(errors)
+        types_by_name: dict[str, set[str]] = {}
+        for entry in entries:
+            entry_type = entry.get("type")
+            if entry_type in _PRIMARY_FILE_BY_TYPE:
+                types_by_name.setdefault(_kebab_name(entry), set()).add(entry_type)
+        for success_name in successes:
+            for entry_type in types_by_name.get(success_name, set()):
+                successful_names_by_type.setdefault(entry_type, set()).add(success_name)
         logger.info(f"{typ}: {len(successes)} succeeded, {len(errors)} failed")
 
     # Write error log
@@ -834,7 +1049,11 @@ def run(
     # Final reconciliation pass: drop orphan entries from the top-level
     # catalog/index.json so the on-disk tree and the manifest stay in
     # sync. See _filter_top_index_to_downloaded() for why.
-    kept, dropped = _filter_top_index_to_downloaded(output_dir)
+    kept, dropped = _filter_top_index_to_downloaded(
+        output_dir,
+        processed_types=processed_types,
+        successful_names_by_type=successful_names_by_type,
+    )
     if dropped > 0:
         logger.info(
             f"Reconciled catalog/index.json: kept {kept} entries with "
