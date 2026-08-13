@@ -33855,7 +33855,7 @@
     "name": "cosknow",
     "type": "plugin",
     "description": "AI-driven knowledge base management — init, publish, sync, and query knowledge repos for any codebase",
-    "source_url": "https://github.com/costrict-plugins-repo/cosknow/tree/master/cosknow-plugin",
+    "source_url": "https://github.com/costrict-plugins-repo/cosknow/tree/v2",
     "category": "ai-ml",
     "tags": [
       "cosknow",
@@ -33927,10 +33927,10 @@
       "plugin_root": ""
     },
     "manifest_completeness": 1.0,
-    "last_synced": "2026-08-10",
+    "last_synced": "2026-08-13",
     "stars": 2,
-    "pushed_at": "2026-08-04T07:33:46Z",
-    "version": "2.0.4",
+    "pushed_at": "2026-08-13T11:12:13Z",
+    "version": "2.0.5",
     "final_score": 100,
     "health": {
       "score": 100,
@@ -33946,7 +33946,7 @@
     "name": "cosknow",
     "type": "plugin",
     "description": "AI-driven knowledge base management — init, publish, sync, and query knowledge repos for any codebase",
-    "source_url": "https://github.com/costrict-plugins-repo/cosknow/tree/master/cosknow-plugin",
+    "source_url": "https://github.com/costrict-plugins-repo/cosknow/tree/v2/cosknow-plugin",
     "category": "ai-ml",
     "tags": [
       "cosknow",
@@ -34018,10 +34018,10 @@
       "plugin_root": "cosknow-plugin"
     },
     "manifest_completeness": 1.0,
-    "last_synced": "2026-08-10",
+    "last_synced": "2026-08-13",
     "stars": 2,
-    "pushed_at": "2026-08-04T07:33:46Z",
-    "version": "2.0.4",
+    "pushed_at": "2026-08-13T11:12:13Z",
+    "version": "2.0.5",
     "final_score": 100,
     "health": {
       "score": 100,
