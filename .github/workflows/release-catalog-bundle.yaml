@@ -63,6 +63,8 @@ jobs:
       release_tag: ${{ steps.tag.outputs.name }}
       bundle_sha: ${{ steps.bundle.outputs.sha256 }}
       index_sha: ${{ steps.bundle.outputs.index_sha256 }}
+      manifest_sha: ${{ steps.registry-manifest.outputs.sha256 }}
+      manifest_entry_count: ${{ steps.registry-manifest.outputs.entry_count }}
       marketplace_version: ${{ steps.marketplace-version.outputs.value }}
     steps:
       - name: Checkout
@@ -121,6 +123,11 @@ jobs:
           python -u scripts/build_catalog_bundle.py
           ls -la dist/
 
+      - name: Build registry manifest
+        run: |
+          python -u scripts/build_registry_manifest.py --verify
+          ls -la dist/registry-manifest.json
+
       - name: Capture bundle metadata
         id: bundle
         run: |
@@ -144,6 +151,20 @@ jobs:
           rows = "\n".join(f"| {k} | {v} |" for k, v in sorted(tc.items()))
           with open("type_counts.md", "w") as fh:
               fh.write("| type | count |\n|------|------:|\n" + rows + "\n")
+          PY
+
+      - name: Capture registry manifest metadata
+        id: registry-manifest
+        run: |
+          python <<'PY'
+          import hashlib, json, os
+          path = "dist/registry-manifest.json"
+          with open(path, "rb") as fh:
+              payload = fh.read()
+          manifest = json.loads(payload)
+          with open(os.environ["GITHUB_OUTPUT"], "a") as fh:
+              fh.write(f"sha256={hashlib.sha256(payload).hexdigest()}\n")
+              fh.write(f"entry_count={len(manifest['entries'])}\n")
           PY
 
       - name: Resolve release tag
@@ -202,6 +223,12 @@ jobs:
 
           $(cat type_counts.md)
 
+          ## Registry manifest
+
+          - **Entries:** \`${{ steps.registry-manifest.outputs.entry_count }}\`
+          - **sha256:** \`${{ steps.registry-manifest.outputs.sha256 }}\`
+          - **Download:** https://github.com/${{ github.repository }}/releases/download/${{ steps.tag.outputs.name }}/registry-manifest.json
+
           ## Consumer usage
 
           Direct ingest from this release (no git clone required):
@@ -228,11 +255,13 @@ jobs:
           if gh release view "$TAG" >/dev/null 2>&1; then
             echo "release $TAG exists — uploading bundle with --clobber"
             gh release upload "$TAG" dist/catalog-bundle.tar.gz --clobber
+            gh release upload "$TAG" dist/registry-manifest.json --clobber
             gh release edit   "$TAG" --notes-file release-notes.md
           else
             gh release create "$TAG" dist/catalog-bundle.tar.gz \
               --title "Catalog bundle $TAG" \
               --notes-file release-notes.md
+            gh release upload "$TAG" dist/registry-manifest.json --clobber
           fi
           echo ""
           echo "Done. Download URL:"
@@ -251,3 +280,53 @@ jobs:
       create_release: false
     secrets:
       MARKETPLACE_GITHUB_TOKEN: ${{ secrets.MARKETPLACE_GITHUB_TOKEN }}
+
+  notify-registry-manifest:
+    needs: build-and-release
+    runs-on: ubuntu-latest
+    env:
+      COSTRICT_MANIFEST_WEBHOOK_URL: ${{ secrets.COSTRICT_MANIFEST_WEBHOOK_URL }}
+      COSTRICT_MANIFEST_WEBHOOK_SECRET: ${{ secrets.COSTRICT_MANIFEST_WEBHOOK_SECRET }}
+    steps:
+      - name: Send signed registry manifest webhook
+        if: ${{ env.COSTRICT_MANIFEST_WEBHOOK_URL != '' && env.COSTRICT_MANIFEST_WEBHOOK_SECRET != '' }}
+        env:
+          RELEASE_TAG: ${{ needs.build-and-release.outputs.release_tag }}
+          MANIFEST_SHA256: ${{ needs.build-and-release.outputs.manifest_sha }}
+          MANIFEST_URL: https://github.com/${{ github.repository }}/releases/download/${{ needs.build-and-release.outputs.release_tag }}/registry-manifest.json
+        run: |
+          python <<'PY'
+          import hashlib
+          import hmac
+          import json
+          import os
+          import urllib.request
+          import uuid
+
+          payload = {
+              "schema_version": 1,
+              "release_tag": os.environ["RELEASE_TAG"],
+              "manifest_url": os.environ["MANIFEST_URL"],
+              "manifest_sha256": os.environ["MANIFEST_SHA256"],
+              "changed_catalog_ids": [],
+              "full_reconcile": True,
+          }
+          body = json.dumps(payload, separators=(",", ":")).encode("utf-8")
+          signature = hmac.new(
+              os.environ["COSTRICT_MANIFEST_WEBHOOK_SECRET"].encode("utf-8"),
+              body,
+              hashlib.sha256,
+          ).hexdigest()
+          request = urllib.request.Request(
+              os.environ["COSTRICT_MANIFEST_WEBHOOK_URL"],
+              data=body,
+              headers={
+                  "Content-Type": "application/json",
+                  "X-Costrict-Signature": f"sha256={signature}",
+                  "X-Costrict-Delivery": str(uuid.uuid4()),
+              },
+              method="POST",
+          )
+          with urllib.request.urlopen(request, timeout=30) as response:
+              print(f"registry manifest webhook delivered: HTTP {response.status}")
+          PY
