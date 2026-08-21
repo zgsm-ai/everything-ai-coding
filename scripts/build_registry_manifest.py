@@ -2,10 +2,12 @@
 """Build the repository-granular registry manifest for downstream discovery.
 
 The catalog is item-granular, but the downstream registry discovers capabilities
-from repository roots. Entries are therefore grouped by their original GitHub
-repository. A repository is emitted only when the catalog proves a root capability
-identity; nested items are folded into that repository entry and aggregator-only
-repositories are omitted.
+from repository roots. Catalog items first pass the admission gates (R1b): only
+entries the platform ingest chain would accept survive — prompt/rule/template
+are excluded, and mcp requires an installable install.method. Admitted entries
+are then grouped by their original GitHub repository. A repository is emitted
+only when the catalog proves a root capability identity; nested items are folded
+into that repository entry and aggregator-only repositories are omitted.
 
 Usage:
     python scripts/build_registry_manifest.py
@@ -38,18 +40,41 @@ CONTRACT_VERDICTS = frozenset((*SECURITY_VERDICT_MAP.values(), "unscanned"))
 GIT_SHA_RE = re.compile(r"^[0-9a-fA-F]{40}(?:[0-9a-fA-F]{24})?$")
 GITHUB_REPO_RE = re.compile(r"^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$")
 
-# Must be compared with costrict-web rootManifestPrecedence before merge. The
-# ordering is the contract: the first root manifest found determines repo type.
+# ---- Admission gates (R1b) -------------------------------------------------
+# The manifest only declares entries the platform ingest chain would actually
+# accept. Each gate mirrors an observed rule of that chain, never invents one:
+#
+#   * type gate — costrict-web catalog ingest discards rule/prompt outright
+#     (catalog_ingest_service.go isDiscardedCatalogEntryType), and the platform
+#     discovery precedence table (git_capability_discovery.go
+#     rootManifestPrecedence) does not rank RULE.md / PROMPT.md / TEMPLATE.md
+#     at all — an unranked root manifest makes the repository undiscoverable.
+#     So prompt / rule / template entries never become manifest entries.
+#   * mcp method gate — only install.method mcp_config / mcp_config_template
+#     carries real install coordinates. method=manual is the crawl residue of
+#     awesome-list style listings; the bundle builder already drops the same
+#     population content-wise (_mcp_is_empty_stub), and ingest rejects the
+#     rest with "need command or url" (NormalizeMCPMetadata).
+#   * decision — deliberately NOT a gate. Neither build_catalog_bundle.py nor
+#     the platform ingest reads evaluation.decision (ingest stores the block
+#     verbatim as jsonb), so review/reject decisions pass through here too.
+#     security verdict likewise never filters (visibility principle).
+ADMISSION_EXCLUDED_TYPES = frozenset({"prompt", "rule", "template"})
+MCP_INSTALLABLE_METHODS = frozenset({"mcp_config", "mcp_config_template"})
+
+# Mirrors costrict-web rootManifestPrecedence (git_capability_discovery.go),
+# which is the contract: plugin manifests (ranks 10-13) > SKILL.md (20) >
+# subagent manifests (30-34) > COMMAND.md (40) > mcp manifests (50-52, mcp
+# deliberately last). One canonical path per type is kept here because those
+# are the only paths the catalog emits. RULE.md / PROMPT.md / TEMPLATE.md are
+# absent on purpose: the platform table does not rank them (see type gate).
 ROOT_MANIFEST_PRECEDENCE = (
     (".claude-plugin/plugin.json", "plugin"),
     ("plugin.json", "plugin"),
     ("SKILL.md", "skill"),
-    (".mcp.json", "mcp"),
-    ("RULE.md", "rule"),
-    ("PROMPT.md", "prompt"),
-    ("COMMAND.md", "command"),
     ("AGENT.md", "subagent"),
-    ("TEMPLATE.md", "template"),
+    ("COMMAND.md", "command"),
+    (".mcp.json", "mcp"),
 )
 ROOT_MANIFEST_RANK = {path: rank for rank, (path, _) in enumerate(ROOT_MANIFEST_PRECEDENCE)}
 ROOT_MANIFEST_TYPES = {path: entry_type for path, entry_type in ROOT_MANIFEST_PRECEDENCE}
@@ -57,13 +82,15 @@ DEFAULT_ROOT_MANIFEST = {
     "plugin": ".claude-plugin/plugin.json",
     "skill": "SKILL.md",
     "mcp": ".mcp.json",
-    "rule": "RULE.md",
-    "prompt": "PROMPT.md",
     "command": "COMMAND.md",
     "subagent": "AGENT.md",
-    "template": "TEMPLATE.md",
 }
-KNOWN_ENTRY_FILES = frozenset(ROOT_MANIFEST_TYPES)
+# Path-shape detection (is this artifact path a file or a directory?) still
+# needs to recognize every canonical entry filename the catalog ever wrote,
+# including the types the admission gate excludes from output.
+KNOWN_ENTRY_FILES = frozenset(ROOT_MANIFEST_TYPES) | frozenset(
+    {"RULE.md", "PROMPT.md", "TEMPLATE.md"}
+)
 
 
 def sha256_file(path: Path) -> str:
@@ -416,12 +443,39 @@ def _root_candidate_key(record: dict) -> tuple[int, int, str, int]:
     )
 
 
+def _entry_decision(entry: dict) -> str:
+    decision = entry.get("decision")
+    if not isinstance(decision, str) or not decision.strip():
+        evaluation = entry.get("evaluation")
+        decision = evaluation.get("decision") if isinstance(evaluation, dict) else None
+    return decision if isinstance(decision, str) and decision.strip() else "missing"
+
+
 def _group_catalog(catalog_entries: list[dict]) -> tuple[list[dict], dict]:
     groups: dict[str, list[dict]] = {}
     ungroupable: list[dict] = []
+    gate_type_dropped: Counter = Counter()
+    gate_mcp_method_dropped: Counter = Counter()
+    admitted_decision_counts: Counter = Counter()
+    admitted_count = 0
     for position, entry in enumerate(catalog_entries):
         if not isinstance(entry, dict):
             raise ValueError(f"catalog entry #{position} is not an object")
+        # Admission gates (R1b) — see the ADMISSION_* constants for the
+        # platform-side evidence each gate replicates. Positions stay the
+        # original catalog indices so representative tie-breaks are unaffected.
+        entry_type = entry.get("type")
+        if entry_type in ADMISSION_EXCLUDED_TYPES:
+            gate_type_dropped[entry_type] += 1
+            continue
+        if entry_type == "mcp":
+            install = entry.get("install")
+            method = install.get("method") if isinstance(install, dict) else None
+            if method not in MCP_INSTALLABLE_METHODS:
+                gate_mcp_method_dropped[method if isinstance(method, str) else "missing"] += 1
+                continue
+        admitted_count += 1
+        admitted_decision_counts[_entry_decision(entry)] += 1
         source = _source_coordinates(entry)
         record = {"entry": entry, "position": position, "source": source}
         if source["url"] is None:
@@ -471,6 +525,13 @@ def _group_catalog(catalog_entries: list[dict]) -> tuple[list[dict], dict]:
 
     reconciliation = {
         "input_entries": len(catalog_entries),
+        "admitted_entries": admitted_count,
+        "gate_type_dropped": gate_type_dropped,
+        "gate_mcp_method_dropped": gate_mcp_method_dropped,
+        # Constant by design: the platform ingest has no decision gate, so the
+        # manifest applies none. Kept in the report so the absence is explicit.
+        "gate_decision_dropped": 0,
+        "admitted_decision_counts": admitted_decision_counts,
         "repository_groups": len(groups),
         "included_repositories": len(included_groups),
         "collapsed_catalog_items": sum(len(records) - 1 for records, _ in included_groups),
@@ -514,6 +575,7 @@ def build(output: Path) -> dict:
 
     print(
         f"index.json: {len(catalog_entries)} catalog items -> "
+        f"{reconciliation['admitted_entries']} admitted -> "
         f"{reconciliation['included_repositories']} repository entries"
     )
     print(f"wrote {output}")
@@ -606,8 +668,31 @@ def verify(output: Path) -> dict:
         "sha256": sha256_file(output),
     }
 
+    def _counter_line(counter: Counter) -> str:
+        if not counter:
+            return "0"
+        parts = " ".join(f"{key}={value}" for key, value in sorted(counter.items()))
+        return f"{sum(counter.values())} ({parts})"
+
     print("verification passed")
     print(f"  input catalog items:        {stats['input_entries']}")
+    print("  admission gates (R1b):")
+    print(f"    type gate dropped:        {_counter_line(reconciliation['gate_type_dropped'])}")
+    print(
+        f"    mcp method gate dropped:  {_counter_line(reconciliation['gate_mcp_method_dropped'])}"
+    )
+    print(
+        f"    decision gate dropped:    {stats['gate_decision_dropped']}"
+        " (platform ingest has no decision gate; mirrored, not invented)"
+    )
+    print(f"  admitted catalog items:     {stats['admitted_entries']}")
+    print(
+        "  admitted decisions:         "
+        + " ".join(
+            f"{key}={value}"
+            for key, value in sorted(reconciliation["admitted_decision_counts"].items())
+        )
+    )
     print(f"  included repositories (N): {stats['included_repositories']}")
     print(f"  collapsed catalog items (M): {stats['collapsed_catalog_items']}")
     print(f"  discarded awesome groups (K): {stats['discarded_repository_groups']}")
