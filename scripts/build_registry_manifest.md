@@ -2,6 +2,8 @@
 
 从 `catalog/index.json` 生成按原始 GitHub 仓库归组的声明式快照 `dist/registry-manifest.json`。产物只声明仓库来源、仓根能力身份、评分和安全事实，不携带能力内容。
 
+catalog 条目先过准入闸（R1b：只收平台摄入链路会接受的条目），再按仓归组去重。
+
 它与 `catalog-bundle.tar.gz` 双轨发布，互不替代。bundle 继续承载历史内容搬运链路，registry manifest 面向仓根 discovery + 全量 reconcile 链路。
 
 ## 使用
@@ -17,7 +19,7 @@ python3 scripts/build_registry_manifest.py --output /tmp/registry-manifest.json
 python3 scripts/build_registry_manifest.py --verify
 ```
 
-`--verify` 会重做仓归组并逐字段比较产物，检查 schema、source、0-100 分数、security 四态、重复 ID 和 `subdir=null`，同时打印 N/M/K、丢弃条目数、不可归组条目数、仓覆盖率、新旧 type、四档 verdict、缺 `evaluated_at` 数和 R2c 不聚合统计。
+`--verify` 会重做准入 + 仓归组并逐字段比较产物，检查 schema、source、0-100 分数、security 四态、重复 ID 和 `subdir=null`，同时打印每道准入闸的拦截数、N/M/K、丢弃条目数、不可归组条目数、仓覆盖率、新旧 type、四档 verdict、缺 `evaluated_at` 数和 R2c 不聚合统计。
 
 ## 产物契约 v1
 
@@ -54,6 +56,19 @@ python3 scripts/build_registry_manifest.py --verify
 
 `schema_version` 当前固定为 `1`。manifest 是仓库级全量快照，不按 security verdict 过滤；`reject` 仍出现，由下游策略决定是否阻断。
 
+## 准入闸（R1b）
+
+manifest 只声明「平台摄入链路会接受」的条目。每道闸都复刻平台侧已存在的规则，不发明新规则；`--verify` 逐闸打印拦截数。
+
+| 闸 | 规则 | 平台侧依据 |
+|---|---|---|
+| 类型闸 | `prompt` / `rule` / `template` 条目不出条目 | costrict-web catalog ingest 明确丢弃 rule/prompt（`catalog_ingest_service.go` `isDiscardedCatalogEntryType`）；平台 discovery 的 `rootManifestPrecedence`（`git_capability_discovery.go`）不为 `RULE.md`/`PROMPT.md`/`TEMPLATE.md` 排名，未排名的根 manifest 使整仓不可发现 |
+| mcp method 闸 | 只收 `install.method ∈ {mcp_config, mcp_config_template}` | `method=manual` 是 awesome/registry 爬取残留；bundle 构建器按内容丢空 stub（`build_catalog_bundle.py` `_mcp_is_empty_stub`），ingest 对漏网者报 `need command or url`（`NormalizeMCPMetadata`） |
+| decision 闸 | **不设**——`accept`/`review`/`reject` 全放行 | bundle 构建器与平台 ingest 均不读 `evaluation.decision`（ingest 把 evaluation 块原样存 jsonb）；照抄即无闸 |
+| security 闸 | **不设**——`verdict=reject` 照常出条目 | 可见性原则：拦不拦是平台侧策略（R4） |
+
+⚠️ 已知偏差（如实记录）：mcp method 闸是**代理闸**。平台链路机械上按 `install.config.command/url` 有无落盘（`download_catalog.py` `_download_mcp`），而当前 catalog 里 6,552 条 `method=manual` 的 registry 派生条目其实带 command/url——若未来用当前 catalog 全量重建 bundle 并 ingest，平台可能收进比 manifest 声明多得多的 mcp。选 method 作闸依据是生产锚点（平台生产 mcp≈575 与 method 闸后仓数 570 吻合，与 command/url 口径的 ~7k 相差一个量级）；该偏差属上游 method 标注/registry 收录策略问题，闸的口径变更须同步本表。
+
 ## 仓归组
 
 1. 优先从 `source_url` 还原原始 GitHub 仓根；不可用时依次回退 `install.repo`、`bundle.source_repo`、`install.marketplace_repo`。
@@ -65,19 +80,18 @@ python3 scripts/build_registry_manifest.py --verify
 
 ### 根 manifest precedence
 
-下表顺序是契约。仓根同时命中多个文件时，靠前者决定 type：
+下表顺序是契约，与 costrict-web discovery 的 `rootManifestPrecedence`（`git_capability_discovery.go`：plugin 10-13 > skill 20 > subagent 30-34 > command 40 > mcp 50-52，mcp 刻意最后）同一套。仓根同时命中多个文件时，靠前者决定 type：
 
 | 优先级 | 根文件 | type |
 |---:|---|---|
 | 1 | `.claude-plugin/plugin.json` | `plugin` |
 | 2 | `plugin.json` | `plugin` |
 | 3 | `SKILL.md` | `skill` |
-| 4 | `.mcp.json` | `mcp` |
-| 5 | `RULE.md` | `rule` |
-| 6 | `PROMPT.md` | `prompt` |
-| 7 | `COMMAND.md` | `command` |
-| 8 | `AGENT.md` | `subagent` |
-| 9 | `TEMPLATE.md` | `template` |
+| 4 | `AGENT.md` | `subagent` |
+| 5 | `COMMAND.md` | `command` |
+| 6 | `.mcp.json` | `mcp` |
+
+`RULE.md` / `PROMPT.md` / `TEMPLATE.md` 刻意不在表内：平台 precedence 表不为它们排名，未排名的根 manifest 使整仓不可发现（对应准入闸的类型剔除）。
 
 Plugin 必须满足至少一项：`bundle.plugin_json_path` 精确命中上述 plugin 文件；`bundle.plugin_root == ""`；或 `install.marketplace_verified == true`。未验证、没有根路径证据的 registry plugin 壳不构成根身份。
 
@@ -114,13 +128,14 @@ Security 同样不聚合。根条目未扫描时，即使某些子项已扫描�
 
 ## R2d：仓级对账口径
 
+- 准入闸拦截数：类型闸 / mcp method 闸逐闸单列；decision 闸恒 0（无闸，显式打印以示不缺席）。
 - `N`：有根身份、最终输出的仓数，也就是 manifest `entries` 数。
 - `M`：这些已收录仓中除代表条目外被收拢的 catalog 条目数；包含嵌套子项和同仓较低 precedence 的根候选。
 - `K`：能证明 GitHub 仓根、但没有根身份候选而整组丢弃的聚合仓数；另报它们原本包含的 catalog 条目数。
 - `ungroupable`：连原始 GitHub 仓根都不能证明的条目，不混入 `K`。
 - 仓覆盖率：`N / (N + K) * 100%`。分母只含可证明仓根的 repo group；ungroupable 没有 repo 身份，单列而不伪装成仓。
-- 总量恒等式：`input catalog items = N + M + discarded group items + ungroupable items`。
-- type 新旧表：old 按输入 catalog 条目计数；new 按 precedence 选出的仓代表计数。
+- 总量恒等式：`input catalog items = 类型闸拦截 + mcp method 闸拦截 + N + M + discarded group items + ungroupable items`。
+- type 新旧表：old 按输入 catalog 条目（准入前）计数；new 按 precedence 选出的仓代表计数。
 
 该覆盖率回答“可证明的仓里有多少能进入仓根 discovery”，不是原始子项保留率，也不是 security 扫描覆盖率。旧的 `subdir=null / catalog 总条目` 文件粒度口径不再使用。
 
