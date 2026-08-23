@@ -719,5 +719,36 @@
     "source": "curated",
     "last_synced": "2026-04-09",
     "added_at": "2026-04-09"
+  },
+  {
+    "id": "deja-vu",
+    "name": "deja",
+    "type": "mcp",
+    "description": "Recall past coding sessions across every agent on the machine, from the transcripts they already wrote",
+    "source_url": "https://github.com/vshulcz/deja-vu",
+    "stars": 665,
+    "category": "tooling",
+    "tags": [
+      "memory",
+      "recall",
+      "session-history",
+      "search",
+      "local-first"
+    ],
+    "tech_stack": [
+      "go"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "deja",
+        "args": [
+          "mcp"
+        ]
+      }
+    },
+    "source": "curated",
+    "added_at": "2026-08-23",
+    "last_synced": "2026-08-23"
   }
 ]
