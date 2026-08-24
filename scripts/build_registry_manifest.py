@@ -59,6 +59,28 @@ GITHUB_REPO_RE = re.compile(r"^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$")
 #     the platform ingest reads evaluation.decision (ingest stores the block
 #     verbatim as jsonb), so review/reject decisions pass through here too.
 #     security verdict likewise never filters (visibility principle).
+#
+# One more gate runs later, at repository granularity rather than per catalog
+# item, because it reads the elected representative:
+#
+#   * evaluated_at gate — costrict-web declares source.evaluated_at as a
+#     non-pointer time.Time and rejects a missing value outright
+#     (internal/catalogmanifest/manifest.go, "source.evaluated_at is
+#     required"). Parse is fail-closed for the whole delivery, so one
+#     representative without evaluation.evaluated_at costs every entry in the
+#     manifest, not just its own. Verified against the real 878-entry build:
+#     cosknow alone made the platform reject all 878.
+#
+#     Filling the hole with pushed_at / scanned_at is not an option — that
+#     invents an evaluation time the upstream never recorded, the same
+#     violation the unscanned verdict exists to prevent. So the repository
+#     drops out of the manifest instead, and --verify counts it.
+#
+#     What drops here has no evaluation round behind it, which in practice
+#     means first-party content synced straight into the catalog rather than
+#     crawled and scored. Such repositories reach the platform through their
+#     own pipeline and are already present there; the manifest channel was
+#     never their route in.
 ADMISSION_EXCLUDED_TYPES = frozenset({"prompt", "rule", "template"})
 MCP_INSTALLABLE_METHODS = frozenset({"mcp_config", "mcp_config_template"})
 
@@ -486,12 +508,20 @@ def _group_catalog(catalog_entries: list[dict]) -> tuple[list[dict], dict]:
 
     included_groups = []
     discarded_groups = []
+    gate_evaluated_at_dropped: list[list[dict]] = []
     for records in groups.values():
         candidates = [record for record in records if record["root_manifest"] is not None]
         if not candidates:
             discarded_groups.append(records)
             continue
         representative = min(candidates, key=_root_candidate_key)
+        # Repository-level admission gate: the consumer rejects the entire
+        # delivery over a single missing evaluated_at, so drop the repository
+        # here rather than poison the manifest. See the ADMISSION_* comment
+        # block for the platform-side evidence.
+        if not representative["source"].get("evaluated_at"):
+            gate_evaluated_at_dropped.append(records)
+            continue
         included_groups.append((records, representative))
 
     manifest_entries = [
@@ -537,6 +567,21 @@ def _group_catalog(catalog_entries: list[dict]) -> tuple[list[dict], dict]:
         "collapsed_catalog_items": sum(len(records) - 1 for records, _ in included_groups),
         "discarded_repository_groups": len(discarded_groups),
         "discarded_catalog_items": sum(len(records) for records in discarded_groups),
+        # Kept apart from the discarded (K) bucket: those repositories have no
+        # root identity at all, these have one but no evaluation time.
+        "gate_evaluated_at_dropped_groups": len(gate_evaluated_at_dropped),
+        "gate_evaluated_at_dropped_items": sum(
+            len(records) for records in gate_evaluated_at_dropped
+        ),
+        # A tuple, not a list: verify()'s stats projection drops list values.
+        "gate_evaluated_at_dropped_ids": tuple(
+            sorted(
+                str(record["entry"].get("id"))
+                for records in gate_evaluated_at_dropped
+                for record in records
+                if record["root_manifest"] is not None
+            )
+        ),
         "ungroupable_catalog_items": len(ungroupable),
         "old_type_counts": Counter(entry.get("type") for entry in catalog_entries),
         "new_type_counts": Counter(entry["type"] for entry in manifest_entries),
@@ -550,10 +595,33 @@ def _group_catalog(catalog_entries: list[dict]) -> tuple[list[dict], dict]:
         "discarded_groups": discarded_groups,
         "ungroupable": ungroupable,
     }
-    denominator = len(included_groups) + len(discarded_groups)
+    # Coverage answers "of the repositories we can prove, how many carry a root
+    # identity". A repository dropped for a missing evaluated_at does carry one,
+    # so it stays in the denominator: hiding it would inflate the rate.
+    denominator = (
+        len(included_groups) + len(discarded_groups) + len(gate_evaluated_at_dropped)
+    )
     reconciliation["repository_coverage"] = (
         len(included_groups) / denominator * 100 if denominator else 0.0
     )
+
+    # The reconciliation identity documented in build_registry_manifest.md.
+    # Asserted rather than merely printed so a future bucket cannot silently
+    # swallow catalog items.
+    accounted = (
+        sum(gate_type_dropped.values())
+        + sum(gate_mcp_method_dropped.values())
+        + reconciliation["included_repositories"]
+        + reconciliation["collapsed_catalog_items"]
+        + reconciliation["discarded_catalog_items"]
+        + reconciliation["gate_evaluated_at_dropped_items"]
+        + reconciliation["ungroupable_catalog_items"]
+    )
+    if accounted != len(catalog_entries):
+        raise ValueError(
+            "reconciliation identity broken: "
+            f"{accounted} accounted for vs {len(catalog_entries)} catalog items"
+        )
     return manifest_entries, reconciliation
 
 
@@ -684,6 +752,12 @@ def verify(output: Path) -> dict:
     print(
         f"    decision gate dropped:    {stats['gate_decision_dropped']}"
         " (platform ingest has no decision gate; mirrored, not invented)"
+    )
+    dropped_ids = stats["gate_evaluated_at_dropped_ids"]
+    print(
+        f"    evaluated_at gate dropped: {stats['gate_evaluated_at_dropped_groups']} repos"
+        f" / {stats['gate_evaluated_at_dropped_items']} items"
+        + (f" ({' '.join(dropped_ids)})" if dropped_ids else "")
     )
     print(f"  admitted catalog items:     {stats['admitted_entries']}")
     print(

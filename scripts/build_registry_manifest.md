@@ -19,7 +19,7 @@ python3 scripts/build_registry_manifest.py --output /tmp/registry-manifest.json
 python3 scripts/build_registry_manifest.py --verify
 ```
 
-`--verify` 会重做准入 + 仓归组并逐字段比较产物，检查 schema、source、0-100 分数、security 四态、重复 ID 和 `subdir=null`，同时打印每道准入闸的拦截数、N/M/K、丢弃条目数、不可归组条目数、仓覆盖率、新旧 type、四档 verdict、缺 `evaluated_at` 数和 R2c 不聚合统计。
+`--verify` 会重做准入 + 仓归组并逐字段比较产物，检查 schema、source、0-100 分数、security 四态、重复 ID 和 `subdir=null`，同时打印每道准入闸的拦截数（含 evaluated_at 闸点名的仓）、N/M/K/E、丢弃条目数、不可归组条目数、仓覆盖率、新旧 type、四档 verdict 和 R2c 不聚合统计。构建本身还会断言 R2d 的总量恒等式。
 
 ## 产物契约 v1
 
@@ -66,6 +66,28 @@ manifest 只声明「平台摄入链路会接受」的条目。每道闸都复�
 | mcp method 闸 | 只收 `install.method ∈ {mcp_config, mcp_config_template}` | `method=manual` 是 awesome/registry 爬取残留；bundle 构建器按内容丢空 stub（`build_catalog_bundle.py` `_mcp_is_empty_stub`），ingest 对漏网者报 `need command or url`（`NormalizeMCPMetadata`） |
 | decision 闸 | **不设**——`accept`/`review`/`reject` 全放行 | bundle 构建器与平台 ingest 均不读 `evaluation.decision`（ingest 把 evaluation 块原样存 jsonb）；照抄即无闸 |
 | security 闸 | **不设**——`verdict=reject` 照常出条目 | 可见性原则：拦不拦是平台侧策略（R4） |
+| evaluated_at 闸 | 代表条目缺 `evaluation.evaluated_at` → **整仓不出条目** | 见下节 |
+
+### evaluated_at 闸（仓级）
+
+前几道闸逐条判定，这道在归组选出代表之后才判——`evaluated_at` 是代表条目的属性。
+
+平台把 `source.evaluated_at` 声明为**非指针** `time.Time` 并对缺失硬拒
+（costrict-web `internal/catalogmanifest/manifest.go`，报 `source.evaluated_at is required`）。
+`Parse` 对整份投递 fail-closed：**一条代表缺这个字段，整份 manifest 的每一条都进不去**。
+实测证据——真实 878 条产物喂平台解析器，仅 `cosknow` 一条缺字段，878 条全灭。
+
+拿 `pushed_at` / `scanned_at` 填坑不是选项：那是发明一个上游从未记录的评估时刻，
+与 `unscanned` 第四态所要防的是同一种错误（把未知伪装成已知）。
+⇒ 该仓退出 manifest，`--verify` 逐仓点名。
+
+被这道闸挡下的，是**没有评估轮次**的内容——实践中即第一方直接同步进 catalog、
+未经爬取评分的仓。它们本就有专属同步链路且已在平台内，清单通道从来不是它们的入口。
+
+> ⚠️ 上游 parent 契约曾写 `evaluated_at` 为「必填：本轮评估时刻（**上游必有**）」。
+> 「上游必有」是错的——第一方同步条目就没有。两侧各自正确地实现了互不兼容的行为，
+> 裂缝由本闸在生产者侧闭合。契约若改判 `evaluated_at` 可空（平台侧改 `*time.Time`），
+> 本闸应同步撤除，否则会白白少收仓。
 
 ⚠️ 已知偏差（如实记录）：mcp method 闸是**代理闸**。平台链路机械上按 `install.config.command/url` 有无落盘（`download_catalog.py` `_download_mcp`），而当前 catalog 里 6,552 条 `method=manual` 的 registry 派生条目其实带 command/url——若未来用当前 catalog 全量重建 bundle 并 ingest，平台可能收进比 manifest 声明多得多的 mcp。选 method 作闸依据是生产锚点（平台生产 mcp≈575 与 method 闸后仓数 570 吻合，与 command/url 口径的 ~7k 相差一个量级）；该偏差属上游 method 标注/registry 收录策略问题，闸的口径变更须同步本表。
 
@@ -128,13 +150,21 @@ Security 同样不聚合。根条目未扫描时，即使某些子项已扫描�
 
 ## R2d：仓级对账口径
 
-- 准入闸拦截数：类型闸 / mcp method 闸逐闸单列；decision 闸恒 0（无闸，显式打印以示不缺席）。
+- 准入闸拦截数：类型闸 / mcp method 闸逐闸单列；decision 闸恒 0（无闸，显式打印以示不缺席）；
+  evaluated_at 闸报「仓数 / 条目数」并点名被挡下的 catalog_id。
 - `N`：有根身份、最终输出的仓数，也就是 manifest `entries` 数。
 - `M`：这些已收录仓中除代表条目外被收拢的 catalog 条目数；包含嵌套子项和同仓较低 precedence 的根候选。
 - `K`：能证明 GitHub 仓根、但没有根身份候选而整组丢弃的聚合仓数；另报它们原本包含的 catalog 条目数。
-- `ungroupable`：连原始 GitHub 仓根都不能证明的条目，不混入 `K`。
-- 仓覆盖率：`N / (N + K) * 100%`。分母只含可证明仓根的 repo group；ungroupable 没有 repo 身份，单列而不伪装成仓。
-- 总量恒等式：`input catalog items = 类型闸拦截 + mcp method 闸拦截 + N + M + discarded group items + ungroupable items`。
+- `E`：有根身份、但代表条目缺 `evaluated_at` 而整组退出的仓数；与 `K` **分列**——
+  `K` 是没有身份，`E` 是有身份没评估时刻，两者不可混。其收拢的子项一并计入 `E` 的条目数。
+- `ungroupable`：连原始 GitHub 仓根都不能证明的条目，不混入 `K` 或 `E`。
+- 仓覆盖率：`N / (N + K + E) * 100%`。分母含**全部可证明仓根**的 repo group——
+  `E` 留在分母里，把它剔掉等于用少收仓换高覆盖率，是虚报。
+  ungroupable 没有 repo 身份，单列而不伪装成仓。
+- 总量恒等式：`input catalog items = 类型闸拦截 + mcp method 闸拦截 + N + M + discarded group items
+  + evaluated_at 闸 items + ungroupable items`。
+  **该恒等式在 `_group_catalog` 内被断言**（不只是打印）：不成立即 fail-closed 终止构建，
+  防止将来新增的桶悄悄吞掉条目。
 - type 新旧表：old 按输入 catalog 条目（准入前）计数；new 按 precedence 选出的仓代表计数。
 
 该覆盖率回答“可证明的仓里有多少能进入仓根 discovery”，不是原始子项保留率，也不是 security 扫描覆盖率。旧的 `subdir=null / catalog 总条目` 文件粒度口径不再使用。
@@ -168,7 +198,9 @@ https://github.com/<owner>/<repo>/releases/download/<release-tag>/registry-manif
 |---|---|---|
 | `unsupported type` | catalog 新增了 v1 未声明类型 | 明确新类型与 root manifest 后同步生产者/消费者 |
 | `unsupported security verdict` | 上游 security 枚举变化 | 先明确语义再改映射，不静默降级 |
-| `missing evaluated_at` 非 0 | 根代表条目缺 `evaluation.evaluated_at` | 上游补真实评估时刻；不能拿 `pushed_at` 或 `scanned_at` 代替 |
+| `missing evaluated_at` 非 0 | 不应发生——evaluated_at 闸已在出条目前挡掉该仓 | 闸失效，查 `_group_catalog` 的仓级判定；**不要**改成填默认时间绕过 |
+| `evaluated_at gate dropped` 数量突增 | 上游评估流程没给新一批条目写 `evaluation.evaluated_at` | 查评估链路为何不落时刻；补真实评估时刻，不能拿 `pushed_at` / `scanned_at` 代替 |
+| `reconciliation identity broken` | 某个桶漏账，条目既没输出也没被任何闸计数 | 对照 R2d 各桶定义补齐计数；这是 fail-closed，不要放宽断言 |
 | ungroupable 非 0 | 现有字段不能证明原始 GitHub 仓 | sync 层持久化原始 repo，不在 manifest 阶段猜测 |
 | duplicate `catalog_id` | 不同仓仍共享同一稳定 ID | 构建 fail-closed，在 catalog identity 层修复 |
 | root manifest 统计突变 | 上游路径字段或 consumer precedence 漂移 | 对照 precedence 表和丢弃组样本后再发布 |
