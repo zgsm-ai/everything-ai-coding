@@ -50,6 +50,10 @@ on:
         description: "costrict-plugin-marketplace bundle SemVer without leading v. Defaults to catalog tag suffix/date."
         required: false
         default: ""
+      manifest_webhook_url:
+        description: "Send the manifest webhook here instead of COSTRICT_MANIFEST_WEBHOOK_URL. Must be https. The signing secret is unchanged, so the target must share it."
+        required: false
+        default: ""
 
 permissions:
   contents: write   # required for `gh release create`
@@ -285,7 +289,9 @@ jobs:
     needs: build-and-release
     runs-on: ubuntu-latest
     env:
-      COSTRICT_MANIFEST_WEBHOOK_URL: ${{ secrets.COSTRICT_MANIFEST_WEBHOOK_URL }}
+      # A dispatch input overrides the configured target so a run can be aimed at a
+      # staging consumer. Tag pushes leave it empty and fall back to the secret.
+      COSTRICT_MANIFEST_WEBHOOK_URL: ${{ inputs.manifest_webhook_url || secrets.COSTRICT_MANIFEST_WEBHOOK_URL }}
       COSTRICT_MANIFEST_WEBHOOK_SECRET: ${{ secrets.COSTRICT_MANIFEST_WEBHOOK_SECRET }}
     steps:
       - name: Send signed registry manifest webhook
@@ -317,8 +323,14 @@ jobs:
               body,
               hashlib.sha256,
           ).hexdigest()
+          target = os.environ["COSTRICT_MANIFEST_WEBHOOK_URL"]
+          if not target.startswith("https://"):
+              raise SystemExit(
+                  "manifest webhook target must be https; refusing to send a signed "
+                  f"payload over {target.split(':', 1)[0]}"
+              )
           request = urllib.request.Request(
-              os.environ["COSTRICT_MANIFEST_WEBHOOK_URL"],
+              target,
               data=body,
               headers={
                   "Content-Type": "application/json",
