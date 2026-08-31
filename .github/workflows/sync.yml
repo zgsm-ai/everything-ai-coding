@@ -38,7 +38,10 @@ jobs:
   # ---------------------------------------------------------------------------
   sync-data:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    # 90 分钟不够：Sync Skills(30) + Triage trending(40) 就占掉 70 分钟，
+    # Merge indexes 要到第 88 分钟才开始，必被砍。2026-07-13 起连续 7 周
+    # 因此 cancelled，enrich/aggregate/Deploy Pages 全部 skipped。
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
 
