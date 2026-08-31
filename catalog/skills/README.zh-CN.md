@@ -1,6 +1,6 @@
 # 🎯 Skills 技能
 
-> 13223 AI 编程助手的可复用能力和工作流。
+> 13389 AI 编程助手的可复用能力和工作流。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
@@ -269,4 +269,4 @@ git clone nicobailon/pi-subagents
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-08-10*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-08-31*

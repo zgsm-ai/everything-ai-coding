@@ -117,15 +117,6 @@
       "next_retry_after": "2026-06-11T06:41:48.401928+00:00",
       "type": "mcp"
     },
-    "ai-ai-akari-agent-trust-receipt-e513dc00": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-08-10T06:28:20.310768+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-08-10T06:28:20.310768+00:00",
-      "next_retry_after": "2026-08-10T06:28:20.310768+00:00",
-      "type": "mcp"
-    },
     "ai-aliengiraffe-spotdb-0bee4ef0": {
       "attempt_count": 1,
       "first_failed_at": "2026-06-11T10:07:11.517145+00:00",
@@ -2108,11 +2099,11 @@
     },
     "claude-proje-çalışma-promptu-prompt": {
       "attempt_count": 1,
-      "first_failed_at": "2026-08-10T06:47:47.522888+00:00",
+      "first_failed_at": "2026-08-31T12:13:15.944589+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-08-10T06:47:47.522888+00:00",
-      "next_retry_after": "2026-08-10T06:47:47.522888+00:00",
+      "last_failed_at": "2026-08-31T12:13:15.944589+00:00",
+      "next_retry_after": "2026-08-31T12:13:15.944589+00:00",
       "type": "prompt"
     },
     "claudepost": {
@@ -2601,6 +2592,15 @@
       "next_retry_after": "2026-06-15T07:22:47.912519+00:00",
       "type": "mcp"
     },
+    "debug-prompt": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-08-31T12:13:15.944687+00:00",
+      "last_error_kind": "EvalRunnerSkip",
+      "last_error_message": "runner returned no result for entry",
+      "last_failed_at": "2026-08-31T12:13:15.944687+00:00",
+      "next_retry_after": "2026-08-31T12:13:15.944687+00:00",
+      "type": "prompt"
+    },
     "debugg-ai": {
       "attempt_count": 1,
       "first_failed_at": "2026-06-11T07:49:21.206702+00:00",
@@ -2626,15 +2626,6 @@
       "last_error_message": "runner returned no result for entry",
       "last_failed_at": "2026-06-11T06:49:17.517735+00:00",
       "next_retry_after": "2026-06-11T06:49:17.517735+00:00",
-      "type": "mcp"
-    },
-    "dev-weblens-weblens-ffa5eb88": {
-      "attempt_count": 1,
-      "first_failed_at": "2026-08-10T08:39:53.894771+00:00",
-      "last_error_kind": "EvalRunnerSkip",
-      "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-08-10T08:39:53.894771+00:00",
-      "next_retry_after": "2026-08-10T08:39:53.894771+00:00",
       "type": "mcp"
     },
     "devflowinctrieve": {
@@ -2735,6 +2726,15 @@
       "last_failed_at": "2026-06-11T09:44:26.975219+00:00",
       "next_retry_after": "2026-06-11T09:44:26.975219+00:00",
       "type": "mcp"
+    },
+    "e-commerce-website-prompt": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-08-31T12:13:15.944653+00:00",
+      "last_error_kind": "EvalRunnerSkip",
+      "last_error_message": "runner returned no result for entry",
+      "last_failed_at": "2026-08-31T12:13:15.944653+00:00",
+      "next_retry_after": "2026-08-31T12:13:15.944653+00:00",
+      "type": "prompt"
     },
     "e2b-dev-mcp-server": {
       "attempt_count": 1,
@@ -3402,22 +3402,31 @@
       "next_retry_after": "2026-05-18T07:27:44.274485+00:00",
       "type": "mcp"
     },
-    "io-github-darrenjrobinson-microsoft-ai-roundup-24f0ca58": {
-      "attempt_count": 2,
-      "first_failed_at": "2026-07-20T09:40:52.623089+00:00",
+    "io-github-baalimago-slivingdoc-dee9f57c": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-08-31T16:13:56.576950+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-08-10T09:51:00.560405+00:00",
-      "next_retry_after": "2026-08-17T09:51:00.560405+00:00",
+      "last_failed_at": "2026-08-31T16:13:56.576950+00:00",
+      "next_retry_after": "2026-08-31T16:13:56.576950+00:00",
       "type": "mcp"
     },
-    "io-github-deepagentlabs-deep-agentic-core-mcp-8236d75a": {
-      "attempt_count": 2,
-      "first_failed_at": "2026-07-20T09:40:52.623119+00:00",
+    "io-github-chunkydonut21-caelario-ae9e5378": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-08-31T16:41:16.196916+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-08-10T09:51:00.570105+00:00",
-      "next_retry_after": "2026-08-17T09:51:00.570105+00:00",
+      "last_failed_at": "2026-08-31T16:41:16.196916+00:00",
+      "next_retry_after": "2026-08-31T16:41:16.196916+00:00",
+      "type": "mcp"
+    },
+    "io-github-domondi1-inferrail-e8e0b874": {
+      "attempt_count": 1,
+      "first_failed_at": "2026-08-31T17:09:20.252394+00:00",
+      "last_error_kind": "EvalRunnerSkip",
+      "last_error_message": "runner returned no result for entry",
+      "last_failed_at": "2026-08-31T17:09:20.252394+00:00",
+      "next_retry_after": "2026-08-31T17:09:20.252394+00:00",
       "type": "mcp"
     },
     "io-github-einvoice-dev1-invoicehub-mcp-98e68134": {
@@ -8687,11 +8696,11 @@
     },
     "plataforma-escopo-bugbouty-cyber-hunter-lab-prompt": {
       "attempt_count": 1,
-      "first_failed_at": "2026-08-10T06:47:47.522928+00:00",
+      "first_failed_at": "2026-08-31T12:13:15.944623+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-08-10T06:47:47.522928+00:00",
-      "next_retry_after": "2026-08-10T06:47:47.522928+00:00",
+      "last_failed_at": "2026-08-31T12:13:15.944623+00:00",
+      "next_retry_after": "2026-08-31T12:13:15.944623+00:00",
       "type": "prompt"
     },
     "playcanvas-editor-mcp-server": {
@@ -8795,11 +8804,11 @@
     },
     "quantum-topology-matcher-prompt": {
       "attempt_count": 1,
-      "first_failed_at": "2026-08-10T06:47:47.522918+00:00",
+      "first_failed_at": "2026-08-31T12:13:15.944615+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-08-10T06:47:47.522918+00:00",
-      "next_retry_after": "2026-08-10T06:47:47.522918+00:00",
+      "last_failed_at": "2026-08-31T12:13:15.944615+00:00",
+      "next_retry_after": "2026-08-31T12:13:15.944615+00:00",
       "type": "prompt"
     },
     "quarkiverse-quarkus-mcp-server": {
@@ -8921,11 +8930,11 @@
     },
     "revisor-diagnóstico-proyecto-auditoría-plan-de-mejora-prompt": {
       "attempt_count": 1,
-      "first_failed_at": "2026-08-10T06:47:47.523005+00:00",
+      "first_failed_at": "2026-08-31T12:13:15.944628+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-08-10T06:47:47.523005+00:00",
-      "next_retry_after": "2026-08-10T06:47:47.523005+00:00",
+      "last_failed_at": "2026-08-31T12:13:15.944628+00:00",
+      "next_retry_after": "2026-08-31T12:13:15.944628+00:00",
       "type": "prompt"
     },
     "rggh-mcp-client-x": {
@@ -9758,11 +9767,11 @@
     },
     "workflow-builder-using-python-prompt": {
       "attempt_count": 1,
-      "first_failed_at": "2026-08-10T06:47:47.522982+00:00",
+      "first_failed_at": "2026-08-31T12:13:15.944625+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-08-10T06:47:47.522982+00:00",
-      "next_retry_after": "2026-08-10T06:47:47.522982+00:00",
+      "last_failed_at": "2026-08-31T12:13:15.944625+00:00",
+      "next_retry_after": "2026-08-31T12:13:15.944625+00:00",
       "type": "prompt"
     },
     "wrale-mcp-server-tree-sitter": {
@@ -9929,24 +9938,24 @@
     },
     "فريق-العمل-prompt": {
       "attempt_count": 1,
-      "first_failed_at": "2026-08-10T06:47:47.522923+00:00",
+      "first_failed_at": "2026-08-31T12:13:15.944619+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-08-10T06:47:47.522923+00:00",
-      "next_retry_after": "2026-08-10T06:47:47.522923+00:00",
+      "last_failed_at": "2026-08-31T12:13:15.944619+00:00",
+      "next_retry_after": "2026-08-31T12:13:15.944619+00:00",
       "type": "prompt"
     },
     "算法比赛教练-prompt": {
       "attempt_count": 1,
-      "first_failed_at": "2026-08-10T06:47:47.522910+00:00",
+      "first_failed_at": "2026-08-31T12:13:15.944610+00:00",
       "last_error_kind": "EvalRunnerSkip",
       "last_error_message": "runner returned no result for entry",
-      "last_failed_at": "2026-08-10T06:47:47.522910+00:00",
-      "next_retry_after": "2026-08-10T06:47:47.522910+00:00",
+      "last_failed_at": "2026-08-31T12:13:15.944610+00:00",
+      "next_retry_after": "2026-08-31T12:13:15.944610+00:00",
       "type": "prompt"
     }
   },
   "rubric_version": "3.b46c05b2",
   "schema_version": 1,
-  "updated_at": "2026-08-10T11:49:21.110284+00:00"
+  "updated_at": "2026-08-31T17:21:23.126667+00:00"
 }
