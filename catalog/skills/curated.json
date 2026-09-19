@@ -410,5 +410,35 @@
     "source": "curated",
     "last_synced": "2026-04-09",
     "added_at": "2026-04-09"
+  },
+  {
+    "id": "yylo-skills",
+    "name": "YYLO Skills",
+    "type": "skill",
+    "description": "Reusable agent skills for YYLO CLI and YYLO Ledger: Kanban/task-ledger management, wiki navigation, workflow execution, artifact handling, project understanding, planning, and ralph-loop execution skills, versioned independently and installable via npx skills add yylo-dev/yylo-skills",
+    "source_url": "https://github.com/yylo-dev/yylo-skills",
+    "stars": 1,
+    "category": "tooling",
+    "tags": [
+      "agent-skills",
+      "kanban",
+      "task-management",
+      "workflows",
+      "claude-code"
+    ],
+    "tech_stack": [
+      "typescript",
+      "markdown"
+    ],
+    "install": {
+      "method": "git_clone",
+      "repo": "https://github.com/yylo-dev/yylo-skills.git",
+      "files": [
+        "skills/"
+      ]
+    },
+    "source": "curated",
+    "added_at": "2026-09-19",
+    "last_synced": "2026-09-19"
   }
 ]
