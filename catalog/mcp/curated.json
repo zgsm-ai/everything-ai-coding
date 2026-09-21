@@ -783,5 +783,37 @@
     "source": "curated",
     "last_synced": "2026-08-04",
     "added_at": "2026-08-04"
+  },
+  {
+    "id": "myspec-mcp",
+    "name": "MySpec",
+    "type": "mcp",
+    "description": "Spec-Driven Development platform generating 4-file architectural spec bundles with built-in MCP server for Cursor and Claude Code",
+    "source_url": "https://myspec.dev",
+    "stars": 150,
+    "category": "developer-tools",
+    "tags": [
+      "spec-driven",
+      "mcp",
+      "mcp-server",
+      "architecture",
+      "planning"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@myspec/mcp-server"
+        ]
+      }
+    },
+    "source": "curated",
+    "added_at": "2026-09-21",
+    "last_synced": "2026-09-21"
   }
 ]
