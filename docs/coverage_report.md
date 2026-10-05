@@ -1,21 +1,21 @@
 # Catalog 热门资源覆盖率审计
 
-报告生成时间：2026-08-31
-catalog 版本：catalog/index.json 总条目 29987
+报告生成时间：2026-10-05
+catalog 版本：catalog/index.json 总条目 33916
 
 ## Skills 覆盖
 
 ### 状态摘要
 
-- ✅ 直接源：3 / 7
+- ✅ 直接源：4 / 7
 - ⚠️ 仅镜像：0 / 7
-- ❌ 未收录：4 / 7
+- ❌ 未收录：3 / 7
 
 ### 详细列表
 
 | Skill | GitHub | 状态 | install_count | 备注 |
 |-------|--------|------|---------------|------|
-| superpowers | obra/superpowers | ❌ 未收录 | - | 94K stars, 方法论级 skill 集合，已被 Anthropic 官方 marketplace 接纳 |
+| superpowers | obra/superpowers | ✅ 直接源 | - | 94K stars, 方法论级 skill 集合，已被 Anthropic 官方 marketplace 接纳 |
 | agent-skills | vercel-labs/agent-skills | ✅ 直接源 | 69,954 | 26K stars, Vercel 官方旗舰 skill 集合（React/Next.js/web design） |
 | agent-browser | vercel-labs/agent-browser | ✅ 直接源 | 14,925 | 14K stars, 浏览器自动化 skill |
 | supermemory | supermemoryai/supermemory | ❌ 未收录 | - | 17K stars, 跨 agent 记忆引擎 |
@@ -61,6 +61,6 @@ catalog 版本：catalog/index.json 总条目 29987
 
 ## 状态摘要总览
 
-- ✅ 直接源：12 / 19
+- ✅ 直接源：13 / 19
 - ⚠️ 仅镜像：0 / 19
-- ❌ 未收录：7 / 19
+- ❌ 未收录：6 / 19

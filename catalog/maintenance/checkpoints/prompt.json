@@ -1,5 +1,5 @@
 {
-  "completed_count": 668,
+  "completed_count": 672,
   "completed_entry_ids": [
     "12-month-ai-and-computer-vision-roadmap-for-defense-applications-prompt",
     "2046-puzzle-game-challenge-prompt",
@@ -126,6 +126,7 @@
     "cli-silently-install-software-on-windows-prompt",
     "code-formatter-agent-role-prompt",
     "code-generation-for-online-assessments-prompt",
+    "code-oprimisation-optimise-your-code-prompt",
     "code-recon-prompt",
     "code-review-agent-prompt",
     "code-review-agent-role-prompt",
@@ -501,6 +502,7 @@
     "sabarudin-instructions-framework-prompt",
     "sabarudin-system-executive-architecture-prompt",
     "sap-abap-carbon-footprint-module-graduation-project-documentation-prompt",
+    "school-managment-erp-prompt",
     "school-report-management-system-for-smp-negeri-7-sentani-prompt",
     "scientific-calculator-prompt",
     "scientific-data-visualizer-prompt",
@@ -553,6 +555,7 @@
     "step-4b-story-development-prompt",
     "strategic-app-design-content-engineering-prompt-prompt",
     "streaks-mobile-app-development-prompt-prompt",
+    "streaming-anime-prompt",
     "strict-markdown-only-output-enforcement-prompt",
     "study-review-companion-prompt",
     "stylelint-plugin-author-prompt",
@@ -591,6 +594,7 @@
     "text-analyzer-tool-prompt",
     "text-based-adventure-game-prompt",
     "the-architect-hacker-protector-viral-engineer-prompt",
+    "the-curriculum-mapping-prompt-prompt",
     "the-paradoxical-soundscape-ancient-acoustic-mysteries-video-exploration-prompt",
     "the-pragmatic-architect-mastering-tech-with-humor-and-precision-prompt",
     "the-prd-mastermind-prompt",
@@ -670,11 +674,12 @@
     "编写正则表达式-wprompt",
     "资深编程专家-can-wprompt"
   ],
-  "last_committed_at": "2026-08-31T12:13:15.957432+00:00",
+  "last_committed_at": "2026-10-05T13:06:52.109779+00:00",
   "remaining_entry_ids": [
     "claude-proje-çalışma-promptu-prompt",
     "debug-prompt",
     "e-commerce-website-prompt",
+    "enhanmcnet-suggestion-and-analysis-prompt",
     "plataforma-escopo-bugbouty-cyber-hunter-lab-prompt",
     "quantum-topology-matcher-prompt",
     "revisor-diagnóstico-proyecto-auditoría-plan-de-mejora-prompt",
