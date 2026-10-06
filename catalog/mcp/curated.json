@@ -783,5 +783,38 @@
     "source": "curated",
     "last_synced": "2026-08-04",
     "added_at": "2026-08-04"
+  },
+  {
+    "id": "orcareplay",
+    "name": "OrcaReplay",
+    "type": "mcp",
+    "description": "Read recorded coding-agent runs: timelines, checkpoints, offline replay and cross-model comparison",
+    "source_url": "https://github.com/Continuum-AI-Corp/OrcaReplay",
+    "stars": 173,
+    "category": "tooling",
+    "tags": [
+      "debugging",
+      "replay",
+      "tracing",
+      "coding-agent",
+      "observability"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "orcareplay",
+          "mcp"
+        ]
+      }
+    },
+    "source": "curated",
+    "added_at": "2026-09-08",
+    "last_synced": "2026-09-08"
   }
 ]
