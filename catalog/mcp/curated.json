@@ -783,5 +783,40 @@
     "source": "curated",
     "last_synced": "2026-08-04",
     "added_at": "2026-08-04"
+  },
+  {
+    "id": "curlshot-mcp",
+    "name": "CurlShot MCP",
+    "type": "mcp",
+    "description": "Remote MCP server that lets AI agents take screenshots of public web pages (PNG, JPEG, WebP or PDF) with full-page capture, device presets, dark mode, CSS selector capture and ad/cookie-banner blocking; requires a CurlShot API key (free plan available)",
+    "source_url": "https://github.com/SergiuPogor/curlshot-mcp",
+    "stars": 0,
+    "category": "tooling",
+    "tags": [
+      "screenshot",
+      "web-capture",
+      "pdf",
+      "remote-mcp",
+      "mcp-server"
+    ],
+    "tech_stack": [
+      "http"
+    ],
+    "install": {
+      "method": "mcp_config_template",
+      "config": {
+        "type": "http",
+        "url": "https://curlshot.com/api/mcp",
+        "headers": {
+          "Authorization": "Bearer ${CURLSHOT_API_KEY}"
+        }
+      },
+      "placeholder_hints": {
+        "CURLSHOT_API_KEY": "CurlShot API key from https://curlshot.com/register (free plan: 100 screenshots/month)"
+      }
+    },
+    "source": "curated",
+    "added_at": "2026-10-17",
+    "last_synced": "2026-10-17"
   }
 ]
