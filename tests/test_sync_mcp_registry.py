@@ -111,6 +111,7 @@ class _CacheSandbox:
             # stars 门槛会发 GraphQL 请求，这里测的是拉取 / diff；门槛见
             # test_sync_mcp_registry_stars.py
             mock.patch.dict(os.environ, {"MCP_REGISTRY_MIN_STARS": "0"}),
+            mock.patch.object(smr, "PAGE_RETRY_BACKOFF", 0),
         ]
         for p in self._patches:
             p.start()
@@ -238,6 +239,36 @@ class TestNetworkErrors(unittest.TestCase):
                                    side_effect=err):
                 with self.assertRaises(RuntimeError):
                     list(smr.fetch_registry())
+
+    def test_page_timeout_retried_then_succeeds(self):
+        """单页超时重试后成功，不再整轮放弃（10-19 定时运行死在第 46 页超时）。"""
+        with _CacheSandbox():
+            page = _make_response(json.dumps({
+                "servers": [_raw_entry("io.github.x/y")], "metadata": {},
+            }).encode())
+            with mock.patch.object(smr.urllib.request, "urlopen",
+                                   side_effect=[TimeoutError("timed out"), page]) as u:
+                out = list(smr.fetch_registry())
+            self.assertEqual(len(out), 1)
+            self.assertEqual(u.call_count, 2)
+
+    def test_5xx_gives_up_after_page_attempts(self):
+        with _CacheSandbox():
+            err = urllib.error.HTTPError(
+                url=smr.REGISTRY_BASE, code=500, msg="Internal Server Error",
+                hdrs=None, fp=None,
+            )
+            with mock.patch.object(smr.urllib.request, "urlopen", side_effect=err) as u:
+                with self.assertRaises(RuntimeError):
+                    list(smr.fetch_registry())
+            self.assertEqual(u.call_count, smr.PAGE_ATTEMPTS)
+
+    def test_request_asks_for_latest_versions_only(self):
+        with _CacheSandbox():
+            page = _make_response(json.dumps({"servers": [], "metadata": {}}).encode())
+            with mock.patch.object(smr.urllib.request, "urlopen", return_value=page) as u:
+                list(smr.fetch_registry())
+            self.assertIn("version=latest", u.call_args[0][0].full_url)
 
     def test_main_returns_1_on_fetch_failure(self):
         """主流程 main() 在 fetch 失败时返回 exit code 1。"""
