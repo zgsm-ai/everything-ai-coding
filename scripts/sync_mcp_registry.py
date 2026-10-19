@@ -48,7 +48,10 @@ SOURCE_NAME = "registry.modelcontextprotocol.io"
 META_KEY = "io.modelcontextprotocol.registry/official"
 
 DEFAULT_LIMIT = 100
-MAX_PAGES = 1000  # 防御性上限
+# 防死循环上限。不带 version=latest 时（2026-10）已超过 1000 页，带上后约一半
+MAX_PAGES = 3000
+PAGE_ATTEMPTS = 3  # 单页超时 / 5xx / 网络错误的尝试次数
+PAGE_RETRY_BACKOFF = 5  # 秒，第 n 次重试前等 n * BACKOFF
 
 GRAPHQL_URL = "https://api.github.com/graphql"
 STARS_BATCH = 100  # 每次 GraphQL 查询的仓库数，实测约 3-4 秒一批
@@ -137,7 +140,9 @@ def fetch_registry(limit: int = DEFAULT_LIMIT, timeout: int = 30):
             _log(f"ERROR: exceeded MAX_PAGES={MAX_PAGES}, abort")
             raise RuntimeError("registry pagination exceeded MAX_PAGES")
 
-        params = {"limit": str(limit)}
+        # version=latest：服务端只返回每个 server 的最新版本（含非 active），
+        # 与下面 is_latest 的客户端过滤一致，页数减半
+        params = {"limit": str(limit), "version": "latest"}
         if cursor:
             params["cursor"] = cursor
         url = f"{REGISTRY_BASE}?{urllib.parse.urlencode(params)}"
@@ -148,44 +153,57 @@ def fetch_registry(limit: int = DEFAULT_LIMIT, timeout: int = 30):
             req.add_header("If-None-Match", last_etag)
         req.add_header("User-Agent", "everything-ai-coding-mcp-registry-sync")
 
-        try:
-            with urllib.request.urlopen(req, timeout=timeout) as resp:
-                etag = ""
-                try:
-                    etag = resp.headers.get("ETag", "") or ""
-                except AttributeError:
+        # 单页重试：2026-10 连续几周分别死在第 46 页超时、第 109 页 500，整轮放弃
+        for attempt in range(1, PAGE_ATTEMPTS + 1):
+            retry_reason = ""
+            try:
+                with urllib.request.urlopen(req, timeout=timeout) as resp:
                     etag = ""
-                body = resp.read()
-                try:
-                    data = json.loads(body.decode("utf-8"))
-                except (json.JSONDecodeError, UnicodeDecodeError) as e:
-                    _log(f"ERROR: page={page_idx} JSON parse error: {e}")
-                    raise RuntimeError("registry JSON parse error") from e
-        except urllib.error.HTTPError as e:
-            if e.code == 304 and page_idx == 1:
-                _log("INFO: registry 304 Not Modified, using local cache")
-                cached = _load_local_registry_cache()
-                if not cached:
-                    _log("ERROR: 304 received but local cache missing/corrupted")
-                    raise RuntimeError("304 with no local cache")
-                used_cache = True
-                for item in cached:
-                    yield item
-                return
-            if 500 <= e.code < 600:
-                _log(f"ERROR: page={page_idx} HTTP 5xx: {e.code} {e.reason}")
-                raise RuntimeError(f"registry 5xx {e.code}") from e
-            _log(f"ERROR: page={page_idx} HTTP {e.code} {e.reason}")
-            raise RuntimeError(f"registry HTTP {e.code}") from e
-        except urllib.error.URLError as e:
-            _log(f"ERROR: page={page_idx} URL error: {e.reason}")
-            raise RuntimeError(f"registry URL error: {e.reason}") from e
-        except TimeoutError as e:
-            # urllib.request.urlopen(timeout=N) 触发的 socket.timeout 在新 Python 里
-            # 是 TimeoutError 的别名，不是 URLError 子类，必须单独捕获否则会逃逸出
-            # main()，产生不友好的 traceback 与错误退出码。
-            _log(f"ERROR: page={page_idx} timeout after {timeout}s: {e}")
-            raise RuntimeError(f"registry timeout after {timeout}s") from e
+                    try:
+                        etag = resp.headers.get("ETag", "") or ""
+                    except AttributeError:
+                        etag = ""
+                    body = resp.read()
+                    try:
+                        data = json.loads(body.decode("utf-8"))
+                    except (json.JSONDecodeError, UnicodeDecodeError) as e:
+                        _log(f"ERROR: page={page_idx} JSON parse error: {e}")
+                        raise RuntimeError("registry JSON parse error") from e
+            except urllib.error.HTTPError as e:
+                if e.code == 304 and page_idx == 1:
+                    _log("INFO: registry 304 Not Modified, using local cache")
+                    cached = _load_local_registry_cache()
+                    if not cached:
+                        _log("ERROR: 304 received but local cache missing/corrupted")
+                        raise RuntimeError("304 with no local cache")
+                    used_cache = True
+                    for item in cached:
+                        yield item
+                    return
+                if not 500 <= e.code < 600:
+                    _log(f"ERROR: page={page_idx} HTTP {e.code} {e.reason}")
+                    raise RuntimeError(f"registry HTTP {e.code}") from e
+                if attempt == PAGE_ATTEMPTS:
+                    _log(f"ERROR: page={page_idx} HTTP 5xx: {e.code} {e.reason}")
+                    raise RuntimeError(f"registry 5xx {e.code}") from e
+                retry_reason = f"HTTP {e.code}"
+            except urllib.error.URLError as e:
+                if attempt == PAGE_ATTEMPTS:
+                    _log(f"ERROR: page={page_idx} URL error: {e.reason}")
+                    raise RuntimeError(f"registry URL error: {e.reason}") from e
+                retry_reason = f"URL error: {e.reason}"
+            except TimeoutError as e:
+                # urllib.request.urlopen(timeout=N) 触发的 socket.timeout 在新 Python 里
+                # 是 TimeoutError 的别名，不是 URLError 子类，必须单独捕获否则会逃逸出
+                # main()，产生不友好的 traceback 与错误退出码。
+                if attempt == PAGE_ATTEMPTS:
+                    _log(f"ERROR: page={page_idx} timeout after {timeout}s: {e}")
+                    raise RuntimeError(f"registry timeout after {timeout}s") from e
+                retry_reason = f"timeout after {timeout}s"
+            if not retry_reason:
+                break
+            _log(f"WARNING: page={page_idx} {retry_reason}, retry {attempt}/{PAGE_ATTEMPTS - 1}")
+            time.sleep(PAGE_RETRY_BACKOFF * attempt)
 
         if page_idx == 1 and etag:
             new_etag = etag
@@ -609,6 +627,58 @@ def apply_stars_gate(entries: list, min_stars: int, fetch_stars) -> tuple:
     return kept, stats
 
 
+def _run_stars_gate(entries: list, min_stars: int) -> tuple:
+    """对 entries 应用 stars 门槛，返回 (kept, new_stars_cache)；失败抛 RuntimeError。"""
+    token = os.environ.get("GITHUB_TOKEN", "")
+    if not token:
+        raise RuntimeError("stars gate needs GITHUB_TOKEN (set MCP_REGISTRY_MIN_STARS=0 to disable)")
+    stars_cache = _load_stars_cache()
+    resolved: dict = {}
+
+    def lookup(repos):
+        stars, resolved["cache"], resolved["stats"] = resolve_repo_stars(
+            repos, stars_cache, lambda rs: fetch_repo_stars(rs, token), TODAY
+        )
+        return stars
+
+    kept, stats = apply_stars_gate(entries, min_stars, lookup)
+    cstats = resolved.get("stats") or {}
+    _log(
+        f"INFO: stars lookup: repos={cstats.get('repos', 0)} queried={cstats.get('queried', 0)} "
+        f"(new={cstats.get('new', 0)} refreshed={cstats.get('refreshed', 0)}) "
+        f"stale_left={cstats.get('stale_left', 0)}"
+    )
+    _log(
+        f"INFO: stars gate (min={min_stars}): kept={stats['kept']} "
+        f"below_min={stats['below_min']} not_found={stats['not_found']} "
+        f"no_github_repo={stats['no_repo']}"
+    )
+    return kept, resolved.get("cache", stars_cache)
+
+
+def _gate_previous_output() -> None:
+    """registry 拉取失败时，仍对上次产物应用 stars 门槛并写回。
+
+    registry 2026-10 起几乎每周都拉取失败（超时 / 5xx / 页数上限），产物停在 08-31；
+    门槛要是只挂在拉取成功之后，就一次都生效不了。diff 基线不动，main 仍返回 1。
+    """
+    min_stars = _min_stars()
+    if min_stars <= 0:
+        return
+    prev = _load_prev_output()
+    if not prev:
+        return
+    try:
+        kept, stars_cache = _run_stars_gate(prev, min_stars)
+    except RuntimeError as e:
+        _log(f"ERROR: stars gate on previous output failed, left unchanged: {e}")
+        return
+    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+        f.write(dumps_index(kept))
+    _save_stars_cache(stars_cache)
+    _log(f"INFO: fetch failed; re-gated previous output {len(prev)} -> {len(kept)} entries")
+
+
 # ---------------------------------------------------------------------------
 # 增量 diff
 # ---------------------------------------------------------------------------
@@ -721,6 +791,7 @@ def main() -> int:
         all_raw = list(raw_iter)
     except RuntimeError as e:
         _log(f"ERROR: fetch_registry failed: {e}")
+        _gate_previous_output()
         return 1
 
     _log(f"INFO: total raw entries fetched: {len(all_raw)}")
@@ -777,36 +848,13 @@ def main() -> int:
 
     # stars 门槛只作用于输出视角；diff 视角保持全集，避免门槛造成 added/removed 抖动
     min_stars = _min_stars()
-    resolved: dict = {}  # lookup 回填的 stars 缓存与统计，写盘时用
+    stars_cache = None
     if min_stars > 0:
-        token = os.environ.get("GITHUB_TOKEN", "")
-        if not token:
-            _log("ERROR: stars gate needs GITHUB_TOKEN (set MCP_REGISTRY_MIN_STARS=0 to disable)")
-            return 1
-        stars_cache = _load_stars_cache()
-
-        def lookup(repos):
-            stars, resolved["cache"], resolved["stats"] = resolve_repo_stars(
-                repos, stars_cache, lambda rs: fetch_repo_stars(rs, token), TODAY
-            )
-            return stars
-
         try:
-            entries, stats = apply_stars_gate(entries, min_stars, lookup)
+            entries, stars_cache = _run_stars_gate(entries, min_stars)
         except RuntimeError as e:
             _log(f"ERROR: stars gate failed, previous output kept: {e}")
             return 1
-        cstats = resolved.get("stats") or {}
-        _log(
-            f"INFO: stars lookup: repos={cstats.get('repos', 0)} queried={cstats.get('queried', 0)} "
-            f"(new={cstats.get('new', 0)} refreshed={cstats.get('refreshed', 0)}) "
-            f"stale_left={cstats.get('stale_left', 0)}"
-        )
-        _log(
-            f"INFO: stars gate (min={min_stars}): kept={stats['kept']} "
-            f"below_min={stats['below_min']} not_found={stats['not_found']} "
-            f"no_github_repo={stats['no_repo']}"
-        )
 
     # diff: 上次「diff 基线」 vs 本次「diff 视角」全集
     # 基线持久化所有 isLatest 条目（含非 active），与 diff_entries 同集合范畴；
@@ -829,9 +877,9 @@ def main() -> int:
         f.write(dumps_index(entries))
     _log(f"INFO: wrote {len(entries)} entries to {OUTPUT_PATH}")
 
-    if "cache" in resolved:
-        _save_stars_cache(resolved["cache"])
-        _log(f"INFO: wrote stars cache ({len(resolved['cache'])} repos) to {STARS_CACHE_PATH}")
+    if stars_cache is not None:
+        _save_stars_cache(stars_cache)
+        _log(f"INFO: wrote stars cache ({len(stars_cache)} repos) to {STARS_CACHE_PATH}")
 
     with open(DIFF_PATH, "w", encoding="utf-8") as f:
         json.dump(diff, f, indent=2, ensure_ascii=False)

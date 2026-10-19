@@ -6,7 +6,8 @@
 - fetch_repo_stars：分批、NOT_FOUND → None、其它 GraphQL 错误抛 RuntimeError
 - _graphql：限流按 Retry-After 重试、普通 403 不重试
 - resolve_repo_stars：缓存命中 / 新仓库 / 过期刷新上限 / 淘汰不在 registry 的仓库
-- main：无 token 返回 1；门槛失败返回 1 且不写盘；门槛生效后写盘为一行一条并落缓存
+- main：无 token 返回 1；门槛失败返回 1 且不写盘；门槛生效后写盘为一行一条并落缓存；
+  registry 拉取失败时仍对上次产物过滤写回
 """
 
 import io
@@ -388,6 +389,38 @@ class TestMainWithGate(unittest.TestCase):
             cache = json.load(f)
         self.assertEqual(cache["o/popular"]["stars"], 120)
         self.assertEqual(cache["o/spam"]["stars"], 0)
+
+    def test_fetch_failure_still_gates_previous_output(self):
+        prev = [
+            {"id": "popular", "source_url": "https://github.com/o/popular", "stars": None},
+            {"id": "spam", "source_url": "https://github.com/o/spam", "stars": None},
+        ]
+        with open(self.out, "w", encoding="utf-8") as f:
+            json.dump(prev, f)
+        env = {"MCP_REGISTRY_MIN_STARS": "6", "GITHUB_TOKEN": "tok"}
+        with mock.patch.dict(os.environ, env), mock.patch.object(
+            smr, "fetch_registry", side_effect=RuntimeError("registry 5xx 500")
+        ), mock.patch.object(
+            smr, "fetch_repo_stars", return_value={("o", "popular"): 40, ("o", "spam"): 0}
+        ):
+            self.assertEqual(smr.main(), 1)
+        with open(self.out, encoding="utf-8") as f:
+            self.assertEqual([e["id"] for e in json.load(f)], ["popular"])
+        with open(self.stars_cache, encoding="utf-8") as f:
+            self.assertEqual(json.load(f)["o/spam"]["stars"], 0)
+        self.assertFalse(os.path.exists(smr.DIFF_BASELINE_PATH))
+
+    def test_fetch_failure_and_gate_failure_leave_previous_output(self):
+        prev = [{"id": "x", "source_url": "https://github.com/o/x", "stars": None}]
+        with open(self.out, "w", encoding="utf-8") as f:
+            json.dump(prev, f)
+        env = {"MCP_REGISTRY_MIN_STARS": "6", "GITHUB_TOKEN": "tok"}
+        with mock.patch.dict(os.environ, env), mock.patch.object(
+            smr, "fetch_registry", side_effect=RuntimeError("timeout")
+        ), mock.patch.object(smr, "fetch_repo_stars", side_effect=RuntimeError("graphql down")):
+            self.assertEqual(smr.main(), 1)
+        with open(self.out, encoding="utf-8") as f:
+            self.assertEqual(json.load(f), prev)
 
     def test_second_run_uses_cache(self):
         env = {"MCP_REGISTRY_MIN_STARS": "6", "GITHUB_TOKEN": "tok"}
