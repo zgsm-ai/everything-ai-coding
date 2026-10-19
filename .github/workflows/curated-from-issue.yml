@@ -19,7 +19,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Don't leave GITHUB_TOKEN in .git/config: steps below handle issue-controlled
+      # input, so the token is passed only to the single `git push` that needs it.
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - uses: actions/setup-python@v5
         with:
@@ -47,8 +51,9 @@ jobs:
               return;
             }
 
-            // Validate URL format to prevent injection
-            if (!/^https:\/\/github\.com\/[a-zA-Z0-9._-]+\/[a-zA-Z0-9._-]+/.test(url)) {
+            // Validate URL format. Anchored at both ends: an unanchored match let
+            // `https://github.com/a/b';<python>;#` through (exploited 2026-10-08).
+            if (!/^https:\/\/github\.com\/[a-zA-Z0-9._-]+\/[a-zA-Z0-9._-]+(\/[a-zA-Z0-9._~\/-]*)?$/.test(url)) {
               core.setFailed('Invalid GitHub URL format');
               return;
             }
@@ -69,13 +74,15 @@ jobs:
         env:
           INPUT_URL: ${{ steps.parse.outputs.url }}
         run: |
-          # Use validate_curated.py's dedup logic via Python for accurate matching
-          python -c "
-          import sys, json
+          # Use validate_curated.py's dedup logic via Python for accurate matching.
+          # Quoted heredoc + os.environ: the URL is issue-controlled and must never
+          # be spliced into the script source.
+          python - > /tmp/dedup_result.txt <<'PY'
+          import os, sys
           sys.path.insert(0, 'scripts')
           from utils import normalize_source_url, load_index
 
-          url = '$INPUT_URL'.strip()
+          url = os.environ['INPUT_URL'].strip()
           norm = normalize_source_url(url)
 
           # Check all curated.json and index.json
@@ -91,7 +98,7 @@ jobs:
                   break
 
           print('true' if found else 'false')
-          " > /tmp/dedup_result.txt
+          PY
           echo "duplicate=$(cat /tmp/dedup_result.txt)" >> "$GITHUB_OUTPUT"
 
       - name: Comment and close if duplicate
@@ -176,7 +183,10 @@ jobs:
 
           git add "$CURATED_PATH"
           git commit -m "[curated] Add ${ENTRY_ID}"
-          git push origin "$BRANCH"
+          # checkout runs with persist-credentials: false; scope the token to this push only.
+          AUTH_HEADER="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)"
+          echo "::add-mask::${AUTH_HEADER#AUTHORIZATION: basic }"
+          git -c http.https://github.com/.extraheader="$AUTH_HEADER" push origin "$BRANCH"
 
           # Build PR body and create PR via REST API
           ENTRY_JSON=$(python -m json.tool /tmp/entry.json)
