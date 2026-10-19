@@ -1507,11 +1507,25 @@ def to_kebab_case(name: str) -> str:
     return s
 
 
+def dumps_index(entries: list) -> str:
+    """Serialize an index as a JSON array with one compact entry per line.
+
+    indent=2 pushed catalog/index.json past GitHub's 100 MB per-file limit
+    (~20% of the file was whitespace); one entry per line keeps it compact while
+    git diffs still show which entries changed. Every writer of an index file
+    must go through here so the format doesn't flip between steps.
+    """
+    if not entries:
+        return "[]\n"
+    lines = (json.dumps(e, ensure_ascii=False, separators=(",", ":")) for e in entries)
+    return "[\n" + ",\n".join(lines) + "\n]\n"
+
+
 def save_index(entries: list, output_path: str):
     """Save entries to a JSON index file."""
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(entries, f, indent=2, ensure_ascii=False)
+        f.write(dumps_index(entries))
     logger.info(f"Saved {len(entries)} entries to {output_path}")
 
 

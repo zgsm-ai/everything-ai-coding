@@ -41,7 +41,9 @@ jobs:
     # 90 分钟不够：Sync Skills(30) + Triage trending(40) 就占掉 70 分钟，
     # Merge indexes 要到第 88 分钟才开始，必被砍。2026-07-13 起连续 7 周
     # 因此 cancelled，enrich/aggregate/Deploy Pages 全部 skipped。
-    timeout-minutes: 150
+    # 150 → 170：实测 100-122 分钟，MCP registry stars 门槛首轮全量查询再加约 14 分钟
+    # （之后走 catalog/mcp/mcp_registry_stars.json 缓存，约 3 分钟）。
+    timeout-minutes: 170
     steps:
       - uses: actions/checkout@v4
 
@@ -172,8 +174,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PYTHONUNBUFFERED: "1"
+          # stars < 6 的 registry 条目不收录（0 = 关闭门槛）；门槛查询失败时本步非零退出，
+          # continue-on-error 下沿用仓库里上次的 mcp_registry_index.json
+          MCP_REGISTRY_MIN_STARS: "6"
         run: python -u scripts/sync_mcp_registry.py
-        timeout-minutes: 10
+        # stars 门槛首轮约 1.8 万仓库 / 180 次 GraphQL（约 14 分钟），之后增量约 3 分钟
+        timeout-minutes: 30
         continue-on-error: true
 
       - name: Sync Rules
@@ -764,6 +770,7 @@ jobs:
 
           sys.path.insert(0, "scripts")
           from scoring_governor import apply_governance
+          from utils import dumps_index
 
           catalog_path = Path("catalog/index.json")
           entries = json.loads(catalog_path.read_text(encoding="utf-8"))
@@ -772,10 +779,7 @@ jobs:
           # apply_governance 只标记不删，与历史 merge_index 行为一致。
           entries = apply_governance(entries, health_only=False)
           after = len(entries)
-          catalog_path.write_text(
-              json.dumps(entries, indent=2, ensure_ascii=False) + "\n",
-              encoding="utf-8",
-          )
+          catalog_path.write_text(dumps_index(entries), encoding="utf-8")
           print(f"governance: {before} -> {after} entries")
 
           # 当 reject 过滤真的删掉了 entry（EVAL_DRY_RUN=false），aggregate
@@ -938,6 +942,7 @@ jobs:
 
           sys.path.insert(0, "scripts")
           from eval_bridge import security_scan_and_map
+          from utils import dumps_index
 
           catalog_path = Path("catalog/index.json")
           entries = json.loads(catalog_path.read_text(encoding="utf-8"))
@@ -966,10 +971,7 @@ jobs:
 
           def flush_catalog() -> None:
               tmp = catalog_path.with_suffix(".json.tmp")
-              tmp.write_text(
-                  json.dumps(entries, indent=2, ensure_ascii=False) + "\n",
-                  encoding="utf-8",
-              )
+              tmp.write_text(dumps_index(entries), encoding="utf-8")
               os.replace(tmp, catalog_path)
 
           for start in range(0, n, chunk_size):

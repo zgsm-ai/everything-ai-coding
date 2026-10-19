@@ -6,6 +6,8 @@
 - 过滤：仅保留 _meta.io.modelcontextprotocol.registry/official.status == "active"
   且 isLatest == true 的条目
 - 输出：catalog/mcp/mcp_registry_index.json（中间索引），不做与其他源去重
+- stars 门槛：registry 没有任何人工筛选，大量 0 star 刷量条目（2026-10 抽样 75% ≤5 star），
+  按 GitHub stars 过滤，门槛由 MCP_REGISTRY_MIN_STARS 控制（默认 6，0 = 关闭）
 - 增量 diff：与上次输出对比，记录 added / status_changed / version_bumped / removed
   四类，stable 集合不写入文件但日志输出统计数
 
@@ -19,13 +21,14 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import date
+from datetime import date, timedelta
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from utils import is_plugin_source, load_plugin_sources, logger  # noqa: E402
+from utils import dumps_index, is_plugin_source, load_plugin_sources, logger  # noqa: E402
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))
@@ -37,6 +40,8 @@ DIFF_PATH = os.path.join(CACHE_DIR, "diff.json")
 # 以此为 prev，确保非 active 但 isLatest 的条目不会被反复识别为 added。
 DIFF_BASELINE_PATH = os.path.join(CACHE_DIR, "diff_baseline.json")
 OUTPUT_PATH = os.path.join(REPO_ROOT, "catalog", "mcp", "mcp_registry_index.json")
+# stars 查询结果缓存。随 catalog/ 提交，跨周保留（.mcp_registry_cache 只在同一周内有效）
+STARS_CACHE_PATH = os.path.join(REPO_ROOT, "catalog", "mcp", "mcp_registry_stars.json")
 
 REGISTRY_BASE = "https://registry.modelcontextprotocol.io/v0/servers"
 SOURCE_NAME = "registry.modelcontextprotocol.io"
@@ -44,6 +49,14 @@ META_KEY = "io.modelcontextprotocol.registry/official"
 
 DEFAULT_LIMIT = 100
 MAX_PAGES = 1000  # 防御性上限
+
+GRAPHQL_URL = "https://api.github.com/graphql"
+STARS_BATCH = 100  # 每次 GraphQL 查询的仓库数，实测约 3-4 秒一批
+STARS_TTL_DAYS = 28  # 缓存过期天数
+STARS_REFRESH_LIMIT = 5000  # 每轮最多刷新的过期仓库数（新仓库不受限），约 3 分钟
+DEFAULT_MIN_STARS = 6  # stars <= 5 剔除
+# GitHub owner / repo 合法字符；不匹配的 github.com URL 视为无效仓库
+_GITHUB_REPO_RE = re.compile(r"^https://github\.com/([A-Za-z0-9-]+)/([A-Za-z0-9._-]+?)(?:\.git)?(?:/.*)?$")
 
 TODAY = date.today().isoformat()
 
@@ -395,6 +408,208 @@ def normalize_entry(raw: dict) -> dict:
 
 
 # ---------------------------------------------------------------------------
+# stars 门槛
+# ---------------------------------------------------------------------------
+
+def _min_stars() -> int:
+    raw = os.environ.get("MCP_REGISTRY_MIN_STARS", str(DEFAULT_MIN_STARS))
+    try:
+        return max(0, int(raw))
+    except ValueError:
+        _log(f"WARNING: invalid MCP_REGISTRY_MIN_STARS={raw!r}, using {DEFAULT_MIN_STARS}")
+        return DEFAULT_MIN_STARS
+
+
+def _github_repo(source_url: str):
+    """github.com URL → (owner, repo) 小写；非 github.com → None；github.com 但不合法 → ("", "")。"""
+    url = (source_url or "").strip()
+    if not url.lower().startswith("https://github.com/"):
+        return None
+    m = _GITHUB_REPO_RE.match(url)
+    if not m:
+        return ("", "")
+    return (m.group(1).lower(), m.group(2).lower())
+
+
+def _retry_after_seconds(headers, default: int) -> int:
+    try:
+        return min(300, max(1, int(headers.get("Retry-After") or "")))
+    except (TypeError, ValueError):
+        pass
+    # X-RateLimit-Reset 每个响应都带，只有额度真用完时才按它等，否则普通 5xx 会白等几分钟
+    if headers.get("X-RateLimit-Remaining") == "0":
+        try:
+            reset = int(headers.get("X-RateLimit-Reset") or "")
+            return min(300, max(1, reset - int(time.time())))
+        except (TypeError, ValueError):
+            pass
+    return default
+
+
+def _graphql(query: str, token: str, timeout: int = 60) -> dict:
+    body = json.dumps({"query": query}).encode("utf-8")
+    req = urllib.request.Request(
+        GRAPHQL_URL,
+        data=body,
+        method="POST",
+        headers={
+            "Authorization": f"bearer {token}",
+            "Content-Type": "application/json",
+            "User-Agent": "everything-ai-coding-sync",
+        },
+    )
+    last_err = None
+    for attempt in range(4):
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except urllib.error.HTTPError as e:
+            last_err = e
+            # 403 只有带限流头时才重试；token 无效之类的 403 重试没有意义
+            limited = e.code == 429 or (
+                e.code == 403
+                and (e.headers.get("Retry-After") or e.headers.get("X-RateLimit-Remaining") == "0")
+            )
+            if attempt < 3 and (limited or e.code >= 500):
+                wait = _retry_after_seconds(e.headers, 30 * (attempt + 1))
+                _log(f"WARNING: GitHub GraphQL HTTP {e.code}, retrying in {wait}s")
+                time.sleep(wait)
+                continue
+            break
+        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as e:
+            last_err = e
+            if attempt < 3:
+                time.sleep(5 * (attempt + 1))
+    raise RuntimeError(f"GitHub GraphQL failed: {last_err}")
+
+
+def fetch_repo_stars(repos: list, token: str) -> dict:
+    """批量查 stargazerCount。返回 {(owner, repo): stars}，仓库不存在为 None。
+
+    NOT_FOUND 以外的任何 GraphQL 错误（限流、超时、语法）都抛 RuntimeError——
+    宁可本轮失败沿用上次产物，也不能把没查到 stars 的条目当成低 star 删掉或放行。
+    串行请求：实测 4 路并发没有提速（GitHub 按 token 串行处理），还更容易撞二级限流。
+    """
+    result: dict = {}
+    for i in range(0, len(repos), STARS_BATCH):
+        chunk = repos[i:i + STARS_BATCH]
+        fields = "\n".join(
+            f"r{j}: repository(owner: {json.dumps(o)}, name: {json.dumps(n)}) {{ stargazerCount }}"
+            for j, (o, n) in enumerate(chunk)
+        )
+        payload = _graphql("query {\n" + fields + "\n}", token)
+        fatal = [e for e in (payload.get("errors") or []) if e.get("type") != "NOT_FOUND"]
+        if fatal:
+            raise RuntimeError(f"GitHub GraphQL errors: {fatal[:3]}")
+        data = payload.get("data") or {}
+        for j, key in enumerate(chunk):
+            node = data.get(f"r{j}")
+            result[key] = node.get("stargazerCount") if node else None
+        if (i // STARS_BATCH) % 20 == 19:
+            _log(f"INFO: stars fetched {i + len(chunk)}/{len(repos)}")
+    return result
+
+
+def _load_stars_cache() -> dict:
+    try:
+        with open(STARS_CACHE_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        return {}
+    except (OSError, json.JSONDecodeError) as e:
+        _log(f"WARNING: stars cache unreadable, starting empty: {e}")
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def _save_stars_cache(cache: dict) -> None:
+    os.makedirs(os.path.dirname(STARS_CACHE_PATH), exist_ok=True)
+    lines = [
+        f"{json.dumps(k)}:{json.dumps(v, separators=(',', ':'))}" for k, v in sorted(cache.items())
+    ]
+    with open(STARS_CACHE_PATH, "w", encoding="utf-8") as f:
+        f.write("{\n" + ",\n".join(lines) + "\n}\n" if lines else "{}\n")
+
+
+def resolve_repo_stars(repos: list, cache: dict, fetch, today: str,
+                       ttl_days: int = STARS_TTL_DAYS,
+                       refresh_limit: int = STARS_REFRESH_LIMIT) -> tuple:
+    """用缓存 + 增量查询得到 repos 的 stars。
+
+    缓存格式 {"owner/repo": {"stars": int | None, "checked": "YYYY-MM-DD"}}，None 表示仓库不存在。
+    新仓库全部查询；过期（checked 早于 today - ttl_days）的按最旧优先刷新，每轮最多
+    refresh_limit 个，其余沿用旧值。返回 (stars, new_cache, stats)，new_cache 只保留本轮
+    repos，不在 registry 里的仓库自然淘汰。
+    """
+    def valid(v):
+        return isinstance(v, dict) and "stars" in v
+
+    cutoff = (date.fromisoformat(today) - timedelta(days=ttl_days)).isoformat()
+    missing, stale = [], []
+    for k in repos:
+        v = cache.get(f"{k[0]}/{k[1]}")
+        if not valid(v):
+            missing.append(k)
+        elif (v.get("checked") or "") < cutoff:
+            stale.append(k)
+    stale.sort(key=lambda k: cache[f"{k[0]}/{k[1]}"].get("checked") or "")
+    to_query = missing + stale[:refresh_limit]
+    fetched = fetch(to_query) if to_query else {}
+
+    new_cache: dict = {}
+    for k in repos:
+        ks = f"{k[0]}/{k[1]}"
+        new_cache[ks] = cache[ks] if valid(cache.get(ks)) else None
+    for k in to_query:
+        new_cache[f"{k[0]}/{k[1]}"] = {"stars": fetched.get(k), "checked": today}
+    stars = {k: new_cache[f"{k[0]}/{k[1]}"]["stars"] for k in repos}
+    stats = {
+        "repos": len(repos),
+        "queried": len(to_query),
+        "new": len(missing),
+        "refreshed": len(to_query) - len(missing),
+        "stale_left": max(0, len(stale) - refresh_limit),
+    }
+    return stars, new_cache, stats
+
+
+def apply_stars_gate(entries: list, min_stars: int, fetch_stars) -> tuple:
+    """按 GitHub stars 过滤 registry 条目，返回 (kept, stats)。
+
+    - 非 github.com source_url（纯 remote / SaaS）→ 保留，无法判断
+    - github.com 但仓库不存在或 URL 不合法 → 剔除
+    - stars < min_stars → 剔除；保留的条目写入 entry["stars"]
+    - min_stars <= 0 → 原样返回，不发请求
+    """
+    stats = {"no_repo": 0, "not_found": 0, "below_min": 0, "kept": 0}
+    if min_stars <= 0:
+        stats["kept"] = len(entries)
+        return list(entries), stats
+
+    repos = sorted({k for k in (_github_repo(e.get("source_url")) for e in entries) if k and k[0]})
+    stars = fetch_stars(repos) if repos else {}
+
+    kept: list = []
+    for e in entries:
+        key = _github_repo(e.get("source_url"))
+        if key is None:
+            stats["no_repo"] += 1
+            kept.append(e)
+            continue
+        n = stars.get(key) if key[0] else None
+        if n is None:
+            stats["not_found"] += 1
+            continue
+        e["stars"] = n
+        if n < min_stars:
+            stats["below_min"] += 1
+            continue
+        kept.append(e)
+    stats["kept"] = len(kept)
+    return kept, stats
+
+
+# ---------------------------------------------------------------------------
 # 增量 diff
 # ---------------------------------------------------------------------------
 
@@ -560,6 +775,39 @@ def main() -> int:
         f"(from {len(latest_raw)} isLatest)"
     )
 
+    # stars 门槛只作用于输出视角；diff 视角保持全集，避免门槛造成 added/removed 抖动
+    min_stars = _min_stars()
+    resolved: dict = {}  # lookup 回填的 stars 缓存与统计，写盘时用
+    if min_stars > 0:
+        token = os.environ.get("GITHUB_TOKEN", "")
+        if not token:
+            _log("ERROR: stars gate needs GITHUB_TOKEN (set MCP_REGISTRY_MIN_STARS=0 to disable)")
+            return 1
+        stars_cache = _load_stars_cache()
+
+        def lookup(repos):
+            stars, resolved["cache"], resolved["stats"] = resolve_repo_stars(
+                repos, stars_cache, lambda rs: fetch_repo_stars(rs, token), TODAY
+            )
+            return stars
+
+        try:
+            entries, stats = apply_stars_gate(entries, min_stars, lookup)
+        except RuntimeError as e:
+            _log(f"ERROR: stars gate failed, previous output kept: {e}")
+            return 1
+        cstats = resolved.get("stats") or {}
+        _log(
+            f"INFO: stars lookup: repos={cstats.get('repos', 0)} queried={cstats.get('queried', 0)} "
+            f"(new={cstats.get('new', 0)} refreshed={cstats.get('refreshed', 0)}) "
+            f"stale_left={cstats.get('stale_left', 0)}"
+        )
+        _log(
+            f"INFO: stars gate (min={min_stars}): kept={stats['kept']} "
+            f"below_min={stats['below_min']} not_found={stats['not_found']} "
+            f"no_github_repo={stats['no_repo']}"
+        )
+
     # diff: 上次「diff 基线」 vs 本次「diff 视角」全集
     # 基线持久化所有 isLatest 条目（含非 active），与 diff_entries 同集合范畴；
     # 否则非 active 条目会在 prev 中缺席、在 diff_entries 中常驻，被反复识别为
@@ -578,8 +826,12 @@ def main() -> int:
     _ensure_cache_dir()
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        json.dump(entries, f, indent=2, ensure_ascii=False)
+        f.write(dumps_index(entries))
     _log(f"INFO: wrote {len(entries)} entries to {OUTPUT_PATH}")
+
+    if "cache" in resolved:
+        _save_stars_cache(resolved["cache"])
+        _log(f"INFO: wrote stars cache ({len(resolved['cache'])} repos) to {STARS_CACHE_PATH}")
 
     with open(DIFF_PATH, "w", encoding="utf-8") as f:
         json.dump(diff, f, indent=2, ensure_ascii=False)

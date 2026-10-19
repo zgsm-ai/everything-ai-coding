@@ -27,9 +27,9 @@ from urllib.parse import quote, urlsplit
 # Reuse project utilities
 sys.path.insert(0, os.path.dirname(__file__))
 try:
-    from .utils import to_kebab_case, fetch_raw_content, logger, github_api
+    from .utils import dumps_index, to_kebab_case, fetch_raw_content, logger, github_api
 except ImportError:
-    from utils import to_kebab_case, fetch_raw_content, logger, github_api
+    from utils import dumps_index, to_kebab_case, fetch_raw_content, logger, github_api
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 CATALOG_DIR = os.path.join(SCRIPT_DIR, "..", "catalog")
@@ -963,8 +963,7 @@ def _filter_top_index_to_downloaded(
     # observes a half-written index.
     tmp_path = top_index_path + ".tmp"
     with open(tmp_path, "w", encoding="utf-8") as fh:
-        json.dump(kept, fh, ensure_ascii=False, indent=2)
-        fh.write("\n")
+        fh.write(dumps_index(kept))
     os.replace(tmp_path, top_index_path)
     return len(kept), dropped
 

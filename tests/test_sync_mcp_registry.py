@@ -108,6 +108,9 @@ class _CacheSandbox:
                               os.path.join(cache_dir, "diff_baseline.json")),
             mock.patch.object(smr, "OUTPUT_PATH",
                               os.path.join(catalog_dir, "mcp_registry_index.json")),
+            # stars 门槛会发 GraphQL 请求，这里测的是拉取 / diff；门槛见
+            # test_sync_mcp_registry_stars.py
+            mock.patch.dict(os.environ, {"MCP_REGISTRY_MIN_STARS": "0"}),
         ]
         for p in self._patches:
             p.start()
