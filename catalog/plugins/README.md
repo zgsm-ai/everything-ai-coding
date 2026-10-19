@@ -1,6 +1,6 @@
 # 🧩 Plugins
 
-> 3332 Claude Code plugin bundles packaging skills, agents, commands, and MCP servers from official and community marketplaces.
+> 3363 Claude Code plugin bundles packaging skills, agents, commands, and MCP servers from official and community marketplaces.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=plugin)
 
@@ -71,8 +71,8 @@
 | 59 | [agentforce-adlc](https://github.com/SalesforceAIResearch/agentforce-adlc.git) | Claude Code plugin for Salesforce Agentforce agent development lifecycle with CL... | Anthropic Official | 🟢 Active | 97 | 2026-05-09 | testing | — |
 | 60 | [claude-session-driver](https://github.com/obra/claude-session-driver.git) | A Claude Code plugin for launching, controlling, and monitoring multiple coding ... | Superpowers | 🟢 Active | 97 | 2026-06-01 | tooling | — |
 | 61 | [sonarqube](https://github.com/SonarSource/sonarqube-agent-plugins.git) | A SonarQube plugin that integrates code quality and security analysis directly i... | Anthropic Official | 🟢 Active | 97 | 2026-06-09 | security | — |
-| 62 | [youdotcom-agent-skills](https://github.com/youdotcom-oss/agent-skills.git) | You.com agent skills for web search, research with citations, and content extrac... | Anthropic Official | 🟢 Active | 97 | 2026-05-07 | documentation | `rest-api`, `openai`, `langchain` |
-| 63 | [posthog](https://github.com/PostHog/ai-plugin.git) | A Claude Code plugin for accessing PostHog analytics, feature flags, experiments... | Anthropic Official | 🟢 Active | 97 | 2026-05-08 | devops | — |
+| 62 | [posthog](https://github.com/PostHog/ai-plugin.git) | A Claude Code plugin for accessing PostHog analytics, feature flags, experiments... | Anthropic Official | 🟢 Active | 97 | 2026-05-08 | devops | — |
+| 63 | [youdotcom-agent-skills](https://github.com/youdotcom-oss/agent-skills.git) | You.com agent skills for web search, research with citations, and content extrac... | Anthropic Official | 🟢 Active | 97 | 2026-05-07 | documentation | `rest-api`, `openai`, `langchain` |
 | 64 | [base44](https://github.com/base44/skills.git) | CLI and SDK for building and deploying full-stack apps on the Base44 platform wi... | Anthropic Official | 🟢 Active | 97 | 2026-06-10 | frontend | `typescript`, `javascript`, `java` |
 | 65 | [pinecone](https://github.com/pinecone-io/pinecone-claude-code-plugin.git) | A Claude Code plugin for Pinecone vector database integration, offering tools fo... | Anthropic Official | 🟢 Active | 97 | 2026-05-07 | backend | `python` |
 | 66 | [datahub-skills](https://github.com/datahub-project/datahub-skills.git) | A comprehensive AI coding plugin suite for DataHub, offering skills for connecto... | Anthropic Official | 🟢 Active | 97 | 2026-06-04 | tooling | — |
@@ -114,7 +114,7 @@
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>superpowers</strong> (301.9k★) — Teaches Claude Code systematic development workflows includi...</summary>
+<summary>⭐ <strong>superpowers</strong> (302.1k★) — Teaches Claude Code systematic development workflows includi...</summary>
 
 Teaches Claude Code systematic development workflows including TDD, debugging, code review, and subagent-driven development with detailed skill docume
 
@@ -126,7 +126,7 @@ Teaches Claude Code systematic development workflows including TDD, debugging, c
 </details>
 
 <details>
-<summary>⭐ <strong>hyperframes</strong> (67.3k★) — HyperFrames lets developers write HTML/CSS/JS to create dete...</summary>
+<summary>⭐ <strong>hyperframes</strong> (67.5k★) — HyperFrames lets developers write HTML/CSS/JS to create dete...</summary>
 
 HyperFrames lets developers write HTML/CSS/JS to create deterministic video compositions with GSAP animations, captions, TTS narration, and WebGL effe
 
@@ -138,7 +138,7 @@ HyperFrames lets developers write HTML/CSS/JS to create deterministic video comp
 </details>
 
 <details>
-<summary>⭐ <strong>chrome-devtools-mcp</strong> (53.8k★) — Chrome DevTools MCP server for AI coding agents to debug, au...</summary>
+<summary>⭐ <strong>chrome-devtools-mcp</strong> (53.9k★) — Chrome DevTools MCP server for AI coding agents to debug, au...</summary>
 
 Chrome DevTools MCP server for AI coding agents to debug, automate, and analyze web pages via CLI and MCP tools.
 

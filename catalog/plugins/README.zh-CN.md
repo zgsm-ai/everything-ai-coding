@@ -1,6 +1,6 @@
 # 🧩 Plugins 插件
 
-> 3332 Claude Code 插件包，捆绑 skill、agent、command 与 MCP server，覆盖官方与社区 marketplace。
+> 3363 Claude Code 插件包，捆绑 skill、agent、command 与 MCP server，覆盖官方与社区 marketplace。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=plugin)
 
@@ -71,8 +71,8 @@
 | 59 | [agentforce-adlc](https://github.com/SalesforceAIResearch/agentforce-adlc.git) | Salesforce Agentforce 代理开发生命周期的 Claude Code 插件，提供 CLI 工具用于创建、测试和部署 .agent 文件。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-05-09 | testing | — |
 | 60 | [claude-session-driver](https://github.com/obra/claude-session-driver.git) | Claude Code 插件，通过 tmux 启动、控制和监控多个编码代理会话，实现并行任务执行。 | Superpowers | 🟢 活跃 | 97 | 2026-06-01 | tooling | — |
 | 61 | [sonarqube](https://github.com/SonarSource/sonarqube-agent-plugins.git) | 将SonarQube代码质量与安全分析直接集成到AI编码代理工作流中的插件，支持钩子、MCP服务器和斜杠命令。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-06-09 | security | — |
-| 62 | [youdotcom-agent-skills](https://github.com/youdotcom-oss/agent-skills.git) | You.com AI代理技能，提供网页搜索、引用研究和内容提取功能，支持主流AI SDK集成。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-05-07 | documentation | `rest-api`, `openai`, `langchain` |
-| 63 | [posthog](https://github.com/PostHog/ai-plugin.git) | Claude Code 插件，用于在 AI 辅助编码工作流中直接访问 PostHog 分析、功能标志、实验、错误跟踪和洞察。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-05-08 | devops | — |
+| 62 | [posthog](https://github.com/PostHog/ai-plugin.git) | Claude Code 插件，用于在 AI 辅助编码工作流中直接访问 PostHog 分析、功能标志、实验、错误跟踪和洞察。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-05-08 | devops | — |
+| 63 | [youdotcom-agent-skills](https://github.com/youdotcom-oss/agent-skills.git) | You.com AI代理技能，提供网页搜索、引用研究和内容提取功能，支持主流AI SDK集成。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-05-07 | documentation | `rest-api`, `openai`, `langchain` |
 | 64 | [base44](https://github.com/base44/skills.git) | 用于在 Base44 平台上构建和部署全栈应用的 CLI 和 SDK，支持 TypeScript。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-06-10 | frontend | `typescript`, `javascript`, `java` |
 | 65 | [pinecone](https://github.com/pinecone-io/pinecone-claude-code-plugin.git) | Pinecone 向量数据库的 Claude Code 插件，提供索引管理、查询和快速原型设计工具，助力 AI 辅助编码工作流。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-05-07 | backend | `python` |
 | 66 | [datahub-skills](https://github.com/datahub-project/datahub-skills.git) | 一个用于 DataHub 的全面 AI 编码插件套件，提供连接器开发、PR 审查、元数据管理、数据血缘追踪、质量检查和前端应用脚手架技能。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-06-04 | tooling | — |
@@ -114,7 +114,7 @@
 ## Top 10 安装指南
 
 <details>
-<summary>⭐ <strong>superpowers</strong> (301.9k★) — 教授 Claude Code 系统化开发工作流，包括测试驱动开发、调试、代码审查和子代理驱动开发的详细技能文档。</summary>
+<summary>⭐ <strong>superpowers</strong> (302.1k★) — 教授 Claude Code 系统化开发工作流，包括测试驱动开发、调试、代码审查和子代理驱动开发的详细技能文档。</summary>
 
 教授 Claude Code 系统化开发工作流，包括测试驱动开发、调试、代码审查和子代理驱动开发的详细技能文档。
 
@@ -126,7 +126,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>hyperframes</strong> (67.3k★) — HyperFrames 让开发者用 HTML/CSS/JS 编写确定性视频合成，支持 GSAP 动画、字幕、语音合成和 ...</summary>
+<summary>⭐ <strong>hyperframes</strong> (67.5k★) — HyperFrames 让开发者用 HTML/CSS/JS 编写确定性视频合成，支持 GSAP 动画、字幕、语音合成和 ...</summary>
 
 HyperFrames 让开发者用 HTML/CSS/JS 编写确定性视频合成，支持 GSAP 动画、字幕、语音合成和 WebGL 特效。
 
@@ -138,7 +138,7 @@ HyperFrames 让开发者用 HTML/CSS/JS 编写确定性视频合成，支持 GSA
 </details>
 
 <details>
-<summary>⭐ <strong>chrome-devtools-mcp</strong> (53.8k★) — Chrome DevTools MCP 服务器，供 AI 编程代理通过 CLI 和 MCP 工具调试、自动化和分析网页。</summary>
+<summary>⭐ <strong>chrome-devtools-mcp</strong> (53.9k★) — Chrome DevTools MCP 服务器，供 AI 编程代理通过 CLI 和 MCP 工具调试、自动化和分析网页。</summary>
 
 Chrome DevTools MCP 服务器，供 AI 编程代理通过 CLI 和 MCP 工具调试、自动化和分析网页。
 
