@@ -43,7 +43,8 @@ jobs:
     # 因此 cancelled，enrich/aggregate/Deploy Pages 全部 skipped。
     # 150 → 170：实测 100-122 分钟，MCP registry stars 门槛首轮全量查询再加约 14 分钟
     # （之后走 catalog/mcp/mcp_registry_stars.json 缓存，约 3 分钟）。
-    timeout-minutes: 170
+    # 170 → 200：2026-10-19 实测 138 分钟（registry 仅拉取就 21 分钟），registry step 放宽到 50 分钟。
+    timeout-minutes: 200
     steps:
       - uses: actions/checkout@v4
 
@@ -174,12 +175,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PYTHONUNBUFFERED: "1"
-          # stars < 6 的 registry 条目不收录（0 = 关闭门槛）；门槛查询失败时本步非零退出，
-          # continue-on-error 下沿用仓库里上次的 mcp_registry_index.json
+          # stars < 6 的 registry 条目不收录（0 = 关闭门槛）。查不到 stars 的条目（超预算 / 查询失败 /
+          # org IP 白名单）只保留上次产物里已有的，新条目等下一轮查到再收录
           MCP_REGISTRY_MIN_STARS: "6"
+          # 拉取 + stars 查询的总预算；拉取约 21 分钟，stars 约 1100 仓库/分钟，首轮查不完的留给下一轮
+          MCP_REGISTRY_BUDGET_MINUTES: "40"
         run: python -u scripts/sync_mcp_registry.py
-        # stars 门槛首轮约 1.8 万仓库 / 180 次 GraphQL（约 14 分钟），之后增量约 3 分钟
-        timeout-minutes: 30
+        # 比预算多 10 分钟：预算到点时进行中的那批 GraphQL 请求（含限流重试，实测每次等 60 秒）要跑完再写盘
+        timeout-minutes: 50
         continue-on-error: true
 
       - name: Sync Rules
