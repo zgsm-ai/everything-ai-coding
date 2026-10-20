@@ -2,12 +2,15 @@
 
 覆盖：
 - _github_repo 解析（monorepo 子目录 / .git 后缀 / 非 github / 非法字符）
-- apply_stars_gate：低于门槛剔除、404 剔除、非 github 保留、stars 回写、门槛 0 关闭
-- fetch_repo_stars：分批、NOT_FOUND → None、其它 GraphQL 错误抛 RuntimeError
+- apply_stars_gate：低于门槛剔除、404 剔除、非 github 保留、stars 回写、门槛 0 关闭、
+  stars 未知时只保留上次产物里已有的条目
+- fetch_repo_stars：分批、NOT_FOUND → None、单仓错误（FORBIDDEN）→ 未知、
+  不挂在仓库上的错误抛 RuntimeError
 - _graphql：限流按 Retry-After 重试、普通 403 不重试
-- resolve_repo_stars：缓存命中 / 新仓库 / 过期刷新上限 / 淘汰不在 registry 的仓库
-- main：无 token 返回 1；门槛失败返回 1 且不写盘；门槛生效后写盘为一行一条并落缓存；
-  registry 拉取失败时仍对上次产物过滤写回
+- resolve_repo_stars：缓存命中 / 新仓库 / 过期刷新上限 / 淘汰不在 registry 的仓库 /
+  中途失败或超出时间预算时保留已查到的部分
+- main：无 token 返回 1 且不写盘；查询失败返回 1 但按「未知只留旧条目」写盘并落缓存；
+  预算为 0 时只用缓存；门槛生效后写盘为一行一条并落缓存；registry 拉取失败时仍对上次产物过滤写回
 """
 
 import io
@@ -106,6 +109,20 @@ class TestApplyStarsGate(unittest.TestCase):
         self.assertEqual(seen, [("o", "r")])
         self.assertEqual(len(kept), 2)
 
+    def test_unknown_stars_kept_only_if_previously_listed(self):
+        entries = [
+            _entry("https://github.com/o/old", "old"),
+            _entry("https://github.com/o/new", "new"),
+            _entry("https://github.com/o/known", "known"),
+        ]
+        kept, stats = smr.apply_stars_gate(
+            entries, 6, lambda repos: {("o", "known"): 30}, prev_ids={"old", "gone"}
+        )
+        self.assertEqual([e["id"] for e in kept], ["old", "known"])
+        self.assertIsNone(kept[0]["stars"])
+        self.assertEqual(stats["unknown_kept"], 1)
+        self.assertEqual(stats["unknown_dropped"], 1)
+
     def test_zero_threshold_disables_gate(self):
         def fetch(repos):
             raise AssertionError("must not query when gate is off")
@@ -141,6 +158,34 @@ class TestFetchRepoStars(unittest.TestCase):
         with mock.patch.object(smr, "_graphql", return_value=payload):
             with self.assertRaises(RuntimeError):
                 smr.fetch_repo_stars([("o", "r")], "tok")
+
+    def test_per_repo_error_left_unknown(self):
+        # 2026-10-19 实测：debridge-finance org 开了 IP 白名单，单仓 FORBIDDEN，同批其它仓库正常返回
+        payload = {
+            "data": {"r0": {"stargazerCount": 8}, "r1": None, "r2": None},
+            "errors": [
+                {"type": "FORBIDDEN", "path": ["r1"], "message": "IP allow list enabled"},
+                {"type": "NOT_FOUND", "path": ["r2"]},
+            ],
+        }
+        with mock.patch.object(smr, "_graphql", return_value=payload):
+            got = smr.fetch_repo_stars([("o", "a"), ("debridge-finance", "b"), ("o", "c")], "tok")
+        self.assertEqual(got, {("o", "a"): 8, ("o", "c"): None})
+
+    def test_error_not_on_a_repo_raises(self):
+        payload = {
+            "data": {"r0": {"stargazerCount": 8}},
+            "errors": [{"type": "FORBIDDEN", "path": ["rateLimit"], "message": "x"}],
+        }
+        with mock.patch.object(smr, "_graphql", return_value=payload):
+            with self.assertRaises(RuntimeError):
+                smr.fetch_repo_stars([("o", "a")], "tok")
+
+    def test_null_data_raises(self):
+        payload = {"data": None, "errors": [{"type": "FORBIDDEN", "path": ["r0"], "message": "x"}]}
+        with mock.patch.object(smr, "_graphql", return_value=payload):
+            with self.assertRaises(RuntimeError):
+                smr.fetch_repo_stars([("o", "a")], "tok")
 
     def test_failure_in_any_batch_raises(self):
         repos = [("o", f"r{i}") for i in range(350)]
@@ -268,7 +313,9 @@ class TestResolveRepoStars(unittest.TestCase):
         self.assertEqual(stars[("o", "older")], 100)
         self.assertEqual(new_cache["o/new"], {"stars": 100, "checked": self.TODAY})
         self.assertNotIn("o/gone-from-registry", new_cache)
-        self.assertEqual(stats, {"repos": 4, "queried": 2, "new": 1, "refreshed": 1, "stale_left": 1})
+        self.assertEqual(stats, {
+            "repos": 4, "queried": 2, "new": 1, "refreshed": 1, "stale_left": 1, "unknown": 0, "error": "",
+        })
 
     def test_not_found_cached_as_none(self):
         stars, new_cache, _ = smr.resolve_repo_stars(
@@ -283,6 +330,50 @@ class TestResolveRepoStars(unittest.TestCase):
         )
         self.assertEqual(stars[("o", "x")], 7)
         self.assertEqual(stats["new"], 1)
+
+
+    def test_batch_failure_keeps_earlier_batches(self):
+        repos = [("o", f"r{i:03d}") for i in range(250)]
+        cache = {"o/r249": {"stars": 3, "checked": "2026-01-01"}}  # stale, refresh would come last
+
+        def fetch(chunk):
+            if chunk[0] == ("o", "r100"):
+                raise RuntimeError("GitHub GraphQL failed: 502")
+            return {k: 10 for k in chunk}
+
+        stars, new_cache, stats = smr.resolve_repo_stars(repos, cache, fetch, self.TODAY)
+        self.assertEqual(len(stars), 101)  # first batch + stale cache value
+        self.assertEqual(stars[("o", "r249")], 3)
+        self.assertNotIn(("o", "r100"), stars)
+        self.assertEqual(new_cache["o/r000"], {"stars": 10, "checked": self.TODAY})
+        self.assertNotIn("o/r100", new_cache)
+        self.assertEqual(stats["unknown"], 149)
+        self.assertIn("502", stats["error"])
+
+    def test_deadline_stops_before_next_batch(self):
+        repos = [("o", f"r{i:03d}") for i in range(250)]
+        asked = []
+
+        def fetch(chunk):
+            asked.extend(chunk)
+            return {k: 10 for k in chunk}
+
+        with mock.patch.object(smr.time, "monotonic", side_effect=[0, 100]):
+            stars, new_cache, stats = smr.resolve_repo_stars(
+                repos, {}, fetch, self.TODAY, deadline=50
+            )
+        self.assertEqual(len(asked), 100)
+        self.assertEqual(len(new_cache), 100)
+        self.assertEqual(stats["unknown"], 150)
+        self.assertEqual(stats["error"], "")
+
+    def test_repo_missing_from_fetch_result_not_cached(self):
+        stars, new_cache, stats = smr.resolve_repo_stars(
+            [("o", "a"), ("o", "b")], {}, lambda repos: {("o", "a"): 7}, self.TODAY
+        )
+        self.assertEqual(stars, {("o", "a"): 7})
+        self.assertNotIn("o/b", new_cache)
+        self.assertEqual(stats["unknown"], 1)
 
 
 class TestStarsCacheFile(unittest.TestCase):
@@ -359,15 +450,31 @@ class TestMainWithGate(unittest.TestCase):
             self.assertEqual(smr.main(), 1)
         self.assertFalse(os.path.exists(self.out))
 
-    def test_gate_failure_returns_1_without_writing(self):
+    def test_lookup_failure_returns_1_and_admits_only_previous_entries(self):
+        with open(self.out, "w", encoding="utf-8") as f:
+            json.dump([{"id": "io-github-o-popular-296a18e8", "source_url": "https://github.com/o/popular"}], f)
         env = {"MCP_REGISTRY_MIN_STARS": "6", "GITHUB_TOKEN": "tok"}
         with mock.patch.dict(os.environ, env), mock.patch.object(
             smr, "fetch_repo_stars", side_effect=RuntimeError("boom")
         ):
             self.assertEqual(smr.main(), 1)
-        self.assertFalse(os.path.exists(self.out))
-        self.assertFalse(os.path.exists(smr.DIFF_BASELINE_PATH))
-        self.assertFalse(os.path.exists(self.stars_cache))
+        with open(self.out, encoding="utf-8") as f:
+            self.assertEqual([e["source_url"] for e in json.load(f)], ["https://github.com/o/popular"])
+        self.assertTrue(os.path.exists(smr.DIFF_BASELINE_PATH))
+        self.assertTrue(os.path.exists(self.stars_cache))
+
+    def test_zero_budget_uses_cache_only(self):
+        with open(self.stars_cache, "w", encoding="utf-8") as f:
+            json.dump({"o/popular": {"stars": 50, "checked": "2026-01-01"}}, f)
+        env = {"MCP_REGISTRY_MIN_STARS": "6", "GITHUB_TOKEN": "tok", "MCP_REGISTRY_BUDGET_MINUTES": "0"}
+        with mock.patch.dict(os.environ, env), mock.patch.object(
+            smr, "fetch_repo_stars", side_effect=AssertionError("no budget, must not query")
+        ):
+            self.assertEqual(smr.main(), 0)
+        with open(self.out, encoding="utf-8") as f:
+            self.assertEqual([e["stars"] for e in json.load(f)], [50])
+        with open(self.stars_cache, encoding="utf-8") as f:
+            self.assertEqual(json.load(f), {"o/popular": {"stars": 50, "checked": "2026-01-01"}})
 
     def test_gate_filters_and_writes_one_entry_per_line(self):
         env = {"MCP_REGISTRY_MIN_STARS": "6", "GITHUB_TOKEN": "tok"}
@@ -410,7 +517,7 @@ class TestMainWithGate(unittest.TestCase):
             self.assertEqual(json.load(f)["o/spam"]["stars"], 0)
         self.assertFalse(os.path.exists(smr.DIFF_BASELINE_PATH))
 
-    def test_fetch_failure_and_gate_failure_leave_previous_output(self):
+    def test_fetch_failure_and_lookup_failure_keep_previous_entries(self):
         prev = [{"id": "x", "source_url": "https://github.com/o/x", "stars": None}]
         with open(self.out, "w", encoding="utf-8") as f:
             json.dump(prev, f)

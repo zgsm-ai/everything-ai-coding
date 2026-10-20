@@ -58,6 +58,9 @@ STARS_BATCH = 100  # 每次 GraphQL 查询的仓库数，实测约 3-4 秒一批
 STARS_TTL_DAYS = 28  # 缓存过期天数
 STARS_REFRESH_LIMIT = 5000  # 每轮最多刷新的过期仓库数（新仓库不受限），约 3 分钟
 DEFAULT_MIN_STARS = 6  # stars <= 5 剔除
+# 整个脚本（registry 拉取 + stars 查询）的时间预算，超出后没查的仓库留到下一轮。
+# 实测拉取约 21 分钟，stars 查询约 1100 仓库/分钟（含二级限流等待）
+DEFAULT_BUDGET_MINUTES = 40
 # GitHub owner / repo 合法字符；不匹配的 github.com URL 视为无效仓库
 _GITHUB_REPO_RE = re.compile(r"^https://github\.com/([A-Za-z0-9-]+)/([A-Za-z0-9._-]+?)(?:\.git)?(?:/.*)?$")
 
@@ -438,6 +441,15 @@ def _min_stars() -> int:
         return DEFAULT_MIN_STARS
 
 
+def _budget_seconds() -> float:
+    raw = os.environ.get("MCP_REGISTRY_BUDGET_MINUTES", str(DEFAULT_BUDGET_MINUTES))
+    try:
+        return max(0.0, float(raw)) * 60
+    except ValueError:
+        _log(f"WARNING: invalid MCP_REGISTRY_BUDGET_MINUTES={raw!r}, using {DEFAULT_BUDGET_MINUTES}")
+        return DEFAULT_BUDGET_MINUTES * 60
+
+
 def _github_repo(source_url: str):
     """github.com URL → (owner, repo) 小写；非 github.com → None；github.com 但不合法 → ("", "")。"""
     url = (source_url or "").strip()
@@ -504,8 +516,8 @@ def _graphql(query: str, token: str, timeout: int = 60) -> dict:
 def fetch_repo_stars(repos: list, token: str) -> dict:
     """批量查 stargazerCount。返回 {(owner, repo): stars}，仓库不存在为 None。
 
-    NOT_FOUND 以外的任何 GraphQL 错误（限流、超时、语法）都抛 RuntimeError——
-    宁可本轮失败沿用上次产物，也不能把没查到 stars 的条目当成低 star 删掉或放行。
+    挂在单个仓库上的其它错误（如所属 org 开了 IP 白名单 → FORBIDDEN）只让该仓库不出现在
+    结果里，由调用方按「未知」处理；不挂在仓库上的错误（限流、语法、data 为空）抛 RuntimeError。
     串行请求：实测 4 路并发没有提速（GitHub 按 token 串行处理），还更容易撞二级限流。
     """
     result: dict = {}
@@ -516,15 +528,25 @@ def fetch_repo_stars(repos: list, token: str) -> dict:
             for j, (o, n) in enumerate(chunk)
         )
         payload = _graphql("query {\n" + fields + "\n}", token)
-        fatal = [e for e in (payload.get("errors") or []) if e.get("type") != "NOT_FOUND"]
-        if fatal:
-            raise RuntimeError(f"GitHub GraphQL errors: {fatal[:3]}")
-        data = payload.get("data") or {}
+        aliases = {f"r{j}" for j in range(len(chunk))}
+        unknown: dict = {}
+        for err in payload.get("errors") or []:
+            if err.get("type") == "NOT_FOUND":
+                continue
+            alias = (err.get("path") or [None])[0]
+            if alias not in aliases:
+                raise RuntimeError(f"GitHub GraphQL error: {err}")
+            unknown[alias] = err
+        data = payload.get("data")
+        if data is None:
+            raise RuntimeError(f"GitHub GraphQL returned no data: {payload.get('errors')}")
         for j, key in enumerate(chunk):
+            if f"r{j}" in unknown:
+                err = unknown[f"r{j}"]
+                _log(f"WARNING: stars unknown for {key[0]}/{key[1]}: {err.get('type')} {err.get('message', '')[:120]}")
+                continue
             node = data.get(f"r{j}")
             result[key] = node.get("stargazerCount") if node else None
-        if (i // STARS_BATCH) % 20 == 19:
-            _log(f"INFO: stars fetched {i + len(chunk)}/{len(repos)}")
     return result
 
 
@@ -551,13 +573,17 @@ def _save_stars_cache(cache: dict) -> None:
 
 def resolve_repo_stars(repos: list, cache: dict, fetch, today: str,
                        ttl_days: int = STARS_TTL_DAYS,
-                       refresh_limit: int = STARS_REFRESH_LIMIT) -> tuple:
+                       refresh_limit: int = STARS_REFRESH_LIMIT,
+                       deadline: float = None) -> tuple:
     """用缓存 + 增量查询得到 repos 的 stars。
 
     缓存格式 {"owner/repo": {"stars": int | None, "checked": "YYYY-MM-DD"}}，None 表示仓库不存在。
     新仓库全部查询；过期（checked 早于 today - ttl_days）的按最旧优先刷新，每轮最多
-    refresh_limit 个，其余沿用旧值。返回 (stars, new_cache, stats)，new_cache 只保留本轮
-    repos，不在 registry 里的仓库自然淘汰。
+    refresh_limit 个，其余沿用旧值。按 STARS_BATCH 分批查，到 deadline（time.monotonic()）
+    或某批失败就停，已查到的照样进缓存，下一轮接着查。
+
+    返回 (stars, new_cache, stats)。stars 里没有的 key = 未知（没来得及查 / 查询失败 / 单仓错误），
+    由调用方决定去留。new_cache 只保留本轮 repos，不在 registry 里的仓库自然淘汰。
     """
     def valid(v):
         return isinstance(v, dict) and "stars" in v
@@ -572,34 +598,53 @@ def resolve_repo_stars(repos: list, cache: dict, fetch, today: str,
             stale.append(k)
     stale.sort(key=lambda k: cache[f"{k[0]}/{k[1]}"].get("checked") or "")
     to_query = missing + stale[:refresh_limit]
-    fetched = fetch(to_query) if to_query else {}
+
+    fetched: dict = {}
+    error = ""
+    for i in range(0, len(to_query), STARS_BATCH):
+        if deadline is not None and time.monotonic() >= deadline:
+            _log(f"WARNING: stars time budget used up at {i}/{len(to_query)}, rest left for next run")
+            break
+        try:
+            fetched.update(fetch(to_query[i:i + STARS_BATCH]))
+        except RuntimeError as e:
+            error = str(e)
+            _log(f"ERROR: stars lookup stopped at {i}/{len(to_query)}: {error}")
+            break
+        if (i // STARS_BATCH) % 20 == 19:
+            _log(f"INFO: stars fetched {min(i + STARS_BATCH, len(to_query))}/{len(to_query)}")
 
     new_cache: dict = {}
     for k in repos:
         ks = f"{k[0]}/{k[1]}"
-        new_cache[ks] = cache[ks] if valid(cache.get(ks)) else None
-    for k in to_query:
-        new_cache[f"{k[0]}/{k[1]}"] = {"stars": fetched.get(k), "checked": today}
-    stars = {k: new_cache[f"{k[0]}/{k[1]}"]["stars"] for k in repos}
+        if k in fetched:
+            new_cache[ks] = {"stars": fetched[k], "checked": today}
+        elif valid(cache.get(ks)):
+            new_cache[ks] = cache[ks]
+    stars = {k: new_cache[f"{k[0]}/{k[1]}"]["stars"] for k in repos if f"{k[0]}/{k[1]}" in new_cache}
     stats = {
         "repos": len(repos),
         "queried": len(to_query),
         "new": len(missing),
         "refreshed": len(to_query) - len(missing),
         "stale_left": max(0, len(stale) - refresh_limit),
+        "unknown": len(repos) - len(stars),
+        "error": error,
     }
     return stars, new_cache, stats
 
 
-def apply_stars_gate(entries: list, min_stars: int, fetch_stars) -> tuple:
+def apply_stars_gate(entries: list, min_stars: int, fetch_stars, prev_ids=frozenset()) -> tuple:
     """按 GitHub stars 过滤 registry 条目，返回 (kept, stats)。
 
     - 非 github.com source_url（纯 remote / SaaS）→ 保留，无法判断
     - github.com 但仓库不存在或 URL 不合法 → 剔除
     - stars < min_stars → 剔除；保留的条目写入 entry["stars"]
+    - stars 未知（fetch_stars 结果里没有该仓库）→ id 在 prev_ids（上次产物）里的保留，
+      新条目先不收录：没查完时放行新条目，index.json 会直接涨破 100 MB
     - min_stars <= 0 → 原样返回，不发请求
     """
-    stats = {"no_repo": 0, "not_found": 0, "below_min": 0, "kept": 0}
+    stats = {"no_repo": 0, "not_found": 0, "below_min": 0, "unknown_kept": 0, "unknown_dropped": 0, "kept": 0}
     if min_stars <= 0:
         stats["kept"] = len(entries)
         return list(entries), stats
@@ -614,7 +659,14 @@ def apply_stars_gate(entries: list, min_stars: int, fetch_stars) -> tuple:
             stats["no_repo"] += 1
             kept.append(e)
             continue
-        n = stars.get(key) if key[0] else None
+        if key[0] and key not in stars:
+            if e.get("id") in prev_ids:
+                stats["unknown_kept"] += 1
+                kept.append(e)
+            else:
+                stats["unknown_dropped"] += 1
+            continue
+        n = stars.get(key)
         if n is None:
             stats["not_found"] += 1
             continue
@@ -627,8 +679,12 @@ def apply_stars_gate(entries: list, min_stars: int, fetch_stars) -> tuple:
     return kept, stats
 
 
-def _run_stars_gate(entries: list, min_stars: int) -> tuple:
-    """对 entries 应用 stars 门槛，返回 (kept, new_stars_cache)；失败抛 RuntimeError。"""
+def _run_stars_gate(entries: list, min_stars: int, prev_ids, deadline: float) -> tuple:
+    """对 entries 应用 stars 门槛，返回 (kept, new_stars_cache, error)。
+
+    查询中途失败或超出 deadline 不抛异常：已查到的照常过滤，error 非空表示本轮有查询失败。
+    没有 GITHUB_TOKEN 抛 RuntimeError。
+    """
     token = os.environ.get("GITHUB_TOKEN", "")
     if not token:
         raise RuntimeError("stars gate needs GITHUB_TOKEN (set MCP_REGISTRY_MIN_STARS=0 to disable)")
@@ -637,30 +693,32 @@ def _run_stars_gate(entries: list, min_stars: int) -> tuple:
 
     def lookup(repos):
         stars, resolved["cache"], resolved["stats"] = resolve_repo_stars(
-            repos, stars_cache, lambda rs: fetch_repo_stars(rs, token), TODAY
+            repos, stars_cache, lambda rs: fetch_repo_stars(rs, token), TODAY, deadline=deadline
         )
         return stars
 
-    kept, stats = apply_stars_gate(entries, min_stars, lookup)
+    kept, stats = apply_stars_gate(entries, min_stars, lookup, prev_ids)
     cstats = resolved.get("stats") or {}
     _log(
         f"INFO: stars lookup: repos={cstats.get('repos', 0)} queried={cstats.get('queried', 0)} "
         f"(new={cstats.get('new', 0)} refreshed={cstats.get('refreshed', 0)}) "
-        f"stale_left={cstats.get('stale_left', 0)}"
+        f"stale_left={cstats.get('stale_left', 0)} unknown={cstats.get('unknown', 0)}"
     )
     _log(
         f"INFO: stars gate (min={min_stars}): kept={stats['kept']} "
         f"below_min={stats['below_min']} not_found={stats['not_found']} "
+        f"unknown_kept={stats['unknown_kept']} unknown_dropped={stats['unknown_dropped']} "
         f"no_github_repo={stats['no_repo']}"
     )
-    return kept, resolved.get("cache", stars_cache)
+    return kept, resolved.get("cache", stars_cache), cstats.get("error", "")
 
 
-def _gate_previous_output() -> None:
+def _gate_previous_output(deadline: float) -> None:
     """registry 拉取失败时，仍对上次产物应用 stars 门槛并写回。
 
     registry 2026-10 起几乎每周都拉取失败（超时 / 5xx / 页数上限），产物停在 08-31；
-    门槛要是只挂在拉取成功之后，就一次都生效不了。diff 基线不动，main 仍返回 1。
+    门槛要是只挂在拉取成功之后，就一次都生效不了。上次产物的条目 stars 未知时一律保留。
+    diff 基线不动，main 仍返回 1。
     """
     min_stars = _min_stars()
     if min_stars <= 0:
@@ -669,7 +727,7 @@ def _gate_previous_output() -> None:
     if not prev:
         return
     try:
-        kept, stars_cache = _run_stars_gate(prev, min_stars)
+        kept, stars_cache, _ = _run_stars_gate(prev, min_stars, {e.get("id") for e in prev}, deadline)
     except RuntimeError as e:
         _log(f"ERROR: stars gate on previous output failed, left unchanged: {e}")
         return
@@ -783,6 +841,7 @@ def _save_diff_baseline(entries: list) -> None:
 # ---------------------------------------------------------------------------
 
 def main() -> int:
+    deadline = time.monotonic() + _budget_seconds()
     load_plugin_sources()  # warm cache; warns once if missing/unparseable
     _log(f"INFO: fetching {REGISTRY_BASE} (limit={DEFAULT_LIMIT})")
 
@@ -791,7 +850,7 @@ def main() -> int:
         all_raw = list(raw_iter)
     except RuntimeError as e:
         _log(f"ERROR: fetch_registry failed: {e}")
-        _gate_previous_output()
+        _gate_previous_output(deadline)
         return 1
 
     _log(f"INFO: total raw entries fetched: {len(all_raw)}")
@@ -849,9 +908,11 @@ def main() -> int:
     # stars 门槛只作用于输出视角；diff 视角保持全集，避免门槛造成 added/removed 抖动
     min_stars = _min_stars()
     stars_cache = None
+    gate_error = ""
     if min_stars > 0:
+        prev_ids = {e.get("id") for e in _load_prev_output()}
         try:
-            entries, stars_cache = _run_stars_gate(entries, min_stars)
+            entries, stars_cache, gate_error = _run_stars_gate(entries, min_stars, prev_ids, deadline)
         except RuntimeError as e:
             _log(f"ERROR: stars gate failed, previous output kept: {e}")
             return 1
@@ -889,7 +950,8 @@ def main() -> int:
     _save_diff_baseline(diff_entries)
     _log(f"INFO: wrote diff baseline ({len(diff_entries)} entries) to {DIFF_BASELINE_PATH}")
 
-    return 0
+    # 查询失败时产物已按「未知只留旧条目」写盘，非零退出只为在日志里标红
+    return 1 if gate_error else 0
 
 
 if __name__ == "__main__":
