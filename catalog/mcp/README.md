@@ -1,6 +1,6 @@
 # 🔌 MCP Servers
 
-> 14218 Model Context Protocol servers that connect AI agents to external tools, databases, and services.
+> 5130 Model Context Protocol servers that connect AI agents to external tools, databases, and services.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=mcp)
 
@@ -10,7 +10,7 @@
 
 | # | Name | Description | ⭐ Stars | Status | Score | Updated | Category | Tags |
 |---|---|---|---|---|---|---|---|---|
-| 1 | [Headroom](https://github.com/chopratejas/headroom) | AI context compression layer for agents, reducing token usage 60-95% with revers... | 76.1k | 🟢 Active | 98 | 2026-06-15 | frontend | `agent`, `ai`, `anthropic` |
+| 1 | [Headroom](https://github.com/chopratejas/headroom) | AI context compression layer for agents, reducing token usage 60-95% with revers... | 76.2k | 🟢 Active | 98 | 2026-06-15 | frontend | `agent`, `ai`, `anthropic` |
 | 2 | [upstash/context7](https://github.com/upstash/context7) | An MCP server that injects real-time, version-specific library documentation and... | 63.3k | 🟢 Active | 98 | 2026-05-26 | ai-ml | `llm`, `mcp`, `mcp-server` |
 | 3 | [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | Official Google MCP server enabling AI coding agents to control Chrome DevTools ... | 53.9k | 🟢 Active | 98 | 2026-05-31 | ai-ml | `browser`, `chrome`, `chrome-devtools` |
 | 4 | [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | Code intelligence MCP server that indexes codebases into a persistent knowledge ... | 46.9k | 🟢 Active | 98 | 2026-06-29 | database | `aider`, `ast`, `claude-code` |
@@ -73,23 +73,23 @@
 | 61 | [Bernstein](https://github.com/sipyourdrink-ltd/bernstein) | Deterministic multi-agent CLI orchestrator that runs 44 coding agents in paralle... | 1.3k | 🟢 Active | 96 | 2026-06-10 | backend | `git`, `agent-fleet`, `agent-governance` |
 | 62 | [crw](https://github.com/us/crw) | Self-hosted Rust web scraper with built-in MCP server, Firecrawl-compatible API,... | 1.2k | 🟢 Active | 96 | 2026-06-10 | frontend | `rust`, `ai`, `ai-agents` |
 | 63 | [yurineko73/Godot-MCP-Native](https://github.com/yurineko73/Godot-MCP-Native) | A Godot Engine MCP plugin enabling AI assistants to directly interact with proje... | 859 | 🟢 Active | 96 | 2026-06-16 | backend | `go` |
-| 64 | [Neon](https://github.com/neondatabase/mcp-server-neon) | Official Neon MCP server enabling natural language management of Neon Postgres d... | 654 | 🟢 Active | 96 | 2026-06-05 | database | `postgres` |
+| 64 | [Neon](https://github.com/neondatabase/mcp-server-neon) | Official Neon MCP server enabling natural language management of Neon Postgres d... | 655 | 🟢 Active | 96 | 2026-06-05 | database | `postgres` |
 | 65 | [Muvon/octocode](https://github.com/Muvon/octocode) | Rust-based semantic code indexer that builds GraphRAG knowledge graphs and expos... | 512 | 🟢 Active | 96 | 2026-06-09 | backend | `rust`, `ai`, `ai-agents` |
 | 66 | [n8n Workflow Builder MCP Server](https://github.com/makafeli/n8n-workflow-builder) | MCP server enabling AI assistants to manage n8n workflows programmatically via n... | 502 | 🟢 Active | 96 | 2026-03-19 | tooling | — |
 | 67 | [FreePeak/db-mcp-server](https://github.com/FreePeak/db-mcp-server) | A Go-based MCP server enabling AI assistants to interact with multiple databases... | 470 | 🟢 Active | 96 | 2026-04-19 | backend | `go`, `mysql`, `database-mcp-server` |
 | 68 | [Episkey-G/GrokSearch-rs](https://github.com/Episkey-G/GrokSearch-rs) | Rust MCP server providing Grok/OpenAI-compatible web search with Tavily/Firecraw... | 459 | 🟢 Active | 96 | 2026-06-12 | backend | `rust` |
 | 69 | [tfmcp: Terraform Model Context Protocol Tool](https://github.com/nwiizo/tfmcp) | An MCP server tool enabling AI assistants like Claude to manage Terraform infras... | 360 | 🟢 Active | 96 | 2026-03-26 | devops | `mcp`, `terraform`, `mcp-server` |
-| 70 | [Apache Doris](https://github.com/apache/doris-mcp-server) | MCP server for Apache Doris enabling AI-assisted database interactions, query ex... | 351 | 🟢 Active | 96 | 2026-03-13 | ai-ml | `ai`, `lakehouse`, `mcp` |
-| 71 | [activeing123/mcptoon](https://github.com/activeing123/mcptoon) | Zero-dependency MCP CLI that compresses tool/skill catalogs into compact views a... | 344 | 🟢 Active | 96 | 2026-10-05 | backend | `agent-skills`, `claude`, `claude-code` |
+| 70 | [Apache Doris](https://github.com/apache/doris-mcp-server) | MCP server for Apache Doris enabling AI-assisted database interactions, query ex... | 352 | 🟢 Active | 96 | 2026-03-13 | ai-ml | `ai`, `lakehouse`, `mcp` |
+| 71 | [activeing123/mcptoon](https://github.com/activeing123/mcptoon) | Zero-dependency MCP CLI that compresses tool/skill catalogs into compact views a... | 347 | 🟢 Active | 96 | 2026-10-05 | backend | `agent-skills`, `claude`, `claude-code` |
 | 72 | [Laravel MCP Server by OP.GG](https://github.com/opgginc/laravel-mcp-server) | A Laravel package for building route-first Model Context Protocol servers with S... | 331 | 🟢 Active | 96 | 2026-04-05 | tooling | `php`, `laravel`, `ai` |
 | 73 | [Unagi-cq/cdp-bridge-mcp](https://github.com/Unagi-cq/cdp-bridge-mcp) | MCP server bridging AI clients to real browser sessions via Chrome DevTools Prot... | 306 | 🟢 Active | 96 | 2026-06-22 | tooling | — |
 | 74 | [admica/FileScopeMCP](https://github.com/admica/FileScopeMCP) | MCP server that analyzes codebase dependencies, ranks files by importance, and p... | 302 | 🟢 Active | 96 | 2026-05-08 | ai-ml | — |
 | 75 | [Godot-MCP](https://github.com/IvanMurzak/Godot-MCP) | MCP server and Godot editor addon that lets AI agents create nodes, edit scenes,... | 297 | 🟢 Active | 96 | 2026-08-24 | backend | `go`, `ai`, `ai-integration` |
 | 76 | [consult7](https://github.com/szeider/consult7) | MCP server enabling AI agents to analyze large codebases by offloading to high-c... | 296 | 🟢 Active | 96 | 2026-04-25 | backend | `go`, `openai` |
-| 77 | [Continuum-AI-Corp/OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay) | Records coding-agent runs and replays them offline byte-for-byte, forks from che... | 285 | 🟢 Active | 96 | 2026-10-01 | ai-ml | `agent-debugging`, `agent-tracing`, `ai-agent` |
+| 77 | [Continuum-AI-Corp/OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay) | Records coding-agent runs and replays them offline byte-for-byte, forks from che... | 286 | 🟢 Active | 96 | 2026-10-01 | ai-ml | `agent-debugging`, `agent-tracing`, `ai-agent` |
 | 78 | [Coolify Mcp](https://github.com/StuMason/coolify-mcp) | MCP server providing 42 token-optimized tools for managing Coolify self-hosted P... | 266 | 🟢 Active | 96 | 2026-04-15 | tooling | — |
 | 79 | [Elasticsearch/OpenSearch MCP Server](https://github.com/cr7258/elasticsearch-mcp-server) | MCP server enabling AI assistants to interact with Elasticsearch and OpenSearch ... | 259 | 🟢 Active | 96 | 2026-02-02 | tooling | — |
-| 80 | [llmtrim](https://github.com/fkiene/llmtrim) | Local proxy that compresses LLM API requests to reduce token costs without chang... | 250 | 🟢 Active | 96 | 2026-06-29 | backend | `agentic-coding`, `ai`, `anthropic` |
+| 80 | [llmtrim](https://github.com/fkiene/llmtrim) | Local proxy that compresses LLM API requests to reduce token costs without chang... | 251 | 🟢 Active | 96 | 2026-06-29 | backend | `agentic-coding`, `ai`, `anthropic` |
 | 81 | [win4r/codebase-memory-mcp-pro](https://github.com/win4r/codebase-memory-mcp-pro) | A pure C MCP server that builds and queries a code knowledge graph for AI agents... | 244 | 🟢 Active | 96 | 2026-06-22 | ai-ml | — |
 | 82 | [OpenAPI MCP Server](https://github.com/ivo-toby/mcp-openapi-server) | MCP server that converts OpenAPI specifications into tools for LLMs to interact ... | 243 | 🟢 Active | 96 | 2026-03-11 | backend | — |
 | 83 | [ozgurcd/gograph](https://github.com/ozgurcd/gograph) | A local Go static analysis engine with MCP server providing AI agents with call ... | 229 | 🟢 Active | 96 | 2026-06-17 | backend | `go`, `agentic-coding`, `ai-agent` |
@@ -102,7 +102,7 @@
 | 90 | [FHIR](https://github.com/wso2/fhir-mcp-server/) | MCP server for FHIR APIs enabling AI tools to securely interact with healthcare ... | 137 | 🟢 Active | 96 | 2026-05-29 | security | `fhir`, `healthcare`, `mcp` |
 | 91 | [Easy Code Reader](https://github.com/FangYuan33/easy-code-reader) | MCP server for intelligent Java source code reading from Maven dependencies and ... | 134 | 🟢 Active | 96 | 2026-03-01 | backend | `easy-code-reader`, `java-source-code`, `mcp-server` |
 | 92 | [BrowserStack MCP Server](https://github.com/browserstack/mcp-server) | Official BrowserStack MCP server for AI-assisted test management, execution, deb... | 131 | 🟢 Active | 96 | 2026-04-13 | testing | `testing`, `automation`, `browserstack` |
-| 93 | [aresyn/codex-control-plane-mcp](https://github.com/aresyn/codex-control-plane-mcp) | A persistent MCP control plane for reliable automation of long-running Codex Des... | 124 | 🟢 Active | 96 | 2026-06-21 | backend | `agent-tools`, `agentic-workflows`, `ai-agents` |
+| 93 | [aresyn/codex-control-plane-mcp](https://github.com/aresyn/codex-control-plane-mcp) | A persistent MCP control plane for reliable automation of long-running Codex Des... | 125 | 🟢 Active | 96 | 2026-06-21 | backend | `agent-tools`, `agentic-workflows`, `ai-agents` |
 | 94 | [MCP TypeScript Template 🚀](https://github.com/cyanheads/mcp-ts-template) | A TypeScript framework for building MCP servers with declarative tools, resource... | 122 | 🟢 Active | 96 | 2026-04-13 | frontend | `template`, `mcp`, `ts` |
 | 95 | [lightbearco/tupper](https://github.com/lightbearco/tupper) | Local AI agent sandbox for safe code execution using Apple Containers, with E2B-... | 91 | 🟢 Active | 96 | 2026-06-23 | frontend | `typescript`, `ai-agents`, `apple-container` |
 | 96 | [Canvas MCP Server v2.0](https://github.com/DMontgomery40/mcp-canvas-lms) | MCP server for AI agents to interact with Canvas LMS API for course, assignment,... | 90 | 🟢 Active | 96 | 2026-03-23 | ai-ml | `mcp`, `school-education`, `canvas-lms` |
@@ -114,7 +114,7 @@
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>Headroom</strong> (76.1k★) — AI context compression layer for agents, reducing token usag...</summary>
+<summary>⭐ <strong>Headroom</strong> (76.2k★) — AI context compression layer for agents, reducing token usag...</summary>
 
 AI context compression layer for agents, reducing token usage 60-95% with reversible compression and cross-agent memory.
 
@@ -310,4 +310,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-10-19*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-10-20*

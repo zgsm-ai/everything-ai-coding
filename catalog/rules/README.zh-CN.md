@@ -271,4 +271,4 @@ Files: `cospowers-integration-verification-plugin/rules/coding-standards/python-
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-10-19*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-10-20*
