@@ -1,6 +1,6 @@
 # 🧩 Plugins 插件
 
-> 3359 Claude Code 插件包，捆绑 skill、agent、command 与 MCP server，覆盖官方与社区 marketplace。
+> 3374 Claude Code 插件包，捆绑 skill、agent、command 与 MCP server，覆盖官方与社区 marketplace。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=plugin)
 
@@ -47,8 +47,8 @@
 | 35 | [gsap-skills](https://github.com/greensock/gsap-skills/tree/main/) | 官方GSAP动画库AI编程技能，涵盖核心补间、时间线、ScrollTrigger、插件、React钩子及性能优化。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-06-10 | frontend | `react` |
 | 36 | [tambo](https://github.com/tambo-ai/tambo/tree/main/plugins/tambo) | 一个React工具包，用于构建能生成和交互UI组件的AI代理，支持流式传输和MCP集成。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-04-16 | frontend | `ai`, `react`, `generative-ui` |
 | 37 | [skypilot](https://github.com/skypilot-org/skypilot/tree/master/agent) | 跨25+云平台的统一AI工作负载启动器，支持Kubernetes和Slurm，具备成本优化和自动扩缩容能力。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-06-03 | devops | `ai infrastructure`, `multi-cloud`, `gpu` |
-| 38 | [harness](https://github.com/revfactory/harness/tree/main/) | 一个Claude Code插件，用于创建领域特定自动化的代理团队和技能，提供元技能编排。 | github-trending | 🟢 活跃 | 97 | 2026-06-10 | tooling | — |
-| 39 | [zeroize-audit](https://github.com/trailofbits/skills/tree/main/plugins/zeroize-audit) | 基于AI的插件，通过汇编和控制流分析检测C/C++/Rust代码中敏感数据的缺失或编译器优化的零化操作。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-06-08 | tooling | — |
+| 38 | [zeroize-audit](https://github.com/trailofbits/skills/tree/main/plugins/zeroize-audit) | 基于AI的插件，通过汇编和控制流分析检测C/C++/Rust代码中敏感数据的缺失或编译器优化的零化操作。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-06-08 | tooling | — |
+| 39 | [harness](https://github.com/revfactory/harness/tree/main/) | 一个Claude Code插件，用于创建领域特定自动化的代理团队和技能，提供元技能编排。 | github-trending | 🟢 活跃 | 97 | 2026-06-10 | tooling | — |
 | 40 | [n8n-mcp-skills](https://github.com/czlonkowski/n8n-skills/tree/main/) | n8n-mcp 专家技能包，包含 7 个用于构建 n8n 工作流的专家技能，涵盖表达式、验证、模式和代码节点。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-06-10 | frontend | `n8n`, `workflow`, `mcp` |
 | 41 | [melonjs](https://github.com/melonjs/melonJS/tree/master/) | 面向 AI 编码助手的 melonJS 插件，含 23 个技能指南，覆盖 2D/2.5D/3D 游戏引擎惯例，确保生成代码一次通过。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-08-31 | frontend | — |
 | 42 | [virtuoso-skills](https://github.com/petyosi/react-virtuoso/tree/main/packages/virtuoso-skills) | React虚拟化（列表、表格、聊天界面）和响应式状态管理插件集合，提供AI辅助编码详细指南。 | claude-plugins.dev | 🟢 活跃 | 97 | 2026-06-10 | frontend | `react`, `virtualization`, `table` |
@@ -69,8 +69,8 @@
 | 57 | [sanity](https://github.com/sanity-io/agent-toolkit.git) | Sanity 的 Claude Code 插件，提供 MCP 服务器、代理技能和命令，用于内容管理和开发最佳实践。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-06-10 | security | — |
 | 58 | [apollo-skills](https://github.com/apollographql/skills.git) | 一套完整的 Apollo GraphQL AI 代理技能集，涵盖客户端、服务器、联邦架构、路由器及 CLI 工作流。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-05-14 | mobile | `kotlin`, `graphql` |
 | 59 | [agentforce-adlc](https://github.com/SalesforceAIResearch/agentforce-adlc.git) | Salesforce Agentforce 代理开发生命周期的 Claude Code 插件，提供 CLI 工具用于创建、测试和部署 .agent 文件。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-05-09 | testing | — |
-| 60 | [claude-session-driver](https://github.com/obra/claude-session-driver.git) | Claude Code 插件，通过 tmux 启动、控制和监控多个编码代理会话，实现并行任务执行。 | Superpowers | 🟢 活跃 | 97 | 2026-06-01 | tooling | — |
-| 61 | [sonarqube](https://github.com/SonarSource/sonarqube-agent-plugins.git) | 将SonarQube代码质量与安全分析直接集成到AI编码代理工作流中的插件，支持钩子、MCP服务器和斜杠命令。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-06-09 | security | — |
+| 60 | [sonarqube](https://github.com/SonarSource/sonarqube-agent-plugins.git) | 将SonarQube代码质量与安全分析直接集成到AI编码代理工作流中的插件，支持钩子、MCP服务器和斜杠命令。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-06-09 | security | — |
+| 61 | [claude-session-driver](https://github.com/obra/claude-session-driver.git) | Claude Code 插件，通过 tmux 启动、控制和监控多个编码代理会话，实现并行任务执行。 | Superpowers | 🟢 活跃 | 97 | 2026-06-01 | tooling | — |
 | 62 | [posthog](https://github.com/PostHog/ai-plugin.git) | Claude Code 插件，用于在 AI 辅助编码工作流中直接访问 PostHog 分析、功能标志、实验、错误跟踪和洞察。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-05-08 | devops | — |
 | 63 | [youdotcom-agent-skills](https://github.com/youdotcom-oss/agent-skills.git) | You.com AI代理技能，提供网页搜索、引用研究和内容提取功能，支持主流AI SDK集成。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-05-07 | documentation | `rest-api`, `openai`, `langchain` |
 | 64 | [base44](https://github.com/base44/skills.git) | 用于在 Base44 平台上构建和部署全栈应用的 CLI 和 SDK，支持 TypeScript。 | Anthropic 官方 | 🟢 活跃 | 97 | 2026-06-10 | frontend | `typescript`, `javascript`, `java` |
@@ -108,13 +108,13 @@
 | 96 | [c-review](https://github.com/trailofbits/skills/tree/main/plugins/c-review) | Claude Code 安全代码审查插件，通过并行代理检测 C/C++ 内存安全、类型安全和并发漏洞。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-06-08 | security | — |
 | 97 | [constant-time-analysis](https://github.com/trailofbits/skills/tree/main/plugins/constant-time-analysis) | 静态分析工具，用于检测多语言加密代码中编译器引起的时序侧信道漏洞。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-06-08 | security | — |
 | 98 | [devcontainer-setup](https://github.com/trailofbits/skills/tree/main/plugins/devcontainer-setup) | 生成预配置开发容器的插件，集成Claude Code和Python/Node/Rust/Go语言专用工具链。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-06-08 | ai-ml | — |
-| 99 | [dimensional-analysis](https://github.com/trailofbits/skills/tree/main/plugins/dimensional-analysis) | 一个用于AI辅助代码量纲分析的插件，可标注单位并查找公式错误。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-06-08 | tooling | — |
+| 99 | [dimensional-analysis](https://github.com/trailofbits/skills/tree/main/plugins/dimensional-analysis) | 一个用于AI辅助代码量纲分析的插件，可标注单位并查找公式错误。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-06-08 | ai-ml | — |
 | 100 | [entry-point-analyzer](https://github.com/trailofbits/skills/tree/main/plugins/entry-point-analyzer) | 智能合约安全审计插件，识别并分类所有改变状态的入口点以进行攻击面分析。 | claude-plugins.dev | 🟢 活跃 | 96 | 2026-06-08 | security | `go` |
 
 ## Top 10 安装指南
 
 <details>
-<summary>⭐ <strong>superpowers</strong> (302.1k★) — 教授 Claude Code 系统化开发工作流，包括测试驱动开发、调试、代码审查和子代理驱动开发的详细技能文档。</summary>
+<summary>⭐ <strong>superpowers</strong> (305.3k★) — 教授 Claude Code 系统化开发工作流，包括测试驱动开发、调试、代码审查和子代理驱动开发的详细技能文档。</summary>
 
 教授 Claude Code 系统化开发工作流，包括测试驱动开发、调试、代码审查和子代理驱动开发的详细技能文档。
 
@@ -126,7 +126,7 @@
 </details>
 
 <details>
-<summary>⭐ <strong>hyperframes</strong> (67.7k★) — HyperFrames 让开发者用 HTML/CSS/JS 编写确定性视频合成，支持 GSAP 动画、字幕、语音合成和 ...</summary>
+<summary>⭐ <strong>hyperframes</strong> (72.5k★) — HyperFrames 让开发者用 HTML/CSS/JS 编写确定性视频合成，支持 GSAP 动画、字幕、语音合成和 ...</summary>
 
 HyperFrames 让开发者用 HTML/CSS/JS 编写确定性视频合成，支持 GSAP 动画、字幕、语音合成和 WebGL 特效。
 
@@ -138,7 +138,7 @@ HyperFrames 让开发者用 HTML/CSS/JS 编写确定性视频合成，支持 GSA
 </details>
 
 <details>
-<summary>⭐ <strong>chrome-devtools-mcp</strong> (53.9k★) — Chrome DevTools MCP 服务器，供 AI 编程代理通过 CLI 和 MCP 工具调试、自动化和分析网页。</summary>
+<summary>⭐ <strong>chrome-devtools-mcp</strong> (54.2k★) — Chrome DevTools MCP 服务器，供 AI 编程代理通过 CLI 和 MCP 工具调试、自动化和分析网页。</summary>
 
 Chrome DevTools MCP 服务器，供 AI 编程代理通过 CLI 和 MCP 工具调试、自动化和分析网页。
 
@@ -150,7 +150,7 @@ Chrome DevTools MCP 服务器，供 AI 编程代理通过 CLI 和 MCP 工具调�
 </details>
 
 <details>
-<summary>⭐ <strong>claude-code-setup</strong> (43.2k★) — 分析代码库并推荐定制的 Claude Code 自动化，如钩子、技能、MCP 服务器和子代理。</summary>
+<summary>⭐ <strong>claude-code-setup</strong> (44.7k★) — 分析代码库并推荐定制的 Claude Code 自动化，如钩子、技能、MCP 服务器和子代理。</summary>
 
 分析代码库并推荐定制的 Claude Code 自动化，如钩子、技能、MCP 服务器和子代理。
 
@@ -162,7 +162,7 @@ Chrome DevTools MCP 服务器，供 AI 编程代理通过 CLI 和 MCP 工具调�
 </details>
 
 <details>
-<summary>⭐ <strong>mcp-tunnels</strong> (43.2k★) — Claude插件，通过Anthropic隧道连接私有MCP服务器，提供Docker Compose快速启动。</summary>
+<summary>⭐ <strong>mcp-tunnels</strong> (44.7k★) — Claude插件，通过Anthropic隧道连接私有MCP服务器，提供Docker Compose快速启动。</summary>
 
 Claude插件，通过Anthropic隧道连接私有MCP服务器，提供Docker Compose快速启动。
 
@@ -174,7 +174,7 @@ Claude插件，通过Anthropic隧道连接私有MCP服务器，提供Docker Comp
 </details>
 
 <details>
-<summary>⭐ <strong>project-artifact</strong> (43.2k★) — 生成并发布可共享的实时项目状态页面，支持增量更新，作为 claude.ai 工件。</summary>
+<summary>⭐ <strong>project-artifact</strong> (44.7k★) — 生成并发布可共享的实时项目状态页面，支持增量更新，作为 claude.ai 工件。</summary>
 
 生成并发布可共享的实时项目状态页面，支持增量更新，作为 claude.ai 工件。
 
@@ -245,4 +245,4 @@ Claude插件，通过Anthropic隧道连接私有MCP服务器，提供Docker Comp
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-10-20*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-10-26*
