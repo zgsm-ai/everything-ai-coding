@@ -1,1 +1,36 @@
-[]
+[
+  {
+    "id": "jeffallan-writing-with-agents",
+    "name": "writing-with-agents",
+    "type": "plugin",
+    "description": "Claude Code writing plugin based on Betty Flowers' Madman, Architect, Carpenter, Judge method. 10 skills split an article into phases (raw material, structure choice, outline, draft, editing), each with a stated AI or human lead, plus SEO writing, a quality rubric, and multi-article content strategy. Ships 5 workflow commands, including a human-voice rewrite pass.",
+    "source_url": "https://github.com/Jeffallan/writing-with-agents/tree/main/plugin",
+    "stars": 36,
+    "category": "documentation",
+    "tags": [
+      "writing",
+      "technical-writing",
+      "editing",
+      "seo",
+      "content-strategy",
+      "research"
+    ],
+    "tech_stack": [],
+    "platforms": [
+      "claude-code"
+    ],
+    "marketplace_url": "https://github.com/Jeffallan/writing-with-agents",
+    "install": {
+      "method": "plugin_marketplace",
+      "plugin_name": "writing-with-agents",
+      "marketplace_repo": "Jeffallan/writing-with-agents",
+      "marketplace_name": "writing-with-agents",
+      "marketplace_verified": true,
+      "marketplace": "Jeffallan/writing-with-agents"
+    },
+    "version": "0.3.2",
+    "source": "curated",
+    "added_at": "2026-10-28",
+    "last_synced": "2026-10-28"
+  }
+]
