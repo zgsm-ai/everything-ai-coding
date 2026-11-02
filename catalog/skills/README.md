@@ -1,6 +1,6 @@
 # 🎯 Skills
 
-> 24886 Reusable agent capabilities and workflows for AI coding assistants.
+> 24370 Reusable agent capabilities and workflows for AI coding assistants.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
@@ -22,16 +22,16 @@
 | 10 | [pi-subagents](https://github.com/nicobailon/pi-subagents/tree/main/skills/pi-subagents) | A skill for orchestrating AI-assisted coding workflows with subagents for delega... | github-trending | 🟢 Active | 96 | 2026-06-21 | ai-ml | — |
 | 11 | [golang-pkg-go-dev](https://github.com/samber/cc-skills-golang/tree/main/skills/golang-pkg-go-dev) | CLI and MCP server for querying Go package docs, API references, versions, impor... | github-trending | 🟢 Active | 96 | 2026-06-23 | backend | `go` |
 | 12 | [agents-best-practices](https://github.com/DenisSergeevitch/agents-best-practices/tree/main/) | A comprehensive skill and reference for building provider-neutral AI agent harne... | github-trending | 🟢 Active | 96 | 2026-06-14 | backend | `go`, `openai` |
-| 13 | [django-tdd](https://github.com/affaan-m/ECC/tree/HEAD/pi/core/skills/django-tdd) | A comprehensive guide to Django test-driven development with pytest, factory_boy... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | backend | `go`, `django` |
-| 14 | [inherit-legacy-style](https://github.com/affaan-m/ECC/tree/HEAD/pi/core/skills/inherit-legacy-style) | An AI coding skill that scans legacy codebases to extract and enforce consistent... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
-| 15 | [java-coding-standards](https://github.com/affaan-m/ECC/tree/HEAD/pi/core/skills/java-coding-standards) | A comprehensive set of Java coding standards for Spring Boot and Quarkus service... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | backend | `java` |
-| 16 | [kotlin-exposed-patterns](https://github.com/affaan-m/ECC/tree/HEAD/pi/core/skills/kotlin-exposed-patterns) | Comprehensive Kotlin patterns for JetBrains Exposed ORM covering DSL queries, DA... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | mobile | `kotlin` |
-| 17 | [quarkus-tdd](https://github.com/affaan-m/ECC/tree/HEAD/pi/core/skills/quarkus-tdd) | A comprehensive TDD workflow guide for Quarkus 3.x LTS using JUnit 5, Mockito, R... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
-| 18 | [agent-payment-x402](https://github.com/affaan-m/ECC/tree/HEAD/skills/agent-payment-x402) | A skill enabling AI agents to make policy-gated payments using the x402 protocol... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
-| 19 | [codehealth-mcp](https://github.com/affaan-m/ECC/tree/HEAD/skills/codehealth-mcp) | MCP server providing real-time structural code health scores and regression gate... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
-| 20 | [configure-ecc](https://github.com/affaan-m/ECC/tree/HEAD/skills/configure-ecc) | Interactive installer for configuring Everything Claude Code skills and rules in... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
-| 21 | [continuous-learning-v2](https://github.com/affaan-m/ECC/tree/HEAD/skills/continuous-learning-v2) | A skill for Claude Code that learns coding patterns from sessions via hooks, cre... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
-| 22 | [plankton-code-quality](https://github.com/affaan-m/ECC/tree/HEAD/skills/plankton-code-quality) | Plankton Code Quality enforces write-time code quality via auto-formatting, lint... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
+| 13 | [agent-payment-x402](https://github.com/affaan-m/ECC/tree/HEAD/skills/agent-payment-x402) | A skill enabling AI agents to make policy-gated payments using the x402 protocol... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
+| 14 | [codehealth-mcp](https://github.com/affaan-m/ECC/tree/HEAD/skills/codehealth-mcp) | MCP server providing real-time structural code health scores and regression gate... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
+| 15 | [configure-ecc](https://github.com/affaan-m/ECC/tree/HEAD/skills/configure-ecc) | Interactive installer for configuring Everything Claude Code skills and rules in... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
+| 16 | [continuous-learning-v2](https://github.com/affaan-m/ECC/tree/HEAD/skills/continuous-learning-v2) | A skill for Claude Code that learns coding patterns from sessions via hooks, cre... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
+| 17 | [django-tdd](https://github.com/affaan-m/ECC/tree/HEAD/pi/core/skills/django-tdd) | A comprehensive guide to Django test-driven development with pytest, factory_boy... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | backend | `go`, `django` |
+| 18 | [inherit-legacy-style](https://github.com/affaan-m/ECC/tree/HEAD/pi/core/skills/inherit-legacy-style) | An AI coding skill that scans legacy codebases to extract and enforce consistent... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
+| 19 | [java-coding-standards](https://github.com/affaan-m/ECC/tree/HEAD/pi/core/skills/java-coding-standards) | A comprehensive set of Java coding standards for Spring Boot and Quarkus service... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | backend | `java` |
+| 20 | [kotlin-exposed-patterns](https://github.com/affaan-m/ECC/tree/HEAD/pi/core/skills/kotlin-exposed-patterns) | Comprehensive Kotlin patterns for JetBrains Exposed ORM covering DSL queries, DA... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | mobile | `kotlin` |
+| 21 | [plankton-code-quality](https://github.com/affaan-m/ECC/tree/HEAD/skills/plankton-code-quality) | Plankton Code Quality enforces write-time code quality via auto-formatting, lint... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
+| 22 | [quarkus-tdd](https://github.com/affaan-m/ECC/tree/HEAD/pi/core/skills/quarkus-tdd) | A comprehensive TDD workflow guide for Quarkus 3.x LTS using JUnit 5, Mockito, R... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
 | 23 | [windows-desktop-e2e](https://github.com/affaan-m/ECC/tree/HEAD/skills/windows-desktop-e2e) | A comprehensive skill for end-to-end testing of Windows native desktop applicati... | plugin-bundled-skill | 🟢 Active | 95 | 2026-06-16 | tooling | — |
 | 24 | [bioinformatics](https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/research/bioinformatics) | Gateway to 400+ bioinformatics skills fetched on demand for AI-assisted coding. | github-trending | 🟢 Active | 95 | 2026-06-29 | documentation | `bioinformatics`, `genomics`, `sequencing` |
 | 25 | [cloudflare-temporary-deploy](https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/web-development/cloudflare-temporary-deploy) | Deploy Cloudflare Workers to live URLs without an account using wrangler --tempo... | github-trending | 🟢 Active | 95 | 2026-06-29 | tooling | `cloudflare`, `workers`, `wrangler` |
@@ -269,4 +269,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-10-26*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-11-02*

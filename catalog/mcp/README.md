@@ -1,6 +1,6 @@
 # 🔌 MCP Servers
 
-> 5117 Model Context Protocol servers that connect AI agents to external tools, databases, and services.
+> 5170 Model Context Protocol servers that connect AI agents to external tools, databases, and services.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=mcp)
 
@@ -10,12 +10,12 @@
 
 | # | Name | Description | ⭐ Stars | Status | Score | Updated | Category | Tags |
 |---|---|---|---|---|---|---|---|---|
-| 1 | [Headroom](https://github.com/chopratejas/headroom) | AI context compression layer for agents, reducing token usage 60-95% with revers... | 77.9k | 🟢 Active | 98 | 2026-06-15 | frontend | `agent`, `ai`, `anthropic` |
-| 2 | [upstash/context7](https://github.com/upstash/context7) | An MCP server that injects real-time, version-specific library documentation and... | 63.7k | 🟢 Active | 98 | 2026-05-26 | ai-ml | `llm`, `mcp`, `mcp-server` |
-| 3 | [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | Official Google MCP server enabling AI coding agents to control Chrome DevTools ... | 54.2k | 🟢 Active | 98 | 2026-05-31 | ai-ml | `browser`, `chrome`, `chrome-devtools` |
-| 4 | [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | Code intelligence MCP server that indexes codebases into a persistent knowledge ... | 47.5k | 🟢 Active | 98 | 2026-06-29 | database | `aider`, `ast`, `claude-code` |
-| 5 | [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | Official Microsoft MCP server enabling AI to control web browsers via Playwright... | 38.6k | 🟢 Active | 98 | 2026-05-09 | testing | `playwright`, `mcp`, `browser` |
-| 6 | [googleapis/genai-toolbox](https://github.com/googleapis/genai-toolbox) | An open-source MCP server connecting AI agents and IDEs to enterprise databases ... | 16.7k | 🟢 Active | 98 | 2026-06-11 | backend | `go`, `agent`, `agents` |
+| 1 | [Headroom](https://github.com/chopratejas/headroom) | AI context compression layer for agents, reducing token usage 60-95% with revers... | 78.6k | 🟢 Active | 98 | 2026-06-15 | frontend | `agent`, `ai`, `anthropic` |
+| 2 | [upstash/context7](https://github.com/upstash/context7) | An MCP server that injects real-time, version-specific library documentation and... | 64.1k | 🟢 Active | 98 | 2026-05-26 | ai-ml | `llm`, `mcp`, `mcp-server` |
+| 3 | [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | Official Google MCP server enabling AI coding agents to control Chrome DevTools ... | 54.6k | 🟢 Active | 98 | 2026-05-31 | ai-ml | `browser`, `chrome`, `chrome-devtools` |
+| 4 | [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | Code intelligence MCP server that indexes codebases into a persistent knowledge ... | 48.0k | 🟢 Active | 98 | 2026-06-29 | database | `aider`, `ast`, `claude-code` |
+| 5 | [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | Official Microsoft MCP server enabling AI to control web browsers via Playwright... | 39.0k | 🟢 Active | 98 | 2026-05-09 | testing | `playwright`, `mcp`, `browser` |
+| 6 | [googleapis/genai-toolbox](https://github.com/googleapis/genai-toolbox) | An open-source MCP server connecting AI agents and IDEs to enterprise databases ... | 16.8k | 🟢 Active | 98 | 2026-06-11 | backend | `go`, `agent`, `agents` |
 | 7 | [MCP Inspector](https://github.com/modelcontextprotocol/inspector) | A developer tool for visually testing and debugging MCP servers via a web UI or ... | 9.2k | 🟢 Active | 98 | 2026-04-14 | testing | — |
 | 8 | [AWS MCP Servers](https://github.com/awslabs/mcp) | Suite of 50+ MCP servers enabling AI coding assistants to interact with AWS serv... | 8.6k | 🟢 Active | 98 | 2026-04-15 | devops | `aws`, `mcp`, `mcp-servers` |
 | 9 | [idosal/git-mcp](https://github.com/idosal/git-mcp) | A remote MCP server that connects AI coding assistants to GitHub repositories fo... | 8.5k | 🟢 Active | 98 | 2026-05-08 | ai-ml | `git`, `agentic-ai`, `agents` |
@@ -35,22 +35,22 @@
 | 23 | [webclaw](https://github.com/0xMassi/webclaw) | A local-first web extraction tool that converts websites into clean markdown, JS... | 2.4k | 🟢 Active | 97 | 2026-05-31 | frontend | `ai-agents`, `ai-scraping`, `apify-alternative` |
 | 24 | [Kubernetes and OpenShift](https://github.com/manusa/kubernetes-mcp-server) | A Go-based MCP server for Kubernetes and OpenShift providing CRUD operations, po... | 2.2k | 🟢 Active | 97 | 2026-05-08 | devops | `kubernetes`, `containers`, `context` |
 | 25 | [Azure DevOps](https://github.com/microsoft/azure-devops-mcp) | An MCP server for Azure DevOps that enables developers to manage projects, build... | 2.1k | 🟢 Active | 97 | 2026-05-09 | devops | `azure` |
-| 26 | [CoderGamester/mcp-unity](https://github.com/CoderGamester/mcp-unity) | MCP server enabling AI coding assistants to interact with Unity Editor for game ... | 2.0k | 🟢 Active | 97 | 2026-04-26 | ai-ml | `claudecode`, `codex-cli`, `copilot` |
-| 27 | [Stripe](https://github.com/stripe/agent-toolkit) | Official Stripe integration for AI agents, enabling LLMs to interact with Stripe... | 2.0k | 🟢 Active | 97 | 2026-05-08 | frontend | `ai`, `gemini-cli-extension`, `llm` |
+| 26 | [Stripe](https://github.com/stripe/agent-toolkit) | Official Stripe integration for AI agents, enabling LLMs to interact with Stripe... | 2.0k | 🟢 Active | 97 | 2026-05-08 | frontend | `ai`, `gemini-cli-extension`, `llm` |
+| 27 | [CoderGamester/mcp-unity](https://github.com/CoderGamester/mcp-unity) | MCP server enabling AI coding assistants to interact with Unity Editor for game ... | 2.0k | 🟢 Active | 97 | 2026-04-26 | ai-ml | `claudecode`, `codex-cli`, `copilot` |
 | 28 | [Aas-ee/open-webSearch](https://github.com/Aas-ee/open-webSearch) | MCP server for free multi-engine web search without API keys, supporting AI agen... | 1.9k | 🟢 Active | 97 | 2026-05-16 | backend | — |
 | 29 | [Qdrant](https://github.com/qdrant/mcp-server-qdrant/) | Official MCP server for semantic memory layer using Qdrant vector search engine,... | 1.6k | 🟢 Active | 97 | 2026-04-27 | ai-ml | `claude`, `cursor`, `llm` |
 | 30 | [FastCtx](https://github.com/yc-duan/fastctx) | FastCtx is a Rust MCP tool runtime providing context-efficient file reading, sea... | 1.5k | 🟢 Active | 97 | 2026-08-30 | backend | `rust` |
 | 31 | [Terraform MCP Server](https://github.com/hashicorp/terraform-mcp-server) | MCP server enabling AI assistants to interact with Terraform Registry and HCP Te... | 1.3k | 🟢 Active | 97 | 2026-04-14 | devops | — |
 | 32 | [npcpy](https://github.com/NPC-Worldwide/npcpy) | A Python library for building AI agents, multi-agent teams, and knowledge graphs... | 1.3k | 🟢 Active | 97 | 2026-04-15 | backend | `python`, `yaml`, `sql` |
-| 33 | [Stakpak Agent CLI](https://github.com/stakpak/cli) | An autonomous DevOps agent CLI with TUI that runs 24/7, manages infrastructure, ... | 1.2k | 🟢 Active | 97 | 2026-04-14 | backend | — |
-| 34 | [figwright](https://github.com/awdr74100/figwright) | Free two-way Figma MCP server that converts Figma designs to framework-aware cod... | 1.2k | 🟢 Active | 97 | 2026-08-31 | ai-ml | `ai`, `claude-code`, `codegen` |
+| 33 | [figwright](https://github.com/awdr74100/figwright) | Free two-way Figma MCP server that converts Figma designs to framework-aware cod... | 1.3k | 🟢 Active | 97 | 2026-08-31 | ai-ml | `ai`, `claude-code`, `codegen` |
+| 34 | [Stakpak Agent CLI](https://github.com/stakpak/cli) | An autonomous DevOps agent CLI with TUI that runs 24/7, manages infrastructure, ... | 1.2k | 🟢 Active | 97 | 2026-04-14 | backend | — |
 | 35 | [🪐✨ Jupyter MCP Server](https://github.com/datalayer/jupyter-mcp-server) | MCP server enabling AI to interact with Jupyter notebooks in real-time for code ... | 959 | 🟢 Active | 97 | 2026-04-05 | ai-ml | `tools`, `ai`, `jupyter` |
 | 36 | [MCP Framework](https://github.com/QuantGeekDev/mcp-framework) | A TypeScript framework for building MCP servers with automatic tool discovery, m... | 907 | 🟢 Active | 97 | 2026-04-05 | frontend | `mcp`, `claude`, `llm` |
-| 37 | [ClickHouse/mcp-clickhouse](https://github.com/ClickHouse/mcp-clickhouse) | Official ClickHouse MCP server enabling SQL queries and schema exploration throu... | 893 | 🟢 Active | 97 | 2026-05-08 | tooling | — |
+| 37 | [ClickHouse/mcp-clickhouse](https://github.com/ClickHouse/mcp-clickhouse) | Official ClickHouse MCP server enabling SQL queries and schema exploration throu... | 900 | 🟢 Active | 97 | 2026-05-08 | tooling | — |
 | 38 | [Kubectl MCP Tool](https://github.com/rohitg00/kubectl-mcp-server) | MCP server enabling AI assistants like Claude and Cursor to manage Kubernetes cl... | 856 | 🟢 Active | 97 | 2026-04-08 | devops | `kubernetes`, `devops`, `ai` |
-| 39 | [clojure-mcp](https://github.com/bhauman/clojure-mcp) | MCP server providing REPL integration and Clojure-aware editing tools for AI-ass... | 788 | 🟢 Active | 97 | 2026-04-20 | tooling | `mcp-server`, `clojure`, `repl` |
-| 40 | [SonarQube](https://github.com/SonarSource/sonarqube-mcp-server) | MCP server integrating AI agents with SonarQube for code quality, security analy... | 673 | 🟢 Active | 97 | 2026-05-08 | security | `agent`, `ai`, `code-quality` |
-| 41 | [Google Cloud Run](https://github.com/GoogleCloudPlatform/cloud-run-mcp) | MCP server enabling AI agents to deploy and manage applications on Google Cloud ... | 632 | 🟢 Active | 97 | 2026-06-04 | backend | `go`, `google-cloud`, `google-cloud-run` |
+| 39 | [clojure-mcp](https://github.com/bhauman/clojure-mcp) | MCP server providing REPL integration and Clojure-aware editing tools for AI-ass... | 784 | 🟢 Active | 97 | 2026-04-20 | tooling | `mcp-server`, `clojure`, `repl` |
+| 40 | [SonarQube](https://github.com/SonarSource/sonarqube-mcp-server) | MCP server integrating AI agents with SonarQube for code quality, security analy... | 677 | 🟢 Active | 97 | 2026-05-08 | security | `agent`, `ai`, `code-quality` |
+| 41 | [Google Cloud Run](https://github.com/GoogleCloudPlatform/cloud-run-mcp) | MCP server enabling AI agents to deploy and manage applications on Google Cloud ... | 637 | 🟢 Active | 97 | 2026-06-04 | backend | `go`, `google-cloud`, `google-cloud-run` |
 | 42 | [sentry-mcp](https://github.com/getsentry/sentry-mcp) | MCP server enabling AI coding assistants to interact with Sentry for error track... | 609 | 🟢 Active | 97 | 2026-04-15 | ai-ml | `tag-production`, `mcp-server` |
 | 43 | [MCP Client for Ollama (ollmcp)](https://github.com/jonigl/mcp-client-for-ollama) | A Python terminal client for interacting with MCP servers using Ollama LLMs, fea... | 582 | 🟢 Active | 97 | 2026-04-14 | backend | `open-source`, `ai`, `mcp` |
 | 44 | [OpenAPI to MCP Generator (openapi-mcp-generator)](https://github.com/harsha-iiiv/openapi-mcp-generator) | CLI tool that converts OpenAPI 3.0+ specifications into MCP-compatible servers w... | 547 | 🟢 Active | 97 | 2026-03-03 | backend | — |
@@ -69,37 +69,37 @@
 | 57 | [benborla29/mcp-server-mysql](https://github.com/benborla/mcp-server-mysql) | MCP server for MySQL database integration with AI coding assistants, featuring S... | 2.2k | 🟢 Active | 96 | 2026-03-10 | backend | `mysql`, `nodejs` |
 | 58 | [Office-PowerPoint-MCP-Server](https://github.com/GongRzhe/Office-PowerPoint-MCP-Server) | An MCP server for PowerPoint manipulation using python-pptx, offering 34 tools f... | 1.6k | 🟡 Stale | 96 | 2025-12-31 | backend | — |
 | 59 | [Swiss Army Knife for MCP Servers](https://github.com/f/mcptools) | A comprehensive CLI tool for interacting with MCP servers, supporting multiple t... | 1.5k | 🟡 Stale | 96 | 2025-12-18 | tooling | `mcp`, `mcp-server`, `modelcontextprotocol` |
-| 60 | [caol64/wenyan-mcp](https://github.com/caol64/wenyan-mcp) | An MCP server that lets AI assistants format Markdown and publish articles direc... | 1.3k | 🟢 Active | 96 | 2026-04-29 | ai-ml | `mcp-server`, `wechat`, `wenyan` |
+| 60 | [caol64/wenyan-mcp](https://github.com/caol64/wenyan-mcp) | An MCP server that lets AI assistants format Markdown and publish articles direc... | 1.4k | 🟢 Active | 96 | 2026-04-29 | ai-ml | `mcp-server`, `wechat`, `wenyan` |
 | 61 | [Bernstein](https://github.com/sipyourdrink-ltd/bernstein) | Deterministic multi-agent CLI orchestrator that runs 44 coding agents in paralle... | 1.3k | 🟢 Active | 96 | 2026-06-10 | backend | `git`, `agent-fleet`, `agent-governance` |
 | 62 | [crw](https://github.com/us/crw) | Self-hosted Rust web scraper with built-in MCP server, Firecrawl-compatible API,... | 1.2k | 🟢 Active | 96 | 2026-06-10 | frontend | `rust`, `ai`, `ai-agents` |
-| 63 | [yurineko73/Godot-MCP-Native](https://github.com/yurineko73/Godot-MCP-Native) | A Godot Engine MCP plugin enabling AI assistants to directly interact with proje... | 862 | 🟢 Active | 96 | 2026-06-16 | backend | `go` |
-| 64 | [Neon](https://github.com/neondatabase/mcp-server-neon) | Official Neon MCP server enabling natural language management of Neon Postgres d... | 655 | 🟢 Active | 96 | 2026-06-05 | database | `postgres` |
+| 63 | [yurineko73/Godot-MCP-Native](https://github.com/yurineko73/Godot-MCP-Native) | A Godot Engine MCP plugin enabling AI assistants to directly interact with proje... | 867 | 🟢 Active | 96 | 2026-06-16 | backend | `go` |
+| 64 | [Neon](https://github.com/neondatabase/mcp-server-neon) | Official Neon MCP server enabling natural language management of Neon Postgres d... | 659 | 🟢 Active | 96 | 2026-06-05 | database | `postgres` |
 | 65 | [Muvon/octocode](https://github.com/Muvon/octocode) | Rust-based semantic code indexer that builds GraphRAG knowledge graphs and expos... | 518 | 🟢 Active | 96 | 2026-06-09 | backend | `rust`, `ai`, `ai-agents` |
 | 66 | [n8n Workflow Builder MCP Server](https://github.com/makafeli/n8n-workflow-builder) | MCP server enabling AI assistants to manage n8n workflows programmatically via n... | 502 | 🟢 Active | 96 | 2026-03-19 | tooling | — |
-| 67 | [FreePeak/db-mcp-server](https://github.com/FreePeak/db-mcp-server) | A Go-based MCP server enabling AI assistants to interact with multiple databases... | 473 | 🟢 Active | 96 | 2026-04-19 | backend | `go`, `mysql`, `database-mcp-server` |
-| 68 | [Episkey-G/GrokSearch-rs](https://github.com/Episkey-G/GrokSearch-rs) | Rust MCP server providing Grok/OpenAI-compatible web search with Tavily/Firecraw... | 461 | 🟢 Active | 96 | 2026-06-12 | backend | `rust` |
-| 69 | [activeing123/mcptoon](https://github.com/activeing123/mcptoon) | Zero-dependency MCP CLI that compresses tool/skill catalogs into compact views a... | 393 | 🟢 Active | 96 | 2026-10-05 | backend | `agent-skills`, `claude`, `claude-code` |
+| 67 | [FreePeak/db-mcp-server](https://github.com/FreePeak/db-mcp-server) | A Go-based MCP server enabling AI assistants to interact with multiple databases... | 478 | 🟢 Active | 96 | 2026-04-19 | backend | `go`, `mysql`, `database-mcp-server` |
+| 68 | [Episkey-G/GrokSearch-rs](https://github.com/Episkey-G/GrokSearch-rs) | Rust MCP server providing Grok/OpenAI-compatible web search with Tavily/Firecraw... | 462 | 🟢 Active | 96 | 2026-06-12 | backend | `rust` |
+| 69 | [activeing123/mcptoon](https://github.com/activeing123/mcptoon) | Zero-dependency MCP CLI that compresses tool/skill catalogs into compact views a... | 417 | 🟢 Active | 96 | 2026-10-05 | ai-ml | `agent-skills`, `claude`, `claude-code` |
 | 70 | [tfmcp: Terraform Model Context Protocol Tool](https://github.com/nwiizo/tfmcp) | An MCP server tool enabling AI assistants like Claude to manage Terraform infras... | 360 | 🟢 Active | 96 | 2026-03-26 | devops | `mcp`, `terraform`, `mcp-server` |
-| 71 | [Apache Doris](https://github.com/apache/doris-mcp-server) | MCP server for Apache Doris enabling AI-assisted database interactions, query ex... | 354 | 🟢 Active | 96 | 2026-03-13 | ai-ml | `ai`, `lakehouse`, `mcp` |
+| 71 | [Apache Doris](https://github.com/apache/doris-mcp-server) | MCP server for Apache Doris enabling AI-assisted database interactions, query ex... | 356 | 🟢 Active | 96 | 2026-03-13 | ai-ml | `ai`, `lakehouse`, `mcp` |
 | 72 | [Laravel MCP Server by OP.GG](https://github.com/opgginc/laravel-mcp-server) | A Laravel package for building route-first Model Context Protocol servers with S... | 331 | 🟢 Active | 96 | 2026-04-05 | tooling | `php`, `laravel`, `ai` |
-| 73 | [Godot-MCP](https://github.com/IvanMurzak/Godot-MCP) | MCP server and Godot editor addon that lets AI agents create nodes, edit scenes,... | 306 | 🟢 Active | 96 | 2026-08-24 | backend | `go`, `ai`, `ai-integration` |
+| 73 | [Godot-MCP](https://github.com/IvanMurzak/Godot-MCP) | MCP server and Godot editor addon that lets AI agents create nodes, edit scenes,... | 321 | 🟢 Active | 96 | 2026-08-24 | backend | `go`, `ai`, `ai-integration` |
 | 74 | [Unagi-cq/cdp-bridge-mcp](https://github.com/Unagi-cq/cdp-bridge-mcp) | MCP server bridging AI clients to real browser sessions via Chrome DevTools Prot... | 304 | 🟢 Active | 96 | 2026-06-22 | tooling | — |
 | 75 | [admica/FileScopeMCP](https://github.com/admica/FileScopeMCP) | MCP server that analyzes codebase dependencies, ranks files by importance, and p... | 302 | 🟢 Active | 96 | 2026-05-08 | ai-ml | — |
-| 76 | [consult7](https://github.com/szeider/consult7) | MCP server enabling AI agents to analyze large codebases by offloading to high-c... | 296 | 🟢 Active | 96 | 2026-04-25 | backend | `go`, `openai` |
-| 77 | [Continuum-AI-Corp/OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay) | Records coding-agent runs and replays them offline byte-for-byte, forks from che... | 282 | 🟢 Active | 96 | 2026-10-01 | ai-ml | `agent-debugging`, `agent-tracing`, `ai-agent` |
+| 76 | [Continuum-AI-Corp/OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay) | Records coding-agent runs and replays them offline byte-for-byte, forks from che... | 295 | 🟢 Active | 96 | 2026-10-01 | ai-ml | `agent-debugging`, `agent-tracing`, `ai-agent` |
+| 77 | [consult7](https://github.com/szeider/consult7) | MCP server enabling AI agents to analyze large codebases by offloading to high-c... | 295 | 🟢 Active | 96 | 2026-04-25 | backend | `go`, `openai` |
 | 78 | [Coolify Mcp](https://github.com/StuMason/coolify-mcp) | MCP server providing 42 token-optimized tools for managing Coolify self-hosted P... | 266 | 🟢 Active | 96 | 2026-04-15 | tooling | — |
-| 79 | [Elasticsearch/OpenSearch MCP Server](https://github.com/cr7258/elasticsearch-mcp-server) | MCP server enabling AI assistants to interact with Elasticsearch and OpenSearch ... | 259 | 🟢 Active | 96 | 2026-02-02 | tooling | — |
-| 80 | [llmtrim](https://github.com/fkiene/llmtrim) | Local proxy that compresses LLM API requests to reduce token costs without chang... | 257 | 🟢 Active | 96 | 2026-06-29 | backend | `agentic-coding`, `ai`, `anthropic` |
-| 81 | [win4r/codebase-memory-mcp-pro](https://github.com/win4r/codebase-memory-mcp-pro) | A pure C MCP server that builds and queries a code knowledge graph for AI agents... | 247 | 🟢 Active | 96 | 2026-06-22 | ai-ml | — |
+| 79 | [llmtrim](https://github.com/fkiene/llmtrim) | Local proxy that compresses LLM API requests to reduce token costs without chang... | 263 | 🟢 Active | 96 | 2026-06-29 | backend | `agentic-coding`, `ai`, `anthropic` |
+| 80 | [Elasticsearch/OpenSearch MCP Server](https://github.com/cr7258/elasticsearch-mcp-server) | MCP server enabling AI assistants to interact with Elasticsearch and OpenSearch ... | 259 | 🟢 Active | 96 | 2026-02-02 | tooling | — |
+| 81 | [win4r/codebase-memory-mcp-pro](https://github.com/win4r/codebase-memory-mcp-pro) | A pure C MCP server that builds and queries a code knowledge graph for AI agents... | 249 | 🟢 Active | 96 | 2026-06-22 | ai-ml | — |
 | 82 | [OpenAPI MCP Server](https://github.com/ivo-toby/mcp-openapi-server) | MCP server that converts OpenAPI specifications into tools for LLMs to interact ... | 243 | 🟢 Active | 96 | 2026-03-11 | backend | — |
 | 83 | [ozgurcd/gograph](https://github.com/ozgurcd/gograph) | A local Go static analysis engine with MCP server providing AI agents with call ... | 230 | 🟢 Active | 96 | 2026-06-17 | backend | `go`, `agentic-coding`, `ai-agent` |
 | 84 | [Razorpay MCP Server (Official)](https://github.com/razorpay/razorpay-mcp-server) | Official Razorpay MCP server providing 40+ tools for payment processing, orders,... | 216 | 🟢 Active | 96 | 2026-03-26 | tooling | `mcp`, `razorpay`, `mcp-server` |
-| 85 | [mcp-server-jdbc](https://github.com/quarkiverse/quarkus-mcp-servers/tree/main/jdbc) | MCP server enabling LLMs to interact with JDBC databases via queries, schema ins... | 197 | 🟢 Active | 96 | 2026-04-07 | tooling | `mcp`, `quarkus-app` |
+| 85 | [mcp-server-jdbc](https://github.com/quarkiverse/quarkus-mcp-servers/tree/main/jdbc) | MCP server enabling LLMs to interact with JDBC databases via queries, schema ins... | 196 | 🟢 Active | 96 | 2026-04-07 | tooling | `mcp`, `quarkus-app` |
 | 86 | [OpenAPI-MCP: Dockerized MCP Server to allow your AI agent to access any API with existing api docs](https://github.com/ckanthony/openapi-mcp) | Dockerized MCP server that auto-generates AI tool definitions from OpenAPI/Swagg... | 178 | 🟢 Active | 96 | 2026-03-21 | devops | — |
 | 87 | [MCP Access Point](https://github.com/sxhxliang/mcp-access-point) | A lightweight gateway that converts HTTP APIs into MCP servers for AI coding ass... | 169 | 🟢 Active | 96 | 2026-03-11 | tooling | — |
 | 88 | [Slack MCP Client in Go](https://github.com/tuannvm/slack-mcp-client) | A Go-based Slack bot that bridges Slack with MCP servers, enabling AI models to ... | 165 | 🟢 Active | 96 | 2026-03-02 | backend | `slack`, `mcp`, `mcp-client` |
-| 89 | [piia-engram](https://github.com/Patdolitse/piia-engram) | Local-first MCP server providing persistent AI memory across coding tools with u... | 163 | 🟢 Active | 96 | 2026-06-10 | backend | `agent-memory`, `ai-agent`, `ai-identity` |
-| 90 | [FHIR](https://github.com/wso2/fhir-mcp-server/) | MCP server for FHIR APIs enabling AI tools to securely interact with healthcare ... | 136 | 🟢 Active | 96 | 2026-05-29 | security | `fhir`, `healthcare`, `mcp` |
+| 89 | [piia-engram](https://github.com/Patdolitse/piia-engram) | Local-first MCP server providing persistent AI memory across coding tools with u... | 165 | 🟢 Active | 96 | 2026-06-10 | backend | `agent-memory`, `ai-agent`, `ai-identity` |
+| 90 | [FHIR](https://github.com/wso2/fhir-mcp-server/) | MCP server for FHIR APIs enabling AI tools to securely interact with healthcare ... | 137 | 🟢 Active | 96 | 2026-05-29 | security | `fhir`, `healthcare`, `mcp` |
 | 91 | [Easy Code Reader](https://github.com/FangYuan33/easy-code-reader) | MCP server for intelligent Java source code reading from Maven dependencies and ... | 134 | 🟢 Active | 96 | 2026-03-01 | backend | `easy-code-reader`, `java-source-code`, `mcp-server` |
 | 92 | [BrowserStack MCP Server](https://github.com/browserstack/mcp-server) | Official BrowserStack MCP server for AI-assisted test management, execution, deb... | 131 | 🟢 Active | 96 | 2026-04-13 | testing | `testing`, `automation`, `browserstack` |
 | 93 | [aresyn/codex-control-plane-mcp](https://github.com/aresyn/codex-control-plane-mcp) | A persistent MCP control plane for reliable automation of long-running Codex Des... | 124 | 🟢 Active | 96 | 2026-06-21 | backend | `agent-tools`, `agentic-workflows`, `ai-agents` |
@@ -114,7 +114,7 @@
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>Headroom</strong> (77.9k★) — AI context compression layer for agents, reducing token usag...</summary>
+<summary>⭐ <strong>Headroom</strong> (78.6k★) — AI context compression layer for agents, reducing token usag...</summary>
 
 AI context compression layer for agents, reducing token usage 60-95% with reversible compression and cross-agent memory.
 
@@ -126,7 +126,7 @@ AI context compression layer for agents, reducing token usage 60-95% with revers
 </details>
 
 <details>
-<summary>⭐ <strong>upstash/context7</strong> (63.7k★) — An MCP server that injects real-time, version-specific libra...</summary>
+<summary>⭐ <strong>upstash/context7</strong> (64.1k★) — An MCP server that injects real-time, version-specific libra...</summary>
 
 An MCP server that injects real-time, version-specific library documentation and code examples into LLM prompts to eliminate hallucinated APIs.
 
@@ -138,7 +138,7 @@ An MCP server that injects real-time, version-specific library documentation and
 </details>
 
 <details>
-<summary>⭐ <strong>ChromeDevTools/chrome-devtools-mcp</strong> (54.2k★) — Official Google MCP server enabling AI coding agents to cont...</summary>
+<summary>⭐ <strong>ChromeDevTools/chrome-devtools-mcp</strong> (54.6k★) — Official Google MCP server enabling AI coding agents to cont...</summary>
 
 Official Google MCP server enabling AI coding agents to control Chrome DevTools for debugging, performance analysis, and browser automation.
 
@@ -163,7 +163,7 @@ Official Google MCP server enabling AI coding agents to control Chrome DevTools 
 </details>
 
 <details>
-<summary>⭐ <strong>DeusData/codebase-memory-mcp</strong> (47.5k★) — Code intelligence MCP server that indexes codebases into a p...</summary>
+<summary>⭐ <strong>DeusData/codebase-memory-mcp</strong> (48.0k★) — Code intelligence MCP server that indexes codebases into a p...</summary>
 
 Code intelligence MCP server that indexes codebases into a persistent knowledge graph for AI coding agents.
 
@@ -185,7 +185,7 @@ Code intelligence MCP server that indexes codebases into a persistent knowledge 
 </details>
 
 <details>
-<summary>⭐ <strong>microsoft/playwright-mcp</strong> (38.6k★) — Official Microsoft MCP server enabling AI to control web bro...</summary>
+<summary>⭐ <strong>microsoft/playwright-mcp</strong> (39.0k★) — Official Microsoft MCP server enabling AI to control web bro...</summary>
 
 Official Microsoft MCP server enabling AI to control web browsers via Playwright for automation and data extraction.
 
@@ -209,7 +209,7 @@ Official Microsoft MCP server enabling AI to control web browsers via Playwright
 </details>
 
 <details>
-<summary>⭐ <strong>googleapis/genai-toolbox</strong> (16.7k★) — An open-source MCP server connecting AI agents and IDEs to e...</summary>
+<summary>⭐ <strong>googleapis/genai-toolbox</strong> (16.8k★) — An open-source MCP server connecting AI agents and IDEs to e...</summary>
 
 An open-source MCP server connecting AI agents and IDEs to enterprise databases for AI-assisted coding workflows.
 
@@ -310,4 +310,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-10-26*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-11-02*
