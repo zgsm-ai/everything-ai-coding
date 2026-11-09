@@ -1,6 +1,6 @@
 # 🎯 Skills 技能
 
-> 24370 AI 编程助手的可复用能力和工作流。
+> 26173 AI 编程助手的可复用能力和工作流。
 >
 > [返回主页 →](../../README.md) · [在线浏览 →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=skill)
 
@@ -22,16 +22,16 @@
 | 10 | [pi-subagents](https://github.com/nicobailon/pi-subagents/tree/main/skills/pi-subagents) | 一个用于编排 AI 辅助编码工作流的技能，通过子代理实现委派、审查、实现和协调。 | github-trending | 🟢 活跃 | 96 | 2026-06-21 | ai-ml | — |
 | 11 | [golang-pkg-go-dev](https://github.com/samber/cc-skills-golang/tree/main/skills/golang-pkg-go-dev) | 通过 pkg.go.dev API 查询 Go 包文档、API 引用、版本、导入者、漏洞的 CLI 和 MCP 服务器。 | github-trending | 🟢 活跃 | 96 | 2026-06-23 | backend | `go` |
 | 12 | [agents-best-practices](https://github.com/DenisSergeevitch/agents-best-practices/tree/main/) | 一套全面的技能与参考指南，用于构建中立于服务商的AI智能体，涵盖架构、工具、安全与评估。 | github-trending | 🟢 活跃 | 96 | 2026-06-14 | backend | `go`, `openai` |
-| 13 | [agent-payment-x402](https://github.com/affaan-m/ECC/tree/HEAD/skills/agent-payment-x402) | 一项技能，使AI代理能够使用x402协议进行策略门控支付，具备支出控制和非托管钱包功能。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
-| 14 | [codehealth-mcp](https://github.com/affaan-m/ECC/tree/HEAD/skills/codehealth-mcp) | 通过 CodeScene MCP 提供实时结构化代码健康评分和回归检查，辅助 AI 编码工作流。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
-| 15 | [configure-ecc](https://github.com/affaan-m/ECC/tree/HEAD/skills/configure-ecc) | 用于配置 Everything Claude Code 技能和规则的交互式安装程序。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
-| 16 | [continuous-learning-v2](https://github.com/affaan-m/ECC/tree/HEAD/skills/continuous-learning-v2) | 为Claude Code设计的技能，通过钩子从会话中学习编码模式，创建项目范围内的直觉并演化为可重用技能。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
-| 17 | [django-tdd](https://github.com/affaan-m/ECC/tree/HEAD/pi/core/skills/django-tdd) | Django TDD 全面指南，包含 pytest、factory_boy 和 DRF 测试模式。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | backend | `go`, `django` |
-| 18 | [inherit-legacy-style](https://github.com/affaan-m/ECC/tree/HEAD/pi/core/skills/inherit-legacy-style) | 扫描旧代码库以提取并强制执行统一编码风格规则，防止AI生成代码风格漂移。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
-| 19 | [java-coding-standards](https://github.com/affaan-m/ECC/tree/HEAD/pi/core/skills/java-coding-standards) | 适用于Spring Boot和Quarkus服务的Java编码标准，涵盖命名、不可变性、响应式模式等。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | backend | `java` |
-| 20 | [kotlin-exposed-patterns](https://github.com/affaan-m/ECC/tree/HEAD/pi/core/skills/kotlin-exposed-patterns) | JetBrains Exposed ORM 的 Kotlin 数据库访问模式大全，涵盖 DSL 查询、DAO、事务、HikariCP 连接池和 Flyway 迁... | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | mobile | `kotlin` |
-| 21 | [plankton-code-quality](https://github.com/affaan-m/ECC/tree/HEAD/skills/plankton-code-quality) | Plankton Code Quality 通过自动格式化、Linting 和 AI 修复，在 Claude Code 编写时强制执行代码质量。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
-| 22 | [quarkus-tdd](https://github.com/affaan-m/ECC/tree/HEAD/pi/core/skills/quarkus-tdd) | 为Quarkus 3.x LTS提供全面的TDD工作流指南，涵盖JUnit 5、Mockito、REST Assured、Camel测试和JaCoCo，包含详细... | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
+| 13 | [django-tdd](https://github.com/affaan-m/ECC/tree/HEAD/pi/core/skills/django-tdd) | Django TDD 全面指南，包含 pytest、factory_boy 和 DRF 测试模式。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | backend | `go`, `django` |
+| 14 | [inherit-legacy-style](https://github.com/affaan-m/ECC/tree/HEAD/pi/core/skills/inherit-legacy-style) | 扫描旧代码库以提取并强制执行统一编码风格规则，防止AI生成代码风格漂移。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
+| 15 | [java-coding-standards](https://github.com/affaan-m/ECC/tree/HEAD/pi/core/skills/java-coding-standards) | 适用于Spring Boot和Quarkus服务的Java编码标准，涵盖命名、不可变性、响应式模式等。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | backend | `java` |
+| 16 | [kotlin-exposed-patterns](https://github.com/affaan-m/ECC/tree/HEAD/pi/core/skills/kotlin-exposed-patterns) | JetBrains Exposed ORM 的 Kotlin 数据库访问模式大全，涵盖 DSL 查询、DAO、事务、HikariCP 连接池和 Flyway 迁... | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | mobile | `kotlin` |
+| 17 | [quarkus-tdd](https://github.com/affaan-m/ECC/tree/HEAD/pi/core/skills/quarkus-tdd) | 为Quarkus 3.x LTS提供全面的TDD工作流指南，涵盖JUnit 5、Mockito、REST Assured、Camel测试和JaCoCo，包含详细... | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
+| 18 | [agent-payment-x402](https://github.com/affaan-m/ECC/tree/HEAD/skills/agent-payment-x402) | 一项技能，使AI代理能够使用x402协议进行策略门控支付，具备支出控制和非托管钱包功能。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
+| 19 | [codehealth-mcp](https://github.com/affaan-m/ECC/tree/HEAD/skills/codehealth-mcp) | 通过 CodeScene MCP 提供实时结构化代码健康评分和回归检查，辅助 AI 编码工作流。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
+| 20 | [configure-ecc](https://github.com/affaan-m/ECC/tree/HEAD/skills/configure-ecc) | 用于配置 Everything Claude Code 技能和规则的交互式安装程序。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
+| 21 | [continuous-learning-v2](https://github.com/affaan-m/ECC/tree/HEAD/skills/continuous-learning-v2) | 为Claude Code设计的技能，通过钩子从会话中学习编码模式，创建项目范围内的直觉并演化为可重用技能。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
+| 22 | [plankton-code-quality](https://github.com/affaan-m/ECC/tree/HEAD/skills/plankton-code-quality) | Plankton Code Quality 通过自动格式化、Linting 和 AI 修复，在 Claude Code 编写时强制执行代码质量。 | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
 | 23 | [windows-desktop-e2e](https://github.com/affaan-m/ECC/tree/HEAD/skills/windows-desktop-e2e) | 使用 pywinauto 和 Windows UI Automation 对 Windows 原生桌面应用 (WPF, WinForms, Qt) 进行端到端测... | plugin-bundled-skill | 🟢 活跃 | 95 | 2026-06-16 | tooling | — |
 | 24 | [bioinformatics](https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/research/bioinformatics) | 按需获取 400+ 生物信息学技能的网关，用于 AI 辅助编码。 | github-trending | 🟢 活跃 | 95 | 2026-06-29 | documentation | `bioinformatics`, `genomics`, `sequencing` |
 | 25 | [cloudflare-temporary-deploy](https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/web-development/cloudflare-temporary-deploy) | 无需账户，使用 wrangler --temporary 部署 Cloudflare Worker 到临时 URL，适用于自动化开发迭代。 | github-trending | 🟢 活跃 | 95 | 2026-06-29 | tooling | `cloudflare`, `workers`, `wrangler` |
@@ -114,7 +114,7 @@
 ## Top 10 安装指南
 
 <details>
-<summary>⭐ <strong>docx</strong> (183.9k★) — 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。</summary>
+<summary>⭐ <strong>docx</strong> (190.1k★) — 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。</summary>
 
 一个全面的技能，供AI助手使用JavaScript和XML程序化创建、读取、编辑和操作.docx Word文档。
 
@@ -129,7 +129,7 @@ Files: `skills/docx/`
 </details>
 
 <details>
-<summary>⭐ <strong>slack-gif-creator</strong> (183.9k★) — 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。</summary>
+<summary>⭐ <strong>slack-gif-creator</strong> (190.1k★) — 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。</summary>
 
 用于创建Slack优化动画GIF的Python工具集，提供约束、工具和动画概念。
 
@@ -144,7 +144,7 @@ Files: `skills/slack-gif-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>skill-creator</strong> (183.9k★) — 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。</summary>
+<summary>⭐ <strong>skill-creator</strong> (190.1k★) — 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。</summary>
 
 一个用于创建、测试和优化AI助手技能的综合工具，支持迭代工作流、评估和基准测试。
 
@@ -159,7 +159,7 @@ Files: `skills/skill-creator/`
 </details>
 
 <details>
-<summary>⭐ <strong>xlsx</strong> (183.9k★) — 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。</summary>
+<summary>⭐ <strong>xlsx</strong> (190.1k★) — 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。</summary>
 
 一个用于以编程方式创建、编辑和分析Excel及表格文件的Python技能，遵循严格的格式和公式标准。
 
@@ -269,4 +269,4 @@ git clone nicobailon/pi-subagents
 
 ---
 
-*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-11-02*
+*自动生成 [catalog/index.json](../index.json). 最后更新: 2026-11-09*

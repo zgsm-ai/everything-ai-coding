@@ -1,6 +1,6 @@
 # 🧩 Plugins
 
-> 3369 Claude Code plugin bundles packaging skills, agents, commands, and MCP servers from official and community marketplaces.
+> 3372 Claude Code plugin bundles packaging skills, agents, commands, and MCP servers from official and community marketplaces.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=plugin)
 
@@ -57,64 +57,64 @@
 | 45 | [superpowers-zh](https://github.com/jnMetaCode/superpowers-zh/tree/main/) | AI编程超能力中文增强版插件，提供20个技能覆盖代码审查、TDD、调试等开发工作流，支持18款AI编程工具。 | github-trending | 🟢 Active | 97 | 2026-06-16 | ai-ml | — |
 | 46 | [autoresearch](https://github.com/uditgoenka/autoresearch/tree/master/claude-plugin) | A Claude plugin providing 14 autonomous coding commands for debugging, fixing, s... | github-trending | 🟢 Active | 97 | 2026-06-20 | documentation | — |
 | 47 | [scroll-world](https://github.com/oso95/scroll-world/tree/main/) | Generate AI-powered scroll-scrubbed landing pages with seamless camera transitio... | github-trending | 🟢 Active | 97 | 2026-07-16 | ai-ml | — |
-| 48 | [freya](https://github.com/marc2332/freya/tree/main/plugins/freya) | A Claude Code plugin providing comprehensive best practices and patterns for bui... | github-trending | 🟢 Active | 97 | 2026-06-17 | backend | `rust` |
-| 49 | [claude-bughunter](https://github.com/elementalsouls/Claude-BugHunter/tree/main/) | Comprehensive 71-skill AI-powered bug hunting and red team automation bundle for... | github-trending | 🟢 Active | 97 | 2026-06-16 | security | `security`, `offensive-security`, `bug-bounty` |
-| 50 | [empirical-analysis-python](https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/plugins/empirical-analysis-python) | An explicit 8-step Python pipeline for empirical econometrics covering data clea... | github-trending | 🟢 Active | 97 | 2026-06-25 | backend | `python`, `rest-api` |
-| 51 | [empirical-analysis-r](https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/plugins/empirical-analysis-r) | An 8-step empirical-analysis pipeline in R using tidyverse and econometrics pack... | github-trending | 🟢 Active | 97 | 2026-06-25 | frontend | — |
-| 52 | [empirical-analysis-stata](https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/plugins/empirical-analysis-stata) | A comprehensive Stata plugin for reproducible 8-step empirical analysis pipeline... | github-trending | 🟢 Active | 97 | 2026-06-25 | testing | — |
-| 53 | [pro-workflow](https://github.com/rohitg00/pro-workflow/tree/main/) | A comprehensive AI coding workflow plugin for Claude Code with 33 skills, 8 agen... | github-trending | 🟢 Active | 97 | 2026-06-15 | ai-ml | `workflow`, `hooks`, `agents` |
+| 48 | [claude-bughunter](https://github.com/elementalsouls/Claude-BugHunter/tree/main/) | Comprehensive 71-skill AI-powered bug hunting and red team automation bundle for... | github-trending | 🟢 Active | 97 | 2026-06-16 | security | `security`, `offensive-security`, `bug-bounty` |
+| 49 | [empirical-analysis-python](https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/plugins/empirical-analysis-python) | An explicit 8-step Python pipeline for empirical econometrics covering data clea... | github-trending | 🟢 Active | 97 | 2026-06-25 | backend | `python`, `rest-api` |
+| 50 | [empirical-analysis-r](https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/plugins/empirical-analysis-r) | An 8-step empirical-analysis pipeline in R using tidyverse and econometrics pack... | github-trending | 🟢 Active | 97 | 2026-06-25 | frontend | — |
+| 51 | [empirical-analysis-stata](https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/plugins/empirical-analysis-stata) | A comprehensive Stata plugin for reproducible 8-step empirical analysis pipeline... | github-trending | 🟢 Active | 97 | 2026-06-25 | testing | — |
+| 52 | [pro-workflow](https://github.com/rohitg00/pro-workflow/tree/main/) | A comprehensive AI coding workflow plugin for Claude Code with 33 skills, 8 agen... | github-trending | 🟢 Active | 97 | 2026-06-15 | ai-ml | `workflow`, `hooks`, `agents` |
+| 53 | [coderabbit](https://github.com/coderabbitai/skills.git) | AI-powered code review plugin for Claude Code that identifies bugs, security vul... | Anthropic Official | 🟢 Active | 97 | 2026-05-29 | security | — |
 | 54 | [resend](https://github.com/resend/resend-skills.git) | Resend skills for AI agent email integration, including API, CLI, React Email co... | Anthropic Official | 🟢 Active | 97 | 2026-06-09 | frontend | `react` |
-| 55 | [coderabbit](https://github.com/coderabbitai/skills.git) | AI-powered code review plugin for Claude Code that identifies bugs, security vul... | Anthropic Official | 🟢 Active | 97 | 2026-05-29 | security | — |
-| 56 | [sanity](https://github.com/sanity-io/agent-toolkit.git) | Sanity plugin for Claude Code with MCP server, agent skills, and commands for co... | Anthropic Official | 🟢 Active | 97 | 2026-06-10 | security | — |
-| 57 | [apollo-skills](https://github.com/apollographql/skills.git) | A comprehensive collection of AI agent skills (instructions/prompts) for Apollo ... | Anthropic Official | 🟢 Active | 97 | 2026-05-14 | mobile | `kotlin`, `graphql` |
-| 58 | [agentforce-adlc](https://github.com/SalesforceAIResearch/agentforce-adlc.git) | Claude Code plugin for Salesforce Agentforce agent development lifecycle with CL... | Anthropic Official | 🟢 Active | 97 | 2026-05-09 | testing | — |
-| 59 | [sonarqube](https://github.com/SonarSource/sonarqube-agent-plugins.git) | A SonarQube plugin that integrates code quality and security analysis directly i... | Anthropic Official | 🟢 Active | 97 | 2026-06-09 | security | — |
-| 60 | [claude-session-driver](https://github.com/obra/claude-session-driver.git) | A Claude Code plugin for launching, controlling, and monitoring multiple coding ... | Superpowers | 🟢 Active | 97 | 2026-06-01 | tooling | — |
-| 61 | [youdotcom-agent-skills](https://github.com/youdotcom-oss/agent-skills.git) | You.com agent skills for web search, research with citations, and content extrac... | Anthropic Official | 🟢 Active | 97 | 2026-05-07 | documentation | `rest-api`, `openai`, `langchain` |
-| 62 | [posthog](https://github.com/PostHog/ai-plugin.git) | A Claude Code plugin for accessing PostHog analytics, feature flags, experiments... | Anthropic Official | 🟢 Active | 97 | 2026-05-08 | devops | — |
-| 63 | [base44](https://github.com/base44/skills.git) | CLI and SDK for building and deploying full-stack apps on the Base44 platform wi... | Anthropic Official | 🟢 Active | 97 | 2026-06-10 | frontend | `typescript`, `javascript`, `java` |
-| 64 | [pinecone](https://github.com/pinecone-io/pinecone-claude-code-plugin.git) | A Claude Code plugin for Pinecone vector database integration, offering tools fo... | Anthropic Official | 🟢 Active | 97 | 2026-05-07 | backend | `python` |
-| 65 | [datahub-skills](https://github.com/datahub-project/datahub-skills.git) | A comprehensive AI coding plugin suite for DataHub, offering skills for connecto... | Anthropic Official | 🟢 Active | 97 | 2026-06-04 | tooling | — |
-| 66 | [togetherai-skills](https://github.com/togethercomputer/skills.git) | A plugin offering agent skills for Together AI's platform covering inference, tr... | Anthropic Official | 🟢 Active | 97 | 2026-06-10 | ai-ml | — |
-| 67 | [fastly-agent-toolkit](https://github.com/fastly/fastly-agent-toolkit.git) | A Claude plugin providing skills for Fastly VCL development, Compute WASM testin... | Anthropic Official | 🟢 Active | 97 | 2026-05-06 | tooling | — |
-| 68 | [antigravity-bundle-aas-data-analytics](https://github.com/sickn33/antigravity-awesome-skills) | A comprehensive local skill catalog for AI coding agents with agent-owned select... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-17 | tooling | `claude-code`, `skills`, `bundle` |
-| 69 | [antigravity-bundle-full-stack-developer](https://github.com/sickn33/antigravity-awesome-skills) | A local skill catalog and agent-first control plane for coding agents to compose... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-17 | fullstack | `claude-code`, `skills`, `bundle` |
-| 70 | [agent-teams](https://github.com/wshobson/agents/tree/main/plugins/agent-teams) | A Claude Code plugin for orchestrating multi-agent teams to perform parallel cod... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | tooling | — |
-| 71 | [cicd-automation](https://github.com/wshobson/agents/tree/main/plugins/cicd-automation) | Comprehensive CI/CD automation plugin with GitHub Actions/GitLab CI templates, d... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | devops | `git` |
-| 72 | [comprehensive-review](https://github.com/wshobson/agents/tree/main/plugins/comprehensive-review) | Claude plugin for AI-assisted multi-perspective code review covering architectur... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | security | — |
-| 73 | [review-agent-governance](https://github.com/wshobson/agents/tree/main/plugins/review-agent-governance) | Human-approval governance plugin for AI agents performing PR reviews, merges, an... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | backend | `review`, `governance`, `cedar` |
-| 74 | [ship-mate](https://github.com/wshobson/agents/tree/main/plugins/ship-mate) | An AI-driven development pipeline that automates story-to-feature workflows usin... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | testing | `pipeline`, `automation`, `orchestration` |
-| 75 | [signed-audit-trails](https://github.com/wshobson/agents/tree/main/plugins/signed-audit-trails) | Cookbook for cryptographically signed audit trails on Claude Code tool calls usi... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | backend | `tutorial`, `skill`, `recipe` |
-| 76 | [ui-design](https://github.com/wshobson/agents/tree/main/plugins/ui-design) | AI-powered plugin for UI/UX design and implementation across web and mobile plat... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | frontend | `react` |
-| 77 | [financial-analysis](https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/financial-analysis) | A Claude plugin for AI-assisted financial modeling, including DCF, LBO, comps, 3... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | tooling | — |
-| 78 | [pitch-agent](https://github.com/anthropics/financial-services/tree/main/plugins/agent-plugins/pitch-agent) | An AI agent plugin for investment banking that automates financial modeling (DCF... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | tooling | — |
-| 79 | [a11y-audit](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/a11y-audit) | AI-powered accessibility audit plugin that scans, fixes, and reports WCAG 2.2 vi... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | frontend | `accessibility`, `a11y`, `wcag` |
-| 80 | [agenthub](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/agenthub) | Claude Code plugin for spawning parallel AI agents to compete on coding tasks us... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | documentation | `multi-agent`, `collaboration`, `parallel` |
-| 81 | [autoresearch-agent](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/autoresearch-agent) | An autonomous experiment loop plugin that optimizes any file by measurable metri... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | documentation | `autoresearch`, `optimization`, `experiments` |
-| 82 | [chaos-engineering](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/chaos-engineering) | A Claude Code plugin for designing, calculating risk, and generating postmortems... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | backend | `chaos-engineering`, `resilience`, `fault-injection` |
-| 83 | [docker-development](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/docker-development) | AI plugin for Dockerfile optimization, docker-compose orchestration, multi-stage... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | security | `docker`, `container`, `dockerfile` |
-| 84 | [feature-flags-architect](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/feature-flags-architect) | Feature flag lifecycle management toolset with debt scanning, rollout planning, ... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | backend | `feature-flags`, `progressive-delivery`, `rollout` |
-| 85 | [helm-chart-builder](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/helm-chart-builder) | AI-assisted Helm chart development plugin for scaffolding, reviewing, and securi... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | devops | `helm`, `kubernetes`, `k8s` |
-| 86 | [karpathy-coder](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/karpathy-coder) | Enforces Karpathy's 4 coding principles in AI workflows via Python tools, a revi... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | backend | `code-quality`, `karpathy`, `simplicity` |
-| 87 | [llm-wiki](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/llm-wiki) | A plugin for LLM CLIs to build persistent, interlinked Obsidian wikis as a secon... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | backend | `knowledge-management`, `obsidian`, `second-brain` |
-| 88 | [pw](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro) | AI-powered Playwright testing toolkit with 9 skills, 3 agents, and 55 templates ... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | testing | `playwright`, `testing`, `e2e` |
-| 89 | [security-guidance](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/security-guidance) | A Claude Code plugin that blocks 12 common security anti-patterns (injection, XS... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | security | `security`, `hook`, `pretooluse` |
-| 90 | [self-improving-agent](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/self-improving-agent) | A Claude Code plugin that curates auto-memory, promotes proven patterns to rules... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | tooling | `memory`, `auto-memory`, `self-improvement` |
-| 91 | [write-a-skill](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/write-a-skill) | Meta-skill for creating well-structured agent skills with validation tools, prog... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | backend | `skill-authoring`, `matt-pocock`, `progressive-disclosure` |
-| 92 | [zoom-plugin](https://github.com/anthropics/knowledge-work-plugins/tree/main/partner-built/zoom-plugin) | Comprehensive Claude plugin for building Zoom integrations across REST APIs, Mee... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-15 | ai-ml | `rest-api` |
-| 93 | [claude-flow](https://github.com/ruvnet/claude-flow) | Multi-agent AI orchestration plugin for Claude Code, enabling swarm coordination... | claude-plugins.dev | 🟡 Stale | 96 | 2026-02-07 | ai-ml | `ai-agents`, `swarm-intelligence`, `orchestration` |
-| 94 | [agentic-actions-auditor](https://github.com/trailofbits/skills/tree/main/plugins/agentic-actions-auditor) | A static security audit guide for GitHub Actions workflows using AI agents, dete... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-08 | security | `openai`, `git` |
-| 95 | [c-review](https://github.com/trailofbits/skills/tree/main/plugins/c-review) | Claude Code plugin for automated C/C++ security code review using parallel bug-f... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-08 | security | — |
-| 96 | [constant-time-analysis](https://github.com/trailofbits/skills/tree/main/plugins/constant-time-analysis) | Static analysis tool to detect compiler-induced timing side-channels in cryptogr... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-08 | security | — |
-| 97 | [devcontainer-setup](https://github.com/trailofbits/skills/tree/main/plugins/devcontainer-setup) | Plugin to generate pre-configured devcontainers with Claude Code and language-sp... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-08 | ai-ml | — |
-| 98 | [dimensional-analysis](https://github.com/trailofbits/skills/tree/main/plugins/dimensional-analysis) | A plugin for AI-assisted dimensional analysis of codebases to annotate units and... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-08 | ai-ml | — |
-| 99 | [entry-point-analyzer](https://github.com/trailofbits/skills/tree/main/plugins/entry-point-analyzer) | A smart contract security audit plugin that identifies and classifies all state-... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-08 | security | `go` |
-| 100 | [git-cleanup](https://github.com/trailofbits/skills/tree/main/plugins/git-cleanup) | A Claude plugin that safely analyzes and cleans up local git branches and worktr... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-08 | backend | `go`, `git` |
+| 55 | [sanity](https://github.com/sanity-io/agent-toolkit.git) | Sanity plugin for Claude Code with MCP server, agent skills, and commands for co... | Anthropic Official | 🟢 Active | 97 | 2026-06-10 | security | — |
+| 56 | [apollo-skills](https://github.com/apollographql/skills.git) | A comprehensive collection of AI agent skills (instructions/prompts) for Apollo ... | Anthropic Official | 🟢 Active | 97 | 2026-05-14 | mobile | `kotlin`, `graphql` |
+| 57 | [agentforce-adlc](https://github.com/SalesforceAIResearch/agentforce-adlc.git) | Claude Code plugin for Salesforce Agentforce agent development lifecycle with CL... | Anthropic Official | 🟢 Active | 97 | 2026-05-09 | testing | — |
+| 58 | [sonarqube](https://github.com/SonarSource/sonarqube-agent-plugins.git) | A SonarQube plugin that integrates code quality and security analysis directly i... | Anthropic Official | 🟢 Active | 97 | 2026-06-09 | security | — |
+| 59 | [claude-session-driver](https://github.com/obra/claude-session-driver.git) | A Claude Code plugin for launching, controlling, and monitoring multiple coding ... | Superpowers | 🟢 Active | 97 | 2026-06-01 | tooling | — |
+| 60 | [youdotcom-agent-skills](https://github.com/youdotcom-oss/agent-skills.git) | You.com agent skills for web search, research with citations, and content extrac... | Anthropic Official | 🟢 Active | 97 | 2026-05-07 | documentation | `rest-api`, `openai`, `langchain` |
+| 61 | [posthog](https://github.com/PostHog/ai-plugin.git) | A Claude Code plugin for accessing PostHog analytics, feature flags, experiments... | Anthropic Official | 🟢 Active | 97 | 2026-05-08 | devops | — |
+| 62 | [base44](https://github.com/base44/skills.git) | CLI and SDK for building and deploying full-stack apps on the Base44 platform wi... | Anthropic Official | 🟢 Active | 97 | 2026-06-10 | frontend | `typescript`, `javascript`, `java` |
+| 63 | [pinecone](https://github.com/pinecone-io/pinecone-claude-code-plugin.git) | A Claude Code plugin for Pinecone vector database integration, offering tools fo... | Anthropic Official | 🟢 Active | 97 | 2026-05-07 | backend | `python` |
+| 64 | [datahub-skills](https://github.com/datahub-project/datahub-skills.git) | A comprehensive AI coding plugin suite for DataHub, offering skills for connecto... | Anthropic Official | 🟢 Active | 97 | 2026-06-04 | tooling | — |
+| 65 | [togetherai-skills](https://github.com/togethercomputer/skills.git) | A plugin offering agent skills for Together AI's platform covering inference, tr... | Anthropic Official | 🟢 Active | 97 | 2026-06-10 | ai-ml | — |
+| 66 | [fastly-agent-toolkit](https://github.com/fastly/fastly-agent-toolkit.git) | A Claude plugin providing skills for Fastly VCL development, Compute WASM testin... | Anthropic Official | 🟢 Active | 97 | 2026-05-06 | tooling | — |
+| 67 | [antigravity-bundle-aas-data-analytics](https://github.com/sickn33/antigravity-awesome-skills) | A comprehensive local skill catalog for AI coding agents with agent-owned select... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-17 | tooling | `claude-code`, `skills`, `bundle` |
+| 68 | [antigravity-bundle-full-stack-developer](https://github.com/sickn33/antigravity-awesome-skills) | A local skill catalog and agent-first control plane for coding agents to compose... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-17 | fullstack | `claude-code`, `skills`, `bundle` |
+| 69 | [agent-teams](https://github.com/wshobson/agents/tree/main/plugins/agent-teams) | A Claude Code plugin for orchestrating multi-agent teams to perform parallel cod... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | tooling | — |
+| 70 | [cicd-automation](https://github.com/wshobson/agents/tree/main/plugins/cicd-automation) | Comprehensive CI/CD automation plugin with GitHub Actions/GitLab CI templates, d... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | devops | `git` |
+| 71 | [comprehensive-review](https://github.com/wshobson/agents/tree/main/plugins/comprehensive-review) | Claude plugin for AI-assisted multi-perspective code review covering architectur... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | security | — |
+| 72 | [review-agent-governance](https://github.com/wshobson/agents/tree/main/plugins/review-agent-governance) | Human-approval governance plugin for AI agents performing PR reviews, merges, an... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | backend | `review`, `governance`, `cedar` |
+| 73 | [ship-mate](https://github.com/wshobson/agents/tree/main/plugins/ship-mate) | An AI-driven development pipeline that automates story-to-feature workflows usin... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | testing | `pipeline`, `automation`, `orchestration` |
+| 74 | [signed-audit-trails](https://github.com/wshobson/agents/tree/main/plugins/signed-audit-trails) | Cookbook for cryptographically signed audit trails on Claude Code tool calls usi... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | backend | `tutorial`, `skill`, `recipe` |
+| 75 | [ui-design](https://github.com/wshobson/agents/tree/main/plugins/ui-design) | AI-powered plugin for UI/UX design and implementation across web and mobile plat... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | frontend | `react` |
+| 76 | [financial-analysis](https://github.com/anthropics/financial-services/tree/main/plugins/vertical-plugins/financial-analysis) | A Claude plugin for AI-assisted financial modeling, including DCF, LBO, comps, 3... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | tooling | — |
+| 77 | [pitch-agent](https://github.com/anthropics/financial-services/tree/main/plugins/agent-plugins/pitch-agent) | An AI agent plugin for investment banking that automates financial modeling (DCF... | claude-plugins.dev | 🟢 Active | 96 | 2026-05-22 | tooling | — |
+| 78 | [a11y-audit](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/a11y-audit) | AI-powered accessibility audit plugin that scans, fixes, and reports WCAG 2.2 vi... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | frontend | `accessibility`, `a11y`, `wcag` |
+| 79 | [agenthub](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/agenthub) | Claude Code plugin for spawning parallel AI agents to compete on coding tasks us... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | documentation | `multi-agent`, `collaboration`, `parallel` |
+| 80 | [autoresearch-agent](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/autoresearch-agent) | An autonomous experiment loop plugin that optimizes any file by measurable metri... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | documentation | `autoresearch`, `optimization`, `experiments` |
+| 81 | [chaos-engineering](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/chaos-engineering) | A Claude Code plugin for designing, calculating risk, and generating postmortems... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | backend | `chaos-engineering`, `resilience`, `fault-injection` |
+| 82 | [docker-development](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/docker-development) | AI plugin for Dockerfile optimization, docker-compose orchestration, multi-stage... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | security | `docker`, `container`, `dockerfile` |
+| 83 | [feature-flags-architect](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/feature-flags-architect) | Feature flag lifecycle management toolset with debt scanning, rollout planning, ... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | backend | `feature-flags`, `progressive-delivery`, `rollout` |
+| 84 | [helm-chart-builder](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/helm-chart-builder) | AI-assisted Helm chart development plugin for scaffolding, reviewing, and securi... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | devops | `helm`, `kubernetes`, `k8s` |
+| 85 | [karpathy-coder](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/karpathy-coder) | Enforces Karpathy's 4 coding principles in AI workflows via Python tools, a revi... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | backend | `code-quality`, `karpathy`, `simplicity` |
+| 86 | [llm-wiki](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/llm-wiki) | A plugin for LLM CLIs to build persistent, interlinked Obsidian wikis as a secon... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | backend | `knowledge-management`, `obsidian`, `second-brain` |
+| 87 | [pw](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro) | AI-powered Playwright testing toolkit with 9 skills, 3 agents, and 55 templates ... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | testing | `playwright`, `testing`, `e2e` |
+| 88 | [security-guidance](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/security-guidance) | A Claude Code plugin that blocks 12 common security anti-patterns (injection, XS... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | security | `security`, `hook`, `pretooluse` |
+| 89 | [self-improving-agent](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/self-improving-agent) | A Claude Code plugin that curates auto-memory, promotes proven patterns to rules... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | tooling | `memory`, `auto-memory`, `self-improvement` |
+| 90 | [write-a-skill](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/write-a-skill) | Meta-skill for creating well-structured agent skills with validation tools, prog... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-12 | backend | `skill-authoring`, `matt-pocock`, `progressive-disclosure` |
+| 91 | [zoom-plugin](https://github.com/anthropics/knowledge-work-plugins/tree/main/partner-built/zoom-plugin) | Comprehensive Claude plugin for building Zoom integrations across REST APIs, Mee... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-15 | ai-ml | `rest-api` |
+| 92 | [claude-flow](https://github.com/ruvnet/claude-flow) | Multi-agent AI orchestration plugin for Claude Code, enabling swarm coordination... | claude-plugins.dev | 🟡 Stale | 96 | 2026-02-07 | ai-ml | `ai-agents`, `swarm-intelligence`, `orchestration` |
+| 93 | [agentic-actions-auditor](https://github.com/trailofbits/skills/tree/main/plugins/agentic-actions-auditor) | A static security audit guide for GitHub Actions workflows using AI agents, dete... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-08 | security | `openai`, `git` |
+| 94 | [c-review](https://github.com/trailofbits/skills/tree/main/plugins/c-review) | Claude Code plugin for automated C/C++ security code review using parallel bug-f... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-08 | security | — |
+| 95 | [constant-time-analysis](https://github.com/trailofbits/skills/tree/main/plugins/constant-time-analysis) | Static analysis tool to detect compiler-induced timing side-channels in cryptogr... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-08 | security | — |
+| 96 | [devcontainer-setup](https://github.com/trailofbits/skills/tree/main/plugins/devcontainer-setup) | Plugin to generate pre-configured devcontainers with Claude Code and language-sp... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-08 | ai-ml | — |
+| 97 | [dimensional-analysis](https://github.com/trailofbits/skills/tree/main/plugins/dimensional-analysis) | A plugin for AI-assisted dimensional analysis of codebases to annotate units and... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-08 | ai-ml | — |
+| 98 | [entry-point-analyzer](https://github.com/trailofbits/skills/tree/main/plugins/entry-point-analyzer) | A smart contract security audit plugin that identifies and classifies all state-... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-08 | security | `go` |
+| 99 | [git-cleanup](https://github.com/trailofbits/skills/tree/main/plugins/git-cleanup) | A Claude plugin that safely analyzes and cleans up local git branches and worktr... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-08 | backend | `go`, `git` |
+| 100 | [modern-python](https://github.com/trailofbits/skills/tree/main/plugins/modern-python) | Modern Python best practices plugin providing guidance on uv, ruff, ty for proje... | claude-plugins.dev | 🟢 Active | 96 | 2026-06-08 | backend | `python` |
 
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>superpowers</strong> (310.9k★) — Teaches Claude Code systematic development workflows includi...</summary>
+<summary>⭐ <strong>superpowers</strong> (314.8k★) — Teaches Claude Code systematic development workflows includi...</summary>
 
 Teaches Claude Code systematic development workflows including TDD, debugging, code review, and subagent-driven development with detailed skill docume
 
@@ -126,7 +126,7 @@ Teaches Claude Code systematic development workflows including TDD, debugging, c
 </details>
 
 <details>
-<summary>⭐ <strong>hyperframes</strong> (77.4k★) — HyperFrames lets developers write HTML/CSS/JS to create dete...</summary>
+<summary>⭐ <strong>hyperframes</strong> (81.4k★) — HyperFrames lets developers write HTML/CSS/JS to create dete...</summary>
 
 HyperFrames lets developers write HTML/CSS/JS to create deterministic video compositions with GSAP animations, captions, TTS narration, and WebGL effe
 
@@ -138,7 +138,7 @@ HyperFrames lets developers write HTML/CSS/JS to create deterministic video comp
 </details>
 
 <details>
-<summary>⭐ <strong>chrome-devtools-mcp</strong> (54.6k★) — Chrome DevTools MCP server for AI coding agents to debug, au...</summary>
+<summary>⭐ <strong>chrome-devtools-mcp</strong> (55.0k★) — Chrome DevTools MCP server for AI coding agents to debug, au...</summary>
 
 Chrome DevTools MCP server for AI coding agents to debug, automate, and analyze web pages via CLI and MCP tools.
 
@@ -150,7 +150,7 @@ Chrome DevTools MCP server for AI coding agents to debug, automate, and analyze 
 </details>
 
 <details>
-<summary>⭐ <strong>claude-code-setup</strong> (45.8k★) — A Claude Code plugin that analyzes codebases to recommend ta...</summary>
+<summary>⭐ <strong>claude-code-setup</strong> (46.5k★) — A Claude Code plugin that analyzes codebases to recommend ta...</summary>
 
 A Claude Code plugin that analyzes codebases to recommend tailored automations like hooks, skills, MCP servers, and subagents.
 
@@ -162,7 +162,7 @@ A Claude Code plugin that analyzes codebases to recommend tailored automations l
 </details>
 
 <details>
-<summary>⭐ <strong>mcp-tunnels</strong> (45.8k★) — A Claude plugin for connecting to private MCP servers via An...</summary>
+<summary>⭐ <strong>mcp-tunnels</strong> (46.5k★) — A Claude plugin for connecting to private MCP servers via An...</summary>
 
 A Claude plugin for connecting to private MCP servers via Anthropic tunnels with Docker Compose quickstart.
 
@@ -174,7 +174,7 @@ A Claude plugin for connecting to private MCP servers via Anthropic tunnels with
 </details>
 
 <details>
-<summary>⭐ <strong>project-artifact</strong> (45.8k★) — Generates and publishes a shareable, living project status p...</summary>
+<summary>⭐ <strong>project-artifact</strong> (46.5k★) — Generates and publishes a shareable, living project status p...</summary>
 
 Generates and publishes a shareable, living project status page as a claude.ai artifact with delta-based updates.
 
@@ -245,4 +245,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-11-02*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-11-09*
