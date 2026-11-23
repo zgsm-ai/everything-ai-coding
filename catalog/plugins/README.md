@@ -1,6 +1,6 @@
 # 🧩 Plugins
 
-> 2901 Claude Code plugin bundles packaging skills, agents, commands, and MCP servers from official and community marketplaces.
+> 3371 Claude Code plugin bundles packaging skills, agents, commands, and MCP servers from official and community marketplaces.
 >
 > [Back to main →](../../README.md) · [Browse interactively →](https://zgsm-ai.github.io/everything-ai-coding/#/browse?type=plugin)
 
@@ -114,7 +114,7 @@
 ## Top 10 — Install Guide
 
 <details>
-<summary>⭐ <strong>superpowers</strong> (318.3k★) — Teaches Claude Code systematic development workflows includi...</summary>
+<summary>⭐ <strong>superpowers</strong> (324.7k★) — Teaches Claude Code systematic development workflows includi...</summary>
 
 Teaches Claude Code systematic development workflows including TDD, debugging, code review, and subagent-driven development with detailed skill docume
 
@@ -126,7 +126,7 @@ Teaches Claude Code systematic development workflows including TDD, debugging, c
 </details>
 
 <details>
-<summary>⭐ <strong>hyperframes</strong> (85.0k★) — HyperFrames lets developers write HTML/CSS/JS to create dete...</summary>
+<summary>⭐ <strong>hyperframes</strong> (88.7k★) — HyperFrames lets developers write HTML/CSS/JS to create dete...</summary>
 
 HyperFrames lets developers write HTML/CSS/JS to create deterministic video compositions with GSAP animations, captions, TTS narration, and WebGL effe
 
@@ -138,7 +138,7 @@ HyperFrames lets developers write HTML/CSS/JS to create deterministic video comp
 </details>
 
 <details>
-<summary>⭐ <strong>chrome-devtools-mcp</strong> (57.4k★) — Chrome DevTools MCP server for AI coding agents to debug, au...</summary>
+<summary>⭐ <strong>chrome-devtools-mcp</strong> (59.0k★) — Chrome DevTools MCP server for AI coding agents to debug, au...</summary>
 
 Chrome DevTools MCP server for AI coding agents to debug, automate, and analyze web pages via CLI and MCP tools.
 
@@ -150,7 +150,7 @@ Chrome DevTools MCP server for AI coding agents to debug, automate, and analyze 
 </details>
 
 <details>
-<summary>⭐ <strong>claude-code-setup</strong> (47.4k★) — A Claude Code plugin that analyzes codebases to recommend ta...</summary>
+<summary>⭐ <strong>claude-code-setup</strong> (48.0k★) — A Claude Code plugin that analyzes codebases to recommend ta...</summary>
 
 A Claude Code plugin that analyzes codebases to recommend tailored automations like hooks, skills, MCP servers, and subagents.
 
@@ -162,7 +162,7 @@ A Claude Code plugin that analyzes codebases to recommend tailored automations l
 </details>
 
 <details>
-<summary>⭐ <strong>mcp-tunnels</strong> (47.4k★) — A Claude plugin for connecting to private MCP servers via An...</summary>
+<summary>⭐ <strong>mcp-tunnels</strong> (48.0k★) — A Claude plugin for connecting to private MCP servers via An...</summary>
 
 A Claude plugin for connecting to private MCP servers via Anthropic tunnels with Docker Compose quickstart.
 
@@ -174,7 +174,7 @@ A Claude plugin for connecting to private MCP servers via Anthropic tunnels with
 </details>
 
 <details>
-<summary>⭐ <strong>project-artifact</strong> (47.4k★) — Generates and publishes a shareable, living project status p...</summary>
+<summary>⭐ <strong>project-artifact</strong> (48.0k★) — Generates and publishes a shareable, living project status p...</summary>
 
 Generates and publishes a shareable, living project status page as a claude.ai artifact with delta-based updates.
 
@@ -245,4 +245,4 @@ Resources are ranked by a composite score (0-100) combining:
 
 ---
 
-*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-11-16*
+*Auto-generated from [catalog/index.json](../index.json). Last updated: 2026-11-23*
