@@ -783,5 +783,35 @@
     "source": "curated",
     "last_synced": "2026-08-04",
     "added_at": "2026-08-04"
+  },
+  {
+    "id": "kite",
+    "name": "Kite",
+    "type": "mcp",
+    "description": "Hosted MCP server for the Kite design tool: coding agents create and edit frames, text, components and auto layout in a shared design file, then copy frames out as HTML, React or Tailwind",
+    "source_url": "https://github.com/kitedotnew/kite-agent-plugins",
+    "stars": 0,
+    "category": "frontend",
+    "tags": [
+      "design",
+      "ui",
+      "figma-alternative",
+      "remote-mcp",
+      "html",
+      "react",
+      "tailwind"
+    ],
+    "tech_stack": [
+      "typescript"
+    ],
+    "install": {
+      "method": "mcp_config",
+      "config": {
+        "url": "https://kite.new/api/mcp"
+      }
+    },
+    "source": "curated",
+    "added_at": "2026-11-25",
+    "last_synced": "2026-11-25"
   }
 ]
